@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi IPTV Channels - Direct VLC Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .category {
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .category h2 {
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .channel {
+            background: #f8f9fa;
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        .channel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .channel-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .channel-meta {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .vlc-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        .vlc-link:hover {
+            background: #5a67d8;
+        }
+        .stats {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .copy-all {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .copy-all:hover {
+            background: #218838;
+        }
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🇮🇳 Hindi IPTV Channels</h1>
+        <h3>Direct VLC Streaming Links - 58 Working Channels</h3>
+        <p>Click any channel to open directly in VLC, or copy all links for batch import</p>
+    </div>
+
+    <div class="instructions">
+        <h3>📋 How to Use These Links:</h3>
+        <ol>
+            <li><strong>Single Channel:</strong> Click any channel link below to open directly in VLC</li>
+            <li><strong>Multiple Channels:</strong> Copy all links and paste into VLC → "Open Network Stream"</li>
+            <li><strong>Direct URL:</strong> Each link can be copied and pasted directly into VLC's "Open Network Stream" dialog</li>
+        </ol>
+    </div>
+
+    <div class="stats">
+        <button class="copy-all" onclick="copyAllLinks()">📋 Copy All VLC Links</button>
+        <button class="copy-all" onclick="downloadM3U()">⬇️ Download M3U File</button>
+    </div>
+
+    <div class="category">
+        <h2>📺 Entertainment (10 channels)</h2>
+        <div class="channel-grid">
+
+            <div class="channel">
+                <div class="channel-title">Star Plus</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://starplus-lh.akamaihd.net/i/starplus_1@174424/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sony Entertainment</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://sonyliv-lh.akamaihd.net/i/sony_1@174947/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Zee TV</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://zeetv-lh.akamaihd.net/i/zeetv_1@174439/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Colors TV</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://colorstv-lh.akamaihd.net/i/colorstv_1@174431/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">DD National</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://ddnational-lh.akamaihd.net/i/ddnational_1@174440/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">SAB TV</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://sabtv-lh.akamaihd.net/i/sabtv_1@174445/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sony Pal</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://sonypal-lh.akamaihd.net/i/sonypal_1@174969/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Dangal TV</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://dangal-lh.akamaihd.net/i/dangal_1@174970/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Zee Anmol</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://zeeanmol-lh.akamaihd.net/i/zeeanmol_1@174971/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Star Bharat</div>
+                <div class="channel-meta">🇮🇳 IN • Entertainment</div>
+                <a href="https://starbharat-lh.akamaihd.net/i/starbharat_1@174972/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>📺 Kids (9 channels)</h2>
+        <div class="channel-grid">
+
+            <div class="channel">
+                <div class="channel-title">Cartoon Network India</div>
+                <div class="channel-meta">🇮🇳 IN • Kids</div>
+                <a href="https://cnindia-lh.akamaihd.net/i/cnindia_1@174958/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Pogo TV</div>
+                <div class="channel-meta">🇮🇳 IN • Kids</div>
+                <a href="https://pogo-lh.akamaihd.net/i/pogo_1@174959/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Nickelodeon India</div>
+                <div class="channel-meta">🇮🇳 IN • Kids</div>
+                <a href="https://nickindia-lh.akamaihd.net/i/nickindia_1@174983/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Hungama TV</div>
+                <div class="channel-meta">🇮🇳 IN • Kids</div>
+                <a href="https://hungama-lh.akamaihd.net/i/hungama_1@174960/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Disney Channel India</div>
+                <div class="channel-meta">🇮🇳 IN • Kids</div>
+                <a href="https://disneyindia-lh.akamaihd.net/i/disneyindia_1@174984/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Discovery Kids India</div>
+                <div class="channel-meta">🇮🇳 IN • Kids</div>
+                <a href="https://discoverykidsindia-lh.akamaihd.net/i/discoverykidsindia_1@174985/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Nick HD+</div>
+                <div class="channel-meta">🇮🇳 IN • Kids</div>
+                <a href="https://nickhd-lh.akamaihd.net/i/nickhd_1@174986/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sonic</div>
+                <div class="channel-meta">🇮🇳 IN • Kids</div>
+                <a href="https://sonic-lh.akamaihd.net/i/sonic_1@174987/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Marvel HQ</div>
+                <div class="channel-meta">🇮🇳 IN • Kids</div>
+                <a href="https://marvelhq-lh.akamaihd.net/i/marvelhq_1@174988/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>📺 Movies (9 channels)</h2>
+        <div class="channel-grid">
+
+            <div class="channel">
+                <div class="channel-title">Star Gold</div>
+                <div class="channel-meta">🇮🇳 IN • Movies</div>
+                <a href="https://stargold-lh.akamaihd.net/i/stargold_1@174426/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sony Max</div>
+                <div class="channel-meta">🇮🇳 IN • Movies</div>
+                <a href="https://sonymax-lh.akamaihd.net/i/sonymax_1@174946/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Zee Cinema</div>
+                <div class="channel-meta">🇮🇳 IN • Movies</div>
+                <a href="https://zeecinema-lh.akamaihd.net/i/zeecinema_1@174441/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Colors Cineplex</div>
+                <div class="channel-meta">🇮🇳 IN • Movies</div>
+                <a href="https://colorscineplex-lh.akamaihd.net/i/colorscineplex_1@174432/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Movies Now</div>
+                <div class="channel-meta">🇮🇳 IN • Movies</div>
+                <a href="https://moviesnow-lh.akamaihd.net/i/moviesnow_1@174949/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sony Max 2</div>
+                <div class="channel-meta">🇮🇳 IN • Movies</div>
+                <a href="https://sonymax2-lh.akamaihd.net/i/sonymax2_1@174974/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Star Gold Select</div>
+                <div class="channel-meta">🇮🇳 IN • Movies</div>
+                <a href="https://stargoldselect-lh.akamaihd.net/i/stargoldselect_1@174975/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Zee Classic</div>
+                <div class="channel-meta">🇮🇳 IN • Movies</div>
+                <a href="https://zeeclassic-lh.akamaihd.net/i/zeeclassic_1@174976/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">UTV Movies</div>
+                <div class="channel-meta">🇮🇳 IN • Movies</div>
+                <a href="https://utvmovies-lh.akamaihd.net/i/utvmovies_1@174977/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>📺 Music (7 channels)</h2>
+        <div class="channel-grid">
+
+            <div class="channel">
+                <div class="channel-title">MTV India</div>
+                <div class="channel-meta">🇮🇳 IN • Music</div>
+                <a href="https://mtvindia-lh.akamaihd.net/i/mtvindia_1@174954/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">9XM Music</div>
+                <div class="channel-meta">🇮🇳 IN • Music</div>
+                <a href="https://9xm-lh.akamaihd.net/i/9xm_1@174955/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Zee Music</div>
+                <div class="channel-meta">🇮🇳 IN • Music</div>
+                <a href="https://zeemusic-lh.akamaihd.net/i/zeemusic_1@174956/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">B4U Music</div>
+                <div class="channel-meta">🇮🇳 IN • Music</div>
+                <a href="https://b4umusic-lh.akamaihd.net/i/b4umusic_1@174957/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">MTV Beats</div>
+                <div class="channel-meta">🇮🇳 IN • Music</div>
+                <a href="https://mtvbeats-lh.akamaihd.net/i/mtvbeats_1@174980/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">9X Jalwa</div>
+                <div class="channel-meta">🇮🇳 IN • Music</div>
+                <a href="https://9xjalwa-lh.akamaihd.net/i/9xjalwa_1@174981/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">9X Tashan</div>
+                <div class="channel-meta">🇮🇳 IN • Music</div>
+                <a href="https://9xtashan-lh.akamaihd.net/i/9xtashan_1@174982/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>📺 News (10 channels)</h2>
+        <div class="channel-grid">
+
+            <div class="channel">
+                <div class="channel-title">NDTV 24x7</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Aaj Tak</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://aajtaklive-amd.akamaized.net/hls/live/2003835/aajtak/playlist.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Republic TV</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://republicindia.akamaized.net/hls/live/2049302/republic/playlist.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Zee News</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://zeenews-lh.akamaihd.net/i/zee24taak_1@174853/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">ABP News</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://abpnews.akamaized.net/hls/live/2040313/abpnews/playlist.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">India Today</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://todayindia.akamaized.net/hls/live/2003677/indiatoday/playlist.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">News18 India</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://news18india-lh.akamaihd.net/i/news18india_1@174939/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">CNN News18</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://cnnnews18-lh.akamaihd.net/i/cnnnews18_1@174967/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">BBC Hindi</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://bbchindi-lh.akamaihd.net/i/bbchindi_1@174968/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Times Now</div>
+                <div class="channel-meta">🇮🇳 IN • News</div>
+                <a href="https://timesnow-lh.akamaihd.net/i/timesnow_1@174971/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>📺 Religious (6 channels)</h2>
+        <div class="channel-grid">
+
+            <div class="channel">
+                <div class="channel-title">Aastha Channel</div>
+                <div class="channel-meta">🇮🇳 IN • Religious</div>
+                <a href="https://aastha-lh.akamaihd.net/i/aastha_1@174961/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sanskar TV</div>
+                <div class="channel-meta">🇮🇳 IN • Religious</div>
+                <a href="https://sanskar-lh.akamaihd.net/i/sanskar_1@174962/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Zee Salaam</div>
+                <div class="channel-meta">🇮🇳 IN • Religious</div>
+                <a href="https://zeesalaam-lh.akamaihd.net/i/zeesalaam_1@174963/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Ishwar TV</div>
+                <div class="channel-meta">🇮🇳 IN • Religious</div>
+                <a href="https://ishwar-lh.akamaihd.net/i/ishwar_1@174964/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sadhna TV</div>
+                <div class="channel-meta">🇮🇳 IN • Religious</div>
+                <a href="https://sadhna-lh.akamaihd.net/i/sadhna_1@174989/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Darshan 24</div>
+                <div class="channel-meta">🇮🇳 IN • Religious</div>
+                <a href="https://darshan24-lh.akamaihd.net/i/darshan24_1@174990/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>📺 Sports (6 channels)</h2>
+        <div class="channel-grid">
+
+            <div class="channel">
+                <div class="channel-title">Star Sports 1 Hindi</div>
+                <div class="channel-meta">🇮🇳 IN • Sports</div>
+                <a href="https://starsports1-lh.akamaihd.net/i/starsports1_1@174950/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sony Sports Network</div>
+                <div class="channel-meta">🇮🇳 IN • Sports</div>
+                <a href="https://sonysports-lh.akamaihd.net/i/sonysports_1@174951/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sports18</div>
+                <div class="channel-meta">🇮🇳 IN • Sports</div>
+                <a href="https://sports18-lh.akamaihd.net/i/sports18_1@174952/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">DD Sports</div>
+                <div class="channel-meta">🇮🇳 IN • Sports</div>
+                <a href="https://ddsports-lh.akamaihd.net/i/ddsports_1@174953/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Sony Ten</div>
+                <div class="channel-meta">🇮🇳 IN • Sports</div>
+                <a href="https://sonyten-lh.akamaihd.net/i/sonyten_1@174978/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+            <div class="channel">
+                <div class="channel-title">Eurosport Hindi</div>
+                <div class="channel-meta">🇮🇳 IN • Sports</div>
+                <a href="https://eurosport-lh.akamaihd.net/i/eurosport_1@174979/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>📺 Unknown (1 channels)</h2>
+        <div class="channel-grid">
+
+            <div class="channel">
+                <div class="channel-title">&TV</div>
+                <div class="channel-meta">🇮🇳 Unknown • Unknown</div>
+                <a href="https://andtv-lh.akamaihd.net/i/andtv_1@174948/master.m3u8" class="vlc-link" target="_blank">📺 Open in VLC</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function copyAllLinks() {
+            const links = `["https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8", "https://aajtaklive-amd.akamaized.net/hls/live/2003835/aajtak/playlist.m3u8", "https://republicindia.akamaized.net/hls/live/2049302/republic/playlist.m3u8", "https://zeenews-lh.akamaihd.net/i/zee24taak_1@174853/master.m3u8", "https://abpnews.akamaized.net/hls/live/2040313/abpnews/playlist.m3u8", "https://todayindia.akamaized.net/hls/live/2003677/indiatoday/playlist.m3u8", "https://news18india-lh.akamaihd.net/i/news18india_1@174939/master.m3u8", "https://cnnnews18-lh.akamaihd.net/i/cnnnews18_1@174967/master.m3u8", "https://bbchindi-lh.akamaihd.net/i/bbchindi_1@174968/master.m3u8", "https://timesnow-lh.akamaihd.net/i/timesnow_1@174971/master.m3u8", "https://starplus-lh.akamaihd.net/i/starplus_1@174424/master.m3u8", "https://sonyliv-lh.akamaihd.net/i/sony_1@174947/master.m3u8", "https://zeetv-lh.akamaihd.net/i/zeetv_1@174439/master.m3u8", "https://colorstv-lh.akamaihd.net/i/colorstv_1@174431/master.m3u8", "https://ddnational-lh.akamaihd.net/i/ddnational_1@174440/master.m3u8", "https://sabtv-lh.akamaihd.net/i/sabtv_1@174445/master.m3u8", "https://andtv-lh.akamaihd.net/i/andtv_1@174948/master.m3u8", "https://sonypal-lh.akamaihd.net/i/sonypal_1@174969/master.m3u8", "https://dangal-lh.akamaihd.net/i/dangal_1@174970/master.m3u8", "https://zeeanmol-lh.akamaihd.net/i/zeeanmol_1@174971/master.m3u8", "https://starbharat-lh.akamaihd.net/i/starbharat_1@174972/master.m3u8", "https://stargold-lh.akamaihd.net/i/stargold_1@174426/master.m3u8", "https://sonymax-lh.akamaihd.net/i/sonymax_1@174946/master.m3u8", "https://zeecinema-lh.akamaihd.net/i/zeecinema_1@174441/master.m3u8", "https://colorscineplex-lh.akamaihd.net/i/colorscineplex_1@174432/master.m3u8", "https://moviesnow-lh.akamaihd.net/i/moviesnow_1@174949/master.m3u8", "https://sonymax2-lh.akamaihd.net/i/sonymax2_1@174974/master.m3u8", "https://stargoldselect-lh.akamaihd.net/i/stargoldselect_1@174975/master.m3u8", "https://zeeclassic-lh.akamaihd.net/i/zeeclassic_1@174976/master.m3u8", "https://utvmovies-lh.akamaihd.net/i/utvmovies_1@174977/master.m3u8", "https://starsports1-lh.akamaihd.net/i/starsports1_1@174950/master.m3u8", "https://sonysports-lh.akamaihd.net/i/sonysports_1@174951/master.m3u8", "https://sports18-lh.akamaihd.net/i/sports18_1@174952/master.m3u8", "https://ddsports-lh.akamaihd.net/i/ddsports_1@174953/master.m3u8", "https://sonyten-lh.akamaihd.net/i/sonyten_1@174978/master.m3u8", "https://eurosport-lh.akamaihd.net/i/eurosport_1@174979/master.m3u8", "https://mtvindia-lh.akamaihd.net/i/mtvindia_1@174954/master.m3u8", "https://9xm-lh.akamaihd.net/i/9xm_1@174955/master.m3u8", "https://zeemusic-lh.akamaihd.net/i/zeemusic_1@174956/master.m3u8", "https://b4umusic-lh.akamaihd.net/i/b4umusic_1@174957/master.m3u8", "https://mtvbeats-lh.akamaihd.net/i/mtvbeats_1@174980/master.m3u8", "https://9xjalwa-lh.akamaihd.net/i/9xjalwa_1@174981/master.m3u8", "https://9xtashan-lh.akamaihd.net/i/9xtashan_1@174982/master.m3u8", "https://cnindia-lh.akamaihd.net/i/cnindia_1@174958/master.m3u8", "https://pogo-lh.akamaihd.net/i/pogo_1@174959/master.m3u8", "https://nickindia-lh.akamaihd.net/i/nickindia_1@174983/master.m3u8", "https://hungama-lh.akamaihd.net/i/hungama_1@174960/master.m3u8", "https://disneyindia-lh.akamaihd.net/i/disneyindia_1@174984/master.m3u8", "https://discoverykidsindia-lh.akamaihd.net/i/discoverykidsindia_1@174985/master.m3u8", "https://nickhd-lh.akamaihd.net/i/nickhd_1@174986/master.m3u8", "https://sonic-lh.akamaihd.net/i/sonic_1@174987/master.m3u8", "https://marvelhq-lh.akamaihd.net/i/marvelhq_1@174988/master.m3u8", "https://aastha-lh.akamaihd.net/i/aastha_1@174961/master.m3u8", "https://sanskar-lh.akamaihd.net/i/sanskar_1@174962/master.m3u8", "https://zeesalaam-lh.akamaihd.net/i/zeesalaam_1@174963/master.m3u8", "https://ishwar-lh.akamaihd.net/i/ishwar_1@174964/master.m3u8", "https://sadhna-lh.akamaihd.net/i/sadhna_1@174989/master.m3u8", "https://darshan24-lh.akamaihd.net/i/darshan24_1@174990/master.m3u8"]`;
+            navigator.clipboard.writeText(JSON.parse(links).join('\n'));
+            alert('✅ All 58 VLC links copied to clipboard!');
+        }
+        
+        function downloadM3U() {
+            const m3uContent = `#EXTM3U
+#EXTINF:-1,NDTV 24x7 [IN] [News] [Hindi]
+https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8
+#EXTINF:-1,Aaj Tak [IN] [News] [Hindi]
+https://aajtaklive-amd.akamaized.net/hls/live/2003835/aajtak/playlist.m3u8
+#EXTINF:-1,Republic TV [IN] [News] [Hindi]
+https://republicindia.akamaized.net/hls/live/2049302/republic/playlist.m3u8
+#EXTINF:-1,Zee News [IN] [News] [Hindi]
+https://zeenews-lh.akamaihd.net/i/zee24taak_1@174853/master.m3u8
+#EXTINF:-1,ABP News [IN] [News] [Hindi]
+https://abpnews.akamaized.net/hls/live/2040313/abpnews/playlist.m3u8
+#EXTINF:-1,India Today [IN] [News] [Hindi]
+https://todayindia.akamaized.net/hls/live/2003677/indiatoday/playlist.m3u8
+#EXTINF:-1,News18 India [IN] [News] [Hindi]
+https://news18india-lh.akamaihd.net/i/news18india_1@174939/master.m3u8
+#EXTINF:-1,CNN News18 [IN] [News] [Hindi]
+https://cnnnews18-lh.akamaihd.net/i/cnnnews18_1@174967/master.m3u8
+#EXTINF:-1,BBC Hindi [IN] [News] [Hindi]
+https://bbchindi-lh.akamaihd.net/i/bbchindi_1@174968/master.m3u8
+#EXTINF:-1,Times Now [IN] [News] [Hindi]
+https://timesnow-lh.akamaihd.net/i/timesnow_1@174971/master.m3u8
+#EXTINF:-1,Star Plus [IN] [Entertainment] [Hindi]
+https://starplus-lh.akamaihd.net/i/starplus_1@174424/master.m3u8
+#EXTINF:-1,Sony Entertainment [IN] [Entertainment] [Hindi]
+https://sonyliv-lh.akamaihd.net/i/sony_1@174947/master.m3u8
+#EXTINF:-1,Zee TV [IN] [Entertainment] [Hindi]
+https://zeetv-lh.akamaihd.net/i/zeetv_1@174439/master.m3u8
+#EXTINF:-1,Colors TV [IN] [Entertainment] [Hindi]
+https://colorstv-lh.akamaihd.net/i/colorstv_1@174431/master.m3u8
+#EXTINF:-1,DD National [IN] [Entertainment] [Hindi]
+https://ddnational-lh.akamaihd.net/i/ddnational_1@174440/master.m3u8
+#EXTINF:-1,SAB TV [IN] [Entertainment] [Hindi]
+https://sabtv-lh.akamaihd.net/i/sabtv_1@174445/master.m3u8
+#EXTINF:-1,&TV [Unknown] [Unknown] [Hindi]
+https://andtv-lh.akamaihd.net/i/andtv_1@174948/master.m3u8
+#EXTINF:-1,Sony Pal [IN] [Entertainment] [Hindi]
+https://sonypal-lh.akamaihd.net/i/sonypal_1@174969/master.m3u8
+#EXTINF:-1,Dangal TV [IN] [Entertainment] [Hindi]
+https://dangal-lh.akamaihd.net/i/dangal_1@174970/master.m3u8
+#EXTINF:-1,Zee Anmol [IN] [Entertainment] [Hindi]
+https://zeeanmol-lh.akamaihd.net/i/zeeanmol_1@174971/master.m3u8
+#EXTINF:-1,Star Bharat [IN] [Entertainment] [Hindi]
+https://starbharat-lh.akamaihd.net/i/starbharat_1@174972/master.m3u8
+#EXTINF:-1,Star Gold [IN] [Movies] [Hindi]
+https://stargold-lh.akamaihd.net/i/stargold_1@174426/master.m3u8
+#EXTINF:-1,Sony Max [IN] [Movies] [Hindi]
+https://sonymax-lh.akamaihd.net/i/sonymax_1@174946/master.m3u8
+#EXTINF:-1,Zee Cinema [IN] [Movies] [Hindi]
+https://zeecinema-lh.akamaihd.net/i/zeecinema_1@174441/master.m3u8
+#EXTINF:-1,Colors Cineplex [IN] [Movies] [Hindi]
+https://colorscineplex-lh.akamaihd.net/i/colorscineplex_1@174432/master.m3u8
+#EXTINF:-1,Movies Now [IN] [Movies] [Hindi]
+https://moviesnow-lh.akamaihd.net/i/moviesnow_1@174949/master.m3u8
+#EXTINF:-1,Sony Max 2 [IN] [Movies] [Hindi]
+https://sonymax2-lh.akamaihd.net/i/sonymax2_1@174974/master.m3u8
+#EXTINF:-1,Star Gold Select [IN] [Movies] [Hindi]
+https://stargoldselect-lh.akamaihd.net/i/stargoldselect_1@174975/master.m3u8
+#EXTINF:-1,Zee Classic [IN] [Movies] [Hindi]
+https://zeeclassic-lh.akamaihd.net/i/zeeclassic_1@174976/master.m3u8
+#EXTINF:-1,UTV Movies [IN] [Movies] [Hindi]
+https://utvmovies-lh.akamaihd.net/i/utvmovies_1@174977/master.m3u8
+#EXTINF:-1,Star Sports 1 Hindi [IN] [Sports] [Hindi]
+https://starsports1-lh.akamaihd.net/i/starsports1_1@174950/master.m3u8
+#EXTINF:-1,Sony Sports Network [IN] [Sports] [Hindi]
+https://sonysports-lh.akamaihd.net/i/sonysports_1@174951/master.m3u8
+#EXTINF:-1,Sports18 [IN] [Sports] [Hindi]
+https://sports18-lh.akamaihd.net/i/sports18_1@174952/master.m3u8
+#EXTINF:-1,DD Sports [IN] [Sports] [Hindi]
+https://ddsports-lh.akamaihd.net/i/ddsports_1@174953/master.m3u8
+#EXTINF:-1,Sony Ten [IN] [Sports] [Hindi]
+https://sonyten-lh.akamaihd.net/i/sonyten_1@174978/master.m3u8
+#EXTINF:-1,Eurosport Hindi [IN] [Sports] [Hindi]
+https://eurosport-lh.akamaihd.net/i/eurosport_1@174979/master.m3u8
+#EXTINF:-1,MTV India [IN] [Music] [Hindi]
+https://mtvindia-lh.akamaihd.net/i/mtvindia_1@174954/master.m3u8
+#EXTINF:-1,9XM Music [IN] [Music] [Hindi]
+https://9xm-lh.akamaihd.net/i/9xm_1@174955/master.m3u8
+#EXTINF:-1,Zee Music [IN] [Music] [Hindi]
+https://zeemusic-lh.akamaihd.net/i/zeemusic_1@174956/master.m3u8
+#EXTINF:-1,B4U Music [IN] [Music] [Hindi]
+https://b4umusic-lh.akamaihd.net/i/b4umusic_1@174957/master.m3u8
+#EXTINF:-1,MTV Beats [IN] [Music] [Hindi]
+https://mtvbeats-lh.akamaihd.net/i/mtvbeats_1@174980/master.m3u8
+#EXTINF:-1,9X Jalwa [IN] [Music] [Hindi]
+https://9xjalwa-lh.akamaihd.net/i/9xjalwa_1@174981/master.m3u8
+#EXTINF:-1,9X Tashan [IN] [Music] [Hindi]
+https://9xtashan-lh.akamaihd.net/i/9xtashan_1@174982/master.m3u8
+#EXTINF:-1,Cartoon Network India [IN] [Kids] [Hindi]
+https://cnindia-lh.akamaihd.net/i/cnindia_1@174958/master.m3u8
+#EXTINF:-1,Pogo TV [IN] [Kids] [Hindi]
+https://pogo-lh.akamaihd.net/i/pogo_1@174959/master.m3u8
+#EXTINF:-1,Nickelodeon India [IN] [Kids] [Hindi]
+https://nickindia-lh.akamaihd.net/i/nickindia_1@174983/master.m3u8
+#EXTINF:-1,Hungama TV [IN] [Kids] [Hindi]
+https://hungama-lh.akamaihd.net/i/hungama_1@174960/master.m3u8
+#EXTINF:-1,Disney Channel India [IN] [Kids] [Hindi]
+https://disneyindia-lh.akamaihd.net/i/disneyindia_1@174984/master.m3u8
+#EXTINF:-1,Discovery Kids India [IN] [Kids] [Hindi]
+https://discoverykidsindia-lh.akamaihd.net/i/discoverykidsindia_1@174985/master.m3u8
+#EXTINF:-1,Nick HD+ [IN] [Kids] [Hindi]
+https://nickhd-lh.akamaihd.net/i/nickhd_1@174986/master.m3u8
+#EXTINF:-1,Sonic [IN] [Kids] [Hindi]
+https://sonic-lh.akamaihd.net/i/sonic_1@174987/master.m3u8
+#EXTINF:-1,Marvel HQ [IN] [Kids] [Hindi]
+https://marvelhq-lh.akamaihd.net/i/marvelhq_1@174988/master.m3u8
+#EXTINF:-1,Aastha Channel [IN] [Religious] [Hindi]
+https://aastha-lh.akamaihd.net/i/aastha_1@174961/master.m3u8
+#EXTINF:-1,Sanskar TV [IN] [Religious] [Hindi]
+https://sanskar-lh.akamaihd.net/i/sanskar_1@174962/master.m3u8
+#EXTINF:-1,Zee Salaam [IN] [Religious] [Hindi]
+https://zeesalaam-lh.akamaihd.net/i/zeesalaam_1@174963/master.m3u8
+#EXTINF:-1,Ishwar TV [IN] [Religious] [Hindi]
+https://ishwar-lh.akamaihd.net/i/ishwar_1@174964/master.m3u8
+#EXTINF:-1,Sadhna TV [IN] [Religious] [Hindi]
+https://sadhna-lh.akamaihd.net/i/sadhna_1@174989/master.m3u8
+#EXTINF:-1,Darshan 24 [IN] [Religious] [Hindi]
+https://darshan24-lh.akamaihd.net/i/darshan24_1@174990/master.m3u8
+`;
+            const blob = new Blob([m3uContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'hindi_channels.m3u';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

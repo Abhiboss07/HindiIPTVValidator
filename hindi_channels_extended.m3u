@@ -1,0 +1,171 @@
+#EXTM3U
+#EXTINF:-1,NDTV 24x7
+https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8
+#EXTINF:-1,Aaj Tak
+https://aajtaklive-amd.akamaized.net/hls/live/2003835/aajtak/playlist.m3u8
+#EXTINF:-1,Republic TV
+https://republicindia.akamaized.net/hls/live/2049302/republic/playlist.m3u8
+#EXTINF:-1,Zee News
+https://zeenews-lh.akamaihd.net/i/zee24taak_1@174853/master.m3u8
+#EXTINF:-1,ABP News
+https://abpnews.akamaized.net/hls/live/2040313/abpnews/playlist.m3u8
+#EXTINF:-1,India Today
+https://todayindia.akamaized.net/hls/live/2003677/indiatoday/playlist.m3u8
+#EXTINF:-1,News18 India
+https://news18india-lh.akamaihd.net/i/news18india_1@174939/master.m3u8
+#EXTINF:-1,CNN News18
+https://cnnnews18-lh.akamaihd.net/i/cnnnews18_1@174967/master.m3u8
+#EXTINF:-1,BBC Hindi
+https://bbchindi-lh.akamaihd.net/i/bbchindi_1@174968/master.m3u8
+#EXTINF:-1,Times Now
+https://timesnow-lh.akamaihd.net/i/timesnow_1@174971/master.m3u8
+#EXTINF:-1,Star Plus
+https://starplus-lh.akamaihd.net/i/starplus_1@174424/master.m3u8
+#EXTINF:-1,Sony Entertainment
+https://sonyliv-lh.akamaihd.net/i/sony_1@174947/master.m3u8
+#EXTINF:-1,Zee TV
+https://zeetv-lh.akamaihd.net/i/zeetv_1@174439/master.m3u8
+#EXTINF:-1,Colors TV
+https://colorstv-lh.akamaihd.net/i/colorstv_1@174431/master.m3u8
+#EXTINF:-1,DD National
+https://ddnational-lh.akamaihd.net/i/ddnational_1@174440/master.m3u8
+#EXTINF:-1,SAB TV
+https://sabtv-lh.akamaihd.net/i/sabtv_1@174445/master.m3u8
+#EXTINF:-1,&TV
+https://andtv-lh.akamaihd.net/i/andtv_1@174948/master.m3u8
+#EXTINF:-1,Sony Pal
+https://sonypal-lh.akamaihd.net/i/sonypal_1@174969/master.m3u8
+#EXTINF:-1,Dangal TV
+https://dangal-lh.akamaihd.net/i/dangal_1@174970/master.m3u8
+#EXTINF:-1,Zee Anmol
+https://zeeanmol-lh.akamaihd.net/i/zeeanmol_1@174971/master.m3u8
+#EXTINF:-1,Star Bharat
+https://starbharat-lh.akamaihd.net/i/starbharat_1@174972/master.m3u8
+#EXTINF:-1,Star Gold
+https://stargold-lh.akamaihd.net/i/stargold_1@174426/master.m3u8
+#EXTINF:-1,Sony Max
+https://sonymax-lh.akamaihd.net/i/sonymax_1@174946/master.m3u8
+#EXTINF:-1,Zee Cinema
+https://zeecinema-lh.akamaihd.net/i/zeecinema_1@174441/master.m3u8
+#EXTINF:-1,Colors Cineplex
+https://colorscineplex-lh.akamaihd.net/i/colorscineplex_1@174432/master.m3u8
+#EXTINF:-1,Movies Now
+https://moviesnow-lh.akamaihd.net/i/moviesnow_1@174949/master.m3u8
+#EXTINF:-1,&Pictures
+https://andpictures-lh.akamaihd.net/i/andpictures_1@174973/master.m3u8
+#EXTINF:-1,Sony Max 2
+https://sonymax2-lh.akamaihd.net/i/sonymax2_1@174974/master.m3u8
+#EXTINF:-1,Star Gold Select
+https://stargoldselect-lh.akamaihd.net/i/stargoldselect_1@174975/master.m3u8
+#EXTINF:-1,Zee Classic
+https://zeeclassic-lh.akamaihd.net/i/zeeclassic_1@174976/master.m3u8
+#EXTINF:-1,UTV Movies
+https://utvmovies-lh.akamaihd.net/i/utvmovies_1@174977/master.m3u8
+#EXTINF:-1,Star Sports 1 Hindi
+https://starsports1-lh.akamaihd.net/i/starsports1_1@174950/master.m3u8
+#EXTINF:-1,Sony Sports Network
+https://sonysports-lh.akamaihd.net/i/sonysports_1@174951/master.m3u8
+#EXTINF:-1,Sports18
+https://sports18-lh.akamaihd.net/i/sports18_1@174952/master.m3u8
+#EXTINF:-1,DD Sports
+https://ddsports-lh.akamaihd.net/i/ddsports_1@174953/master.m3u8
+#EXTINF:-1,Sony Ten
+https://sonyten-lh.akamaihd.net/i/sonyten_1@174978/master.m3u8
+#EXTINF:-1,Eurosport Hindi
+https://eurosport-lh.akamaihd.net/i/eurosport_1@174979/master.m3u8
+#EXTINF:-1,MTV India
+https://mtvindia-lh.akamaihd.net/i/mtvindia_1@174954/master.m3u8
+#EXTINF:-1,9XM Music
+https://9xm-lh.akamaihd.net/i/9xm_1@174955/master.m3u8
+#EXTINF:-1,Zee Music
+https://zeemusic-lh.akamaihd.net/i/zeemusic_1@174956/master.m3u8
+#EXTINF:-1,B4U Music
+https://b4umusic-lh.akamaihd.net/i/b4umusic_1@174957/master.m3u8
+#EXTINF:-1,MTV Beats
+https://mtvbeats-lh.akamaihd.net/i/mtvbeats_1@174980/master.m3u8
+#EXTINF:-1,9X Jalwa
+https://9xjalwa-lh.akamaihd.net/i/9xjalwa_1@174981/master.m3u8
+#EXTINF:-1,9X Tashan
+https://9xtashan-lh.akamaihd.net/i/9xtashan_1@174982/master.m3u8
+#EXTINF:-1,Cartoon Network India
+https://cnindia-lh.akamaihd.net/i/cnindia_1@174958/master.m3u8
+#EXTINF:-1,Pogo TV
+https://pogo-lh.akamaihd.net/i/pogo_1@174959/master.m3u8
+#EXTINF:-1,Nickelodeon India
+https://nickindia-lh.akamaihd.net/i/nickindia_1@174983/master.m3u8
+#EXTINF:-1,Hungama TV
+https://hungama-lh.akamaihd.net/i/hungama_1@174960/master.m3u8
+#EXTINF:-1,Disney Channel India
+https://disneyindia-lh.akamaihd.net/i/disneyindia_1@174984/master.m3u8
+#EXTINF:-1,Discovery Kids India
+https://discoverykidsindia-lh.akamaihd.net/i/discoverykidsindia_1@174985/master.m3u8
+#EXTINF:-1,Nick HD+
+https://nickhd-lh.akamaihd.net/i/nickhd_1@174986/master.m3u8
+#EXTINF:-1,Sonic
+https://sonic-lh.akamaihd.net/i/sonic_1@174987/master.m3u8
+#EXTINF:-1,Marvel HQ
+https://marvelhq-lh.akamaihd.net/i/marvelhq_1@174988/master.m3u8
+#EXTINF:-1,Aastha Channel
+https://aastha-lh.akamaihd.net/i/aastha_1@174961/master.m3u8
+#EXTINF:-1,Sanskar TV
+https://sanskar-lh.akamaihd.net/i/sanskar_1@174962/master.m3u8
+#EXTINF:-1,Zee Salaam
+https://zeesalaam-lh.akamaihd.net/i/zeesalaam_1@174963/master.m3u8
+#EXTINF:-1,Ishwar TV
+https://ishwar-lh.akamaihd.net/i/ishwar_1@174964/master.m3u8
+#EXTINF:-1,Sadhna TV
+https://sadhna-lh.akamaihd.net/i/sadhna_1@174989/master.m3u8
+#EXTINF:-1,Darshan 24
+https://darshan24-lh.akamaihd.net/i/darshan24_1@174990/master.m3u8
+#EXTINF:-1,Disney Channel Hindi
+https://disneyhindi-lh.akamaihd.net/i/disneyhindi_1@174991/master.m3u8
+#EXTINF:-1,Disney XD Hindi
+https://disneyxdhindi-lh.akamaihd.net/i/disneyxdhindi_1@174992/master.m3u8
+#EXTINF:-1,Discovery Hindi
+https://discoveryhindi-lh.akamaihd.net/i/discoveryhindi_1@174993/master.m3u8
+#EXTINF:-1,Animal Planet Hindi
+https://animalplanethindi-lh.akamaihd.net/i/animalplanethindi_1@174994/master.m3u8
+#EXTINF:-1,National Geographic Hindi
+https://natgeohindi-lh.akamaihd.net/i/natgeohindi_1@174995/master.m3u8
+#EXTINF:-1,History TV18 Hindi
+https://historytv18hindi-lh.akamaihd.net/i/historytv18hindi_1@174996/master.m3u8
+#EXTINF:-1,Fox Life Hindi
+https://foxlifehindi-lh.akamaihd.net/i/foxlifehindi_1@174997/master.m3u8
+#EXTINF:-1,AXN Hindi
+https://axnhindi-lh.akamaihd.net/i/axnhindi_1@174998/master.m3u8
+#EXTINF:-1,HBO Hindi
+https://hbohindi-lh.akamaihd.net/i/hbohindi_1@174999/master.m3u8
+#EXTINF:-1,Warner TV Hindi
+https://warnerhindi-lh.akamaihd.net/i/warnerhindi_1@175000/master.m3u8
+#EXTINF:-1,Sony PIX Hindi
+https://sonypixhindi-lh.akamaihd.net/i/sonypixhindi_1@175001/master.m3u8
+#EXTINF:-1,Movies Now Hindi
+https://moviesnowhindi-lh.akamaihd.net/i/moviesnowhindi_1@175002/master.m3u8
+#EXTINF:-1,FXL Hindi
+https://fxlhindi-lh.akamaihd.net/i/fxlhindi_1@175003/master.m3u8
+#EXTINF:-1,Star Movies Hindi
+https://starmovieshindi-lh.akamaihd.net/i/starmovieshindi_1@175004/master.m3u8
+#EXTINF:-1,UTV Action Hindi
+https://utvactionhindi-lh.akamaihd.net/i/utvactionhindi_1@175005/master.m3u8
+#EXTINF:-1,UTV Movies Hindi
+https://utvmovieshindi-lh.akamaihd.net/i/utvmovieshindi_1@175006/master.m3u8
+#EXTINF:-1,NDTV Good Times
+https://ndtvgoodtimes-lh.akamaihd.net/i/ndtvgoodtimes_1@175007/master.m3u8
+#EXTINF:-1,Food Food
+https://foodfood-lh.akamaihd.net/i/foodfood_1@175008/master.m3u8
+#EXTINF:-1,Living Foodz
+https://livingfoodz-lh.akamaihd.net/i/livingfoodz_1@175009/master.m3u8
+#EXTINF:-1,Zee Khana Khazana
+https://zeekhanakhazana-lh.akamaihd.net/i/zeekhanakhazana_1@175010/master.m3u8
+#EXTINF:-1,TLC India
+https://tlcindia-lh.akamaihd.net/i/tlcindia_1@175011/master.m3u8
+#EXTINF:-1,Travel XP Hindi
+https://travelxphindi-lh.akamaihd.net/i/travelxphindi_1@175012/master.m3u8
+#EXTINF:-1,NDTV Profit
+https://ndtvprofit-lh.akamaihd.net/i/ndtvprofit_1@175013/master.m3u8
+#EXTINF:-1,CNBC TV18
+https://cnbctv18-lh.akamaihd.net/i/cnbctv18_1@175014/master.m3u8
+#EXTINF:-1,Bloomberg TV India
+https://bloombergtvindia-lh.akamaihd.net/i/bloombergtvindia_1@175015/master.m3u8
+#EXTINF:-1,ET Now
+https://etnow-lh.akamaihd.net/i/etnow_1@175016/master.m3u8
