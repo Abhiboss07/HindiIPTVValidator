@@ -1,0 +1,216 @@
+# Channel metadata configuration
+# Countries with their respective channels and categories
+
+US:
+  News:
+    - CNN
+    - Fox News
+    - MSNBC
+    - CNBC
+  Sports:
+    - ESPN
+    - ESPN 2
+    - Fox Sports
+    - NBC Sports
+  Entertainment:
+    - HBO
+    - Showtime
+    - AMC
+    - FX
+
+UK:
+  News:
+    - BBC News
+    - Sky News
+    - ITV News
+  Sports:
+    - Sky Sports
+    - BT Sport
+  Entertainment:
+    - BBC One
+    - BBC Two
+    - ITV
+
+CN:
+  News:
+    - CCTV1
+    - CCTV News
+    - CGTN
+  Sports:
+    - CCTV5
+    - CCTV5+
+  Entertainment:
+    - Hunan TV
+    - Zhejiang TV
+
+DE:
+  News:
+    - ARD
+    - ZDF
+    - n-tv
+  Sports:
+    - Sport1
+    - Eurosport
+  Entertainment:
+    - RTL
+    - ProSieben
+
+FR:
+  News:
+    - TF1
+    - France 24
+    - BFM TV
+  Sports:
+    - Canal+ Sport
+    - beIN Sports
+  Entertainment:
+    - Canal+
+    - France 2
+
+IT:
+  News:
+    - RAI News
+    - Mediaset
+    - Sky TG24
+  Sports:
+    - Sky Sport
+    - Rai Sport
+  Entertainment:
+    - RAI 1
+    - Canale 5
+
+ES:
+  News:
+    - TVE
+    - Antena 3
+    - Telecinco
+  Sports:
+    - Movistar+
+    - DAZN
+  Entertainment:
+    - Telecinco
+    - Antena 3
+
+BR:
+  News:
+    - Globo News
+    - Record News
+    - Band
+  Sports:
+    - SporTV
+    - ESPN Brasil
+  Entertainment:
+    - Globo
+    - Record
+
+IN:
+  News:
+    - NDTV
+    - Times Now
+    - Republic TV
+    - Aaj Tak
+    - India Today
+    - Zee News
+    - ABP News
+    - News18 India
+    - CNN News18
+    - BBC Hindi
+    - Rajya Sabha TV
+    - Lok Sabha TV
+  Sports:
+    - Star Sports
+    - Sony Sports
+    - Sports18
+    - DD Sports
+    - Star Sports 1 Hindi
+    - Sony Ten
+    - Eurosport Hindi
+  Entertainment:
+    - Star Plus
+    - Sony Entertainment
+    - Zee TV
+    - Colors TV
+    - DD National
+    - SAB TV
+    - &TV
+    - Sony Pal
+    - Dangal TV
+    - Zee Anmol
+    - Star Bharat
+  Movies:
+    - Star Gold
+    - Sony Max
+    - Zee Cinema
+    - Colors Cineplex
+    - Movies Now
+    - &Pictures
+    - Sony Max 2
+    - Star Gold Select
+    - Zee Classic
+    - UTV Movies
+  Music:
+    - MTV India
+    - Channel V
+    - 9XM
+    - B4U Music
+    - Zee Music
+    - MTV Beats
+    - 9X Jalwa
+    - 9X Tashan
+  Kids:
+    - Cartoon Network India
+    - Pogo
+    - Nickelodeon India
+    - Hungama TV
+    - Disney Channel India
+    - Discovery Kids India
+    - Nick HD+
+    - Sonic
+    - Marvel HQ
+  Religious:
+    - Aastha
+    - Sanskar TV
+    - Zee Salaam
+    - Ishwar TV
+    - Sadhna TV
+    - Darshan 24
+  International Hindi:
+    - Disney Channel Hindi
+    - Disney XD Hindi
+    - Discovery Hindi
+    - Animal Planet Hindi
+    - National Geographic Hindi
+    - History TV18 Hindi
+    - Fox Life Hindi
+    - AXN Hindi
+    - HBO Hindi
+    - Warner TV Hindi
+    - Sony PIX Hindi
+    - Movies Now Hindi
+    - FXL Hindi
+    - Star Movies Hindi
+    - UTV Action Hindi
+    - UTV Movies Hindi
+  Lifestyle:
+    - NDTV Good Times
+    - Food Food
+    - Living Foodz
+    - Zee Khana Khazana
+    - TLC India
+    - Travel XP Hindi
+    - NDTV Profit
+    - CNBC TV18
+    - Bloomberg TV India
+    - ET Now
+
+JP:
+  News:
+    - NHK
+    - Fuji TV
+    - TBS
+  Sports:
+    - Japan Sports
+    - Sky Sports Japan
+  Entertainment:
+    - Fuji TV
+    - TBS
