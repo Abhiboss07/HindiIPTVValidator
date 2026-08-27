@@ -385,6 +385,23 @@
                 </div>
             </div>
 
+            <!-- Interactive Brightness & Volume Sliders Bar -->
+            <div class="player-quick-sliders-bar" onclick="event.stopPropagation()">
+                <!-- Brightness Slider -->
+                <div class="player-slider-pill">
+                    <span class="player-slider-icon">☀️</span>
+                    <input type="range" id="playerBrightnessSlider" min="20" max="150" value="100" class="player-range-input" oninput="handleBrightnessSlider(this.value)">
+                    <span id="playerBrightnessText" class="player-slider-pct">100%</span>
+                </div>
+
+                <!-- Volume Slider -->
+                <div class="player-slider-pill">
+                    <span class="player-slider-icon">🔊</span>
+                    <input type="range" id="playerVolumeSlider" min="0" max="100" value="100" class="player-range-input" oninput="handleVolumeSlider(this.value)">
+                    <span id="playerVolumeText" class="player-slider-pct">100%</span>
+                </div>
+            </div>
+
             <!-- Bottom Transport & Seekbar -->
             <div class="player-bottom-bar" onclick="event.stopPropagation()">
                 <!-- Pro Features Bar -->

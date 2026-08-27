@@ -2087,3 +2087,37 @@ function initParticles() {
   }
   animate();
 }
+
+// ==========================================================
+// ON-SCREEN VOLUME & BRIGHTNESS SLIDERS
+// ==========================================================
+window.handleBrightnessSlider = function(val) {
+  const videoElement = document.getElementById('luminaVideo');
+  const textEl = document.getElementById('playerBrightnessText');
+  if (videoElement) {
+    videoElement.style.filter = 'brightness(' + (val / 100) + ')';
+  }
+  if (textEl) {
+    textEl.textContent = val + '%';
+  }
+  resetPlayerHideTimer();
+};
+
+window.handleVolumeSlider = function(val) {
+  const videoElement = document.getElementById('luminaVideo');
+  const textEl = document.getElementById('playerVolumeText');
+  const muteText = document.getElementById('playerMuteText');
+  if (videoElement) {
+    videoElement.volume = val / 100;
+    if (videoElement.muted && val > 0) {
+      videoElement.muted = false;
+    }
+  }
+  if (textEl) {
+    textEl.textContent = val + '%';
+  }
+  if (muteText) {
+    muteText.textContent = val == 0 ? '🔇 Muted' : '🔊 Audio';
+  }
+  resetPlayerHideTimer();
+};

@@ -1573,3 +1573,78 @@ html, body {
 .obsidian-main-container {
   padding-bottom: 96px;
 }
+/* ==========================================================
+   VIDEO PLAYER BRIGHTNESS & VOLUME SLIDERS
+   ========================================================== */
+.player-quick-sliders-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin: auto 0;
+  padding: 0 10px;
+  z-index: 130;
+}
+
+.player-slider-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22, 22, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 6px 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  flex: 1;
+  max-width: 220px;
+}
+
+.player-slider-icon {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.player-range-input {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+}
+
+.player-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #E50914;
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.8);
+  cursor: pointer;
+}
+
+.player-range-input::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #E50914;
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.8);
+  border: none;
+  cursor: pointer;
+}
+
+.player-slider-pct {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  min-width: 34px;
+  text-align: right;
+  flex-shrink: 0;
+}
