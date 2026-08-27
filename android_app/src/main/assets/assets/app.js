@@ -6258,16 +6258,17 @@ function initPlayerOverlayEvents() {
 }
 
 // ==========================================================
-// SWIPE GESTURE ENGINE (Left = Brightness, Right = Volume)
+// 60/120FPS GPU-ACCELERATED SWIPE GESTURE ENGINE
 // ==========================================================
+let rafSwipePending = false;
+
 function initPlayerSwipeGestures() {
   const playerModal = document.getElementById('playerModal');
-  const videoElement = document.getElementById('luminaVideo');
+  const brightOverlay = document.getElementById('playerBrightnessOverlay');
   const hud = document.getElementById('playerSwipeHud');
   const hudIcon = document.getElementById('playerSwipeHudIcon');
   const hudTitle = document.getElementById('playerSwipeHudTitle');
   const hudPct = document.getElementById('playerSwipeHudPct');
-  const hudFill = document.getElementById('playerSwipeHudFill');
 
   if (!playerModal) return;
 
@@ -6287,6 +6288,7 @@ function initPlayerSwipeGestures() {
       if (window.AndroidMedia && window.AndroidMedia.getSystemVolume) {
         touchStartVal = window.AndroidMedia.getSystemVolume();
       } else {
+        const videoElement = document.getElementById('luminaVideo');
         touchStartVal = videoElement ? Math.round(videoElement.volume * 100) : currentVolume;
       }
       if (hud) hud.className = 'player-swipe-hud-pill hud-right';
@@ -6294,50 +6296,63 @@ function initPlayerSwipeGestures() {
   }, { passive: true });
 
   playerModal.addEventListener('touchmove', (e) => {
-    if (activeGestureType) e.preventDefault();
     if (!activeGestureType || isPlayerLocked || e.touches.length !== 1) return;
+    e.preventDefault();
     const touch = e.touches[0];
     const deltaY = touchStartY - touch.clientY;
-    const sensitivity = 0.5;
+    const sensitivity = 0.45;
 
     clearTimeout(hudHideTimeout);
 
-    if (activeGestureType === 'brightness') {
-      currentBrightness = Math.max(20, Math.min(150, Math.round(touchStartVal + deltaY * sensitivity)));
-      if (videoElement) {
-        videoElement.style.filter = 'brightness(' + (currentBrightness / 100) + ')';
-      }
-      const normPct = Math.round(((currentBrightness - 20) / 130) * 100);
-      if (hudIcon) hudIcon.textContent = '☀️';
-      if (hudTitle) hudTitle.textContent = 'Brightness';
-      if (hudPct) hudPct.textContent = currentBrightness + '%';
-      
-    } else if (activeGestureType === 'volume') {
-      currentVolume = Math.max(0, Math.min(100, Math.round(touchStartVal + deltaY * sensitivity)));
-      if (window.AndroidMedia && window.AndroidMedia.setSystemVolume) {
-        window.AndroidMedia.setSystemVolume(currentVolume);
-      }
-      if (videoElement) {
-        videoElement.volume = currentVolume / 100;
-        if (videoElement.muted && currentVolume > 0) {
-          videoElement.muted = false;
-        }
-      }
-      if (hudIcon) hudIcon.textContent = currentVolume === 0 ? '🔇' : (currentVolume > 50 ? '🔊' : '🔉');
-      if (hudTitle) hudTitle.textContent = 'Volume';
-      if (hudPct) hudPct.textContent = currentVolume + '%';
-      
-    }
+    if (!rafSwipePending) {
+      rafSwipePending = true;
+      requestAnimationFrame(() => {
+        rafSwipePending = false;
+        if (!activeGestureType) return;
 
-    if (hud) hud.classList.add('active');
-  }, { passive: true });
+        if (activeGestureType === 'brightness') {
+          currentBrightness = Math.max(20, Math.min(150, Math.round(touchStartVal + deltaY * sensitivity)));
+          
+          if (brightOverlay) {
+            if (currentBrightness < 100) {
+              brightOverlay.style.background = '#000000';
+              brightOverlay.style.opacity = ((100 - currentBrightness) / 100 * 0.8).toFixed(2);
+            } else {
+              brightOverlay.style.background = '#FFFFFF';
+              brightOverlay.style.opacity = ((currentBrightness - 100) / 100 * 0.35).toFixed(2);
+            }
+          }
+          if (hudIcon) hudIcon.textContent = '☀️';
+          if (hudTitle) hudTitle.textContent = 'Brightness';
+          if (hudPct) hudPct.textContent = currentBrightness + '%';
+
+        } else if (activeGestureType === 'volume') {
+          currentVolume = Math.max(0, Math.min(100, Math.round(touchStartVal + deltaY * sensitivity)));
+          
+          if (window.AndroidMedia && window.AndroidMedia.setSystemVolume) {
+            window.AndroidMedia.setSystemVolume(currentVolume);
+          }
+          const videoElement = document.getElementById('luminaVideo');
+          if (videoElement) {
+            videoElement.volume = currentVolume / 100;
+            if (videoElement.muted && currentVolume > 0) videoElement.muted = false;
+          }
+          if (hudIcon) hudIcon.textContent = currentVolume === 0 ? '🔇' : (currentVolume > 50 ? '🔊' : '🔉');
+          if (hudTitle) hudTitle.textContent = 'Volume';
+          if (hudPct) hudPct.textContent = currentVolume + '%';
+        }
+
+        if (hud) hud.classList.add('active');
+      });
+    }
+  }, { passive: false });
 
   playerModal.addEventListener('touchend', () => {
     if (!activeGestureType) return;
     activeGestureType = null;
     hudHideTimeout = setTimeout(() => {
       if (hud) hud.classList.remove('active');
-    }, 1200);
+    }, 1100);
   }, { passive: true });
 }
 
