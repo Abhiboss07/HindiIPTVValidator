@@ -272,54 +272,81 @@
         <!-- ==========================================================
              PAGE 4: LOCAL MEDIA LIBRARY (Obsidian Local Design)
              ========================================================== -->
+        <!-- ==========================================================
+             PAGE 4: LOCAL MEDIA LIBRARY (Folder-Wise & Optimized)
+             ========================================================== -->
         <div id="page-local" class="page-view">
             <!-- Header -->
             <div style="margin-bottom: 18px;">
                 <h1 class="page-heading-main">Local Media Library</h1>
-                <p style="font-size: 13px; color: #8e9192;">Offline videos (.mp4) and audio (.mp3) from your phone</p>
+                <p style="font-size: 13px; color: #8e9192;">Play offline videos & audio directly from your device storage</p>
             </div>
 
-            <!-- Open Local File Primary Card -->
+            <!-- Action Card: Add Files / Folder -->
             <section style="margin-bottom: 22px;">
                 <div class="obsidian-card" style="padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border-color: #E50914; background: rgba(229, 9, 20, 0.08);" onclick="document.getElementById('localFileInput').click()">
                     <div style="display: flex; align-items: center; gap: 14px;">
-                        <div style="width: 46px; height: 46px; border-radius: 10px; background: #E50914; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 14px rgba(229,9,20,0.5);">
+                        <div style="width: 46px; height: 46px; border-radius: 12px; background: #E50914; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 16px rgba(229,9,20,0.5);">
                             <svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
                         </div>
                         <div>
-                            <span style="font-size: 16px; font-weight: 700; color: #fff; display: block;">Add Videos & Music</span>
-                            <span style="font-size: 12px; color: #E50914;">Tap to select .mp4, .mkv, .mp3 from storage</span>
+                            <span style="font-size: 16px; font-weight: 700; color: #fff; display: block;">Import Local Files & Folders</span>
+                            <span style="font-size: 12px; color: #E50914;">Select .mp4, .mkv, .mp3, .wav from storage</span>
                         </div>
                     </div>
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="#E50914"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
                 </div>
             </section>
 
-            <!-- Filter Chips for Local Media -->
-            <div class="category-chips-row" style="margin-bottom: 20px;">
-                <button class="lumina-chip active" onclick="filterLocalType('all', this)">All Media (<span id="localAllCount">0</span>)</button>
-                <button class="lumina-chip" onclick="filterLocalType('videos', this)">🎬 Videos .mp4 (<span id="localVideosCount">0</span>)</button>
-                <button class="lumina-chip" onclick="filterLocalType('audio', this)">🎵 Audio .mp3 (<span id="localAudioCount">0</span>)</button>
-            </div>
-
-            <!-- SECTION 1: VIDEOS (.mp4, .mkv) -->
-            <section id="localVideosSection" style="margin-bottom: 26px;">
+            <!-- Folder Cards Grid -->
+            <section style="margin-bottom: 24px;">
                 <div class="section-heading-row">
-                    <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
-                        <span>🎬</span> Video Files (.mp4, .mkv)
+                    <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 6px;">
+                        <span>📁</span> Storage Folders
                     </h2>
                 </div>
-                <div id="localVideosFeed"></div>
+                <div class="local-folders-grid" id="localFoldersGrid">
+                    <!-- Folder: Movies & Cinema -->
+                    <div class="folder-card-item active" onclick="selectLocalFolder('all', this)">
+                        <div class="folder-icon-circle" style="background: rgba(229, 9, 20, 0.15); color: #E50914;">📂</div>
+                        <div class="folder-card-meta">
+                            <h4 class="folder-name">All Media</h4>
+                            <p class="folder-count" id="folderCountAll">0 files</p>
+                        </div>
+                    </div>
+
+                    <div class="folder-card-item" onclick="selectLocalFolder('movies', this)">
+                        <div class="folder-icon-circle" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">🎬</div>
+                        <div class="folder-card-meta">
+                            <h4 class="folder-name">Movies & Videos</h4>
+                            <p class="folder-count" id="folderCountVideos">0 videos</p>
+                        </div>
+                    </div>
+
+                    <div class="folder-card-item" onclick="selectLocalFolder('music', this)">
+                        <div class="folder-icon-circle" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">🎵</div>
+                        <div class="folder-card-meta">
+                            <h4 class="folder-name">Music & Songs</h4>
+                            <p class="folder-count" id="folderCountMusic">0 songs</p>
+                        </div>
+                    </div>
+
+                    <div class="folder-card-item" onclick="selectLocalFolder('downloads', this)">
+                        <div class="folder-icon-circle" style="background: rgba(234, 179, 8, 0.15); color: #facc15;">📥</div>
+                        <div class="folder-card-meta">
+                            <h4 class="folder-name">Downloads</h4>
+                            <p class="folder-count" id="folderCountDownloads">0 items</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <!-- SECTION 2: AUDIO TRACKS (.mp3, .m4a) -->
-            <section id="localAudioSection">
-                <div class="section-heading-row">
-                    <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
-                        <span>🎵</span> Audio Tracks (.mp3, .m4a, .wav)
-                    </h2>
+            <!-- Active Folder View Header & Files Feed -->
+            <section>
+                <div class="section-heading-row" style="margin-bottom: 14px;">
+                    <h2 class="section-heading-text" id="activeFolderNameTitle">All Media Files</h2>
                 </div>
-                <div id="localAudioFeed"></div>
+                <div id="localMediaFolderFeed" class="local-files-feed-container"></div>
             </section>
         </div>
 

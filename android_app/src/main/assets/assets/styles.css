@@ -1841,3 +1841,145 @@ html, body {
   opacity: 1;
   transform: translateY(-50%) scale(1);
 }
+/* ==========================================================
+   60FPS BUTTERY SMOOTH HAMBURGER SIDE DRAWER
+   ========================================================== */
+.side-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 999;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+  will-change: opacity, backdrop-filter;
+}
+
+.side-drawer-backdrop.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.side-drawer-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 290px;
+  max-width: 86vw;
+  background: #141414;
+  border-right: 1px solid var(--border-glass);
+  padding: 26px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 12px 0 40px rgba(0, 0, 0, 0.9);
+  transform: translateX(-100%) translateZ(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.side-drawer-backdrop.active .side-drawer-panel {
+  transform: translateX(0) translateZ(0);
+}
+
+.drawer-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 18px;
+}
+
+.drawer-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  color: var(--text-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-menu-item:active {
+  background: rgba(229, 9, 20, 0.15);
+  color: #FFFFFF;
+  transform: scale(0.98);
+}
+
+/* ==========================================================
+   LOCAL MEDIA FOLDER-WISE VIEW & OPTIMIZATIONS
+   ========================================================== */
+.local-folders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.folder-card-item {
+  background: var(--surface);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.folder-card-item:active, .folder-card-item.active {
+  background: rgba(35, 35, 35, 0.95);
+  border-color: var(--accent-red);
+  transform: scale(0.98);
+  box-shadow: 0 4px 16px rgba(229, 9, 20, 0.2);
+}
+
+.folder-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.folder-card-meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.folder-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.folder-count {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.local-files-feed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

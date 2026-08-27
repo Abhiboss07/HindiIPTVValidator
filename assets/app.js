@@ -4932,6 +4932,7 @@ const DEFAULT_LOCAL_MEDIA = [
     description: 'Offline MP4 video on device',
     url: 'https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8',
     duration: '24:18',
+    folder: 'movies',
     isLocal: true
   },
   {
@@ -4946,6 +4947,7 @@ const DEFAULT_LOCAL_MEDIA = [
     description: 'Offline MP3 audio track',
     url: 'https://air.pc.cdn.bitgravity.com/air/live/pbaudio034/playlist.m3u8',
     duration: '04:35',
+    folder: 'music',
     isLocal: true
   },
   {
@@ -4960,6 +4962,7 @@ const DEFAULT_LOCAL_MEDIA = [
     description: 'Offline MP4 video on device',
     url: 'https://aasthatv.akamaized.net/hls/live/2034040/aastha/master.m3u8',
     duration: '18:40',
+    folder: 'movies',
     isLocal: true
   },
   {
@@ -4974,6 +4977,7 @@ const DEFAULT_LOCAL_MEDIA = [
     description: 'Offline MP3 audio track',
     url: 'https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudioragam/hlspbaudioragam_Auto.m3u8',
     duration: '06:12',
+    folder: 'music',
     isLocal: true
   }
 ];
@@ -5053,13 +5057,13 @@ let playerHideTimeout = null;
 let heroIndex = 0;
 let heroInterval = null;
 
-// Gestures State (Left = Volume, Right = Brightness)
+// Gestures State (Left = Brightness, Right = Volume)
 let currentVolume = 100;
 let currentBrightness = 100;
 let touchStartY = 0;
 let touchStartX = 0;
 let touchStartVal = 0;
-let activeGestureType = null; // 'volume' | 'brightness'
+let activeGestureType = null;
 let hudHideTimeout = null;
 
 // Initialize Application
@@ -5199,7 +5203,7 @@ function renderHomePage() {
 
       card.innerHTML = `
         <div class="live-now-thumb">
-          <img src="${thumbUrl}" alt="${ch.name}">
+          <img src="${thumbUrl}" alt="${ch.name}" loading="lazy">
           <div class="live-viewer-chip">
             <svg viewBox="0 0 24 24" width="12" height="12" fill="#ffb4ab"><path d="M12 4C7.58 4 4 7.58 4 12c0 2.21.89 4.21 2.34 5.66l1.41-1.41C6.62 15.12 6 13.62 6 12c0-3.31 2.69-6 6-6s6 2.69 6 6c0 1.62-.62 3.12-1.76 4.24l1.41 1.41C19.11 16.21 20 14.21 20 12c0-4.42-3.58-8-8-8zm0 4c-2.21 0-4 1.79-4 4 0 1.1.45 2.1 1.17 2.83l1.41-1.41C10.22 13.06 10 12.56 10 12c0-1.1.9-2 2-2s2 .9 2 2c0 .56-.22 1.06-.59 1.41l1.41 1.41C15.55 14.1 16 13.1 16 12c0-2.21-1.79-4-4-4zm0 3c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg>
             <span>${viewers}</span>
@@ -5466,101 +5470,98 @@ window.playLiveChannelById = function(channelId) {
 };
 
 // ==========================================================
-// 4. LOCAL MEDIA LIBRARY (VIDEOS & AUDIO SECTIONS)
+// 4. LOCAL MEDIA LIBRARY (FOLDER-WISE BROWSER & PLAYER)
 // ==========================================================
-let currentLocalFilter = 'all';
+let currentLocalFolder = 'all';
 
-window.filterLocalType = function(type, btnEl) {
-  currentLocalFilter = type;
-  document.querySelectorAll('#page-local .lumina-chip').forEach(b => b.classList.remove('active'));
-  if (btnEl) btnEl.classList.add('active');
-
-  const vSec = document.getElementById('localVideosSection');
-  const aSec = document.getElementById('localAudioSection');
-  
-  if (type === 'all') {
-    if (vSec) vSec.style.display = 'block';
-    if (aSec) aSec.style.display = 'block';
-  } else if (type === 'videos') {
-    if (vSec) vSec.style.display = 'block';
-    if (aSec) aSec.style.display = 'none';
-  } else if (type === 'audio') {
-    if (vSec) vSec.style.display = 'none';
-    if (aSec) aSec.style.display = 'block';
-  }
+window.selectLocalFolder = function(folderKey, cardEl) {
+  currentLocalFolder = folderKey;
+  document.querySelectorAll('#localFoldersGrid .folder-card-item').forEach(b => b.classList.remove('active'));
+  if (cardEl) cardEl.classList.add('active');
+  renderLocalFolderFeed();
 };
 
 function renderLocalPage() {
-  const vFeed = document.getElementById('localVideosFeed');
-  const aFeed = document.getElementById('localAudioFeed');
-  const allCount = document.getElementById('localAllCount');
-  const vidCount = document.getElementById('localVideosCount');
-  const audCount = document.getElementById('localAudioCount');
+  updateLocalFolderCounts();
+  renderLocalFolderFeed();
+}
 
-  const videoFiles = customLocalMedia.filter(m => m.type === 'tv' || (m.name && m.name.match(/\.(mp4|mkv|mov|webm|avi)$/i)));
-  const audioFiles = customLocalMedia.filter(m => m.type === 'radio' || (m.name && m.name.match(/\.(mp3|m4a|wav|aac|flac)$/i)));
+function updateLocalFolderCounts() {
+  const countAll = document.getElementById('folderCountAll');
+  const countVideos = document.getElementById('folderCountVideos');
+  const countMusic = document.getElementById('folderCountMusic');
+  const countDownloads = document.getElementById('folderCountDownloads');
 
-  if (allCount) allCount.textContent = customLocalMedia.length;
-  if (vidCount) vidCount.textContent = videoFiles.length;
-  if (audCount) audCount.textContent = audioFiles.length;
+  const vFiles = customLocalMedia.filter(m => m.type === 'tv' || (m.name && m.name.match(/\.(mp4|mkv|mov|webm|avi)$/i)));
+  const aFiles = customLocalMedia.filter(m => m.type === 'radio' || (m.name && m.name.match(/\.(mp3|m4a|wav|aac|flac)$/i)));
+  const dFiles = customLocalMedia.filter(m => m.folder === 'downloads');
 
-  // Render Videos
-  if (vFeed) {
-    vFeed.innerHTML = '';
-    if (videoFiles.length === 0) {
-      vFeed.innerHTML = '<div style="font-size: 13px; color: #737373; padding: 16px; text-align: center;">No .mp4 video files found. Tap "Add Videos & Music" to load videos.</div>';
-    } else {
-      videoFiles.forEach(media => {
-        const item = document.createElement('div');
-        item.className = 'local-file-item';
-        
-        const thumbHtml = media.thumbUrl 
-          ? `<img src="${media.thumbUrl}" alt="${media.name}">`
-          : '<span style="font-size: 24px;">🎬</span>';
+  if (countAll) countAll.textContent = customLocalMedia.length + ' files';
+  if (countVideos) countVideos.textContent = vFiles.length + ' videos';
+  if (countMusic) countMusic.textContent = aFiles.length + ' songs';
+  if (countDownloads) countDownloads.textContent = dFiles.length + ' items';
+}
 
-        item.innerHTML = `
-          <div class="local-thumb-container">
-            ${thumbHtml}
-            <span class="local-duration-badge">${media.duration || 'VIDEO'}</span>
-          </div>
-          <div style="flex: 1; min-width: 0;">
-            <h4 style="font-size: 14px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${media.name}</h4>
-            <p style="font-size: 12px; color: #a3a3a3;">${media.quality} • MP4 Video</p>
-          </div>
-          <button class="icon-btn-plain" style="color: #E50914;" onclick="event.stopPropagation(); removeLocalMediaById('${media.id}')" title="Remove">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-          </button>
-        `;
-        item.onclick = () => playChannel(media);
-        vFeed.appendChild(item);
-      });
-    }
+function renderLocalFolderFeed() {
+  const feed = document.getElementById('localMediaFolderFeed');
+  const titleEl = document.getElementById('activeFolderNameTitle');
+  if (!feed) return;
+  feed.innerHTML = '';
+
+  let list = customLocalMedia;
+  let titleText = 'All Media Files';
+
+  if (currentLocalFolder === 'movies') {
+    list = customLocalMedia.filter(m => m.type === 'tv' || (m.name && m.name.match(/\.(mp4|mkv|mov|webm|avi)$/i)));
+    titleText = '🎬 Movies & Videos (' + list.length + ')';
+  } else if (currentLocalFolder === 'music') {
+    list = customLocalMedia.filter(m => m.type === 'radio' || (m.name && m.name.match(/\.(mp3|m4a|wav|aac|flac)$/i)));
+    titleText = '🎵 Music & Songs (' + list.length + ')';
+  } else if (currentLocalFolder === 'downloads') {
+    list = customLocalMedia.filter(m => m.folder === 'downloads');
+    titleText = '📥 Downloads Folder (' + list.length + ')';
+  } else {
+    titleText = '📂 All Media Files (' + list.length + ')';
   }
 
-  // Render Audio
-  if (aFeed) {
-    aFeed.innerHTML = '';
-    if (audioFiles.length === 0) {
-      aFeed.innerHTML = '<div style="font-size: 13px; color: #737373; padding: 16px; text-align: center;">No .mp3 audio tracks found. Tap "Add Videos & Music" to load tracks.</div>';
-    } else {
-      audioFiles.forEach(media => {
-        const item = document.createElement('div');
-        item.className = 'local-audio-card';
-        item.innerHTML = `
-          <div class="audio-disc-icon">🎵</div>
-          <div style="flex: 1; min-width: 0;">
-            <h4 style="font-size: 14px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${media.name}</h4>
-            <p style="font-size: 12px; color: #a3a3a3;">${media.quality} • MP3 Audio</p>
-          </div>
-          <button class="icon-btn-plain" style="color: #E50914;" onclick="event.stopPropagation(); removeLocalMediaById('${media.id}')" title="Remove">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-          </button>
-        `;
-        item.onclick = () => playChannel(media);
-        aFeed.appendChild(item);
-      });
-    }
+  if (titleEl) titleEl.textContent = titleText;
+
+  if (list.length === 0) {
+    feed.innerHTML = `
+      <div style="text-align: center; padding: 40px 16px; color: #a3a3a3;">
+        <div style="font-size: 32px; margin-bottom: 8px;">📂</div>
+        <p style="font-size: 14px; font-weight: 600; color: #fff;">This folder is empty</p>
+        <p style="font-size: 12px; color: #737373;">Tap 'Import Local Files & Folders' above to add media</p>
+      </div>
+    `;
+    return;
   }
+
+  list.forEach(media => {
+    const isVideo = media.type === 'tv' || (media.name && media.name.match(/\.(mp4|mkv|mov|webm|avi)$/i));
+    const item = document.createElement('div');
+    item.className = 'local-file-item';
+    
+    const thumbHtml = media.thumbUrl 
+      ? `<img src="${media.thumbUrl}" alt="${media.name}" loading="lazy">`
+      : `<span style="font-size: 24px;">${isVideo ? '🎬' : '🎵'}</span>`;
+
+    item.innerHTML = `
+      <div class="local-thumb-container">
+        ${thumbHtml}
+        <span class="local-duration-badge">${media.duration || (isVideo ? 'VIDEO' : 'AUDIO')}</span>
+      </div>
+      <div style="flex: 1; min-width: 0;">
+        <h4 style="font-size: 14px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${media.name}</h4>
+        <p style="font-size: 12px; color: #a3a3a3;">${media.quality || 'Local File'} • ${isVideo ? 'Video' : 'Audio Track'}</p>
+      </div>
+      <button class="icon-btn-plain" style="color: #E50914;" onclick="event.stopPropagation(); removeLocalMediaById('${media.id}')" title="Remove">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    `;
+    item.onclick = () => playChannel(media);
+    feed.appendChild(item);
+  });
 }
 
 // Local File Picker Event Handler
@@ -5601,6 +5602,7 @@ window.handleLocalFileSelected = async function(event) {
       url: fileUrl,
       thumbUrl: thumbDataUrl,
       duration: durationFormatted,
+      folder: isVideo ? 'movies' : 'music',
       isLocal: true
     };
 
@@ -6092,7 +6094,6 @@ function initPlayerSwipeGestures() {
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
 
-    // LEFT side = Brightness (20% to 150%), RIGHT side = Volume (0% to 100%)
     if (touchStartX < rect.width / 2) {
       activeGestureType = 'brightness';
       touchStartVal = currentBrightness;
