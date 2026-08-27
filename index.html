@@ -282,19 +282,27 @@
                 <p style="font-size: 13px; color: #8e9192;">Play offline videos & audio directly from your device storage</p>
             </div>
 
-            <!-- Action Card: Add Files / Folder -->
-            <section style="margin-bottom: 22px;">
-                <div class="obsidian-card" style="padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border-color: #E50914; background: rgba(229, 9, 20, 0.08);" onclick="document.getElementById('localFileInput').click()">
+            <!-- Action Cards: Auto-Scan & Import -->
+            <section style="margin-bottom: 22px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="obsidian-card" style="padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border-color: #E50914; background: rgba(229, 9, 20, 0.1);" onclick="autoScanDeviceMedia()">
                     <div style="display: flex; align-items: center; gap: 14px;">
                         <div style="width: 46px; height: 46px; border-radius: 12px; background: #E50914; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 16px rgba(229,9,20,0.5);">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
                         </div>
                         <div>
-                            <span style="font-size: 16px; font-weight: 700; color: #fff; display: block;">Import Local Files & Folders</span>
-                            <span style="font-size: 12px; color: #E50914;">Select .mp4, .mkv, .mp3, .wav from storage</span>
+                            <span style="font-size: 16px; font-weight: 700; color: #fff; display: block;">Auto-Scan Phone Storage</span>
+                            <span style="font-size: 12px; color: #E50914;" id="autoScanStatusText">Auto-find all videos & music on your device</span>
                         </div>
                     </div>
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#E50914"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    <span style="font-size: 13px; font-weight: 700; color: #E50914; background: rgba(229, 9, 20, 0.2); padding: 4px 10px; border-radius: 9999px;">SCAN</span>
+                </div>
+
+                <div class="obsidian-card" style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;" onclick="document.getElementById('localFileInput').click()">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 20px;">📁</span>
+                        <span style="font-size: 13px; font-weight: 600; color: #a3a3a3;">Or manually pick files from storage</span>
+                    </div>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="#a3a3a3"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
                 </div>
             </section>
 

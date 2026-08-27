@@ -2,11 +2,14 @@ package com.aakashstream.app;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentUris;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Build;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -14,13 +17,19 @@ import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
 import android.webkit.ConsoleMessage;
+import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.app.PictureInPictureParams;
 import android.util.Rational;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,6 +87,16 @@ public class MainActivity extends Activity {
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSIONS_REQUEST_CODE) {
+            if (webView != null) {
+                webView.post(() -> webView.evaluateJavascript("if (window.autoScanDeviceMedia) { window.autoScanDeviceMedia(); }", null));
+            }
+        }
+    }
+
     private void hideSystemUI() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             getWindow().setDecorFitsSystemWindows(false);
@@ -121,6 +140,8 @@ public class MainActivity extends Activity {
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
 
+        webView.addJavascriptInterface(new AndroidMediaBridge(), "AndroidMedia");
+
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
@@ -148,7 +169,6 @@ public class MainActivity extends Activity {
                 try {
                     startActivityForResult(intent, FILE_CHOOSER_REQUEST_CODE);
                 } catch (Exception e) {
-                    // Fallback to GET_CONTENT
                     try {
                         Intent fallback = new Intent(Intent.ACTION_GET_CONTENT);
                         fallback.addCategory(Intent.CATEGORY_OPENABLE);
@@ -173,7 +193,167 @@ public class MainActivity extends Activity {
                 }
                 return true;
             }
+
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                Uri uri = request.getUrl();
+                if (uri != null && "app.localmedia".equals(uri.getHost())) {
+                    try {
+                        String type = uri.getPath();
+                        String idStr = uri.getQueryParameter("id");
+                        if (idStr != null) {
+                            long id = Long.parseLong(idStr);
+                            Uri contentUri;
+                            String mime;
+                            if ("/video".equals(type)) {
+                                contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id);
+                                mime = "video/mp4";
+                            } else {
+                                contentUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
+                                mime = "audio/mpeg";
+                            }
+                            InputStream stream = getContentResolver().openInputStream(contentUri);
+                            if (stream != null) {
+                                return new WebResourceResponse(mime, "UTF-8", stream);
+                            }
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error streaming local media: " + e.getMessage());
+                    }
+                }
+                return super.shouldInterceptRequest(view, request);
+            }
         });
+    }
+
+    public class AndroidMediaBridge {
+        @JavascriptInterface
+        public String scanDeviceMedia() {
+            JSONArray arr = new JSONArray();
+            try {
+                // 1. Scan Videos
+                String[] videoProjection = {
+                        MediaStore.Video.Media._ID,
+                        MediaStore.Video.Media.DISPLAY_NAME,
+                        MediaStore.Video.Media.DURATION,
+                        MediaStore.Video.Media.SIZE,
+                        MediaStore.Video.Media.BUCKET_DISPLAY_NAME
+                };
+                Cursor vCursor = getContentResolver().query(
+                        MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
+                        videoProjection,
+                        null, null,
+                        MediaStore.Video.Media.DATE_ADDED + " DESC"
+                );
+                if (vCursor != null) {
+                    int idCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID);
+                    int nameCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media.DISPLAY_NAME);
+                    int durCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media.DURATION);
+                    int sizeCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media.SIZE);
+                    int bucketCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media.BUCKET_DISPLAY_NAME);
+
+                    while (vCursor.moveToNext()) {
+                        long id = vCursor.getLong(idCol);
+                        String name = vCursor.getString(nameCol);
+                        long durMs = vCursor.getLong(durCol);
+                        long sizeBytes = vCursor.getLong(sizeCol);
+                        String folder = vCursor.getString(bucketCol);
+                        if (folder == null || folder.isEmpty()) folder = "Videos";
+
+                        int mins = (int) (durMs / 1000 / 60);
+                        int secs = (int) ((durMs / 1000) % 60);
+                        String durFormatted = durMs > 0 ? (mins + ":" + (secs < 10 ? "0" : "") + secs) : "VIDEO";
+                        String sizeMb = String.format("%.1f MB", (double) sizeBytes / (1024 * 1024));
+
+                        JSONObject obj = new JSONObject();
+                        obj.put("id", "dev_video_" + id);
+                        obj.put("name", name != null ? name : "Local Video");
+                        obj.put("type", "tv");
+                        obj.put("country", "Local");
+                        obj.put("countryName", folder);
+                        obj.put("flag", "🎬");
+                        obj.put("category", "MP4 Video");
+                        obj.put("quality", "1080p • " + sizeMb);
+                        obj.put("description", "Device Storage: " + folder);
+                        obj.put("url", "https://app.localmedia/video?id=" + id);
+                        obj.put("duration", durFormatted);
+                        obj.put("folder", folder);
+                        obj.put("isLocal", true);
+                        arr.put(obj);
+                    }
+                    vCursor.close();
+                }
+
+                // 2. Scan Audio
+                String[] audioProjection = {
+                        MediaStore.Audio.Media._ID,
+                        MediaStore.Audio.Media.DISPLAY_NAME,
+                        MediaStore.Audio.Media.DURATION,
+                        MediaStore.Audio.Media.SIZE,
+                        MediaStore.Audio.Media.ARTIST,
+                        MediaStore.Audio.Media.BUCKET_DISPLAY_NAME
+                };
+                Cursor aCursor = getContentResolver().query(
+                        MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+                        audioProjection,
+                        MediaStore.Audio.Media.IS_MUSIC + "!= 0", null,
+                        MediaStore.Audio.Media.DATE_ADDED + " DESC"
+                );
+                if (aCursor != null) {
+                    int idCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media._ID);
+                    int nameCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME);
+                    int durCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION);
+                    int sizeCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE);
+                    int artistCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST);
+                    int bucketCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.BUCKET_DISPLAY_NAME);
+
+                    while (aCursor.moveToNext()) {
+                        long id = aCursor.getLong(idCol);
+                        String name = aCursor.getString(nameCol);
+                        long durMs = aCursor.getLong(durCol);
+                        long sizeBytes = aCursor.getLong(sizeCol);
+                        String artist = aCursor.getString(artistCol);
+                        String folder = aCursor.getString(bucketCol);
+                        if (folder == null || folder.isEmpty()) folder = "Music";
+
+                        int mins = (int) (durMs / 1000 / 60);
+                        int secs = (int) ((durMs / 1000) % 60);
+                        String durFormatted = durMs > 0 ? (mins + ":" + (secs < 10 ? "0" : "") + secs) : "AUDIO";
+                        String sizeMb = String.format("%.1f MB", (double) sizeBytes / (1024 * 1024));
+
+                        JSONObject obj = new JSONObject();
+                        obj.put("id", "dev_audio_" + id);
+                        obj.put("name", name != null ? name : "Local Audio");
+                        obj.put("type", "radio");
+                        obj.put("country", "Local");
+                        obj.put("countryName", folder);
+                        obj.put("flag", "🎵");
+                        obj.put("category", (artist != null && !artist.contains("unknown")) ? artist : "MP3 Audio");
+                        obj.put("quality", "Audio • " + sizeMb);
+                        obj.put("description", "Device Storage: " + folder);
+                        obj.put("url", "https://app.localmedia/audio?id=" + id);
+                        obj.put("duration", durFormatted);
+                        obj.put("folder", folder);
+                        obj.put("isLocal", true);
+                        arr.put(obj);
+                    }
+                    aCursor.close();
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Error scanning device media: " + e.getMessage());
+            }
+            return arr.toString();
+        }
+
+        @JavascriptInterface
+        public boolean isAndroidBridge() {
+            return true;
+        }
+
+        @JavascriptInterface
+        public void requestStoragePermission() {
+            runOnUiThread(() -> checkAndRequestPermissions());
+        }
     }
 
     @Override

@@ -5074,6 +5074,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   updateCCUI();
   await loadDatabase();
   renderAllPages();
+  setTimeout(() => { autoScanDeviceMedia(); }, 300);
   loadSettingsUI();
   startHeroRotator();
 
@@ -5470,9 +5471,35 @@ window.playLiveChannelById = function(channelId) {
 };
 
 // ==========================================================
-// 4. LOCAL MEDIA LIBRARY (FOLDER-WISE BROWSER & PLAYER)
+// 4. LOCAL MEDIA LIBRARY (AUTO-SCAN & DYNAMIC FOLDERS)
 // ==========================================================
 let currentLocalFolder = 'all';
+let detectedFolderNames = ['all', 'movies', 'music', 'downloads'];
+
+window.autoScanDeviceMedia = function() {
+  const statusText = document.getElementById('autoScanStatusText');
+  if (window.AndroidMedia && window.AndroidMedia.scanDeviceMedia) {
+    if (statusText) statusText.textContent = 'Scanning storage for videos & music...';
+    try {
+      const rawJson = window.AndroidMedia.scanDeviceMedia();
+      const files = JSON.parse(rawJson || '[]');
+      if (files && files.length > 0) {
+        customLocalMedia = files;
+        localStorage.setItem('aakash_local_media', JSON.stringify(files.slice(0, 100).map(m => ({ ...m, url: m.url }))));
+        if (statusText) statusText.textContent = 'Found ' + files.length + ' videos & songs on device!';
+        showToast('✅ Found ' + files.length + ' local media files!');
+      } else {
+        if (statusText) statusText.textContent = 'No media found or permission needed. Tap to scan.';
+        window.AndroidMedia.requestStoragePermission();
+      }
+    } catch (e) {
+      if (statusText) statusText.textContent = 'Auto-scan complete';
+    }
+  } else {
+    if (statusText) statusText.textContent = 'Device Media Scanner ready';
+  }
+  renderLocalPage();
+};
 
 window.selectLocalFolder = function(folderKey, cardEl) {
   currentLocalFolder = folderKey;
@@ -5482,24 +5509,75 @@ window.selectLocalFolder = function(folderKey, cardEl) {
 };
 
 function renderLocalPage() {
-  updateLocalFolderCounts();
+  updateDynamicFolderCards();
   renderLocalFolderFeed();
 }
 
-function updateLocalFolderCounts() {
-  const countAll = document.getElementById('folderCountAll');
-  const countVideos = document.getElementById('folderCountVideos');
-  const countMusic = document.getElementById('folderCountMusic');
-  const countDownloads = document.getElementById('folderCountDownloads');
+function updateDynamicFolderCards() {
+  const grid = document.getElementById('localFoldersGrid');
+  if (!grid) return;
 
   const vFiles = customLocalMedia.filter(m => m.type === 'tv' || (m.name && m.name.match(/\.(mp4|mkv|mov|webm|avi)$/i)));
   const aFiles = customLocalMedia.filter(m => m.type === 'radio' || (m.name && m.name.match(/\.(mp3|m4a|wav|aac|flac)$/i)));
-  const dFiles = customLocalMedia.filter(m => m.folder === 'downloads');
 
-  if (countAll) countAll.textContent = customLocalMedia.length + ' files';
-  if (countVideos) countVideos.textContent = vFiles.length + ' videos';
-  if (countMusic) countMusic.textContent = aFiles.length + ' songs';
-  if (countDownloads) countDownloads.textContent = dFiles.length + ' items';
+  // Extract unique folder names from customLocalMedia
+  const folderMap = {};
+  customLocalMedia.forEach(m => {
+    const f = m.folder || 'Other';
+    folderMap[f] = (folderMap[f] || 0) + 1;
+  });
+
+  let folderCardsHtml = `
+    <div class="folder-card-item ${currentLocalFolder === 'all' ? 'active' : ''}" onclick="selectLocalFolder('all', this)">
+      <div class="folder-icon-circle" style="background: rgba(229, 9, 20, 0.15); color: #E50914;">📂</div>
+      <div class="folder-card-meta">
+        <h4 class="folder-name">All Media</h4>
+        <p class="folder-count">${customLocalMedia.length} files</p>
+      </div>
+    </div>
+
+    <div class="folder-card-item ${currentLocalFolder === 'movies' ? 'active' : ''}" onclick="selectLocalFolder('movies', this)">
+      <div class="folder-icon-circle" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">🎬</div>
+      <div class="folder-card-meta">
+        <h4 class="folder-name">All Videos</h4>
+        <p class="folder-count">${vFiles.length} videos</p>
+      </div>
+    </div>
+
+    <div class="folder-card-item ${currentLocalFolder === 'music' ? 'active' : ''}" onclick="selectLocalFolder('music', this)">
+      <div class="folder-icon-circle" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">🎵</div>
+      <div class="folder-card-meta">
+        <h4 class="folder-name">All Music</h4>
+        <p class="folder-count">${aFiles.length} songs</p>
+      </div>
+    </div>
+  `;
+
+  // Add individual detected folders
+  const colors = [
+    { bg: 'rgba(234, 179, 8, 0.15)', fg: '#facc15', icon: '📁' },
+    { bg: 'rgba(168, 85, 247, 0.15)', fg: '#c084fc', icon: '📸' },
+    { bg: 'rgba(236, 72, 153, 0.15)', fg: '#f472b6', icon: '💬' },
+    { bg: 'rgba(20, 184, 166, 0.15)', fg: '#2dd4bf', icon: '📥' }
+  ];
+
+  let cIdx = 0;
+  for (const [folderName, count] of Object.entries(folderMap)) {
+    if (folderName.toLowerCase() === 'movies' || folderName.toLowerCase() === 'music') continue;
+    const color = colors[cIdx % colors.length];
+    cIdx++;
+    folderCardsHtml += `
+      <div class="folder-card-item ${currentLocalFolder === folderName ? 'active' : ''}" onclick="selectLocalFolder('${folderName.replace(/'/g, "\'")}', this)">
+        <div class="folder-icon-circle" style="background: ${color.bg}; color: ${color.fg};">${color.icon}</div>
+        <div class="folder-card-meta">
+          <h4 class="folder-name">${folderName}</h4>
+          <p class="folder-count">${count} items</p>
+        </div>
+      </div>
+    `;
+  }
+
+  grid.innerHTML = folderCardsHtml;
 }
 
 function renderLocalFolderFeed() {
@@ -5513,13 +5591,13 @@ function renderLocalFolderFeed() {
 
   if (currentLocalFolder === 'movies') {
     list = customLocalMedia.filter(m => m.type === 'tv' || (m.name && m.name.match(/\.(mp4|mkv|mov|webm|avi)$/i)));
-    titleText = '🎬 Movies & Videos (' + list.length + ')';
+    titleText = '🎬 All Video Files (' + list.length + ')';
   } else if (currentLocalFolder === 'music') {
     list = customLocalMedia.filter(m => m.type === 'radio' || (m.name && m.name.match(/\.(mp3|m4a|wav|aac|flac)$/i)));
-    titleText = '🎵 Music & Songs (' + list.length + ')';
-  } else if (currentLocalFolder === 'downloads') {
-    list = customLocalMedia.filter(m => m.folder === 'downloads');
-    titleText = '📥 Downloads Folder (' + list.length + ')';
+    titleText = '🎵 All Music & Songs (' + list.length + ')';
+  } else if (currentLocalFolder !== 'all') {
+    list = customLocalMedia.filter(m => m.folder === currentLocalFolder);
+    titleText = '📁 ' + currentLocalFolder + ' (' + list.length + ')';
   } else {
     titleText = '📂 All Media Files (' + list.length + ')';
   }
@@ -5530,8 +5608,8 @@ function renderLocalFolderFeed() {
     feed.innerHTML = `
       <div style="text-align: center; padding: 40px 16px; color: #a3a3a3;">
         <div style="font-size: 32px; margin-bottom: 8px;">📂</div>
-        <p style="font-size: 14px; font-weight: 600; color: #fff;">This folder is empty</p>
-        <p style="font-size: 12px; color: #737373;">Tap 'Import Local Files & Folders' above to add media</p>
+        <p style="font-size: 14px; font-weight: 600; color: #fff;">No media in this folder</p>
+        <p style="font-size: 12px; color: #737373;">Tap 'Auto-Scan Phone Storage' to refresh</p>
       </div>
     `;
     return;
@@ -5553,7 +5631,7 @@ function renderLocalFolderFeed() {
       </div>
       <div style="flex: 1; min-width: 0;">
         <h4 style="font-size: 14px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${media.name}</h4>
-        <p style="font-size: 12px; color: #a3a3a3;">${media.quality || 'Local File'} • ${isVideo ? 'Video' : 'Audio Track'}</p>
+        <p style="font-size: 12px; color: #a3a3a3;">${media.countryName || media.folder || 'Storage'} • ${media.quality || 'Local File'}</p>
       </div>
       <button class="icon-btn-plain" style="color: #E50914;" onclick="event.stopPropagation(); removeLocalMediaById('${media.id}')" title="Remove">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
@@ -5698,6 +5776,7 @@ window.toggleFav = function(e, channelId) {
   }
   localStorage.setItem('aakash_favs', JSON.stringify(favorites));
   renderAllPages();
+  setTimeout(() => { autoScanDeviceMedia(); }, 300);
   updateFavIconUI();
 };
 
@@ -6214,6 +6293,7 @@ window.clearAppData = function() {
   recentChannels = [];
   customLocalMedia = DEFAULT_LOCAL_MEDIA;
   renderAllPages();
+  setTimeout(() => { autoScanDeviceMedia(); }, 300);
   showToast('Cache & Recents Cleared!');
   closeSettingsModal();
 };
