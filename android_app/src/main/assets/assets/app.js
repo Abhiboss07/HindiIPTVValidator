@@ -6072,7 +6072,7 @@ function initPlayerOverlayEvents() {
 }
 
 // ==========================================================
-// SWIPE GESTURE ENGINE (Left = Volume, Right = Brightness)
+// SWIPE GESTURE ENGINE (Left = Brightness, Right = Volume)
 // ==========================================================
 function initPlayerSwipeGestures() {
   const playerModal = document.getElementById('playerModal');
@@ -6092,13 +6092,15 @@ function initPlayerSwipeGestures() {
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
 
-    // Determine left (Volume) or right (Brightness)
+    // LEFT side = Brightness (20% to 150%), RIGHT side = Volume (0% to 100%)
     if (touchStartX < rect.width / 2) {
-      activeGestureType = 'volume';
-      touchStartVal = videoElement ? Math.round(videoElement.volume * 100) : currentVolume;
-    } else {
       activeGestureType = 'brightness';
       touchStartVal = currentBrightness;
+      if (hud) hud.className = 'player-swipe-hud-pill hud-left';
+    } else {
+      activeGestureType = 'volume';
+      touchStartVal = videoElement ? Math.round(videoElement.volume * 100) : currentVolume;
+      if (hud) hud.className = 'player-swipe-hud-pill hud-right';
     }
   }, { passive: true });
 
@@ -6110,7 +6112,17 @@ function initPlayerSwipeGestures() {
 
     clearTimeout(hudHideTimeout);
 
-    if (activeGestureType === 'volume') {
+    if (activeGestureType === 'brightness') {
+      currentBrightness = Math.max(20, Math.min(150, Math.round(touchStartVal + deltaY * sensitivity)));
+      if (videoElement) {
+        videoElement.style.filter = 'brightness(' + (currentBrightness / 100) + ')';
+      }
+      const normPct = Math.round(((currentBrightness - 20) / 130) * 100);
+      if (hudIcon) hudIcon.textContent = '☀️';
+      if (hudTitle) hudTitle.textContent = 'Brightness';
+      if (hudPct) hudPct.textContent = currentBrightness + '%';
+      if (hudFill) hudFill.style.width = normPct + '%';
+    } else if (activeGestureType === 'volume') {
       currentVolume = Math.max(0, Math.min(100, Math.round(touchStartVal + deltaY * sensitivity)));
       if (videoElement) {
         videoElement.volume = currentVolume / 100;
@@ -6122,16 +6134,6 @@ function initPlayerSwipeGestures() {
       if (hudTitle) hudTitle.textContent = 'Volume';
       if (hudPct) hudPct.textContent = currentVolume + '%';
       if (hudFill) hudFill.style.width = currentVolume + '%';
-    } else if (activeGestureType === 'brightness') {
-      currentBrightness = Math.max(20, Math.min(150, Math.round(touchStartVal + deltaY * sensitivity)));
-      if (videoElement) {
-        videoElement.style.filter = 'brightness(' + (currentBrightness / 100) + ')';
-      }
-      const normPct = Math.round(((currentBrightness - 20) / 130) * 100);
-      if (hudIcon) hudIcon.textContent = '☀️';
-      if (hudTitle) hudTitle.textContent = 'Brightness';
-      if (hudPct) hudPct.textContent = currentBrightness + '%';
-      if (hudFill) hudFill.style.width = normPct + '%';
     }
 
     if (hud) hud.classList.add('active');
