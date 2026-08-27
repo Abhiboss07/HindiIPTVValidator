@@ -1826,6 +1826,15 @@ html, body {
   right: 24px;
 }
 
+.player-swipe-hud-pill.hud-center {
+  left: 50% !important;
+  transform: translate(-50%, -50%) translateZ(0) scale(0.95) !important;
+}
+
+.player-swipe-hud-pill.hud-center.active {
+  transform: translate(-50%, -50%) translateZ(0) scale(1) !important;
+}
+
 .player-swipe-hud-pill.active {
   opacity: 1;
   transform: translateY(-50%) scale(1);

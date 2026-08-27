@@ -6258,9 +6258,26 @@ function initPlayerOverlayEvents() {
 }
 
 // ==========================================================
-// 60/120FPS GPU-ACCELERATED SWIPE GESTURE ENGINE
+// DUAL-AXIS CINEMATIC SWIPE GESTURES:
+// Horizontal = Seek Forward / Backward (⏩ / ⏪)
+// Left Vertical = Brightness (☀️)
+// Right Vertical = Volume (🔊)
 // ==========================================================
 let rafSwipePending = false;
+let targetSeekTime = 0;
+let isSeekingGesture = false;
+
+function formatSeekTime(secs) {
+  if (isNaN(secs) || secs < 0) secs = 0;
+  const m = Math.floor(secs / 60);
+  const s = Math.floor(secs % 60);
+  const h = Math.floor(m / 60);
+  const remM = m % 60;
+  if (h > 0) {
+    return h + ':' + (remM < 10 ? '0' : '') + remM + ':' + (s < 10 ? '0' : '') + s;
+  }
+  return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+}
 
 function initPlayerSwipeGestures() {
   const playerModal = document.getElementById('playerModal');
@@ -6275,33 +6292,49 @@ function initPlayerSwipeGestures() {
   playerModal.addEventListener('touchstart', (e) => {
     if (isPlayerLocked || e.touches.length !== 1) return;
     const touch = e.touches[0];
-    const rect = playerModal.getBoundingClientRect();
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
-
-    if (touchStartX < rect.width / 2) {
-      activeGestureType = 'brightness';
-      touchStartVal = currentBrightness;
-      if (hud) hud.className = 'player-swipe-hud-pill hud-left';
-    } else {
-      activeGestureType = 'volume';
-      if (window.AndroidMedia && window.AndroidMedia.getSystemVolume) {
-        touchStartVal = window.AndroidMedia.getSystemVolume();
-      } else {
-        const videoElement = document.getElementById('luminaVideo');
-        touchStartVal = videoElement ? Math.round(videoElement.volume * 100) : currentVolume;
-      }
-      if (hud) hud.className = 'player-swipe-hud-pill hud-right';
-    }
+    activeGestureType = null;
+    isSeekingGesture = false;
+    targetSeekTime = 0;
   }, { passive: true });
 
   playerModal.addEventListener('touchmove', (e) => {
-    if (!activeGestureType || isPlayerLocked || e.touches.length !== 1) return;
-    e.preventDefault();
+    if (isPlayerLocked || e.touches.length !== 1) return;
     const touch = e.touches[0];
-    const deltaY = touchStartY - touch.clientY;
-    const sensitivity = 0.45;
+    const dx = touch.clientX - touchStartX;
+    const dy = touchStartY - touch.clientY;
+    const rect = playerModal.getBoundingClientRect();
+    const videoElement = document.getElementById('luminaVideo');
 
+    // 1. Identify gesture axis on initial threshold
+    if (!activeGestureType) {
+      if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) {
+        // Horizontal Swipe -> Seeking
+        activeGestureType = 'seek';
+        isSeekingGesture = true;
+        touchStartVal = videoElement ? videoElement.currentTime : 0;
+        if (hud) hud.className = 'player-swipe-hud-pill hud-center';
+      } else if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) {
+        // Vertical Swipe -> Left (Brightness) or Right (Volume)
+        if (touchStartX < rect.width / 2) {
+          activeGestureType = 'brightness';
+          touchStartVal = currentBrightness;
+          if (hud) hud.className = 'player-swipe-hud-pill hud-left';
+        } else {
+          activeGestureType = 'volume';
+          if (window.AndroidMedia && window.AndroidMedia.getSystemVolume) {
+            touchStartVal = window.AndroidMedia.getSystemVolume();
+          } else {
+            touchStartVal = videoElement ? Math.round(videoElement.volume * 100) : currentVolume;
+          }
+          if (hud) hud.className = 'player-swipe-hud-pill hud-right';
+        }
+      }
+    }
+
+    if (!activeGestureType) return;
+    e.preventDefault();
     clearTimeout(hudHideTimeout);
 
     if (!rafSwipePending) {
@@ -6310,8 +6343,33 @@ function initPlayerSwipeGestures() {
         rafSwipePending = false;
         if (!activeGestureType) return;
 
-        if (activeGestureType === 'brightness') {
-          currentBrightness = Math.max(20, Math.min(150, Math.round(touchStartVal + deltaY * sensitivity)));
+        // A. Horizontal Seeking
+        if (activeGestureType === 'seek') {
+          const duration = videoElement && videoElement.duration && !isNaN(videoElement.duration) && videoElement.duration !== Infinity 
+            ? videoElement.duration 
+            : 0;
+
+          // Scale seek step based on swipe distance (up to +-120s or proportional)
+          const seekRange = duration > 0 ? Math.min(300, duration * 0.4) : 90;
+          const seekOffset = (dx / (rect.width * 0.7)) * seekRange;
+          
+          targetSeekTime = Math.max(0, touchStartVal + seekOffset);
+          if (duration > 0 && targetSeekTime > duration) targetSeekTime = duration;
+
+          const diffSecs = targetSeekTime - touchStartVal;
+          const isFwd = diffSecs >= 0;
+
+          if (hudIcon) hudIcon.textContent = isFwd ? '⏩' : '⏪';
+          if (hudTitle) {
+            hudTitle.textContent = (isFwd ? '+' : '') + Math.round(diffSecs) + 's (' + formatSeekTime(targetSeekTime) + ')';
+          }
+          if (hudPct) {
+            hudPct.textContent = duration > 0 ? formatSeekTime(duration) : 'SEEK';
+          }
+
+        // B. Left Vertical Brightness
+        } else if (activeGestureType === 'brightness') {
+          currentBrightness = Math.max(20, Math.min(150, Math.round(touchStartVal + dy * 0.45)));
           
           if (brightOverlay) {
             if (currentBrightness < 100) {
@@ -6326,13 +6384,13 @@ function initPlayerSwipeGestures() {
           if (hudTitle) hudTitle.textContent = 'Brightness';
           if (hudPct) hudPct.textContent = currentBrightness + '%';
 
+        // C. Right Vertical Volume
         } else if (activeGestureType === 'volume') {
-          currentVolume = Math.max(0, Math.min(100, Math.round(touchStartVal + deltaY * sensitivity)));
+          currentVolume = Math.max(0, Math.min(100, Math.round(touchStartVal + dy * 0.45)));
           
           if (window.AndroidMedia && window.AndroidMedia.setSystemVolume) {
             window.AndroidMedia.setSystemVolume(currentVolume);
           }
-          const videoElement = document.getElementById('luminaVideo');
           if (videoElement) {
             videoElement.volume = currentVolume / 100;
             if (videoElement.muted && currentVolume > 0) videoElement.muted = false;
@@ -6349,7 +6407,19 @@ function initPlayerSwipeGestures() {
 
   playerModal.addEventListener('touchend', () => {
     if (!activeGestureType) return;
+    
+    // If seek gesture finished, apply the target seek position
+    if (activeGestureType === 'seek') {
+      const videoElement = document.getElementById('luminaVideo');
+      if (videoElement && targetSeekTime >= 0) {
+        try {
+          videoElement.currentTime = targetSeekTime;
+        } catch (e) {}
+      }
+    }
+
     activeGestureType = null;
+    isSeekingGesture = false;
     hudHideTimeout = setTimeout(() => {
       if (hud) hud.classList.remove('active');
     }, 1100);
