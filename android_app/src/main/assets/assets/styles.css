@@ -1919,63 +1919,71 @@ html, body {
 }
 
 /* ==========================================================
-   LOCAL MEDIA FOLDER-WISE VIEW & OPTIMIZATIONS
+   LOCAL MEDIA FOLDER-WISE VIEW & COMPACT RESPONSIVE CARDS
    ========================================================== */
 .local-folders-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-bottom: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+  width: 100%;
 }
 
 .folder-card-item {
   background: var(--surface);
   border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  padding: 14px;
+  border-radius: 12px;
+  padding: 10px 10px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
 .folder-card-item:active, .folder-card-item.active {
   background: rgba(35, 35, 35, 0.95);
   border-color: var(--accent-red);
   transform: scale(0.98);
-  box-shadow: 0 4px 16px rgba(229, 9, 20, 0.2);
+  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.25);
 }
 
 .folder-icon-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 17px;
   flex-shrink: 0;
 }
 
 .folder-card-meta {
   min-width: 0;
   flex: 1;
+  overflow: hidden;
 }
 
 .folder-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: #FFFFFF;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 .folder-count {
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .local-files-feed-container {
