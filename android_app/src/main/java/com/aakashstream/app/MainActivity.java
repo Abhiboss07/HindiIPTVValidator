@@ -68,6 +68,9 @@ public class MainActivity extends Activity {
         hideSystemUI();
 
         webView = findViewById(R.id.webView);
+        webView.setVerticalScrollBarEnabled(false);
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         setupWebView();
         webView.loadUrl("file:///android_asset/index.html");
     }

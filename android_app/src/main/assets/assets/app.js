@@ -5604,7 +5604,7 @@ function renderLocalFolderFeed() {
 
   if (list.length === 0) {
     feed.innerHTML = `
-      <div style="text-align: center; padding: 40px 16px; color: #a3a3a3;">
+      <div style="grid-column: 1 / -1; text-align: center; padding: 40px 16px; color: #a3a3a3;">
         <div style="font-size: 32px; margin-bottom: 8px;">📂</div>
         <p style="font-size: 14px; font-weight: 600; color: #fff;">No media in this folder</p>
         <p style="font-size: 12px; color: #737373;">Tap 'Auto-Scan Phone Storage' to refresh</p>
@@ -5615,28 +5615,25 @@ function renderLocalFolderFeed() {
 
   list.forEach(media => {
     const isVideo = media.type === 'tv' || (media.name && media.name.match(/\.(mp4|mkv|mov|webm|avi)$/i));
-    const item = document.createElement('div');
-    item.className = 'local-file-item';
+    const card = document.createElement('div');
+    card.className = 'local-grid-card';
     
     const thumbHtml = media.thumbUrl 
       ? `<img src="${media.thumbUrl}" alt="${media.name}" loading="lazy">`
-      : `<span style="font-size: 24px;">${isVideo ? '🎬' : '🎵'}</span>`;
+      : `<span style="font-size: 32px;">${isVideo ? '🎬' : '🎵'}</span>`;
 
-    item.innerHTML = `
-      <div class="local-thumb-container">
+    card.innerHTML = `
+      <div class="local-grid-thumb-box">
         ${thumbHtml}
-        <span class="local-duration-badge">${media.duration || (isVideo ? 'VIDEO' : 'AUDIO')}</span>
+        <span class="local-grid-badge">${media.duration || (isVideo ? 'VIDEO' : 'AUDIO')}</span>
       </div>
-      <div style="flex: 1; min-width: 0;">
-        <h4 style="font-size: 14px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${media.name}</h4>
-        <p style="font-size: 12px; color: #a3a3a3;">${media.countryName || media.folder || 'Storage'} • ${media.quality || 'Local File'}</p>
+      <div class="local-grid-info">
+        <h4 class="local-grid-title" title="${media.name}">${media.name}</h4>
+        <div class="local-grid-meta">${media.countryName || media.folder || 'Storage'} • ${media.quality || (isVideo ? '1080p' : 'Audio')}</div>
       </div>
-      <button class="icon-btn-plain" style="color: #E50914;" onclick="event.stopPropagation(); removeLocalMediaById('${media.id}')" title="Remove">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-      </button>
     `;
-    item.onclick = () => playChannel(media);
-    feed.appendChild(item);
+    card.onclick = () => playChannel(media);
+    feed.appendChild(card);
   });
 }
 
@@ -6223,6 +6220,7 @@ function initPlayerSwipeGestures() {
   }, { passive: true });
 
   playerModal.addEventListener('touchmove', (e) => {
+    if (activeGestureType) e.preventDefault();
     if (!activeGestureType || isPlayerLocked || e.touches.length !== 1) return;
     const touch = e.touches[0];
     const deltaY = touchStartY - touch.clientY;
