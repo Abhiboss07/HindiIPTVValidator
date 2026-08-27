@@ -386,18 +386,14 @@
         <div class="player-doubletap-zone right-zone" ondblclick="skipTime(10)"></div>
 
         <!-- Lock Mode Floating Overlay Pill -->
-        <!-- Dynamic Swipe HUD Indicator (Left = Volume, Right = Brightness) -->
+        <!-- Dynamic Swipe HUD Indicator (Clean Badge without track slider) -->
         <div id="playerSwipeHud" class="player-swipe-hud-pill">
             <span id="playerSwipeHudIcon" class="player-swipe-icon">🔊</span>
-            <div class="player-swipe-info">
-                <div class="player-swipe-label-row">
-                    <span id="playerSwipeHudTitle">Volume</span>
-                    <span id="playerSwipeHudPct">100%</span>
-                </div>
-                <div class="player-swipe-hud-track">
-                    <div id="playerSwipeHudFill" class="player-swipe-hud-fill" style="width: 100%;"></div>
-                </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span id="playerSwipeHudTitle" style="font-size: 13px; font-weight: 700; color: #FFFFFF;">Volume</span>
+                <span id="playerSwipeHudPct" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: #E50914;">100%</span>
             </div>
+        </div>
         </div>
 
         <div id="playerLockOverlay" class="player-lock-pill" onclick="togglePlayerLock()" style="display: none;">

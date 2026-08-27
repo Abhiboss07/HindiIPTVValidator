@@ -6201,7 +6201,7 @@ function initPlayerSwipeGestures() {
       if (hudIcon) hudIcon.textContent = '☀️';
       if (hudTitle) hudTitle.textContent = 'Brightness';
       if (hudPct) hudPct.textContent = currentBrightness + '%';
-      if (hudFill) hudFill.style.width = normPct + '%';
+      
     } else if (activeGestureType === 'volume') {
       currentVolume = Math.max(0, Math.min(100, Math.round(touchStartVal + deltaY * sensitivity)));
       if (videoElement) {
@@ -6213,7 +6213,7 @@ function initPlayerSwipeGestures() {
       if (hudIcon) hudIcon.textContent = currentVolume === 0 ? '🔇' : (currentVolume > 50 ? '🔊' : '🔉');
       if (hudTitle) hudTitle.textContent = 'Volume';
       if (hudPct) hudPct.textContent = currentVolume + '%';
-      if (hudFill) hudFill.style.width = currentVolume + '%';
+      
     }
 
     if (hud) hud.classList.add('active');
