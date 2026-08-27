@@ -6,6 +6,8 @@ import android.content.ContentUris;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.content.Context;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Build;
@@ -40,6 +42,7 @@ public class MainActivity extends Activity {
 
     private WebView webView;
     private ValueCallback<Uri[]> filePathCallback;
+    private AudioManager audioManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,7 @@ public class MainActivity extends Activity {
         }
 
         setContentView(R.layout.activity_main);
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         checkAndRequestPermissions();
         hideSystemUI();
@@ -343,6 +347,36 @@ public class MainActivity extends Activity {
                 Log.e(TAG, "Error scanning device media: " + e.getMessage());
             }
             return arr.toString();
+        }
+
+        @JavascriptInterface
+        public void setSystemVolume(int percent) {
+            if (audioManager != null) {
+                try {
+                    int max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+                    int target = Math.round((percent / 100.0f) * max);
+                    target = Math.max(0, Math.min(max, target));
+                    audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, target, 0);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error setting system volume: " + e.getMessage());
+                }
+            }
+        }
+
+        @JavascriptInterface
+        public int getSystemVolume() {
+            if (audioManager != null) {
+                try {
+                    int current = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+                    int max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+                    if (max > 0) {
+                        return Math.round((current / (float) max) * 100);
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Error getting system volume: " + e.getMessage());
+                }
+            }
+            return 100;
         }
 
         @JavascriptInterface

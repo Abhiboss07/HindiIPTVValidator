@@ -6179,7 +6179,11 @@ function initPlayerSwipeGestures() {
       if (hud) hud.className = 'player-swipe-hud-pill hud-left';
     } else {
       activeGestureType = 'volume';
-      touchStartVal = videoElement ? Math.round(videoElement.volume * 100) : currentVolume;
+      if (window.AndroidMedia && window.AndroidMedia.getSystemVolume) {
+        touchStartVal = window.AndroidMedia.getSystemVolume();
+      } else {
+        touchStartVal = videoElement ? Math.round(videoElement.volume * 100) : currentVolume;
+      }
       if (hud) hud.className = 'player-swipe-hud-pill hud-right';
     }
   }, { passive: true });
@@ -6204,6 +6208,9 @@ function initPlayerSwipeGestures() {
       
     } else if (activeGestureType === 'volume') {
       currentVolume = Math.max(0, Math.min(100, Math.round(touchStartVal + deltaY * sensitivity)));
+      if (window.AndroidMedia && window.AndroidMedia.setSystemVolume) {
+        window.AndroidMedia.setSystemVolume(currentVolume);
+      }
       if (videoElement) {
         videoElement.volume = currentVolume / 100;
         if (videoElement.muted && currentVolume > 0) {
