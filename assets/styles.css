@@ -1075,29 +1075,7 @@ html, body {
   box-shadow: 0 0 10px var(--accent-red-glow);
 }
 
-/* Docked Mini Player (Positioned above bottom bar) */
-.obsidian-mini-dock {
-  position: fixed;
-  bottom: 84px;
-  left: 14px;
-  right: 14px;
-  background: rgba(24, 24, 24, 0.96);
-  border: 1px solid rgba(229, 9, 20, 0.35);
-  border-radius: 12px;
-  padding: 10px 14px;
-  display: none;
-  align-items: center;
-  gap: 12px;
-  z-index: 65;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-}
 
-.obsidian-mini-dock.active {
-  display: flex;
-}
 
 .mini-live-wave {
   display: flex;
@@ -1201,54 +1179,7 @@ html, body {
   transform: scale(0.92);
 }
 
-/* Full Width Bottom Navigation Bar */
-.obsidian-dock-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  background: rgba(16, 16, 16, 0.98);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0 4px;
-  z-index: 90;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.85);
-}
 
-.dock-tab-btn {
-  flex: 1;
-  height: 100%;
-  background: transparent;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  color: #8e9192;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  padding: 0;
-}
-
-.dock-icon-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-}
-
-.dock-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
 
 .dock-tab-btn svg {
   fill: #8e9192;
@@ -1550,4 +1481,95 @@ html, body {
 
 .video-fill {
   object-fit: fill !important;
+}
+
+/* ==========================================================
+   FLOATING TRANSPARENT GLASS DOCK & MINI PLAYER
+   ========================================================== */
+.obsidian-dock-nav {
+  position: fixed;
+  bottom: 16px;
+  left: 18px;
+  right: 18px;
+  height: 62px;
+  background: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 10px;
+  z-index: 90;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75);
+}
+
+.dock-tab-btn {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #a3a3a3;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 2px 0;
+}
+
+.dock-tab-btn svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.dock-tab-btn span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.dock-tab-btn.active {
+  color: var(--accent-red);
+}
+
+.dock-tab-btn.active svg {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.6));
+}
+
+.dock-tab-btn:active {
+  transform: scale(0.92);
+}
+
+/* Docked Mini Player Positioned smoothly above Floating Dock */
+.obsidian-mini-dock {
+  position: fixed;
+  bottom: 88px;
+  left: 16px;
+  right: 16px;
+  background: rgba(22, 22, 22, 0.88);
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  border-radius: 16px;
+  padding: 10px 14px;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  z-index: 85;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.obsidian-mini-dock.active {
+  display: flex;
+}
+
+.obsidian-main-container {
+  padding-bottom: 96px;
 }
