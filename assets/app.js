@@ -12922,7 +12922,12 @@ function updateFavIconUI() {
   const isFav = favorites.includes(currentPlayingChannel.id);
   const svg = document.getElementById('playerFavSvg');
   if (svg) {
-    svg.setAttribute('fill', isFav ? '#facc15' : '#a3a3a3');
+    if (typeof svg.setAttribute === 'function') {
+      svg.setAttribute('fill', isFav ? '#facc15' : '#FFFFFF');
+    }
+    if (svg.style) {
+      svg.style.fill = isFav ? '#facc15' : '#FFFFFF';
+    }
   }
 }
 
