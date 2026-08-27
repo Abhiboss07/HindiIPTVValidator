@@ -14,7 +14,12 @@ const FALLBACK_CHANNELS = [
     "quality": "1080p FHD",
     "description": "India's leading 24x7 Hindi national news channel with ground reports and prime-time debates.",
     "url": "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
-    "isFeatured": true
+    "isFeatured": true,
+    "backupUrls": [
+      "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
+      "https://aajtaklive-amd.akamaized.net/hls/live/2003835/aajtak/playlist.m3u8",
+      "https://live-aajtak.akamaized.net/hls/live/2003835/aajtak/master.m3u8"
+    ]
   },
   {
     "id": "abp-news",
@@ -27,7 +32,11 @@ const FALLBACK_CHANNELS = [
     "quality": "1080p FHD",
     "description": "Top Hindi national political coverage, investigative bulletins, and election reports.",
     "url": "https://abpnews.akamaized.net/hls/live/2040313/abpnews/playlist.m3u8",
-    "isFeatured": true
+    "isFeatured": true,
+    "backupUrls": [
+      "https://abpnews.akamaized.net/hls/live/2040313/abpnews/playlist.m3u8",
+      "https://abplive.akamaized.net/hls/live/2040313/abpnews/master.m3u8"
+    ]
   },
   {
     "id": "ndtv-india",
@@ -40,7 +49,11 @@ const FALLBACK_CHANNELS = [
     "quality": "1080p FHD",
     "description": "Credible national primetime debates, special documentaries, and economic analysis.",
     "url": "https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8",
-    "isFeatured": true
+    "isFeatured": true,
+    "backupUrls": [
+      "https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8",
+      "https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/live_1080p.m3u8"
+    ]
   },
   {
     "id": "india-tv",
@@ -53,7 +66,11 @@ const FALLBACK_CHANNELS = [
     "quality": "1080p FHD",
     "description": "Aap Ki Adalat, Superfast 200, and fast Hindi national breaking news bulletins.",
     "url": "https://indiatvnews.akamaized.net/hls/live/2040315/indiatv/playlist.m3u8",
-    "isFeatured": false
+    "isFeatured": false,
+    "backupUrls": [
+      "https://indiatvnews.akamaized.net/hls/live/2040315/indiatv/playlist.m3u8",
+      "https://indiatvlive-lh.akamaihd.net/i/indiatvlive_1@174989/master.m3u8"
+    ]
   },
   {
     "id": "zee-news",
@@ -105,7 +122,11 @@ const FALLBACK_CHANNELS = [
     "quality": "1080p FHD",
     "description": "Official public broadcaster of India with verified national governance bulletins.",
     "url": "https://ddnews.akamaized.net/hls/live/2040317/ddnews/master.m3u8",
-    "isFeatured": true
+    "isFeatured": true,
+    "backupUrls": [
+      "https://ddnews.akamaized.net/hls/live/2040317/ddnews/master.m3u8",
+      "https://ddnewslive.akamaized.net/hls/live/2040317/ddnews/playlist.m3u8"
+    ]
   },
   {
     "id": "dd-national",
@@ -534,7 +555,11 @@ const FALLBACK_CHANNELS = [
     "quality": "1080p FHD",
     "description": "Live views from the International Space Station (ISS), rocket launches, spacewalks, and deep space exploration.",
     "url": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
-    "isFeatured": true
+    "isFeatured": true,
+    "backupUrls": [
+      "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+      "https://nasa-i.akamaihd.net/hls/live/253565/NTV-Media/master.m3u8"
+    ]
   },
   {
     "id": "redbull-tv-us",
@@ -612,7 +637,11 @@ const FALLBACK_CHANNELS = [
     "quality": "1080p FHD",
     "description": "In-depth international news with award-winning global documentaries and Middle East coverage.",
     "url": "https://live-hls-web-aje.getaj.net/AJE/03.m3u8",
-    "isFeatured": false
+    "isFeatured": false,
+    "backupUrls": [
+      "https://live-hls-web-aje.getaj.net/AJE/03.m3u8",
+      "https://live-hls-web-aje.getaj.net/AJE/index.m3u8"
+    ]
   },
   {
     "id": "al-jazeera-ar",
@@ -5619,8 +5648,9 @@ function renderLocalFolderFeed() {
     card.className = 'local-grid-card';
     
     const thumbHtml = media.thumbUrl 
-      ? `<img src="${media.thumbUrl}" alt="${media.name}" loading="lazy">`
-      : `<span style="font-size: 32px;">${isVideo ? '🎬' : '🎵'}</span>`;
+      ? `<img src="${media.thumbUrl}" alt="${media.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+         <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; font-size: 32px; background: #202020;">${isVideo ? '🎬' : '🎵'}</div>`
+      : `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 32px; background: #202020;">${isVideo ? '🎬' : '🎵'}</div>`;
 
     card.innerHTML = `
       <div class="local-grid-thumb-box">
@@ -5794,7 +5824,10 @@ function updateFavIconUI() {
 // ==========================================================
 // 6. STREAM PLAYBACK ENGINE & RESTORED SLEEK MINI-PLAYER
 // ==========================================================
+let currentBackupIdx = 0;
+
 function playChannel(ch) {
+  currentBackupIdx = 0;
   loadChannelMedia(ch, true);
 }
 
@@ -5826,22 +5859,55 @@ function loadChannelMedia(ch, autoPlay) {
     hlsInstance = null;
   }
 
-  if (ch.url && ch.url.endsWith('.m3u8') && window.Hls && Hls.isSupported()) {
+  let streamUrl = ch.url;
+  if (ch.backupUrls && ch.backupUrls.length > 0 && currentBackupIdx < ch.backupUrls.length) {
+    streamUrl = ch.backupUrls[currentBackupIdx];
+  }
+
+  if (streamUrl && streamUrl.endsWith('.m3u8') && window.Hls && Hls.isSupported()) {
     hlsInstance = new Hls({
       enableWorker: true,
       lowLatencyMode: localStorage.getItem('aakash_low_latency') !== 'false',
-      backBufferLength: 30
+      backBufferLength: 30,
+      maxBufferLength: 60,
+      manifestLoadingMaxRetry: 3,
+      levelLoadingMaxRetry: 3
     });
-    hlsInstance.loadSource(ch.url);
+
+    hlsInstance.loadSource(streamUrl);
     hlsInstance.attachMedia(videoElement);
+
     hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
       if (autoPlay) {
         videoElement.play().catch(() => {});
         openFullPlayerModal();
       }
     });
-  } else if (ch.url) {
-    videoElement.src = ch.url;
+
+    hlsInstance.on(Hls.Events.ERROR, (event, data) => {
+      if (data.fatal) {
+        switch (data.type) {
+          case Hls.ErrorTypes.NETWORK_ERROR:
+            // Try backup stream mirror if available
+            if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
+              currentBackupIdx++;
+              showToast('Connecting backup stream mirror...');
+              loadChannelMedia(ch, true);
+            } else {
+              hlsInstance.startLoad();
+            }
+            break;
+          case Hls.ErrorTypes.MEDIA_ERROR:
+            hlsInstance.recoverMediaError();
+            break;
+          default:
+            hlsInstance.destroy();
+            break;
+        }
+      }
+    });
+  } else if (streamUrl) {
+    videoElement.src = streamUrl;
     if (autoPlay) {
       videoElement.play().catch(() => {});
       openFullPlayerModal();

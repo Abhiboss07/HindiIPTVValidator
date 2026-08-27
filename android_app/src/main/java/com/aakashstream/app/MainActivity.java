@@ -8,6 +8,11 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.content.Context;
 import android.media.AudioManager;
+import android.graphics.Bitmap;
+import android.media.MediaMetadataRetriever;
+import android.util.Size;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Build;
@@ -206,13 +211,58 @@ public class MainActivity extends Activity {
                 Uri uri = request.getUrl();
                 if (uri != null && "app.localmedia".equals(uri.getHost())) {
                     try {
-                        String type = uri.getPath();
+                        String path = uri.getPath();
                         String idStr = uri.getQueryParameter("id");
                         if (idStr != null) {
                             long id = Long.parseLong(idStr);
+                            
+                            // 1. Handle Thumbnail Requests
+                            if ("/thumb".equals(path)) {
+                                String mediaType = uri.getQueryParameter("type");
+                                if ("video".equals(mediaType)) {
+                                    Uri contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id);
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                                        try {
+                                            Bitmap thumb = getContentResolver().loadThumbnail(contentUri, new Size(320, 180), null);
+                                            if (thumb != null) {
+                                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                                thumb.compress(Bitmap.CompressFormat.JPEG, 75, baos);
+                                                return new WebResourceResponse("image/jpeg", "UTF-8", new ByteArrayInputStream(baos.toByteArray()));
+                                            }
+                                        } catch (Exception ignored) {}
+                                    }
+                                    
+                                    // Fallback to MediaMetadataRetriever
+                                    MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+                                    try {
+                                        mmr.setDataSource(MainActivity.this, contentUri);
+                                        Bitmap thumb = mmr.getFrameAtTime(1000000, MediaMetadataRetriever.OPTION_CLOSEST_SYNC);
+                                        if (thumb != null) {
+                                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                            thumb.compress(Bitmap.CompressFormat.JPEG, 75, baos);
+                                            mmr.release();
+                                            return new WebResourceResponse("image/jpeg", "UTF-8", new ByteArrayInputStream(baos.toByteArray()));
+                                        }
+                                        mmr.release();
+                                    } catch (Exception ignored) {}
+                                } else if ("audio".equals(mediaType)) {
+                                    Uri contentUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
+                                    MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+                                    try {
+                                        mmr.setDataSource(MainActivity.this, contentUri);
+                                        byte[] art = mmr.getEmbeddedPicture();
+                                        mmr.release();
+                                        if (art != null) {
+                                            return new WebResourceResponse("image/jpeg", "UTF-8", new ByteArrayInputStream(art));
+                                        }
+                                    } catch (Exception ignored) {}
+                                }
+                            }
+                            
+                            // 2. Handle Stream Playback Requests
                             Uri contentUri;
                             String mime;
-                            if ("/video".equals(type)) {
+                            if ("/video".equals(path)) {
                                 contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id);
                                 mime = "video/mp4";
                             } else {
@@ -283,6 +333,7 @@ public class MainActivity extends Activity {
                         obj.put("quality", "1080p • " + sizeMb);
                         obj.put("description", "Device Storage: " + folder);
                         obj.put("url", "https://app.localmedia/video?id=" + id);
+                        obj.put("thumbUrl", "https://app.localmedia/thumb?id=" + id + "&type=video");
                         obj.put("duration", durFormatted);
                         obj.put("folder", folder);
                         obj.put("isLocal", true);
@@ -339,6 +390,7 @@ public class MainActivity extends Activity {
                         obj.put("quality", "Audio • " + sizeMb);
                         obj.put("description", "Device Storage: " + folder);
                         obj.put("url", "https://app.localmedia/audio?id=" + id);
+                        obj.put("thumbUrl", "https://app.localmedia/thumb?id=" + id + "&type=audio");
                         obj.put("duration", durFormatted);
                         obj.put("folder", folder);
                         obj.put("isLocal", true);
