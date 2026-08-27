@@ -1,0 +1,26 @@
+{
+  "name": "AakashStream - Live Hindi TV & All India Radio",
+  "short_name": "AakashStream",
+  "description": "Zero-lag Hindi Live TV, All India Radio (Akashvani & Vividh Bharati), and International Channels with 3D UI",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#0284c7",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "music", "news"]
+}

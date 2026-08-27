@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AakashStream - Radio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c4c7c7",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-highest": "#353434",
+                        "secondary-container": "#4a4949",
+                        "surface-tint": "#c9c6c5",
+                        "surface": "#141313",
+                        "on-secondary": "#313030",
+                        "secondary": "#c8c6c5",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary": "#313030",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-error": "#690005",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-container": "#6d7d78",
+                        "background": "#141313",
+                        "on-tertiary": "#24332f",
+                        "surface-container-high": "#2b2a2a",
+                        "on-background": "#e5e2e1",
+                        "surface-container": "#201f1f",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "tertiary-fixed-dim": "#b9cac4",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#e5e2e1",
+                        "tertiary-container": "#010d0a",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-dim": "#141313",
+                        "surface-container-low": "#1c1b1b",
+                        "primary": "#c9c6c5",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#444748",
+                        "on-tertiary-fixed-variant": "#3b4a46",
+                        "on-primary-container": "#7b7979",
+                        "primary-container": "#0a0a0a",
+                        "on-secondary-container": "#bab8b7",
+                        "surface-variant": "#353434",
+                        "outline": "#8e9192",
+                        "tertiary": "#b9cac4",
+                        "on-surface": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#5f5e5e",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#d5e6e0",
+                        "on-tertiary-fixed": "#101e1b",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#474646",
+                        "emerald-btn": "#4F7C73"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xxl": "64px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "xl": "40px",
+                        "margin-desktop": "48px",
+                        "gutter": "20px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .media-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .media-card:hover .media-image {
+            transform: scale(1.05);
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased selection:bg-emerald-btn selection:text-white">
+<!-- TopAppBar (Hidden on mobile, visible on desktop) -->
+<header class="hidden md:flex bg-surface dark:bg-surface flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full docked full-width top-0 border-b border-outline-variant flat no shadows z-50">
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary active:scale-95 duration-150 p-sm rounded-full hover:bg-secondary-container/50 transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="font-headline-md text-headline-md text-primary tracking-tight">AakashStream</span>
+</div>
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant font-label-md text-label-md hover:bg-secondary-container/50 transition-colors px-md py-sm rounded-full active:scale-95 duration-150" href="#">Home</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:bg-secondary-container/50 transition-colors px-md py-sm rounded-full active:scale-95 duration-150" href="#">Live</a>
+<a class="text-primary font-label-md text-label-md hover:bg-secondary-container/50 transition-colors px-md py-sm rounded-full active:scale-95 duration-150" href="#">Radio</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:bg-secondary-container/50 transition-colors px-md py-sm rounded-full active:scale-95 duration-150" href="#">Local</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary active:scale-95 duration-150 p-sm rounded-full hover:bg-secondary-container/50 transition-colors">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a user. The user is a young adult with a calm expression, wearing a minimalist black turtleneck. The lighting is soft and cinematic, set against a dark grey background to match the Pure Dark minimalist aesthetic of the UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_l_oZ-7aIVoOQYeq9CsU2-6yJBo6_pnkG2G55xZp0eYbxqnHU2otVvkcTkwNDzWAoafN1R4Au4otF_ZQndN7Ht8isGpx01h9Nfhm2GLWo4frVpDrWKyQ5I_CMisfaikJD3396G0RYmVpL6PZbvfHeMFueBlzHGdDorxKqsMJ9xU2Zkmh2wUpK27F43OT0yJzbdjm-mhS_xB1lQ-wQawuk3lLMRV3dsBrGa1a54ZEaV_YjpV-M-1ae"/>
+</div>
+</button>
+</div>
+</header>
+<!-- Mobile Top Header (Search Only) -->
+<header class="md:hidden flex items-center justify-between px-margin-mobile py-md bg-surface z-40 sticky top-0 border-b border-outline-variant">
+<span class="font-headline-md text-headline-md-mobile text-primary tracking-tight">AakashStream</span>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col px-margin-mobile md:px-margin-desktop py-xl gap-xl max-w-[1440px] mx-auto w-full pb-32">
+<!-- Search Section -->
+<section class="flex flex-col gap-md">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg">Radio Stations</h1>
+<div class="relative w-full max-w-2xl">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-md pl-12 pr-md font-body-md text-body-md text-on-background placeholder:text-outline focus:outline-none focus:border-emerald-btn transition-colors" placeholder="Search stations, genres, or hosts..." type="text"/>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-sm mt-sm">
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-sm text-label-sm text-on-background hover:bg-surface-container-high transition-colors bg-emerald-btn/10 border-emerald-btn/30 text-primary">All Genres</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">Electronic</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">Jazz</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">News</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">Classical</button>
+</div>
+</section>
+<!-- Featured Stations (Bento-ish Grid) -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-lg text-primary">Featured Streams</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Large Featured Card -->
+<div class="md:col-span-2 group relative overflow-hidden rounded-xl bg-surface-container cursor-pointer media-card border border-outline-variant/50 hover:border-emerald-btn/50 h-64 md:h-80">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent z-10"></div>
+<img alt="Electronic station cover" class="media-image absolute inset-0 w-full h-full object-cover" data-alt="A moody, high-contrast abstract image representing electronic music. Dark charcoal background with subtle, glowing cyan and emerald sound waves or geometric patterns. The style is sophisticated minimalism, avoiding neon clutter, focusing on atmospheric depth and pure dark aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1yL-Ktxf5AefAVDdSLhtgDBj0-VCKtUTsmMODasE7mtsU-82ghxKf2qFEej3ukEWo3yheo1J3U43j76MyEyNuOkpOmRHiy-rRuNPR6MSBzrusWSsXeuyuQHNIrT0ZrdDzieagsTdTmlFHv-V5OsaJ1SOMG4zth5y5VrxEJB6aciat-8fyyqHPY_i1VAUKULnhOzg-HDzDZJwsaR9wI_EjO988qbsUxJ8kwGyiDCDtYECYVC3DSR_D"/>
+<div class="absolute bottom-0 left-0 p-lg z-20 w-full flex justify-between items-end">
+<div>
+<span class="inline-block px-sm py-xs rounded border border-outline-variant text-[10px] uppercase tracking-widest font-semibold text-emerald-btn mb-sm">Live</span>
+<h3 class="font-headline-md text-headline-md text-on-background">Deep Space Frequencies</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Ambient &amp; Minimal Techno</p>
+</div>
+<button class="w-12 h-12 rounded-full bg-emerald-btn flex items-center justify-center text-white hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Regular Featured Cards -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container cursor-pointer media-card border border-outline-variant/50 hover:border-emerald-btn/50 h-64 md:h-80 flex flex-col">
+<div class="flex-grow relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10"></div>
+<img alt="Jazz station cover" class="media-image absolute inset-0 w-full h-full object-cover" data-alt="A cinematic, black and white photograph of a vintage microphone in a dark studio setting. A single beam of soft light illuminates the microphone against a pure black background. The image conveys quiet luxury, precision, and a sophisticated jazz atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF-hiiyXeoV-pZ1qDsdGWUqACF7x8f6rlzdg-Iv6ORZL-G0jYDi7QHtrFco_FxxCQPARWiqYDihd6S7kwfDQqA5oKgSVmLHn7uOOBYJVnSi-dxPwI1o2AoLKQbbkTRXTt7XUj9Tm5-44o5Cg5sKy4ZB63W3oqNsIp2gcj7qa21k_TNUJNY830hLqdsAM6MEUlAEmK5BSDUJYx2x0OtOedmSXb5lAeZksUV0DUK5FhEpcY8HSuHa1sN"/>
+</div>
+<div class="absolute bottom-0 left-0 p-md z-20 w-full flex justify-between items-center">
+<div>
+<h3 class="font-body-lg text-body-lg text-on-background font-semibold">Midnight Jazz</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs">Smooth &amp; Classic</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-background hover:border-emerald-btn transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- All Stations Grid -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-lg text-primary">All Stations</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-md md:gap-lg">
+<!-- Station Card 1 -->
+<div class="group flex flex-col gap-sm cursor-pointer media-card">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container border border-outline-variant/30 group-hover:border-emerald-btn/50 transition-colors">
+<img alt="Classical station cover" class="media-image w-full h-full object-cover" data-alt="Minimalist abstract representation of classical music. Dark grey canvas with very subtle, thin white lines resembling sheet music staves or string instruments. Soft, atmospheric lighting. Pure dark aesthetic, no bright or jarring colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4G3OWzkJ_z9iz90VqrkjUnj1nEsyHOQdDiqEwEGK1kJKFwItCPD2Y1plqgsMn06Mt9f48527_b1hqnxaZFSJSvelG1OXuG6pDlhTFK-Gb81Mh45PA1BXy_WgHQ2H5vzC4sf10ykd4FNbARe8B4d_F7vqT0qgjpiXAUQ9ahw342UlhKOXdgxc39G0PFaiRBBTTR6sINPDR0enKDXooisEdDkccHP7AJ9vQM8U_Adb5ootZCkph6cBU"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" data-weight="fill">play_circle</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-background truncate">Symphony Hall</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Classical</p>
+</div>
+</div>
+<!-- Station Card 2 -->
+<div class="group flex flex-col gap-sm cursor-pointer media-card">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container border border-outline-variant/30 group-hover:border-emerald-btn/50 transition-colors">
+<img alt="News station cover" class="media-image w-full h-full object-cover" data-alt="A sleek, modern news desk setup subtly hinted at in shadows. A glowing red 'ON AIR' sign is the only source of soft light against a deep charcoal background. Sophisticated minimalism, focusing on typography and pure dark tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0hcsS6fwPj957GiB44Ew3sCW73IrSnH_9Mx-R4MLQZEDSHxITXHKdQZ3Ash0xOV98Bsi3WJEAEQ2QskxZno6qF0VfDHm8RkKXA_Nf7xXnF1muBDKHvn3Dh0-vIlXfosVmagPRii1wRQAepfd2P-Whmtmpimr2xQ5bDZaRkaorLNUXXCU2KJdnKprO3SQcDz8vZF5nB_N5Jt-8D_u7sm0PJTF6kLFZh9Av52CIfZVS12R8hLMsG-7D"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" data-weight="fill">play_circle</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-background truncate">Global Briefing</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">News &amp; Talk</p>
+</div>
+</div>
+<!-- Station Card 3 -->
+<div class="group flex flex-col gap-sm cursor-pointer media-card">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container border border-outline-variant/30 group-hover:border-emerald-btn/50 transition-colors">
+<img alt="Lofi station cover" class="media-image w-full h-full object-cover" data-alt="Abstract visualization of Lo-Fi beats. A muted, dark grey scene showing rain hitting a window pane at night. Very subtle, calm, and atmospheric. Minimalist approach with deep blacks and slight tonal shifts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTn9yrElQxn3WZlwQEQkPpyWQo000waLERN7ArQUT2wy-_bGcEFgaHL9wwD7_AYwRC5CG8V5Bb2ERBb_qFNFCFcMaEd75ikqPKoLe5VSizsUVrMfk1gftJv3JUwdRJ5ELeu10Z49bB-olTYeRjzr3zC5f5t_CNGXqY0Q_k8abagEaxrVm4gKHlqtIkhrfJvM3OzsOFVYp97bodUdndB0jAp3CDkVEt3KerEzqisLGglUbg6qIg5xM-"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" data-weight="fill">play_circle</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-background truncate">Chillwave Study</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Lo-Fi / Chill</p>
+</div>
+</div>
+<!-- Station Card 4 -->
+<div class="group flex flex-col gap-sm cursor-pointer media-card">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container border border-outline-variant/30 group-hover:border-emerald-btn/50 transition-colors">
+<img alt="Indie station cover" class="media-image w-full h-full object-cover" data-alt="A dark, textured surface resembling a vinyl record with a subtle emerald green reflection catching the light. Minimalist, premium, and calm aesthetic. High-contrast typography could overlay this, but the base is pure dark." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChkZTpxokjD9YnQdBA9qdpHIXt0BlOViXRZHfiJ-JQOQkJ0bKdJ5_9FtfA2sn83pRIGE01LQ2ezU1Ydo7EVkQgHm1HIYiSXhivspZpMi9bkmMLGudkB5t2KUw6aBGIy8dd5tK1DtDUpOQYTFVU3WTZlJblcoGpurGBP2Uu0A1-lN8J-Gq39xSIjJLVP75llBjpXxAWYZFNpB-aMtPBZEOdECBiqA0RiO9zeiBflP3o7yURKAdHZ61H"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" data-weight="fill">play_circle</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-background truncate">Indie Underground</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Alternative</p>
+</div>
+</div>
+<!-- Station Card 5 -->
+<div class="group flex flex-col gap-sm cursor-pointer media-card">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container border border-outline-variant/30 group-hover:border-emerald-btn/50 transition-colors">
+<img alt="Acoustic station cover" class="media-image w-full h-full object-cover" data-alt="A close-up, abstract shot of an acoustic guitar's soundhole and strings, rendered in very dark, moody tones. Shadows dominate the composition. Sophisticated minimalism, pure dark aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9iEfBMuBbgICn2-bS1PvNwZXjVFrFzRnvQ0G_nfZTr-gFIg9MTLYKDZ_Rxr2ItP5h-TiOmjb9oCQs4ouVtTBwz1Xamxv8CYaji7NvESnBp8fICb27zxakNiLkb7geIgutceJ3kqdH1FV67IBZlUJS9qTJNRk35G1DL0E1WbK2KzookUqSz53IaL5QC2r8c20H-U4hUnFJJN-MRc8K-ZlFj53qOQfIsSSTJRSeCZ2aO67ch3hunXme"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" data-weight="fill">play_circle</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-background truncate">Acoustic Mornings</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Folk &amp; Acoustic</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Hidden on desktop, visible on mobile) -->
+<nav class="md:hidden bg-surface dark:bg-surface border-t border-outline-variant flat no shadows fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-xxl pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors active:scale-90 duration-200 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-xs" data-icon="home">home</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors active:scale-90 duration-200 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-xs" data-icon="live_tv">live_tv</span>
+<span>Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold font-label-sm text-label-sm hover:text-on-surface transition-colors active:scale-90 duration-200 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-xs text-emerald-btn" data-icon="radio" data-weight="fill">radio</span>
+<span class="text-emerald-btn">Radio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors active:scale-90 duration-200 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-xs" data-icon="folder_open">folder_open</span>
+<span>Local</span>
+</a>
+</nav>
+<!-- Now Playing Mini Player (Sticky above bottom nav) -->
+<div class="fixed bottom-[calc(theme(spacing.xxl)+env(safe-area-inset-bottom))] md:bottom-0 left-0 w-full bg-surface-container-highest border-t border-outline-variant z-40 p-sm md:p-md flex items-center justify-between shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 md:w-14 md:h-14 bg-surface-container-low rounded overflow-hidden">
+<img alt="Now playing thumbnail" class="w-full h-full object-cover" data-alt="A small thumbnail image matching the deep space frequencies electronic station cover. Dark charcoal background with subtle cyan and emerald abstract patterns. Minimalist and dark." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjb_GbAOWoQ59TU2OJxv3-Hu5_HsCD9xp6Ll40MMDFqnt25zxixDERxwiBYCNXCo-g2Rfb5CYDVDjgyE7hRGZHGLAuU68drpwjhiazM3CWdANYxpDPlhgMdm4m2WNLemZl9HJIbrWH1j_HMra5M_CeKwrTqRon3GbMsMun-OvdAuIjRo1enWOQZfivFZDo9iYJ3BSlxlYQ4OVNe5p1mpUGYOdD9mZRDebt--iY36HS7wwqRK3q2bpC"/>
+</div>
+<div>
+<h4 class="font-label-md text-label-md md:font-body-md md:text-body-md text-on-background font-semibold">Deep Space Frequencies</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Ambient &amp; Minimal Techno</p>
+</div>
+</div>
+<div class="flex items-center gap-sm md:gap-lg">
+<button class="text-on-surface-variant hover:text-on-background transition-colors hidden md:block">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-emerald-btn flex items-center justify-center text-white hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">pause</span>
+</button>
+</div>
+</div>
+</body></html>

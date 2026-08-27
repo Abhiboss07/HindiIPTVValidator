@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Hindi Live TV & All India Radio</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0b0f19; color: #f8fafc; padding: 15px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .header h1 { font-size: 22px; color: #38bdf8; margin-bottom: 5px; }
+        .header p { font-size: 13px; color: #94a3b8; }
+        
+        .player-box { background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.6); margin-bottom: 15px; position: relative; border: 1px solid #1e293b; }
+        video, audio { width: 100%; display: block; }
+        video { aspect-ratio: 16/9; background: #000; }
+        
+        .radio-visual { display: none; width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, #1e1b4b, #312e81); flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .radio-visual.active { display: flex; }
+        .radio-icon { font-size: 55px; margin-bottom: 10px; animation: pulse 2s infinite ease-in-out; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.08); opacity: 1; } }
+        .radio-name { font-size: 20px; font-weight: bold; color: #38bdf8; }
+        .radio-sub { font-size: 13px; color: #cbd5e1; margin-top: 5px; }
+        
+        .status-bar { padding: 12px 15px; background: #1e293b; font-size: 13px; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; margin-bottom: 15px; border: 1px solid #334155; }
+        .badge { background: #059669; color: white; padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 11px; }
+        .badge.buffering { background: #d97706; }
+        
+        .tabs { display: flex; gap: 10px; margin-bottom: 15px; }
+        .tab-btn { flex: 1; background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 10px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: center; }
+        .tab-btn.active { background: #0284c7; color: white; border-color: #38bdf8; }
+        
+        .channels-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 20px; }
+        .channel-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column; justify-content: space-between; }
+        .channel-card:hover, .channel-card.active { border-color: #38bdf8; background: #283548; transform: translateY(-2px); }
+        .channel-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+        .channel-title { font-weight: 600; font-size: 14px; color: #f8fafc; }
+        .channel-tag { font-size: 11px; color: #38bdf8; margin-bottom: 6px; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 11px; }
+        .channel-res { color: #a7f3d0; }
+        .copy-btn { background: #334155; color: #f8fafc; border: none; padding: 4px 8px; border-radius: 4px; font-size: 11px; cursor: pointer; transition: background 0.2s; }
+        .copy-btn:hover { background: #475569; }
+        
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #10b981; color: white; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: bold; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 1000; }
+        .toast.show { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🇮🇳 Hindi Live TV & All India Radio</h1>
+            <p>⚡ Optimized for Instant Playback & Zero Lag</p>
+        </div>
+
+        <div class="player-box">
+            <video id="videoPlayer" controls autoplay playsinline></video>
+            <div class="radio-visual" id="radioVisual">
+                <div class="radio-icon">📻</div>
+                <div class="radio-name" id="radioTitle">AIR Vividh Bharati</div>
+                <div class="radio-sub">Akashvani Live Broadcast (Low Data)</div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <span id="nowPlaying">Select a channel below to play</span>
+            <span class="badge" id="bufferStatus">Ready</span>
+        </div>
+
+        <div class="tabs">
+            <div class="tab-btn active" onclick="filterTab('all', this)">All Channels</div>
+            <div class="tab-btn" onclick="filterTab('radio', this)">📻 All India Radio</div>
+            <div class="tab-btn" onclick="filterTab('tv', this)">📺 Live TV</div>
+        </div>
+
+        <div class="channels-grid" id="channelsList"></div>
+    </div>
+
+    <div class="toast" id="toast">📋 Link copied for VLC!</div>
+
+    <script>
+        const allChannels = [
+            // Radio
+            { type: "radio", name: "AIR Vividh Bharati (National)", tag: "Akashvani • National Broadcast", res: "32 kbps (Live HLS)", url: "https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8" },
+            { type: "radio", name: "Akashvani Live Radio (Direct MP3)", tag: "Instant Audio • All India Radio", res: "MP3 Stream (Zero Buffer)", url: "https://audio-edge-fvq45.ams.d.radiomast.io/3ccc1156-fcf8-4ba7-9a0c-28e3a465e1ae" },
+            { type: "radio", name: "AIR Vividh Bharati (102.8 FM)", tag: "Akashvani • Vividh Bharati FM", res: "32 kbps (Live HLS)", url: "https://air.pc.cdn.bitgravity.com/air/live/pbaudio034/playlist.m3u8" },
+            { type: "radio", name: "AIR FM Gold (Delhi)", tag: "Akashvani • Hindi Classics", res: "32 kbps (Live Radio)", url: "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio005/hlspbaudio005_Auto.m3u8" },
+            { type: "radio", name: "AIR FM Rainbow (Delhi)", tag: "Akashvani • Hindi Music & Talk", res: "32 kbps (Live Radio)", url: "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio004/hlspbaudio004_Auto.m3u8" },
+            { type: "radio", name: "AIR Live News 24x7", tag: "Akashvani • Samachar", res: "32 kbps (Live News)", url: "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio002/hlspbaudio002_Auto.m3u8" },
+            
+            // TV
+            { type: "tv", name: "Aaj Tak (Smooth 360p)", tag: "News • Low Bandwidth", res: "360p (750 kbps)", url: "https://aajtakhdlive-amd.akamaized.net/hls/live/2014415/aajtakhd/aajtakhdlive/live_360p/chunks.m3u8" },
+            { type: "tv", name: "Aaj Tak (Ultra Low - 234p)", tag: "News • Weak Connection", res: "234p (300 kbps)", url: "https://aajtakhdlive-amd.akamaized.net/hls/live/2014415/aajtakhd/aajtakhdlive/live_234p/chunks.m3u8" },
+            { type: "tv", name: "ABP News (Smooth 360p)", tag: "News • Low Bandwidth", res: "360p (690 kbps)", url: "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master_360p.m3u8" },
+            { type: "tv", name: "NDTV 24x7 (Smooth 360p)", tag: "News • Zero Stutter", res: "360p (960 kbps)", url: "https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/masterp_360p@1.m3u8" },
+            { type: "tv", name: "ABP Ganga", tag: "Regional News • Live", res: "Standard Quality", url: "https://d2l4ar6y3mrs4k.cloudfront.net/live-streaming/ganga-livetv/master.m3u8" },
+            { type: "tv", name: "Aastha TV", tag: "Devotional TV", res: "Low Bitrate (350 kbps)", url: "https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/index.m3u8" }
+        ];
+
+        const video = document.getElementById('videoPlayer');
+        const radioVisual = document.getElementById('radioVisual');
+        const radioTitle = document.getElementById('radioTitle');
+        const nowPlaying = document.getElementById('nowPlaying');
+        const bufferStatus = document.getElementById('bufferStatus');
+        const channelsList = document.getElementById('channelsList');
+        const toast = document.getElementById('toast');
+        let hls = null;
+        let currentFilter = 'all';
+
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        function copyLink(e, url) {
+            e.stopPropagation();
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(() => showToast('📋 Stream link copied for VLC!'));
+            } else {
+                const ta = document.createElement('textarea');
+                ta.value = url;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('📋 Stream link copied for VLC!');
+            }
+        }
+
+        function playChannel(ch, card) {
+            document.querySelectorAll('.channel-card').forEach(c => c.classList.remove('active'));
+            if (card) card.classList.add('active');
+
+            nowPlaying.textContent = "▶ " + (ch.type === 'radio' ? "Radio: " : "TV: ") + ch.name;
+            bufferStatus.textContent = "Connecting...";
+            bufferStatus.className = "badge buffering";
+
+            if (ch.type === 'radio') {
+                video.style.display = 'none';
+                radioVisual.classList.add('active');
+                radioTitle.textContent = ch.name;
+            } else {
+                video.style.display = 'block';
+                radioVisual.classList.remove('active');
+            }
+
+            // Direct MP3 Audio stream
+            if (ch.url.includes('.mp3') || !ch.url.includes('.m3u8')) {
+                if (hls) { hls.destroy(); hls = null; }
+                video.src = ch.url;
+                video.play().then(() => {
+                    bufferStatus.textContent = "Live Radio";
+                    bufferStatus.className = "badge";
+                }).catch(() => {
+                    bufferStatus.textContent = "Tap Play";
+                });
+                return;
+            }
+
+            // HLS Stream (.m3u8)
+            if (Hls.isSupported()) {
+                if (hls) { hls.destroy(); }
+                hls = new Hls({ maxBufferLength: 20, maxMaxBufferLength: 40, lowLatencyMode: false });
+                hls.loadSource(ch.url);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play().then(() => {
+                        bufferStatus.textContent = "Live";
+                        bufferStatus.className = "badge";
+                    }).catch(() => {
+                        bufferStatus.textContent = "Tap Play";
+                    });
+                });
+                hls.on(Hls.Events.ERROR, (event, data) => {
+                    if (data.fatal) {
+                        bufferStatus.textContent = "Retrying...";
+                        hls.startLoad();
+                    }
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = ch.url;
+                video.addEventListener('loadedmetadata', () => {
+                    video.play().catch(() => {});
+                    bufferStatus.textContent = "Live";
+                    bufferStatus.className = "badge";
+                });
+            }
+        }
+
+        function renderChannels() {
+            channelsList.innerHTML = '';
+            const filtered = allChannels.filter(c => currentFilter === 'all' || c.type === currentFilter);
+            
+            filtered.forEach((ch, idx) => {
+                const card = document.createElement('div');
+                card.className = 'channel-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="channel-header">
+                            <div class="channel-title">${ch.type === 'radio' ? '📻 ' : '📺 '}${ch.name}</div>
+                        </div>
+                        <div class="channel-tag">${ch.tag}</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="channel-res">📶 ${ch.res}</span>
+                        <button class="copy-btn" onclick="copyLink(event, '${ch.url}')">📋 Copy for VLC</button>
+                    </div>
+                `;
+                card.onclick = () => playChannel(ch, card);
+                channelsList.appendChild(card);
+                if (idx === 0 && currentFilter === 'all') playChannel(ch, card);
+            });
+        }
+
+        function filterTab(type, btn) {
+            currentFilter = type;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderChannels();
+        }
+
+        renderChannels();
+    </script>
+</body>
+</html>

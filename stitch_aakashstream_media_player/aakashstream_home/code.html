@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AakashStream - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#c4c7c7",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-container-highest": "#353434",
+                      "secondary-container": "#4a4949",
+                      "surface-tint": "#c9c6c5",
+                      "surface": "#141313",
+                      "on-secondary": "#313030",
+                      "secondary": "#c8c6c5",
+                      "primary-fixed": "#e5e2e1",
+                      "on-primary": "#313030",
+                      "primary-fixed-dim": "#c9c6c5",
+                      "on-error": "#690005",
+                      "surface-bright": "#3a3939",
+                      "on-tertiary-container": "#6d7d78",
+                      "background": "#141313",
+                      "on-tertiary": "#24332f",
+                      "surface-container-high": "#2b2a2a",
+                      "on-background": "#e5e2e1",
+                      "surface-container": "#201f1f",
+                      "inverse-surface": "#e5e2e1",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "tertiary-fixed-dim": "#b9cac4",
+                      "inverse-on-surface": "#313030",
+                      "secondary-fixed": "#e5e2e1",
+                      "tertiary-container": "#010d0a",
+                      "on-primary-fixed-variant": "#474646",
+                      "surface-dim": "#141313",
+                      "surface-container-low": "#1c1b1b",
+                      "primary": "#c9c6c5",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "error": "#ffb4ab",
+                      "outline-variant": "#444748",
+                      "on-tertiary-fixed-variant": "#3b4a46",
+                      "on-primary-container": "#7b7979",
+                      "primary-container": "#0a0a0a",
+                      "on-secondary-container": "#bab8b7",
+                      "surface-variant": "#353434",
+                      "outline": "#8e9192",
+                      "tertiary": "#b9cac4",
+                      "on-surface": "#e5e2e1",
+                      "on-error-container": "#ffdad6",
+                      "inverse-primary": "#5f5e5e",
+                      "error-container": "#93000a",
+                      "tertiary-fixed": "#d5e6e0",
+                      "on-tertiary-fixed": "#101e1b",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-secondary-fixed-variant": "#474646"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xxl": "64px",
+                      "xs": "4px",
+                      "unit": "4px",
+                      "md": "16px",
+                      "xl": "40px",
+                      "margin-desktop": "48px",
+                      "gutter": "20px",
+                      "margin-mobile": "16px",
+                      "lg": "24px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal carousels */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Subtle image scaling on hover for media cards */
+        .media-card-hover:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-on-background min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full sticky top-0 z-40">
+<div class="flex items-center gap-sm">
+<button class="text-primary dark:text-primary hover:bg-secondary-container/50 transition-colors active:scale-95 duration-150 p-xs rounded-full flex items-center justify-center h-10 w-10">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<span class="font-headline-md text-headline-md-mobile md:font-headline-md md:text-headline-md text-primary tracking-tight">AakashStream</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex gap-md">
+<!-- Desktop Nav -->
+<a class="text-primary font-bold hover:bg-secondary-container/50 transition-colors px-sm py-xs rounded" href="#">Home</a>
+<a class="text-on-surface-variant hover:bg-secondary-container/50 transition-colors px-sm py-xs rounded" href="#">Live</a>
+<a class="text-on-surface-variant hover:bg-secondary-container/50 transition-colors px-sm py-xs rounded" href="#">Radio</a>
+<a class="text-on-surface-variant hover:bg-secondary-container/50 transition-colors px-sm py-xs rounded" href="#">Local</a>
+</div>
+<button class="hover:bg-secondary-container/50 transition-colors active:scale-95 duration-150 rounded-full h-10 w-10 overflow-hidden border border-outline-variant flex items-center justify-center">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A close up, high quality avatar portrait of a modern user. Dark, minimalist aesthetic, cinematic lighting, shallow depth of field. Monochromatic color scheme with subtle emerald undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZpspR-oEPfQQZom5r6fLmyU5s3X6tNdnanPE5SXUbScsNDQxMxOLREt1g5MgtfbjT-bpR1RxwrK0D0ldugFnyz_JdoO5zp4Oc4GQKyvNHE-MO_eYeZuIc2BuKdQxBaLTWSpjn2_u2x3_SSmwkD5blclioJ6TTOLj2FiBXxjEGZMfsDGBOBsikSDMAZSKKXR2arupQOXv1uqvwwvSbpi-96k44J5CGtJo2bMkUBSL8YgJVOEZnP6HG"/>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col pb-xxl">
+<!-- Hero Section (Featured Media) -->
+<section class="relative w-full h-[60vh] md:h-[75vh] flex items-end">
+<!-- Hero Background -->
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center bg-no-repeat w-full h-full" data-alt="A sweeping, cinematic establishing shot for a premium streaming platform featured media hero. A dramatic, minimalist landscape or abstract sci-fi scene bathed in stark, directional lighting. Deep charcoal and pure black shadows contrast with a single, sharp light source. High resolution, quiet luxury aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtOVPbJmHSV0jOJf3d2RCTfRoi4U41V5QoOLQDbwk3nHQKBODExxbCWa1qr8wpMqNb_BGUgoUDUvgMyKNf4lwukEWOxQ3Z5-rd2yJbeQNzD5w1qn_3_hj35VGlwk3EGphfW1uJDG6K0qZXYPjsJlu86zRdcLo6zruITWKnV67NqQLUNBmF4FMynnMURw3m_k6K65pm2ruNiOAX5dzu27NUN3xHwUlKBp2NXiTpy4rpjNu9bvkbIeOH')"></div>
+<!-- Gradient overlay for text readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop pb-xl md:pb-xxl">
+<div class="max-w-2xl">
+<div class="flex gap-sm mb-md">
+<span class="font-label-sm text-label-sm border border-outline rounded px-sm py-xs text-primary tracking-widest uppercase">Premiere</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-background mb-md">The Silent Horizon</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl line-clamp-3">
+                        In a future where silence is the only currency, one explorer ventures into the deepest void to uncover the remnants of a forgotten frequency. An atmospheric journey into the unknown.
+                    </p>
+<div class="flex items-center gap-md">
+<button class="bg-[#4F7C73] hover:bg-[#4F7C73]/90 text-white font-label-md text-label-md px-lg py-sm flex items-center justify-center gap-sm transition-colors rounded-sm h-12 min-w-[140px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Play Now
+                        </button>
+<button class="bg-transparent border border-white hover:bg-white/10 text-white font-label-md text-label-md px-lg py-sm flex items-center justify-center gap-sm transition-colors rounded-sm h-12 min-w-[140px]">
+<span class="material-symbols-outlined">add</span>
+                            My List
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Now Section -->
+<section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop mt-xl md:mt-xxl">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-background flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+                    Live Now
+                </h2>
+</div>
+<div class="flex gap-md overflow-x-auto hide-scrollbar pb-sm snap-x">
+<!-- Card 1 -->
+<div class="snap-start flex-none w-[280px] md:w-[320px] group cursor-pointer">
+<div class="w-full aspect-video bg-surface overflow-hidden rounded-sm relative media-card-hover border border-[#2B3A36] md:border-none md:border-b-0">
+<img alt="Live stream thumbnail" class="w-full h-full object-cover transition-transform duration-300 ease-out" data-alt="A live broadcast thumbnail showing a sleek, dark modern news desk or podcast setup. Professional studio lighting with a muted, sophisticated color palette and subtle emerald green accents. High-contrast, sharp focus on the anchor's silhouette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJu3g9GF4r3nFGktAkdZlXQ8CuCpJjjzJ9TuelI0ebrK6C3rVFd-nfrc4ItzJL-KXl_BbmbMVltV8TmFx1HfPrgrs1t639za9Nd8O4SXb_FcidLzC72MjKz3yOccm8lMgg7iDj3AojiKcs9HwTVgi02kfggUVG28D6ED0LBXn8YfN44SWli6I9C1Gc2gk2oU5vBlnX3RTZieEVcQSzwvxCZRgGf_2oWs4Nvg3Dusdwxqiu_FIhJ0v6"/>
+<div class="absolute bottom-2 left-2 bg-[#0A0A0A]/80 px-2 py-1 border border-[#2B3A36] rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">sensors</span>
+<span class="font-label-sm text-label-sm text-on-surface">14.2K</span>
+</div>
+</div>
+<div class="mt-sm">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Global Market Update</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Finance Desk</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="snap-start flex-none w-[280px] md:w-[320px] group cursor-pointer">
+<div class="w-full aspect-video bg-surface overflow-hidden rounded-sm relative media-card-hover border border-[#2B3A36] md:border-none md:border-b-0">
+<img alt="Live stream thumbnail" class="w-full h-full object-cover transition-transform duration-300 ease-out" data-alt="A live stream thumbnail of a minimalist electronic music performance. A dark stage, silhouetted equipment, and subtle, precise laser lighting cutting through a haze. Pure dark aesthetic, atmospheric depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEp5GXGXhlktNOuZWazUciTGwzr5o8sa-Vge-AGdP9VcTrm779oxefo9dPAsJ_jFKdMYHiKZZs7cyu5QCY34afIc1RpfOfspbQHiE7bCTNCMhCV_mW5lU7MbFy2E05KqQQtXjtvKfy6L9omMV9o62KU07gG4awoV3MPTktrZ2usZ2xnCDbY8jO8y_WUuwrc_1KPgnG7Kl0_STBW0r3yQgyx5FWBBcNO0wqTo-73sdjX8x2ld1sN8b7"/>
+<div class="absolute bottom-2 left-2 bg-[#0A0A0A]/80 px-2 py-1 border border-[#2B3A36] rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">sensors</span>
+<span class="font-label-sm text-label-sm text-on-surface">8.5K</span>
+</div>
+</div>
+<div class="mt-sm">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Deep Sessions - Vol. 42</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Audio Archive</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="snap-start flex-none w-[280px] md:w-[320px] group cursor-pointer">
+<div class="w-full aspect-video bg-surface overflow-hidden rounded-sm relative media-card-hover border border-[#2B3A36] md:border-none md:border-b-0">
+<img alt="Live stream thumbnail" class="w-full h-full object-cover transition-transform duration-300 ease-out" data-alt="A live broadcast thumbnail for an architectural design review. A dark, moody studio setting with a brilliantly lit architectural model on a stark black table. Sophisticated minimalism, quiet luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2zPg6NT_WS66bXIQvqY0lhpvv5UnoCtxPDAXTip5XM_Au-0aeQFaHGHitd-M132IY3bIqOYv4IcT-1iGgEcOtnR8ErZRE624zcfx3GLAefRKzPbYBOLyZv4hVNVExOwWWHXzV4l9e0iL-M6qRBf4EDe0Xxr8Y4ZwGaMcv5muXbDgyxs6t2a-0ZgCgfCkG9tbgAMrTfe1a1ZA2DG6OWJcW8rHzqtdP6G-RjR0JJYZTWt6YrDnAzpsq"/>
+<div class="absolute bottom-2 left-2 bg-[#0A0A0A]/80 px-2 py-1 border border-[#2B3A36] rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">sensors</span>
+<span class="font-label-sm text-label-sm text-on-surface">3.1K</span>
+</div>
+</div>
+<div class="mt-sm">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Structure &amp; Form</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Design Weekly</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Activity / Continue Watching Section -->
+<section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop mt-xl md:mt-xxl">
+<h2 class="font-headline-md text-headline-md text-on-background mb-lg">Continue Watching</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Recent Item 1 -->
+<div class="bg-surface rounded-sm overflow-hidden flex cursor-pointer group hover:bg-surface-bright transition-colors border border-[#2B3A36] md:border-none">
+<div class="w-1/3 aspect-video relative overflow-hidden media-card-hover">
+<img alt="Recent media thumbnail" class="w-full h-full object-cover transition-transform duration-300 ease-out" data-alt="A thumbnail for a minimalist documentary. A stark, monochromatic landscape with a solitary, geometric structure in the distance. Deep greys and pure blacks, conveying a calm, professional viewing experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCkJcoxBdSdWS57DGLZulbXNaswFJKoYOzVRr3HzfztFYRW-FQrvApwBmt2T24dchEWk2gH5NNx6Ih907t86A3_ws_J1zrLDIyfRmgJA5MMHfQ_IuLHXL4nyy11JYqbJy6ikzEpuvWUFdGJVqkuW0NvLKzH8XsuzGlts7tTZgz2HFeJU8wdiu84cmHy6rs1IVymENl3Vww1Rp08RJB1HozaY_I23lIKqa96UHXvZrCoHnUEyJOcbOR"/>
+<!-- Play overlay -->
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="w-2/3 p-md flex flex-col justify-between">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface line-clamp-1">The Architecture of Silence</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Episode 3: Brutalism</p>
+</div>
+<div class="w-full bg-[#2B3A36] h-[2px] mt-md">
+<div class="bg-[#4F7C73] h-full" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<!-- Recent Item 2 -->
+<div class="bg-surface rounded-sm overflow-hidden flex cursor-pointer group hover:bg-surface-bright transition-colors border border-[#2B3A36] md:border-none">
+<div class="w-1/3 aspect-video relative overflow-hidden media-card-hover">
+<img alt="Recent media thumbnail" class="w-full h-full object-cover transition-transform duration-300 ease-out" data-alt="A thumbnail for a high-end interview series. Two silhouetted figures in profile against a dark, textured charcoal background. Minimalist lighting, sophisticated and quiet luxury tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-fDo4WN6thehV2J7-tZLA8AvRIaTsLI9jTxYmXWAvtvR4xKHASTkrYDNT3fQBFkZeWlFRpfaiSnvpm7KGmQXrHvJhBNIZVXeE4nQX7Pe0eiz5QZREuQ2vfdmzw0lOnPfjIM5gyjHsHR1aA8dwnmGltKGXFyIfexYjCn5uxcImemL5aSVAOEu8wcPWu5LzQbmmf6ULZk_AnoqSU4fcSkVDmFI5oEKO7NuFs_M-dHn5AJeHLr_ueMe1"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="w-2/3 p-md flex flex-col justify-between">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface line-clamp-1">Dialogue: Masters</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">S2 E1 - Visionaries</p>
+</div>
+<div class="w-full bg-[#2B3A36] h-[2px] mt-md">
+<div class="bg-[#4F7C73] h-full" style="width: 15%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="h-xl md:h-xxl"></div> <!-- Spacer before bottom nav -->
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface dark:bg-surface fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-xxl pb-safe border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:text-on-surface transition-colors active:scale-90 duration-200 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-xs" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-90 duration-200 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-xs" style="font-variation-settings: 'FILL' 0;">live_tv</span>
+<span class="font-label-sm text-label-sm">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-90 duration-200 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-xs" style="font-variation-settings: 'FILL' 0;">radio</span>
+<span class="font-label-sm text-label-sm">Radio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-90 duration-200 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-xs" style="font-variation-settings: 'FILL' 0;">folder_open</span>
+<span class="font-label-sm text-label-sm">Local</span>
+</a>
+</nav>
+</body></html>

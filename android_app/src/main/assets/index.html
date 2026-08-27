@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>AakashStream - Live TV, Radio & Media Player</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- App Styles -->
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <!-- HLS.js Video Engine -->
+    <script src="assets/hls.min.js"></script>
+</head>
+<body class="obsidian-app-body">
+    <!-- Ambient Canvas Background -->
+    <canvas id="particlesCanvas"></canvas>
+
+    <!-- Top App Bar -->
+    <header class="obsidian-header">
+        <div class="header-left">
+            <button class="top-menu-btn" onclick="toggleMenuDrawer()" title="Menu">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#c9c6c5"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </button>
+            <span class="header-brand-title" onclick="switchPage('home')">AakashStream</span>
+        </div>
+        <div class="header-right">
+            <button class="top-menu-btn" onclick="openSettingsModal()" title="Settings & Preferences">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#c9c6c5"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- App Main Container (SPA Views) -->
+    <main class="obsidian-main-container">
+
+        <!-- ==========================================================
+             PAGE 1: HOME (Obsidian Home Design)
+             ========================================================== -->
+        <div id="page-home" class="page-view active">
+            <!-- Hero Premiere Carousel -->
+            <section id="heroBannerSection" class="obsidian-hero" onclick="playCurrentHeroChannel()">
+                <div id="heroBgImg" class="hero-bg-img" style="background-image: url('https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=1200&auto=format&fit=crop&q=80');"></div>
+                <div class="hero-gradient-overlay"></div>
+                <div class="hero-content-wrap">
+                    <div class="hero-chip-row">
+                        <span id="heroTagBadge" class="obsidian-badge-outline"><span class="pulse-dot"></span> LIVE 24/7</span>
+                        <span id="heroQualityTag" class="quality-tag">1080p FHD</span>
+                    </div>
+                    <h1 id="heroTitle" class="hero-display-title">Aaj Tak HD Live</h1>
+                    <p id="heroDesc" class="hero-display-desc">Watch India's leading 24x7 Hindi national breaking news, special ground reports, and prime-time debates in Full HD.</p>
+                    <div class="hero-btn-row">
+                        <button class="btn-netflix-play" onclick="event.stopPropagation(); playCurrentHeroChannel();">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="#000000"><path d="M8 5v14l11-7z"/></svg>
+                            <span>Play Now</span>
+                        </button>
+                        <button class="btn-netflix-info" onclick="event.stopPropagation(); toggleCurrentFav(event);">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="#ffffff"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                            <span>My List</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Access 4-Item Row -->
+            <section style="margin-bottom: 24px;">
+                <div class="quick-access-row">
+                    <div class="qa-item-tile" onclick="switchPage('live')">
+                        <div class="qa-icon-wrap" style="color: #c9c6c5;">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z"/></svg>
+                        </div>
+                        <span class="qa-label-text">Live TV</span>
+                    </div>
+                    <div class="qa-item-tile" onclick="switchPage('radio')">
+                        <div class="qa-icon-wrap" style="color: #c9c6c5;">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM20 20H4V8h16v12zm-8-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
+                        </div>
+                        <span class="qa-label-text">Radio</span>
+                    </div>
+                    <div class="qa-item-tile" onclick="switchPage('local')">
+                        <div class="qa-icon-wrap" style="color: #c9c6c5;">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+                        </div>
+                        <span class="qa-label-text">Local</span>
+                    </div>
+                    <div class="qa-item-tile" onclick="switchPage('favs')">
+                        <div class="qa-icon-wrap" style="color: #c9c6c5;">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                        </div>
+                        <span class="qa-label-text">My List</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Now Horizontal Carousel -->
+            <section style="margin-bottom: 28px;">
+                <div class="section-heading-row">
+                    <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                        <span class="live-red-dot"></span> Live Channels
+                    </h2>
+                    <button class="section-action-btn" onclick="switchPage('live')">See All</button>
+                </div>
+                <div class="obsidian-h-scroll" id="homeLiveNowList"></div>
+            </section>
+
+            <!-- Continue Watching / Recent Channels -->
+            <section style="margin-bottom: 28px;">
+                <div class="section-heading-row">
+                    <h2 class="section-heading-text">Recently Played</h2>
+                </div>
+                <div class="obsidian-continue-grid" id="homeContinueList"></div>
+            </section>
+
+            <!-- Featured Media & Offline Downloads (Home Bottom Section) -->
+            <section style="margin-bottom: 24px;">
+                <div class="section-heading-row">
+                    <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                        <span>🔥</span> Trending Featured Media
+                    </h2>
+                    <button class="section-action-btn" onclick="switchPage('local')">Local Library</button>
+                </div>
+                <div class="channels-list-container" id="homeFeaturedMediaList"></div>
+            </section>
+        </div>
+
+        <!-- ==========================================================
+             PAGE 2: LIVE TV CHANNELS (Obsidian Live Design)
+             ========================================================== -->
+        <div id="page-live" class="page-view">
+            <!-- Search Pill -->
+            <div class="search-box-pill">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#8e9192"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="text" id="liveSearchInput" placeholder="Search Hindi news, movies, devotional..." oninput="handleLiveSearch(this.value)">
+            </div>
+
+            <!-- Category Chips -->
+            <div class="category-chips-row" id="liveCategoryChips">
+                <button class="lumina-chip active" onclick="filterLiveCategory('ALL', this)">All Channels</button>
+                <button class="lumina-chip" onclick="filterLiveCategory('INDIA', this)">🇮🇳 India (Hindi)</button>
+                <button class="lumina-chip" onclick="filterLiveCategory('NEWS', this)">📰 News</button>
+                <button class="lumina-chip" onclick="filterLiveCategory('DEVOTIONAL', this)">🕉️ Devotional</button>
+                <button class="lumina-chip" onclick="filterLiveCategory('ENTERTAINMENT', this)">🎬 Entertainment</button>
+                <button class="lumina-chip" onclick="filterLiveCategory('MUSIC', this)">🎵 Music</button>
+                <button class="lumina-chip" onclick="filterLiveCategory('US', this)">🇺🇸 US</button>
+                <button class="lumina-chip" onclick="filterLiveCategory('UK', this)">🇬🇧 UK</button>
+                <button class="lumina-chip" onclick="filterLiveCategory('DE', this)">🇩🇪 DE</button>
+                <button class="lumina-chip" onclick="filterLiveCategory('FR', this)">🇫🇷 FR</button>
+            </div>
+
+            <!-- Featured Live Stream Card -->
+            <section style="margin-bottom: 24px;">
+                <div class="featured-live-card" onclick="playLiveChannelById('aajtak')">
+                    <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=800&auto=format&fit=crop&q=80');"></div>
+                    <div class="card-gradient"></div>
+                    <div class="card-content-bottom">
+                        <div style="display: flex; gap: 6px; margin-bottom: 6px;">
+                            <span class="badge-live"><span class="live-red-dot"></span> LIVE</span>
+                            <span class="badge-fhd">1080p FHD</span>
+                        </div>
+                        <h3 style="font-size: 16px; font-weight: 700; color: #fff;">Aaj Tak HD Live</h3>
+                        <p style="font-size: 12px; color: #a3a3a3;">India's No. 1 Hindi News Network</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Channels Feed -->
+            <section>
+                <div class="section-heading-row">
+                    <h2 class="section-heading-text" id="liveChannelsCountTitle">All Live Channels</h2>
+                </div>
+                <div id="liveChannelsFeed" class="channels-list-container"></div>
+            </section>
+        </div>
+
+        <!-- ==========================================================
+             PAGE 3: RADIO STATIONS (Obsidian Radio Design)
+             ========================================================== -->
+        <div id="page-radio" class="page-view">
+            <!-- Search Pill -->
+            <div class="search-box-pill">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#8e9192"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="text" id="radioSearchInput" placeholder="Search All India Radio, Vividh Bharati..." oninput="handleRadioSearch(this.value)">
+            </div>
+
+            <!-- Genre Filter Chips -->
+            <div class="category-chips-row" id="radioFilterChips">
+                <button class="lumina-chip active" onclick="filterRadioGenre('all', this)">All Stations</button>
+                <button class="lumina-chip" onclick="filterRadioGenre('fm', this)">FM Radio</button>
+                <button class="lumina-chip" onclick="filterRadioGenre('national', this)">Akashvani National</button>
+                <button class="lumina-chip" onclick="filterRadioGenre('classical', this)">Classical & Raagam</button>
+                <button class="lumina-chip" onclick="filterRadioGenre('bhakti', this)">Bhakti & Aaradhana</button>
+            </div>
+
+            <!-- Featured Streams Bento Grid -->
+            <section style="margin-bottom: 24px;">
+                <div class="obsidian-bento-grid">
+                    <div class="obsidian-bento-item" onclick="playStationDirect('air-vividh-bharati-12')">
+                        <div class="bento-bg-glow"></div>
+                        <div style="position: relative; z-index: 10;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <span class="badge-live"><span class="live-red-dot"></span> LIVE AUDIO</span>
+                                <span class="mono" style="font-size: 11px; color: #E50914; font-weight: 700;">102.8 FM</span>
+                            </div>
+                            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">AIR Vividh Bharati</h3>
+                            <p style="font-size: 12px; color: #a3a3a3; margin-bottom: 12px;">Evergreen Hindi Melodies & Sangeet Sarita</p>
+                            <button class="btn-emerald-sm">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+                                <span>Listen Live</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="obsidian-bento-item" onclick="playStationDirect('air-fm-gold-delhi-13')">
+                        <div class="bento-bg-glow"></div>
+                        <div style="position: relative; z-index: 10;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <span class="badge-live"><span class="live-red-dot"></span> LIVE AUDIO</span>
+                                <span class="mono" style="font-size: 11px; color: #E50914; font-weight: 700;">106.4 FM</span>
+                            </div>
+                            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">AIR FM Gold</h3>
+                            <p style="font-size: 12px; color: #a3a3a3; margin-bottom: 12px;">Classic Melodies & National Hourly Bulletins</p>
+                            <button class="btn-emerald-sm">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+                                <span>Listen Live</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- All Stations Grid -->
+            <section>
+                <div class="section-heading-row">
+                    <h2 class="section-heading-text">All Stations</h2>
+                </div>
+                <div class="obsidian-bento-grid" id="radioStationsFeed" style="grid-template-columns: repeat(2, 1fr); gap: 12px;"></div>
+            </section>
+        </div>
+
+        <!-- ==========================================================
+             PAGE 4: LOCAL MEDIA LIBRARY (Obsidian Local Design)
+             ========================================================== -->
+        <div id="page-local" class="page-view">
+            <!-- Header -->
+            <div style="margin-bottom: 18px;">
+                <h1 class="page-heading-main">Local Media Library</h1>
+                <p style="font-size: 13px; color: #8e9192;">Offline videos (.mp4) and audio (.mp3) from your phone</p>
+            </div>
+
+            <!-- Open Local File Primary Card -->
+            <section style="margin-bottom: 22px;">
+                <div class="obsidian-card" style="padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border-color: #E50914; background: rgba(229, 9, 20, 0.08);" onclick="document.getElementById('localFileInput').click()">
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                        <div style="width: 46px; height: 46px; border-radius: 10px; background: #E50914; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 14px rgba(229,9,20,0.5);">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                        </div>
+                        <div>
+                            <span style="font-size: 16px; font-weight: 700; color: #fff; display: block;">Add Videos & Music</span>
+                            <span style="font-size: 12px; color: #E50914;">Tap to select .mp4, .mkv, .mp3 from storage</span>
+                        </div>
+                    </div>
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#E50914"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                </div>
+            </section>
+
+            <!-- Filter Chips for Local Media -->
+            <div class="category-chips-row" style="margin-bottom: 20px;">
+                <button class="lumina-chip active" onclick="filterLocalType('all', this)">All Media (<span id="localAllCount">0</span>)</button>
+                <button class="lumina-chip" onclick="filterLocalType('videos', this)">🎬 Videos .mp4 (<span id="localVideosCount">0</span>)</button>
+                <button class="lumina-chip" onclick="filterLocalType('audio', this)">🎵 Audio .mp3 (<span id="localAudioCount">0</span>)</button>
+            </div>
+
+            <!-- SECTION 1: VIDEOS (.mp4, .mkv) -->
+            <section id="localVideosSection" style="margin-bottom: 26px;">
+                <div class="section-heading-row">
+                    <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                        <span>🎬</span> Video Files (.mp4, .mkv)
+                    </h2>
+                </div>
+                <div id="localVideosFeed"></div>
+            </section>
+
+            <!-- SECTION 2: AUDIO TRACKS (.mp3, .m4a) -->
+            <section id="localAudioSection">
+                <div class="section-heading-row">
+                    <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                        <span>🎵</span> Audio Tracks (.mp3, .m4a, .wav)
+                    </h2>
+                </div>
+                <div id="localAudioFeed"></div>
+            </section>
+        </div>
+
+        <!-- ==========================================================
+             PAGE 5: SAVED CHANNELS / MY LIST
+             ========================================================== -->
+        <div id="page-favs" class="page-view">
+            <div style="margin-bottom: 20px;">
+                <h1 class="page-heading-main">My Saved List</h1>
+                <p style="font-size: 13px; color: #8e9192;">Your favorite TV channels and radio stations</p>
+            </div>
+            <div id="favoritesFeed" class="channels-list-container"></div>
+        </div>
+
+    </main>
+
+    <!-- Hidden Local File Input -->
+    <input type="file" id="localFileInput" multiple accept="video/*,audio/*" style="display: none;" onchange="handleLocalFileSelected(event)">
+
+    <!-- ==========================================================
+         CINEMATIC MEDIA PLAYER MODAL (100% CLEAN VIEWPORT)
+         ========================================================== -->
+    <div id="playerModal" class="obsidian-player-modal">
+        <!-- Pure Video Element -->
+        <video id="luminaVideo" playsinline webkit-playsinline></video>
+
+        <!-- Double-Tap Seek Hotzones -->
+        <div class="player-doubletap-zone left-zone" ondblclick="skipTime(-10)"></div>
+        <div class="player-doubletap-zone right-zone" ondblclick="skipTime(10)"></div>
+
+        <!-- Lock Mode Floating Overlay Pill -->
+        <div id="playerLockOverlay" class="player-lock-pill" onclick="togglePlayerLock()" style="display: none;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+            <span>Tap to Unlock</span>
+        </div>
+
+        <!-- Closed Captions Overlay Box -->
+        <div id="playerCcBox" class="player-cc-container" style="display: none;">
+            <p id="playerCcText">[CC] Broadcast sync audio stream...</p>
+        </div>
+
+        <!-- Fullscreen Controls Overlay (All UI contained inside here) -->
+        <div id="playerUiOverlay" class="player-controls-overlay">
+            <!-- Top Bar Actions with Minimize Down Chevron -->
+            <div class="player-top-bar" onclick="event.stopPropagation()">
+                <button class="player-icon-btn" onclick="minimizeToMiniPlayer(event)" title="Minimize">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </button>
+                <div class="player-title-box">
+                    <h3 id="playerMainTitle" class="player-media-title">Aaj Tak HD</h3>
+                    <p id="playerSubTitle" class="player-media-sub">India • News • 1080p FHD</p>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button class="player-icon-btn" onclick="togglePlayerLock()" title="Lock Controls">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF"><path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h1.9c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/></svg>
+                    </button>
+                    <button class="player-icon-btn" onclick="copyVlcCurrent(event)" title="Copy VLC Link">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                    </button>
+                    <button class="player-icon-btn" onclick="toggleCurrentFav(event)" title="Save to My List">
+                        <svg id="playerFavSvg" viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bottom Transport & Seekbar -->
+            <div class="player-bottom-bar" onclick="event.stopPropagation()">
+                <!-- Pro Features Bar -->
+                <div class="player-pro-bar">
+                    <button id="btnPlayerSpeed" class="player-pill-feature" onclick="cyclePlaybackSpeed()">
+                        <span id="playerSpeedText">1.0x</span>
+                    </button>
+                    <button id="btnPlayerAspect" class="player-pill-feature" onclick="cycleAspectRatio()">
+                        <span id="playerAspectText">Fit (16:9)</span>
+                    </button>
+                    <button id="btnPlayerMute" class="player-pill-feature" onclick="toggleMute()">
+                        <span id="playerMuteText">🔊 Audio</span>
+                    </button>
+                    <button id="btnPlayerSleep" class="player-pill-feature" onclick="cycleSleepTimer()">
+                        <span id="playerSleepText">⏱ Sleep: Off</span>
+                    </button>
+                </div>
+
+                <!-- Seekbar -->
+                <div class="player-seekbar-wrap" onclick="handleSeekbarClick(event)">
+                    <div class="player-seekbar-track">
+                        <div id="playerSeekFill" class="player-seekbar-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <!-- Time Counters -->
+                <div class="player-time-row">
+                    <span id="playerTimeCurrent" class="player-time-text">00:00</span>
+                    <span id="playerTimeTotal" class="player-time-text">LIVE</span>
+                </div>
+
+                <!-- Action Controls Toolbar -->
+                <div class="player-transport-toolbar">
+                    <!-- Left: Subtitles CC -->
+                    <button id="btnPlayerCC" class="player-tool-btn" onclick="toggleCC()" title="Closed Captions">
+                        <span class="cc-pill-text">CC</span>
+                    </button>
+
+                    <!-- Center: Transport (Rewind, Play/Pause, Forward) -->
+                    <div class="player-transport-center">
+                        <button class="player-tool-btn" onclick="skipTime(-10)" title="Rewind 10s">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                        </button>
+                        <button class="player-primary-play-btn" onclick="togglePlay()" title="Play / Pause">
+                            <div id="playerPlaySvgBox">
+                                <svg viewBox="0 0 24 24" width="30" height="30" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </button>
+                        <button class="player-tool-btn" onclick="skipTime(10)" title="Forward 10s">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- Right: Fullscreen -->
+                    <button class="player-tool-btn" onclick="toggleFullScreen()" title="Fullscreen">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+         FLOATING MINI-PLAYER DOCK (Positioned Above Dock)
+         ========================================================== -->
+    <div id="miniPlayer" class="obsidian-mini-dock" onclick="openFullPlayerModal()">
+        <div class="mini-live-wave">
+            <span class="wave-bar b1"></span>
+            <span class="wave-bar b2"></span>
+            <span class="wave-bar b3"></span>
+        </div>
+        <div id="miniThumb" class="mini-thumb-icon">📺</div>
+        <div class="mini-meta-box">
+            <h4 id="miniTitle" class="mini-title-text">Aaj Tak HD</h4>
+            <p id="miniSub" class="mini-sub-text">NOW PLAYING • LIVE STREAM</p>
+        </div>
+        <div class="mini-actions" onclick="event.stopPropagation()">
+            <button class="mini-play-btn" onclick="togglePlay()" title="Play / Pause">
+                <div id="miniPlaySvgBox">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </button>
+            <button class="icon-btn-plain" onclick="closeMiniPlayer()" title="Dismiss">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+         FLOATING DOCK NAVIGATION (ALWAYS FIXED AT BOTTOM)
+         ========================================================== -->
+    <!-- ==========================================================
+         OBSIDIAN 5-TAB BOTTOM NAVIGATION BAR (FIXED & COMFORTABLE)
+         ========================================================== -->
+    <nav class="obsidian-dock-nav">
+        <button id="tab-home" class="dock-tab-btn active" onclick="switchPage('home')">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Home</span>
+        </button>
+        <button id="tab-live" class="dock-tab-btn" onclick="switchPage('live')">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z"/></svg>
+            <span>Live TV</span>
+        </button>
+        <button id="tab-radio" class="dock-tab-btn" onclick="switchPage('radio')">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM20 20H4V8h16v12zm-8-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
+            <span>Radio</span>
+        </button>
+        <button id="tab-local" class="dock-tab-btn" onclick="switchPage('local')">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+            <span>Local</span>
+        </button>
+        <button id="tab-favs" class="dock-tab-btn" onclick="switchPage('favs')">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+            <span>Saved</span>
+        </button>
+    </nav>
+
+    <!-- ==========================================================
+         SIDE DRAWER NAVIGATION MODAL (WITH CLASSIC 'A' LOGO)
+         ========================================================== -->
+    <div id="sideDrawerModal" class="side-drawer-backdrop" onclick="toggleMenuDrawer()">
+        <div class="side-drawer-panel" onclick="event.stopPropagation()">
+            <div class="drawer-header">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 38px; height: 38px; border-radius: 8px; background: #E50914; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; color: #fff; box-shadow: 0 0 12px rgba(229,9,20,0.5);">A</div>
+                    <div>
+                        <div style="font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -0.01em;">AakashStream</div>
+                        <div style="font-size: 11px; color: #a3a3a3;">Media Hub</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="drawer-menu-list">
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); switchPage('home');">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                    <span>Home Overview</span>
+                </div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); switchPage('live');">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z"/></svg>
+                    <span>Live TV Channels</span>
+                </div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); switchPage('radio');">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM20 20H4V8h16v12zm-8-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
+                    <span>All India Radio & FM</span>
+                </div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); switchPage('local');">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+                    <span>Local Media Files</span>
+                </div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); switchPage('favs');">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#facc15"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                    <span style="color: #fff; font-weight: 600;">Saved Channels / My List</span>
+                </div>
+                <div class="drawer-divider"></div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); openSettingsModal();">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+                    <span>App Settings & Preferences</span>
+                </div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); document.getElementById('localFileInput').click();">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#E50914"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    <span style="color: #E50914; font-weight: 600;">Open Files from Device</span>
+                </div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); location.reload();">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                    <span>Reload App & Streams</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+         SETTINGS & PREFERENCES MODAL
+         ========================================================== -->
+    <div id="settingsModal" class="side-drawer-backdrop" onclick="closeSettingsModal()">
+        <div class="settings-modal-card" onclick="event.stopPropagation()">
+            <div class="settings-header">
+                <h3 style="font-size: 18px; font-weight: 700; color: #fff;">App Settings</h3>
+                <button class="icon-btn-plain" onclick="closeSettingsModal()">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#a3a3a3"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+
+            <div class="settings-body">
+                <div class="setting-item-row">
+                    <div>
+                        <div class="setting-item-title">Default Video Quality</div>
+                        <div class="setting-item-desc">Set default streaming resolution</div>
+                    </div>
+                    <select id="settingQuality" class="setting-select" onchange="saveAppSetting('quality', this.value)">
+                        <option value="auto">Auto (Adaptive)</option>
+                        <option value="1080p">1080p FHD</option>
+                        <option value="720p">720p HD</option>
+                        <option value="480p">480p SD</option>
+                    </select>
+                </div>
+
+                <div class="setting-item-row">
+                    <div>
+                        <div class="setting-item-title">Closed Captions [CC]</div>
+                        <div class="setting-item-desc">Enable subtitles by default</div>
+                    </div>
+                    <input type="checkbox" id="settingCC" class="setting-toggle" onchange="saveAppSetting('cc', this.checked)">
+                </div>
+
+                <div class="setting-item-row">
+                    <div>
+                        <div class="setting-item-title">HLS Low-Latency Stream</div>
+                        <div class="setting-item-desc">Faster live playback buffer</div>
+                    </div>
+                    <input type="checkbox" id="settingLowLatency" class="setting-toggle" checked onchange="saveAppSetting('low_latency', this.checked)">
+                </div>
+
+                <div class="drawer-divider"></div>
+
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <button class="btn-emerald-sm" style="background: #232323; border: 1px solid rgba(255,255,255,0.1); justify-content: center; width: 100%;" onclick="clearAppData()">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="#f87171"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                        <span style="color: #f87171;">Clear Recents & Cache</span>
+                    </button>
+                </div>
+
+                <div style="text-align: center; margin-top: 18px; font-size: 11px; color: #737373;">
+                    AakashStream v2.4.0 • Production Build
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="lumina-toast"></div>
+
+    <!-- App JavaScript -->
+    <script src="assets/app.js"></script>
+</body>
+</html>

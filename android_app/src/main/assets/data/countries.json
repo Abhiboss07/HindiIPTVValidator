@@ -1,0 +1,11 @@
+[
+  { "code": "ALL", "name": "All Channels", "flag": "🌐" },
+  { "code": "IN", "name": "India (Hindi & AIR)", "flag": "🇮🇳" },
+  { "code": "US", "name": "United States", "flag": "🇺🇸" },
+  { "code": "UK", "name": "United Kingdom", "flag": "🇬🇧" },
+  { "code": "DE", "name": "Germany", "flag": "🇩🇪" },
+  { "code": "FR", "name": "France", "flag": "🇫🇷" },
+  { "code": "KR", "name": "South Korea", "flag": "🇰🇷" },
+  { "code": "AE", "name": "UAE / Arab", "flag": "🇦🇪" },
+  { "code": "CA", "name": "Canada", "flag": "🇨🇦" }
+]

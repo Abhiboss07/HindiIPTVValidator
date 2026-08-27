@@ -1,6 +1,6 @@
 #EXTM3U
 #EXT-X-VERSION:3
-# Playlist: Smooth Hindi TV & All India Radio (Optimized for Mobile & VLC)
+# Playlist: AakashStream - Hindi Live TV, All India Radio & World Channels
 
 # ==========================================
 # 📻 ALL INDIA RADIO (AKASHVANI)
@@ -24,7 +24,7 @@ https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio004/hlspbaudio004_Au
 https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio002/hlspbaudio002_Auto.m3u8
 
 # ==========================================
-# 📺 LIVE HINDI TV (LOW BANDWIDTH 360p / 234p)
+# 📺 LIVE HINDI TV (INDIA)
 # ==========================================
 #EXTINF:-1 tvg-name="Aaj Tak 360p" group-title="News",Aaj Tak (Smooth 360p - Low Data)
 https://aajtakhdlive-amd.akamaized.net/hls/live/2014415/aajtakhd/aajtakhdlive/live_360p/chunks.m3u8
@@ -35,7 +35,7 @@ https://aajtakhdlive-amd.akamaized.net/hls/live/2014415/aajtakhd/aajtakhdlive/li
 #EXTINF:-1 tvg-name="ABP News 360p" group-title="News",ABP News (Smooth 360p - Low Data)
 https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master_360p.m3u8
 
-#EXTINF:-1 tvg-name="NDTV 360p" group-title="News",NDTV 24x7 (Smooth 360p - Low Data)
+#EXTINF:-1 tvg-name="NDTV 24x7" group-title="News",NDTV 24x7 (Smooth 360p - Low Data)
 https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/masterp_360p@1.m3u8
 
 #EXTINF:-1 tvg-name="ABP Ganga" group-title="News",ABP Ganga (Live)
@@ -46,3 +46,27 @@ https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/index.m3u8
 
 #EXTINF:-1 tvg-name="Aastha Prime 1" group-title="Religious",Aastha Prime 1 (Low Bitrate)
 https://aasthaott.akamaized.net/110923/smil:aasthaprime1.smil/master.m3u8
+
+#EXTINF:-1 tvg-name="22Scope News" group-title="News",22Scope News (Live)
+https://thelegitpro.in/HDlive/22scope/index.fmp4.m3u8
+
+# ==========================================
+# 🌍 INTERNATIONAL LIVE CHANNELS
+# ==========================================
+#EXTINF:-1 tvg-name="Bloomberg TV" group-title="Business",Bloomberg TV (USA)
+https://bloomberg.com/media-manifest/streams/us.m3u8
+
+#EXTINF:-1 tvg-name="NASA TV" group-title="Documentary",NASA TV (USA)
+https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8
+
+#EXTINF:-1 tvg-name="Red Bull TV" group-title="Sports",Red Bull TV (Global)
+https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
+
+#EXTINF:-1 tvg-name="Sky News" group-title="News",Sky News (UK)
+https://skynewsau-live.akamaized.net/hls/live/2002689/skynewsau-extra1/master.m3u8
+
+#EXTINF:-1 tvg-name="DW English" group-title="News",DW English (Germany)
+https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8
+
+#EXTINF:-1 tvg-name="Arirang TV" group-title="Entertainment",Arirang TV (South Korea)
+https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8

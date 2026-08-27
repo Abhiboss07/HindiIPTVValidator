@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Media Player</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c4c7c7",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-highest": "#353434",
+                        "secondary-container": "#4a4949",
+                        "surface-tint": "#c9c6c5",
+                        "surface": "#141313",
+                        "on-secondary": "#313030",
+                        "secondary": "#c8c6c5",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary": "#313030",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-error": "#690005",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-container": "#6d7d78",
+                        "background": "#141313",
+                        "on-tertiary": "#24332f",
+                        "surface-container-high": "#2b2a2a",
+                        "on-background": "#e5e2e1",
+                        "surface-container": "#201f1f",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "tertiary-fixed-dim": "#b9cac4",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#e5e2e1",
+                        "tertiary-container": "#010d0a",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-dim": "#141313",
+                        "surface-container-low": "#1c1b1b",
+                        "primary": "#c9c6c5",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#444748",
+                        "on-tertiary-fixed-variant": "#3b4a46",
+                        "on-primary-container": "#7b7979",
+                        "primary-container": "#0a0a0a",
+                        "on-secondary-container": "#bab8b7",
+                        "surface-variant": "#353434",
+                        "outline": "#8e9192",
+                        "tertiary": "#b9cac4",
+                        "on-surface": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#5f5e5e",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#d5e6e0",
+                        "on-tertiary-fixed": "#101e1b",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#474646"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xxl": "64px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "xl": "40px",
+                        "margin-desktop": "48px",
+                        "gutter": "20px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .player-controls {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        .player-idle .player-controls {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .player-idle .player-overlay {
+            opacity: 0;
+        }
+        .player-overlay {
+            transition: opacity 0.3s ease;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.4) 50%, rgba(10, 10, 10, 0.1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased h-screen w-screen overflow-hidden flex flex-col relative" id="player-container">
+<!-- Top Navigation Shell (Hidden intentionally for full screen media, but keeping structural rules from JSON if needed. For media player, usually suppressed) -->
+<!-- Suppressed navigation shell due to contextual state (transactional/linear flow of watching media) -->
+<!-- Main Player Area -->
+<main class="flex-grow relative h-full w-full">
+<!-- Media Background Image Placeholder -->
+<div class="absolute inset-0 w-full h-full bg-surface-container-lowest">
+<img alt="Media Background" class="w-full h-full object-cover object-center" data-alt="A sweeping, cinematic landscape shot of a dark, misty forest at twilight. The lighting is moody and low-key, with subtle moonlight filtering through dense pine trees. The color palette consists of deep charcoal, almost pure black shadows, and muted, sophisticated emerald green accents. The overall aesthetic is calm, premium, and highly atmospheric, suitable for a sophisticated dark-mode media player background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs9sGG3n4GQKLfuEXv3bmSYp6kG0Lqkp9ncM0x6fxjHcfRJFoTMvAeKxoPipq_dCMEMovCdPGP9LQUIAdgyAY8j-tF5gIK55vl81PI1-xzib1iU0p_BLPgzQ7Bh3hACt8a1SQztr03JZMM6ZhBW2K5zX6QYNZXwljRCu7nv4xNRu1U8O53w90pCyvM3lBpZeYyHixhxpULLBb-Td_BdbTHwjiXQcPrCviOqbjhZE9aggjFTfEBsoeA"/>
+</div>
+<!-- Dark Overlay -->
+<div class="absolute inset-0 player-overlay pointer-events-none"></div>
+<!-- Top Actions (Back, Cast, More) -->
+<div class="absolute top-0 left-0 right-0 p-margin-mobile md:p-margin-desktop flex justify-between items-center z-10 player-controls">
+<button aria-label="Close" class="text-on-surface hover:text-primary transition-colors flex items-center justify-center w-xl h-xl active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-size: 28px;">close</span>
+</button>
+<div class="flex gap-md">
+<button aria-label="Cast" class="text-on-surface hover:text-primary transition-colors flex items-center justify-center w-xl h-xl active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-size: 24px;">cast</span>
+</button>
+<button aria-label="More options" class="text-on-surface hover:text-primary transition-colors flex items-center justify-center w-xl h-xl active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-size: 24px;">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Bottom Controls Area -->
+<div class="absolute bottom-0 left-0 right-0 p-margin-mobile md:p-margin-desktop z-10 flex flex-col gap-lg player-controls">
+<!-- Metadata -->
+<div class="flex flex-col gap-xs mb-sm">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">The Midnight Horizon</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">S1:E4 • The Silent Echo</p>
+</div>
+<!-- Progress Bar -->
+<div class="flex flex-col gap-sm w-full group cursor-pointer">
+<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant">
+<span>24:12</span>
+<span>58:45</span>
+</div>
+<div class="relative w-full h-[4px] bg-[#2B3A36] rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-[#4F7C73] rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+<!-- Playback Controls -->
+<div class="flex justify-between items-center mt-sm">
+<!-- Left Controls (Volume, Subtitles) -->
+<div class="flex items-center gap-md md:gap-lg w-1/3">
+<button aria-label="Volume" class="text-on-surface hover:text-primary transition-colors flex items-center justify-center w-xl h-xl active:scale-95 duration-150 hidden md:flex">
+<span class="material-symbols-outlined" style="font-size: 24px;">volume_up</span>
+</button>
+<button aria-label="Subtitles" class="text-on-surface hover:text-primary transition-colors flex items-center justify-center w-xl h-xl active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-size: 24px;">subtitles</span>
+</button>
+</div>
+<!-- Center Controls (Main Playback) -->
+<div class="flex items-center justify-center gap-md md:gap-xl w-1/3">
+<button aria-label="Rewind 10 seconds" class="text-on-surface hover:text-primary transition-colors flex items-center justify-center w-xl h-xl active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-size: 28px;">replay_10</span>
+</button>
+<button aria-label="Pause" class="bg-primary text-primary-container rounded-full flex items-center justify-center w-xxl h-xxl hover:bg-surface-tint transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-size: 36px; font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button aria-label="Forward 10 seconds" class="text-on-surface hover:text-primary transition-colors flex items-center justify-center w-xl h-xl active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-size: 28px;">forward_10</span>
+</button>
+</div>
+<!-- Right Controls (Next Episode, Fullscreen) -->
+<div class="flex items-center justify-end gap-md md:gap-lg w-1/3">
+<button aria-label="Next Episode" class="text-on-surface hover:text-primary transition-colors flex items-center justify-center w-xl h-xl active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-size: 24px;">skip_next</span>
+</button>
+<button aria-label="Fullscreen" class="text-on-surface hover:text-primary transition-colors flex items-center justify-center w-xl h-xl active:scale-95 duration-150 hidden md:flex">
+<span class="material-symbols-outlined" style="font-size: 24px;">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple idle timeout script for media player
+        document.addEventListener('DOMContentLoaded', () => {
+            let timeout;
+            const container = document.getElementById('player-container');
+            
+            function resetTimer() {
+                container.classList.remove('player-idle');
+                clearTimeout(timeout);
+                // Hide controls after 3 seconds of inactivity
+                timeout = setTimeout(() => {
+                    container.classList.add('player-idle');
+                }, 3000);
+            }
+
+            // Listen for mouse/touch events to show controls
+            container.addEventListener('mousemove', resetTimer);
+            container.addEventListener('touchstart', resetTimer);
+            container.addEventListener('click', resetTimer);
+            container.addEventListener('keydown', resetTimer);
+
+            // Initial timer setup
+            resetTimer();
+        });
+    </script>
+</body></html>
