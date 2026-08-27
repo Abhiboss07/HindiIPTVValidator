@@ -6442,3 +6442,48 @@ function initParticles() {
   }
   animate();
 }
+
+// ==========================================================
+// ANDROID HARDWARE BACK BUTTON & MODAL DISMISS HANDLER
+// ==========================================================
+let lastBackPressTime = 0;
+
+window.handleAndroidBackPressed = function() {
+  const playerModal = document.getElementById('playerModal');
+  const drawer = document.getElementById('sideDrawerModal');
+  const settings = document.getElementById('settingsModal');
+
+  // 1. If Video Player is open, close/minimize video and stay in app
+  if (playerModal && playerModal.classList.contains('active')) {
+    closePlayerModalCompletely(null);
+    return true;
+  }
+
+  // 2. If Side Navigation Drawer is open, close drawer
+  if (drawer && drawer.classList.contains('active')) {
+    toggleMenuDrawer();
+    return true;
+  }
+
+  // 3. If Settings Modal is open, close settings
+  if (settings && settings.classList.contains('active')) {
+    closeSettingsModal();
+    return true;
+  }
+
+  // 4. If on another page, navigate back to Home
+  if (currentActivePage !== 'home') {
+    switchPage('home');
+    return true;
+  }
+
+  // 5. If at Home page with no modals, require double-tap to exit
+  const now = Date.now();
+  if (now - lastBackPressTime < 2000) {
+    return false; // Exit app
+  } else {
+    lastBackPressTime = now;
+    showToast('Press back again to exit app');
+    return true;
+  }
+};
