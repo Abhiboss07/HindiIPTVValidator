@@ -130,25 +130,54 @@
         <!-- ==========================================================
              PAGE 2: LIVE TV CHANNELS (Obsidian Live Design)
              ========================================================== -->
+        <!-- ==========================================================
+             PAGE 2: LIVE TV CHANNELS (Obsidian Live & Country Filters)
+             ========================================================== -->
         <div id="page-live" class="page-view">
             <!-- Search Pill -->
             <div class="search-box-pill">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="#8e9192"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                <input type="text" id="liveSearchInput" placeholder="Search Hindi news, movies, devotional..." oninput="handleLiveSearch(this.value)">
+                <input type="text" id="liveSearchInput" placeholder="Search channel name, country, news, music..." oninput="handleLiveSearch(this.value)">
             </div>
 
-            <!-- Category Chips -->
-            <div class="category-chips-row" id="liveCategoryChips">
-                <button class="lumina-chip active" onclick="filterLiveCategory('ALL', this)">All Channels</button>
-                <button class="lumina-chip" onclick="filterLiveCategory('INDIA', this)">🇮🇳 India (Hindi)</button>
-                <button class="lumina-chip" onclick="filterLiveCategory('NEWS', this)">📰 News</button>
-                <button class="lumina-chip" onclick="filterLiveCategory('DEVOTIONAL', this)">🕉️ Devotional</button>
-                <button class="lumina-chip" onclick="filterLiveCategory('ENTERTAINMENT', this)">🎬 Entertainment</button>
-                <button class="lumina-chip" onclick="filterLiveCategory('MUSIC', this)">🎵 Music</button>
-                <button class="lumina-chip" onclick="filterLiveCategory('US', this)">🇺🇸 US</button>
-                <button class="lumina-chip" onclick="filterLiveCategory('UK', this)">🇬🇧 UK</button>
-                <button class="lumina-chip" onclick="filterLiveCategory('DE', this)">🇩🇪 DE</button>
-                <button class="lumina-chip" onclick="filterLiveCategory('FR', this)">🇫🇷 FR</button>
+            <!-- Country Filter Chips -->
+            <div style="margin-bottom: 10px;">
+                <div style="font-size: 11px; font-weight: 700; color: #a3a3a3; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; display: flex; align-items: center; gap: 4px;">
+                    <span>🌐</span> Filter by Country
+                </div>
+                <div class="category-chips-row" id="liveCountryChips">
+                    <button class="lumina-chip active" onclick="filterLiveCountry('ALL', this)">🌐 All Countries</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('IN', this)">🇮🇳 India (Hindi)</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('US', this)">🇺🇸 USA</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('UK', this)">🇬🇧 UK</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('AE', this)">🇦🇪 UAE & Gulf</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('SA', this)">🇸🇦 Saudi Arabia</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('DE', this)">🇩🇪 Germany</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('FR', this)">🇫🇷 France</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('JP', this)">🇯🇵 Japan</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('KR', this)">🇰🇷 Korea</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('CA', this)">🇨🇦 Canada</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('AU', this)">🇦🇺 Australia</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('PK', this)">🇵🇰 Pakistan</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('BD', this)">🇧🇩 Bangladesh</button>
+                    <button class="lumina-chip" onclick="filterLiveCountry('NP', this)">🇳🇵 Nepal</button>
+                </div>
+            </div>
+
+            <!-- Category / Genre Chips -->
+            <div style="margin-bottom: 18px;">
+                <div style="font-size: 11px; font-weight: 700; color: #a3a3a3; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; display: flex; align-items: center; gap: 4px;">
+                    <span>📂</span> Filter by Category
+                </div>
+                <div class="category-chips-row" id="liveCategoryChips">
+                    <button class="lumina-chip active" onclick="filterLiveCategory('ALL', this)">All Genres</button>
+                    <button class="lumina-chip" onclick="filterLiveCategory('NEWS', this)">📰 News</button>
+                    <button class="lumina-chip" onclick="filterLiveCategory('DEVOTIONAL', this)">🕉️ Devotional / Holy</button>
+                    <button class="lumina-chip" onclick="filterLiveCategory('ENTERTAINMENT', this)">🎬 Entertainment</button>
+                    <button class="lumina-chip" onclick="filterLiveCategory('MUSIC', this)">🎵 Music</button>
+                    <button class="lumina-chip" onclick="filterLiveCategory('BUSINESS', this)">📈 Business</button>
+                    <button class="lumina-chip" onclick="filterLiveCategory('SCIENCE', this)">🚀 Science & Space</button>
+                </div>
             </div>
 
             <!-- Featured Live Stream Card -->

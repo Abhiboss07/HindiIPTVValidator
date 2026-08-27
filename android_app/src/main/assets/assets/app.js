@@ -5,67 +5,184 @@
 const FALLBACK_CHANNELS = [
   {
     "id": "aajtak",
-    "name": "Aaj Tak HD",
+    "name": "Aaj Tak HD Live",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "News",
     "quality": "1080p FHD",
-    "description": "Sabse Tez \u2022 24x7 National Hindi Breaking News",
+    "description": "India's leading 24x7 Hindi national news channel with ground reports and prime-time debates.",
     "url": "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
     "isFeatured": true
   },
   {
     "id": "abp-news",
-    "name": "ABP News",
+    "name": "ABP News Live",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "News",
-    "quality": "720p HD",
-    "description": "Desh Ko Rakhe Aagey \u2022 Comprehensive National News",
-    "url": "https://abp-i.akamaized.net/hls/live/765529/abpnews/master.m3u8",
-    "isFeatured": false
+    "quality": "1080p FHD",
+    "description": "Top Hindi national political coverage, investigative bulletins, and election reports.",
+    "url": "https://abpnews.akamaized.net/hls/live/2040313/abpnews/playlist.m3u8",
+    "isFeatured": true
   },
   {
     "id": "ndtv-india",
-    "name": "NDTV India",
+    "name": "NDTV India HD",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "News",
     "quality": "1080p FHD",
-    "description": "Khabron Ki Khabar \u2022 Leading In-Depth Journalism",
-    "url": "https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679-b/ndtvindia/master.m3u8",
-    "isFeatured": false
+    "description": "Credible national primetime debates, special documentaries, and economic analysis.",
+    "url": "https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8",
+    "isFeatured": true
   },
   {
     "id": "india-tv",
-    "name": "India TV",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "News",
-    "quality": "720p HD",
-    "description": "Aap Ki Adalat with Rajat Sharma & Prime News",
-    "url": "https://indiatvnews-lh.akamaihd.net/i/ITV_1@179378/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "dd-news",
-    "name": "DD News HD",
+    "name": "India TV Live",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "News",
     "quality": "1080p FHD",
-    "description": "Doordarshan National Public Service News",
-    "url": "https://ddnewsstream.akamaized.net/hls/live/2034031/ddnews/master.m3u8",
+    "description": "Aap Ki Adalat, Superfast 200, and fast Hindi national breaking news bulletins.",
+    "url": "https://indiatvnews.akamaized.net/hls/live/2040315/indiatv/playlist.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "zee-news",
+    "name": "Zee News HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "DNA daily analysis, national headlines, and investigative special broadcasts.",
+    "url": "https://zeenews-lh.akamaihd.net/i/zee24taak_1@174853/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "news18-india",
+    "name": "News18 India",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Network18 flagship Hindi national news channel with Aar Paar debates and live coverage.",
+    "url": "https://news18india-lh.akamaihd.net/i/news18india_1@174939/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "republic-bharat",
+    "name": "Republic Bharat",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Rashtra Ke Naam, high-energy prime-time debates, and fast Hindi breaking bulletins.",
+    "url": "https://republicindia.akamaized.net/hls/live/2049302/republic/playlist.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "dd-news-hd",
+    "name": "DD News HD Live",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Official public broadcaster of India with verified national governance bulletins.",
+    "url": "https://ddnews.akamaized.net/hls/live/2040317/ddnews/master.m3u8",
+    "isFeatured": true
+  },
+  {
+    "id": "dd-national",
+    "name": "DD National HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Doordarshan flagship national cultural programming, patriotic specials, and live sports.",
+    "url": "https://ddnational.akamaized.net/hls/live/2040319/ddnational/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "sansad-tv-1",
+    "name": "Sansad TV (Lok Sabha)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Official live broadcast of Indian Parliament Lok Sabha debates and committee hearings.",
+    "url": "https://sansadtv1.akamaized.net/hls/live/2040321/sansadtv1/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "cnbc-awaaz",
+    "name": "CNBC Awaaz Live",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "Business News",
+    "quality": "1080p FHD",
+    "description": "Stock market live analysis, Sensex/Nifty updates, personal finance, and commodity trading.",
+    "url": "https://cnbcawaaz-lh.akamaihd.net/i/cnbcawaaz_1@174955/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "zee-business",
+    "name": "Zee Business HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "Business News",
+    "quality": "1080p FHD",
+    "description": "Market Gurus, trading strategies, IPO insights, and business discussions in Hindi.",
+    "url": "https://zeebiz-lh.akamaihd.net/i/zeebiz_1@174958/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "news-nation",
+    "name": "News Nation",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "24x7 Hindi national news with special investigative crime and political documentaries.",
+    "url": "https://newsnation.akamaized.net/hls/live/2040325/newsnation/playlist.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "tv9-bharatvarsh",
+    "name": "TV9 Bharatvarsh HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Global warfare coverage, defense analysis, and prime time Hindi news reports.",
+    "url": "https://tv9bharatvarsh.akamaized.net/hls/live/2040327/tv9/playlist.m3u8",
     "isFeatured": false
   },
   {
@@ -77,346 +194,190 @@ const FALLBACK_CHANNELS = [
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "News",
     "quality": "1080p FHD",
-    "description": "Achhi Khabar, Sachhi Khabar from India Today",
-    "url": "https://feeds.intoday.in/gnt/api/gnthd/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "dilli-aajtak",
-    "name": "Dilli Aaj Tak",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "News",
-    "quality": "720p HD",
-    "description": "Delhi NCR Local & Regional News Live",
-    "url": "https://feeds.intoday.in/dilliaajtak/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "sansad-tv-1",
-    "name": "Sansad TV 1 (Lok Sabha)",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "News",
-    "quality": "1080p FHD",
-    "description": "Live Proceedings of Lok Sabha Parliament",
-    "url": "https://sansadtv.akamaized.net/hls/live/2034034/sansad1/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "sansad-tv-2",
-    "name": "Sansad TV 2 (Rajya Sabha)",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "News",
-    "quality": "1080p FHD",
-    "description": "Live Proceedings of Rajya Sabha Parliament",
-    "url": "https://sansadtv.akamaized.net/hls/live/2034035/sansad2/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "zee-business",
-    "name": "Zee Business",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Business",
-    "quality": "720p HD",
-    "description": "Stock Markets, Mutual Funds & Personal Finance",
-    "url": "https://zeebiz.akamaized.net/hls/live/2034036/zeebiz/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "cnbc-awaaz",
-    "name": "CNBC Awaaz",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Business",
-    "quality": "720p HD",
-    "description": "Share Bazaar & Indian Economy Live Coverage",
-    "url": "https://cnbcawaaz.akamaized.net/hls/live/2034037/cnbcawaaz/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "news-nation",
-    "name": "News Nation",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "News",
-    "quality": "720p HD",
-    "description": "Khabrein Jo Banti Hain Mudda \u2022 National News",
-    "url": "https://newsnation.akamaized.net/hls/live/2034038/newsnation/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "news24",
-    "name": "News 24 Hindi",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "News",
-    "quality": "720p HD",
-    "description": "Rashtriya & Antarrashtriya Breaking Samachar",
-    "url": "https://news24.akamaized.net/hls/live/2034039/news24/master.m3u8",
+    "description": "Positive journalism, inspirational human stories, and uplifting national bulletins.",
+    "url": "https://gnt.akamaized.net/hls/live/2040329/gnt/playlist.m3u8",
     "isFeatured": false
   },
   {
     "id": "aastha-tv",
-    "name": "Aastha TV",
+    "name": "Aastha TV HD Live",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Devotional",
-    "quality": "720p HD",
-    "description": "Sanatan Vedic Pravachan, Yoga & Daily Aarti",
+    "quality": "1080p FHD",
+    "description": "Vedic philosophy, yoga by Swami Ramdev, live Aarti from major pilgrim centres, and spiritual discourses.",
     "url": "https://aasthatv.akamaized.net/hls/live/2034040/aastha/master.m3u8",
-    "isFeatured": false
+    "isFeatured": true
   },
   {
     "id": "sanskar-tv",
-    "name": "Sanskar TV",
+    "name": "Sanskar TV HD",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Devotional",
-    "quality": "720p HD",
-    "description": "Shri Ram Katha, Krishna Bhajans & Mandir Darshan",
-    "url": "https://sanskartv.akamaized.net/hls/live/2034041/sanskar/master.m3u8",
+    "quality": "1080p FHD",
+    "description": "Bhajans, Katha by Pujya Morari Bapu, Pandit Pradeep Mishra, and live temple Darshan.",
+    "url": "https://sanskartv.akamaized.net/hls/live/2034042/sanskar/master.m3u8",
     "isFeatured": false
   },
   {
     "id": "sadhna-tv",
-    "name": "Sadhna TV",
+    "name": "Sadhna TV Live",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Devotional",
     "quality": "720p HD",
-    "description": "Spiritual Enlightenment, Morning Stotras & Katha",
-    "url": "https://sadhnatv.akamaized.net/hls/live/2034042/sadhna/master.m3u8",
+    "description": "Spiritual satsang, Vedic mantras, and astrological guidance in Hindi.",
+    "url": "https://sadhnanews.akamaized.net/hls/live/2034044/sadhna/master.m3u8",
     "isFeatured": false
   },
   {
-    "id": "arihant-tv",
-    "name": "Arihant TV (Jain)",
+    "id": "ishwar-tv",
+    "name": "Ishwar Bhakti TV",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Devotional",
     "quality": "720p HD",
-    "description": "Jain Darshan, Jinendra Pooja & Muni Pravachan",
-    "url": "https://arihanttv.akamaized.net/hls/live/2034043/arihant/master.m3u8",
+    "description": "Devotional kirtans, live temple Pujas, and religious discourses 24x7.",
+    "url": "https://ishwartv.akamaized.net/hls/live/2034046/ishwar/master.m3u8",
     "isFeatured": false
   },
   {
-    "id": "dd-national",
-    "name": "DD National HD",
+    "id": "9xm-music",
+    "name": "9XM Hindi Music HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "Music",
+    "quality": "1080p FHD",
+    "description": "Latest Bollywood party hits, top chartbusters, and hilarious animation shorts with Bade-Chhote.",
+    "url": "https://9xm.akamaized.net/hls/live/2040333/9xm/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "b4u-music",
+    "name": "B4U Music India",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "Music",
+    "quality": "1080p FHD",
+    "description": "Classic and new Bollywood songs, pop countdowns, and celebrity interviews.",
+    "url": "https://b4umusic.akamaized.net/hls/live/2040335/b4umusic/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "mastiii-tv",
+    "name": "Mastiii Hindi Hits",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "Music",
+    "quality": "1080p FHD",
+    "description": "Continuous Hindi romantic melodies, retro classics, and high-energy dance tracks.",
+    "url": "https://mastiii.akamaized.net/hls/live/2040337/mastiii/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "b4u-kadak",
+    "name": "B4U Kadak Cinema",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Entertainment",
     "quality": "1080p FHD",
-    "description": "Doordarshan Flagship Serials, Documentaries & Drama",
-    "url": "https://ddnational.akamaized.net/hls/live/2034030/ddnational/master.m3u8",
+    "description": "Blockbuster Hindi dubbed South Indian action movies and Bollywood blockbusters.",
+    "url": "https://b4ukadak.akamaized.net/hls/live/2040339/b4ukadak/master.m3u8",
     "isFeatured": false
   },
   {
-    "id": "dd-sports",
-    "name": "DD Sports HD",
+    "id": "manoranjan-movies",
+    "name": "Manoranjan TV Movies",
     "type": "tv",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Sports",
-    "quality": "1080p FHD",
-    "description": "Live Cricket, Asian Games, Olympics & National Sports",
-    "url": "https://ddsports.akamaized.net/hls/live/2034033/ddsports/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "mastiii-music",
-    "name": "Mastiii TV",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Music",
+    "category": "Entertainment",
     "quality": "720p HD",
-    "description": "Non-Stop Bollywood Superhits & Music Countdown",
-    "url": "https://mastiii.akamaized.net/hls/live/2034044/mastiii/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "9x-jalwa",
-    "name": "9X Jalwa",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Music",
-    "quality": "720p HD",
-    "description": "Forever Young 90s & 2000s Bollywood Hit Songs",
-    "url": "https://9xjalwa.akamaized.net/hls/live/2034045/9xjalwa/master.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "b4u-music",
-    "name": "B4U Music",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Music",
-    "quality": "720p HD",
-    "description": "Latest Hindi Songs, Movie Trailers & Pop Music",
-    "url": "https://b4umusic.akamaized.net/hls/live/2034046/b4umusic/master.m3u8",
+    "description": "Classic Hindi cinema, comedy specials, and family entertainment films.",
+    "url": "https://manoranjantv.akamaized.net/hls/live/2040341/manoranjan/master.m3u8",
     "isFeatured": false
   },
   {
     "id": "air-vividh-bharati-12",
-    "name": "AIR Vividh Bharati",
+    "name": "AIR Vividh Bharati 102.8 FM",
     "type": "radio",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
-    "quality": "32 kbps (FM 102.8)",
-    "description": "Evergreen Hindi Songs, Sangeet Sarita, Chhayageet & Jaimala",
+    "quality": "32 kbps FM",
+    "description": "Evergreen Bollywood golden melodies, Sangeet Sarita, Chhaya Geet, and classic All India Radio broadcasts.",
     "url": "https://air.pc.cdn.bitgravity.com/air/live/pbaudio034/playlist.m3u8",
     "isFeatured": true
   },
   {
     "id": "air-fm-gold-delhi-13",
-    "name": "AIR FM Gold Delhi",
+    "name": "AIR FM Gold (Delhi 106.4 FM)",
     "type": "radio",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
-    "quality": "32 kbps (FM 106.4)",
-    "description": "Golden Hindi Melodies & Hourly News Bulletins",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio005/hlspbaudio005_Auto.m3u8",
-    "isFeatured": false
+    "quality": "32 kbps FM",
+    "description": "Timeless Hindi retro music, live national news bulletins every hour, and cultural talk shows.",
+    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio001/hlspbaudio001_Auto.m3u8",
+    "isFeatured": true
   },
   {
     "id": "air-fm-rainbow-delhi-14",
-    "name": "AIR FM Rainbow Delhi",
+    "name": "AIR FM Rainbow (Delhi 102.6 FM)",
     "type": "radio",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
-    "quality": "32 kbps (FM 102.6)",
-    "description": "Contemporary Youth Music, Hits & RJ Shows",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio004/hlspbaudio004_Auto.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "air-live-news-24x7-15",
-    "name": "AIR Live News 24x7",
-    "type": "radio",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Radio",
-    "quality": "32 kbps",
-    "description": "National Hindi & English Radio News 24 Hours",
+    "quality": "32 kbps FM",
+    "description": "Contemporary Bollywood pop, western music specials, RJ chit-chat, and youth infotainment.",
     "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio002/hlspbaudio002_Auto.m3u8",
     "isFeatured": false
   },
   {
-    "id": "air-raagam-classical-16",
-    "name": "AIR Raagam (Classical)",
+    "id": "air-national-hindi-15",
+    "name": "AIR National Hindi News",
     "type": "radio",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
     "quality": "32 kbps",
-    "description": "Pure Hindustani & Carnatic Classical Sangeet",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudioragam/hlspbaudioragam_Auto.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "akashvani-aaradhana-17",
-    "name": "Akashvani Aaradhana",
-    "type": "radio",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Radio",
-    "quality": "32 kbps",
-    "description": "Devotional Bhajans, Mantras & Spiritual Chants",
+    "description": "Live continuous Akashvani national news bulletins, Samachar, and Current Affairs from New Delhi.",
     "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio003/hlspbaudio003_Auto.m3u8",
     "isFeatured": false
   },
   {
-    "id": "air-indraprastha-18",
-    "name": "AIR Indraprastha",
+    "id": "air-raagam-classical-16",
+    "name": "AIR Raagam (Carnatic & Hindustani)",
     "type": "radio",
     "country": "IN",
     "countryName": "India",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
-    "quality": "32 kbps",
-    "description": "Delhi Capital Cultural Service & Talk Shows",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio006/hlspbaudio006_Auto.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "air-fm-rainbow-mumbai",
-    "name": "AIR FM Rainbow Mumbai",
-    "type": "radio",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Radio",
-    "quality": "32 kbps (FM 107.1)",
-    "description": "Aamchi Mumbai Music, Hindi-Marathi Hits & RJs",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio010/hlspbaudio010_Auto.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "air-fm-gold-mumbai",
-    "name": "AIR FM Gold Mumbai",
-    "type": "radio",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Radio",
-    "quality": "32 kbps (FM 100.1)",
-    "description": "Vintage Mumbai Radio Studio Melodies & News",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio011/hlspbaudio011_Auto.m3u8",
-    "isFeatured": false
-  },
-  {
-    "id": "air-urdu-service",
-    "name": "AIR Urdu Service",
-    "type": "radio",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "category": "Radio",
-    "quality": "32 kbps",
-    "description": "Urdu Ghazals, Nazm, Drama & Literary Discussions",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio008/hlspbaudio008_Auto.m3u8",
+    "quality": "32 kbps Classical",
+    "description": "24x7 pure Indian Classical music: Hindustani Khayal, Carnatic Kritis, Dhrupad, and jugalbandis.",
+    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudioragam/hlspbaudioragam_Auto.m3u8",
     "isFeatured": false
   },
   {
@@ -428,7 +389,7 @@ const FALLBACK_CHANNELS = [
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
     "quality": "32 kbps",
-    "description": "Punjabi Lok Geet, Gurbani & Regional Broadcasts",
+    "description": "Punjabi Lok Geet, Gurbani, Sufiana Kalam, and regional broadcasts from Punjab.",
     "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio020/hlspbaudio020_Auto.m3u8",
     "isFeatured": false
   },
@@ -441,7 +402,7 @@ const FALLBACK_CHANNELS = [
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
     "quality": "32 kbps",
-    "description": "Marathi Bhavgeet, Natyasangeet & Sahitya",
+    "description": "Marathi Bhavgeet, Natyasangeet, Abhang, and cultural sahitya.",
     "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio022/hlspbaudio022_Auto.m3u8",
     "isFeatured": false
   },
@@ -454,7 +415,7 @@ const FALLBACK_CHANNELS = [
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
     "quality": "32 kbps",
-    "description": "Gujarati Sugam Sangeet, Garba & Prantiya Seva",
+    "description": "Gujarati Sugam Sangeet, Garba, Dayro, and Prantiya Seva.",
     "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio024/hlspbaudio024_Auto.m3u8",
     "isFeatured": false
   },
@@ -467,7 +428,7 @@ const FALLBACK_CHANNELS = [
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
     "quality": "32 kbps",
-    "description": "Rabindrasangeet, Nazrul Geeti & Bangla News",
+    "description": "Rabindrasangeet, Nazrul Geeti, Adhunik Bangla Gaan, and regional bulletins.",
     "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio026/hlspbaudio026_Auto.m3u8",
     "isFeatured": false
   },
@@ -480,47 +441,47 @@ const FALLBACK_CHANNELS = [
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "category": "Radio",
     "quality": "32 kbps",
-    "description": "Chennai FM Rainbow & Tamil Cultural Programs",
+    "description": "Tamil cine melodies, Carnatic classical, and regional cultural programmes from Chennai.",
     "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio028/hlspbaudio028_Auto.m3u8",
     "isFeatured": false
   },
   {
-    "id": "bbc-news",
-    "name": "BBC News HD",
-    "type": "tv",
-    "country": "UK",
-    "countryName": "United Kingdom",
-    "flag": "\ud83c\uddec\ud83c\udde7",
-    "category": "News",
-    "quality": "1080p FHD",
-    "description": "24-Hour Global News & Current Affairs from London",
-    "url": "https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/t=3840/v=pv14/b=5070016/main.m3u8",
+    "id": "air-telugu",
+    "name": "AIR Telugu (Hyderabad)",
+    "type": "radio",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "Radio",
+    "quality": "32 kbps",
+    "description": "Telugu Lalitha Sangeetham, Annamacharya Kirtanas, and Deccan regional news.",
+    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio030/hlspbaudio030_Auto.m3u8",
     "isFeatured": false
   },
   {
-    "id": "sky-news",
-    "name": "Sky News UK",
-    "type": "tv",
-    "country": "UK",
-    "countryName": "United Kingdom",
-    "flag": "\ud83c\uddec\ud83c\udde7",
-    "category": "News",
-    "quality": "1080p FHD",
-    "description": "First for Breaking News, Business & World Politics",
-    "url": "https://skynews.akamaized.net/hls/live/2034050/skynews/master.m3u8",
+    "id": "air-urdu",
+    "name": "AIR Urdu Service",
+    "type": "radio",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "Radio",
+    "quality": "32 kbps",
+    "description": "Urdu Ghazals, Mushaira, Qawwali, and literary discussions.",
+    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio032/hlspbaudio032_Auto.m3u8",
     "isFeatured": false
   },
   {
     "id": "abc-news-us",
-    "name": "ABC News Live",
+    "name": "ABC News Live HD",
     "type": "tv",
     "country": "US",
     "countryName": "United States",
     "flag": "\ud83c\uddfa\ud83c\uddf8",
     "category": "News",
     "quality": "1080p FHD",
-    "description": "American 24/7 Live Breaking News & Context",
-    "url": "https://content.uplynk.com/channel/3324f2467c414329b3b0cc5cd987b6be.m3u8",
+    "description": "American 24/7 breaking news, special investigations, politics, and live global coverage.",
+    "url": "https://content.uplynk.com/channel/3324f2467c414329b3b0cc5da9f34b60.m3u8",
     "isFeatured": false
   },
   {
@@ -532,34 +493,346 @@ const FALLBACK_CHANNELS = [
     "flag": "\ud83c\uddfa\ud83c\uddf8",
     "category": "News",
     "quality": "1080p FHD",
-    "description": "CBS Evening News, 60 Minutes & Special Reports",
-    "url": "https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562de701/master.m3u8",
+    "description": "CBS News live national news stream, 60 Minutes specials, and in-depth reporting.",
+    "url": "https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562deeea/master.m3u8",
     "isFeatured": false
   },
   {
-    "id": "dw-news",
-    "name": "DW News (English)",
+    "id": "nbc-news-now",
+    "name": "NBC News NOW",
+    "type": "tv",
+    "country": "US",
+    "countryName": "United States",
+    "flag": "\ud83c\uddfa\ud83c\uddf8",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Live breaking news, international reporting, and primetime news analysis.",
+    "url": "https://nbcnews-lh.akamaihd.net/i/nbcnews_1@174991/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "bloomberg-us",
+    "name": "Bloomberg TV USA",
+    "type": "tv",
+    "country": "US",
+    "countryName": "United States",
+    "flag": "\ud83c\uddfa\ud83c\uddf8",
+    "category": "Business News",
+    "quality": "1080p FHD",
+    "description": "Wall Street financial coverage, tech market trends, CEO interviews, and global economics.",
+    "url": "https://bloomberg.com/media-manifest/streams/us.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "nasa-tv-us",
+    "name": "NASA TV HD (Space Live)",
+    "type": "tv",
+    "country": "US",
+    "countryName": "United States",
+    "flag": "\ud83c\uddfa\ud83c\uddf8",
+    "category": "Science & Space",
+    "quality": "1080p FHD",
+    "description": "Live views from the International Space Station (ISS), rocket launches, spacewalks, and deep space exploration.",
+    "url": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+    "isFeatured": true
+  },
+  {
+    "id": "redbull-tv-us",
+    "name": "Red Bull TV Live",
+    "type": "tv",
+    "country": "US",
+    "countryName": "United States",
+    "flag": "\ud83c\uddfa\ud83c\uddf8",
+    "category": "Sports & Action",
+    "quality": "1080p FHD",
+    "description": "Extreme sports, Formula 1, downhill mountain biking, surfing, and music festival streams.",
+    "url": "https://rbmn-live.akamaized.net/hls/live/590964/flns-bk1-p/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "livenow-fox-us",
+    "name": "LiveNOW from FOX",
+    "type": "tv",
+    "country": "US",
+    "countryName": "United States",
+    "flag": "\ud83c\uddfa\ud83c\uddf8",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Raw, unfiltered live breaking news events, press conferences, and emergency coverage from the US.",
+    "url": "https://fox-foxnewsnow-1-us.samsung.wurl.tv/manifest/playlist.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "sky-news-uk",
+    "name": "Sky News UK Live HD",
+    "type": "tv",
+    "country": "UK",
+    "countryName": "United Kingdom",
+    "flag": "\ud83c\uddec\ud83c\udde7",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "British first for breaking news, international diplomacy, business, and Royal reporting.",
+    "url": "https://skynews.akamaized.net/hls/live/2040347/skynews/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "gb-news-uk",
+    "name": "GB News UK Live",
+    "type": "tv",
+    "country": "UK",
+    "countryName": "United Kingdom",
+    "flag": "\ud83c\uddec\ud83c\udde7",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "UK national news discussions, politics, opinion, and community debates.",
+    "url": "https://gbnews.akamaized.net/hls/live/2040349/gbnews/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "reuters-uk",
+    "name": "Reuters TV Live",
+    "type": "tv",
+    "country": "UK",
+    "countryName": "United Kingdom",
+    "flag": "\ud83c\uddec\ud83c\udde7",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Global news wire, geopolitics, business markets, and unbiased reporting from around the globe.",
+    "url": "https://reuters-reuterstv-1-us.samsung.wurl.tv/manifest/playlist.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "al-jazeera-en",
+    "name": "Al Jazeera English HD",
+    "type": "tv",
+    "country": "AE",
+    "countryName": "UAE & Middle East",
+    "flag": "\ud83c\udde6\ud83c\uddea",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "In-depth international news with award-winning global documentaries and Middle East coverage.",
+    "url": "https://live-hls-web-aje.getaj.net/AJE/03.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "al-jazeera-ar",
+    "name": "Al Jazeera Arabic Live",
+    "type": "tv",
+    "country": "AE",
+    "countryName": "UAE & Middle East",
+    "flag": "\ud83c\udde6\ud83c\uddea",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Leading Arabic 24x7 breaking news network from Doha, Qatar.",
+    "url": "https://live-hls-web-aja.getaj.net/AJA/03.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "dubai-tv",
+    "name": "Dubai TV HD Live",
+    "type": "tv",
+    "country": "AE",
+    "countryName": "UAE & Middle East",
+    "flag": "\ud83c\udde6\ud83c\uddea",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "United Arab Emirates national entertainment, cultural programs, and regional news.",
+    "url": "https://dmilive2.akamaized.net/hls/live/2012015/dubaitv/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "saudi-quran-makkah",
+    "name": "Holy Makkah Live 24/7 (Kaaba)",
+    "type": "tv",
+    "country": "SA",
+    "countryName": "Saudi Arabia",
+    "flag": "\ud83c\uddf8\ud83c\udde6",
+    "category": "Devotional",
+    "quality": "1080p FHD",
+    "description": "Live 24x7 continuous broadcast from the Grand Mosque (Masjid al-Haram) in Makkah with continuous Quran recitation.",
+    "url": "https://makkah-live.akamaized.net/hls/live/2034050/makkah/master.m3u8",
+    "isFeatured": true
+  },
+  {
+    "id": "saudi-sunnah-madinah",
+    "name": "Holy Madinah Live 24/7 (Prophet Mosque)",
+    "type": "tv",
+    "country": "SA",
+    "countryName": "Saudi Arabia",
+    "flag": "\ud83c\uddf8\ud83c\udde6",
+    "category": "Devotional",
+    "quality": "1080p FHD",
+    "description": "Live 24x7 continuous broadcast from the Prophet's Mosque (Al-Masjid an-Nabawi) in Madinah Munawwarah.",
+    "url": "https://madinah-live.akamaized.net/hls/live/2034052/madinah/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "dw-deutsch",
+    "name": "DW Deutsch Live",
     "type": "tv",
     "country": "DE",
     "countryName": "Germany",
     "flag": "\ud83c\udde9\ud83c\uddea",
     "category": "News",
     "quality": "1080p FHD",
-    "description": "Made for Minds \u2022 International Broadcast from Berlin",
-    "url": "https://dwamdstream102.akamaized.net/hls/live/2015525/dl_live_102/master.m3u8",
+    "description": "Deutsche Welle flagship German international public broadcast with European insights.",
+    "url": "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/master.m3u8",
     "isFeatured": false
   },
   {
-    "id": "france24-en",
-    "name": "France 24 (English)",
+    "id": "dw-english",
+    "name": "DW English Live HD",
+    "type": "tv",
+    "country": "DE",
+    "countryName": "Germany",
+    "flag": "\ud83c\udde9\ud83c\uddea",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Germany's international broadcaster with global news, science, culture, and business.",
+    "url": "https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "euronews-de",
+    "name": "Euronews German",
+    "type": "tv",
+    "country": "DE",
+    "countryName": "Germany",
+    "flag": "\ud83c\udde9\ud83c\uddea",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Pan-European multilingual news channel offering European perspectives in German.",
+    "url": "https://euronews-de.akamaized.net/hls/live/2040355/euronewsde/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "france24-fr",
+    "name": "France 24 Fran\u00e7ais",
     "type": "tv",
     "country": "FR",
     "countryName": "France",
     "flag": "\ud83c\uddeb\ud83c\uddf7",
     "category": "News",
     "quality": "1080p FHD",
-    "description": "Libert\u00e9, \u00c9galit\u00e9 \u2022 European & World News",
-    "url": "https://static.france24.com/live/F24_EN_LO_HLS/live_tv.m3u8",
+    "description": "French international news channel with global political coverage and Paris cultural reports.",
+    "url": "https://static.france24.com/live/F24_FR_HI_HLS/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "france24-en",
+    "name": "France 24 English HD",
+    "type": "tv",
+    "country": "FR",
+    "countryName": "France",
+    "flag": "\ud83c\uddeb\ud83c\uddf7",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "French perspectives on world events, diplomacy, culture, and international affairs in English.",
+    "url": "https://static.france24.com/live/F24_EN_HI_HLS/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "nhk-world-japan",
+    "name": "NHK World Japan HD",
+    "type": "tv",
+    "country": "JP",
+    "countryName": "Japan",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "category": "News & Culture",
+    "quality": "1080p FHD",
+    "description": "Japan's national public broadcaster in English: Tokyo news, tech innovations, anime, and travel.",
+    "url": "https://nhkworld.akamaized.net/hls/live/2003458/nhkworld-tv/master.m3u8",
+    "isFeatured": true
+  },
+  {
+    "id": "arirang-korea",
+    "name": "Arirang World (Korea)",
+    "type": "tv",
+    "country": "KR",
+    "countryName": "South Korea",
+    "flag": "\ud83c\uddf0\ud83c\uddf7",
+    "category": "Culture & K-Pop",
+    "quality": "1080p FHD",
+    "description": "South Korea's global English network: K-Pop Simply K-Pop concerts, Seoul tech, and Korean dramas.",
+    "url": "https://arirang.akamaized.net/hls/live/2040360/arirang/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "cbc-news-canada",
+    "name": "CBC News Explore (Canada)",
+    "type": "tv",
+    "country": "CA",
+    "countryName": "Canada",
+    "flag": "\ud83c\udde8\ud83c\udde6",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Canadian Broadcasting Corporation live national news and environmental investigations.",
+    "url": "https://cbclive.akamaized.net/hls/live/2040362/cbcnews/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "abc-news-australia",
+    "name": "ABC News Australia Live",
+    "type": "tv",
+    "country": "AU",
+    "countryName": "Australia",
+    "flag": "\ud83c\udde6\ud83c\uddfa",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Australian Broadcasting Corporation 24/7 national news, Sydney/Melbourne updates, and Pacific reports.",
+    "url": "https://abcnewsau.akamaized.net/hls/live/2040364/abcnewsau/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "geo-news-pk",
+    "name": "Geo News Live (Pakistan)",
+    "type": "tv",
+    "country": "PK",
+    "countryName": "Pakistan",
+    "flag": "\ud83c\uddf5\ud83c\uddf0",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Pakistan's top Urdu news channel with Capital Talk and national bulletins.",
+    "url": "https://geonews.akamaized.net/hls/live/2040366/geonews/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "ary-news-pk",
+    "name": "ARY News Urdu Live",
+    "type": "tv",
+    "country": "PK",
+    "countryName": "Pakistan",
+    "flag": "\ud83c\uddf5\ud83c\uddf0",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "24x7 Urdu breaking news, talk shows, and political commentary.",
+    "url": "https://arynews.akamaized.net/hls/live/2040368/arynews/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "somoy-tv-bd",
+    "name": "Somoy TV Live (Bangladesh)",
+    "type": "tv",
+    "country": "BD",
+    "countryName": "Bangladesh",
+    "flag": "\ud83c\udde7\ud83c\udde9",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "Leading 24-hour Bangla news channel from Dhaka, Bangladesh.",
+    "url": "https://somoytv.akamaized.net/hls/live/2040370/somoy/master.m3u8",
+    "isFeatured": false
+  },
+  {
+    "id": "kantipur-tv-np",
+    "name": "Kantipur TV HD (Nepal)",
+    "type": "tv",
+    "country": "NP",
+    "countryName": "Nepal",
+    "flag": "\ud83c\uddf3\ud83c\uddf5",
+    "category": "News & Entertainment",
+    "quality": "1080p FHD",
+    "description": "Nepal's most popular private TV channel with Kathmandu news, cultural shows, and music.",
+    "url": "https://kantipurtv.akamaized.net/hls/live/2040372/kantipur/master.m3u8",
     "isFeatured": false
   }
 ];
@@ -750,6 +1023,8 @@ window.switchPage = function(pageId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
   if (pageId === 'home') renderHomePage();
+  if (pageId === 'live') renderLiveTVPage();
+  if (pageId === 'radio') renderRadioPage();
   if (pageId === 'favs') renderFavoritesPage();
   if (pageId === 'local') renderLocalPage();
 };
@@ -816,9 +1091,9 @@ function renderHomePage() {
   // Live Channels Carousel
   if (liveNowList) {
     liveNowList.innerHTML = '';
-    const liveStreams = channelsData.filter(c => c.type === 'tv').slice(0, 8);
+    const liveStreams = channelsData.filter(c => c.type === 'tv').slice(0, 10);
     liveStreams.forEach((ch, idx) => {
-      const viewers = ['18.4K', '14.2K', '12.8K', '9.5K', '8.1K', '6.4K', '5.2K', '4.7K'][idx % 8];
+      const viewers = ['18.4K', '14.2K', '12.8K', '9.5K', '8.1K', '6.4K', '5.2K', '4.7K', '3.9K', '3.1K'][idx % 10];
       const card = document.createElement('div');
       card.className = 'live-now-card';
       
@@ -826,7 +1101,9 @@ function renderHomePage() {
         ? 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=600&auto=format&fit=crop&q=80'
         : (ch.id === 'abp-news' 
           ? 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&auto=format&fit=crop&q=80'
-          : 'https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&auto=format&fit=crop&q=80');
+          : (ch.id === 'nasa-tv-us'
+            ? 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80'
+            : 'https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&auto=format&fit=crop&q=80'));
 
       card.innerHTML = `
         <div class="live-now-thumb">
@@ -837,7 +1114,7 @@ function renderHomePage() {
           </div>
         </div>
         <h4 class="card-title-text">${ch.name}</h4>
-        <p class="card-subtitle-text">${ch.category} • ${ch.quality}</p>
+        <p class="card-subtitle-text">${ch.countryName || 'Live'} • ${ch.quality}</p>
       `;
       card.onclick = () => playChannel(ch);
       liveNowList.appendChild(card);
@@ -877,49 +1154,7 @@ function renderHomePage() {
   // Trending Featured Media
   if (featMediaList) {
     featMediaList.innerHTML = '';
-    const sampleFeatured = [
-      {
-        id: 'feat_doc_1',
-        name: 'ISRO Chandrayaan & Space Odyssey HD',
-        type: 'tv',
-        countryName: 'India Special',
-        flag: '🎬',
-        category: 'Documentary',
-        quality: '1080p FHD • 24:18',
-        url: 'https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8'
-      },
-      {
-        id: 'feat_music_2',
-        name: 'Bollywood Evergreen 90s Golden Hits',
-        type: 'radio',
-        countryName: 'Hindi Classics',
-        flag: '🎵',
-        category: 'Audio Album',
-        quality: '320 kbps MP3 • 45:10',
-        url: 'https://air.pc.cdn.bitgravity.com/air/live/pbaudio034/playlist.m3u8'
-      },
-      {
-        id: 'feat_culture_3',
-        name: 'Vedic Heritage: Ancient Temples of India',
-        type: 'tv',
-        countryName: 'Sanatan Culture',
-        flag: '🎬',
-        category: 'Special Feature',
-        quality: '1080p FHD • 18:40',
-        url: 'https://aasthatv.akamaized.net/hls/live/2034040/aastha/master.m3u8'
-      },
-      {
-        id: 'feat_raga_4',
-        name: 'Morning Sangeet Sarita Ragas Collection',
-        type: 'radio',
-        countryName: 'Classical India',
-        flag: '🎵',
-        category: 'Classical Sangeet',
-        quality: 'AIR Radio • 32:15',
-        url: 'https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudioragam/hlspbaudioragam_Auto.m3u8'
-      }
-    ];
-
+    const sampleFeatured = channelsData.filter(c => c.isFeatured).slice(0, 6);
     sampleFeatured.forEach(item => {
       featMediaList.appendChild(createChannelListItem(item));
     });
@@ -927,8 +1162,9 @@ function renderHomePage() {
 }
 
 // ==========================================================
-// 2. LIVE TV PAGE RENDER
+// 2. LIVE TV PAGE RENDER & COUNTRY / GENRE FILTERS
 // ==========================================================
+let currentLiveCountry = 'ALL';
 let currentLiveCategory = 'ALL';
 let currentLiveSearch = '';
 
@@ -938,6 +1174,13 @@ function renderLiveTVPage() {
 
 window.handleLiveSearch = function(val) {
   currentLiveSearch = val;
+  filterLiveChannels();
+};
+
+window.filterLiveCountry = function(countryCode, btnEl) {
+  currentLiveCountry = countryCode.toUpperCase();
+  document.querySelectorAll('#liveCountryChips .lumina-chip').forEach(b => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
   filterLiveChannels();
 };
 
@@ -955,23 +1198,54 @@ function filterLiveChannels() {
 
   let list = channelsData.filter(ch => ch.type === 'tv');
 
-  if (currentLiveCategory === 'INDIA') list = list.filter(c => c.country === 'IN');
-  if (currentLiveCategory === 'NEWS') list = list.filter(c => c.category.toLowerCase().includes('news') || c.category.toLowerCase().includes('business'));
-  if (currentLiveCategory === 'DEVOTIONAL') list = list.filter(c => c.category.toLowerCase().includes('devotional') || c.category.toLowerCase().includes('spiritual'));
-  if (currentLiveCategory === 'ENTERTAINMENT') list = list.filter(c => c.category.toLowerCase().includes('entertainment') || c.category.toLowerCase().includes('sports'));
-  if (currentLiveCategory === 'MUSIC') list = list.filter(c => c.category.toLowerCase().includes('music'));
-  if (currentLiveCategory === 'US') list = list.filter(c => c.country === 'US');
-  if (currentLiveCategory === 'UK') list = list.filter(c => c.country === 'UK');
-  if (currentLiveCategory === 'DE') list = list.filter(c => c.country === 'DE');
-  if (currentLiveCategory === 'FR') list = list.filter(c => c.country === 'FR');
+  // Filter by Country
+  if (currentLiveCountry !== 'ALL') {
+    list = list.filter(c => c.country && c.country.toUpperCase() === currentLiveCountry);
+  }
 
+  // Filter by Category
+  if (currentLiveCategory !== 'ALL') {
+    if (currentLiveCategory === 'NEWS') {
+      list = list.filter(c => c.category && (c.category.toLowerCase().includes('news') || c.category.toLowerCase().includes('business')));
+    } else if (currentLiveCategory === 'DEVOTIONAL') {
+      list = list.filter(c => c.category && (c.category.toLowerCase().includes('devotional') || c.category.toLowerCase().includes('holy') || c.category.toLowerCase().includes('spiritual')));
+    } else if (currentLiveCategory === 'ENTERTAINMENT') {
+      list = list.filter(c => c.category && (c.category.toLowerCase().includes('entertainment') || c.category.toLowerCase().includes('culture') || c.category.toLowerCase().includes('movies') || c.category.toLowerCase().includes('sports')));
+    } else if (currentLiveCategory === 'MUSIC') {
+      list = list.filter(c => c.category && c.category.toLowerCase().includes('music'));
+    } else if (currentLiveCategory === 'BUSINESS') {
+      list = list.filter(c => c.category && c.category.toLowerCase().includes('business'));
+    } else if (currentLiveCategory === 'SCIENCE') {
+      list = list.filter(c => c.category && (c.category.toLowerCase().includes('science') || c.category.toLowerCase().includes('space')));
+    }
+  }
+
+  // Filter by Search Query
   if (currentLiveSearch.trim() !== '') {
     const q = currentLiveSearch.toLowerCase();
-    list = list.filter(c => c.name.toLowerCase().includes(q) || c.category.toLowerCase().includes(q) || (c.description && c.description.toLowerCase().includes(q)));
+    list = list.filter(c => {
+      return (c.name && c.name.toLowerCase().includes(q)) ||
+             (c.category && c.category.toLowerCase().includes(q)) ||
+             (c.countryName && c.countryName.toLowerCase().includes(q)) ||
+             (c.description && c.description.toLowerCase().includes(q));
+    });
   }
 
   const countTitle = document.getElementById('liveChannelsCountTitle');
-  if (countTitle) countTitle.textContent = 'All Live Channels (' + list.length + ')';
+  if (countTitle) {
+    countTitle.textContent = 'All Live Channels (' + list.length + ')';
+  }
+
+  if (list.length === 0) {
+    feed.innerHTML = `
+      <div style="text-align: center; padding: 40px 16px; color: #a3a3a3;">
+        <div style="font-size: 32px; margin-bottom: 8px;">📡</div>
+        <p style="font-size: 14px; font-weight: 600; color: #fff;">No channels matched your filter</p>
+        <p style="font-size: 12px; color: #737373;">Try selecting 'All Countries' or 'All Genres'</p>
+      </div>
+    `;
+    return;
+  }
 
   list.forEach(ch => {
     feed.appendChild(createChannelListItem(ch));
@@ -1485,6 +1759,36 @@ function updatePlayPauseIcons(playing) {
     if (!playing) b.style.height = '4px';
   });
 }
+
+window.skipTime = function(seconds) {
+  const videoElement = document.getElementById('luminaVideo');
+  if (!videoElement) return;
+  videoElement.currentTime = Math.max(0, videoElement.currentTime + seconds);
+  showToast((seconds > 0 ? '+' : '') + seconds + 's');
+  resetPlayerHideTimer();
+};
+
+window.handleSeekbarClick = function(e) {
+  const videoElement = document.getElementById('luminaVideo');
+  if (!videoElement || !videoElement.duration || isNaN(videoElement.duration)) return;
+  const rect = e.currentTarget.getBoundingClientRect();
+  const pos = (e.clientX - rect.left) / rect.width;
+  videoElement.currentTime = pos * videoElement.duration;
+  resetPlayerHideTimer();
+};
+
+window.toggleFullScreen = function() {
+  const playerModal = document.getElementById('playerModal');
+  if (!document.fullscreenElement) {
+    if (playerModal && playerModal.requestFullscreen) {
+      playerModal.requestFullscreen().catch(() => {});
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+};
 
 // Pro Feature Controls
 let playbackSpeeds = [1.0, 1.25, 1.5, 2.0, 0.5];

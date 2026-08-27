@@ -1,11 +1,77 @@
 [
-  { "code": "ALL", "name": "All Channels", "flag": "🌐" },
-  { "code": "IN", "name": "India (Hindi & AIR)", "flag": "🇮🇳" },
-  { "code": "US", "name": "United States", "flag": "🇺🇸" },
-  { "code": "UK", "name": "United Kingdom", "flag": "🇬🇧" },
-  { "code": "DE", "name": "Germany", "flag": "🇩🇪" },
-  { "code": "FR", "name": "France", "flag": "🇫🇷" },
-  { "code": "KR", "name": "South Korea", "flag": "🇰🇷" },
-  { "code": "AE", "name": "UAE / Arab", "flag": "🇦🇪" },
-  { "code": "CA", "name": "Canada", "flag": "🇨🇦" }
+  {
+    "code": "ALL",
+    "name": "All Countries",
+    "flag": "\ud83c\udf10"
+  },
+  {
+    "code": "IN",
+    "name": "India (Hindi & Regional)",
+    "flag": "\ud83c\uddee\ud83c\uddf3"
+  },
+  {
+    "code": "US",
+    "name": "United States",
+    "flag": "\ud83c\uddfa\ud83c\uddf8"
+  },
+  {
+    "code": "UK",
+    "name": "United Kingdom",
+    "flag": "\ud83c\uddec\ud83c\udde7"
+  },
+  {
+    "code": "AE",
+    "name": "UAE & Middle East",
+    "flag": "\ud83c\udde6\ud83c\uddea"
+  },
+  {
+    "code": "SA",
+    "name": "Saudi Arabia (Holy Makkah/Madinah)",
+    "flag": "\ud83c\uddf8\ud83c\udde6"
+  },
+  {
+    "code": "DE",
+    "name": "Germany",
+    "flag": "\ud83c\udde9\ud83c\uddea"
+  },
+  {
+    "code": "FR",
+    "name": "France",
+    "flag": "\ud83c\uddeb\ud83c\uddf7"
+  },
+  {
+    "code": "JP",
+    "name": "Japan",
+    "flag": "\ud83c\uddef\ud83c\uddf5"
+  },
+  {
+    "code": "KR",
+    "name": "South Korea",
+    "flag": "\ud83c\uddf0\ud83c\uddf7"
+  },
+  {
+    "code": "CA",
+    "name": "Canada",
+    "flag": "\ud83c\udde8\ud83c\udde6"
+  },
+  {
+    "code": "AU",
+    "name": "Australia",
+    "flag": "\ud83c\udde6\ud83c\uddfa"
+  },
+  {
+    "code": "PK",
+    "name": "Pakistan (Urdu)",
+    "flag": "\ud83c\uddf5\ud83c\uddf0"
+  },
+  {
+    "code": "BD",
+    "name": "Bangladesh (Bangla)",
+    "flag": "\ud83c\udde7\ud83c\udde9"
+  },
+  {
+    "code": "NP",
+    "name": "Nepal (Nepali)",
+    "flag": "\ud83c\uddf3\ud83c\uddf5"
+  }
 ]
