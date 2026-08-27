@@ -5825,6 +5825,23 @@ function updateFavIconUI() {
 // 6. STREAM PLAYBACK ENGINE & RESTORED SLEEK MINI-PLAYER
 // ==========================================================
 let currentBackupIdx = 0;
+let streamWatchdogTimeout = null;
+
+function showBufferingSpinner(msg) {
+  const spinner = document.getElementById('playerBufferingSpinner');
+  if (spinner) {
+    if (msg) {
+      const txt = spinner.querySelector('.spinner-text');
+      if (txt) txt.textContent = msg;
+    }
+    spinner.style.display = 'flex';
+  }
+}
+
+function hideBufferingSpinner() {
+  const spinner = document.getElementById('playerBufferingSpinner');
+  if (spinner) spinner.style.display = 'none';
+}
 
 function playChannel(ch) {
   currentBackupIdx = 0;
@@ -5834,6 +5851,7 @@ function playChannel(ch) {
 function loadChannelMedia(ch, autoPlay) {
   currentPlayingChannel = ch;
   const videoElement = document.getElementById('luminaVideo');
+  clearTimeout(streamWatchdogTimeout);
 
   if (!ch.isLocal) {
     recentChannels = [ch.id, ...recentChannels.filter(id => id !== ch.id)].slice(0, 10);
@@ -5867,19 +5885,37 @@ function loadChannelMedia(ch, autoPlay) {
     hlsInstance = null;
   }
 
+  if (autoPlay) {
+    showBufferingSpinner('Connecting Stream...');
+  }
+
   let streamUrl = ch.url;
   if (ch.backupUrls && ch.backupUrls.length > 0 && currentBackupIdx < ch.backupUrls.length) {
     streamUrl = ch.backupUrls[currentBackupIdx];
   }
 
-  if (streamUrl && streamUrl.endsWith('.m3u8') && window.Hls && Hls.isSupported()) {
+  // Fast-start ABR HLS Configuration for instant mobile loading
+  if (streamUrl && (streamUrl.endsWith('.m3u8') || streamUrl.includes('m3u8')) && window.Hls && Hls.isSupported()) {
     hlsInstance = new Hls({
       enableWorker: true,
-      lowLatencyMode: localStorage.getItem('aakash_low_latency') !== 'false',
-      backBufferLength: 30,
-      maxBufferLength: 60,
-      manifestLoadingMaxRetry: 3,
-      levelLoadingMaxRetry: 3
+      autoStartLoad: true,
+      startLevel: -1, // Start on fastest stream level immediately
+      capLevelToPlayerSize: true,
+      startFragPrefetch: true,
+      progressive: true,
+      lowLatencyMode: false,
+      manifestLoadingTimeOut: 5000,
+      manifestLoadingMaxRetry: 4,
+      manifestLoadingRetryDelay: 400,
+      levelLoadingTimeOut: 5000,
+      levelLoadingMaxRetry: 4,
+      fragLoadingTimeOut: 6000,
+      fragLoadingMaxRetry: 4,
+      fragLoadingRetryDelay: 400,
+      maxBufferLength: 25,
+      maxMaxBufferLength: 50,
+      maxBufferSize: 30 * 1000 * 1000,
+      backBufferLength: 15
     });
 
     hlsInstance.loadSource(streamUrl);
@@ -5896,10 +5932,9 @@ function loadChannelMedia(ch, autoPlay) {
       if (data.fatal) {
         switch (data.type) {
           case Hls.ErrorTypes.NETWORK_ERROR:
-            // Try backup stream mirror if available
             if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
               currentBackupIdx++;
-              showToast('Connecting backup stream mirror...');
+              showToast('⚡ Stream slow: Switching to high-speed mirror...');
               loadChannelMedia(ch, true);
             } else {
               hlsInstance.startLoad();
@@ -5914,6 +5949,20 @@ function loadChannelMedia(ch, autoPlay) {
         }
       }
     });
+
+    // Stream Speed Watchdog (4.5s auto-failover if stream hangs)
+    if (autoPlay && ch.backupUrls && ch.backupUrls.length > 0) {
+      streamWatchdogTimeout = setTimeout(() => {
+        if (videoElement && (videoElement.paused || videoElement.readyState < 2)) {
+          if (currentBackupIdx + 1 < ch.backupUrls.length) {
+            currentBackupIdx++;
+            showToast('⚡ Switching to high-speed stream mirror...');
+            loadChannelMedia(ch, true);
+          }
+        }
+      }, 4500);
+    }
+
   } else if (streamUrl) {
     videoElement.src = streamUrl;
     if (autoPlay) {
@@ -5921,6 +5970,28 @@ function loadChannelMedia(ch, autoPlay) {
       openFullPlayerModal();
     }
   }
+
+  // Bind video element events for spinner
+  videoElement.onwaiting = () => showBufferingSpinner('Buffering...');
+  videoElement.onplaying = () => {
+    clearTimeout(streamWatchdogTimeout);
+    hideBufferingSpinner();
+  };
+  videoElement.oncanplay = () => {
+    clearTimeout(streamWatchdogTimeout);
+    hideBufferingSpinner();
+  };
+  videoElement.onerror = () => {
+    clearTimeout(streamWatchdogTimeout);
+    if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
+      currentBackupIdx++;
+      showToast('Connecting backup stream mirror...');
+      loadChannelMedia(ch, true);
+    } else {
+      hideBufferingSpinner();
+      showToast('Stream is currently offline. Please try another channel.');
+    }
+  };
 
   if (!autoPlay) {
     const miniPlayer = document.getElementById('miniPlayer');
