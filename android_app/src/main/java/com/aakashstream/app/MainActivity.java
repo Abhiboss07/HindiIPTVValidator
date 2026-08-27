@@ -3,21 +3,21 @@ package com.aakashstream.app;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentUris;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
-import android.content.Context;
-import android.media.AudioManager;
 import android.graphics.Bitmap;
+import android.media.AudioManager;
 import android.media.MediaMetadataRetriever;
-import android.util.Size;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Build;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.util.Size;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowInsets;
@@ -36,9 +36,15 @@ import android.app.PictureInPictureParams;
 import android.util.Rational;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends Activity {
     private static final String TAG = "AakashStream";
@@ -48,6 +54,44 @@ public class MainActivity extends Activity {
     private WebView webView;
     private ValueCallback<Uri[]> filePathCallback;
     private AudioManager audioManager;
+
+    // Custom Bounded InputStream for HTTP 206 Partial Content Range streaming
+    private static class BoundedInputStream extends InputStream {
+        private final InputStream in;
+        private long remaining;
+
+        public BoundedInputStream(InputStream in, long limit) {
+            this.in = in;
+            this.remaining = limit;
+        }
+
+        @Override
+        public int read() throws IOException {
+            if (remaining <= 0) return -1;
+            int b = in.read();
+            if (b != -1) remaining--;
+            return b;
+        }
+
+        @Override
+        public int read(byte[] b, int off, int len) throws IOException {
+            if (remaining <= 0) return -1;
+            int toRead = (int) Math.min(len, remaining);
+            int read = in.read(b, off, toRead);
+            if (read != -1) remaining -= read;
+            return read;
+        }
+
+        @Override
+        public int available() throws IOException {
+            return (int) Math.min(in.available(), remaining);
+        }
+
+        @Override
+        public void close() throws IOException {
+            in.close();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +120,7 @@ public class MainActivity extends Activity {
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
         webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+
         setupWebView();
         webView.loadUrl("file:///android_asset/index.html");
     }
@@ -216,7 +261,7 @@ public class MainActivity extends Activity {
                         if (idStr != null) {
                             long id = Long.parseLong(idStr);
                             
-                            // 1. Handle Thumbnail Requests
+                            // 1. Handle Native Thumbnail Requests
                             if ("/thumb".equals(path)) {
                                 String mediaType = uri.getQueryParameter("type");
                                 if ("video".equals(mediaType)) {
@@ -226,22 +271,27 @@ public class MainActivity extends Activity {
                                             Bitmap thumb = getContentResolver().loadThumbnail(contentUri, new Size(320, 180), null);
                                             if (thumb != null) {
                                                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                                                thumb.compress(Bitmap.CompressFormat.JPEG, 75, baos);
-                                                return new WebResourceResponse("image/jpeg", "UTF-8", new ByteArrayInputStream(baos.toByteArray()));
+                                                thumb.compress(Bitmap.CompressFormat.JPEG, 80, baos);
+                                                Map<String, String> h = new HashMap<>();
+                                                h.put("Access-Control-Allow-Origin", "*");
+                                                h.put("Cache-Control", "max-age=86400");
+                                                return new WebResourceResponse("image/jpeg", "UTF-8", 200, "OK", h, new ByteArrayInputStream(baos.toByteArray()));
                                             }
                                         } catch (Exception ignored) {}
                                     }
                                     
-                                    // Fallback to MediaMetadataRetriever
                                     MediaMetadataRetriever mmr = new MediaMetadataRetriever();
                                     try {
                                         mmr.setDataSource(MainActivity.this, contentUri);
                                         Bitmap thumb = mmr.getFrameAtTime(1000000, MediaMetadataRetriever.OPTION_CLOSEST_SYNC);
                                         if (thumb != null) {
                                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                                            thumb.compress(Bitmap.CompressFormat.JPEG, 75, baos);
+                                            thumb.compress(Bitmap.CompressFormat.JPEG, 80, baos);
                                             mmr.release();
-                                            return new WebResourceResponse("image/jpeg", "UTF-8", new ByteArrayInputStream(baos.toByteArray()));
+                                            Map<String, String> h = new HashMap<>();
+                                            h.put("Access-Control-Allow-Origin", "*");
+                                            h.put("Cache-Control", "max-age=86400");
+                                            return new WebResourceResponse("image/jpeg", "UTF-8", 200, "OK", h, new ByteArrayInputStream(baos.toByteArray()));
                                         }
                                         mmr.release();
                                     } catch (Exception ignored) {}
@@ -253,25 +303,90 @@ public class MainActivity extends Activity {
                                         byte[] art = mmr.getEmbeddedPicture();
                                         mmr.release();
                                         if (art != null) {
-                                            return new WebResourceResponse("image/jpeg", "UTF-8", new ByteArrayInputStream(art));
+                                            Map<String, String> h = new HashMap<>();
+                                            h.put("Access-Control-Allow-Origin", "*");
+                                            h.put("Cache-Control", "max-age=86400");
+                                            return new WebResourceResponse("image/jpeg", "UTF-8", 200, "OK", h, new ByteArrayInputStream(art));
                                         }
                                     } catch (Exception ignored) {}
                                 }
                             }
                             
-                            // 2. Handle Stream Playback Requests
-                            Uri contentUri;
-                            String mime;
-                            if ("/video".equals(path)) {
-                                contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id);
-                                mime = "video/mp4";
-                            } else {
-                                contentUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
-                                mime = "audio/mpeg";
-                            }
-                            InputStream stream = getContentResolver().openInputStream(contentUri);
-                            if (stream != null) {
-                                return new WebResourceResponse(mime, "UTF-8", stream);
+                            // 2. Handle Stream Playback Requests with High-Performance HTTP 206 Partial Content Range Support
+                            boolean isVideo = "/video".equals(path);
+                            Uri contentUri = isVideo 
+                                ? ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id)
+                                : ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
+                            
+                            String mime = isVideo ? "video/mp4" : "audio/mpeg";
+                            try {
+                                String type = getContentResolver().getType(contentUri);
+                                if (type != null) mime = type;
+                            } catch (Exception ignored) {}
+
+                            AssetFileDescriptor afd = getContentResolver().openAssetFileDescriptor(contentUri, "r");
+                            if (afd != null) {
+                                long totalLength = afd.getLength();
+                                if (totalLength < 0) {
+                                    ParcelFileDescriptor pfd = afd.getParcelFileDescriptor();
+                                    if (pfd != null) totalLength = pfd.getStatSize();
+                                }
+
+                                Map<String, String> reqHeaders = request.getRequestHeaders();
+                                String rangeHeader = null;
+                                if (reqHeaders != null) {
+                                    rangeHeader = reqHeaders.get("Range");
+                                    if (rangeHeader == null) rangeHeader = reqHeaders.get("range");
+                                }
+
+                                long start = 0;
+                                long end = totalLength > 0 ? (totalLength - 1) : 0;
+                                boolean isRange = false;
+
+                                if (rangeHeader != null && rangeHeader.startsWith("bytes=")) {
+                                    isRange = true;
+                                    String rangeSpec = rangeHeader.substring(6).trim();
+                                    String[] parts = rangeSpec.split("-");
+                                    try {
+                                        if (parts.length > 0 && !parts[0].isEmpty()) {
+                                            start = Long.parseLong(parts[0]);
+                                        }
+                                        if (parts.length > 1 && !parts[1].isEmpty()) {
+                                            end = Long.parseLong(parts[1]);
+                                        }
+                                    } catch (NumberFormatException ignored) {}
+                                }
+
+                                if (totalLength > 0 && end >= totalLength) {
+                                    end = totalLength - 1;
+                                }
+                                if (start > end && totalLength > 0) {
+                                    start = 0;
+                                    end = totalLength - 1;
+                                }
+
+                                long contentLength = totalLength > 0 ? (end - start + 1) : 0;
+                                FileInputStream fis = afd.createInputStream();
+                                if (start > 0) {
+                                    fis.getChannel().position(start);
+                                }
+
+                                InputStream stream = (totalLength > 0) ? new BoundedInputStream(fis, contentLength) : fis;
+
+                                Map<String, String> resHeaders = new HashMap<>();
+                                resHeaders.put("Accept-Ranges", "bytes");
+                                resHeaders.put("Access-Control-Allow-Origin", "*");
+                                resHeaders.put("Cache-Control", "no-cache, no-store");
+                                if (contentLength > 0) {
+                                    resHeaders.put("Content-Length", String.valueOf(contentLength));
+                                }
+
+                                if (isRange && totalLength > 0) {
+                                    resHeaders.put("Content-Range", "bytes " + start + "-" + end + "/" + totalLength);
+                                    return new WebResourceResponse(mime, "UTF-8", 206, "Partial Content", resHeaders, stream);
+                                } else {
+                                    return new WebResourceResponse(mime, "UTF-8", 200, "OK", resHeaders, stream);
+                                }
                             }
                         }
                     } catch (Exception e) {
@@ -329,8 +444,8 @@ public class MainActivity extends Activity {
                         obj.put("country", "Local");
                         obj.put("countryName", folder);
                         obj.put("flag", "🎬");
-                        obj.put("category", "MP4 Video");
-                        obj.put("quality", "1080p • " + sizeMb);
+                        obj.put("category", "Local Video");
+                        obj.put("quality", sizeMb);
                         obj.put("description", "Device Storage: " + folder);
                         obj.put("url", "https://app.localmedia/video?id=" + id);
                         obj.put("thumbUrl", "https://app.localmedia/thumb?id=" + id + "&type=video");
@@ -386,8 +501,8 @@ public class MainActivity extends Activity {
                         obj.put("country", "Local");
                         obj.put("countryName", folder);
                         obj.put("flag", "🎵");
-                        obj.put("category", (artist != null && !artist.contains("unknown")) ? artist : "MP3 Audio");
-                        obj.put("quality", "Audio • " + sizeMb);
+                        obj.put("category", (artist != null && !artist.contains("unknown")) ? artist : "Music Audio");
+                        obj.put("quality", sizeMb);
                         obj.put("description", "Device Storage: " + folder);
                         obj.put("url", "https://app.localmedia/audio?id=" + id);
                         obj.put("thumbUrl", "https://app.localmedia/thumb?id=" + id + "&type=audio");

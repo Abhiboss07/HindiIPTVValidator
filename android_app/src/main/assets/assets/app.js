@@ -5846,10 +5846,18 @@ function loadChannelMedia(ch, autoPlay) {
   const miniSub = document.getElementById('miniSub');
   const miniThumb = document.getElementById('miniThumb');
 
-  if (playerMainTitle) playerMainTitle.textContent = ch.name;
-  if (playerSubTitle) playerSubTitle.textContent = (ch.countryName || 'Media') + ' • ' + (ch.category || '') + ' • ' + (ch.quality || '');
-  if (miniTitle) miniTitle.textContent = ch.name;
-  if (miniSub) miniSub.textContent = ch.isLocal ? 'NOW PLAYING • LOCAL FILE' : 'NOW PLAYING • LIVE STREAM';
+  const cleanTitle = ch.name ? ch.name.replace(/\.(mp4|mkv|mov|webm|avi|flv|ts|3gp|mp3|m4a|wav|aac|flac|ogg|opus)$/i, '').replace(/[._]/g, ' ').replace(/\s+/g, ' ').trim() : 'Media Stream';
+
+  if (playerMainTitle) playerMainTitle.textContent = cleanTitle || ch.name;
+  if (playerSubTitle) {
+    if (ch.isLocal) {
+      playerSubTitle.textContent = '📂 ' + (ch.folder || 'Storage') + ' • ' + (ch.type === 'tv' ? 'Local Video' : 'Local Audio') + (ch.quality ? ' • ' + ch.quality : '');
+    } else {
+      playerSubTitle.textContent = (ch.flag ? ch.flag + ' ' : '') + (ch.countryName || 'Live') + ' • ' + (ch.category || 'Stream') + ' • ' + (ch.quality || 'HD');
+    }
+  }
+  if (miniTitle) miniTitle.textContent = cleanTitle || ch.name;
+  if (miniSub) miniSub.textContent = ch.isLocal ? 'OFFLINE • ' + (ch.folder || 'STORAGE') : 'LIVE STREAM • ' + (ch.quality || 'HD');
   if (miniThumb) miniThumb.textContent = ch.type === 'radio' ? '📻' : (ch.isLocal ? (ch.type === 'tv' ? '🎬' : '🎵') : (ch.flag || '📺'));
 
   updateFavIconUI();
