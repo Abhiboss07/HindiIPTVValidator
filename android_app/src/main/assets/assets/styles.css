@@ -882,15 +882,22 @@ html, body {
   position: fixed;
   inset: 0;
   background: #000000;
-  z-index: 100;
-  display: none;
+  z-index: 9999;
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 
 .obsidian-player-modal.active {
-  display: flex;
+  display: flex !important;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 #luminaVideo {
@@ -1655,8 +1662,11 @@ html, body {
   position: fixed;
   inset: 0;
   background: #000000;
-  z-index: 100;
-  display: none;
+  z-index: 9999;
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -1664,7 +1674,10 @@ html, body {
 }
 
 .obsidian-player-modal.active {
-  display: flex;
+  display: flex !important;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .player-controls-overlay {

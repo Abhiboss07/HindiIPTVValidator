@@ -5078,9 +5078,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   loadSettingsUI();
   startHeroRotator();
 
-  if (channelsData && channelsData.length > 0) {
-    loadChannelMedia(channelsData[0], false);
-  }
+  
 });
 
 async function loadDatabase() {
@@ -5862,7 +5860,10 @@ function loadChannelMedia(ch, autoPlay) {
 window.openFullPlayerModal = function() {
   const playerModal = document.getElementById('playerModal');
   const miniPlayer = document.getElementById('miniPlayer');
-  if (playerModal) playerModal.classList.add('active');
+  if (playerModal) {
+    playerModal.classList.add('active');
+    playerModal.style.display = 'flex';
+  }
   if (miniPlayer) miniPlayer.classList.remove('active');
   resetPlayerHideTimer();
 };
@@ -5874,13 +5875,26 @@ window.minimizeToMiniPlayer = function(e) {
   }
   const playerModal = document.getElementById('playerModal');
   const miniPlayer = document.getElementById('miniPlayer');
-  if (playerModal) playerModal.classList.remove('active');
-  if (miniPlayer) miniPlayer.classList.add('active');
-  showToast('Minimized');
+  if (playerModal) {
+    playerModal.classList.remove('active');
+    playerModal.style.display = 'none';
+  }
+  if (miniPlayer && currentPlayingChannel) {
+    miniPlayer.classList.add('active');
+  }
+  showToast('Minimized to Mini Player');
 };
 
 window.closePlayerModal = function() {
   minimizeToMiniPlayer(null);
+};
+
+window.closePlayerModalCompletely = function(e) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  closeMiniPlayer(e);
 };
 
 window.closeMiniPlayer = function(e) {
@@ -5891,11 +5905,31 @@ window.closeMiniPlayer = function(e) {
   const videoElement = document.getElementById('luminaVideo');
   const playerModal = document.getElementById('playerModal');
   const miniPlayer = document.getElementById('miniPlayer');
-  if (videoElement) videoElement.pause();
-  if (playerModal) playerModal.classList.remove('active');
-  if (miniPlayer) miniPlayer.classList.remove('active');
+  
+  if (videoElement) {
+    videoElement.pause();
+    videoElement.removeAttribute('src');
+    videoElement.load();
+  }
+  
+  if (hlsInstance) {
+    hlsInstance.destroy();
+    hlsInstance = null;
+  }
+  
+  if (playerModal) {
+    playerModal.classList.remove('active');
+    playerModal.style.display = 'none';
+  }
+  
+  if (miniPlayer) {
+    miniPlayer.classList.remove('active');
+  }
+  
   isPlaying = false;
+  currentPlayingChannel = null;
   updatePlayPauseIcons(false);
+  showToast('Playback Closed');
 };
 
 window.closeMiniPlayerCompletely = function(e) {
