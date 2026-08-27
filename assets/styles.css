@@ -72,8 +72,8 @@ html, body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-glass);
-  padding-top: max(20px, env(safe-area-inset-top, 20px));
-  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 8px;
   padding-left: 16px;
   padding-right: 16px;
   display: flex;
@@ -1277,8 +1277,8 @@ html, body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-glass);
-  padding-top: max(20px, env(safe-area-inset-top, 20px));
-  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 8px;
   padding-left: 16px;
   padding-right: 16px;
   display: flex;
