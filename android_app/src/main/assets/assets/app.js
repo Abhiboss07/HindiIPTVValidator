@@ -4,6 +4,258 @@
 
 const FALLBACK_CHANNELS = [
   {
+    "id": "zee-andtv-hd",
+    "name": "&TV HD (Zee Entertainment)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\udfad",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Popular Hindi drama serials, comedy shows, and family entertainment.",
+    "url": "https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
+    "id": "9x-jalwa",
+    "name": "9X Jalwa Classic Hits HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\udfb6",
+    "category": "Music & Songs",
+    "quality": "1080p FHD",
+    "description": "Evergreen 90s and 2000s Bollywood blockbuster Hindi music videos.",
+    "url": "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
+    "id": "9xm-hd",
+    "name": "9XM Bollywood Music HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\udfb5",
+    "category": "Music & Songs",
+    "quality": "1080p FHD",
+    "description": "India's #1 Bollywood music channel featuring latest Hindi chartbusters.",
+    "url": "https://9xjio.wiseplayout.com/9XM/master.m3u8",
+    "backupUrls": [
+      "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "abp-news-hd",
+    "name": "ABP News HD Live",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "category": "News",
+    "quality": "1080p FHD",
+    "description": "ABP News live Hindi breaking news, national debates, and election coverage.",
+    "url": "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8",
+    "backupUrls": [
+      "https://d2l4ar6y3mrs4k.cloudfront.net/live-streaming/ganga-livetv/master.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "disney-xd-hd",
+    "name": "Disney XD HD (Action & Toons)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Disney International",
+    "flag": "\ud83c\udff0",
+    "category": "Kids & Animation",
+    "quality": "720p HD",
+    "description": "Popular Disney animated series, Marvel cartoons, and action-packed shows.",
+    "url": "http://23.237.104.106:8080/USA_DISNEY_XD/index.m3u8",
+    "backupUrls": [
+      "http://23.237.104.106:8080/USA_DISNEY_JUNIOR/index.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "disney-junior-hd",
+    "name": "Disney Junior HD (Family & Kids)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Disney International",
+    "flag": "\ud83c\udff0",
+    "category": "Kids & Animation",
+    "quality": "720p HD",
+    "description": "Disney magical animated stories, Mickey Mouse, and family adventures.",
+    "url": "http://23.237.104.106:8080/USA_DISNEY_JUNIOR/index.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
+    "id": "nickelodeon-hd",
+    "name": "Nickelodeon HD (Nick Toons)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Nickelodeon",
+    "flag": "\ud83e\udde1",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "Non-stop Nick cartoons, animations, and comedy shows for kids and teens.",
+    "url": "http://176.61.157.250/Nickelodeon/index.m3u8",
+    "backupUrls": [
+      "https://sra72yz.s.gy/NICKTOONS_US.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "nick-jr-hd",
+    "name": "Nick Jr. HD Live",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Nickelodeon",
+    "flag": "\ud83e\udde1",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "Fun learning, Paw Patrol, and preschool animations from Nickelodeon.",
+    "url": "https://sra72yz.s.gy/NICK_JR_US.m3u8",
+    "backupUrls": [
+      "https://jmp2.uk/plu-62bdb75c3afd1200079146a6.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "spongebob-247",
+    "name": "SpongeBob SquarePants 24/7",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Nickelodeon",
+    "flag": "\ud83c\udf4d",
+    "category": "Kids & Animation",
+    "quality": "720p HD",
+    "description": "24/7 continuous episodes of SpongeBob SquarePants and Patrick Star.",
+    "url": "https://jmp2.uk/plu-63f87d057533d80008ab9549.m3u8",
+    "backupUrls": [
+      "https://jmp2.uk/plu-5d00e8adaab96b5635b2a005.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "ninja-turtles-247",
+    "name": "Teenage Mutant Ninja Turtles 24/7",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Nickelodeon",
+    "flag": "\ud83d\udc22",
+    "category": "Kids & Animation",
+    "quality": "720p HD",
+    "description": "Action-packed adventures of Leonardo, Raphael, Donatello, and Michelangelo.",
+    "url": "https://jmp2.uk/plu-62619405c733e8000732d1fe.m3u8",
+    "backupUrls": [
+      "https://jmp2.uk/plu-5d6792bd6be2998ad0ccce30.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "tom-and-jerry-hd",
+    "name": "Tom and Jerry Classic Toons HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Classic Toons",
+    "flag": "\ud83d\udc31",
+    "category": "Kids & Animation",
+    "quality": "720p HD",
+    "description": "Timeless slapstick comedy adventures of Tom Cat and Jerry Mouse.",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
+    "id": "pokemon-tv-247",
+    "name": "Pok\u00e9mon TV Live 24/7",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Anime & Toons",
+    "flag": "\u26a1",
+    "category": "Kids & Animation",
+    "quality": "720p HD",
+    "description": "Continuous Pok\u00e9mon anime adventures with Ash, Pikachu, and legendary Pok\u00e9mon.",
+    "url": "https://jmp2.uk/plu-6683cd71a1d7ad000866ec6a.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
+    "id": "transformers-tv-247",
+    "name": "Transformers Animated 24/7",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Hasbro Animation",
+    "flag": "\ud83e\udd16",
+    "category": "Kids & Animation",
+    "quality": "720p HD",
+    "description": "Autobots vs Decepticons legendary battles with Optimus Prime and Bumblebee.",
+    "url": "https://jmp2.uk/plu-63da36dea995710008727d4d.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
+    "id": "happykids-hd",
+    "name": "HappyKids Toons & Movies HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Kids Global",
+    "flag": "\ud83c\udf88",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "High-definition animated movies, cartoons, and fun educational series.",
+    "url": "https://dil9xdvretp0f.cloudfront.net/index.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
+    "id": "moonbug-kids-hd",
+    "name": "Moonbug Kids HD (CoComelon & Blippi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Moonbug",
+    "flag": "\ud83c\udf08",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "CoComelon, Blippi, Morphle, and family sing-alongs in vibrant 1080p HD.",
+    "url": "https://moonbug-rokuus.amagi.tv/playlist.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
+    "id": "kartoon-channel-hd",
+    "name": "Kartoon Channel HD Live",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "Kartoon Network",
+    "flag": "\ud83c\udfa8",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "Family-friendly comedy animations, superhero toons, and animated adventures.",
+    "url": "https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
+    "id": "lego-channel-hd",
+    "name": "The LEGO Channel HD",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "LEGO Animation",
+    "flag": "\ud83e\uddf1",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "LEGO Ninjago, City Adventures, Marvel Superheroes, and Star Wars LEGO tales.",
+    "url": "https://dltiqboxjw21d.cloudfront.net/index.m3u8",
+    "backupUrls": [],
+    "isFeatured": true
+  },
+  {
     "id": "aajtak-hd",
     "name": "Aaj Tak HD Live",
     "type": "tv",
@@ -455,8 +707,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Aastha",
-    "url": "https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/index.m3u8",
-    "backupUrls": [],
+    "url": "https://aasthaott.akamaized.net/110923/smil:aasthaprime1.smil/master.m3u8",
+    "backupUrls": [
+      "https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -567,8 +821,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Jan TV",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/jantv/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://anjan.vstream.online/anjanorg/ngrp:anjan_hdall/playlist.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/jantv/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -581,8 +837,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of India TV",
-    "url": "https://pl-indiatvnews.akamaized.net/out/v1/db79179b608641ceaa5a4d0dd0dca8da/index.m3u8",
-    "backupUrls": [],
+    "url": "https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8",
+    "backupUrls": [
+      "https://pl-indiatvnews.akamaized.net/out/v1/db79179b608641ceaa5a4d0dd0dca8da/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -805,8 +1063,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of E 24",
-    "url": "https://mumt04.tangotv.in/m18aqlK4E24/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zee24kalak/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/497f7199-758d-495d-9d2f-a5489231c428/14b7c8ec-16da-47f2-8d7e-5bbaec67b3e2/3.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4E24/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -889,8 +1149,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "HD Quality",
     "description": "Live online broadcast of Epic Music",
-    "url": "https://mumt04.tangotv.in/m18aqlK4EPICMUSIC/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cc-3cyxq80qusspd.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-3cyxq80qusspd/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4EPICMUSIC/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -931,8 +1193,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD News",
-    "url": "https://streams.tangotv.in/DDNEWS/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/0811cd8c37ca4c409d5385a6cd2fa18b/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/DDNEWS/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -945,8 +1209,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of APN",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3APN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://plus.gigabitcdn.net/live-stream/apna-punjab-H3sE/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3APN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -1351,8 +1617,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Sansad TV 2",
-    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/e4182054dce340da9e0ff38b6b3658a4/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/39/master.m3u8",
+    "backupUrls": [
+      "https://d2lk5u59tns74c.cloudfront.net/out/v1/e4182054dce340da9e0ff38b6b3658a4/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -1939,8 +2207,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Hosanna TV Hindi",
-    "url": "https://ktismaservers.in:3466/live/hosannattvhindhilive.m3u8",
-    "backupUrls": [],
+    "url": "https://asia.mslivestream.net/mslive/bfba54c5c96a6359e2da0ca35f4998af.sdp/playlist.m3u8",
+    "backupUrls": [
+      "https://ktismaservers.in:3466/live/hosannattvhindhilive.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -2219,8 +2489,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of WOW Kidz",
-    "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidzhindi.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidztam.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
+    "backupUrls": [
+      "https://yuppparoriglin.akamaized.net/181224/smil:wowkidzhindi.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -2275,8 +2547,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Zee Cinema",
-    "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/NGCHD/default/NGCHD.m3u8",
-    "backupUrls": [],
+    "url": "https://ev-eu-hw-fast-mpd.starzplayarabia.com/Zee_Cinema/dash/drm/index.mpd",
+    "backupUrls": [
+      "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/NGCHD/default/NGCHD.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -2485,8 +2759,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of 9XM",
-    "url": "https://epiconvh.akamaized.net/live/9XM/master.m3u8",
-    "backupUrls": [],
+    "url": "https://9xjio.wiseplayout.com/9XM/master.m3u8",
+    "backupUrls": [
+      "https://epiconvh.akamaized.net/live/9XM/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -2499,8 +2775,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "720p HD",
     "description": "Live online broadcast of Zoom",
-    "url": "https://dai.google.com/linear/hls/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8",
-    "backupUrls": [],
+    "url": "http://stream.mcquack.net/377/index.m3u8",
+    "backupUrls": [
+      "https://dai.google.com/linear/hls/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -2513,8 +2791,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of 9XM",
-    "url": "https://b.jsrdn.com/strm/channels/9xm/master.m3u8",
-    "backupUrls": [],
+    "url": "https://9xjio.wiseplayout.com/9XM/master.m3u8",
+    "backupUrls": [
+      "https://b.jsrdn.com/strm/channels/9xm/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -2541,8 +2821,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Aaj Tak",
-    "url": "https://aajtaklive-amd.akamaized.net/hls/live/2014416/aajtak/aajtaklive/live_404p/chunks.m3u8",
-    "backupUrls": [],
+    "url": "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
+    "backupUrls": [
+      "https://aajtaklive-amd.akamaized.net/hls/live/2014416/aajtak/aajtaklive/live_404p/chunks.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -2569,8 +2851,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Aaj Tak",
-    "url": "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-791258/master.m3u8",
-    "backupUrls": [],
+    "url": "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
+    "backupUrls": [
+      "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-791258/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -2639,8 +2923,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Aastha Gujarati",
-    "url": "https://aasthaott.akamaized.net/110923/smil:aasthagujrati.smil/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt04.tangotv.in/m18aqlK4AASTHAGUJARATI/index.m3u8",
+    "backupUrls": [
+      "https://aasthaott.akamaized.net/110923/smil:aasthagujrati.smil/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -2695,8 +2981,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "1080p FHD",
     "description": "Live online broadcast of ABP News",
-    "url": "https://d2l4ar6y3mrs4k.cloudfront.net/live-streaming/abpnews-livetv/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8",
+    "backupUrls": [
+      "https://d2l4ar6y3mrs4k.cloudfront.net/live-streaming/abpnews-livetv/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3073,8 +3361,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Sansad TV 1",
-    "url": "https://playhls.media.nic.in/hls/live/lstv/lstv.m3u8",
-    "backupUrls": [],
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/fff8f20221d5456e8922e689d71dedc3/index.m3u8",
+    "backupUrls": [
+      "https://playhls.media.nic.in/hls/live/lstv/lstv.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3129,8 +3419,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Arputhar Yesu TV",
-    "url": "https://account33.livebox.co.in/jesushelpshls/live.m3u8",
-    "backupUrls": [],
+    "url": "https://arputharyesutv.arputharyesutv.com/live/md/index.m3u8",
+    "backupUrls": [
+      "https://account33.livebox.co.in/jesushelpshls/live.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3171,8 +3463,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Asianet News",
-    "url": "https://asianetnews.vgcdn.net/vglive-sk-917600/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8",
+    "backupUrls": [
+      "https://asianetnews.vgcdn.net/vglive-sk-917600/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3227,8 +3521,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Bharat Samachar",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/bharatsamachar/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HBHARATSAMACHAR/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/bharatsamachar/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3241,8 +3537,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sansad TV 2",
-    "url": "https://cdn-2.pishow.tv/live/39/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/e4182054dce340da9e0ff38b6b3658a4/index.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/39/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3283,8 +3581,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Bharat Samachar",
-    "url": "https://idvd.multitvsolution.com/idvo/bharatsamachar.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HBHARATSAMACHAR/index.m3u8",
+    "backupUrls": [
+      "https://idvd.multitvsolution.com/idvo/bharatsamachar.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3311,8 +3611,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Bharat Express",
-    "url": "https://stream1.livebox.co.in/VCAREhls/live.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlBHARATEXPRESS/index.m3u8",
+    "backupUrls": [
+      "https://stream1.livebox.co.in/VCAREhls/live.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3325,8 +3627,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Asianet News",
-    "url": "https://asianet-samsung.vgcdn.net/ptnr-monitoring/vglive-sk-906908/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8",
+    "backupUrls": [
+      "https://asianet-samsung.vgcdn.net/ptnr-monitoring/vglive-sk-906908/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3353,8 +3657,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Big TV 24x7 (576i)",
-    "url": "https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8",
+    "backupUrls": [
+      "https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -3381,8 +3687,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Ayush TV",
-    "url": "https://cdn-6.pishow.tv/live/221/master.m3u8",
-    "backupUrls": [],
+    "url": "http://d1msejlow1t3l4.cloudfront.net/fta/ayushtv/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-6.pishow.tv/live/221/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3409,8 +3717,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of CNBC TV18",
-    "url": "https://n18syndication.akamaized.net/bpk-tv/CNBC_TV18_NW18_MOB/output01/index.m3u8",
-    "backupUrls": [],
+    "url": "https://n18syndication.akamaized.net/bpk-tv/CNBC_Tv18_Prime_HD_NW18_MOB/output01/index.m3u8",
+    "backupUrls": [
+      "https://n18syndication.akamaized.net/bpk-tv/CNBC_TV18_NW18_MOB/output01/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3423,8 +3733,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "720p HD",
     "description": "Live online broadcast of News 24",
-    "url": "https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt04.tangotv.in/m18aqlK4NEWS24MPCG/index.m3u8",
+    "backupUrls": [
+      "https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3479,8 +3791,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Chardikla Time TV",
-    "url": "https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://chardikalanorthamerica.gigabitcdn.net/in-chardikala/chardikala-north-usa/playlist.m3u8",
+    "backupUrls": [
+      "https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3563,8 +3877,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Sadhna",
-    "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/sadhanalivetv/live.stream/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt04.tangotv.in/m18aqlK4SADHNEWSPMRAJ/index.m3u8",
+    "backupUrls": [
+      "https://6n3yow8pl9ok-hls-live.5centscdn.com/sadhanalivetv/live.stream/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3661,8 +3977,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of DD India",
-    "url": "https://d2gvyg6lvauoko.cloudfront.net/230226/ddindia/chunks.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/ceda14583477426aa162a65392d8ea07/index.m3u8",
+    "backupUrls": [
+      "https://d2gvyg6lvauoko.cloudfront.net/230226/ddindia/chunks.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3815,8 +4133,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of The Movie Club",
-    "url": "https://sis-global.prod.samsungtv.plus/v1/tvpprd/sc-mp2ar4ca425xo.m3u8",
-    "backupUrls": [],
+    "url": "https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf",
+    "backupUrls": [
+      "https://sis-global.prod.samsungtv.plus/v1/tvpprd/sc-mp2ar4ca425xo.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -3843,8 +4163,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of ETV Cinema",
-    "url": "https://yupplivegcpusa.yuppcdn.net/100823/smil:etvcinema.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://d27zlkxhgwrfgo.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_CINEMA_H264_cloud_in/index.m3u8",
+    "backupUrls": [
+      "https://yupplivegcpusa.yuppcdn.net/100823/smil:etvcinema.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -3927,8 +4249,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of ETV Plus",
-    "url": "https://yupplivegcpusa.yuppcdn.net/100823/smil:etvplus.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://d12ee3o8yfkkhd.cloudfront.net/c6a4b411295f47f48c908d2ac0605bad/index.m3u8",
+    "backupUrls": [
+      "https://yupplivegcpusa.yuppcdn.net/100823/smil:etvplus.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -4067,8 +4391,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "720p HD",
     "description": "Live online broadcast of Good News Today",
-    "url": "https://cc-89m9zu7a2upfe.akamaized.net/hls/live/2016145/gnt/gntlive/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://aajtaklive.vgcdn.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/3196cced-ce29-4219-9809-f07ccdaa02b9/vglive-sk-848805/master.m3u8",
+    "backupUrls": [
+      "https://cc-89m9zu7a2upfe.akamaized.net/hls/live/2016145/gnt/gntlive/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4123,8 +4449,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Hare Krsna TV",
-    "url": "https://airtelapp.shemaroo.com/harekrsnatv/smil:harekrsnatvadp.smil/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://hktv.harekrsnatv.com/HKTV/HKWebApp/manifest.mpd",
+    "backupUrls": [
+      "https://airtelapp.shemaroo.com/harekrsnatv/smil:harekrsnatvadp.smil/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4165,8 +4493,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of 9X Jhakaas",
-    "url": "https://mumt03.tangotv.in/Dsly5z3H9XJHAKAAS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://amg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjhakaas-samsungin/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3H9XJHAKAAS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4179,8 +4509,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of 9X Jalwa",
-    "url": "https://mumt03.tangotv.in/Dsly5z3H9XJALWA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3H9XJALWA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4207,8 +4539,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of 9X Tashan",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn39XTASHAN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn39XTASHAN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4221,8 +4555,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of 9X Tashan",
-    "url": "https://cdn-2.pishow.tv/live/1613/master.m3u8",
-    "backupUrls": [],
+    "url": "https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1613/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4235,8 +4571,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Hindi Khabar",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/hindikhabar/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt04.tangotv.in/m18aqlK4HINDIKHABAR/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/hindikhabar/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4249,8 +4587,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of 24 News",
-    "url": "https://segment.yuppcdn.net/110322/channel24/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlTWENTYFOURNEWS/index.m3u8",
+    "backupUrls": [
+      "https://segment.yuppcdn.net/110322/channel24/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4263,8 +4603,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Aaj Tak",
-    "url": "https://feeds.intoday.in/aajtak/api/master.m3u8",
-    "backupUrls": [],
+    "url": "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
+    "backupUrls": [
+      "https://feeds.intoday.in/aajtak/api/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4291,8 +4633,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Aaj Tak HD",
-    "url": "https://livehub-voidnet.onrender.com/cluster/streamcore/in/AAJTAK_REDIS.m3u8",
-    "backupUrls": [],
+    "url": "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
+    "backupUrls": [
+      "https://livehub-voidnet.onrender.com/cluster/streamcore/in/AAJTAK_REDIS.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4361,8 +4705,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Hornbill TV",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/hornbilltv/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3HORNBILLTV/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/hornbilltv/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4403,8 +4749,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Aakaash Aath",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HAAKASHAATH/index.m3u8",
-    "backupUrls": [],
+    "url": "http://tvsen5.aynascope.net/Wm9Lv2RjZGT6/index.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HAAKASHAATH/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4487,8 +4835,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Aastha Kannada",
-    "url": "https://cdn-3.pishow.tv/live/234/master.m3u8",
-    "backupUrls": [],
+    "url": "https://aasthaott.akamaized.net/110923/smil:aasthakannada.smil/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/234/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4501,8 +4851,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Jaihind TV",
-    "url": "https://yuppnimrestreammum.akamaized.net/260723/smil:jaihind1.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HJAIHIND/index.m3u8",
+    "backupUrls": [
+      "https://yuppnimrestreammum.akamaized.net/260723/smil:jaihind1.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -4515,8 +4867,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Aastha",
-    "url": "https://cdn-1.pishow.tv/live/1454/master.m3u8",
-    "backupUrls": [],
+    "url": "https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/index.m3u8",
+    "backupUrls": [
+      "https://cdn-1.pishow.tv/live/1454/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4571,8 +4925,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Aastha Telugu",
-    "url": "https://cdn-1.pishow.tv/live/262/master.m3u8",
-    "backupUrls": [],
+    "url": "https://aasthaott.akamaized.net/110923/smil:aasthatelugu.smil/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-1.pishow.tv/live/262/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4585,8 +4941,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Janam TV",
-    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/janamtv_nim_https/140622/janamtv/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8",
+    "backupUrls": [
+      "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/janamtv_nim_https/140622/janamtv/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4683,8 +5041,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Balle Balle",
-    "url": "https://cdn-4.pishow.tv/live/987/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mcncdndigital.com/balleballetv/index.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/987/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4725,8 +5085,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Khabrain Abhi Tak",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/khabreinabhitak/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt05.tangotv.in/87NeALx2KHABRAINABHITAK/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/khabreinabhitak/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4767,8 +5129,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Bharat Express",
-    "url": "https://cdn-2.pishow.tv/live/1139/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlBHARATEXPRESS/index.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1139/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4809,8 +5173,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Chardikla Time TV",
-    "url": "https://cdn-4.pishow.tv/live/1627/master.m3u8",
-    "backupUrls": [],
+    "url": "https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/1627/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4823,8 +5189,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Madhimugam TV",
-    "url": "https://yuppparoriglin.akamaized.net/181224/smil:mathimugam.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3MATHIMUGAMTV/index.m3u8",
+    "backupUrls": [
+      "https://yuppparoriglin.akamaized.net/181224/smil:mathimugam.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -4949,8 +5317,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD Arun Prabha",
-    "url": "https://cdn-4.pishow.tv/live/32/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/308556d9fd1246adb479ef012a39bbfe/index.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/32/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4963,8 +5333,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD Bangla",
-    "url": "https://cdn-4.pishow.tv/live/37/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/7ff57cc9046b4c188b51a0d506f36e7f/index.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/37/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -4977,8 +5349,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD Chandana",
-    "url": "https://cdn-3.pishow.tv/live/28/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/0c980455d2fb4b69bcc6235745ee6039/index.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/28/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5005,8 +5379,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD Malayalam",
-    "url": "https://cdn-3.pishow.tv/live/27/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/c313674ffced4c9a90f1bba436df2b9b/index.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/27/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5019,8 +5395,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Mazhavil Manorama",
-    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/mazhavilmanorama_nim_https/050522/mazhavilmanorama/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HMAZHAVILMANORAMAINT/index.m3u8",
+    "backupUrls": [
+      "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/mazhavilmanorama_nim_https/050522/mazhavilmanorama/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5033,8 +5411,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD Jharkhand",
-    "url": "https://cdn-1.pishow.tv/live/1617/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/e8c3741f8c154d3185831f4e31777fb2/index.m3u8",
+    "backupUrls": [
+      "https://cdn-1.pishow.tv/live/1617/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5061,8 +5441,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD National HD",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3DDNATIONALHD/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/40492a64c1db4a1385ba1a397d357d3a/index.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3DDNATIONALHD/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5075,8 +5457,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD Sahyadri",
-    "url": "https://cdn-3.pishow.tv/live/30/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/66dcc3ebe182447ba42837e746cf0c7c/index.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/30/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5089,8 +5473,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD Punjabi",
-    "url": "https://cdn-4.pishow.tv/live/24/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/da821c24a59d4e57960497aeaca8fb33/index.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/24/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5117,8 +5503,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD News",
-    "url": "https://cdn-2.pishow.tv/live/12/master.m3u8",
-    "backupUrls": [],
+    "url": "https://streams.tangotv.in/DDNEWS/ORIGIN/index.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/12/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5159,8 +5547,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Mathrubhumi News",
-    "url": "https://mathrubhumicdn.vidgyor.com/mathrubhumi-origin/liveabr/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://streams.tangotv.in/MATHRUBHUMINEWS/ORIGIN/index.m3u8",
+    "backupUrls": [
+      "https://mathrubhumicdn.vidgyor.com/mathrubhumi-origin/liveabr/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5187,8 +5577,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD Tamil HD",
-    "url": "https://cdn-2.pishow.tv/live/26/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/abf46b14847e45499f4a47f3a9afe93d/index.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/26/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5215,8 +5607,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of NDTV Good Times",
-    "url": "https://d2gvyg6lvauoko.cloudfront.net/230226/ndtvgoodtimes/chunks.m3u8",
-    "backupUrls": [],
+    "url": "https://amg01448-samsungin-ndtvgoodtimes-samsungin-ad-gp.amagi.tv/playlist/amg01448-samsungin-ndtvgoodtimes-samsungin/playlist.m3u8",
+    "backupUrls": [
+      "https://d2gvyg6lvauoko.cloudfront.net/230226/ndtvgoodtimes/chunks.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5257,8 +5651,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Mirror Now",
-    "url": "https://pubads.g.doubleclick.net/ssai/event/DXkHhH2QSnma-HnE3QJqlA/master.m3u8",
-    "backupUrls": [],
+    "url": "https://dai.google.com/linear/hls/event/ClPOullTQky5vGPf7fMZ8g/master.m3u8",
+    "backupUrls": [
+      "https://pubads.g.doubleclick.net/ssai/event/DXkHhH2QSnma-HnE3QJqlA/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5271,8 +5667,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Nepal 1",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/nepal1/chunks.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt05.tangotv.in/87NeALx2NEPAL1/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/nepal1/chunks.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5299,8 +5697,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of NDTV Profit",
-    "url": "https://ndtvprofit.akamaized.net/hls/live/2107404/ndtvprofit/master_1.m3u8",
-    "backupUrls": [],
+    "url": "https://ndtvprofit.akamaized.net/hls/live/2107404/ndtvprofit/chunklist_5.m3u8",
+    "backupUrls": [
+      "https://ndtvprofit.akamaized.net/hls/live/2107404/ndtvprofit/master_1.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5355,8 +5755,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Enterr 10 Bangla",
-    "url": "https://cdn-4.pishow.tv/live/241/master.m3u8",
-    "backupUrls": [],
+    "url": "https://live-bangla.akamaized.net/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/241/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5383,8 +5785,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News 1 India",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/news1india/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/news1india/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5509,8 +5913,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "720p HD",
     "description": "Live online broadcast of News9Live",
-    "url": "https://vg-tv9yupp.vgcdn.net/vglive-sk-526536/v1/019e01ace8511ea540a871e333268/019e01ad3da31ea55784752988551/main.m3u8",
-    "backupUrls": [],
+    "url": "https://amg01106-amg01106c3-amgplt0844.playout.now3.amagi.tv/ts-ap-s1-n1/playlist/amg01106-amg01106c3-amgplt0844/playlist.m3u8",
+    "backupUrls": [
+      "https://vg-tv9yupp.vgcdn.net/vglive-sk-526536/v1/019e01ace8511ea540a871e333268/019e01ad3da31ea55784752988551/main.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5663,8 +6069,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Gangaur TV",
-    "url": "https://cdn-2.pishow.tv/live/1221/master.m3u8",
-    "backupUrls": [],
+    "url": "https://pbgangaur.wiseplayout.com/Gangaur/master.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1221/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5733,8 +6141,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Network 10",
-    "url": "https://network10.livebox.co.in/network10hls/live.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3NETWORK10/index.m3u8",
+    "backupUrls": [
+      "https://network10.livebox.co.in/network10hls/live.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5775,8 +6185,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of NTV Telugu",
-    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/ntv_nim_https/110322/ntv/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8",
+    "backupUrls": [
+      "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/ntv_nim_https/110322/ntv/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5817,8 +6229,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Hi Dost!",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HHIDOST/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-1.pishow.tv/live/224/master.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HHIDOST/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5845,8 +6259,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of India Today",
-    "url": "https://livehub-voidnet.onrender.com/cluster/streamcore/in/INDIATODAY_StreamOrchestrator.m3u8",
-    "backupUrls": [],
+    "url": "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-293160/master.m3u8",
+    "backupUrls": [
+      "https://livehub-voidnet.onrender.com/cluster/streamcore/in/INDIATODAY_StreamOrchestrator.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5859,8 +6275,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "1080p FHD",
     "description": "Live online broadcast of India TV Speed News",
-    "url": "https://cc-lyf4c0hwzg5dd.akamaized.net/v1/vglive-sk-479089/main.m3u8",
-    "backupUrls": [],
+    "url": "https://cc-lyf4c0hwzg5dd.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-lyf4c0hwzg5dd/v1/vglive-sk-479089/main.m3u8",
+    "backupUrls": [
+      "https://cc-lyf4c0hwzg5dd.akamaized.net/v1/vglive-sk-479089/main.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5887,8 +6305,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Isai Aruvi",
-    "url": "https://segment.yuppcdn.net/140622/isaiaruvi/playlist.m3u8",
-    "backupUrls": [],
+    "url": "http://ptuf.ridsys.in/riptv/live/KALAIGNAR_ISAI_ARUVI/index.m3u8",
+    "backupUrls": [
+      "https://segment.yuppcdn.net/140622/isaiaruvi/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5915,8 +6335,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of India TV",
-    "url": "https://cdn-2.pishow.tv/live/1043/master.m3u8",
-    "backupUrls": [],
+    "url": "https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1043/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5929,8 +6351,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Janam TV",
-    "url": "https://cdn-3.pishow.tv/live/1466/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/1466/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -5957,8 +6381,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Ishwar Bhakti TV",
-    "url": "https://cdn-2.pishow.tv/live/1464/master.m3u8",
-    "backupUrls": [],
+    "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1464/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6041,8 +6467,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Harvest TV",
-    "url": "https://7mbd4ogkr3gx-hls-live.wmncdn.net/harvesttvlive1/bbb19eae240ec100af921d511efc86a0.sdp/index.m3u8",
-    "backupUrls": [],
+    "url": "https://7mbd4ogkr3gx-hls-live.wmncdn.net/harvestenglish/d1796a22d24e8696c7d5d0b5c349fdd2.sdp/index.m3u8",
+    "backupUrls": [
+      "https://7mbd4ogkr3gx-hls-live.wmncdn.net/harvesttvlive1/bbb19eae240ec100af921d511efc86a0.sdp/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6139,8 +6567,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Mazhavil Manorama HD",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlMAZHAVILMANORAMAHD/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-7.pishow.tv/live/1129/master.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlMAZHAVILMANORAMAHD/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6153,8 +6583,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of INH 24x7",
-    "url": "https://7epd6o8edk9b-hls-live.wmncdn.net/inh24/live.stream/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/inh24x7/playlist.m3u8",
+    "backupUrls": [
+      "https://7epd6o8edk9b-hls-live.wmncdn.net/inh24/live.stream/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6181,8 +6613,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Kalinga TV",
-    "url": "https://cdn-4.pishow.tv/live/1470/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3KALINGATV/index.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/1470/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6223,8 +6657,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Kaumudy TV",
-    "url": "https://cdn-3.pishow.tv/live/1237/master.m3u8",
-    "backupUrls": [],
+    "url": "https://oqgdrkxby4rm-hls-live.5centscdn.com/kaumudytv/live.stream/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/1237/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6279,8 +6715,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Madha TV",
-    "url": "https://cdn-3.pishow.tv/live/1265/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlMADHATV/index.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/1265/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6349,8 +6787,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Mahaa News",
-    "url": "https://cdn-1.pishow.tv/live/401/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlMAHAANEWS/index.m3u8",
+    "backupUrls": [
+      "https://cdn-1.pishow.tv/live/401/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6391,8 +6831,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News 7 Tamil",
-    "url": "https://cdn-3.pishow.tv/live/1498/master.m3u8",
-    "backupUrls": [],
+    "url": "https://segment.yuppcdn.net/240122/news7/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/1498/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6405,8 +6847,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Polimer News",
-    "url": "https://cdn-3.pishow.tv/live/1245/master.m3u8",
-    "backupUrls": [],
+    "url": "https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/1245/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6433,8 +6877,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Puthiya Thalaimurai",
-    "url": "https://cdn-3.pishow.tv/live/1261/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/1261/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6447,8 +6893,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "HD Quality",
     "description": "Live online broadcast of PTC Music",
-    "url": "https://cdn-3.pishow.tv/live/1501/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/1501/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6461,8 +6909,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Mazhavil Manorama",
-    "url": "https://cdn-3.pishow.tv/live/1479/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HMAZHAVILMANORAMAINT/index.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/1479/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6559,8 +7009,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Manoranjan Prime",
-    "url": "https://cdn-4.pishow.tv/live/1474/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt06.tangotv.in/qYyB8fXVMANORANJANPRIME/index.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/1474/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6643,8 +7095,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Salaam TV",
-    "url": "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeesalaam/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/426c6db7-595e-4aa8-859c-7e86ed2811d0/af896be5-4743-41fc-8b6a-eb05e44f3a6e/3.m3u8",
-    "backupUrls": [],
+    "url": "https://d2o3r1shda7xvv.cloudfront.net/index_5.m3u8",
+    "backupUrls": [
+      "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeesalaam/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/426c6db7-595e-4aa8-859c-7e86ed2811d0/af896be5-4743-41fc-8b6a-eb05e44f3a6e/3.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6657,8 +7111,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Moon TV",
-    "url": "https://cdn-4.pishow.tv/live/1121/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/moontv/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/1121/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6685,8 +7141,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Nepal 1",
-    "url": "https://cdn-6.pishow.tv/live/1490/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt05.tangotv.in/87NeALx2NEPAL1/index.m3u8",
+    "backupUrls": [
+      "https://cdn-6.pishow.tv/live/1490/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6727,8 +7185,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News 24",
-    "url": "http://tvsen5.aynascope.net/News24/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "http://tvsen5.aynascope.net/News24/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6741,8 +7201,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News 24",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3NEWS24/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3NEWS24/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6797,8 +7259,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News 24",
-    "url": "https://tvsen5.aynaott.com/News24/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://tvsen5.aynaott.com/News24/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6825,8 +7289,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of NKR TV Kannada",
-    "url": "https://mumt05.tangotv.in/87NeALx2NKRTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://stream.ottlive.co.in/nkrtv/index.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2NKRTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6839,8 +7305,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News Nation",
-    "url": "https://cdn-2.pishow.tv/live/1493/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6cd2f649739a45ca9de1daf81cc7d0f2/index.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1493/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6909,8 +7377,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Oli TV",
-    "url": "https://live.olidigital.in/olitv/olitv/index.m3u8",
-    "backupUrls": [],
+    "url": "http://ptuf.ridsys.in/riptv/live/KALAIGNAR_SIRIPOLI/index.m3u8",
+    "backupUrls": [
+      "https://live.olidigital.in/olitv/olitv/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6937,8 +7407,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of NTV Telugu",
-    "url": "https://cdn-1.pishow.tv/live/383/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8",
+    "backupUrls": [
+      "https://cdn-1.pishow.tv/live/383/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6951,8 +7423,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Odisha TV",
-    "url": "https://cdn-2.pishow.tv/live/1600/master.m3u8",
-    "backupUrls": [],
+    "url": "https://livetv.tarangplus.in/otv-origin/live/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1600/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -6965,8 +7439,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Oscar Movies Bhojpuri",
-    "url": "https://mumt05.tangotv.in/87NeALx2OSCARMOVIESBHOJPURI/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/233/master.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2OSCARMOVIESBHOJPURI/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7021,8 +7497,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sudarshan News",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/sudarshan/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://ott.livelegitpro.in/sudarshannews/sudarshannews/tracks-v1/index.fmp4.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/sudarshan/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7049,8 +7527,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Pitaara",
-    "url": "https://mumt04.tangotv.in/m18aqlK4PITAARA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vg-pitaaratvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-583798/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4PITAARA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7147,8 +7627,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of PTC Punjabi",
-    "url": "https://cdn-2.pishow.tv/live/1604/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1604/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7161,8 +7643,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of PTC Punjabi Gold",
-    "url": "https://cdn-7.pishow.tv/live/450/master.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8",
+    "backupUrls": [
+      "https://cdn-7.pishow.tv/live/450/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7245,8 +7729,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Total TV Haryana",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/totaltv/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/1522/master.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/totaltv/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7287,8 +7773,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Puthiya Thalaimurai",
-    "url": "https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8",
+    "backupUrls": [
+      "https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7399,8 +7887,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of TV9 Bharatvarsh",
-    "url": "https://vg-tv9yupp.vgcdn.net/vglive-sk-468570/v1/019dfce4b3371ea55784752988544/019dfce515ea1ea540a871e333259/main.m3u8",
-    "backupUrls": [],
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://vg-tv9yupp.vgcdn.net/vglive-sk-468570/v1/019dfce4b3371ea55784752988544/019dfce515ea1ea540a871e333259/main.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7469,8 +7959,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of R Plus",
-    "url": "https://thelegitpro.in/pntv/rplusnews24x7/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt05.tangotv.in/87NeALx2VERTENTSAMACHARPLUS/index.m3u8",
+    "backupUrls": [
+      "https://thelegitpro.in/pntv/rplusnews24x7/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7497,8 +7989,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Raftaar Media",
-    "url": "https://6n3yorwpy9ok-hls-live.5centscdn.com/raftaarmedia/243bd1ce0387f18005abfc43b001646a.sdp/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt04.tangotv.in/m18aqlK4RAFTAARMEDIA/index.m3u8",
+    "backupUrls": [
+      "https://6n3yorwpy9ok-hls-live.5centscdn.com/raftaarmedia/243bd1ce0387f18005abfc43b001646a.sdp/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7553,8 +8047,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Rang",
-    "url": "https://cdn-7.pishow.tv/live/10017/master.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/1499/master.m3u8",
+    "backupUrls": [
+      "https://cdn-7.pishow.tv/live/10017/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7595,8 +8091,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Republic Bangla",
-    "url": "https://cdn-4.pishow.tv/live/270/master.m3u8",
-    "backupUrls": [],
+    "url": "https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/main.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/270/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7609,8 +8107,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Republic TV",
-    "url": "https://samsung-republictv.amagi.tv/ts-ap-s1-n1/playlist/samsungin-republictv-samsungindia/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8",
+    "backupUrls": [
+      "https://samsung-republictv.amagi.tv/ts-ap-s1-n1/playlist/samsungin-republictv-samsungindia/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7623,8 +8123,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Vision",
-    "url": "http://103.85.204.205:1935/VISIONMEDIA/live/playlist.m3u8",
-    "backupUrls": [],
+    "url": "http://38.96.178.205/SONYHD/index.m3u8",
+    "backupUrls": [
+      "http://103.85.204.205:1935/VISIONMEDIA/live/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7651,8 +8153,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Rongeen TV",
-    "url": "http://tvsen5.aynascope.net/RongeenTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8",
+    "backupUrls": [
+      "http://tvsen5.aynascope.net/RongeenTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7665,8 +8169,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Republic Kannada",
-    "url": "https://cdn-3.pishow.tv/live/298/master.m3u8",
-    "backupUrls": [],
+    "url": "https://vg-republictvlive.akamaized.net/ptnr-republicweb/title-Republic_TV_Kannada/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/1acd1ce1-c6a7-4ae4-afa1-133ffb111ebb/main.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/298/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7679,8 +8185,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Reporter TV",
-    "url": "https://cdn-2.pishow.tv/live/1510/master.m3u8",
-    "backupUrls": [],
+    "url": "https://segment.yuppcdn.net/050522/reporter/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1510/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7693,8 +8201,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Rongeen TV",
-    "url": "https://cdn-4.pishow.tv/live/1029/master.m3u8",
-    "backupUrls": [],
+    "url": "https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8",
+    "backupUrls": [
+      "https://cdn-4.pishow.tv/live/1029/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7735,8 +8245,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Republic Bharat",
-    "url": "https://cdn-2.pishow.tv/live/1053/master.m3u8",
-    "backupUrls": [],
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicBharat.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1053/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7833,8 +8345,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Rupasi Bangla",
-    "url": "https://mumt05.tangotv.in/87NeALx2RUPASIBANGLA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/1039/master.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2RUPASIBANGLA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7847,8 +8361,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Safari TV",
-    "url": "https://cdn-6.pishow.tv/live/1513/master.m3u8",
-    "backupUrls": [],
+    "url": "https://j78dp346yq5r-hls-live.5centscdn.com/safari/live.stream/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-6.pishow.tv/live/1513/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7861,8 +8377,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Vedic",
-    "url": "https://aasthaott.akamaized.net/110923/smil:vedic.smil/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt05.tangotv.in/87NeALx2VEDIC/index.m3u8",
+    "backupUrls": [
+      "https://aasthaott.akamaized.net/110923/smil:vedic.smil/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -7903,8 +8421,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sai TV",
-    "url": "https://cdn-3.pishow.tv/live/1235/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HSAITV/index.m3u8",
+    "backupUrls": [
+      "https://cdn-3.pishow.tv/live/1235/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8029,8 +8549,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Zee Business",
-    "url": "https://dwby15d04agvq.cloudfront.net/index_1.m3u8",
-    "backupUrls": [],
+    "url": "https://dwby15d04agvq.cloudfront.net/index_5.m3u8",
+    "backupUrls": [
+      "https://dwby15d04agvq.cloudfront.net/index_1.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8043,8 +8565,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sai TV",
-    "url": "https://account31.livebox.co.in/saitvhls/live.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HSAITV/index.m3u8",
+    "backupUrls": [
+      "https://account31.livebox.co.in/saitvhls/live.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8099,8 +8623,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sakshi TV",
-    "url": "https://cdn-1.pishow.tv/live/409/master.m3u8",
-    "backupUrls": [],
+    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/sakshi_nim_https/240122/sakshi/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-1.pishow.tv/live/409/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8113,8 +8639,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Zee Bihar Jharkhand",
-    "url": "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeebiharjharkhand/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/28077955-07d7-4ae2-8b11-9f318cd69420/main.m3u8",
-    "backupUrls": [],
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ZeeBiharJharkhand.m3u8",
+    "backupUrls": [
+      "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeebiharjharkhand/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/28077955-07d7-4ae2-8b11-9f318cd69420/main.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8155,8 +8683,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Zee News",
-    "url": "https://dt3lrqnyx3dks.cloudfront.net/index.m3u8",
-    "backupUrls": [],
+    "url": "https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8",
+    "backupUrls": [
+      "https://dt3lrqnyx3dks.cloudfront.net/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8239,8 +8769,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of India Ahead",
-    "url": "https://cdn-2.pishow.tv/live/269/master.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt05.tangotv.in/87NeALx2INDIAAHEAD/index.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/269/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8253,8 +8785,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "720p HD",
     "description": "Live online broadcast of Zee News",
-    "url": "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeenews/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/8744f9fb-d696-4204-9795-5215ad930c39/main.m3u8",
-    "backupUrls": [],
+    "url": "https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8",
+    "backupUrls": [
+      "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeenews/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/8744f9fb-d696-4204-9795-5215ad930c39/main.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8295,8 +8829,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Zoom",
-    "url": "https://d2esfk1pb9cdob.cloudfront.net/master.m3u8",
-    "backupUrls": [],
+    "url": "https://dai.google.com/linear/hls/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8",
+    "backupUrls": [
+      "https://d2esfk1pb9cdob.cloudfront.net/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8309,8 +8845,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Republic TV",
-    "url": "https://cdn-2.pishow.tv/live/271/master.m3u8",
-    "backupUrls": [],
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/271/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8365,8 +8903,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sirippoli TV",
-    "url": "https://segment.yuppcdn.net/240122/siripoli/playlist.m3u8",
-    "backupUrls": [],
+    "url": "http://ptuf.ridsys.in/riptv/live/KALAIGNAR_SIRIPOLI/index.m3u8",
+    "backupUrls": [
+      "https://segment.yuppcdn.net/240122/siripoli/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8379,8 +8919,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of 9X Tashan",
-    "url": "https://wiselp.wiseplayout.com/9X_Tashan/master.m3u8",
-    "backupUrls": [],
+    "url": "https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8",
+    "backupUrls": [
+      "https://wiselp.wiseplayout.com/9X_Tashan/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8393,8 +8935,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of 9X Jalwa",
-    "url": "https://wiselp.wiseplayout.com/9X_Jalwa/master.m3u8",
-    "backupUrls": [],
+    "url": "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8",
+    "backupUrls": [
+      "https://wiselp.wiseplayout.com/9X_Jalwa/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8407,8 +8951,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of 9X Jhakaas",
-    "url": "https://wiselp.wiseplayout.com/9X_Jhakaas/master.m3u8",
-    "backupUrls": [],
+    "url": "https://amg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjhakaas-samsungin/playlist.m3u8",
+    "backupUrls": [
+      "https://wiselp.wiseplayout.com/9X_Jhakaas/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8421,8 +8967,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of 9XM",
-    "url": "https://wiselp.wiseplayout.com/9XM/master.m3u8",
-    "backupUrls": [],
+    "url": "https://9xjio.wiseplayout.com/9XM/master.m3u8",
+    "backupUrls": [
+      "https://wiselp.wiseplayout.com/9XM/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8435,8 +8983,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Sansad TV 2",
-    "url": "https://playhls.media.nic.in/hls/live/rstv/rstv.m3u8",
-    "backupUrls": [],
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/e4182054dce340da9e0ff38b6b3658a4/index.m3u8",
+    "backupUrls": [
+      "https://playhls.media.nic.in/hls/live/rstv/rstv.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8505,8 +9055,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Siri Kannada",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HSIRIKANNADA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlSIRIKANNADAALLTIME/index.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HSIRIKANNADA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8533,8 +9085,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Shubhsandesh TV",
-    "url": "https://cdn-2.pishow.tv/live/457/master.m3u8",
-    "backupUrls": [],
+    "url": "https://6284rn2xr7xv-hls-live.wmncdn.net/shubhsandeshtv1/live123.stream/index.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/457/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8575,8 +9129,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Spondon",
-    "url": "https://cdn-7.pishow.tv/live/10019/master.m3u8",
-    "backupUrls": [],
+    "url": "https://nktv.smartstream.video/smartstream-us/spondon/spondon/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-7.pishow.tv/live/10019/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8603,8 +9159,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of Star Sports 2 HD",
-    "url": "https://tvsen7.aynaott.com/ssport2hd/index.m3u8",
-    "backupUrls": [],
+    "url": "http://tvsen5.aynascope.net/cXPB2LKkErN9/index.m3u8",
+    "backupUrls": [
+      "https://tvsen7.aynaott.com/ssport2hd/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8645,8 +9203,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Subhavaartha TV",
-    "url": "https://cdn-1.pishow.tv/live/278/master.m3u8",
-    "backupUrls": [],
+    "url": "https://2mk9qae4rwyb-hls-live.wmncdn.net/shubhavartha/live.stream/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-1.pishow.tv/live/278/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8673,8 +9233,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sudarshan News",
-    "url": "https://cdn-2.pishow.tv/live/1516/master.m3u8",
-    "backupUrls": [],
+    "url": "https://ott.livelegitpro.in/sudarshannews/sudarshannews/tracks-v1/index.fmp4.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1516/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8715,8 +9277,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of SVBC 4",
-    "url": "https://cdn-2.pishow.tv/live/1607/master.m3u8",
-    "backupUrls": [],
+    "url": "https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-2.pishow.tv/live/1607/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8855,8 +9419,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of TV5 News",
-    "url": "https://cdn-1.pishow.tv/live/387/master.m3u8",
-    "backupUrls": [],
+    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8",
+    "backupUrls": [
+      "https://cdn-1.pishow.tv/live/387/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8883,8 +9449,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Ultimate TV",
-    "url": "https://mumbai-edge.smartplaytv.in/utv/index.m3u8",
-    "backupUrls": [],
+    "url": "https://stream.ottlive.co.in/utvtamil/index.m3u8",
+    "backupUrls": [
+      "https://mumbai-edge.smartplaytv.in/utv/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8925,8 +9493,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Fateh TV",
-    "url": "http://180.188.254.253/live/FATEHTVHD.m3u8",
-    "backupUrls": [],
+    "url": "https://ott.livelegitpro.in/fatehtv/fatehtv/index.m3u8",
+    "backupUrls": [
+      "http://180.188.254.253/live/FATEHTVHD.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -8967,8 +9537,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Village TV",
-    "url": "https://villagetv.applelive.in/villagetv/villagetv/index.m3u8",
-    "backupUrls": [],
+    "url": "https://live.villagetv.net/villagetv/hd/index.m3u8",
+    "backupUrls": [
+      "https://villagetv.applelive.in/villagetv/villagetv/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9079,8 +9651,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Shemaroo TV",
-    "url": "https://streams.tangotv.in/SHEMAROOTV/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://airtelapp.shemaroo.com/shemarootv/smil:shemarootvadp.smil/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/SHEMAROOTV/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9107,8 +9681,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Shemaroo Umang",
-    "url": "https://streams.tangotv.in/SHEMAROOUMANG/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://airtelapp.shemaroo.com/shemarooumang/smil:shemarooumangadp.smil/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/SHEMAROOUMANG/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9121,8 +9697,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Manoranjan Grand",
-    "url": "https://streams.tangotv.in/MANORANJANGRAND/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-1.pishow.tv/live/1011/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/MANORANJANGRAND/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9149,8 +9727,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD National HD",
-    "url": "https://streams.tangotv.in/DDNATIONALHD/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/40492a64c1db4a1385ba1a397d357d3a/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/DDNATIONALHD/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9163,8 +9743,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Epic Bharat",
-    "url": "https://mumt06.tangotv.in/qYyB8fXVEPICTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cc-p1izg43bk7sj5.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-p1izg43bk7sj5/DIYC/PMSL/IN10/Nazara_IN_B/Nazara_IN_B.m3u8",
+    "backupUrls": [
+      "https://mumt06.tangotv.in/qYyB8fXVEPICTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9191,8 +9773,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Goldmines",
-    "url": "https://streams.tangotv.in/GOLDMINES/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/1460/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/GOLDMINES/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9205,8 +9789,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Anjan TV",
-    "url": "https://mumt06.tangotv.in/qYyB8fXVANJANTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://anjan.vstream.online/anjanorg/ngrp:anjan_hdall/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt06.tangotv.in/qYyB8fXVANJANTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9233,8 +9819,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Gangaur TV",
-    "url": "https://mumt04.tangotv.in/m18aqlK4GANGAURTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://pbgangaur.wiseplayout.com/Gangaur/master.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4GANGAURTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9331,8 +9919,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "HD Quality",
     "description": "Live online broadcast of Music India",
-    "url": "https://streams.tangotv.in/MUSICINDIA/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/226/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/MUSICINDIA/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9345,8 +9935,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "HD Quality",
     "description": "Live online broadcast of Epic Music",
-    "url": "https://streams.tangotv.in/EPICMUSIC/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt04.tangotv.in/m18aqlK4EPICMUSIC/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/EPICMUSIC/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9359,8 +9951,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of 9XM",
-    "url": "https://streams.tangotv.in/9XM/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://9xjio.wiseplayout.com/9XM/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/9XM/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9373,8 +9967,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "HD Quality",
     "description": "Live online broadcast of B4U Music",
-    "url": "https://streams.tangotv.in/B4UMUSIC/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/415/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/B4UMUSIC/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9401,8 +9997,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Times Now Navbharat",
-    "url": "https://streams.tangotv.in/TIMESNOWNAVBHARAT/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/TimesNowNavbharat.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/TIMESNOWNAVBHARAT/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9415,8 +10013,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of TV9 Bharatvarsh",
-    "url": "https://streams.tangotv.in/TV9BHARATVARSH/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/TV9BHARATVARSH/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9429,8 +10029,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News Nation",
-    "url": "https://streams.tangotv.in/NEWSNATION/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6cd2f649739a45ca9de1daf81cc7d0f2/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/NEWSNATION/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9443,8 +10045,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Republic Bharat",
-    "url": "https://streams.tangotv.in/REPUBLICBHARAT/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicBharat.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/REPUBLICBHARAT/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9457,8 +10061,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of India TV",
-    "url": "https://streams.tangotv.in/INDIATV/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/INDIATV/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9471,8 +10077,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Bharat24",
-    "url": "https://streams.tangotv.in/BHARAT24/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn.ottlive.co.in/bharat24/index.fmp4.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/BHARAT24/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9485,8 +10093,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News 24",
-    "url": "https://streams.tangotv.in/NEWS24/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/NEWS24/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9499,8 +10109,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sudarshan News",
-    "url": "https://streams.tangotv.in/SUDARSHANNEWS/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://ott.livelegitpro.in/sudarshannews/sudarshannews/tracks-v1/index.fmp4.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/SUDARSHANNEWS/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9513,8 +10125,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Swaraj Express SMBC",
-    "url": "https://mumt04.tangotv.in/m18aqlK4SWARAJEXPRESS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/477/master.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4SWARAJEXPRESS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9541,8 +10155,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of ANB News",
-    "url": "https://mumt05.tangotv.in/87NeALx2ANBNEWSNATIONAL/index.m3u8",
-    "backupUrls": [],
+    "url": "https://server.livelegitpro.in:9899/anbnews/anbnews/index.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2ANBNEWSNATIONAL/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9555,8 +10171,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Bansal News",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlBANSALNEWS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlBANSALNEWS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9569,8 +10187,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of IBC 24",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HC10/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt05.tangotv.in/87NeALx2IBC24/index.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HC10/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9583,8 +10203,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Republic TV",
-    "url": "https://streams.tangotv.in/REPUBLICTV/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/REPUBLICTV/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9611,8 +10233,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of NewsX",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3NEWSX/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HNEWSXWORLD/index.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3NEWSX/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9653,8 +10277,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of DD India",
-    "url": "https://mumt05.tangotv.in/87NeALx2DDINDIA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/ceda14583477426aa162a65392d8ea07/index.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2DDINDIA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9667,8 +10293,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of PTC Punjabi",
-    "url": "https://streams.tangotv.in/PTCPUNJABI/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/PTCPUNJABI/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9681,8 +10309,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Channel Divya",
-    "url": "https://streams.tangotv.in/DIVYA/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vg-pitaaratvlive.akamaized.net/v1/vglive-sk-906482/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/DIVYA/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9695,8 +10325,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Ishwar Bhakti TV",
-    "url": "https://mumt05.tangotv.in/87NeALx2ISHWARBHAKTI/index.m3u8",
-    "backupUrls": [],
+    "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2ISHWARBHAKTI/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9723,8 +10355,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Hare Krsna TV",
-    "url": "https://mumt05.tangotv.in/87NeALx2HAREKRSNA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://hktv.harekrsnatv.com/HKTV/HKWebApp/manifest.mpd",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2HAREKRSNA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9737,8 +10371,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of PTC Punjabi Gold",
-    "url": "https://streams.tangotv.in/PTCPUNJABIGOLD/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/PTCPUNJABIGOLD/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9751,8 +10387,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Pitaara",
-    "url": "https://streams.tangotv.in/PITAARA/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vg-pitaaratvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-583798/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/PITAARA/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9765,8 +10403,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "HD Quality",
     "description": "Live online broadcast of PTC Music",
-    "url": "https://mumt04.tangotv.in/m18aqlK4PTCMUSIC/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4PTCMUSIC/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9779,8 +10419,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of 9X Tashan",
-    "url": "https://streams.tangotv.in/9XTASHAN/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/9XTASHAN/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9793,8 +10435,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of PTC Chakde",
-    "url": "https://mumt06.tangotv.in/qYyB8fXVPTCCHAKDE/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-1.pishow.tv/live/449/master.m3u8",
+    "backupUrls": [
+      "https://mumt06.tangotv.in/qYyB8fXVPTCCHAKDE/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9807,8 +10451,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Balle Balle",
-    "url": "https://streams.tangotv.in/BALLEBALLE/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mcncdndigital.com/balleballetv/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/BALLEBALLE/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9835,8 +10481,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Tabbar Hits",
-    "url": "https://streams.tangotv.in/TABBARHITS/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vglivessai.akamaized.net/sg/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e11b0319-52e8-4190-ab03-3931cc68eac9/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/TABBARHITS/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9849,8 +10497,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Living India News",
-    "url": "https://streams.tangotv.in/LIVINGINDIANEWS/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://stream.ottlive.co.in/livingindia/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/LIVINGINDIANEWS/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9863,8 +10513,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Chardikla Time TV",
-    "url": "https://streams.tangotv.in/CHARDIKALATIMETV/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/CHARDIKALATIMETV/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9877,8 +10529,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Chardikla Time TV",
-    "url": "https://streams.tangotv.in/PTCSIMRAN/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/PTCSIMRAN/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9891,8 +10545,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of TV9 Gujarati",
-    "url": "https://streams.tangotv.in/TV9GUJARATI/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9guj3ki8lu/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/TV9GUJARATI/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9919,8 +10575,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of TV9 Marathi",
-    "url": "https://streams.tangotv.in/TV9MARATHI/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9marlygv8h/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/TV9MARATHI/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9933,8 +10591,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sangeet Marathi",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlSANGEETMARATHI/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-3.pishow.tv/live/1229/master.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlSANGEETMARATHI/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9947,8 +10607,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Fakt Marathi",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlFAKTMARATHI/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-6.pishow.tv/live/10002/master.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlFAKTMARATHI/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -9961,8 +10623,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of B4U Bhojpuri",
-    "url": "https://streams.tangotv.in/B4UBHOJPURI/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdnb4u.wiseplayout.com/B4U_Bhojpuri/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/B4UBHOJPURI/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10003,8 +10667,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Peppers TV",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlPEPPERS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/1383/master.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlPEPPERS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10031,8 +10697,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Malai Murasu TV",
-    "url": "https://streams.tangotv.in/MALAIMURASUSEITHIGAL/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://amg17783-amg17783c1-amgplt0173.playout.now3.amagi.tv/playlist/amg17783-amg17783c1-amgplt0173/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/MALAIMURASUSEITHIGAL/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10045,8 +10713,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Puthiya Thalaimurai",
-    "url": "https://streams.tangotv.in/PUTHIYATHALAIMURAI/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/PUTHIYATHALAIMURAI/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10059,8 +10729,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Polimer TV",
-    "url": "https://mumt04.tangotv.in/m18aqlK4POLIMERTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/1241/master.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4POLIMERTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10073,8 +10745,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News 7 Tamil",
-    "url": "https://streams.tangotv.in/NEWS7TAMIL/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://segment.yuppcdn.net/240122/news7/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/NEWS7TAMIL/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10101,8 +10775,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of News Tamil 24x7",
-    "url": "https://streams.tangotv.in/NEWSTAMIL24X7/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-3.pishow.tv/live/1433/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/NEWSTAMIL24X7/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10115,8 +10791,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Polimer News",
-    "url": "https://streams.tangotv.in/POLIMERNEWS/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/POLIMERNEWS/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10157,8 +10835,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Angel TV",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3ANGELTVHD/index.m3u8",
-    "backupUrls": [],
+    "url": "https://janya-digimix.akamaized.net/vglive-sk-394914/india/ngrp:angelindia_all/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3ANGELTVHD/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10185,8 +10865,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Raj Musix Telugu",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlRAJMUSIXTELUGU/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-1.pishow.tv/live/1213/master.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlRAJMUSIXTELUGU/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10241,8 +10923,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sakshi TV",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlSAKSHITV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/sakshi_nim_https/240122/sakshi/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlSAKSHITV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10255,8 +10939,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of CVR English",
-    "url": "https://yuppnimrestreammum.akamaized.net/181224/smil:cvrnewseng.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/425/master.m3u8",
+    "backupUrls": [
+      "https://yuppnimrestreammum.akamaized.net/181224/smil:cvrnewseng.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -10269,8 +10955,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of APN",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/apnnews/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3APN/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/apnnews/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10283,8 +10971,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Bansal News",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/bansalnews/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/bansalnews/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10311,8 +11001,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Network 10",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/network10/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3NETWORK10/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/network10/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10325,8 +11017,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of TV9 Telugu",
-    "url": "https://streams.tangotv.in/TV9TELUGU/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9telcmjhcs/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/TV9TELUGU/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10339,8 +11033,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of TV5 News",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlTV5NEWS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlTV5NEWS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10353,8 +11049,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of V6 News",
-    "url": "https://mumt05.tangotv.in/87NeALx2V6NEWS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/v6news_nim_https/140622/v6news/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2V6NEWS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10367,8 +11065,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Jantantra TV",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/jantantratv/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt05.tangotv.in/87NeALx2JANTANTRA/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/jantantratv/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10381,8 +11081,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Swaraj Express SMBC",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/swarajexpresssmbc/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/477/master.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/swarajexpresssmbc/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10395,8 +11097,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Subharti TV",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/subhartitv/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt04.tangotv.in/m18aqlK4SUBHARTITV/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/subhartitv/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10465,8 +11169,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Studio Yuva",
-    "url": "https://d2gvyg6lvauoko.cloudfront.net/230226/studioyuva/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3STUDIOYUVA/index.m3u8",
+    "backupUrls": [
+      "https://d2gvyg6lvauoko.cloudfront.net/230226/studioyuva/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -10549,8 +11255,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Mahaa Max",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/mahaamax/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HMAHAAMAX/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/mahaamax/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10563,8 +11271,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Mahaa Bhakti",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/mahaabhakti/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumbai-edge.smartplaytv.in/MahaBhakthi/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/mahaabhakti/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10605,8 +11315,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of V6 News",
-    "url": "https://d1rc86nwwc9fag.cloudfront.net/140622/v6newsdev/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/v6news_nim_https/140622/v6news/playlist.m3u8",
+    "backupUrls": [
+      "https://d1rc86nwwc9fag.cloudfront.net/140622/v6newsdev/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -10619,8 +11331,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of T News",
-    "url": "https://yuppnimresmum.akamaized.net/120723/smil:tnews.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8",
+    "backupUrls": [
+      "https://yuppnimresmum.akamaized.net/120723/smil:tnews.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -10633,8 +11347,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of TV5 News",
-    "url": "https://yuppnimresmum.akamaized.net/110322/tv5/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8",
+    "backupUrls": [
+      "https://yuppnimresmum.akamaized.net/110322/tv5/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -10647,8 +11363,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of INews",
-    "url": "https://yuppnimresmum.akamaized.net/28072023/smil:inews.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://cdn-1.pishow.tv/live/411/master.m3u8",
+    "backupUrls": [
+      "https://yuppnimresmum.akamaized.net/28072023/smil:inews.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -10661,8 +11379,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Darshana TV",
-    "url": "https://yuppparoriglin.akamaized.net/181224/smil:darshanatv.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://mumt04.tangotv.in/m18aqlK4DARSHANATV/index.m3u8",
+    "backupUrls": [
+      "https://yuppparoriglin.akamaized.net/181224/smil:darshanatv.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -10675,8 +11395,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Kappa TV",
-    "url": "https://d1msejlow1t3l4.cloudfront.net/fta/kappatv/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt03.tangotv.in/Dsly5z3HKAPPATV/index.m3u8",
+    "backupUrls": [
+      "https://d1msejlow1t3l4.cloudfront.net/fta/kappatv/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10689,8 +11411,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Kairali TV",
-    "url": "https://streams.tangotv.in/KAIRALI/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3KAIRALI/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/KAIRALI/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10717,8 +11441,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Amrita TV",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlAMRITATV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://ddash74r36xqp.cloudfront.net/master.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlAMRITATV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10745,8 +11471,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Rupasi Bangla",
-    "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:rupashibangla.smil/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/1039/master.m3u8",
+    "backupUrls": [
+      "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:rupashibangla.smil/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10759,8 +11487,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Manorama News",
-    "url": "https://streams.tangotv.in/MANORAMANEWSNORTH/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mmtvnews1.akamaized.net/v1/master/673630b269b766886555eebfddd4f27f3de3ab50/mmtvNewsCampaign1/index.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/MANORAMANEWSNORTH/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10787,8 +11517,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Mazhavil Manorama",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HMAZHAVILMANORAMAINT/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-7.pishow.tv/live/1129/master.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HMAZHAVILMANORAMAINT/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10801,8 +11533,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Kairali News",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3KAIRALINEWS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-3.pishow.tv/live/1469/master.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3KAIRALINEWS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10857,8 +11591,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "720p HD",
     "description": "Live online broadcast of WOW Kidz",
-    "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidztelgu.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
-    "backupUrls": [],
+    "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidzhindi.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b",
+    "backupUrls": [
+      "https://yuppparoriglin.akamaized.net/181224/smil:wowkidztelgu.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    ],
     "isFeatured": false
   },
   {
@@ -10913,8 +11649,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of R Plus Gold",
-    "url": "https://vglivessai.akamaized.net/sg/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/cf883da3-f9f5-4c70-b0ef-b3ac2e2ad1e3/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/1231/master.m3u8",
+    "backupUrls": [
+      "https://vglivessai.akamaized.net/sg/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/cf883da3-f9f5-4c70-b0ef-b3ac2e2ad1e3/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10927,8 +11665,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Media One",
-    "url": "https://streams.tangotv.in/MEDIAONETV/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-3.pishow.tv/live/1481/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/MEDIAONETV/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10955,8 +11695,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Reporter TV",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlREPORTERTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://segment.yuppcdn.net/050522/reporter/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlREPORTERTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10969,8 +11711,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Live online broadcast of Epic Bharat Digital",
-    "url": "https://epiconvh.akamaized.net/live/nazara/master.m3u8",
-    "backupUrls": [],
+    "url": "https://cc-p1izg43bk7sj5.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-p1izg43bk7sj5/DIYC/PMSL/IN10/Nazara_IN_B/Nazara_IN_B.m3u8",
+    "backupUrls": [
+      "https://epiconvh.akamaized.net/live/nazara/master.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10983,8 +11727,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "HD Quality",
     "description": "Live online broadcast of Public Music",
-    "url": "https://mumt04.tangotv.in/m18aqlK4PUBLICMUSIC/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-3.pishow.tv/live/441/master.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4PUBLICMUSIC/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -10997,8 +11743,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Public TV",
-    "url": "https://streams.tangotv.in/PUBLICTV/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-3.pishow.tv/live/439/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/PUBLICTV/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11011,8 +11759,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Republic Kannada",
-    "url": "https://streams.tangotv.in/REPUBLICKANNADA/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vg-republictvlive.akamaized.net/ptnr-republicweb/title-Republic_TV_Kannada/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/1acd1ce1-c6a7-4ae4-afa1-133ffb111ebb/main.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/REPUBLICKANNADA/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11025,8 +11775,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of TV9 Kannada",
-    "url": "https://streams.tangotv.in/TV9KANNADA/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9kanmo6oiq/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/TV9KANNADA/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11039,8 +11791,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Guarantee News",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HGAURANTEENEWS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://guaranteenews.in:8443/live/gnews/index.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HGAURANTEENEWS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11067,8 +11821,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Power TV",
-    "url": "https://mumt06.tangotv.in/qYyB8fXVPOWERTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://powertvkannada.com/hls/stream.m3u8",
+    "backupUrls": [
+      "https://mumt06.tangotv.in/qYyB8fXVPOWERTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11095,8 +11851,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Sangeet Bangla",
-    "url": "https://mumt05.tangotv.in/87NeALx2SANGEETBANGLA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/1143/master.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2SANGEETBANGLA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11109,8 +11867,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Enterr 10 Bangla",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlENTERR10BANGLA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://live-bangla.akamaized.net/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlENTERR10BANGLA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11123,8 +11883,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Khushboo Bangla",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3KHUSHBOOTVBANGLA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/1473/master.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3KHUSHBOOTVBANGLA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11137,8 +11899,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Republic Bangla",
-    "url": "https://streams.tangotv.in/RBANGLA/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/main.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/RBANGLA/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11151,8 +11915,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Rongeen TV",
-    "url": "https://mumt05.tangotv.in/87NeALx2RONGEENTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2RONGEENTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11165,8 +11931,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "HD Quality",
     "description": "Live online broadcast of Dhoom Music",
-    "url": "https://mumt06.tangotv.in/qYyB8fXVDHOOMMUSIC/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-1.pishow.tv/live/1456/master.m3u8",
+    "backupUrls": [
+      "https://mumt06.tangotv.in/qYyB8fXVDHOOMMUSIC/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11179,8 +11947,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Hosanna TV",
-    "url": "https://asia.mslivestream.net/mslive/bfba54c5c96a6359e2da0ca35f4998af.sdp/playlist.m3u8",
-    "backupUrls": [],
+    "url": "https://ktismaservers.in:3466/live/hosannattvhindhilive.m3u8",
+    "backupUrls": [
+      "https://asia.mslivestream.net/mslive/bfba54c5c96a6359e2da0ca35f4998af.sdp/playlist.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11249,8 +12019,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of TV9 Bangla",
-    "url": "https://streams.tangotv.in/TV9BANGLA/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/TV9BANGLA/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11305,8 +12077,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Odisha TV",
-    "url": "https://streams.tangotv.in/OTVLIVE24X7/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://livetv.tarangplus.in/otv-origin/live/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/OTVLIVE24X7/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11333,8 +12107,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Spondon",
-    "url": "https://mumt05.tangotv.in/87NeALx2SPONDON/index.m3u8",
-    "backupUrls": [],
+    "url": "https://nktv.smartstream.video/smartstream-us/spondon/spondon/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2SPONDON/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11347,8 +12123,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Rang",
-    "url": "https://streams.tangotv.in/RANG/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/1499/master.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/RANG/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11361,8 +12139,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Ramdhenu",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3RAMDHENU/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-7.pishow.tv/live/10016/master.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3RAMDHENU/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11403,8 +12183,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Northeast Live",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3NORTHEASTLIVE/index.m3u8",
-    "backupUrls": [],
+    "url": "https://server.thelegitpro.in/northeastlive/northeastlive/index.fmp4.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3NORTHEASTLIVE/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11417,8 +12199,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Tehzeeb TV",
-    "url": "https://mumt05.tangotv.in/87NeALx2TEHZEEBTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/239/master.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2TEHZEEBTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11431,8 +12215,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Channel WIN",
-    "url": "https://mumt05.tangotv.in/87NeALx2CHANNELWIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/229/master.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2CHANNELWIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11445,8 +12231,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Pratidin Time",
-    "url": "https://streams.tangotv.in/PROTIDINTIME/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://server.thelegitpro.in/pratidintime/pratidintime/index.fmp4.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/PROTIDINTIME/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11473,8 +12261,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Assam Talks",
-    "url": "https://mumt05.tangotv.in/87NeALx2ASSAMTALKS/index.m3u8",
-    "backupUrls": [],
+    "url": "http://tvsen7.aynascope.net/AssamTalks/index.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2ASSAMTALKS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11515,8 +12305,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of 9X Jalwa",
-    "url": "https://tvsen6.aynaott.com/CiPT1VTG8bVekeAZiibd/index.m3u8",
-    "backupUrls": [],
+    "url": "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8",
+    "backupUrls": [
+      "https://tvsen6.aynaott.com/CiPT1VTG8bVekeAZiibd/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11529,8 +12321,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Salaam TV",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlZEESALAM/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d2o3r1shda7xvv.cloudfront.net/index_5.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlZEESALAM/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11543,8 +12337,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Rupasi Bangla",
-    "url": "https://tvsen6.aynaott.com/a4L7Tcqv/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-4.pishow.tv/live/1039/master.m3u8",
+    "backupUrls": [
+      "https://tvsen6.aynaott.com/a4L7Tcqv/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11571,8 +12367,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Network 10",
-    "url": "https://tvsen6.aynaott.com/3Cb2WLFz/index.m3u8",
-    "backupUrls": [],
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3NETWORK10/index.m3u8",
+    "backupUrls": [
+      "https://tvsen6.aynaott.com/3Cb2WLFz/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11599,8 +12397,10 @@ const FALLBACK_CHANNELS = [
     "category": "Music & Songs",
     "quality": "HD Quality",
     "description": "Live online broadcast of B4U Music",
-    "url": "https://mumbai-edge.smartplaytv.in/B4uMusic/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/415/master.m3u8",
+    "backupUrls": [
+      "https://mumbai-edge.smartplaytv.in/B4uMusic/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11627,8 +12427,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Zee Bharat",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HZEEBHARAT/index.m3u8",
-    "backupUrls": [],
+    "url": "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeehindustan/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/96bbab12-582e-4540-af70-510ab6824581/main.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HZEEBHARAT/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11641,8 +12443,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Zee 24 Taas",
-    "url": "https://streams.tangotv.in/ZEE24TAAS/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://dgrvlduwztkd4.cloudfront.net/index_5.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/ZEE24TAAS/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11669,8 +12473,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Zee News",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlZEENEWS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlZEENEWS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11683,8 +12489,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Zee Uttar Pradesh/Uttarakhand",
-    "url": "https://mumt07.tangotv.in/zHjX9OFlZEEUPUK/index.m3u8",
-    "backupUrls": [],
+    "url": "https://duw35ict5q7th.cloudfront.net/index_3.m3u8",
+    "backupUrls": [
+      "https://mumt07.tangotv.in/zHjX9OFlZEEUPUK/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11697,8 +12505,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Kairali We",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3WETV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://streams.tangotv.in/WETV/ORIGIN/index.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3WETV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11711,8 +12521,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Vaanavil TV",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3VAANAVILTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://6n3yope4d9ok-hls-live.5centscdn.com/vaanavil/TV.stream/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3VAANAVILTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11725,8 +12537,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of SVBC",
-    "url": "https://mumt04.tangotv.in/m18aqlK4SVBCTELUGU/index.m3u8",
-    "backupUrls": [],
+    "url": "https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4SVBCTELUGU/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11753,8 +12567,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of T News",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HTNEWS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HTNEWS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11781,8 +12597,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Thanthi TV",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HTHANTHITV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://streams.tangotv.in/THANTHITV/ORIGIN/index.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HTHANTHITV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11809,8 +12627,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Swadesh News",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HSWADESHNEWS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-2.pishow.tv/live/465/master.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HSWADESHNEWS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11837,8 +12657,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of SVBC 3",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3SVBC3KANNADA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://player.mslivestream.net/svbc/2e628d7e1b65d31254fd7705ff7ee64d.sdp/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3SVBC3KANNADA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11851,8 +12673,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Subhavaartha TV",
-    "url": "https://mumt05.tangotv.in/87NeALx2SUBHAVAARTHATV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://2mk9qae4rwyb-hls-live.wmncdn.net/shubhavartha/live.stream/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2SUBHAVAARTHATV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11879,8 +12703,10 @@ const FALLBACK_CHANNELS = [
     "category": "News",
     "quality": "HD Quality",
     "description": "Live online broadcast of Suvarna News",
-    "url": "https://streams.tangotv.in/SUVARNANEWS/ORIGIN/index.m3u8",
-    "backupUrls": [],
+    "url": "https://asianetnews.vgcdn.net/vglive-sk-335835/playlist.m3u8",
+    "backupUrls": [
+      "https://streams.tangotv.in/SUVARNANEWS/ORIGIN/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11893,8 +12719,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Studio One +",
-    "url": "https://mumt04.tangotv.in/m18aqlK4STUDIOONEPLUS/index.m3u8",
-    "backupUrls": [],
+    "url": "https://cdn-1.pishow.tv/live/276/master.m3u8",
+    "backupUrls": [
+      "https://mumt04.tangotv.in/m18aqlK4STUDIOONEPLUS/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11907,8 +12735,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of SVBC 4",
-    "url": "https://mumt05.tangotv.in/87NeALx2SVBC4HINDI/index.m3u8",
-    "backupUrls": [],
+    "url": "https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt05.tangotv.in/87NeALx2SVBC4HINDI/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11921,8 +12751,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of SVBC 2",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HSVBC2TAMIL/index.m3u8",
-    "backupUrls": [],
+    "url": "https://player.mslivestream.net/tamil/ac206e74d75b285755ee4924df87d951.sdp/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HSVBC2TAMIL/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11935,8 +12767,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Hosanna TV Global",
-    "url": "https://ktismaservers.in:3349/live/hosannatvlive.m3u8",
-    "backupUrls": [],
+    "url": "https://asia.mslivestream.net/mslive/bfba54c5c96a6359e2da0ca35f4998af.sdp/playlist.m3u8",
+    "backupUrls": [
+      "https://ktismaservers.in:3349/live/hosannatvlive.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11949,8 +12783,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Shekinah TV",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HSHEKINAHTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://livetv.timeiptv.in/ShekinahNewsIndia/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HSHEKINAHTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11963,8 +12799,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Shubh TV",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HSHUBHTV/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d2g1vdc6ozl2o8.cloudfront.net/out/v1/0a0dc7d7911b4fddbb4dfc963fdd4b9e/index.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HSHUBHTV/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -11977,8 +12815,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Shubh Cinema TV",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HSHUBHCINEMA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d393sxaxig6bax.cloudfront.net/out/v1/589cf2cf44bf42bb941e817a2240d62e/index.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HSHUBHCINEMA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -12019,8 +12859,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Shubhsandesh TV",
-    "url": "https://mumt03.tangotv.in/Dsly5z3HSHUBHSANDESH/index.m3u8",
-    "backupUrls": [],
+    "url": "https://6284rn2xr7xv-hls-live.wmncdn.net/shubhsandeshtv1/live123.stream/index.m3u8",
+    "backupUrls": [
+      "https://mumt03.tangotv.in/Dsly5z3HSHUBHSANDESH/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -12033,8 +12875,10 @@ const FALLBACK_CHANNELS = [
     "category": "Entertainment",
     "quality": "HD Quality",
     "description": "Live online broadcast of Shalom",
-    "url": "https://mumt01.tangotv.in/O5aw8Zn3SHALOMTVINDIA/index.m3u8",
-    "backupUrls": [],
+    "url": "https://d2c4zqo2rb5uf1.cloudfront.net/master.m3u8",
+    "backupUrls": [
+      "https://mumt01.tangotv.in/O5aw8Zn3SHALOMTVINDIA/index.m3u8"
+    ],
     "isFeatured": false
   },
   {
@@ -12052,109 +12896,6 @@ const FALLBACK_CHANNELS = [
     "isFeatured": false
   }
 ];
-
-const DEFAULT_LOCAL_MEDIA = [
-  {
-    id: 'sample_local_1',
-    name: 'ISRO Chandrayaan-3 Special Mission Highlights.mp4',
-    type: 'tv',
-    country: 'Local',
-    countryName: 'Device Storage',
-    flag: '🎬',
-    category: 'MP4 Video',
-    quality: '1080p • 24.5 MB',
-    description: 'Offline MP4 video on device',
-    url: 'https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8',
-    duration: '24:18',
-    folder: 'movies',
-    isLocal: true
-  },
-  {
-    id: 'sample_local_2',
-    name: 'Bollywood Evergreen 90s Melodies Playlist.mp3',
-    type: 'radio',
-    country: 'Local',
-    countryName: 'Device Storage',
-    flag: '🎵',
-    category: 'MP3 Audio',
-    quality: '320 kbps • 8.2 MB',
-    description: 'Offline MP3 audio track',
-    url: 'https://air.pc.cdn.bitgravity.com/air/live/pbaudio034/playlist.m3u8',
-    duration: '04:35',
-    folder: 'music',
-    isLocal: true
-  },
-  {
-    id: 'sample_local_3',
-    name: 'Ancient Architecture & Temples of India.mp4',
-    type: 'tv',
-    country: 'Local',
-    countryName: 'Device Storage',
-    flag: '🎬',
-    category: 'MP4 Video',
-    quality: '1080p • 18.2 MB',
-    description: 'Offline MP4 video on device',
-    url: 'https://aasthatv.akamaized.net/hls/live/2034040/aastha/master.m3u8',
-    duration: '18:40',
-    folder: 'movies',
-    isLocal: true
-  },
-  {
-    id: 'sample_local_4',
-    name: 'Morning Raagam Sangeet Sarita Classical.mp3',
-    type: 'radio',
-    country: 'Local',
-    countryName: 'Device Storage',
-    flag: '🎵',
-    category: 'MP3 Audio',
-    quality: 'AIR Classical • 5.4 MB',
-    description: 'Offline MP3 audio track',
-    url: 'https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudioragam/hlspbaudioragam_Auto.m3u8',
-    duration: '06:12',
-    folder: 'music',
-    isLocal: true
-  }
-];
-
-const HERO_FEATURED_CHANNELS = [
-  {
-    id: 'aajtak-hd',
-    name: 'Aaj Tak HD Live',
-    category: 'Hindi News • 1080p FHD',
-    desc: "Watch India's leading 24x7 Hindi national breaking news, prime-time debates, and ground reports in Full HD.",
-    bg: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=1200&auto=format&fit=crop&q=80',
-    tag: 'LIVE 24/7',
-    quality: '1080p FHD'
-  },
-  {
-    id: 'ndtv-india',
-    name: 'NDTV India HD',
-    category: 'In-Depth News • 1080p FHD',
-    desc: "Comprehensive special reports, primetime debates, economy and world news analysis in Hindi.",
-    bg: 'https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&auto=format&fit=crop&q=80',
-    tag: 'PRIME TIME',
-    quality: '1080p FHD'
-  },
-  {
-    id: 'nasa-tv-uhd',
-    name: 'NASA TV HD (Space)',
-    category: 'Science & Space • 4K UHD',
-    desc: "Live views from the International Space Station, spacewalks, and Artemis rocket launches.",
-    bg: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
-    tag: 'NASA LIVE',
-    quality: '4K UHD'
-  },
-  {
-    id: 'al-jazeera-en',
-    name: 'Al Jazeera World News HD',
-    category: 'World News • 1080p FHD',
-    desc: "Award-winning global breaking news, international headlines, and in-depth investigative reports.",
-    bg: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&auto=format&fit=crop&q=80',
-    tag: 'GLOBAL LIVE',
-    quality: '1080p FHD'
-  }
-];
-
 let channelsData = FALLBACK_CHANNELS;
 let favorites = JSON.parse(localStorage.getItem('aakash_favs') || '["aajtak", "air-vividh-bharati-12"]');
 let recentChannels = JSON.parse(localStorage.getItem('aakash_recents') || '[]');
@@ -14199,7 +14940,7 @@ window.closeVlcTipsModal = function() {
 // ==========================================================
 let currentTrackDelay = 0.0;
 let currentSubtitleLanguage = 'hindi';
-let currentAudioTrack = 'hindi';
+let currentAudioTrack = 'passthrough';
 let speechRecognitionInstance = null;
 let webAudioCtx = null;
 let webAudioSource = null;

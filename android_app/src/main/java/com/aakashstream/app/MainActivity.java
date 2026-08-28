@@ -10,12 +10,16 @@ import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.media.AudioAttributes;
+import android.media.AudioFormat;
 import android.media.AudioManager;
+import android.media.AudioTrack;
+import android.media.MediaCodec;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import java.nio.ByteBuffer;
 import android.os.Bundle;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
@@ -914,7 +918,7 @@ public class MainActivity extends Activity {
         // ==========================================================
         // NATIVE DDP 5.1 / DOLBY DIGITAL PLUS / 4K AUDIO HARDWARE DECODER
         // ==========================================================
-        private MediaPlayer nativeAudioPlayer = null;
+        private NativeHardwareAudioDecoder nativeAudioDecoder = new NativeHardwareAudioDecoder();
         private long currentNativeMediaId = -1;
 
         @JavascriptInterface
@@ -923,7 +927,14 @@ public class MainActivity extends Activity {
             MediaExtractor extractor = new MediaExtractor();
             try {
                 Uri contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, mediaId);
-                extractor.setDataSource(MainActivity.this, contentUri, null);
+                AssetFileDescriptor afd = getContentResolver().openAssetFileDescriptor(contentUri, "r");
+                if (afd != null) {
+                    extractor.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                    afd.close();
+                } else {
+                    extractor.setDataSource(MainActivity.this, contentUri, null);
+                }
+                
                 int numTracks = extractor.getTrackCount();
                 JSONArray tracks = new JSONArray();
                 boolean hasDDP = false;
@@ -942,7 +953,7 @@ public class MainActivity extends Activity {
                         t.put("sampleRate", sampleRate);
                         t.put("language", lang);
                         
-                        if (mime.contains("eac3") || mime.contains("ac3") || mime.contains("dts") || channels > 2) {
+                        if (mime.contains("eac3") || mime.contains("ac3") || mime.contains("dts") || mime.contains("truehd") || channels > 2) {
                             hasDDP = true;
                         }
                         tracks.put(t);
@@ -963,40 +974,13 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public boolean startNativeAudioDecoder(long mediaId, float startSeconds, float volume) {
             try {
-                runOnUiThread(() -> {
-                    try {
-                        if (nativeAudioPlayer != null) {
-                            try {
-                                nativeAudioPlayer.stop();
-                                nativeAudioPlayer.release();
-                            } catch (Exception ignored) {}
-                            nativeAudioPlayer = null;
-                        }
-                        
-                        Uri contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, mediaId);
-                        nativeAudioPlayer = new MediaPlayer();
-                        nativeAudioPlayer.setDataSource(MainActivity.this, contentUri);
-                        nativeAudioPlayer.setAudioAttributes(
-                            new AudioAttributes.Builder()
-                                .setContentType(AudioAttributes.CONTENT_TYPE_MOVIE)
-                                .setUsage(AudioAttributes.USAGE_MEDIA)
-                                .build()
-                        );
-                        nativeAudioPlayer.prepare();
-                        int seekMs = (int) (startSeconds * 1000);
-                        if (seekMs > 0) {
-                            nativeAudioPlayer.seekTo(seekMs);
-                        }
-                        float vol = Math.max(0.0f, Math.min(1.0f, volume));
-                        nativeAudioPlayer.setVolume(vol, vol);
-                        nativeAudioPlayer.start();
-                        currentNativeMediaId = mediaId;
-                        Log.i(TAG, "Native DDP5.1 Audio Decoder started for media: " + mediaId);
-                    } catch (Exception e) {
-                        Log.e(TAG, "Error starting native audio decoder: " + e.getMessage());
-                    }
-                });
-                return true;
+                Uri contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, mediaId);
+                boolean started = nativeAudioDecoder.start(MainActivity.this, contentUri, startSeconds, volume);
+                if (started) {
+                    currentNativeMediaId = mediaId;
+                    Log.i(TAG, "Native DDP5.1 Hardware Decoder started for media: " + mediaId);
+                }
+                return started;
             } catch (Exception e) {
                 Log.e(TAG, "Native audio start exception: " + e.getMessage());
                 return false;
@@ -1005,45 +989,28 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public void syncNativeAudio(float currentSeconds, boolean isPlaying, float volume) {
-            runOnUiThread(() -> {
-                if (nativeAudioPlayer == null) return;
-                try {
-                    if (isPlaying) {
-                        if (!nativeAudioPlayer.isPlaying()) {
-                            nativeAudioPlayer.start();
-                        }
-                        int currentMs = (int) (currentSeconds * 1000);
-                        int nativeMs = nativeAudioPlayer.getCurrentPosition();
-                        // Resync if drift > 200ms
-                        if (Math.abs(currentMs - nativeMs) > 200) {
-                            nativeAudioPlayer.seekTo(currentMs);
-                        }
-                    } else {
-                        if (nativeAudioPlayer.isPlaying()) {
-                            nativeAudioPlayer.pause();
-                        }
-                    }
-                    float vol = Math.max(0.0f, Math.min(1.0f, volume));
-                    nativeAudioPlayer.setVolume(vol, vol);
-                } catch (Exception e) {
-                    Log.e(TAG, "Error syncing native audio: " + e.getMessage());
+            try {
+                if (isPlaying) {
+                    nativeAudioDecoder.resume();
+                    nativeAudioDecoder.seek(currentSeconds);
+                } else {
+                    nativeAudioDecoder.pause();
                 }
-            });
+                nativeAudioDecoder.setVolume(volume);
+            } catch (Exception e) {
+                Log.e(TAG, "Error syncing native audio: " + e.getMessage());
+            }
         }
 
         @JavascriptInterface
         public void stopNativeAudio() {
-            runOnUiThread(() -> {
-                if (nativeAudioPlayer != null) {
-                    try {
-                        nativeAudioPlayer.stop();
-                        nativeAudioPlayer.release();
-                    } catch (Exception ignored) {}
-                    nativeAudioPlayer = null;
-                    currentNativeMediaId = -1;
-                    Log.i(TAG, "Native Audio Decoder stopped.");
-                }
-            });
+            try {
+                nativeAudioDecoder.stop();
+                currentNativeMediaId = -1;
+                Log.i(TAG, "Native Hardware Audio Decoder stopped.");
+            } catch (Exception e) {
+                Log.e(TAG, "Error stopping native audio: " + e.getMessage());
+            }
         }
 
         @JavascriptInterface
@@ -1118,5 +1085,241 @@ public class MainActivity extends Activity {
             webView.destroy();
         }
         super.onDestroy();
+    }
+
+    // ==========================================================
+    // HARDWARE MEDIASERVICE DDP5.1 / EAC3 / AC3 PCM DECODER
+    // ==========================================================
+    private static class NativeHardwareAudioDecoder {
+        private MediaExtractor extractor;
+        private MediaCodec codec;
+        private AudioTrack audioTrack;
+        private Thread decodeThread;
+        private volatile boolean isRunning = false;
+        private volatile boolean isPaused = false;
+        private final Object lock = new Object();
+        private int sampleRate = 48000;
+        private int channelCount = 2;
+        private float currentVolume = 1.0f;
+
+        public boolean start(Context context, Uri uri, float startSeconds, float volume) {
+            stop();
+            this.currentVolume = Math.max(0.0f, Math.min(1.0f, volume));
+            try {
+                extractor = new MediaExtractor();
+                AssetFileDescriptor afd = context.getContentResolver().openAssetFileDescriptor(uri, "r");
+                if (afd != null) {
+                    extractor.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                    afd.close();
+                } else {
+                    extractor.setDataSource(context, uri, null);
+                }
+
+                int audioTrackIndex = -1;
+                MediaFormat format = null;
+                String mime = null;
+
+                for (int i = 0; i < extractor.getTrackCount(); i++) {
+                    MediaFormat f = extractor.getTrackFormat(i);
+                    String m = f.getString(MediaFormat.KEY_MIME);
+                    if (m != null && m.startsWith("audio/")) {
+                        audioTrackIndex = i;
+                        format = f;
+                        mime = m;
+                        break;
+                    }
+                }
+
+                if (audioTrackIndex < 0 || format == null || mime == null) {
+                    Log.e("AakashStream", "No audio track found in media");
+                    return false;
+                }
+
+                extractor.selectTrack(audioTrackIndex);
+                if (format.containsKey(MediaFormat.KEY_SAMPLE_RATE)) {
+                    sampleRate = format.getInteger(MediaFormat.KEY_SAMPLE_RATE);
+                }
+                if (format.containsKey(MediaFormat.KEY_CHANNEL_COUNT)) {
+                    channelCount = format.getInteger(MediaFormat.KEY_CHANNEL_COUNT);
+                }
+
+                codec = MediaCodec.createDecoderByType(mime);
+                codec.configure(format, null, null, 0);
+                codec.start();
+
+                int channelConfig = (channelCount == 1) ? AudioFormat.CHANNEL_OUT_MONO : AudioFormat.CHANNEL_OUT_STEREO;
+                int bufferSize = AudioTrack.getMinBufferSize(sampleRate, channelConfig, AudioFormat.ENCODING_PCM_16BIT) * 4;
+                if (bufferSize < 4096) bufferSize = 4096;
+
+                audioTrack = new AudioTrack.Builder()
+                    .setAudioAttributes(new AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_MEDIA)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_MOVIE)
+                        .build())
+                    .setAudioFormat(new AudioFormat.Builder()
+                        .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+                        .setSampleRate(sampleRate)
+                        .setChannelMask(channelConfig)
+                        .build())
+                    .setBufferSizeInBytes(bufferSize)
+                    .setTransferMode(AudioTrack.MODE_STREAM)
+                    .build();
+
+                audioTrack.setVolume(currentVolume);
+                audioTrack.play();
+
+                if (startSeconds > 0) {
+                    extractor.seekTo((long)(startSeconds * 1000000), MediaExtractor.SEEK_TO_CLOSEST_SYNC);
+                }
+
+                isRunning = true;
+                isPaused = false;
+
+                decodeThread = new Thread(this::decodeLoop, "DDP51_AudioDecoder");
+                decodeThread.setPriority(Thread.MAX_PRIORITY);
+                decodeThread.start();
+                return true;
+            } catch (Exception e) {
+                Log.e("AakashStream", "Error initializing hardware audio decoder: " + e.getMessage(), e);
+                stop();
+                return false;
+            }
+        }
+
+        private void decodeLoop() {
+            MediaCodec.BufferInfo info = new MediaCodec.BufferInfo();
+            boolean isEOS = false;
+            byte[] pcmChunk = new byte[8192];
+
+            while (isRunning) {
+                if (isPaused) {
+                    try {
+                        Thread.sleep(25);
+                    } catch (InterruptedException ignored) {}
+                    continue;
+                }
+
+                synchronized (lock) {
+                    if (!isRunning) break;
+
+                    // 1. Feed input buffers to MediaCodec
+                    if (!isEOS && codec != null && extractor != null) {
+                        try {
+                            int inIndex = codec.dequeueInputBuffer(2000);
+                            if (inIndex >= 0) {
+                                ByteBuffer buffer = codec.getInputBuffer(inIndex);
+                                if (buffer != null) {
+                                    int sampleSize = extractor.readSampleData(buffer, 0);
+                                    if (sampleSize < 0) {
+                                        codec.queueInputBuffer(inIndex, 0, 0, 0, MediaCodec.BUFFER_FLAG_END_OF_STREAM);
+                                        isEOS = true;
+                                    } else {
+                                        codec.queueInputBuffer(inIndex, 0, sampleSize, extractor.getSampleTime(), 0);
+                                        extractor.advance();
+                                    }
+                                }
+                            }
+                        } catch (Exception ignored) {}
+                    }
+
+                    // 2. Retrieve decoded PCM output buffers from MediaCodec
+                    if (codec != null && audioTrack != null) {
+                        try {
+                            int outIndex = codec.dequeueOutputBuffer(info, 2000);
+                            if (outIndex >= 0) {
+                                ByteBuffer outBuffer = codec.getOutputBuffer(outIndex);
+                                if (outBuffer != null && info.size > 0) {
+                                    outBuffer.position(info.offset);
+                                    outBuffer.limit(info.offset + info.size);
+
+                                    if (pcmChunk.length < info.size) {
+                                        pcmChunk = new byte[info.size];
+                                    }
+                                    outBuffer.get(pcmChunk, 0, info.size);
+                                    audioTrack.write(pcmChunk, 0, info.size);
+                                }
+                                codec.releaseOutputBuffer(outIndex, false);
+                            } else if (outIndex == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED) {
+                                MediaFormat newFormat = codec.getOutputFormat();
+                                if (newFormat.containsKey(MediaFormat.KEY_SAMPLE_RATE)) {
+                                    sampleRate = newFormat.getInteger(MediaFormat.KEY_SAMPLE_RATE);
+                                }
+                            }
+                        } catch (Exception ignored) {}
+                    }
+                }
+            }
+        }
+
+        public void seek(float seconds) {
+            synchronized (lock) {
+                if (extractor != null && codec != null) {
+                    try {
+                        extractor.seekTo((long)(seconds * 1000000), MediaExtractor.SEEK_TO_CLOSEST_SYNC);
+                        codec.flush();
+                    } catch (Exception e) {
+                        Log.e("AakashStream", "Seek error: " + e.getMessage());
+                    }
+                }
+            }
+        }
+
+        public void pause() {
+            isPaused = true;
+            if (audioTrack != null) {
+                try {
+                    audioTrack.pause();
+                } catch (Exception ignored) {}
+            }
+        }
+
+        public void resume() {
+            isPaused = false;
+            if (audioTrack != null) {
+                try {
+                    audioTrack.play();
+                } catch (Exception ignored) {}
+            }
+        }
+
+        public void setVolume(float volume) {
+            this.currentVolume = Math.max(0.0f, Math.min(1.0f, volume));
+            if (audioTrack != null) {
+                try {
+                    audioTrack.setVolume(currentVolume);
+                } catch (Exception ignored) {}
+            }
+        }
+
+        public void stop() {
+            isRunning = false;
+            isPaused = false;
+            if (decodeThread != null) {
+                decodeThread.interrupt();
+                decodeThread = null;
+            }
+            synchronized (lock) {
+                if (codec != null) {
+                    try {
+                        codec.stop();
+                        codec.release();
+                    } catch (Exception ignored) {}
+                    codec = null;
+                }
+                if (extractor != null) {
+                    try {
+                        extractor.release();
+                    } catch (Exception ignored) {}
+                    extractor = null;
+                }
+                if (audioTrack != null) {
+                    try {
+                        audioTrack.stop();
+                        audioTrack.release();
+                    } catch (Exception ignored) {}
+                    audioTrack = null;
+                }
+            }
+        }
     }
 }
