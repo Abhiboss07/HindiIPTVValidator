@@ -12992,15 +12992,16 @@ if (document.readyState === 'loading') {
 }
 
 async function loadDatabase() {
-  if (window.location.protocol.startsWith('http')) {
-    try {
-      const res = await fetch('data/channels.json');
-      if (res.ok) {
-        channelsData = await res.json();
+  try {
+    const res = await fetch('data/channels.json');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        channelsData = data;
       }
-    } catch (e) {
-      channelsData = FALLBACK_CHANNELS;
     }
+  } catch (e) {
+    channelsData = FALLBACK_CHANNELS;
   }
 }
 
@@ -14000,8 +14001,14 @@ function loadChannelMedia(ch, autoPlay) {
             break;
           default:
             if (hlsInstance) {
-              hlsInstance.destroy();
+              try { hlsInstance.destroy(); } catch (e) {}
               hlsInstance = null;
+            }
+            if (videoElement && streamUrl) {
+              videoElement.src = streamUrl;
+              if (autoPlay) {
+                videoElement.play().catch(() => {});
+              }
             }
             break;
         }

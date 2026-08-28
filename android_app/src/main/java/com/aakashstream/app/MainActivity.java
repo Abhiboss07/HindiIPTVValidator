@@ -451,7 +451,26 @@ public class MainActivity extends Activity {
     }
 
     private void checkAndRequestPermissions() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT >= 34) { // Android 14+ / 15 / 16 / 17 (UpsideDownCake, VanillaIceCream, Baklava)
+            List<String> perms = new ArrayList<>();
+            if (checkSelfPermission(Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED) {
+                perms.add(Manifest.permission.READ_MEDIA_VIDEO);
+            }
+            if (checkSelfPermission(Manifest.permission.READ_MEDIA_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                perms.add(Manifest.permission.READ_MEDIA_AUDIO);
+            }
+            if (checkSelfPermission(Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
+                perms.add(Manifest.permission.READ_MEDIA_IMAGES);
+            }
+            try {
+                if (checkSelfPermission("android.permission.READ_MEDIA_VISUAL_USER_SELECTED") != PackageManager.PERMISSION_GRANTED) {
+                    perms.add("android.permission.READ_MEDIA_VISUAL_USER_SELECTED");
+                }
+            } catch (Exception ignored) {}
+            if (!perms.isEmpty()) {
+                requestPermissions(perms.toArray(new String[0]), PERMISSIONS_REQUEST_CODE);
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             List<String> perms = new ArrayList<>();
             if (checkSelfPermission(Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED) {
                 perms.add(Manifest.permission.READ_MEDIA_VIDEO);
@@ -515,9 +534,9 @@ public class MainActivity extends Activity {
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(true);
         settings.setAllowFileAccessFromFileURLs(true);
-        settings.setAllowUniversalAccessFromFileURLs(false);
+        settings.setAllowUniversalAccessFromFileURLs(true);
         settings.setMediaPlaybackRequiresUserGesture(false);
-        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
@@ -757,18 +776,18 @@ public class MainActivity extends Activity {
                         MediaStore.Video.Media.DATE_ADDED + " DESC"
                 );
                 if (vCursor != null) {
-                    int idCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID);
-                    int nameCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media.DISPLAY_NAME);
-                    int durCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media.DURATION);
-                    int sizeCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media.SIZE);
-                    int bucketCol = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media.BUCKET_DISPLAY_NAME);
+                    int idCol = vCursor.getColumnIndex(MediaStore.Video.Media._ID);
+                    int nameCol = vCursor.getColumnIndex(MediaStore.Video.Media.DISPLAY_NAME);
+                    int durCol = vCursor.getColumnIndex(MediaStore.Video.Media.DURATION);
+                    int sizeCol = vCursor.getColumnIndex(MediaStore.Video.Media.SIZE);
+                    int bucketCol = vCursor.getColumnIndex(MediaStore.Video.Media.BUCKET_DISPLAY_NAME);
 
                     while (vCursor.moveToNext()) {
-                        long id = vCursor.getLong(idCol);
-                        String name = vCursor.getString(nameCol);
-                        long durMs = vCursor.getLong(durCol);
-                        long sizeBytes = vCursor.getLong(sizeCol);
-                        String folder = vCursor.getString(bucketCol);
+                        long id = idCol >= 0 ? vCursor.getLong(idCol) : 0;
+                        String name = nameCol >= 0 ? vCursor.getString(nameCol) : "Local Video";
+                        long durMs = durCol >= 0 ? vCursor.getLong(durCol) : 0;
+                        long sizeBytes = sizeCol >= 0 ? vCursor.getLong(sizeCol) : 0;
+                        String folder = bucketCol >= 0 ? vCursor.getString(bucketCol) : "Videos";
                         if (folder == null || folder.isEmpty()) folder = "Videos";
 
                         int mins = (int) (durMs / 1000 / 60);
@@ -812,20 +831,20 @@ public class MainActivity extends Activity {
                         MediaStore.Audio.Media.DATE_ADDED + " DESC"
                 );
                 if (aCursor != null) {
-                    int idCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media._ID);
-                    int nameCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME);
-                    int durCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION);
-                    int sizeCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE);
-                    int artistCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST);
-                    int bucketCol = aCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.BUCKET_DISPLAY_NAME);
+                    int idCol = aCursor.getColumnIndex(MediaStore.Audio.Media._ID);
+                    int nameCol = aCursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME);
+                    int durCol = aCursor.getColumnIndex(MediaStore.Audio.Media.DURATION);
+                    int sizeCol = aCursor.getColumnIndex(MediaStore.Audio.Media.SIZE);
+                    int artistCol = aCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
+                    int bucketCol = aCursor.getColumnIndex(MediaStore.Audio.Media.BUCKET_DISPLAY_NAME);
 
                     while (aCursor.moveToNext()) {
-                        long id = aCursor.getLong(idCol);
-                        String name = aCursor.getString(nameCol);
-                        long durMs = aCursor.getLong(durCol);
-                        long sizeBytes = aCursor.getLong(sizeCol);
-                        String artist = aCursor.getString(artistCol);
-                        String folder = aCursor.getString(bucketCol);
+                        long id = idCol >= 0 ? aCursor.getLong(idCol) : 0;
+                        String name = nameCol >= 0 ? aCursor.getString(nameCol) : "Local Audio";
+                        long durMs = durCol >= 0 ? aCursor.getLong(durCol) : 0;
+                        long sizeBytes = sizeCol >= 0 ? aCursor.getLong(sizeCol) : 0;
+                        String artist = artistCol >= 0 ? aCursor.getString(artistCol) : "Music Audio";
+                        String folder = bucketCol >= 0 ? aCursor.getString(bucketCol) : "Music";
                         if (folder == null || folder.isEmpty()) folder = "Music";
 
                         int mins = (int) (durMs / 1000 / 60);

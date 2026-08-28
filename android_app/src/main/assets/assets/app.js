@@ -12911,6 +12911,41 @@ let isCCEnabled = localStorage.getItem('aakash_cc') === 'true';
 let hlsInstance = null;
 let ccInterval = null;
 let playerHideTimeout = null;
+const HERO_FEATURED_CHANNELS = [
+  {
+    id: "aajtak",
+    name: "Aaj Tak HD",
+    desc: "India's #1 Hindi News Channel broadcasting live 24x7 breaking updates and national debates.",
+    tag: "LIVE NEWS",
+    quality: "1080p FHD",
+    bg: "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=1600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "abp-news",
+    name: "ABP News HD",
+    desc: "Comprehensive national and international news coverage in Hindi with in-depth analysis.",
+    tag: "POPULAR",
+    quality: "1080p FHD",
+    bg: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "air-vividh-bharati-12",
+    name: "AIR Vividh Bharati",
+    desc: "Iconic Hindi music, evergreen retro classics, film songs, and national cultural radio broadcast.",
+    tag: "LIVE RADIO",
+    quality: "320 KBPS",
+    bg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "nasa-tv-us",
+    name: "NASA TV HD",
+    desc: "Live views of Earth from the International Space Station, rocket launches, and space missions.",
+    tag: "DISCOVERY",
+    quality: "1080p 60FPS",
+    bg: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&auto=format&fit=crop&q=80"
+  }
+];
+
 let heroIndex = 0;
 let heroInterval = null;
 
@@ -12957,15 +12992,16 @@ if (document.readyState === 'loading') {
 }
 
 async function loadDatabase() {
-  if (window.location.protocol.startsWith('http')) {
-    try {
-      const res = await fetch('data/channels.json');
-      if (res.ok) {
-        channelsData = await res.json();
+  try {
+    const res = await fetch('data/channels.json');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        channelsData = data;
       }
-    } catch (e) {
-      channelsData = FALLBACK_CHANNELS;
     }
+  } catch (e) {
+    channelsData = FALLBACK_CHANNELS;
   }
 }
 
@@ -13965,8 +14001,14 @@ function loadChannelMedia(ch, autoPlay) {
             break;
           default:
             if (hlsInstance) {
-              hlsInstance.destroy();
+              try { hlsInstance.destroy(); } catch (e) {}
               hlsInstance = null;
+            }
+            if (videoElement && streamUrl) {
+              videoElement.src = streamUrl;
+              if (autoPlay) {
+                videoElement.play().catch(() => {});
+              }
             }
             break;
         }

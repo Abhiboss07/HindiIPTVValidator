@@ -24,4 +24,7 @@ public final class R {
   public static final class style {
     public static final int Theme_AakashStream=0x7f050000;
   }
+  public static final class xml {
+    public static final int network_security_config=0x7f060000;
+  }
 }
