@@ -16,6 +16,22 @@
 
 ---
 
+## 📸 Visual Showcase & User Interface
+
+<div align="center">
+
+| 🎬 **Cinematic Media Player** | 🏠 **Live TV & IPTV Overview** |
+| :---: | :---: |
+| <img src="docs/screenshots/player_screen.png" width="380" alt="VLC Media Player Screen" /> | <img src="docs/screenshots/home_screen.png" width="380" alt="Home Overview Screen" /> |
+
+| 📂 **Local Device Media Library** | 📻 **All India Radio & FM Hub** |
+| :---: | :---: |
+| <img src="docs/screenshots/local_media.png" width="380" alt="Local Media Library" /> | <img src="docs/screenshots/radio_screen.png" width="380" alt="Radio & FM Hub" /> |
+
+</div>
+
+---
+
 ## 📖 Overview
 
 **T2L (Television to Live)** is a high-performance, cinematic media player and IPTV/Radio streaming application engineered specifically for Android devices. Combining a native **ARM64 C / FFmpeg Dolby DDP5.1 / EAC3 decoding engine** with a hardware-accelerated **VLC-style user interface**, T2L provides instant playback of local 4K SDR/HDR MKV movies (up to 100 GB+) along with over **870+ Live TV Channels and All India Radio / FM stations**.
@@ -56,6 +72,100 @@
 - **Comprehensive Coverage**: Hindi News, Entertainment, Movies, Kids (Disney, Nickelodeon dubbed), Sports, Music, Lifestyle, and Religious streams.
 - **Live Radio**: All India Radio (AIR), Vividh Bharati, and regional FM stations.
 - **Smart Features**: Adaptive HLS bitrate selection (Auto / 1080p / 720p / 480p), Low-Latency live mode, channel favorites, and recent history.
+
+---
+
+## 🔄 System Workflows
+
+### 🎬 Workflow 1: 4K Movie & Dolby EAC3 Native Streaming Architecture
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant UI as HTML5 / Obsidian UI
+    participant Bridge as AndroidMediaBridge (Java)
+    participant Server as LocalStreamServer (HTTP 206)
+    participant JNI as native_audio_decoder.c (C/FFmpeg)
+    participant AudioTrack as Android AudioTrack DAC
+    participant Video as Chromium Video Surface
+
+    User->>UI: Tap 4K MKV Movie (e.g. 4GB - 100GB)
+    UI->>Bridge: startNativeAudio(mediaId)
+    Bridge->>Bridge: Open ParcelFileDescriptor (dup fd)
+    Bridge->>JNI: nativeOpenFd(fd)
+    JNI->>JNI: avformat_open_input & find EAC3/DDP stream
+    JNI->>JNI: swr_alloc_set_opts (16-bit 48kHz Stereo PCM)
+    
+    par Video Streaming Pipeline
+        UI->>Server: HTTP GET /video?id=X (Range: bytes=0-)
+        Server->>Server: 4MB Bounded Chunking (0 to 4,194,303)
+        Server-->>Video: HTTP 206 Partial Content (4MB in < 5ms)
+        Video->>Video: Instant Hardware Video Decode
+    and Audio Decoding Loop
+        loop Decode Thread (AudioTrack.WRITE_BLOCKING)
+            JNI->>JNI: av_read_frame & avcodec_send_packet
+            JNI->>JNI: swr_convert to 16-bit PCM
+            JNI->>AudioTrack: AudioTrack.write(pcmBuffer, 0, len)
+        end
+    end
+```
+
+---
+
+### 📡 Workflow 2: Live HLS Stream Ingestion & Adaptive Playback
+```mermaid
+flowchart TD
+    A[M3U8 Stream URL] --> B[HLS.js Engine]
+    B --> C{Bandwidth & Buffer Check}
+    C -->|High Speed| D[1080p FHD Stream]
+    C -->|Normal Speed| E[720p HD Stream]
+    C -->|Data Saver| F[480p SD Stream]
+    D --> G[Android MediaCodec Video Decoder]
+    E --> G
+    F --> G
+    G --> H[Hardware-Accelerated Canvas & Display]
+    B --> I[WebVTT Subtitles & Closed Captions]
+    I --> J[AI Live CC Overlay]
+```
+
+---
+
+### 🔲 Workflow 3: Picture-in-Picture (PiP) & Mini Player State Lifecycle
+```mermaid
+stateDiagram-v2
+    [*] --> FullscreenPlayer: Open Media / Live Stream
+    FullscreenPlayer --> PiPMode: Click PiP Button (triggerVlcPip)
+    
+    state PiPMode {
+        [*] --> ClearUI: window.onEnterPipMode()
+        ClearUI --> NativeSystemActions: Enter Android Picture-in-Picture
+        NativeSystemActions --> PureVideoSurface: Display Clean 100% Video Surface
+    }
+    
+    FullscreenPlayer --> MiniPlayerDock: Click Minimize / Back
+    
+    state MiniPlayerDock {
+        [*] --> ShowMiniDock: Floating 3-Button Obsidian Dock
+        ShowMiniDock --> SwipeDismiss: Swipe Down Gesture
+        ShowMiniDock --> RestoreFullPlayer: Tap Mini Dock Body
+    }
+    
+    PiPMode --> FullscreenPlayer: Expand PiP Window
+    MiniPlayerDock --> FullscreenPlayer: Tap to Expand
+    MiniPlayerDock --> [*]: Dismissed
+```
+
+---
+
+### 📂 Workflow 4: Device Media Scanner & Local Folder Indexing
+```mermaid
+flowchart LR
+    A[Launch / Tab Switch] --> B[MediaStore Query ContentResolver]
+    B --> C[Fetch Videos & Audios Metadata]
+    C --> D[Group by Folder / Bucket Name]
+    D --> E[Generate HTTP Local Thumbnails]
+    E --> F[Render Responsive Obsidian Media Grid]
+```
 
 ---
 
@@ -139,6 +249,8 @@ adb shell am start -n com.aakashstream.app/.MainActivity
 │   ├── styles.css                     # Obsidian Glassmorphic Design System
 │   ├── hls.min.js                     # HLS.js Live Streaming Library
 │   └── icons/                         # Vector SVG and Master Icons
+├── docs/
+│   └── screenshots/                   # High-Resolution UI Screenshots
 ├── data/
 │   └── channels.json                  # 870+ Verified TV & Radio Channels Database
 ├── build_apk.sh                       # Automated APK Compilation Script
