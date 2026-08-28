@@ -12955,19 +12955,37 @@ function hideBufferingSpinner() {
 
 function updateAudioArtwork() {
   const artwork = document.getElementById('playerAudioArtwork');
+  const backdropImg = document.getElementById('playerBackdropImg');
+  const videoElement = document.getElementById('luminaVideo');
   if (!artwork) return;
   if (!currentPlayingChannel) {
     artwork.style.display = 'none';
+    if (backdropImg) backdropImg.style.backgroundImage = 'none';
+    if (videoElement) videoElement.style.opacity = '1';
     return;
   }
+  
   const isAudio = currentPlayingChannel.type === 'radio' || 
                   (currentPlayingChannel.isLocal && currentPlayingChannel.type !== 'tv') ||
                   (currentPlayingChannel.url && /\.(mp3|m4a|wav|aac|flac|ogg|opus)(\?|$)/i.test(currentPlayingChannel.url));
   
+  const thumb = currentPlayingChannel.thumbUrl || currentPlayingChannel.logo || '';
+  if (backdropImg) {
+    if (thumb) {
+      backdropImg.style.backgroundImage = `url("${thumb}")`;
+      backdropImg.style.display = 'block';
+    } else {
+      backdropImg.style.backgroundImage = 'none';
+    }
+  }
+
   if (isAudio) {
     artwork.style.display = 'flex';
+    if (videoElement) videoElement.style.opacity = '0';
     const titleEl = document.getElementById('audioArtworkTitle');
     const subEl = document.getElementById('audioArtworkSub');
+    const coverEl = document.getElementById('audioArtworkCover');
+    const iconEl = document.getElementById('audioArtworkIcon');
     const cleanTitle = currentPlayingChannel.name ? currentPlayingChannel.name.replace(/\.(mp4|mkv|mov|webm|avi|flv|ts|3gp|mp3|m4a|wav|aac|flac|ogg|opus)$/i, '').replace(/[._]/g, ' ').replace(/\s+/g, ' ').trim() : 'Now Playing';
     if (titleEl) titleEl.textContent = cleanTitle || 'Now Playing';
     if (subEl) {
@@ -12977,8 +12995,19 @@ function updateAudioArtwork() {
         subEl.textContent = (currentPlayingChannel.countryName || 'Radio') + ' • ' + (currentPlayingChannel.category || 'Audio Stream');
       }
     }
+    if (coverEl && iconEl) {
+      if (thumb) {
+        coverEl.style.backgroundImage = `url("${thumb}")`;
+        iconEl.style.display = 'none';
+      } else {
+        coverEl.style.backgroundImage = 'none';
+        iconEl.style.display = 'block';
+        iconEl.textContent = currentPlayingChannel.flag || (currentPlayingChannel.type === 'radio' ? '📻' : '🎵');
+      }
+    }
   } else {
     artwork.style.display = 'none';
+    if (videoElement) videoElement.style.opacity = '1';
   }
 }
 
