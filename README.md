@@ -1,48 +1,172 @@
-# Hindi IPTV Validator
+# 📺 T2L (Television to Live) • Ultra HD Streaming & Media Player
 
-A comprehensive IPTV validator that filters and validates Hindi language channels, including international channels with Hindi dubbed content.
+<div align="center">
 
-## Features
+![T2L Banner](assets/icons/icon-192.svg)
 
-- 🇮🇳 **Hindi Channel Detection**: Automatically identifies Hindi language channels
-- 🌍 **International Content**: Disney, Discovery, HBO, Warner in Hindi
-- 🔧 **Stream Validation**: Tests each channel and removes dead/blocked streams
-- 📊 **Smart Filtering**: Filter by country (India) and category
-- 📋 **Multiple Formats**: Output in M3U or JSON format
-- 🎯 **Category Organization**: Organizes channels by type
+### **The Next-Generation Android Media Player, Live TV Hub & Radio Engine**
 
-## Quick Start
+[![Platform](https://img.shields.io/badge/Platform-Android_7.0+_(API_24+)-brightgreen.svg?style=for-the-badge&logo=android)](https://www.android.com/)
+[![Architecture](https://img.shields.io/badge/Architecture-ARM64--v8a-blue.svg?style=for-the-badge&logo=arm)](https://developer.android.com/ndk)
+[![Audio Engine](https://img.shields.io/badge/Dolby-DDP_5.1_/_EAC3_Native_PCM-red.svg?style=for-the-badge)](https://ffmpeg.org/)
+[![Streams](https://img.shields.io/badge/Channels-870+_Live_TV_&_Radio-orange.svg?style=for-the-badge)](https://github.com/)
+[![License](https://img.shields.io/badge/License-MIT-purple.svg?style=for-the-badge)](LICENSE)
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
+</div>
 
-# Validate all Hindi channels
-python hindi_validator_demo.py hindi_channels_extended.m3u hindi_working.m3u
+---
 
-# Filter specific categories
-python hindi_validator_demo.py hindi_channels_extended.m3u disney_hindi.m3u --category "International Hindi"
-python hindi_validator_demo.py hindi_channels_extended.m3u hindi_news.m3u --category News
-python hindi_validator_demo.py hindi_channels_extended.m3u hindi_kids.m3u --category Kids
+## 📖 Overview
+
+**T2L (Television to Live)** is a high-performance, cinematic media player and IPTV/Radio streaming application engineered specifically for Android devices. Combining a native **ARM64 C / FFmpeg Dolby DDP5.1 / EAC3 decoding engine** with a hardware-accelerated **VLC-style user interface**, T2L provides instant playback of local 4K SDR/HDR MKV movies (up to 100 GB+) along with over **870+ Live TV Channels and All India Radio / FM stations**.
+
+---
+
+## ✨ Key Features
+
+### 🔊 1. Native FFmpeg Dolby DDP 5.1 / EAC3 Hardware Audio Engine
+- **Direct C / JNI Decoder (`native_audio_decoder.c`)**: Decodes complex multi-channel Dolby Digital Plus (EAC3), AC3, DTS, and AAC audio streams from local file descriptors in real time.
+- **Hardware-Clocked DAC Pacing**: Streams decoded 16-bit 48,000 Hz stereo PCM audio directly into Android `AudioTrack` with `WRITE_BLOCKING` for zero jitter, zero stutter, and zero audio delay.
+- **Scoped Storage Bypass**: Uses `dup(fd)` on `ParcelFileDescriptor` to seamlessly access external drives, SD cards, and USB OTG without Android permission bottlenecks.
+
+### ⚡ 2. Instant Playback for 100 GB+ Files (4MB HTTP 206 Slicing)
+- **Local Streaming Server**: Built-in multi-threaded HTTP server with `BufferedInputStream` and `BufferedOutputStream`.
+- **4MB Partial Content Chunking**: Slices open-ended range requests (`bytes=0-`) into lightweight 4 MB chunks, allowing Chromium and Android media parsers to read MKV cluster headers and start 4K movies in **< 10 milliseconds**.
+
+### 📱 3. Instant Picture-in-Picture (PiP) & Floating Mini Player
+- **0ms Instant UI Clearance**: Automatically hides top bars, seekbars, menus, and HUDs before entering PiP mode to provide a 100% clean video window.
+- **Android System PiP RemoteActions**: Native system controls on the PiP overlay:
+  - **⏮️ Previous Channel / Video**
+  - **⏯️ Play / Pause**
+  - **⏭️ Next Channel / Video**
+- **Docked Mini Player**: Floating obsidian dock with clean 3-button controls and a downward swipe-to-dismiss gesture.
+
+### 🎛️ 4. VLC-Inspired Professional Player Controls
+- **Subtitles & Multi-Track Selection**: Switch audio tracks and closed captions on the fly.
+- **Aspect Ratio Control**: Toggle between Original, 16:9, 4:3, Fill, and Zoom with a single tap.
+- **A-B Repeat Loop**: Set Point A and Point B to loop specific video segments seamlessly.
+- **Gesture HUD**:
+  - **Left Side Swipe**: Screen Brightness control (0% to 100%)
+  - **Right Side Swipe**: System Media Volume control (0% to 100%)
+  - **Horizontal Swipe**: Fast Seek / Scrubbing (±10s) with visual ripple feedback
+  - **Double-Tap**: Quick 10s forward / rewind jump
+- **Screen Wake & Orientation Lock**: Keep screen active during movies and toggle Portrait / Landscape / Full Sensor.
+
+### 🌐 5. 870+ Live Hindi TV Channels & FM Radio
+- **Comprehensive Coverage**: Hindi News, Entertainment, Movies, Kids (Disney, Nickelodeon dubbed), Sports, Music, Lifestyle, and Religious streams.
+- **Live Radio**: All India Radio (AIR), Vividh Bharati, and regional FM stations.
+- **Smart Features**: Adaptive HLS bitrate selection (Auto / 1080p / 720p / 480p), Low-Latency live mode, channel favorites, and recent history.
+
+---
+
+## 🏗️ Architecture & Technology Stack
+
+```mermaid
+graph TD
+    A[User Input / Gesture] --> B[HTML5 Obsidian UI / WebView]
+    B --> C[AndroidMedia JavascriptInterface Bridge]
+    C --> D[MainActivity.java]
+    D --> E[LocalStreamServer HTTP 206 Chunking]
+    D --> F[NativeHardwareAudioDecoder JNI]
+    F --> G[libnativeaudio.so / FFmpeg ARM64]
+    G --> H[16-bit 48kHz Stereo PCM]
+    H --> I[Android AudioTrack DAC]
+    E --> J[Chromium Media Surface]
 ```
 
-## Channel Coverage
+| Component | Technology / Library | Description |
+| :--- | :--- | :--- |
+| **Operating System** | Android 7.0+ (API 24 to API 35) | Supports phones, tablets, and Android TV |
+| **Native Engine** | C99, Android NDK r27, FFmpeg 7.x | ARM64-v8a EAC3/DDP5.1 audio decoding |
+| **Audio Output** | Android `AudioTrack` (STREAM_MUSIC) | Hardware 48 kHz stereo PCM streaming |
+| **Local Server** | Java `ServerSocket` + `FileChannel` | 4MB HTTP 206 partial content range slicer |
+| **Frontend UI** | HTML5, CSS3 Glassmorphism, Vanilla JS | 60 FPS hardware-accelerated VLC player UI |
+| **Streaming** | HLS.js + Android MediaCodec | Adaptive bitrate live stream pipeline |
 
-- **85 Total Hindi Channels** across 9 categories
-- **16 International Hindi Channels** (Disney, Discovery, HBO, etc.)
-- **10 News Channels** (NDTV, Aaj Tak, Republic, etc.)
-- **9 Kids Channels** (Disney, Cartoon Network, Nickelodeon)
-- **6 Sports Channels** (Star Sports, Sony Sports, etc.)
-- **9 Movie Channels** (Star Gold, Sony Max, etc.)
-- **7 Music Channels** (MTV India, Zee Music, etc.)
-- **10 Lifestyle Channels** (Food, Travel, Business)
-- **6 Religious Channels** (Aastha, Sanskar, etc.)
+---
 
-## Files
+## 🚀 Building & Installing
 
-- `hindi_validator.py` - Full validator with stream testing
-- `hindi_validator_demo.py` - Demo version (no ffprobe required)
-- `channels.yml` - Channel metadata configuration
-- `requirements.txt` - Python dependencies
+### Prerequisites
+1. **Android SDK** (Build-Tools 35.0.0, Platform API 35)
+2. **Android NDK** (r27 or later for ARM64 compilation)
+3. **Java JDK** (OpenJDK 17 or 21)
+4. **Python 3** (with Pillow for icon generation)
+5. **ADB** connected to an Android device or emulator
 
-Perfect for creating clean, working Hindi IPTV playlists! 🇮🇳
+### 1. Clone Repository
+```bash
+git clone https://github.com/Abhiboss07/HindiIPTVValidator.git
+cd HindiIPTVValidator
+```
+
+### 2. Build the APK
+Run the automated build script:
+```bash
+cp -rf index.html assets data android_app/src/main/assets/
+./build_apk.sh
+```
+
+### 3. Install on Connected Device
+```bash
+adb install -r T2L.apk
+adb shell am start -n com.aakashstream.app/.MainActivity
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+├── android_app/
+│   ├── jni/
+│   │   ├── native_audio_decoder.c     # Native FFmpeg C JNI Audio Engine
+│   │   └── Android.mk                 # NDK Build Rules
+│   ├── src/main/
+│   │   ├── AndroidManifest.xml        # PiP, Scoped Storage & Sensor Config
+│   │   ├── java/com/aakashstream/app/
+│   │   │   └── MainActivity.java      # Java Bridge, HTTP Server & PiP Actions
+│   │   ├── jniLibs/arm64-v8a/         # Compiled FFmpeg .so Libraries
+│   │   │   ├── libavcodec.so
+│   │   │   ├── libavformat.so
+│   │   │   ├── libavutil.so
+│   │   │   ├── libswresample.so
+│   │   │   └── libnativeaudio.so
+│   │   ├── res/                       # Multi-density T2L launcher icons
+│   │   └── assets/                    # Bundled Web Application
+├── assets/
+│   ├── app.js                         # Core Application Controller & VLC Player
+│   ├── styles.css                     # Obsidian Glassmorphic Design System
+│   ├── hls.min.js                     # HLS.js Live Streaming Library
+│   └── icons/                         # Vector SVG and Master Icons
+├── data/
+│   └── channels.json                  # 870+ Verified TV & Radio Channels Database
+├── build_apk.sh                       # Automated APK Compilation Script
+└── README.md                          # Project Documentation
+```
+
+---
+
+## 🎮 Touch & Gesture Controls
+
+| Gesture | Location | Action |
+| :--- | :--- | :--- |
+| **Vertical Drag** | Left 40% of screen | Adjust Screen Brightness (0% – 100%) |
+| **Vertical Drag** | Right 40% of screen | Adjust Media Volume (0% – 100%) |
+| **Horizontal Swipe**| Center of screen | Fast Seek / Scrubbing with HUD pill feedback |
+| **Double Tap** | Left / Right side | Quick 10-second Jump Rewind / Forward |
+| **Swipe Down** | Floating Mini Player | Dismiss running media |
+| **Single Tap** | Center Video Surface | Toggle VLC Controls Overlay (Auto-hide in 3s) |
+
+---
+
+## 🛡️ License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+  <b>T2L • Television to Live</b><br>
+  <i>Built for high-definition streaming and cinema-grade playback.</i>
+</div>
