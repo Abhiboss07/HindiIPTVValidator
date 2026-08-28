@@ -5,7 +5,7 @@ SDK_DIR="/home/abhiboss/Android/Sdk"
 BUILD_TOOLS="$SDK_DIR/build-tools/35.0.0"
 PLATFORM="$SDK_DIR/platforms/android-35/android.jar"
 
-echo "🚀 Building AakashStream APK..."
+echo "🚀 Building T2L (Television to Live) APK..."
 
 rm -rf android_app/build
 mkdir -p android_app/build/obj android_app/build/apk android_app/build/dex
@@ -48,7 +48,8 @@ if [ ! -f "debug.keystore" ]; then
   keytool -genkeypair -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
 fi
 
-$BUILD_TOOLS/apksigner sign --ks debug.keystore --ks-pass pass:android --key-pass pass:android --out AakashStream.apk android_app/build/apk/app-aligned.apk
+$BUILD_TOOLS/apksigner sign --ks debug.keystore --ks-pass pass:android --key-pass pass:android --out T2L.apk android_app/build/apk/app-aligned.apk
+cp -f T2L.apk AakashStream.apk
 
-echo "🎉 SUCCESS! AakashStream.apk generated successfully at $(pwd)/AakashStream.apk"
-ls -lh AakashStream.apk
+echo "🎉 SUCCESS! T2L.apk generated successfully at $(pwd)/T2L.apk"
+ls -lh T2L.apk

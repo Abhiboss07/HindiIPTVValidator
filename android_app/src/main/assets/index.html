@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>AakashStream - Live TV, Radio & Media Player</title>
+    <title>T2L - Television to Live | TV, Radio &amp; Media Player</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     
     <!-- App Styles -->
     <link rel="stylesheet" href="assets/styles.css">
@@ -18,13 +18,43 @@
 </head>
 <body class="obsidian-app-body">
 
+    <!-- ==========================================================
+         T2L (TELEVISION TO LIVE) CINEMATIC OPENING INTRO & SPLASH
+         ========================================================== -->
+    <div id="t2lSplashScreen" class="t2l-splash-screen">
+        <div class="t2l-splash-ambient-aura"></div>
+        <div class="t2l-splash-content">
+            <div class="t2l-logo-emblem-wrap">
+                <div class="t2l-logo-ring-pulse"></div>
+                <div class="t2l-logo-badge">
+                    <span class="t2l-emblem-t">T</span>
+                    <span class="t2l-emblem-2">2</span>
+                    <span class="t2l-emblem-l">L</span>
+                </div>
+                <div class="t2l-live-pulse-dot"></div>
+            </div>
+            <h1 class="t2l-splash-title">T2L</h1>
+            <p class="t2l-splash-tagline">TELEVISION TO LIVE</p>
+            <div class="t2l-splash-loader-bar">
+                <div class="t2l-splash-loader-fill"></div>
+            </div>
+            <span class="t2l-splash-caption">ULTRA HD LIVE STREAMING ENGINE</span>
+        </div>
+    </div>
+
     <!-- Top App Bar -->
     <header class="obsidian-header">
         <div class="header-left">
             <button class="top-menu-btn" onclick="toggleMenuDrawer()" title="Menu">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="#c9c6c5"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
             </button>
-            <span class="header-brand-title" onclick="switchPage('home')">AakashStream</span>
+            <div class="header-brand-wrap" onclick="switchPage('home')">
+                <span class="header-brand-badge">T2L</span>
+                <div class="header-brand-text-col">
+                    <span class="header-brand-title">T2L</span>
+                    <span class="header-brand-sub">Television to Live</span>
+                </div>
+            </div>
         </div>
         <div class="header-right">
             <button class="top-menu-btn" onclick="openSettingsModal()" title="Settings & Preferences">
@@ -989,10 +1019,10 @@
         <div class="side-drawer-panel" onclick="event.stopPropagation()">
             <div class="drawer-header">
                 <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 38px; height: 38px; border-radius: 8px; background: #E50914; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; color: #fff; box-shadow: 0 0 12px rgba(229,9,20,0.5);">A</div>
+                    <div class="t2l-drawer-badge">T2L</div>
                     <div>
-                        <div style="font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -0.01em;">AakashStream</div>
-                        <div style="font-size: 11px; color: #a3a3a3;">Media Hub</div>
+                        <div style="font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -0.01em;">T2L</div>
+                        <div style="font-size: 11px; color: #a3a3a3;">Television to Live</div>
                     </div>
                 </div>
             </div>
@@ -1087,7 +1117,7 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 18px; font-size: 11px; color: #737373;">
-                    AakashStream v2.4.0 • Production Build
+                    T2L (Television to Live) v2.5.0 • Production Build
                 </div>
             </div>
         </div>

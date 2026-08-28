@@ -12936,7 +12936,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   loadSettingsUI();
   startHeroRotator();
 
-  
+  // Dismiss T2L (Television to Live) Cinematic Splash Screen smoothly
+  setTimeout(() => {
+    const splash = document.getElementById('t2lSplashScreen');
+    if (splash) {
+      splash.classList.add('splash-hidden');
+      setTimeout(() => {
+        if (splash.parentNode) splash.parentNode.removeChild(splash);
+      }, 500);
+    }
+  }, 1300);
 });
 
 async function loadDatabase() {
