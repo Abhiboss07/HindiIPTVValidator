@@ -505,8 +505,8 @@
         <!-- ==========================================================
              VLC MORE OPTIONS SLIDE-OUT DRAWER (Matching 2.jpeg & 3.jpeg)
              ========================================================== -->
-        <div id="vlcMoreDrawerBackdrop" class="vlc-drawer-backdrop" onclick="closeVlcMoreMenu()" style="display: none;"></div>
-        <div id="vlcMoreDrawer" class="vlc-side-drawer" onclick="event.stopPropagation()">
+        <div id="vlcMoreDrawerBackdrop" class="vlc-drawer-backdrop" onclick="closeVlcMoreMenu()" ontouchstart="event.stopPropagation()" ontouchmove="event.stopPropagation()" style="display: none;"></div>
+        <div id="vlcMoreDrawer" class="vlc-side-drawer" onclick="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchmove="event.stopPropagation()">
             <div class="vlc-drawer-header">
                 <span class="vlc-drawer-title">Options</span>
                 <button class="vlc-drawer-close" onclick="closeVlcMoreMenu()">✕</button>

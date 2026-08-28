@@ -870,6 +870,19 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public void setBrightness(float value) {
+            runOnUiThread(() -> {
+                try {
+                    WindowManager.LayoutParams lp = getWindow().getAttributes();
+                    lp.screenBrightness = Math.max(0.01f, Math.min(1.0f, value));
+                    getWindow().setAttributes(lp);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error setting brightness: " + e.getMessage());
+                }
+            });
+        }
+
+        @JavascriptInterface
         public void requestStoragePermission() {
             runOnUiThread(() -> checkAndRequestPermissions());
         }

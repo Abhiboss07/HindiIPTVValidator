@@ -13444,6 +13444,25 @@ window.toggleFullScreen = function() {
     btnText.textContent = targetMode === 'landscape' ? '🔄 Landscape' : '🔄 Portrait';
   }
 
+  const curLabel = aspectLabels[currentAspectIdx] || 'Best Fit (16:9)';
+
+  // Show central floating HUD pill with orientation & active aspect ratio
+  const hud = document.getElementById('playerSwipeHud');
+  const hudIcon = document.getElementById('playerSwipeHudIcon');
+  const hudTitle = document.getElementById('playerSwipeHudTitle');
+  const hudPct = document.getElementById('playerSwipeHudPct');
+  
+  if (hud && hudIcon && hudTitle && hudPct) {
+    hud.className = 'player-swipe-hud-pill hud-center active';
+    hudIcon.textContent = '⛶';
+    hudTitle.textContent = targetMode === 'landscape' ? 'Fullscreen (Landscape)' : 'Portrait Mode';
+    hudPct.textContent = curLabel;
+    clearTimeout(hudHideTimeout);
+    hudHideTimeout = setTimeout(() => {
+      hud.classList.remove('active');
+    }, 1400);
+  }
+
   try {
     const playerModal = document.getElementById('playerModal');
     if (!document.fullscreenElement) {
@@ -13456,7 +13475,7 @@ window.toggleFullScreen = function() {
       }
     }
   } catch (e) {}
-  showToast(targetMode === 'landscape' ? 'Fullscreen (Landscape)' : 'Portrait Mode');
+  showToast((targetMode === 'landscape' ? 'Fullscreen (Landscape)' : 'Portrait Mode') + ' • ' + curLabel);
   resetPlayerHideTimer();
 };
 
@@ -13885,8 +13904,8 @@ window.setVlcSubtitle = function(on) {
   closeVlcTracksModal();
 };
 
-let aspectModes = ['contain', 'cover', 'fill'];
-let aspectLabels = ['Fit (16:9)', 'Fill Screen', 'Stretch'];
+let aspectModes = ['fit', 'fill', 'center', 'stretch'];
+let aspectLabels = ['Best Fit (16:9)', 'Fill Screen (Crop)', 'Center (100% Original)', 'Stretch to Screen'];
 let currentAspectIdx = 0;
 
 window.cycleAspectRatio = function(e) {
@@ -13894,8 +13913,28 @@ window.cycleAspectRatio = function(e) {
   const videoElement = document.getElementById('luminaVideo');
   if (!videoElement) return;
   currentAspectIdx = (currentAspectIdx + 1) % aspectModes.length;
-  videoElement.className = 'video-' + aspectModes[currentAspectIdx];
-  showToast('Aspect: ' + aspectLabels[currentAspectIdx]);
+  const mode = aspectModes[currentAspectIdx];
+  const label = aspectLabels[currentAspectIdx];
+  videoElement.className = 'video-' + mode;
+  
+  // Show central floating HUD pill
+  const hud = document.getElementById('playerSwipeHud');
+  const hudIcon = document.getElementById('playerSwipeHudIcon');
+  const hudTitle = document.getElementById('playerSwipeHudTitle');
+  const hudPct = document.getElementById('playerSwipeHudPct');
+  
+  if (hud && hudIcon && hudTitle && hudPct) {
+    hud.className = 'player-swipe-hud-pill hud-center active';
+    hudIcon.textContent = '⤢';
+    hudTitle.textContent = 'Aspect Ratio';
+    hudPct.textContent = label;
+    clearTimeout(hudHideTimeout);
+    hudHideTimeout = setTimeout(() => {
+      hud.classList.remove('active');
+    }, 1400);
+  }
+
+  showToast('Aspect Ratio: ' + label);
   resetPlayerHideTimer();
 };
 
@@ -14082,6 +14121,7 @@ function initPlayerSwipeGestures() {
 
   playerModal.addEventListener('touchstart', (e) => {
     if (isPlayerLocked) return;
+    if (e.target.closest('#vlcMoreDrawer') || e.target.closest('.vlc-side-drawer') || e.target.closest('.vlc-dialog-backdrop') || e.target.closest('.vlc-dialog-card') || e.target.closest('#vlcABRepeatBar') || e.target.closest('.vlc-drawer-scroll') || e.target.closest('#vlcMoreDrawerBackdrop')) return;
     
     // 2-Finger Pinch Detection (VLC-style aspect zoom)
     if (e.touches.length === 2) {
@@ -14103,6 +14143,7 @@ function initPlayerSwipeGestures() {
 
   playerModal.addEventListener('touchmove', (e) => {
     if (isPlayerLocked) return;
+    if (e.target.closest('#vlcMoreDrawer') || e.target.closest('.vlc-side-drawer') || e.target.closest('.vlc-dialog-backdrop') || e.target.closest('.vlc-dialog-card') || e.target.closest('#vlcABRepeatBar') || e.target.closest('.vlc-drawer-scroll') || e.target.closest('#vlcMoreDrawerBackdrop')) return;
 
     // Handle 2-finger pinch zoom
     if (e.touches.length === 2 && initialPinchDist > 0 && !pinchTriggered) {
@@ -14184,18 +14225,20 @@ function initPlayerSwipeGestures() {
             hudPct.textContent = duration > 0 ? formatSeekTime(duration) : 'SEEK';
           }
 
-        // B. Left Vertical Brightness
+        // B. Left Vertical Brightness (0% - 100% Hardware & Dimming)
         } else if (activeGestureType === 'brightness') {
-          currentBrightness = Math.max(20, Math.min(150, Math.round(touchStartVal + dy * 0.45)));
+          currentBrightness = Math.max(5, Math.min(100, Math.round(touchStartVal + dy * 0.45)));
           
+          // 1. Android Native Hardware Screen Brightness
+          if (window.AndroidMedia && window.AndroidMedia.setBrightness) {
+            window.AndroidMedia.setBrightness(Math.max(0.01, currentBrightness / 100));
+          }
+
+          // 2. Pure Black Dimming Overlay (Never white boost!)
           if (brightOverlay) {
-            if (currentBrightness < 100) {
-              brightOverlay.style.background = '#000000';
-              brightOverlay.style.opacity = ((100 - currentBrightness) / 100 * 0.8).toFixed(2);
-            } else {
-              brightOverlay.style.background = '#FFFFFF';
-              brightOverlay.style.opacity = ((currentBrightness - 100) / 100 * 0.35).toFixed(2);
-            }
+            brightOverlay.style.background = '#000000';
+            const dimOpacity = Math.max(0, (100 - currentBrightness) / 100 * 0.85);
+            brightOverlay.style.opacity = dimOpacity.toFixed(2);
           }
           if (hudIcon) hudIcon.textContent = '☀️';
           if (hudTitle) hudTitle.textContent = 'Brightness';

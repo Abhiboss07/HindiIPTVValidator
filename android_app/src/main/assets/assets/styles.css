@@ -3112,6 +3112,17 @@ html, body {
 }
 
 /* Video Aspect Mode Classes (VLC-style) */
-#luminaVideo.video-contain { object-fit: contain !important; }
-#luminaVideo.video-cover { object-fit: cover !important; }
-#luminaVideo.video-fill { object-fit: fill !important; }
+#luminaVideo.video-fit,
+#luminaVideo.video-contain { object-fit: contain !important; width: 100% !important; height: 100% !important; transform: none !important; }
+
+#luminaVideo.video-fill,
+#luminaVideo.video-cover { object-fit: cover !important; width: 100% !important; height: 100% !important; transform: none !important; }
+
+#luminaVideo.video-center,
+#luminaVideo.video-original { object-fit: none !important; width: 100% !important; height: 100% !important; transform: none !important; }
+
+#luminaVideo.video-stretch { object-fit: fill !important; width: 100% !important; height: 100% !important; transform: none !important; }
+
+#luminaVideo.video-16-9 { object-fit: contain !important; aspect-ratio: 16/9 !important; width: 100% !important; height: 100% !important; }
+
+#luminaVideo.video-4-3 { object-fit: contain !important; aspect-ratio: 4/3 !important; width: 100% !important; height: 100% !important; }
