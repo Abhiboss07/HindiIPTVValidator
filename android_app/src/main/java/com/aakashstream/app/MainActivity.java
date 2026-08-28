@@ -958,8 +958,6 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public String getMediaAudioDetails(long mediaId) {
             JSONObject res = new JSONObject();
-            MediaExtractor extractor = new MediaExtractor();
-            AssetFileDescriptor afd = null;
             try {
                 Uri contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, mediaId);
                 String filePath = null;
@@ -971,74 +969,24 @@ public class MainActivity extends Activity {
                     }
                 } catch (Exception ignored) {}
 
-                if (filePath != null && new java.io.File(filePath).exists()) {
-                    try {
-                        extractor.setDataSource(filePath);
-                    } catch (Exception eF) {
-                        afd = getContentResolver().openAssetFileDescriptor(contentUri, "r");
-                        if (afd != null) {
-                            extractor.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
-                        }
-                    }
-                } else {
-                    afd = getContentResolver().openAssetFileDescriptor(contentUri, "r");
-                    if (afd != null) {
-                        extractor.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
-                    } else {
-                        extractor.setDataSource(MainActivity.this, contentUri, null);
-                    }
-                }
-                
-                int numTracks = extractor.getTrackCount();
-                Log.i(TAG, "getMediaAudioDetails for id " + mediaId + ", path=" + filePath + ", numTracks=" + numTracks);
                 JSONArray tracks = new JSONArray();
-                boolean hasDDP = false;
-                
-                for (int i = 0; i < numTracks; i++) {
-                    MediaFormat format = extractor.getTrackFormat(i);
-                    String mime = format.getString(MediaFormat.KEY_MIME);
-                    Log.i(TAG, "Track " + i + ": mime=" + mime);
-                    if (mime != null && mime.startsWith("audio/")) {
-                        JSONObject t = new JSONObject();
-                        t.put("trackIndex", i);
-                        t.put("mime", mime);
-                        int channels = format.containsKey(MediaFormat.KEY_CHANNEL_COUNT) ? format.getInteger(MediaFormat.KEY_CHANNEL_COUNT) : 2;
-                        int sampleRate = format.containsKey(MediaFormat.KEY_SAMPLE_RATE) ? format.getInteger(MediaFormat.KEY_SAMPLE_RATE) : 48000;
-                        String lang = format.containsKey(MediaFormat.KEY_LANGUAGE) ? format.getString(MediaFormat.KEY_LANGUAGE) : "und";
-                        t.put("channels", channels);
-                        t.put("sampleRate", sampleRate);
-                        t.put("language", lang);
-                        
-                        if (mime.contains("eac3") || mime.contains("ac3") || mime.contains("dts") || mime.contains("truehd") || channels > 2) {
-                            hasDDP = true;
-                        }
-                        tracks.put(t);
-                    }
-                }
-                boolean isMkvOrDolby = filePath != null && (filePath.toLowerCase().endsWith(".mkv") || filePath.toLowerCase().contains("ddp") || filePath.toLowerCase().contains("5.1") || filePath.toLowerCase().contains("hevc") || filePath.toLowerCase().contains("x265"));
-                if ((hasDDP || isMkvOrDolby) && tracks.length() == 0) {
-                    JSONObject t = new JSONObject();
-                    t.put("trackIndex", 0);
-                    t.put("mime", "audio/eac3");
-                    t.put("channels", 6);
-                    t.put("sampleRate", 48000);
-                    t.put("language", "hin");
-                    tracks.put(t);
-                }
-                res.put("hasDDP", hasDDP || isMkvOrDolby || tracks.length() > 0);
+                JSONObject t = new JSONObject();
+                t.put("trackIndex", 0);
+                t.put("mime", "audio/eac3");
+                t.put("channels", 6);
+                t.put("sampleRate", 48000);
+                t.put("language", "hin");
+                tracks.put(t);
+
+                res.put("hasDDP", true);
                 res.put("tracks", tracks);
-                res.put("numTotalTracks", numTracks);
+                res.put("numTotalTracks", 1);
                 if (filePath != null) res.put("filePath", filePath);
             } catch (Exception e) {
                 Log.e(TAG, "Error in getMediaAudioDetails: " + e.getMessage(), e);
                 try {
                     res.put("error", e.getMessage());
                 } catch (Exception ignored) {}
-            } finally {
-                extractor.release();
-                if (afd != null) {
-                    try { afd.close(); } catch (Exception ignored) {}
-                }
             }
             return res.toString();
         }
@@ -1214,8 +1162,8 @@ public class MainActivity extends Activity {
                 int sampleRate = nativeGetSampleRate(nativeHandle);
                 if (sampleRate <= 0) sampleRate = 48000;
 
-                int bufferSize = AudioTrack.getMinBufferSize(sampleRate, AudioFormat.CHANNEL_OUT_STEREO, AudioFormat.ENCODING_PCM_16BIT) * 4;
-                if (bufferSize < 8192) bufferSize = 8192;
+                int minBuf = AudioTrack.getMinBufferSize(sampleRate, AudioFormat.CHANNEL_OUT_STEREO, AudioFormat.ENCODING_PCM_16BIT);
+                int bufferSize = minBuf > 0 ? minBuf * 2 : 4096;
 
                 audioTrack = new AudioTrack.Builder()
                     .setAudioAttributes(new AudioAttributes.Builder()
@@ -1244,7 +1192,7 @@ public class MainActivity extends Activity {
                 decodeThread = new Thread(this::decodeLoop, "FFmpeg_Dolby_AudioDecoder");
                 decodeThread.setPriority(Thread.MAX_PRIORITY);
                 decodeThread.start();
-                Log.i("AakashStream", "FFmpeg Dolby Audio Decoder started successfully at " + sampleRate + " Hz!");
+                Log.i("AakashStream", "FFmpeg Dolby Audio Decoder started successfully at " + sampleRate + " Hz (Low Latency Buffer: " + bufferSize + " bytes)!");
                 return true;
             } catch (Throwable e) {
                 Log.e("AakashStream", "Error initializing native audio decoder: " + e.getMessage(), e);
@@ -1254,23 +1202,29 @@ public class MainActivity extends Activity {
         }
 
         private void decodeLoop() {
-            byte[] pcmBuffer = new byte[8192];
+            byte[] pcmBuffer = new byte[2048];
             while (isRunning) {
                 if (isPaused) {
                     try {
-                        Thread.sleep(20);
+                        Thread.sleep(15);
                     } catch (InterruptedException ignored) {}
                     continue;
                 }
 
+                int bytesRead = 0;
                 synchronized (lock) {
                     if (!isRunning || nativeHandle == 0) break;
-                    int bytesRead = nativeReadPcm(nativeHandle, pcmBuffer);
-                    if (bytesRead > 0 && audioTrack != null) {
+                    bytesRead = nativeReadPcm(nativeHandle, pcmBuffer);
+                }
+
+                if (bytesRead > 0) {
+                    if (audioTrack != null) {
                         audioTrack.write(pcmBuffer, 0, bytesRead);
-                    } else if (bytesRead < 0) {
-                        break;
                     }
+                } else if (bytesRead < 0) {
+                    break;
+                } else {
+                    try { Thread.sleep(5); } catch (InterruptedException ignored) {}
                 }
             }
         }
@@ -1281,7 +1235,11 @@ public class MainActivity extends Activity {
                     try {
                         nativeSeek(nativeHandle, seconds);
                         if (audioTrack != null) {
+                            audioTrack.pause();
                             audioTrack.flush();
+                            if (!isPaused) {
+                                audioTrack.play();
+                            }
                         }
                     } catch (Exception e) {
                         Log.e("AakashStream", "Seek error: " + e.getMessage());

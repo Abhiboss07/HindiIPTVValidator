@@ -29,6 +29,9 @@ typedef struct {
     AVFrame *frame;
     int out_sample_rate;
     int out_channels;
+    double target_seek_pts;
+    double current_pts;
+    double time_base;
 } NativeDecoder;
 
 static int read_packet_cb(void *opaque, uint8_t *buf, int buf_size) {
@@ -70,6 +73,8 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeOpe
         return 0;
     }
     dec->fd = fd;
+    dec->target_seek_pts = -1.0;
+    dec->current_pts = 0.0;
 
     dec->avio_buf = (uint8_t *)av_malloc(65536);
     if (!dec->avio_buf) {
@@ -91,6 +96,9 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeOpe
 
     dec->fmt_ctx = avformat_alloc_context();
     dec->fmt_ctx->pb = dec->avio_ctx;
+    dec->fmt_ctx->flags |= AVFMT_FLAG_FAST_SEEK | AVFMT_FLAG_NOBUFFER;
+    dec->fmt_ctx->probesize = 128 * 1024;
+    dec->fmt_ctx->max_analyze_duration = 200000;
 
     if (avformat_open_input(&dec->fmt_ctx, NULL, NULL, NULL) < 0) {
         LOGE("Failed to open AVIO input from FD: %d", fd);
@@ -132,7 +140,10 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeOpe
         return 0;
     }
 
-    AVCodecParameters *codecpar = dec->fmt_ctx->streams[dec->audio_stream_idx]->codecpar;
+    AVStream *st = dec->fmt_ctx->streams[dec->audio_stream_idx];
+    dec->time_base = av_q2d(st->time_base);
+
+    AVCodecParameters *codecpar = st->codecpar;
     const AVCodec *codec = avcodec_find_decoder(codecpar->codec_id);
     if (!codec) {
         LOGE("Decoder not found for codec ID: %d", codecpar->codec_id);
@@ -162,6 +173,9 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeOpe
         free(dec);
         return 0;
     }
+
+    dec->codec_ctx->flags |= AV_CODEC_FLAG_LOW_DELAY;
+    dec->codec_ctx->flags2 |= AV_CODEC_FLAG2_FAST;
 
     if (avcodec_open2(dec->codec_ctx, codec, NULL) < 0) {
         LOGE("Failed to open codec: %s", codec->name);
@@ -203,7 +217,7 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeOpe
     dec->pkt = av_packet_alloc();
     dec->frame = av_frame_alloc();
 
-    LOGI("Native Audio Decoder initialized successfully for FD %d (Codec: %s, Rate: %d Hz, Stream: %d)",
+    LOGI("Native Audio Decoder initialized (FAST) for FD %d (Codec: %s, Rate: %d Hz, Stream: %d)",
          fd, codec->name, dec->out_sample_rate, dec->audio_stream_idx);
 
     return (jlong)(intptr_t)dec;
@@ -230,9 +244,17 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeRea
     int total_bytes = 0;
     uint8_t *out_ptr = (uint8_t *)buf;
 
-    while (total_bytes < buf_len - 1024) {
+    while (total_bytes < buf_len - 512) {
         int ret = avcodec_receive_frame(dec->codec_ctx, dec->frame);
         if (ret == 0) {
+            double frame_pts = dec->frame->pts != AV_NOPTS_VALUE ? dec->frame->pts * dec->time_base : -1.0;
+            if (dec->target_seek_pts >= 0 && frame_pts >= 0 && frame_pts < dec->target_seek_pts - 0.04) {
+                av_frame_unref(dec->frame);
+                continue;
+            }
+            dec->target_seek_pts = -1.0;
+            if (frame_pts >= 0) dec->current_pts = frame_pts;
+
             int max_dst_samples = (buf_len - total_bytes) / (2 * sizeof(int16_t));
             if (max_dst_samples <= 0) {
                 av_frame_unref(dec->frame);
@@ -281,8 +303,8 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeSee
     NativeDecoder *dec = (NativeDecoder *)(intptr_t)handle;
     if (!dec || !dec->fmt_ctx) return;
 
-    AVStream *stream = dec->fmt_ctx->streams[dec->audio_stream_idx];
-    int64_t target_ts = (int64_t)(seconds / av_q2d(stream->time_base));
+    dec->target_seek_pts = seconds;
+    int64_t target_ts = (int64_t)(seconds / dec->time_base);
     av_seek_frame(dec->fmt_ctx, dec->audio_stream_idx, target_ts, AVSEEK_FLAG_BACKWARD);
     if (dec->codec_ctx) {
         avcodec_flush_buffers(dec->codec_ctx);
