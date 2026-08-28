@@ -312,6 +312,15 @@ public class MainActivity extends Activity {
                                 }
                             }
                             
+                            if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+                                Map<String, String> corsHeaders = new HashMap<>();
+                                corsHeaders.put("Access-Control-Allow-Origin", "*");
+                                corsHeaders.put("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
+                                corsHeaders.put("Access-Control-Allow-Headers", "*");
+                                corsHeaders.put("Access-Control-Expose-Headers", "Content-Range, Content-Length, Accept-Ranges");
+                                return new WebResourceResponse("text/plain", null, 204, "No Content", corsHeaders, new ByteArrayInputStream(new byte[0]));
+                            }
+
                             // 2. Handle Stream Playback Requests with High-Performance HTTP 206 Partial Content Range Support
                             boolean isVideo = "/video".equals(path);
                             Uri contentUri = isVideo 
@@ -376,6 +385,9 @@ public class MainActivity extends Activity {
                                 Map<String, String> resHeaders = new HashMap<>();
                                 resHeaders.put("Accept-Ranges", "bytes");
                                 resHeaders.put("Access-Control-Allow-Origin", "*");
+                                resHeaders.put("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
+                                resHeaders.put("Access-Control-Allow-Headers", "*");
+                                resHeaders.put("Access-Control-Expose-Headers", "Content-Range, Content-Length, Accept-Ranges");
                                 resHeaders.put("Cache-Control", "no-cache, no-store");
                                 if (contentLength > 0) {
                                     resHeaders.put("Content-Length", String.valueOf(contentLength));

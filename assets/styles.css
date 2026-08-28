@@ -2121,24 +2121,23 @@ html, body {
 }
 
 #luminaVideo {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
   background: #000000;
-  transform: translateZ(0);
-  will-change: transform;
+  z-index: 2;
 }
 
 .player-brightness-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 105;
+  z-index: 4;
   background: #000000;
   opacity: 0;
   transition: opacity 0.05s linear;
-  transform: translateZ(0);
-  will-change: opacity;
 }
 
 .player-controls-overlay {
@@ -2149,36 +2148,44 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   padding: 0;
-  z-index: 120;
+  z-index: 20;
   transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: auto;
-  transform: translateZ(0);
-  will-change: opacity;
 }
 
 .player-swipe-hud-pill {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%) translateZ(0) scale(0.95);
+  transform: translateY(-50%) scale(0.95);
   background: rgba(18, 18, 18, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 9999px;
-  padding: 10px 18px;
+  border-radius: 20px;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  z-index: 150;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+  gap: 12px;
+  z-index: 25;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.85);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  min-width: 200px;
 }
 
+.player-swipe-hud-pill.hud-left { left: 24px; }
+.player-swipe-hud-pill.hud-right { right: 24px; }
+.player-swipe-hud-pill.hud-center {
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(0.95) !important;
+}
+.player-swipe-hud-pill.hud-center.active {
+  transform: translate(-50%, -50%) scale(1) !important;
+}
 .player-swipe-hud-pill.active {
   opacity: 1;
-  transform: translateY(-50%) translateZ(0) scale(1);
+  transform: translateY(-50%) scale(1);
 }
+
 /* ==========================================================
    STREAM BUFFERING & CONNECTING SPINNER
    ========================================================== */
@@ -2186,12 +2193,12 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) translateZ(0);
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  z-index: 115;
+  z-index: 10;
   pointer-events: none;
   background: rgba(18, 18, 18, 0.85);
   padding: 18px 24px;
@@ -2227,7 +2234,7 @@ html, body {
 .player-ambient-backdrop {
   position: absolute;
   inset: 0;
-  z-index: 100;
+  z-index: 1;
   overflow: hidden;
   pointer-events: none;
   background: radial-gradient(circle at 50% 50%, #1e0b24 0%, #0d0614 60%, #000000 100%);
@@ -2235,11 +2242,10 @@ html, body {
 
 .player-backdrop-img {
   position: absolute;
-  inset: -20px;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  transform: scale(1.15);
-  opacity: 0.75;
+  opacity: 0.35;
   transition: opacity 0.4s ease, background-image 0.3s ease;
 }
 
@@ -2255,7 +2261,7 @@ html, body {
 .player-audio-artwork {
   position: absolute;
   inset: 0;
-  z-index: 103;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
