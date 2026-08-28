@@ -13056,12 +13056,42 @@ function loadChannelMedia(ch, autoPlay) {
     streamUrl = ch.backupUrls[currentBackupIdx];
   }
 
+  // Stop previous native DDP audio decoder instance if running
+  if (window.AndroidMedia && window.AndroidMedia.stopNativeAudio) {
+    window.AndroidMedia.stopNativeAudio();
+  }
+  isNativeDDPActive = false;
+
   // Check saved resume point for offline/local media
   const resumeKey = 'aakash_resume_' + ch.id;
   const savedResumeTime = ch.isLocal ? parseInt(localStorage.getItem(resumeKey) || '0', 10) : 0;
 
+  // Hardware DDP5.1 / Dolby Digital Plus / Multi-Channel Audio Detection
+  if (ch.isLocal && window.AndroidMedia && window.AndroidMedia.getMediaAudioDetails) {
+    try {
+      const mediaId = parseInt(ch.id.replace('dev_video_', '').replace('dev_audio_', ''), 10);
+      if (!isNaN(mediaId)) {
+        const detailsStr = window.AndroidMedia.getMediaAudioDetails(mediaId);
+        const details = JSON.parse(detailsStr);
+        if (details && details.hasDDP) {
+          isNativeDDPActive = true;
+          window.AndroidMedia.startNativeAudioDecoder(mediaId, savedResumeTime || 0, currentVolume / 100);
+          showToast('🔊 Dolby Digital Plus (DDP 5.1) Audio Active');
+        }
+      }
+    } catch (eDDP) {
+      console.log('DDP inspection note:', eDDP);
+    }
+  }
+
   // Bind video element events for spinner with multiple safety nets
   if (videoElement) {
+    if (isNativeDDPActive) {
+      videoElement.muted = true;
+    } else {
+      videoElement.muted = false;
+    }
+
     videoElement.onwaiting = () => showBufferingSpinner('Buffering...');
     videoElement.onloadeddata = () => {
       clearTimeout(streamWatchdogTimeout);
@@ -13076,6 +13106,21 @@ function loadChannelMedia(ch, autoPlay) {
       hideBufferingSpinner();
       isPlaying = true;
       updatePlayPauseIcons(true);
+      if (isNativeDDPActive && window.AndroidMedia && window.AndroidMedia.syncNativeAudio) {
+        window.AndroidMedia.syncNativeAudio(videoElement.currentTime, true, currentVolume / 100);
+      }
+    };
+    videoElement.onpause = () => {
+      isPlaying = false;
+      updatePlayPauseIcons(false);
+      if (isNativeDDPActive && window.AndroidMedia && window.AndroidMedia.syncNativeAudio) {
+        window.AndroidMedia.syncNativeAudio(videoElement.currentTime, false, currentVolume / 100);
+      }
+    };
+    videoElement.onseeked = () => {
+      if (isNativeDDPActive && window.AndroidMedia && window.AndroidMedia.syncNativeAudio) {
+        window.AndroidMedia.syncNativeAudio(videoElement.currentTime, !videoElement.paused, currentVolume / 100);
+      }
     };
     videoElement.oncanplay = () => {
       clearTimeout(streamWatchdogTimeout);
@@ -13357,11 +13402,11 @@ window.closeMiniPlayer = function(e) {
   
   const brightOverlay = document.getElementById('playerBrightnessOverlay');
   if (brightOverlay) brightOverlay.style.opacity = '0';
-  currentBrightness = 100;
-
-  if (window.speechSynthesis) {
-    try { window.speechSynthesis.cancel(); } catch (eT) {}
+  // Stop native DDP hardware audio decoder
+  if (window.AndroidMedia && window.AndroidMedia.stopNativeAudio) {
+    window.AndroidMedia.stopNativeAudio();
   }
+  isNativeDDPActive = false;
 
   if (playerModal) {
     playerModal.classList.remove('active');

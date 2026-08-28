@@ -9,8 +9,12 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Build;
@@ -583,6 +587,14 @@ public class MainActivity extends Activity {
                                 : ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
                             
                             String mime = isVideo ? "video/mp4" : "audio/mpeg";
+                            if (isVideo) {
+                                try {
+                                    String type = getContentResolver().getType(contentUri);
+                                    if (type != null && !type.isEmpty()) {
+                                        mime = type;
+                                    }
+                                } catch (Exception ignored) {}
+                            }
 
                             AssetFileDescriptor afd = getContentResolver().openAssetFileDescriptor(contentUri, "r");
                             if (afd != null) {
@@ -895,6 +907,141 @@ public class MainActivity extends Activity {
                     getWindow().setAttributes(lp);
                 } catch (Exception e) {
                     Log.e(TAG, "Error resetting brightness: " + e.getMessage());
+                }
+            });
+        }
+
+        // ==========================================================
+        // NATIVE DDP 5.1 / DOLBY DIGITAL PLUS / 4K AUDIO HARDWARE DECODER
+        // ==========================================================
+        private MediaPlayer nativeAudioPlayer = null;
+        private long currentNativeMediaId = -1;
+
+        @JavascriptInterface
+        public String getMediaAudioDetails(long mediaId) {
+            JSONObject res = new JSONObject();
+            MediaExtractor extractor = new MediaExtractor();
+            try {
+                Uri contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, mediaId);
+                extractor.setDataSource(MainActivity.this, contentUri, null);
+                int numTracks = extractor.getTrackCount();
+                JSONArray tracks = new JSONArray();
+                boolean hasDDP = false;
+                
+                for (int i = 0; i < numTracks; i++) {
+                    MediaFormat format = extractor.getTrackFormat(i);
+                    String mime = format.getString(MediaFormat.KEY_MIME);
+                    if (mime != null && mime.startsWith("audio/")) {
+                        JSONObject t = new JSONObject();
+                        t.put("trackIndex", i);
+                        t.put("mime", mime);
+                        int channels = format.containsKey(MediaFormat.KEY_CHANNEL_COUNT) ? format.getInteger(MediaFormat.KEY_CHANNEL_COUNT) : 2;
+                        int sampleRate = format.containsKey(MediaFormat.KEY_SAMPLE_RATE) ? format.getInteger(MediaFormat.KEY_SAMPLE_RATE) : 48000;
+                        String lang = format.containsKey(MediaFormat.KEY_LANGUAGE) ? format.getString(MediaFormat.KEY_LANGUAGE) : "und";
+                        t.put("channels", channels);
+                        t.put("sampleRate", sampleRate);
+                        t.put("language", lang);
+                        
+                        if (mime.contains("eac3") || mime.contains("ac3") || mime.contains("dts") || channels > 2) {
+                            hasDDP = true;
+                        }
+                        tracks.put(t);
+                    }
+                }
+                res.put("hasDDP", hasDDP);
+                res.put("tracks", tracks);
+            } catch (Exception e) {
+                try {
+                    res.put("error", e.getMessage());
+                } catch (Exception ignored) {}
+            } finally {
+                extractor.release();
+            }
+            return res.toString();
+        }
+
+        @JavascriptInterface
+        public boolean startNativeAudioDecoder(long mediaId, float startSeconds, float volume) {
+            try {
+                runOnUiThread(() -> {
+                    try {
+                        if (nativeAudioPlayer != null) {
+                            try {
+                                nativeAudioPlayer.stop();
+                                nativeAudioPlayer.release();
+                            } catch (Exception ignored) {}
+                            nativeAudioPlayer = null;
+                        }
+                        
+                        Uri contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, mediaId);
+                        nativeAudioPlayer = new MediaPlayer();
+                        nativeAudioPlayer.setDataSource(MainActivity.this, contentUri);
+                        nativeAudioPlayer.setAudioAttributes(
+                            new AudioAttributes.Builder()
+                                .setContentType(AudioAttributes.CONTENT_TYPE_MOVIE)
+                                .setUsage(AudioAttributes.USAGE_MEDIA)
+                                .build()
+                        );
+                        nativeAudioPlayer.prepare();
+                        int seekMs = (int) (startSeconds * 1000);
+                        if (seekMs > 0) {
+                            nativeAudioPlayer.seekTo(seekMs);
+                        }
+                        float vol = Math.max(0.0f, Math.min(1.0f, volume));
+                        nativeAudioPlayer.setVolume(vol, vol);
+                        nativeAudioPlayer.start();
+                        currentNativeMediaId = mediaId;
+                        Log.i(TAG, "Native DDP5.1 Audio Decoder started for media: " + mediaId);
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error starting native audio decoder: " + e.getMessage());
+                    }
+                });
+                return true;
+            } catch (Exception e) {
+                Log.e(TAG, "Native audio start exception: " + e.getMessage());
+                return false;
+            }
+        }
+
+        @JavascriptInterface
+        public void syncNativeAudio(float currentSeconds, boolean isPlaying, float volume) {
+            runOnUiThread(() -> {
+                if (nativeAudioPlayer == null) return;
+                try {
+                    if (isPlaying) {
+                        if (!nativeAudioPlayer.isPlaying()) {
+                            nativeAudioPlayer.start();
+                        }
+                        int currentMs = (int) (currentSeconds * 1000);
+                        int nativeMs = nativeAudioPlayer.getCurrentPosition();
+                        // Resync if drift > 200ms
+                        if (Math.abs(currentMs - nativeMs) > 200) {
+                            nativeAudioPlayer.seekTo(currentMs);
+                        }
+                    } else {
+                        if (nativeAudioPlayer.isPlaying()) {
+                            nativeAudioPlayer.pause();
+                        }
+                    }
+                    float vol = Math.max(0.0f, Math.min(1.0f, volume));
+                    nativeAudioPlayer.setVolume(vol, vol);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error syncing native audio: " + e.getMessage());
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void stopNativeAudio() {
+            runOnUiThread(() -> {
+                if (nativeAudioPlayer != null) {
+                    try {
+                        nativeAudioPlayer.stop();
+                        nativeAudioPlayer.release();
+                    } catch (Exception ignored) {}
+                    nativeAudioPlayer = null;
+                    currentNativeMediaId = -1;
+                    Log.i(TAG, "Native Audio Decoder stopped.");
                 }
             });
         }
