@@ -665,6 +665,33 @@
                     </div>
                 </div>
 
+                <!-- Live AI Voice Dubbing & Speech Translation Section -->
+                <div class="vlc-dialog-section" style="background: rgba(229, 9, 20, 0.08); border: 1px solid rgba(229, 9, 20, 0.25); border-radius: 14px; padding: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="flex: 1; padding-right: 10px;">
+                            <span style="font-size: 13px; font-weight: 700; color: #FFFFFF;">🎙️ Live AI Voice Dubbing (TTS)</span>
+                            <div style="font-size: 11px; color: #a3a3a3; margin-top: 2px;">Synthesizes & speaks real-time translated voice using mobile phone processor</div>
+                        </div>
+                        <label class="vlc-toggle" style="margin: 0; flex-shrink: 0;">
+                            <input type="checkbox" id="vlcVoiceDubbingToggle" onchange="toggleVlcVoiceDubbing(this.checked)">
+                            <span class="vlc-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <!-- Voice Dubbing Audio Mix Controls (Ducking original stream) -->
+                    <div id="vlcVoiceDubbingControls" style="display: none; margin-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 8px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 11px; color: #FFFFFF; font-weight: 600; margin-bottom: 6px;">
+                            <span>🔊 Dubbed Voice Audio Balance</span>
+                            <span id="vlcDubbedVolText" style="color: #E50914; font-family: var(--font-mono);">Voice 100% • Stream 25%</span>
+                        </div>
+                        <div class="vlc-dialog-options">
+                            <button class="vlc-chip-btn active" onclick="setVlcDubbingMix('duck', this)">Voice Clear (Duck Stream)</button>
+                            <button class="vlc-chip-btn" onclick="setVlcDubbingMix('mute_original', this)">Mute Original Stream</button>
+                            <button class="vlc-chip-btn" onclick="setVlcDubbingMix('equal', this)">Equal Mix (50/50)</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Subtitle / Audio Sync Offset -->
                 <div class="vlc-dialog-section">
                     <label class="vlc-dialog-label">⏱️ Audio / Subtitle Sync Delay</label>

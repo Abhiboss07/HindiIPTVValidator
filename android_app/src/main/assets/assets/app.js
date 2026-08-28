@@ -13276,6 +13276,23 @@ window.minimizeToMiniPlayer = function(e) {
     miniPlayer.classList.add('active');
   }
   
+  // Restore phone screen hardware brightness back to system default (only apply brightness in player!)
+  try {
+    if (window.AndroidMedia) {
+      if (window.AndroidMedia.resetBrightness) window.AndroidMedia.resetBrightness();
+      else if (window.AndroidMedia.setBrightness) window.AndroidMedia.setBrightness(-1);
+    }
+  } catch (eB) {}
+  
+  const brightOverlay = document.getElementById('playerBrightnessOverlay');
+  if (brightOverlay) brightOverlay.style.opacity = '0';
+  currentBrightness = 100;
+
+  // Cancel live TTS dubbing if speaking
+  if (window.speechSynthesis) {
+    try { window.speechSynthesis.cancel(); } catch (eT) {}
+  }
+
   // Restore orientation and screen state
   try {
     if (window.AndroidMedia) {
@@ -13326,7 +13343,23 @@ window.closeMiniPlayer = function(e) {
     } catch (e) {}
     hlsInstance = null;
   }
+
+  // Restore phone screen hardware brightness back to system default
+  try {
+    if (window.AndroidMedia) {
+      if (window.AndroidMedia.resetBrightness) window.AndroidMedia.resetBrightness();
+      else if (window.AndroidMedia.setBrightness) window.AndroidMedia.setBrightness(-1);
+    }
+  } catch (eB) {}
   
+  const brightOverlay = document.getElementById('playerBrightnessOverlay');
+  if (brightOverlay) brightOverlay.style.opacity = '0';
+  currentBrightness = 100;
+
+  if (window.speechSynthesis) {
+    try { window.speechSynthesis.cancel(); } catch (eT) {}
+  }
+
   if (playerModal) {
     playerModal.classList.remove('active');
     playerModal.style.display = 'none';
@@ -14134,6 +14167,9 @@ window.setVlcSubtitleTrack = function(lang, elem) {
     if (speechRecognitionInstance) {
       try { speechRecognitionInstance.stop(); } catch (e) {}
     }
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch (e2) {}
+    }
     updateCCUI();
     showToast('Subtitles Disabled');
   } else {
@@ -14151,8 +14187,139 @@ window.setVlcSubtitleTrack = function(lang, elem) {
       'ai_live': '🎙️ Live Speech AI Recognition'
     };
     showToast('On-Device CC: ' + (langNames[lang] || '[CC] Active'));
+    
+    // If voice dubbing is active, trigger immediate translation utterance
+    if (isVoiceDubbingEnabled) {
+      const list = languageFeeds[lang] || languageFeeds['hindi'];
+      if (list && list.length > 0) {
+        speakTranslatedDialogue(list[0], lang);
+      }
+    }
   }
 };
+
+// ==========================================================
+// LIVE AI VOICE DUBBING & SPEECH TRANSLATION (On-Device TTS)
+// ==========================================================
+let isVoiceDubbingEnabled = false;
+let dubbingMixMode = 'duck'; // 'duck', 'mute_original', 'equal'
+
+window.toggleVlcVoiceDubbing = function(enabled) {
+  isVoiceDubbingEnabled = enabled;
+  const controls = document.getElementById('vlcVoiceDubbingControls');
+  if (controls) controls.style.display = enabled ? 'block' : 'none';
+
+  if (enabled) {
+    if (!isCCEnabled) {
+      isCCEnabled = true;
+      updateCCUI();
+    }
+    const targetLang = currentSubtitleLanguage || 'hindi';
+    showToast('🎙️ Live AI Voice Dubbing Active (' + targetLang.toUpperCase() + ')');
+    
+    const welcomePhrases = {
+      'hindi': 'लाइव आवाज अनुवाद शुरू हो गया है',
+      'english': 'Live voice translation is now active',
+      'punjabi': 'ਲਾਈਵ ਅਨੁਵਾਦ ਸ਼ੁਰੂ ਹੋ ਗਿਆ ਹੈ',
+      'bengali': 'লাইভ ভয়েস অনুবাদ সক্রিয় করা হয়েছে',
+      'marathi': 'थेट आवाज भाषांतर सुरू झाले आहे',
+      'tamil': 'நேரலை குரல் மொழிபெயர்ப்பு தொடங்கப்பட்டது',
+      'telugu': 'లైవ్ వాయిస్ అనువాదం ప్రారంభమైంది',
+      'gujarati': 'લાઈવ અવાજ અનુવાદ શરૂ થઈ ગયું છે',
+      'ai_live': 'Live voice translation is active'
+    };
+    speakTranslatedDialogue(welcomePhrases[targetLang] || 'Live voice translation enabled', targetLang);
+  } else {
+    if (window.speechSynthesis) {
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+    }
+    const videoElement = document.getElementById('luminaVideo');
+    if (videoElement) videoElement.volume = currentVolume / 100;
+    showToast('Live Voice Dubbing Disabled');
+  }
+};
+
+window.setVlcDubbingMix = function(mode, elem) {
+  dubbingMixMode = mode;
+  const chips = document.querySelectorAll('#vlcVoiceDubbingControls .vlc-chip-btn');
+  chips.forEach(c => c.classList.remove('active'));
+  if (elem) elem.classList.add('active');
+
+  const volText = document.getElementById('vlcDubbedVolText');
+  const videoElement = document.getElementById('luminaVideo');
+
+  if (mode === 'duck') {
+    if (volText) volText.textContent = 'Voice 100% • Stream 25%';
+    if (videoElement && (!window.speechSynthesis || !window.speechSynthesis.speaking)) {
+      videoElement.volume = currentVolume / 100;
+    }
+    showToast('Voice Ducking: Clear Dialogue');
+  } else if (mode === 'mute_original') {
+    if (volText) volText.textContent = 'Voice 100% • Stream Muted (0%)';
+    if (videoElement) videoElement.volume = 0;
+    showToast('Stream Muted: AI Voice Only');
+  } else if (mode === 'equal') {
+    if (volText) volText.textContent = 'Equal Mix (50/50)';
+    if (videoElement && (!window.speechSynthesis || !window.speechSynthesis.speaking)) {
+      videoElement.volume = currentVolume / 100;
+    }
+    showToast('Equal Audio Balance');
+  }
+};
+
+function speakTranslatedDialogue(text, lang) {
+  if (!isVoiceDubbingEnabled || !('speechSynthesis' in window)) return;
+  try {
+    window.speechSynthesis.cancel();
+    
+    const cleanText = text.replace(/^\[.*?\]\s*/, '').trim();
+    if (!cleanText) return;
+
+    const utter = new SpeechSynthesisUtterance(cleanText);
+    const langCodeMap = {
+      'hindi': 'hi-IN',
+      'english': 'en-US',
+      'punjabi': 'pa-IN',
+      'bengali': 'bn-IN',
+      'marathi': 'mr-IN',
+      'tamil': 'ta-IN',
+      'telugu': 'te-IN',
+      'gujarati': 'gu-IN',
+      'ai_live': 'hi-IN'
+    };
+    utter.lang = langCodeMap[lang] || 'hi-IN';
+    utter.rate = 1.05;
+    utter.pitch = 1.0;
+    utter.volume = 1.0;
+
+    const videoElement = document.getElementById('luminaVideo');
+    const baseVol = currentVolume / 100;
+
+    if (videoElement) {
+      if (dubbingMixMode === 'duck') {
+        videoElement.volume = Math.max(0.05, baseVol * 0.25);
+      } else if (dubbingMixMode === 'mute_original') {
+        videoElement.volume = 0;
+      }
+    }
+
+    utter.onend = () => {
+      if (videoElement && dubbingMixMode !== 'mute_original') {
+        videoElement.volume = baseVol;
+      }
+    };
+
+    utter.onerror = () => {
+      if (videoElement && dubbingMixMode !== 'mute_original') {
+        videoElement.volume = baseVol;
+      }
+    };
+
+    window.speechSynthesis.speak(utter);
+  } catch (err) {
+    console.log('TTS speak note:', err);
+  }
+}
 
 window.adjustTrackDelay = function(offset) {
   currentTrackDelay = Math.round((currentTrackDelay + offset) * 10) / 10;
@@ -14247,68 +14414,68 @@ function updateCCUI() {
   }
 }
 
+// Multi-lingual on-device processor dictionary
+const languageFeeds = {
+  'hindi': [
+    "[CC] लाइव प्रसारण ऑडियो स्ट्रीम सक्रिय...",
+    "[CC] स्टूडियो से मुख्य राष्ट्रीय समाचार बुलेटिन",
+    "[CC] उच्च गुणवत्ता डिजिटल ट्रांसमिशन लाइव",
+    "[CC] देश-विदेश की ताज़ा खबरें लाइव स्टूडियो से",
+    "[CC] 24x7 निरंतर हिंदी प्रसारण सेवा"
+  ],
+  'english': [
+    "[CC] Live broadcast sync audio stream active...",
+    "[CC] Studio headlines bulletin live coverage",
+    "[CC] High-definition digital multi-bitrate transmission",
+    "[CC] Breaking national and international news coverage",
+    "[CC] 24x7 continuous studio broadcast feed"
+  ],
+  'punjabi': [
+    "[CC] ਲਾਈਵ ਪ੍ਰਸਾਰਣ ਆਡੀਓ ਸਟ੍ਰੀਮ ਸਰਗਰਮ...",
+    "[CC] ਸਟੂਡੀਓ ਤੋਂ ਮੁੱਖ ਖ਼ਬਰਾਂ ਦਾ ਬੁਲੇਟਿਨ ਲਾਈਵ",
+    "[CC] ਉੱਚ ਗੁਣਵੱਤਾ ਡਿਜੀਟਲ ਟ੍ਰਾਂਸਮਿਸ਼ਨ",
+    "[CC] ਦੇਸ਼-ਵਿਦੇਸ਼ ਦੀਆਂ ਤਾਜ਼ਾ ਖ਼ਬਰਾਂ ਲਾਈਵ",
+    "[CC] 24x7 ਨਿਰੰਤਰ ਪੰਜਾਬੀ ਪ੍ਰਸਾਰਣ ਸੇਵਾ"
+  ],
+  'bengali': [
+    "[CC] লাইভ সম্প্রচার অডিও স্ট্রিম সক্রিয়...",
+    "[CC] স্টুডিও থেকে প্রধান সংবাদ বুলেটিন",
+    "[CC] উচ্চ মানের ডিজিটাল মাল্টি-বিটরেট ফিড",
+    "[CC] দেশ-বিদেশের তাজা খবর লাইভ সম্প্রচার",
+    "[CC] ২৪x৭ নিরবচ্ছিন্ন বাংলা সম্প্রচার সেবা"
+  ],
+  'marathi': [
+    "[CC] थेट प्रक्षेपण ऑडिओ प्रवाह सुरू आहे...",
+    "[CC] स्टुडिओमधून मुख्य राष्ट्रीय बातम्यांचे बुलेटिन",
+    "[CC] उच्च दर्जाचे डिजिटल थेट प्रक्षेपण",
+    "[CC] देश-विदेशातील ताज्या घडामोडी थेट",
+    "[CC] २४x७ अखंड मराठी बातमी प्रसारण सेवा"
+  ],
+  'tamil': [
+    "[CC] நேரலை ஒளிபரப்பு ஆடியோ ஸ்ட்ரீம் செயலில் உள்ளது...",
+    "[CC] ஸ்டுடியோவிலிருந்து முக்கிய செய்தி அறிக்கை",
+    "[CC] உயர்தர டிஜிட்டல் மல்டி-பிட்ரேட் ஸ்ட்ரீம்",
+    "[CC] முக்கிய நிகழ்வுகள் மற்றும் நேரலை செய்திகள்",
+    "[CC] 24x7 இடைவிடாத தமிழ் நேரலை சேவை"
+  ],
+  'telugu': [
+    "[CC] లైవ్ ప్రసార ఆడియో స్ట్రీమ్ సక్రియంగా ఉంది...",
+    "[CC] స్టూడియో నుండి ముఖ్యాంశాల వార్తా బులెటిన్",
+    "[CC] అధిక నాణ్యత గల డిజిటల్ ప్రసారం లైవ్",
+    "[CC] తాజా జాతీయ మరియు అంతర్జాతీయ వార్తలు",
+    "[CC] 24x7 నిరంతర తెలుగు వార్తా ప్రసార సేవ"
+  ],
+  'gujarati': [
+    "[CC] લાઈવ પ્રસારણ ઑડિઓ સ્ટ્રીમ સક્રિય...",
+    "[CC] સ્ટુડિયોમાંથી મુખ્ય સમાચાર બુલેટિન લાઈવ",
+    "[CC] ઉચ્ચ ગુણવત્તાવાળા ડિજિટલ મલ્ટી-બિટરેટ ફીડ",
+    "[CC] દેશ-વિદેશના તાજા સમાચારોનું જીવંત પ્રસારણ",
+    "[CC] ૨૪x૭ અવિરત ગુજરાતી પ્રસારણ સેવા"
+  ]
+};
+
 function startCCSubtitles() {
   clearInterval(ccInterval);
-
-  // Multi-lingual on-device processor dictionary
-  const languageFeeds = {
-    'hindi': [
-      "[CC] लाइव प्रसारण ऑडियो स्ट्रीम सक्रिय...",
-      "[CC] स्टूडियो से मुख्य राष्ट्रीय समाचार बुलेटिन",
-      "[CC] उच्च गुणवत्ता डिजिटल ट्रांसमिशन लाइव",
-      "[CC] देश-विदेश की ताज़ा खबरें लाइव स्टूडियो से",
-      "[CC] 24x7 निरंतर हिंदी प्रसारण सेवा"
-    ],
-    'english': [
-      "[CC] Live broadcast sync audio stream active...",
-      "[CC] Studio headlines bulletin live coverage",
-      "[CC] High-definition digital multi-bitrate transmission",
-      "[CC] Breaking national and international news coverage",
-      "[CC] 24x7 continuous studio broadcast feed"
-    ],
-    'punjabi': [
-      "[CC] ਲਾਈਵ ਪ੍ਰਸਾਰਣ ਆਡੀਓ ਸਟ੍ਰੀਮ ਸਰਗਰਮ...",
-      "[CC] ਸਟੂਡੀਓ ਤੋਂ ਮੁੱਖ ਖ਼ਬਰਾਂ ਦਾ ਬੁਲੇਟਿਨ ਲਾਈਵ",
-      "[CC] ਉੱਚ ਗੁਣਵੱਤਾ ਡਿਜੀਟਲ ਟ੍ਰਾਂਸਮਿਸ਼ਨ",
-      "[CC] ਦੇਸ਼-ਵਿਦੇਸ਼ ਦੀਆਂ ਤਾਜ਼ਾ ਖ਼ਬਰਾਂ ਲਾਈਵ",
-      "[CC] 24x7 ਨਿਰੰਤਰ ਪੰਜਾਬੀ ਪ੍ਰਸਾਰਣ ਸੇਵਾ"
-    ],
-    'bengali': [
-      "[CC] লাইভ সম্প্রচার অডিও স্ট্রিম সক্রিয়...",
-      "[CC] স্টুডিও থেকে প্রধান সংবাদ বুলেটিন",
-      "[CC] উচ্চ মানের ডিজিটাল মাল্টি-বিটরেট ফিড",
-      "[CC] দেশ-বিদেশের তাজা খবর লাইভ সম্প্রচার",
-      "[CC] ২৪x৭ নিরবচ্ছিন্ন বাংলা সম্প্রচার সেবা"
-    ],
-    'marathi': [
-      "[CC] थेट प्रक्षेपण ऑडिओ प्रवाह सुरू आहे...",
-      "[CC] स्टुडिओमधून मुख्य राष्ट्रीय बातम्यांचे बुलेटिन",
-      "[CC] उच्च दर्जाचे डिजिटल थेट प्रक्षेपण",
-      "[CC] देश-विदेशातील ताज्या घडामोडी थेट",
-      "[CC] २४x७ अखंड मराठी बातमी प्रसारण सेवा"
-    ],
-    'tamil': [
-      "[CC] நேரலை ஒளிபரப்பு ஆடியோ ஸ்ட்ரீம் செயலில் உள்ளது...",
-      "[CC] ஸ்டுடியோவிலிருந்து முக்கிய செய்தி அறிக்கை",
-      "[CC] உயர்தர டிஜிட்டல் மல்டி-பிட்ரேட் ஸ்ட்ரீம்",
-      "[CC] முக்கிய நிகழ்வுகள் மற்றும் நேரலை செய்திகள்",
-      "[CC] 24x7 இடைவிடாத தமிழ் நேரலை சேவை"
-    ],
-    'telugu': [
-      "[CC] లైవ్ ప్రసార ఆడియో స్ట్రీమ్ సక్రియంగా ఉంది...",
-      "[CC] స్టూడియో నుండి ముఖ్యాంశాల వార్తా బులెటిన్",
-      "[CC] అధిక నాణ్యత గల డిజిటల్ ప్రసారం లైవ్",
-      "[CC] తాజా జాతీయ మరియు అంతర్జాతీయ వార్తలు",
-      "[CC] 24x7 నిరంతర తెలుగు వార్తా ప్రసార సేవ"
-    ],
-    'gujarati': [
-      "[CC] લાઈવ પ્રસારણ ઑડિઓ સ્ટ્રીમ સક્રિય...",
-      "[CC] સ્ટુડિયોમાંથી મુખ્ય સમાચાર બુલેટિન લાઈવ",
-      "[CC] ઉચ્ચ ગુણવત્તાવાળા ડિજિટલ મલ્ટી-બિટરેટ ફીડ",
-      "[CC] દેશ-વિદેશના તાજા સમાચારોનું જીવંત પ્રસારણ",
-      "[CC] ૨૪x૭ અવિરત ગુજરાતી પ્રસારણ સેવા"
-    ]
-  };
 
   // Launch on-device SpeechRecognition if requested or supported
   const langCodeMap = {
@@ -14340,6 +14507,9 @@ function startCCSubtitles() {
         if (transcript.trim()) {
           const playerCcText = document.getElementById('playerCcText');
           if (playerCcText) playerCcText.textContent = '[AI Live] ' + transcript.trim();
+          if (isVoiceDubbingEnabled) {
+            speakTranslatedDialogue(transcript.trim(), currentSubtitleLanguage);
+          }
         }
       };
       speechRecognitionInstance.start();
@@ -14353,6 +14523,9 @@ function startCCSubtitles() {
   const playerCcText = document.getElementById('playerCcText');
   if (playerCcText && list.length > 0) {
     playerCcText.textContent = list[0];
+    if (isVoiceDubbingEnabled) {
+      speakTranslatedDialogue(list[0], currentSubtitleLanguage);
+    }
   }
 
   ccInterval = setInterval(() => {
@@ -14360,6 +14533,9 @@ function startCCSubtitles() {
     if (playerCcText && currentList.length > 0) {
       cIdx = (cIdx + 1) % currentList.length;
       playerCcText.textContent = currentList[cIdx];
+      if (isVoiceDubbingEnabled) {
+        speakTranslatedDialogue(currentList[cIdx], currentSubtitleLanguage);
+      }
     }
   }, 3200);
 }

@@ -874,10 +874,27 @@ public class MainActivity extends Activity {
             runOnUiThread(() -> {
                 try {
                     WindowManager.LayoutParams lp = getWindow().getAttributes();
-                    lp.screenBrightness = Math.max(0.01f, Math.min(1.0f, value));
+                    if (value < 0) {
+                        lp.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
+                    } else {
+                        lp.screenBrightness = Math.max(0.01f, Math.min(1.0f, value));
+                    }
                     getWindow().setAttributes(lp);
                 } catch (Exception e) {
                     Log.e(TAG, "Error setting brightness: " + e.getMessage());
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void resetBrightness() {
+            runOnUiThread(() -> {
+                try {
+                    WindowManager.LayoutParams lp = getWindow().getAttributes();
+                    lp.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
+                    getWindow().setAttributes(lp);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error resetting brightness: " + e.getMessage());
                 }
             });
         }
