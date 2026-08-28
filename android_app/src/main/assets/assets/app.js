@@ -14267,147 +14267,8 @@ window.setVlcSubtitleTrack = function(lang, elem) {
       'ai_live': '🎙️ Live Speech AI Recognition'
     };
     showToast('On-Device CC: ' + (langNames[lang] || '[CC] Active'));
-    
-    // If voice dubbing is active, trigger immediate synchronized translation utterance
-    if (isVoiceDubbingEnabled) {
-      const list = languageFeeds[lang] || languageFeeds['hindi'];
-      if (list && list.length > 0) {
-        speakTranslatedDialogue(list[0], lang);
-      }
-    }
   }
 };
-
-// ==========================================================
-// LIVE AI VOICE DUBBING & SPEECH TRANSLATION (On-Device TTS)
-// ==========================================================
-let isVoiceDubbingEnabled = false;
-let dubbingMixMode = 'duck'; // 'duck', 'mute_original', 'equal'
-
-window.toggleVlcVoiceDubbing = function(enabled) {
-  isVoiceDubbingEnabled = enabled;
-  const controls = document.getElementById('vlcVoiceDubbingControls');
-  if (controls) controls.style.display = enabled ? 'block' : 'none';
-
-  if (enabled) {
-    if (!isCCEnabled) {
-      isCCEnabled = true;
-      updateCCUI();
-    }
-    const targetLang = currentSubtitleLanguage || 'hindi';
-    showToast('🎙️ Live AI Voice Dubbing Active (' + targetLang.toUpperCase() + ')');
-    
-    const welcomePhrases = {
-      'hindi': 'लाइव आवाज अनुवाद शुरू हो गया है',
-      'english': 'Live voice translation is now active',
-      'punjabi': 'ਲਾਈਵ ਅਨੁਵਾਦ ਸ਼ੁਰੂ ਹੋ ਗਿਆ ਹੈ',
-      'bengali': 'লাইভ ভয়েস অনুবাদ সক্রিয় করা হয়েছে',
-      'marathi': 'थेट आवाज भाषांतर सुरू झाले आहे',
-      'tamil': 'நேரலை குரல் மொழிபெயர்ப்பு தொடங்கப்பட்டது',
-      'telugu': 'లైవ్ వాయిస్ అనువాదం ప్రారంభమైంది',
-      'gujarati': 'લાઈવ અવાજ અનુવાદ શરૂ થઈ ગયું છે',
-      'ai_live': 'Live voice translation is active'
-    };
-    speakTranslatedDialogue(welcomePhrases[targetLang] || 'Live voice translation enabled', targetLang);
-  } else {
-    if (window.speechSynthesis) {
-      try { window.speechSynthesis.cancel(); } catch (e) {}
-    }
-    const videoElement = document.getElementById('luminaVideo');
-    if (videoElement) videoElement.volume = currentVolume / 100;
-    showToast('Live Voice Dubbing Disabled');
-  }
-};
-
-window.setVlcDubbingMix = function(mode, elem) {
-  dubbingMixMode = mode;
-  const chips = document.querySelectorAll('#vlcVoiceDubbingControls .vlc-chip-btn');
-  chips.forEach(c => c.classList.remove('active'));
-  if (elem) elem.classList.add('active');
-
-  const volText = document.getElementById('vlcDubbedVolText');
-  const videoElement = document.getElementById('luminaVideo');
-
-  if (mode === 'duck') {
-    if (volText) volText.textContent = 'Voice 100% • Stream 25%';
-    if (videoElement && (!window.speechSynthesis || !window.speechSynthesis.speaking)) {
-      videoElement.volume = currentVolume / 100;
-    }
-    showToast('Voice Ducking: Clear Dialogue');
-  } else if (mode === 'mute_original') {
-    if (volText) volText.textContent = 'Voice 100% • Stream Muted (0%)';
-    if (videoElement) videoElement.volume = 0;
-    showToast('Stream Muted: AI Voice Only');
-  } else if (mode === 'equal') {
-    if (volText) volText.textContent = 'Equal Mix (50/50)';
-    if (videoElement && (!window.speechSynthesis || !window.speechSynthesis.speaking)) {
-      videoElement.volume = currentVolume / 100;
-    }
-    showToast('Equal Audio Balance');
-  }
-};
-
-function speakTranslatedDialogue(text, lang) {
-  if (!isVoiceDubbingEnabled || !('speechSynthesis' in window)) return;
-  try {
-    window.speechSynthesis.cancel();
-    
-    const cleanText = text.replace(/^\[.*?\]\s*/, '').trim();
-    if (!cleanText) return;
-
-    const utter = new SpeechSynthesisUtterance(cleanText);
-    const langCodeMap = {
-      'hindi': 'hi-IN',
-      'english': 'en-US',
-      'punjabi': 'pa-IN',
-      'bengali': 'bn-IN',
-      'marathi': 'mr-IN',
-      'tamil': 'ta-IN',
-      'telugu': 'te-IN',
-      'gujarati': 'gu-IN',
-      'ai_live': 'hi-IN'
-    };
-    const targetLangCode = langCodeMap[lang] || 'hi-IN';
-    utter.lang = targetLangCode;
-    utter.rate = 1.0;
-    utter.pitch = 1.0;
-    utter.volume = 1.0;
-
-    // Pick best matching on-device localized voice
-    const voices = window.speechSynthesis.getVoices ? window.speechSynthesis.getVoices() : [];
-    if (voices && voices.length > 0) {
-      const match = voices.find(v => v.lang === targetLangCode || v.lang.replace('_', '-').startsWith(targetLangCode.slice(0, 2)));
-      if (match) utter.voice = match;
-    }
-
-    const videoElement = document.getElementById('luminaVideo');
-    const baseVol = currentVolume / 100;
-
-    if (videoElement) {
-      if (dubbingMixMode === 'duck') {
-        videoElement.volume = Math.max(0.05, baseVol * 0.25);
-      } else if (dubbingMixMode === 'mute_original') {
-        videoElement.volume = 0;
-      }
-    }
-
-    utter.onend = () => {
-      if (videoElement && dubbingMixMode !== 'mute_original') {
-        videoElement.volume = baseVol;
-      }
-    };
-
-    utter.onerror = () => {
-      if (videoElement && dubbingMixMode !== 'mute_original') {
-        videoElement.volume = baseVol;
-      }
-    };
-
-    window.speechSynthesis.speak(utter);
-  } catch (err) {
-    console.log('TTS speak note:', err);
-  }
-}
 
 window.adjustTrackDelay = function(offset) {
   currentTrackDelay = Math.round((currentTrackDelay + offset) * 10) / 10;
@@ -14595,9 +14456,6 @@ function startCCSubtitles() {
         if (transcript.trim()) {
           const playerCcText = document.getElementById('playerCcText');
           if (playerCcText) playerCcText.textContent = '[AI Live] ' + transcript.trim();
-          if (isVoiceDubbingEnabled) {
-            speakTranslatedDialogue(transcript.trim(), currentSubtitleLanguage);
-          }
         }
       };
       speechRecognitionInstance.start();
@@ -14611,9 +14469,6 @@ function startCCSubtitles() {
   const playerCcText = document.getElementById('playerCcText');
   if (playerCcText && list.length > 0) {
     playerCcText.textContent = list[0];
-    if (isVoiceDubbingEnabled) {
-      speakTranslatedDialogue(list[0], currentSubtitleLanguage);
-    }
   }
 
   ccInterval = setInterval(() => {
@@ -14621,9 +14476,6 @@ function startCCSubtitles() {
     if (playerCcText && currentList.length > 0) {
       cIdx = (cIdx + 1) % currentList.length;
       playerCcText.textContent = currentList[cIdx];
-      if (isVoiceDubbingEnabled) {
-        speakTranslatedDialogue(currentList[cIdx], currentSubtitleLanguage);
-      }
     }
   }, 3200);
 }
