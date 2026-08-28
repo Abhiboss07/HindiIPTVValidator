@@ -12187,6 +12187,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initParticles();
   initPlayerOverlayEvents();
   initPlayerSwipeGestures();
+  initMiniPlayerSwipe();
   updateCCUI();
   await loadDatabase();
   renderAllPages();
@@ -13423,6 +13424,76 @@ window.playNextChannel = function(e) {
     showToast('⏭ ' + (nextChannel.name || 'Next Channel'));
   }
 };
+
+// ==========================================================
+// MINI-PLAYER SWIPE-DOWN GESTURE (Swipe Down to Cut Media)
+// ==========================================================
+function initMiniPlayerSwipe() {
+  const miniPlayer = document.getElementById('miniPlayer');
+  if (!miniPlayer) return;
+
+  let startY = 0;
+  let currentDeltaY = 0;
+  let isSwiping = false;
+
+  miniPlayer.addEventListener('touchstart', (e) => {
+    if (e.target.closest('button')) return;
+    if (e.touches && e.touches.length === 1) {
+      startY = e.touches[0].clientY;
+      currentDeltaY = 0;
+      isSwiping = true;
+      miniPlayer.classList.add('swiping-down');
+    }
+  }, { passive: true });
+
+  miniPlayer.addEventListener('touchmove', (e) => {
+    if (!isSwiping || !e.touches || e.touches.length === 0) return;
+    const clientY = e.touches[0].clientY;
+    const dy = clientY - startY;
+    if (dy > 0) {
+      currentDeltaY = dy;
+      const opacity = Math.max(0, 1 - (dy / 140));
+      miniPlayer.style.transform = `translateY(${dy}px)`;
+      miniPlayer.style.opacity = opacity;
+    } else {
+      currentDeltaY = 0;
+      miniPlayer.style.transform = 'translateY(0)';
+      miniPlayer.style.opacity = '1';
+    }
+  }, { passive: true });
+
+  miniPlayer.addEventListener('touchend', () => {
+    if (!isSwiping) return;
+    isSwiping = false;
+    miniPlayer.classList.remove('swiping-down');
+
+    // If swiped down > 40px, dismiss and cut running media immediately
+    if (currentDeltaY > 40) {
+      miniPlayer.classList.add('dismissing');
+      setTimeout(() => {
+        closeMiniPlayer();
+        miniPlayer.style.transform = '';
+        miniPlayer.style.opacity = '';
+        miniPlayer.classList.remove('dismissing');
+      }, 180);
+    } else {
+      // Snap back smoothly
+      miniPlayer.style.transform = 'translateY(0)';
+      miniPlayer.style.opacity = '1';
+      setTimeout(() => {
+        miniPlayer.style.transform = '';
+        miniPlayer.style.opacity = '';
+      }, 200);
+    }
+  }, { passive: true });
+
+  miniPlayer.addEventListener('touchcancel', () => {
+    isSwiping = false;
+    miniPlayer.classList.remove('swiping-down');
+    miniPlayer.style.transform = '';
+    miniPlayer.style.opacity = '';
+  }, { passive: true });
+}
 
 window.togglePlay = function() {
   const videoElement = document.getElementById('luminaVideo');
