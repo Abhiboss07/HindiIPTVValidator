@@ -13258,6 +13258,8 @@ window.minimizeToMiniPlayer = function(e) {
   // Close any open VLC drawers or dialogs immediately
   if (typeof closeVlcMoreMenu === 'function') closeVlcMoreMenu();
   if (typeof closeVlcQualityModal === 'function') closeVlcQualityModal();
+  if (typeof closeVlcSubtitlesModal === 'function') closeVlcSubtitlesModal();
+  if (typeof closeVlcAudioModal === 'function') closeVlcAudioModal();
   if (typeof closeVlcTracksModal === 'function') closeVlcTracksModal();
   if (typeof closeVlcSleepModal === 'function') closeVlcSleepModal();
   if (typeof closeVlcSpeedModal === 'function') closeVlcSpeedModal();
@@ -13389,6 +13391,37 @@ window.closeMiniPlayer = function(e) {
 
 window.closeMiniPlayerCompletely = function(e) {
   closeMiniPlayer(e);
+};
+
+// Mini-Player & Transport Channel Navigation (⏮ Prev / ⏭ Next)
+window.playPreviousChannel = function(e) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  if (!currentPlayingChannel || !Array.isArray(channelsData) || channelsData.length === 0) return;
+  const currentIdx = channelsData.findIndex(c => c.id === currentPlayingChannel.id);
+  const prevIdx = currentIdx > 0 ? currentIdx - 1 : channelsData.length - 1;
+  const prevChannel = channelsData[prevIdx];
+  if (prevChannel) {
+    playChannel(prevChannel);
+    showToast('⏮ ' + (prevChannel.name || 'Previous Channel'));
+  }
+};
+
+window.playNextChannel = function(e) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  if (!currentPlayingChannel || !Array.isArray(channelsData) || channelsData.length === 0) return;
+  const currentIdx = channelsData.findIndex(c => c.id === currentPlayingChannel.id);
+  const nextIdx = currentIdx >= 0 && currentIdx < channelsData.length - 1 ? currentIdx + 1 : 0;
+  const nextChannel = channelsData[nextIdx];
+  if (nextChannel) {
+    playChannel(nextChannel);
+    showToast('⏭ ' + (nextChannel.name || 'Next Channel'));
+  }
 };
 
 window.togglePlay = function() {
@@ -14070,7 +14103,15 @@ function initWebAudioDSP() {
     if (webAudioCtx.state === 'suspended') {
       webAudioCtx.resume().catch(() => {});
     }
-    if (!webAudioSource) {
+
+    // Configure multi-channel downmixing for 4K SDR/HDR Dolby/DTS/Surround audio
+    try {
+      webAudioCtx.destination.channelCount = 2;
+      webAudioCtx.destination.channelCountMode = 'explicit';
+      webAudioCtx.destination.channelInterpretation = 'speakers';
+    } catch (eC) {}
+
+    if (!webAudioSource && currentAudioTrack !== 'passthrough') {
       webAudioSource = webAudioCtx.createMediaElementSource(videoElement);
       
       webAudioVocalFilter = webAudioCtx.createBiquadFilter();
@@ -14095,15 +14136,37 @@ function initWebAudioDSP() {
   }
 }
 
-window.openVlcTracksMenu = function(e) {
+// 1. Dedicated Subtitles & Translations Modal (Bottom Left Toolbar Button)
+window.openVlcSubtitlesModal = function(e) {
   if (e) e.stopPropagation();
-  const modal = document.getElementById('vlcTracksModal');
+  closeVlcMoreMenu();
+  const modal = document.getElementById('vlcSubtitlesModal');
   if (modal) modal.style.display = 'flex';
 };
 
-window.closeVlcTracksModal = function() {
-  const modal = document.getElementById('vlcTracksModal');
+window.closeVlcSubtitlesModal = function() {
+  const modal = document.getElementById('vlcSubtitlesModal');
   if (modal) modal.style.display = 'none';
+};
+
+// 2. Dedicated Audio Track & Channels Modal (Under 3-Dots Drawer)
+window.openVlcAudioModal = function(e) {
+  if (e) e.stopPropagation();
+  closeVlcMoreMenu();
+  const modal = document.getElementById('vlcAudioModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcAudioModal = function() {
+  const modal = document.getElementById('vlcAudioModal');
+  if (modal) modal.style.display = 'none';
+};
+
+// Aliases for backward compatibility
+window.openVlcTracksMenu = window.openVlcSubtitlesModal;
+window.closeVlcTracksModal = function() {
+  window.closeVlcSubtitlesModal();
+  window.closeVlcAudioModal();
 };
 
 window.setVlcAudioTrack = function(trackId, elem) {
@@ -14112,12 +14175,28 @@ window.setVlcAudioTrack = function(trackId, elem) {
   rows.forEach(r => r.classList.remove('active'));
   if (elem) elem.classList.add('active');
 
-  initWebAudioDSP();
+  const subBadge = document.getElementById('vlcAudioSubtitle');
+  const shortNames = {
+    'hindi': 'Hindi',
+    'english': 'English',
+    'dual_left': 'Left (Hindi)',
+    'dual_right': 'Right (Eng)',
+    'speech_boost': 'Voice AI',
+    'passthrough': 'Direct 4K'
+  };
+  if (subBadge) subBadge.textContent = shortNames[trackId] || 'Hindi';
+
+  if (trackId !== 'passthrough') {
+    initWebAudioDSP();
+  }
 
   const videoElement = document.getElementById('luminaVideo');
-  if (videoElement && videoElement.audioTracks && videoElement.audioTracks.length > 0) {
-    for (let i = 0; i < videoElement.audioTracks.length; i++) {
-      videoElement.audioTracks[i].enabled = (trackId === 'english' || trackId === 'dual_right' ? i === 1 : i === 0);
+  if (videoElement) {
+    videoElement.muted = false; // Ensure unmuted direct hardware sound
+    if (videoElement.audioTracks && videoElement.audioTracks.length > 0) {
+      for (let i = 0; i < videoElement.audioTracks.length; i++) {
+        videoElement.audioTracks[i].enabled = (trackId === 'english' || trackId === 'dual_right' ? i === 1 : i === 0);
+      }
     }
   }
 
@@ -14150,10 +14229,11 @@ window.setVlcAudioTrack = function(trackId, elem) {
     'dual_left': 'Dual-Track Left Channel (Hindi)',
     'dual_right': 'Dual-Track Right Channel (English)',
     'speech_boost': 'Clear Voice Speech AI Boost',
-    'passthrough': 'Dolby / Direct Passthrough'
+    'passthrough': 'Dolby / Direct Passthrough (All 4K Audios)'
   };
 
-  showToast('Audio DSP: ' + (trackNames[trackId] || 'Track Active'));
+  showToast('Audio: ' + (trackNames[trackId] || 'Track Active'));
+  closeVlcAudioModal();
 };
 
 window.setVlcSubtitleTrack = function(lang, elem) {
@@ -14188,7 +14268,7 @@ window.setVlcSubtitleTrack = function(lang, elem) {
     };
     showToast('On-Device CC: ' + (langNames[lang] || '[CC] Active'));
     
-    // If voice dubbing is active, trigger immediate translation utterance
+    // If voice dubbing is active, trigger immediate synchronized translation utterance
     if (isVoiceDubbingEnabled) {
       const list = languageFeeds[lang] || languageFeeds['hindi'];
       if (list && list.length > 0) {
@@ -14287,10 +14367,18 @@ function speakTranslatedDialogue(text, lang) {
       'gujarati': 'gu-IN',
       'ai_live': 'hi-IN'
     };
-    utter.lang = langCodeMap[lang] || 'hi-IN';
-    utter.rate = 1.05;
+    const targetLangCode = langCodeMap[lang] || 'hi-IN';
+    utter.lang = targetLangCode;
+    utter.rate = 1.0;
     utter.pitch = 1.0;
     utter.volume = 1.0;
+
+    // Pick best matching on-device localized voice
+    const voices = window.speechSynthesis.getVoices ? window.speechSynthesis.getVoices() : [];
+    if (voices && voices.length > 0) {
+      const match = voices.find(v => v.lang === targetLangCode || v.lang.replace('_', '-').startsWith(targetLangCode.slice(0, 2)));
+      if (match) utter.voice = match;
+    }
 
     const videoElement = document.getElementById('luminaVideo');
     const baseVol = currentVolume / 100;

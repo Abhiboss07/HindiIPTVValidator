@@ -479,8 +479,8 @@
 
                 <!-- 3. VLC 5-Button Action Toolbar (Matching 1.jpeg) -->
                 <div class="vlc-transport-toolbar">
-                    <!-- 1. Subtitles / Audio Tracks (Left) -->
-                    <button id="btnVlcSubtitles" class="vlc-tool-btn" onclick="openVlcTracksMenu(event)" title="Subtitles & Audio Tracks">
+                    <!-- 1. Subtitles & Translations (Left) -->
+                    <button id="btnVlcSubtitles" class="vlc-tool-btn" onclick="openVlcSubtitlesModal(event)" title="Subtitles & Translations [CC]">
                         <svg viewBox="0 0 24 24" width="26" height="26" fill="#FFFFFF"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8z"/></svg>
                     </button>
 
@@ -510,7 +510,7 @@
         </div>
 
         <!-- ==========================================================
-             VLC MORE OPTIONS SLIDE-OUT DRAWER (Matching 2.jpeg & 3.jpeg)
+             VLC MORE OPTIONS SLIDE-OUT DRAWER
              ========================================================== -->
         <div id="vlcMoreDrawerBackdrop" class="vlc-drawer-backdrop" onclick="closeVlcMoreMenu()" ontouchstart="event.stopPropagation()" ontouchmove="event.stopPropagation()" style="display: none;"></div>
         <div id="vlcMoreDrawer" class="vlc-side-drawer" onclick="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchmove="event.stopPropagation()">
@@ -524,7 +524,15 @@
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
                     <span>Lock</span>
                 </div>
-                <!-- 2. Quality & Speed -->
+                <!-- 2. Audio Tracks & DSP (Separated under 3-Dots) -->
+                <div class="vlc-menu-item" onclick="openVlcAudioModal()">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+                    <div class="vlc-menu-item-text">
+                        <span>Audio Track & DSP</span>
+                        <small id="vlcAudioSubtitle" class="vlc-menu-badge">Hindi</small>
+                    </div>
+                </div>
+                <!-- 3. Stream Quality & Speed -->
                 <div class="vlc-menu-item" onclick="openVlcQualityModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V6h14v12zM6 10h3v1.5H7.5v1H9v1.5H6V10zm11 1.5v-1c0-.55-.45-1-1-1h-3v5h3c.55 0 1-.45 1-1v-1c0-.3-.13-.56-.34-.74.21-.18.34-.44.34-.76zm-1.5 2h-1.5v-1h1.5v1zm0-2h-1.5v-1h1.5v1z"/></svg>
                     <div class="vlc-menu-item-text">
@@ -532,7 +540,7 @@
                         <small id="vlcQualitySubtitle" class="vlc-menu-badge">Auto</small>
                     </div>
                 </div>
-                <!-- 3. Sleep timer -->
+                <!-- 4. Sleep timer -->
                 <div class="vlc-menu-item" onclick="openVlcSleepTimer()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>
                     <div class="vlc-menu-item-text">
@@ -540,7 +548,7 @@
                         <small id="vlcSleepSubtitle" class="vlc-menu-badge">Off</small>
                     </div>
                 </div>
-                <!-- 4. Playback speed -->
+                <!-- 5. Playback speed -->
                 <div class="vlc-menu-item" onclick="openVlcSpeedModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.28-10.43zM10.59 15.41a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z"/></svg>
                     <div class="vlc-menu-item-text">
@@ -548,12 +556,12 @@
                         <small id="vlcSpeedSubtitle" class="vlc-menu-badge">1.0x</small>
                     </div>
                 </div>
-                <!-- 5. Jump to Time -->
+                <!-- 6. Jump to Time -->
                 <div class="vlc-menu-item" onclick="openVlcJumpModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
                     <span>Jump to Time</span>
                 </div>
-                <!-- 6. Equalizer -->
+                <!-- 7. Equalizer -->
                 <div class="vlc-menu-item" onclick="openVlcEqModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
                     <div class="vlc-menu-item-text">
@@ -561,17 +569,17 @@
                         <small id="vlcEqSubtitle" class="vlc-menu-badge">Flat</small>
                     </div>
                 </div>
-                <!-- 7. Play as audio -->
+                <!-- 8. Play as audio -->
                 <div class="vlc-menu-item" onclick="togglePlayAsAudio()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
                     <span>Play as audio</span>
                 </div>
-                <!-- 7. Pop-Up player -->
+                <!-- 9. Pop-Up player -->
                 <div class="vlc-menu-item" onclick="triggerVlcPip(event)">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M19 7h-8v6h8V7zm2-4H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"/></svg>
                     <span>Pop-Up player</span>
                 </div>
-                <!-- 8. Repeat mode -->
+                <!-- 10. Repeat mode -->
                 <div class="vlc-menu-item" onclick="cycleVlcRepeatMode()">
                     <svg id="vlcRepeatSvg" viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
                     <div class="vlc-menu-item-text">
@@ -579,17 +587,17 @@
                         <small id="vlcRepeatSubtitle" class="vlc-menu-badge">Off</small>
                     </div>
                 </div>
-                <!-- 9. Video information -->
+                <!-- 11. Video information -->
                 <div class="vlc-menu-item" onclick="openVlcInfoModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
                     <span>Video information</span>
                 </div>
-                <!-- 10. Bookmarks -->
+                <!-- 12. Bookmarks -->
                 <div class="vlc-menu-item" onclick="openVlcBookmarksModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>
                     <span>Bookmarks</span>
                 </div>
-                <!-- 11. A-B repeat -->
+                <!-- 13. A-B repeat -->
                 <div class="vlc-menu-item" onclick="toggleVlcABRepeat()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
                     <div class="vlc-menu-item-text">
@@ -597,17 +605,17 @@
                         <small id="vlcABRepeatSubtitle" class="vlc-menu-badge">Off</small>
                     </div>
                 </div>
-                <!-- 12. Save Playlist -->
+                <!-- 14. Save Playlist -->
                 <div class="vlc-menu-item" onclick="saveVlcPlaylist()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"/></svg>
                     <span>Save Playlist</span>
                 </div>
-                <!-- 13. Control settings -->
+                <!-- 15. Control settings -->
                 <div class="vlc-menu-item" onclick="openVlcSettingsModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
                     <span>Control settings</span>
                 </div>
-                <!-- 14. Video player tips -->
+                <!-- 16. Video player tips -->
                 <div class="vlc-menu-item" onclick="openVlcPlayerTips()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
                     <span>Video player tips</span>
@@ -618,36 +626,11 @@
         <!-- ==========================================================
              VLC FEATURE DIALOGS & MODAL SHEETS
              ========================================================== -->
-        <!-- Tracks (Audio & Subtitles) Dialog -->
-        <div id="vlcTracksModal" class="vlc-dialog-backdrop" onclick="closeVlcTracksModal()" style="display: none;">
+        <!-- 1. Dedicated Subtitles & Live Translation Dialog -->
+        <div id="vlcSubtitlesModal" class="vlc-dialog-backdrop" onclick="closeVlcSubtitlesModal()" style="display: none;">
             <div class="vlc-dialog-card" onclick="event.stopPropagation()">
-                <div class="vlc-dialog-title">Audio & Subtitle Tracks</div>
+                <div class="vlc-dialog-title">Subtitles & Live Translation</div>
                 
-                <!-- Audio Tracks Section -->
-                <div class="vlc-dialog-section">
-                    <label class="vlc-dialog-label">🎧 Audio Languages & Channels (Processor DSP)</label>
-                    <div id="vlcAudioTracksList" class="vlc-list-options" style="max-height: 150px; overflow-y: auto;">
-                        <div class="vlc-radio-row active" onclick="setVlcAudioTrack('hindi', this)">
-                            <span>🇮🇳 Hindi (Main Dialogue Enhanced) [Stereo Vocal DSP]</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('english', this)">
-                            <span>🌐 English (Broadcast Audio Feed) [AAC 2.0]</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('dual_left', this)">
-                            <span>📻 Dual-Track Left Channel (Hindi Audio Track)</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('dual_right', this)">
-                            <span>📻 Dual-Track Right Channel (English Audio Track)</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('speech_boost', this)">
-                            <span>⚡ Clear Voice Speech AI Boost (Vocal Clarity)</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('passthrough', this)">
-                            <span>🔊 Original Dolby / Direct Stream Passthrough</span>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Subtitles Section -->
                 <div class="vlc-dialog-section">
                     <label class="vlc-dialog-label">💬 Subtitles & Captions (On-Device AI Processor)</label>
@@ -678,7 +661,7 @@
                         </label>
                     </div>
                     
-                    <!-- Voice Dubbing Audio Mix Controls (Ducking original stream) -->
+                    <!-- Voice Dubbing Audio Mix Controls -->
                     <div id="vlcVoiceDubbingControls" style="display: none; margin-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 8px;">
                         <div style="display: flex; justify-content: space-between; font-size: 11px; color: #FFFFFF; font-weight: 600; margin-bottom: 6px;">
                             <span>🔊 Dubbed Voice Audio Balance</span>
@@ -694,7 +677,7 @@
 
                 <!-- Subtitle / Audio Sync Offset -->
                 <div class="vlc-dialog-section">
-                    <label class="vlc-dialog-label">⏱️ Audio / Subtitle Sync Delay</label>
+                    <label class="vlc-dialog-label">⏱️ Subtitle Sync Delay</label>
                     <div class="vlc-dialog-options" style="align-items: center; justify-content: space-between;">
                         <button class="vlc-chip-btn" onclick="adjustTrackDelay(-0.5)">- 0.5s</button>
                         <button class="vlc-chip-btn" onclick="adjustTrackDelay(-0.1)">- 0.1s</button>
@@ -704,7 +687,41 @@
                     </div>
                 </div>
 
-                <button class="vlc-dialog-btn-primary" onclick="closeVlcTracksModal()">Apply & Close</button>
+                <button class="vlc-dialog-btn-primary" onclick="closeVlcSubtitlesModal()">Apply & Close</button>
+            </div>
+        </div>
+
+        <!-- 2. Dedicated Audio Track & Channels Dialog (Under 3-Dots) -->
+        <div id="vlcAudioModal" class="vlc-dialog-backdrop" onclick="closeVlcAudioModal()" style="display: none;">
+            <div class="vlc-dialog-card" onclick="event.stopPropagation()">
+                <div class="vlc-dialog-title">Audio Tracks & Channels</div>
+                
+                <!-- Audio Tracks Section -->
+                <div class="vlc-dialog-section">
+                    <label class="vlc-dialog-label">🎧 Audio Languages & Channels (Processor DSP)</label>
+                    <div id="vlcAudioTracksList" class="vlc-list-options" style="max-height: 220px; overflow-y: auto;">
+                        <div class="vlc-radio-row active" onclick="setVlcAudioTrack('hindi', this)">
+                            <span>🇮🇳 Hindi (Main Dialogue Enhanced) [Stereo Vocal DSP]</span>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('english', this)">
+                            <span>🌐 English (Broadcast Audio Feed) [AAC 2.0]</span>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('dual_left', this)">
+                            <span>📻 Dual-Track Left Channel (Hindi Audio Track)</span>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('dual_right', this)">
+                            <span>📻 Dual-Track Right Channel (English Audio Track)</span>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('speech_boost', this)">
+                            <span>⚡ Clear Voice Speech AI Boost (Vocal Clarity)</span>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('passthrough', this)">
+                            <span>🔊 Original Dolby / Direct Stream Passthrough (All 4K Audios)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="vlc-dialog-btn-primary" onclick="closeVlcAudioModal()">Apply & Close</button>
             </div>
         </div>
 
@@ -938,27 +955,28 @@
     </div>
 
     <!-- ==========================================================
-         FLOATING MINI-PLAYER DOCK (Positioned Above Dock)
+         FLOATING MINI-PLAYER DOCK (Clean Mini Screen with Prev, Play/Pause, Next)
          ========================================================== -->
     <div id="miniPlayer" class="obsidian-mini-dock" onclick="openFullPlayerModal()">
-        <div class="mini-live-wave">
-            <span class="wave-bar b1"></span>
-            <span class="wave-bar b2"></span>
-            <span class="wave-bar b3"></span>
-        </div>
         <div id="miniThumb" class="mini-thumb-icon">📺</div>
         <div class="mini-meta-box">
             <h4 id="miniTitle" class="mini-title-text">Aaj Tak HD</h4>
             <p id="miniSub" class="mini-sub-text">NOW PLAYING • LIVE STREAM</p>
         </div>
         <div class="mini-actions" onclick="event.stopPropagation()">
-            <button class="mini-play-btn" onclick="togglePlay()" title="Play / Pause">
+            <!-- 1. Previous / Back Button -->
+            <button id="miniPrevBtn" class="mini-nav-btn" onclick="playPreviousChannel(event)" title="Previous Channel">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#FFFFFF"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+            </button>
+            <!-- 2. Play / Pause Button -->
+            <button id="miniPlayBtn" class="mini-play-btn" onclick="togglePlay(event)" title="Play / Pause">
                 <div id="miniPlaySvgBox">
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
                 </div>
             </button>
-            <button class="icon-btn-plain" onclick="closeMiniPlayer()" title="Dismiss">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            <!-- 3. Next Button -->
+            <button id="miniNextBtn" class="mini-nav-btn" onclick="playNextChannel(event)" title="Next Channel">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#FFFFFF"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
             </button>
         </div>
     </div>
