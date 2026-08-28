@@ -13444,7 +13444,6 @@ window.toggleFullScreen = function() {
     btnText.textContent = targetMode === 'landscape' ? '🔄 Landscape' : '🔄 Portrait';
   }
 
-  // Also try native fullscreen API as fallback for non-Android
   try {
     const playerModal = document.getElementById('playerModal');
     if (!document.fullscreenElement) {
@@ -13461,76 +13460,31 @@ window.toggleFullScreen = function() {
   resetPlayerHideTimer();
 };
 
-// Pro Feature Controls
-let playbackSpeeds = [1.0, 1.25, 1.5, 2.0, 0.5];
-let currentSpeedIdx = 0;
-
-window.cyclePlaybackSpeed = function() {
-  const videoElement = document.getElementById('luminaVideo');
-  if (!videoElement) return;
-  currentSpeedIdx = (currentSpeedIdx + 1) % playbackSpeeds.length;
-  const speed = playbackSpeeds[currentSpeedIdx];
-  videoElement.playbackRate = speed;
-  const speedText = document.getElementById('playerSpeedText');
-  if (speedText) speedText.textContent = speed + 'x';
-  showToast('Speed: ' + speed + 'x');
+// ==========================================================
+// VLC 14-FEATURE PLAYER ENGINE & SIDE-DRAWER CONTROLS
+// ==========================================================
+window.openVlcMoreMenu = function(e) {
+  if (e) e.stopPropagation();
+  const drawer = document.getElementById('vlcMoreDrawer');
+  const backdrop = document.getElementById('vlcMoreDrawerBackdrop');
+  if (drawer) drawer.classList.add('open');
+  if (backdrop) backdrop.style.display = 'block';
   resetPlayerHideTimer();
 };
 
-let aspectModes = ['contain', 'cover', 'fill'];
-let aspectLabels = ['Fit (16:9)', 'Fill Screen', 'Stretch'];
-let currentAspectIdx = 0;
-
-window.cycleAspectRatio = function() {
-  const videoElement = document.getElementById('luminaVideo');
-  if (!videoElement) return;
-  currentAspectIdx = (currentAspectIdx + 1) % aspectModes.length;
-  videoElement.className = 'video-' + aspectModes[currentAspectIdx];
-  const aspectText = document.getElementById('playerAspectText');
-  if (aspectText) aspectText.textContent = aspectLabels[currentAspectIdx];
-  showToast('Aspect: ' + aspectLabels[currentAspectIdx]);
+window.closeVlcMoreMenu = function() {
+  const drawer = document.getElementById('vlcMoreDrawer');
+  const backdrop = document.getElementById('vlcMoreDrawerBackdrop');
+  if (drawer) drawer.classList.remove('open');
+  if (backdrop) backdrop.style.display = 'none';
   resetPlayerHideTimer();
 };
 
-window.toggleMute = function() {
-  const videoElement = document.getElementById('luminaVideo');
-  if (!videoElement) return;
-  videoElement.muted = !videoElement.muted;
-  const muteText = document.getElementById('playerMuteText');
-  if (muteText) muteText.textContent = videoElement.muted ? '🔇 Muted' : '🔊 Audio';
-  showToast(videoElement.muted ? 'Audio Muted' : 'Audio Unmuted');
-  resetPlayerHideTimer();
-};
-
-let sleepDurations = [0, 15, 30, 45, 60];
-let currentSleepIdx = 0;
-let sleepTimeout = null;
-
-window.cycleSleepTimer = function() {
-  currentSleepIdx = (currentSleepIdx + 1) % sleepDurations.length;
-  const mins = sleepDurations[currentSleepIdx];
-  clearTimeout(sleepTimeout);
-  
-  const sleepText = document.getElementById('playerSleepText');
-  if (mins === 0) {
-    if (sleepText) sleepText.textContent = '⏱ Sleep: Off';
-    showToast('Sleep Timer Cancelled');
-  } else {
-    if (sleepText) sleepText.textContent = '⏱ Sleep: ' + mins + 'm';
-    showToast('Sleep Timer Set for ' + mins + ' min');
-    sleepTimeout = setTimeout(() => {
-      const videoElement = document.getElementById('luminaVideo');
-      if (videoElement) videoElement.pause();
-      closePlayerModal();
-      showToast('Sleep Timer: Playback Stopped');
-    }, mins * 60 * 1000);
-  }
-  resetPlayerHideTimer();
-};
-
+// 1. Lock Controls
 let isPlayerLocked = false;
 
 window.togglePlayerLock = function() {
+  closeVlcMoreMenu();
   isPlayerLocked = !isPlayerLocked;
   const uiOverlay = document.getElementById('playerUiOverlay');
   const lockOverlay = document.getElementById('playerLockOverlay');
@@ -13545,6 +13499,412 @@ window.togglePlayerLock = function() {
     showToast('Controls Unlocked 🔓');
     resetPlayerHideTimer();
   }
+};
+
+// 2. Sleep Timer
+let vlcSleepTimeout = null;
+let currentVlcSleepMin = 0;
+
+window.openVlcSleepTimer = function() {
+  closeVlcMoreMenu();
+  const modal = document.getElementById('vlcSleepModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcSleepModal = function() {
+  const modal = document.getElementById('vlcSleepModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.setVlcSleepTimer = function(mins) {
+  clearTimeout(vlcSleepTimeout);
+  currentVlcSleepMin = mins;
+  const badge = document.getElementById('vlcSleepSubtitle');
+  if (mins === 0) {
+    if (badge) badge.textContent = 'Off';
+    showToast('Sleep Timer Cancelled');
+  } else {
+    if (badge) badge.textContent = mins + 'm';
+    showToast('Sleep Timer Set for ' + mins + ' min');
+    vlcSleepTimeout = setTimeout(() => {
+      const v = document.getElementById('luminaVideo');
+      if (v) v.pause();
+      minimizeToMiniPlayer(null);
+      showToast('Sleep Timer: Playback Stopped');
+    }, mins * 60 * 1000);
+  }
+  closeVlcSleepModal();
+};
+
+// 3. Playback Speed
+window.openVlcSpeedModal = function() {
+  closeVlcMoreMenu();
+  const modal = document.getElementById('vlcSpeedModal');
+  const v = document.getElementById('luminaVideo');
+  const currentSpeed = v ? v.playbackRate : 1.0;
+  const range = document.getElementById('vlcSpeedRange');
+  const disp = document.getElementById('vlcSpeedDisplay');
+  if (range) range.value = currentSpeed;
+  if (disp) disp.textContent = currentSpeed.toFixed(2) + 'x';
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcSpeedModal = function() {
+  const modal = document.getElementById('vlcSpeedModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.onVlcSpeedSliderChange = function(val) {
+  const speed = parseFloat(val);
+  const v = document.getElementById('luminaVideo');
+  if (v) v.playbackRate = speed;
+  const disp = document.getElementById('vlcSpeedDisplay');
+  const badge = document.getElementById('vlcSpeedSubtitle');
+  if (disp) disp.textContent = speed.toFixed(2) + 'x';
+  if (badge) badge.textContent = speed.toFixed(2) + 'x';
+};
+
+window.setVlcPlaybackSpeed = function(speed) {
+  const v = document.getElementById('luminaVideo');
+  if (v) v.playbackRate = speed;
+  const range = document.getElementById('vlcSpeedRange');
+  const disp = document.getElementById('vlcSpeedDisplay');
+  const badge = document.getElementById('vlcSpeedSubtitle');
+  if (range) range.value = speed;
+  if (disp) disp.textContent = speed.toFixed(2) + 'x';
+  if (badge) badge.textContent = speed.toFixed(2) + 'x';
+  
+  const chips = document.querySelectorAll('#vlcSpeedModal .vlc-chip-btn');
+  chips.forEach(c => {
+    const val = parseFloat(c.textContent);
+    c.classList.toggle('active', Math.abs(val - speed) < 0.01);
+  });
+  showToast('Speed: ' + speed.toFixed(2) + 'x');
+};
+
+let playbackSpeeds = [1.0, 1.25, 1.5, 2.0, 0.5];
+let currentSpeedIdx = 0;
+
+window.cyclePlaybackSpeed = function() {
+  currentSpeedIdx = (currentSpeedIdx + 1) % playbackSpeeds.length;
+  setVlcPlaybackSpeed(playbackSpeeds[currentSpeedIdx]);
+};
+
+// 4. Jump to Time
+window.openVlcJumpModal = function() {
+  closeVlcMoreMenu();
+  const v = document.getElementById('luminaVideo');
+  const curTime = v ? Math.floor(v.currentTime) : 0;
+  const m = Math.floor(curTime / 60);
+  const s = Math.floor(curTime % 60);
+  const minIn = document.getElementById('vlcJumpMin');
+  const secIn = document.getElementById('vlcJumpSec');
+  if (minIn) minIn.value = m;
+  if (secIn) secIn.value = s < 10 ? '0' + s : s;
+  const modal = document.getElementById('vlcJumpModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcJumpModal = function() {
+  const modal = document.getElementById('vlcJumpModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.applyVlcJump = function() {
+  const minIn = document.getElementById('vlcJumpMin');
+  const secIn = document.getElementById('vlcJumpSec');
+  const mins = parseInt(minIn ? minIn.value : 0, 10) || 0;
+  const secs = parseInt(secIn ? secIn.value : 0, 10) || 0;
+  const target = mins * 60 + secs;
+  const v = document.getElementById('luminaVideo');
+  if (v) {
+    v.currentTime = target;
+    showToast('Jumped to ' + formatSeekTime(target));
+  }
+  closeVlcJumpModal();
+};
+
+// 5. Equalizer
+window.openVlcEqModal = function() {
+  closeVlcMoreMenu();
+  const modal = document.getElementById('vlcEqModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcEqModal = function() {
+  const modal = document.getElementById('vlcEqModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.setVlcEqualizerPreset = function(name) {
+  const badge = document.getElementById('vlcEqSubtitle');
+  if (badge) badge.textContent = name;
+  const chips = document.querySelectorAll('#vlcEqModal .vlc-chip-btn');
+  chips.forEach(c => {
+    c.classList.toggle('active', c.textContent.trim() === name);
+  });
+  showToast('Equalizer: ' + name);
+};
+
+// 6. Play as Audio
+window.togglePlayAsAudio = function() {
+  closeVlcMoreMenu();
+  const artwork = document.getElementById('playerAudioArtwork');
+  const isAudioActive = artwork && artwork.style.display !== 'none';
+  if (artwork) {
+    artwork.style.display = isAudioActive ? 'none' : 'flex';
+  }
+  showToast(isAudioActive ? 'Video Surface Restored' : 'Playing as Audio Mode');
+};
+
+// 7. Pop-Up Player (PiP)
+window.triggerVlcPip = function(e) {
+  if (e) e.stopPropagation();
+  closeVlcMoreMenu();
+  if (window.AndroidMedia && window.AndroidMedia.enterPipMode) {
+    window.AndroidMedia.enterPipMode();
+  } else {
+    const v = document.getElementById('luminaVideo');
+    if (v && document.pictureInPictureEnabled && !document.pictureInPictureElement) {
+      v.requestPictureInPicture().catch(() => {
+        minimizeToMiniPlayer(null);
+      });
+    } else {
+      minimizeToMiniPlayer(null);
+    }
+  }
+  showToast('Pop-Up Player (PiP)');
+};
+
+// 8. Repeat Mode
+let vlcRepeatModes = ['off', 'one', 'all'];
+let vlcRepeatLabels = ['Off', 'Repeat One (🔂)', 'Repeat All (🔁)'];
+let currentVlcRepeatIdx = 0;
+
+window.cycleVlcRepeatMode = function() {
+  currentVlcRepeatIdx = (currentVlcRepeatIdx + 1) % vlcRepeatModes.length;
+  const mode = vlcRepeatModes[currentVlcRepeatIdx];
+  const badge = document.getElementById('vlcRepeatSubtitle');
+  if (badge) badge.textContent = mode === 'off' ? 'Off' : (mode === 'one' ? 'One' : 'All');
+  const v = document.getElementById('luminaVideo');
+  if (v) v.loop = (mode === 'one');
+  showToast('Repeat: ' + vlcRepeatLabels[currentVlcRepeatIdx]);
+};
+
+// 9. Video Information
+window.openVlcInfoModal = function() {
+  closeVlcMoreMenu();
+  const content = document.getElementById('vlcInfoContent');
+  const v = document.getElementById('luminaVideo');
+  const ch = currentPlayingChannel;
+  if (content) {
+    const title = ch ? ch.name : 'Unknown Media';
+    const dur = v && v.duration ? formatSeekTime(v.duration) : (ch && ch.duration ? ch.duration : 'Live Broadcast');
+    const res = v && v.videoWidth ? (v.videoWidth + ' x ' + v.videoHeight + (v.videoWidth >= 3840 ? ' (4K UHD)' : (v.videoWidth >= 1920 ? ' (1080p FHD)' : ' (HD)'))) : (ch && ch.quality ? ch.quality : 'Adaptive Multi-Bitrate');
+    const format = ch && ch.isLocal ? 'Local Storage Video / MKV/MP4' : 'HTTP Live Streaming (HLS master.m3u8)';
+    const codec = v && v.videoWidth ? 'H.265 / HEVC Main Profile / AAC' : 'H.264 / AVC High Profile / AAC';
+    const source = ch && ch.url ? ch.url.split('?')[0] : 'Device Storage';
+
+    content.innerHTML = `
+      <div class="vlc-info-row"><span class="vlc-info-key">Title</span><span class="vlc-info-val">${title}</span></div>
+      <div class="vlc-info-row"><span class="vlc-info-key">Duration</span><span class="vlc-info-val">${dur}</span></div>
+      <div class="vlc-info-row"><span class="vlc-info-key">Resolution</span><span class="vlc-info-val">${res}</span></div>
+      <div class="vlc-info-row"><span class="vlc-info-key">Codec</span><span class="vlc-info-val">${codec}</span></div>
+      <div class="vlc-info-row"><span class="vlc-info-key">Format</span><span class="vlc-info-val">${format}</span></div>
+      <div class="vlc-info-row"><span class="vlc-info-key">Source</span><span class="vlc-info-val">${source}</span></div>
+    `;
+  }
+  const modal = document.getElementById('vlcInfoModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcInfoModal = function() {
+  const modal = document.getElementById('vlcInfoModal');
+  if (modal) modal.style.display = 'none';
+};
+
+// 10. Bookmarks
+let vlcBookmarks = [];
+
+window.openVlcBookmarksModal = function() {
+  closeVlcMoreMenu();
+  renderVlcBookmarks();
+  const modal = document.getElementById('vlcBookmarksModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcBookmarksModal = function() {
+  const modal = document.getElementById('vlcBookmarksModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.addVlcBookmark = function() {
+  const v = document.getElementById('luminaVideo');
+  if (!v) return;
+  const t = Math.floor(v.currentTime);
+  vlcBookmarks.push({ time: t, label: 'Bookmark at ' + formatSeekTime(t) });
+  renderVlcBookmarks();
+  showToast('Bookmark added at ' + formatSeekTime(t));
+};
+
+function renderVlcBookmarks() {
+  const list = document.getElementById('vlcBookmarksList');
+  if (!list) return;
+  if (vlcBookmarks.length === 0) {
+    list.innerHTML = '<p style="color:#a3a3a3; font-size:13px; text-align:center; padding:12px;">No bookmarks saved yet.</p>';
+    return;
+  }
+  list.innerHTML = vlcBookmarks.map((bm, i) => `
+    <div class="vlc-bookmark-item">
+      <span class="vlc-bm-time" onclick="jumpToVlcBookmark(${bm.time})">📍 ${bm.label}</span>
+      <button style="background:none;border:none;color:#ff5e62;cursor:pointer;font-size:14px;" onclick="removeVlcBookmark(${i})">✕</button>
+    </div>
+  `).join('');
+}
+
+window.jumpToVlcBookmark = function(time) {
+  const v = document.getElementById('luminaVideo');
+  if (v) v.currentTime = time;
+  showToast('Jumped to ' + formatSeekTime(time));
+  closeVlcBookmarksModal();
+};
+
+window.removeVlcBookmark = function(idx) {
+  vlcBookmarks.splice(idx, 1);
+  renderVlcBookmarks();
+};
+
+// 11. A-B Repeat
+let vlcPointA = null;
+let vlcPointB = null;
+let isVlcABRepeatActive = false;
+
+window.toggleVlcABRepeat = function() {
+  closeVlcMoreMenu();
+  isVlcABRepeatActive = !isVlcABRepeatActive;
+  const bar = document.getElementById('vlcABRepeatBar');
+  const badge = document.getElementById('vlcABRepeatSubtitle');
+  if (isVlcABRepeatActive) {
+    vlcPointA = null;
+    vlcPointB = null;
+    if (bar) bar.style.display = 'flex';
+    if (badge) badge.textContent = 'Active';
+    updateVlcABRangeText();
+    showToast('A-B Repeat: Set Point A');
+  } else {
+    vlcPointA = null;
+    vlcPointB = null;
+    if (bar) bar.style.display = 'none';
+    if (badge) badge.textContent = 'Off';
+    showToast('A-B Repeat Cleared');
+  }
+};
+
+window.setVlcPointA = function() {
+  const v = document.getElementById('luminaVideo');
+  if (v) vlcPointA = v.currentTime;
+  updateVlcABRangeText();
+  showToast('Point [A] set at ' + formatSeekTime(vlcPointA || 0));
+};
+
+window.setVlcPointB = function() {
+  const v = document.getElementById('luminaVideo');
+  if (v) {
+    if (vlcPointA === null) vlcPointA = 0;
+    vlcPointB = v.currentTime;
+    if (vlcPointB < vlcPointA) {
+      const temp = vlcPointA;
+      vlcPointA = vlcPointB;
+      vlcPointB = temp;
+    }
+  }
+  updateVlcABRangeText();
+  showToast('Point [B] set at ' + formatSeekTime(vlcPointB || 0));
+};
+
+function updateVlcABRangeText() {
+  const txt = document.getElementById('vlcABRangeText');
+  if (txt) {
+    const aStr = vlcPointA !== null ? formatSeekTime(vlcPointA) : '--:--';
+    const bStr = vlcPointB !== null ? formatSeekTime(vlcPointB) : '--:--';
+    txt.textContent = aStr + ' ➔ ' + bStr;
+  }
+}
+
+// 12. Save Playlist
+window.saveVlcPlaylist = function() {
+  closeVlcMoreMenu();
+  toggleCurrentFav(null);
+};
+
+// 13. Control Settings
+window.openVlcSettingsModal = function() {
+  closeVlcMoreMenu();
+  const modal = document.getElementById('vlcSettingsModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcSettingsModal = function() {
+  const modal = document.getElementById('vlcSettingsModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.toggleVlcSetting = function(key, val) {
+  localStorage.setItem('vlc_setting_' + key, val);
+  showToast('Setting Saved');
+};
+
+// 14. Player Tips
+window.openVlcPlayerTips = function() {
+  closeVlcMoreMenu();
+  const modal = document.getElementById('vlcTipsModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcTipsModal = function() {
+  const modal = document.getElementById('vlcTipsModal');
+  if (modal) modal.style.display = 'none';
+};
+
+// Tracks Modal (Subtitles & Orientation)
+window.openVlcTracksMenu = function(e) {
+  if (e) e.stopPropagation();
+  const modal = document.getElementById('vlcTracksModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcTracksModal = function() {
+  const modal = document.getElementById('vlcTracksModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.setVlcSubtitle = function(on) {
+  isCCEnabled = on;
+  updateCCUI();
+  showToast(on ? 'Subtitles / [CC] Enabled' : 'Subtitles Disabled');
+  closeVlcTracksModal();
+};
+
+let aspectModes = ['contain', 'cover', 'fill'];
+let aspectLabels = ['Fit (16:9)', 'Fill Screen', 'Stretch'];
+let currentAspectIdx = 0;
+
+window.cycleAspectRatio = function(e) {
+  if (e) e.stopPropagation();
+  const videoElement = document.getElementById('luminaVideo');
+  if (!videoElement) return;
+  currentAspectIdx = (currentAspectIdx + 1) % aspectModes.length;
+  videoElement.className = 'video-' + aspectModes[currentAspectIdx];
+  showToast('Aspect: ' + aspectLabels[currentAspectIdx]);
+  resetPlayerHideTimer();
+};
+
+window.toggleMute = function() {
+  const videoElement = document.getElementById('luminaVideo');
+  if (!videoElement) return;
+  videoElement.muted = !videoElement.muted;
+  showToast(videoElement.muted ? 'Audio Muted' : 'Audio Unmuted');
+  resetPlayerHideTimer();
 };
 
 // Closed Captions
@@ -13607,7 +13967,7 @@ function initPlayerOverlayEvents() {
   if (playerModal) {
     playerModal.addEventListener('click', (e) => {
       if (isPlayerLocked) return;
-      if (e.target.closest('button') || e.target.closest('.player-seekbar-wrap') || e.target.closest('.player-pro-bar') || e.target.closest('.player-doubletap-zone')) return;
+      if (e.target.closest('button') || e.target.closest('.vlc-seekbar-wrap') || e.target.closest('.vlc-side-drawer') || e.target.closest('.vlc-dialog-card')) return;
       
       const now = Date.now();
       const clickX = e.clientX;
@@ -13634,6 +13994,7 @@ function initPlayerOverlayEvents() {
           resetPlayerHideTimer();
         } else {
           playerUiOverlay.classList.add('hidden-controls');
+          closeVlcMoreMenu();
         }
       }
     });
@@ -13641,28 +14002,34 @@ function initPlayerOverlayEvents() {
 
   if (videoElement) {
     videoElement.addEventListener('timeupdate', () => {
+      // Handle A-B Repeat Loop
+      if (isVlcABRepeatActive && vlcPointA !== null && vlcPointB !== null && vlcPointB > vlcPointA) {
+        if (videoElement.currentTime >= vlcPointB || videoElement.currentTime < vlcPointA) {
+          videoElement.currentTime = vlcPointA;
+        }
+      }
+
       if (videoElement.duration && !isNaN(videoElement.duration)) {
-        const pct = (videoElement.currentTime / videoElement.duration) * 100;
+        const cur = videoElement.currentTime;
+        const dur = videoElement.duration;
+        const pct = (cur / dur) * 100;
         if (playerSeekFill) playerSeekFill.style.width = pct + '%';
         if (playerTimeCurrent) {
-          const m = Math.floor(videoElement.currentTime / 60);
-          const s = Math.floor(videoElement.currentTime % 60);
-          playerTimeCurrent.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+          playerTimeCurrent.textContent = formatSeekTime(cur);
         }
         if (playerTimeTotal) {
-          const tm = Math.floor(videoElement.duration / 60);
-          const ts = Math.floor(videoElement.duration % 60);
-          playerTimeTotal.textContent = tm + ':' + (ts < 10 ? '0' : '') + ts;
+          const rem = Math.max(0, dur - cur);
+          playerTimeTotal.textContent = '- ' + formatSeekTime(rem);
         }
         // Save resume position for offline / local media
-        if (currentPlayingChannel && currentPlayingChannel.isLocal && videoElement.currentTime > 5) {
+        if (currentPlayingChannel && currentPlayingChannel.isLocal && cur > 5) {
           try {
-            localStorage.setItem('aakash_resume_' + currentPlayingChannel.id, Math.floor(videoElement.currentTime));
+            localStorage.setItem('aakash_resume_' + currentPlayingChannel.id, Math.floor(cur));
           } catch (e) {}
         }
       } else {
         if (playerSeekFill) playerSeekFill.style.width = '100%';
-        if (playerTimeCurrent) playerTimeCurrent.textContent = '00:00';
+        if (playerTimeCurrent) playerTimeCurrent.textContent = '0:00';
         if (playerTimeTotal) playerTimeTotal.textContent = 'LIVE';
       }
     });

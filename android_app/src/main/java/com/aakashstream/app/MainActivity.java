@@ -855,6 +855,21 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public void enterPipMode() {
+            runOnUiThread(() -> {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    try {
+                        PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
+                        pipBuilder.setAspectRatio(new Rational(16, 9));
+                        enterPictureInPictureMode(pipBuilder.build());
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error entering PiP mode: " + e.getMessage());
+                    }
+                }
+            });
+        }
+
+        @JavascriptInterface
         public void requestStoragePermission() {
             runOnUiThread(() -> checkAndRequestPermissions());
         }
