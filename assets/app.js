@@ -13859,8 +13859,13 @@ function loadChannelMedia(ch, autoPlay) {
       }
     };
     videoElement.onseeked = () => {
-      if (isNativeDDPActive && window.AndroidMedia && window.AndroidMedia.syncNativeAudio) {
-        window.AndroidMedia.syncNativeAudio(videoElement.currentTime, !videoElement.paused, currentVolume / 100);
+      if (isNativeDDPActive && window.AndroidMedia) {
+        if (window.AndroidMedia.seekNativeAudio) {
+          window.AndroidMedia.seekNativeAudio(videoElement.currentTime);
+        }
+        if (window.AndroidMedia.syncNativeAudio) {
+          window.AndroidMedia.syncNativeAudio(videoElement.currentTime, !videoElement.paused, currentVolume / 100);
+        }
       }
     };
     videoElement.oncanplay = () => {

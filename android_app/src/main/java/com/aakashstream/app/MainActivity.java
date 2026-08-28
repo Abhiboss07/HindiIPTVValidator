@@ -20,6 +20,8 @@ import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import java.nio.ByteBuffer;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import android.os.Bundle;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
@@ -311,6 +313,7 @@ public class MainActivity extends Activity {
             if (start > 0) {
                 fis.getChannel().position(start);
             }
+            BufferedInputStream bis = new BufferedInputStream(fis, 64 * 1024);
 
             StringBuilder headers = new StringBuilder();
             if (isRange && totalLength > 0) {
@@ -331,21 +334,23 @@ public class MainActivity extends Activity {
             }
             headers.append("\r\n");
 
-            out.write(headers.toString().getBytes("UTF-8"));
+            BufferedOutputStream bos = new BufferedOutputStream(out, 64 * 1024);
+            bos.write(headers.toString().getBytes("UTF-8"));
 
             if (!"HEAD".equalsIgnoreCase(method)) {
                 byte[] buffer = new byte[64 * 1024];
                 long bytesToRead = (totalLength > 0) ? contentLength : Long.MAX_VALUE;
                 while (bytesToRead > 0) {
                     int toRead = (int) Math.min(buffer.length, bytesToRead);
-                    int read = fis.read(buffer, 0, toRead);
+                    int read = bis.read(buffer, 0, toRead);
                     if (read <= 0) break;
-                    out.write(buffer, 0, read);
+                    bos.write(buffer, 0, read);
                     bytesToRead -= read;
                 }
-                out.flush();
+                bos.flush();
             }
 
+            bis.close();
             fis.close();
             afd.close();
             socket.close();
@@ -1012,13 +1017,21 @@ public class MainActivity extends Activity {
             try {
                 if (isPlaying) {
                     nativeAudioDecoder.resume();
-                    nativeAudioDecoder.seek(currentSeconds);
                 } else {
                     nativeAudioDecoder.pause();
                 }
                 nativeAudioDecoder.setVolume(volume);
             } catch (Exception e) {
                 Log.e(TAG, "Error syncing native audio: " + e.getMessage());
+            }
+        }
+
+        @JavascriptInterface
+        public void seekNativeAudio(float currentSeconds) {
+            try {
+                nativeAudioDecoder.seek(currentSeconds);
+            } catch (Exception e) {
+                Log.e(TAG, "Error seeking native audio: " + e.getMessage());
             }
         }
 
@@ -1163,7 +1176,7 @@ public class MainActivity extends Activity {
                 if (sampleRate <= 0) sampleRate = 48000;
 
                 int minBuf = AudioTrack.getMinBufferSize(sampleRate, AudioFormat.CHANNEL_OUT_STEREO, AudioFormat.ENCODING_PCM_16BIT);
-                int bufferSize = minBuf > 0 ? minBuf * 2 : 4096;
+                int bufferSize = Math.max(minBuf * 4, 32768);
 
                 audioTrack = new AudioTrack.Builder()
                     .setAudioAttributes(new AudioAttributes.Builder()
@@ -1192,7 +1205,7 @@ public class MainActivity extends Activity {
                 decodeThread = new Thread(this::decodeLoop, "FFmpeg_Dolby_AudioDecoder");
                 decodeThread.setPriority(Thread.MAX_PRIORITY);
                 decodeThread.start();
-                Log.i("AakashStream", "FFmpeg Dolby Audio Decoder started successfully at " + sampleRate + " Hz (Low Latency Buffer: " + bufferSize + " bytes)!");
+                Log.i("AakashStream", "FFmpeg Dolby Audio Decoder started smoothly at " + sampleRate + " Hz (Buffer: " + bufferSize + " bytes)!");
                 return true;
             } catch (Throwable e) {
                 Log.e("AakashStream", "Error initializing native audio decoder: " + e.getMessage(), e);
@@ -1202,11 +1215,11 @@ public class MainActivity extends Activity {
         }
 
         private void decodeLoop() {
-            byte[] pcmBuffer = new byte[2048];
+            byte[] pcmBuffer = new byte[8192];
             while (isRunning) {
                 if (isPaused) {
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(20);
                     } catch (InterruptedException ignored) {}
                     continue;
                 }
@@ -1219,7 +1232,7 @@ public class MainActivity extends Activity {
 
                 if (bytesRead > 0) {
                     if (audioTrack != null) {
-                        audioTrack.write(pcmBuffer, 0, bytesRead);
+                        audioTrack.write(pcmBuffer, 0, bytesRead, AudioTrack.WRITE_BLOCKING);
                     }
                 } else if (bytesRead < 0) {
                     break;
