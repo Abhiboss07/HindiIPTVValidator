@@ -12924,13 +12924,15 @@ let activeGestureType = null;
 let hudHideTimeout = null;
 
 // Initialize Application
-document.addEventListener('DOMContentLoaded', async () => {
+function initApp() {
   initParticles();
   initPlayerOverlayEvents();
   initPlayerSwipeGestures();
   initMiniPlayerSwipe();
   updateCCUI();
-  await loadDatabase();
+  loadDatabase().then(() => {
+    renderAllPages();
+  });
   renderAllPages();
   setTimeout(() => { autoScanDeviceMedia(); }, 300);
   loadSettingsUI();
@@ -12939,14 +12941,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Dismiss T2L (Television to Live) Cinematic Splash Screen smoothly
   setTimeout(() => {
     const splash = document.getElementById('t2lSplashScreen');
-    if (splash) {
+    if (splash && !splash.classList.contains('splash-hidden')) {
       splash.classList.add('splash-hidden');
       setTimeout(() => {
         if (splash.parentNode) splash.parentNode.removeChild(splash);
       }, 500);
     }
-  }, 1300);
-});
+  }, 900);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 async function loadDatabase() {
   if (window.location.protocol.startsWith('http')) {

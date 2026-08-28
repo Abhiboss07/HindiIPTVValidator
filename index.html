@@ -31,7 +31,6 @@
                     <span class="t2l-emblem-2">2</span>
                     <span class="t2l-emblem-l">L</span>
                 </div>
-                <div class="t2l-live-pulse-dot"></div>
             </div>
             <h1 class="t2l-splash-title">T2L</h1>
             <p class="t2l-splash-tagline">TELEVISION TO LIVE</p>
@@ -41,6 +40,15 @@
             <span class="t2l-splash-caption">ULTRA HD LIVE STREAMING ENGINE</span>
         </div>
     </div>
+    <script>
+        setTimeout(function() {
+            var splash = document.getElementById('t2lSplashScreen');
+            if (splash && !splash.classList.contains('splash-hidden')) {
+                splash.classList.add('splash-hidden');
+                setTimeout(function() { if (splash.parentNode) splash.parentNode.removeChild(splash); }, 500);
+            }
+        }, 1100);
+    </script>
 
     <!-- Top App Bar -->
     <header class="obsidian-header">

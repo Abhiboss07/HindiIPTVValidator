@@ -23,10 +23,10 @@
   <rect x="16" y="16" width="480" height="480" rx="112" fill="none" stroke="url(#t2lRuby)" stroke-width="4" stroke-opacity="0.4"/>
   
   <!-- Holographic Center Glow -->
-  <circle cx="256" cy="220" r="140" fill="#E50914" opacity="0.18" filter="url(#neonGlow)"/>
+  <circle cx="256" cy="240" r="140" fill="#E50914" opacity="0.18" filter="url(#neonGlow)"/>
 
   <!-- T2L Modern Geometric Insignia -->
-  <g filter="url(#neonGlow)" transform="translate(0, -10)">
+  <g filter="url(#neonGlow)" transform="translate(0, 20)">
     <!-- Letter T -->
     <path d="M 90 140 L 200 140 L 200 180 L 165 180 L 165 290 L 125 290 L 125 180 L 90 180 Z" fill="url(#t2lSilver)"/>
     
@@ -35,11 +35,6 @@
     
     <!-- Letter L -->
     <path d="M 320 140 L 360 140 L 360 250 L 420 250 L 420 290 L 320 290 Z" fill="url(#t2lSilver)"/>
-
-    <!-- Live Broadcast Pulse Wave & Green Dot -->
-    <circle cx="256" cy="335" r="10" fill="#00E676"/>
-    <path d="M 220 335 A 36 36 0 0 1 292 335" fill="none" stroke="#00E676" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
-    <path d="M 195 335 A 61 61 0 0 1 317 335" fill="none" stroke="#00E676" stroke-width="4" stroke-linecap="round" opacity="0.45"/>
   </g>
 
   <!-- Tagline Text -->
