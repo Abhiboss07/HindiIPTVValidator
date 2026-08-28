@@ -42,7 +42,13 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.app.PendingIntent;
 import android.app.PictureInPictureParams;
+import android.app.RemoteAction;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+import android.content.res.Configuration;
+import android.graphics.drawable.Icon;
 import android.util.Rational;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -70,6 +76,25 @@ public class MainActivity extends Activity {
     private ServerSocket localServerSocket;
     private int localServerPort = 0;
     private volatile boolean isServerRunning = false;
+
+    private static final String ACTION_PIP_PREV = "com.aakashstream.app.PIP_PREV";
+    private static final String ACTION_PIP_PLAY_PAUSE = "com.aakashstream.app.PIP_PLAY_PAUSE";
+    private static final String ACTION_PIP_NEXT = "com.aakashstream.app.PIP_NEXT";
+
+    private final BroadcastReceiver pipReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent == null || intent.getAction() == null) return;
+            String action = intent.getAction();
+            if (ACTION_PIP_PREV.equals(action)) {
+                if (webView != null) webView.evaluateJavascript("window.playPreviousChannel ? window.playPreviousChannel() : null", null);
+            } else if (ACTION_PIP_PLAY_PAUSE.equals(action)) {
+                if (webView != null) webView.evaluateJavascript("window.togglePlay ? window.togglePlay() : null", null);
+            } else if (ACTION_PIP_NEXT.equals(action)) {
+                if (webView != null) webView.evaluateJavascript("window.playNextChannel ? window.playNextChannel() : null", null);
+            }
+        }
+    };
 
     // Custom Bounded InputStream for HTTP 206 Partial Content Range streaming
     private static class BoundedInputStream extends InputStream {
@@ -399,6 +424,16 @@ public class MainActivity extends Activity {
 
         setupWebView();
         webView.loadUrl("file:///android_asset/index.html");
+
+        IntentFilter pipFilter = new IntentFilter();
+        pipFilter.addAction(ACTION_PIP_PREV);
+        pipFilter.addAction(ACTION_PIP_PLAY_PAUSE);
+        pipFilter.addAction(ACTION_PIP_NEXT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(pipReceiver, pipFilter, Context.RECEIVER_NOT_EXPORTED);
+        } else {
+            registerReceiver(pipReceiver, pipFilter);
+        }
     }
 
     private void checkAndRequestPermissions() {
@@ -889,8 +924,29 @@ public class MainActivity extends Activity {
             runOnUiThread(() -> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     try {
+                        if (webView != null) {
+                            webView.evaluateJavascript("window.onEnterPipMode ? window.onEnterPipMode() : null", null);
+                        }
                         PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
                         pipBuilder.setAspectRatio(new Rational(16, 9));
+
+                        ArrayList<RemoteAction> actions = new ArrayList<>();
+                        Intent prevIntent = new Intent(ACTION_PIP_PREV).setPackage(getPackageName());
+                        PendingIntent prevPending = PendingIntent.getBroadcast(MainActivity.this, 1, prevIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                        Icon prevIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_previous);
+                        actions.add(new RemoteAction(prevIcon, "Previous", "Previous", prevPending));
+
+                        Intent playIntent = new Intent(ACTION_PIP_PLAY_PAUSE).setPackage(getPackageName());
+                        PendingIntent playPending = PendingIntent.getBroadcast(MainActivity.this, 2, playIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                        Icon playIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_play);
+                        actions.add(new RemoteAction(playIcon, "Play/Pause", "Play/Pause", playPending));
+
+                        Intent nextIntent = new Intent(ACTION_PIP_NEXT).setPackage(getPackageName());
+                        PendingIntent nextPending = PendingIntent.getBroadcast(MainActivity.this, 3, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                        Icon nextIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_next);
+                        actions.add(new RemoteAction(nextIcon, "Next", "Next", nextPending));
+
+                        pipBuilder.setActions(actions);
                         enterPictureInPictureMode(pipBuilder.build());
                     } catch (Exception e) {
                         Log.e(TAG, "Error entering PiP mode: " + e.getMessage());
@@ -1116,7 +1172,22 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode, Configuration newConfig) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig);
+        if (webView != null) {
+            if (isInPictureInPictureMode) {
+                webView.evaluateJavascript("window.onEnterPipMode ? window.onEnterPipMode() : null", null);
+            } else {
+                webView.evaluateJavascript("window.onExitPipMode ? window.onExitPipMode() : null", null);
+            }
+        }
+    }
+
+    @Override
     protected void onDestroy() {
+        try {
+            unregisterReceiver(pipReceiver);
+        } catch (Exception ignored) {}
         isServerRunning = false;
         if (localServerSocket != null) {
             try {

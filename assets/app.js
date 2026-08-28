@@ -14732,9 +14732,43 @@ window.togglePlayAsAudio = function() {
 };
 
 // 7. Pop-Up Player (PiP)
+window.onEnterPipMode = function() {
+  // Instantly hide all full player UI overlays, top/bottom bars, drawers, and HUDs
+  const uiOverlay = document.getElementById('playerUiOverlay');
+  if (uiOverlay) {
+    uiOverlay.classList.remove('active');
+    uiOverlay.style.display = 'none';
+  }
+  const lockOverlay = document.getElementById('playerLockOverlay');
+  if (lockOverlay) lockOverlay.style.display = 'none';
+  const swipeHud = document.getElementById('playerSwipeHud');
+  if (swipeHud) swipeHud.classList.remove('active');
+  const ccBox = document.getElementById('playerCcBox');
+  if (ccBox) ccBox.style.display = 'none';
+  const miniPlayer = document.getElementById('miniPlayer');
+  if (miniPlayer) miniPlayer.classList.remove('active');
+  if (typeof closeVlcMoreMenu === 'function') closeVlcMoreMenu();
+
+  const playerModal = document.getElementById('playerModal');
+  if (playerModal) {
+    playerModal.classList.add('active');
+    playerModal.style.display = 'flex';
+  }
+};
+
+window.onExitPipMode = function() {
+  const uiOverlay = document.getElementById('playerUiOverlay');
+  if (uiOverlay) {
+    uiOverlay.style.display = '';
+  }
+  resetPlayerHideTimer();
+};
+
 window.triggerVlcPip = function(e) {
   if (e) e.stopPropagation();
   closeVlcMoreMenu();
+  if (window.onEnterPipMode) window.onEnterPipMode();
+
   if (window.AndroidMedia && window.AndroidMedia.enterPipMode) {
     window.AndroidMedia.enterPipMode();
   } else {
