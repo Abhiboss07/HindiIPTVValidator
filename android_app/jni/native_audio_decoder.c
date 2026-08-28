@@ -90,6 +90,13 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeOpe
     }
 
     dec->fmt_ctx = avformat_alloc_context();
+    if (!dec->fmt_ctx) {
+        LOGE("Failed to allocate AVFormatContext");
+        avio_context_free(&dec->avio_ctx);
+        close(fd);
+        free(dec);
+        return 0;
+    }
     dec->fmt_ctx->pb = dec->avio_ctx;
     dec->fmt_ctx->flags |= AVFMT_FLAG_FAST_SEEK | AVFMT_FLAG_NOBUFFER;
     dec->fmt_ctx->probesize = 256 * 1024;
@@ -205,6 +212,18 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeOpe
 
     dec->pkt = av_packet_alloc();
     dec->frame = av_frame_alloc();
+    if (!dec->pkt || !dec->frame) {
+        LOGE("Failed to allocate AVPacket or AVFrame");
+        if (dec->pkt) av_packet_free(&dec->pkt);
+        if (dec->frame) av_frame_free(&dec->frame);
+        swr_free(&dec->swr_ctx);
+        avcodec_free_context(&dec->codec_ctx);
+        avformat_close_input(&dec->fmt_ctx);
+        avio_context_free(&dec->avio_ctx);
+        close(fd);
+        free(dec);
+        return 0;
+    }
 
     LOGI("Native Audio Decoder initialized for FD %d (Codec: %s, Rate: %d Hz, Stream: %d)",
          fd, codec->name, dec->out_sample_rate, dec->audio_stream_idx);
@@ -271,7 +290,11 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeRea
             }
 
             if (dec->pkt->stream_index == dec->audio_stream_idx) {
-                avcodec_send_packet(dec->codec_ctx, dec->pkt);
+                int send_ret = avcodec_send_packet(dec->codec_ctx, dec->pkt);
+                if (send_ret < 0 && send_ret != AVERROR(EAGAIN)) {
+                    av_packet_unref(dec->pkt);
+                    break; // Fatal decoder error (corrupt packet)
+                }
             }
             av_packet_unref(dec->pkt);
         } else {
@@ -306,7 +329,11 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeClo
     if (dec->pkt) av_packet_free(&dec->pkt);
     if (dec->codec_ctx) avcodec_free_context(&dec->codec_ctx);
     if (dec->fmt_ctx) avformat_close_input(&dec->fmt_ctx);
-    if (dec->avio_ctx) avio_context_free(&dec->avio_ctx);
+    if (dec->avio_ctx) {
+        // avformat_close_input may have freed the internal buffer; avoid double-free
+        av_freep(&dec->avio_ctx->buffer);
+        avio_context_free(&dec->avio_ctx);
+    }
     if (dec->fd >= 0) close(dec->fd);
     free(dec);
     LOGI("Native Audio Decoder closed successfully.");

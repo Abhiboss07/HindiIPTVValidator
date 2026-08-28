@@ -47,7 +47,7 @@
 
 ### ⚡ 2. Instant Playback for 100 GB+ Files (4MB HTTP 206 Slicing)
 - **Local Streaming Server**: Built-in multi-threaded HTTP server with `BufferedInputStream` and `BufferedOutputStream`.
-- **4MB Partial Content Chunking**: Slices open-ended range requests (`bytes=0-`) into lightweight 4 MB chunks, allowing Chromium and Android media parsers to read MKV cluster headers and start 4K movies in **< 10 milliseconds**.
+- **4MB Partial Content Chunking**: Slices open-ended range requests (`bytes=0-`) into lightweight 4 MB chunks, allowing Chromium and Android media parsers to read MKV cluster headers and begin 4K movie playback with minimal startup latency, even on 100 GB+ files.
 
 ### 📱 3. Instant Picture-in-Picture (PiP) & Floating Mini Player
 - **0ms Instant UI Clearance**: Automatically hides top bars, seekbars, menus, and HUDs before entering PiP mode to provide a 100% clean video window.
@@ -99,7 +99,7 @@ sequenceDiagram
     par Video Streaming Pipeline
         UI->>Server: HTTP GET /video?id=X (Range: bytes=0-)
         Server->>Server: 4MB Bounded Chunking (0 to 4,194,303)
-        Server-->>Video: HTTP 206 Partial Content (4MB in < 5ms)
+        Server-->>Video: HTTP 206 Partial Content (4MB chunk)
         Video->>Video: Instant Hardware Video Decode
     and Audio Decoding Loop
         loop Decode Thread (AudioTrack.WRITE_BLOCKING)

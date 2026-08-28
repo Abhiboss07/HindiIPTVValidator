@@ -76,6 +76,8 @@ public class MainActivity extends Activity {
     private ServerSocket localServerSocket;
     private int localServerPort = 0;
     private volatile boolean isServerRunning = false;
+    private java.util.concurrent.ExecutorService serverExecutor;
+    private AndroidMediaBridge mediaBridge;
 
     private static final String ACTION_PIP_PREV = "com.aakashstream.app.PIP_PREV";
     private static final String ACTION_PIP_PLAY_PAUSE = "com.aakashstream.app.PIP_PLAY_PAUSE";
@@ -140,12 +142,13 @@ public class MainActivity extends Activity {
                 localServerSocket = new ServerSocket(0, 50, java.net.InetAddress.getByName("127.0.0.1"));
                 localServerPort = localServerSocket.getLocalPort();
                 isServerRunning = true;
+                serverExecutor = java.util.concurrent.Executors.newFixedThreadPool(4);
                 Log.i(TAG, "LocalMediaServer running on 127.0.0.1:" + localServerPort);
 
                 while (isServerRunning && !localServerSocket.isClosed()) {
                     try {
                         Socket socket = localServerSocket.accept();
-                        new Thread(() -> handleClientSocket(socket)).start();
+                        serverExecutor.execute(() -> handleClientSocket(socket));
                     } catch (Exception e) {
                         if (!isServerRunning) break;
                     }
@@ -227,7 +230,16 @@ public class MainActivity extends Activity {
                 return;
             }
 
-            long id = Long.parseLong(idStr);
+            long id;
+            try {
+                id = Long.parseLong(idStr);
+            } catch (NumberFormatException e) {
+                String resp = "HTTP/1.1 400 Bad Request\r\nContent-Length: 0\r\n\r\n";
+                out.write(resp.getBytes("UTF-8"));
+                out.flush();
+                socket.close();
+                return;
+            }
 
             if ("/thumb".equals(path)) {
                 String mediaType = params.get("type");
@@ -328,7 +340,7 @@ public class MainActivity extends Activity {
             }
 
             // High performance video range chunking (Max 4MB per HTTP 206 chunk)
-            // This guarantees instant (< 5ms) opening even on 100GB+ files!
+            // This enables fast startup for large files (100GB+) by limiting initial response size
             if (!isExplicitEnd && totalLength > 0) {
                 long maxChunk = 4 * 1024 * 1024;
                 end = Math.min(start + maxChunk - 1, totalLength - 1);
@@ -388,7 +400,8 @@ public class MainActivity extends Activity {
             fis.close();
             afd.close();
             socket.close();
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+            Log.w(TAG, "Error handling HTTP client: " + e.getMessage());
             try { socket.close(); } catch (Exception e2) {}
         }
     }
@@ -397,7 +410,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        WebView.setWebContentsDebuggingEnabled(true);
+        boolean isDebuggable = (getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+        WebView.setWebContentsDebuggingEnabled(isDebuggable);
         startLocalServer();
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -494,7 +508,6 @@ public class MainActivity extends Activity {
     }
 
     private void setupWebView() {
-        WebView.setWebContentsDebuggingEnabled(true);
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
@@ -502,14 +515,15 @@ public class MainActivity extends Activity {
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(true);
         settings.setAllowFileAccessFromFileURLs(true);
-        settings.setAllowUniversalAccessFromFileURLs(true);
+        settings.setAllowUniversalAccessFromFileURLs(false);
         settings.setMediaPlaybackRequiresUserGesture(false);
-        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
 
-        webView.addJavascriptInterface(new AndroidMediaBridge(), "AndroidMedia");
+        mediaBridge = new AndroidMediaBridge();
+        webView.addJavascriptInterface(mediaBridge, "AndroidMedia");
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -1188,7 +1202,18 @@ public class MainActivity extends Activity {
         try {
             unregisterReceiver(pipReceiver);
         } catch (Exception ignored) {}
+        // Stop native audio decoder to prevent thread/memory leaks
+        if (mediaBridge != null) {
+            try {
+                mediaBridge.stopNativeAudio();
+            } catch (Exception ignored) {}
+        }
         isServerRunning = false;
+        if (serverExecutor != null) {
+            try {
+                serverExecutor.shutdownNow();
+            } catch (Exception ignored) {}
+        }
         if (localServerSocket != null) {
             try {
                 localServerSocket.close();
@@ -1367,6 +1392,9 @@ public class MainActivity extends Activity {
             isPaused = false;
             if (decodeThread != null) {
                 decodeThread.interrupt();
+                try {
+                    decodeThread.join(2000); // Wait for decode thread to exit JNI
+                } catch (InterruptedException ignored) {}
                 decodeThread = null;
             }
             synchronized (lock) {
