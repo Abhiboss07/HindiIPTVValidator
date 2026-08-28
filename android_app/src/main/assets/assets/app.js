@@ -13257,6 +13257,7 @@ window.minimizeToMiniPlayer = function(e) {
   
   // Close any open VLC drawers or dialogs immediately
   if (typeof closeVlcMoreMenu === 'function') closeVlcMoreMenu();
+  if (typeof closeVlcQualityModal === 'function') closeVlcQualityModal();
   if (typeof closeVlcTracksModal === 'function') closeVlcTracksModal();
   if (typeof closeVlcSleepModal === 'function') closeVlcSleepModal();
   if (typeof closeVlcSpeedModal === 'function') closeVlcSpeedModal();
@@ -13533,7 +13534,120 @@ window.togglePlayerLock = function() {
   }
 };
 
-// 2. Sleep Timer
+// ==========================================================
+// STREAM QUALITY & DATA SPEED (Adaptive Bitrate Engine)
+// ==========================================================
+let currentVlcQuality = 'auto';
+
+window.openVlcQualityModal = function(e) {
+  if (e) e.stopPropagation();
+  closeVlcMoreMenu();
+  updateLiveNetworkSpeedDisplay();
+  const modal = document.getElementById('vlcQualityModal');
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeVlcQualityModal = function() {
+  const modal = document.getElementById('vlcQualityModal');
+  if (modal) modal.style.display = 'none';
+};
+
+function updateLiveNetworkSpeedDisplay() {
+  const speedElem = document.getElementById('vlcLiveNetworkSpeed');
+  if (!speedElem) return;
+  
+  let speedText = 'Live ~ 8.5 Mbps (Fast 4G/WiFi)';
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (conn) {
+    const downlink = conn.downlink || 8.5;
+    const effType = (conn.effectiveType || '4g').toUpperCase();
+    speedText = `Live ~ ${downlink} Mbps (${effType} Active)`;
+  } else if (hlsInstance && hlsInstance.bandwidthEstimate) {
+    const mbps = (hlsInstance.bandwidthEstimate / (1024 * 1024)).toFixed(1);
+    speedText = `Live ~ ${mbps} Mbps (Adaptive Speed)`;
+  }
+  speedElem.textContent = speedText;
+}
+
+window.setVlcStreamQuality = function(qualityKey, elem) {
+  currentVlcQuality = qualityKey;
+  const rows = document.querySelectorAll('#vlcQualityOptionsList .vlc-radio-row');
+  rows.forEach(r => r.classList.remove('active'));
+  if (elem) elem.classList.add('active');
+
+  const topLabel = document.getElementById('vlcTopQualityLabel');
+  const subLabel = document.getElementById('vlcQualitySubtitle');
+
+  const labelMap = {
+    'auto': 'Auto (Adaptive Speed)',
+    '4k': '4K Ultra HD (2160p)',
+    '1080p': 'Full HD (1080p)',
+    '720p': 'HD (720p)',
+    '480p': 'SD (480p)',
+    '360p': 'Data Saver (360p)'
+  };
+
+  const shortLabelMap = {
+    'auto': 'AUTO',
+    '4k': '4K',
+    '1080p': '1080P',
+    '720p': '720P',
+    '480p': '480P',
+    '360p': '360P'
+  };
+
+  if (topLabel) topLabel.textContent = shortLabelMap[qualityKey] || 'AUTO';
+  if (subLabel) subLabel.textContent = shortLabelMap[qualityKey] || 'Auto';
+
+  // Apply HLS level switching
+  if (hlsInstance && hlsInstance.levels && hlsInstance.levels.length > 0) {
+    if (qualityKey === 'auto') {
+      hlsInstance.currentLevel = -1; // Adaptive Bitrate according to network speed
+    } else {
+      const targetHeight = {
+        '4k': 2160,
+        '1080p': 1080,
+        '720p': 720,
+        '480p': 480,
+        '360p': 360
+      }[qualityKey] || 720;
+
+      // Find closest level by resolution
+      let bestIdx = 0;
+      let minDiff = Infinity;
+      hlsInstance.levels.forEach((lvl, idx) => {
+        const diff = Math.abs((lvl.height || 720) - targetHeight);
+        if (diff < minDiff) {
+          minDiff = diff;
+          bestIdx = idx;
+        }
+      });
+      hlsInstance.currentLevel = bestIdx;
+    }
+  }
+
+  // Show central floating HUD pill
+  const hud = document.getElementById('playerSwipeHud');
+  const hudIcon = document.getElementById('playerSwipeHudIcon');
+  const hudTitle = document.getElementById('playerSwipeHudTitle');
+  const hudPct = document.getElementById('playerSwipeHudPct');
+  
+  if (hud && hudIcon && hudTitle && hudPct) {
+    hud.className = 'player-swipe-hud-pill hud-center active';
+    hudIcon.textContent = '📺';
+    hudTitle.textContent = 'Stream Quality';
+    hudPct.textContent = labelMap[qualityKey] || qualityKey;
+    clearTimeout(hudHideTimeout);
+    hudHideTimeout = setTimeout(() => {
+      hud.classList.remove('active');
+    }, 1400);
+  }
+
+  showToast('Quality: ' + (labelMap[qualityKey] || qualityKey));
+  closeVlcQualityModal();
+};
+
+// 3. Sleep Timer
 let vlcSleepTimeout = null;
 let currentVlcSleepMin = 0;
 

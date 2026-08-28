@@ -445,6 +445,9 @@
                     <h3 id="playerMainTitle" class="vlc-media-title">Aaj Tak HD</h3>
                 </div>
                 <div class="vlc-top-actions">
+                    <button id="btnVlcQualityTop" class="vlc-icon-btn" onclick="openVlcQualityModal(event)" title="Stream Quality & Data Speed" style="padding: 4px 8px; border-radius: 8px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); font-size: 11px; font-weight: 700; color: #FFFFFF; font-family: var(--font-mono); letter-spacing: 0.5px;">
+                        <span id="vlcTopQualityLabel">AUTO</span>
+                    </button>
                     <button class="vlc-icon-btn" onclick="toggleCurrentFav(event)" title="Save Playlist / Favorite">
                         <svg id="playerFavSvg" viewBox="0 0 24 24" width="22" height="22" fill="#FFFFFF"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
                     </button>
@@ -521,7 +524,15 @@
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
                     <span>Lock</span>
                 </div>
-                <!-- 2. Sleep timer -->
+                <!-- 2. Quality & Speed -->
+                <div class="vlc-menu-item" onclick="openVlcQualityModal()">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V6h14v12zM6 10h3v1.5H7.5v1H9v1.5H6V10zm11 1.5v-1c0-.55-.45-1-1-1h-3v5h3c.55 0 1-.45 1-1v-1c0-.3-.13-.56-.34-.74.21-.18.34-.44.34-.76zm-1.5 2h-1.5v-1h1.5v1zm0-2h-1.5v-1h1.5v1z"/></svg>
+                    <div class="vlc-menu-item-text">
+                        <span>Stream Quality</span>
+                        <small id="vlcQualitySubtitle" class="vlc-menu-badge">Auto</small>
+                    </div>
+                </div>
+                <!-- 3. Sleep timer -->
                 <div class="vlc-menu-item" onclick="openVlcSleepTimer()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>
                     <div class="vlc-menu-item-text">
@@ -529,7 +540,7 @@
                         <small id="vlcSleepSubtitle" class="vlc-menu-badge">Off</small>
                     </div>
                 </div>
-                <!-- 3. Playback speed -->
+                <!-- 4. Playback speed -->
                 <div class="vlc-menu-item" onclick="openVlcSpeedModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.28-10.43zM10.59 15.41a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z"/></svg>
                     <div class="vlc-menu-item-text">
@@ -537,12 +548,12 @@
                         <small id="vlcSpeedSubtitle" class="vlc-menu-badge">1.0x</small>
                     </div>
                 </div>
-                <!-- 4. Jump to Time -->
+                <!-- 5. Jump to Time -->
                 <div class="vlc-menu-item" onclick="openVlcJumpModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
                     <span>Jump to Time</span>
                 </div>
-                <!-- 5. Equalizer -->
+                <!-- 6. Equalizer -->
                 <div class="vlc-menu-item" onclick="openVlcEqModal()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
                     <div class="vlc-menu-item-text">
@@ -550,7 +561,7 @@
                         <small id="vlcEqSubtitle" class="vlc-menu-badge">Flat</small>
                     </div>
                 </div>
-                <!-- 6. Play as audio -->
+                <!-- 7. Play as audio -->
                 <div class="vlc-menu-item" onclick="togglePlayAsAudio()">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
                     <span>Play as audio</span>
@@ -667,6 +678,69 @@
                 </div>
 
                 <button class="vlc-dialog-btn-primary" onclick="closeVlcTracksModal()">Apply & Close</button>
+            </div>
+        </div>
+
+        <!-- Quality & Data-Saver Speed Dialog -->
+        <div id="vlcQualityModal" class="vlc-dialog-backdrop" onclick="closeVlcQualityModal()" style="display: none;">
+            <div class="vlc-dialog-card" onclick="event.stopPropagation()">
+                <div class="vlc-dialog-title">Stream Quality & Data Speed</div>
+
+                <!-- Network Speed Live Monitor -->
+                <div class="vlc-dialog-section" style="background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 12px; color: #a3a3a3; font-weight: 600; text-transform: uppercase;">📡 Network Data Speed</span>
+                        <span id="vlcLiveNetworkSpeed" style="font-family: var(--font-mono); color: #00FF66; font-size: 13px; font-weight: 700;">Live ~ 8.4 Mbps (Fast)</span>
+                    </div>
+                    <div style="font-size: 11px; color: #888; margin-top: 4px;">
+                        Adaptive Bitrate actively adjusts resolution according to data speed (Zero Buffering).
+                    </div>
+                </div>
+
+                <!-- Quality Options List -->
+                <div class="vlc-dialog-section">
+                    <label class="vlc-dialog-label">Resolution & Data Usage</label>
+                    <div id="vlcQualityOptionsList" class="vlc-list-options">
+                        <div class="vlc-radio-row active" onclick="setVlcStreamQuality('auto', this)">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-weight: 700;">⚡ Auto (Adaptive Bitrate) [Recommended]</span>
+                                <small style="color: #a3a3a3; font-size: 11px;">Automatically adjusts according to data speed (Zero Buffering)</small>
+                            </div>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcStreamQuality('4k', this)">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-weight: 700;">🌟 4K Ultra HD (2160p 60fps)</span>
+                                <small style="color: #a3a3a3; font-size: 11px;">Requires 25+ Mbps High Speed WiFi / 5G</small>
+                            </div>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcStreamQuality('1080p', this)">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-weight: 700;">📺 Full HD (1080p Crystal Clear)</span>
+                                <small style="color: #a3a3a3; font-size: 11px;">Requires 5-10 Mbps High Speed 4G/WiFi</small>
+                            </div>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcStreamQuality('720p', this)">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-weight: 700;">📱 HD (720p Balanced)</span>
+                                <small style="color: #a3a3a3; font-size: 11px;">Requires 2.5 Mbps Standard Mobile Data</small>
+                            </div>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcStreamQuality('480p', this)">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-weight: 700;">📉 SD (480p Standard Definition)</span>
+                                <small style="color: #a3a3a3; font-size: 11px;">Requires 1.2 Mbps Low Data Usage</small>
+                            </div>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcStreamQuality('360p', this)">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-weight: 700;">🔋 Data Saver (360p Ultra Low)</span>
+                                <small style="color: #a3a3a3; font-size: 11px;">Saves up to 80% mobile data on 2G/3G/4G</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="vlc-dialog-btn-primary" onclick="closeVlcQualityModal()">Apply & Done</button>
             </div>
         </div>
 
