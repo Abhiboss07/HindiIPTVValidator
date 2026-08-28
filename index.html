@@ -410,10 +410,6 @@
             <span class="spinner-text">Connecting Stream...</span>
         </div>
 
-        <!-- Double-Tap Seek Hotzones -->
-        <div class="player-doubletap-zone left-zone" ondblclick="skipTime(-10)"></div>
-        <div class="player-doubletap-zone right-zone" ondblclick="skipTime(10)"></div>
-
         <!-- Lock Mode Floating Overlay Pill -->
         <!-- Dynamic Swipe HUD Indicator (Clean Badge without track slider) -->
         <div id="playerSwipeHud" class="player-swipe-hud-pill">
@@ -465,16 +461,19 @@
             <div class="player-bottom-bar" onclick="event.stopPropagation()">
                 <!-- Pro Features Bar -->
                 <div class="player-pro-bar">
-                    <button id="btnPlayerSpeed" class="player-pill-feature" onclick="cyclePlaybackSpeed()">
+                    <button id="btnPlayerRotate" class="player-pill-feature" onclick="cycleOrientation()" title="Rotate / Orientation">
+                        <span id="playerRotateText">🔄 Auto-Rotate</span>
+                    </button>
+                    <button id="btnPlayerSpeed" class="player-pill-feature" onclick="cyclePlaybackSpeed()" title="Playback Speed">
                         <span id="playerSpeedText">1.0x</span>
                     </button>
-                    <button id="btnPlayerAspect" class="player-pill-feature" onclick="cycleAspectRatio()">
+                    <button id="btnPlayerAspect" class="player-pill-feature" onclick="cycleAspectRatio()" title="Aspect Ratio">
                         <span id="playerAspectText">Fit (16:9)</span>
                     </button>
-                    <button id="btnPlayerMute" class="player-pill-feature" onclick="toggleMute()">
+                    <button id="btnPlayerMute" class="player-pill-feature" onclick="toggleMute()" title="Mute Audio">
                         <span id="playerMuteText">🔊 Audio</span>
                     </button>
-                    <button id="btnPlayerSleep" class="player-pill-feature" onclick="cycleSleepTimer()">
+                    <button id="btnPlayerSleep" class="player-pill-feature" onclick="cycleSleepTimer()" title="Sleep Timer">
                         <span id="playerSleepText">⏱ Sleep: Off</span>
                     </button>
                 </div>

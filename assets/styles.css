@@ -1408,21 +1408,7 @@ html, body {
   transform: scale(0.95);
 }
 
-.player-doubletap-zone {
-  position: absolute;
-  top: 60px;
-  bottom: 120px;
-  width: 35%;
-  z-index: 105;
-}
 
-.player-doubletap-zone.left-zone {
-  left: 0;
-}
-
-.player-doubletap-zone.right-zone {
-  right: 0;
-}
 
 .player-lock-pill {
   position: absolute;
@@ -2148,9 +2134,27 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   padding: 0;
-  z-index: 20;
+  z-index: 50;
   transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: auto;
+}
+
+.player-controls-overlay.hidden-controls {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.player-top-bar,
+.player-bottom-bar,
+.player-pro-bar,
+.player-transport-toolbar,
+.player-icon-btn,
+.player-tool-btn,
+.player-pill-feature,
+.player-primary-play-btn,
+.player-seekbar-wrap {
+  pointer-events: auto !important;
+  touch-action: manipulation !important;
 }
 
 .player-swipe-hud-pill {
@@ -2390,18 +2394,6 @@ html, body {
 /* ==========================================================
    DOUBLE-TAP SEEK RIPPLE FEEDBACK
    ========================================================== */
-.player-doubletap-zone {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 35%;
-  z-index: 110;
-  pointer-events: auto;
-}
-
-.player-doubletap-zone.left-zone { left: 0; }
-.player-doubletap-zone.right-zone { right: 0; }
-
 .seek-ripple-feedback {
   position: absolute;
   top: 50%;

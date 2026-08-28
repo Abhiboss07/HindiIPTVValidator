@@ -13404,15 +13404,46 @@ window.handleSeekbarClick = function(e) {
   const videoElement = document.getElementById('luminaVideo');
   if (!videoElement || !videoElement.duration || isNaN(videoElement.duration)) return;
   const rect = e.currentTarget.getBoundingClientRect();
-  const pos = (e.clientX - rect.left) / rect.width;
+  const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : null);
+  if (clientX === null) return;
+  const pos = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
   videoElement.currentTime = pos * videoElement.duration;
+  showToast('Seek: ' + formatSeekTime(videoElement.currentTime));
+  resetPlayerHideTimer();
+};
+
+let orientationModes = ['auto', 'landscape', 'portrait'];
+let orientationLabels = ['🔄 Auto-Rotate', '🔄 Landscape', '🔄 Portrait'];
+let currentOrientIdx = 0;
+
+window.cycleOrientation = function() {
+  currentOrientIdx = (currentOrientIdx + 1) % orientationModes.length;
+  const mode = orientationModes[currentOrientIdx];
+  if (window.AndroidMedia && window.AndroidMedia.setOrientation) {
+    window.AndroidMedia.setOrientation(mode);
+  }
+  const btnText = document.getElementById('playerRotateText');
+  if (btnText) btnText.textContent = orientationLabels[currentOrientIdx];
+  showToast(orientationLabels[currentOrientIdx]);
   resetPlayerHideTimer();
 };
 
 window.toggleFullScreen = function() {
+  const isLandscape = window.innerWidth > window.innerHeight;
+  const targetMode = isLandscape ? 'portrait' : 'landscape';
+  
+  if (window.AndroidMedia && window.AndroidMedia.setOrientation) {
+    window.AndroidMedia.setOrientation(targetMode);
+  }
   if (window.AndroidMedia && window.AndroidMedia.setFullscreen) {
     window.AndroidMedia.setFullscreen(true);
   }
+
+  const btnText = document.getElementById('playerRotateText');
+  if (btnText) {
+    btnText.textContent = targetMode === 'landscape' ? '🔄 Landscape' : '🔄 Portrait';
+  }
+
   // Also try native fullscreen API as fallback for non-Android
   try {
     const playerModal = document.getElementById('playerModal');
@@ -13426,7 +13457,7 @@ window.toggleFullScreen = function() {
       }
     }
   } catch (e) {}
-  showToast('Fullscreen Mode');
+  showToast(targetMode === 'landscape' ? 'Fullscreen (Landscape)' : 'Portrait Mode');
   resetPlayerHideTimer();
 };
 
