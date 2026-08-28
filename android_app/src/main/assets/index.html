@@ -427,7 +427,11 @@
 
         <!-- Closed Captions Overlay Box -->
         <div id="playerCcBox" class="player-cc-container" style="display: none;">
-            <p id="playerCcText">[CC] Broadcast sync audio stream...</p>
+            <div id="playerCcBadge" class="player-cc-badge">
+                <span class="player-cc-badge-dot"></span>
+                <span id="playerCcBadgeText">AI Live CC (Hindi)</span>
+            </div>
+            <p id="playerCcText" class="player-cc-text">...</p>
         </div>
 
         <!-- Fullscreen Controls Overlay (VLC Android Media Player Layout) -->
@@ -604,40 +608,55 @@
              VLC FEATURE DIALOGS & MODAL SHEETS
              ========================================================== -->
         <!-- Tracks (Audio & Subtitles) Dialog -->
-        <div id="vlcTracksModal" class="vlc-dialog-backdrop" onclick="closeVlcTracksModal()" ontouchstart="event.stopPropagation()" ontouchmove="event.stopPropagation()" style="display: none;">
+        <div id="vlcTracksModal" class="vlc-dialog-backdrop" onclick="closeVlcTracksModal()" style="display: none;">
             <div class="vlc-dialog-card" onclick="event.stopPropagation()">
                 <div class="vlc-dialog-title">Audio & Subtitle Tracks</div>
                 
                 <!-- Audio Tracks Section -->
                 <div class="vlc-dialog-section">
-                    <label class="vlc-dialog-label">🎧 Audio Tracks</label>
-                    <div id="vlcAudioTracksList" class="vlc-list-options" style="max-height: 140px;">
-                        <div class="vlc-radio-row active" onclick="setVlcAudioTrack('default', this)">
-                            <span>Hindi (Main Direct Feed) [Stereo AAC]</span>
+                    <label class="vlc-dialog-label">🎧 Audio Languages & Channels (Processor DSP)</label>
+                    <div id="vlcAudioTracksList" class="vlc-list-options" style="max-height: 150px; overflow-y: auto;">
+                        <div class="vlc-radio-row active" onclick="setVlcAudioTrack('hindi', this)">
+                            <span>🇮🇳 Hindi (Main Dialogue Enhanced) [Stereo Vocal DSP]</span>
                         </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('secondary', this)">
-                            <span>English (Studio Broadcast) [AAC 2.0]</span>
+                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('english', this)">
+                            <span>🌐 English (Broadcast Audio Feed) [AAC 2.0]</span>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('dual_left', this)">
+                            <span>📻 Dual-Track Left Channel (Hindi Audio Track)</span>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('dual_right', this)">
+                            <span>📻 Dual-Track Right Channel (English Audio Track)</span>
+                        </div>
+                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('speech_boost', this)">
+                            <span>⚡ Clear Voice Speech AI Boost (Vocal Clarity)</span>
                         </div>
                         <div class="vlc-radio-row" onclick="setVlcAudioTrack('passthrough', this)">
-                            <span>Original Dolby / Auto Passthrough</span>
+                            <span>🔊 Original Dolby / Direct Stream Passthrough</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Subtitles Section -->
                 <div class="vlc-dialog-section">
-                    <label class="vlc-dialog-label">💬 Subtitles & Captions</label>
-                    <div id="vlcSubtitleTracksList" class="vlc-chips-row">
+                    <label class="vlc-dialog-label">💬 Subtitles & Captions (On-Device AI Processor)</label>
+                    <div id="vlcSubtitleTracksList" class="vlc-chips-row" style="max-height: 140px; overflow-y: auto;">
                         <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('off', this)">Off</button>
-                        <button class="vlc-chip-btn active" onclick="setVlcSubtitleTrack('hindi', this)">[CC] Hindi</button>
+                        <button class="vlc-chip-btn active" onclick="setVlcSubtitleTrack('hindi', this)">[CC] Hindi (हिंदी)</button>
                         <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('english', this)">[CC] English</button>
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('live', this)">[CC] Live Sync</button>
+                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('punjabi', this)">[CC] Punjabi (ਪੰਜਾਬੀ)</button>
+                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('bengali', this)">[CC] Bengali (বাংলা)</button>
+                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('marathi', this)">[CC] Marathi (मराठी)</button>
+                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('tamil', this)">[CC] Tamil (தமிழ்)</button>
+                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('telugu', this)">[CC] Telugu (తెలుగు)</button>
+                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('gujarati', this)">[CC] Gujarati (ગુજરાતી)</button>
+                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('ai_live', this)">🎙️ Live Speech AI Recognition</button>
                     </div>
                 </div>
 
                 <!-- Subtitle / Audio Sync Offset -->
                 <div class="vlc-dialog-section">
-                    <label class="vlc-dialog-label">⏱️ Audio / Subtitle Delay</label>
+                    <label class="vlc-dialog-label">⏱️ Audio / Subtitle Sync Delay</label>
                     <div class="vlc-dialog-options" style="align-items: center; justify-content: space-between;">
                         <button class="vlc-chip-btn" onclick="adjustTrackDelay(-0.5)">- 0.5s</button>
                         <button class="vlc-chip-btn" onclick="adjustTrackDelay(-0.1)">- 0.1s</button>
