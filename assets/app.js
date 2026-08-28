@@ -13254,6 +13254,19 @@ window.minimizeToMiniPlayer = function(e) {
   }
   const playerModal = document.getElementById('playerModal');
   const miniPlayer = document.getElementById('miniPlayer');
+  
+  // Close any open VLC drawers or dialogs immediately
+  if (typeof closeVlcMoreMenu === 'function') closeVlcMoreMenu();
+  if (typeof closeVlcTracksModal === 'function') closeVlcTracksModal();
+  if (typeof closeVlcSleepModal === 'function') closeVlcSleepModal();
+  if (typeof closeVlcSpeedModal === 'function') closeVlcSpeedModal();
+  if (typeof closeVlcJumpModal === 'function') closeVlcJumpModal();
+  if (typeof closeVlcEqModal === 'function') closeVlcEqModal();
+  if (typeof closeVlcInfoModal === 'function') closeVlcInfoModal();
+  if (typeof closeVlcBookmarksModal === 'function') closeVlcBookmarksModal();
+  if (typeof closeVlcSettingsModal === 'function') closeVlcSettingsModal();
+  if (typeof closeVlcTipsModal === 'function') closeVlcTipsModal();
+
   if (playerModal) {
     playerModal.classList.remove('active');
     playerModal.style.display = 'none';
@@ -13885,7 +13898,11 @@ window.closeVlcTipsModal = function() {
   if (modal) modal.style.display = 'none';
 };
 
-// Tracks Modal (Subtitles & Orientation)
+// Tracks Modal (Audio Tracks, Subtitles & Sync Delay)
+let currentTrackDelay = 0.0;
+let currentSubtitleLanguage = 'hindi';
+let currentAudioTrack = 'default';
+
 window.openVlcTracksMenu = function(e) {
   if (e) e.stopPropagation();
   const modal = document.getElementById('vlcTracksModal');
@@ -13897,11 +13914,56 @@ window.closeVlcTracksModal = function() {
   if (modal) modal.style.display = 'none';
 };
 
-window.setVlcSubtitle = function(on) {
-  isCCEnabled = on;
-  updateCCUI();
-  showToast(on ? 'Subtitles / [CC] Enabled' : 'Subtitles Disabled');
-  closeVlcTracksModal();
+window.setVlcAudioTrack = function(trackId, elem) {
+  currentAudioTrack = trackId;
+  const rows = document.querySelectorAll('#vlcAudioTracksList .vlc-radio-row');
+  rows.forEach(r => r.classList.remove('active'));
+  if (elem) elem.classList.add('active');
+
+  const videoElement = document.getElementById('luminaVideo');
+  if (videoElement && videoElement.audioTracks && videoElement.audioTracks.length > 0) {
+    for (let i = 0; i < videoElement.audioTracks.length; i++) {
+      videoElement.audioTracks[i].enabled = (trackId === 'secondary' ? i === 1 : i === 0);
+    }
+  }
+
+  const trackNames = {
+    'default': 'Hindi (Main Direct Feed)',
+    'secondary': 'English (Studio Broadcast)',
+    'passthrough': 'Original Dolby / Auto Passthrough'
+  };
+
+  showToast('Audio: ' + (trackNames[trackId] || 'Track Updated'));
+};
+
+window.setVlcSubtitleTrack = function(lang, elem) {
+  currentSubtitleLanguage = lang;
+  const chips = document.querySelectorAll('#vlcSubtitleTracksList .vlc-chip-btn');
+  chips.forEach(c => c.classList.remove('active'));
+  if (elem) elem.classList.add('active');
+
+  if (lang === 'off') {
+    isCCEnabled = false;
+    updateCCUI();
+    showToast('Subtitles Disabled');
+  } else {
+    isCCEnabled = true;
+    updateCCUI();
+    const langNames = {
+      'hindi': '[CC] Hindi Subtitles',
+      'english': '[CC] English Subtitles',
+      'live': '[CC] Live Audio Sync'
+    };
+    showToast(langNames[lang] || '[CC] Subtitles Active');
+  }
+};
+
+window.adjustTrackDelay = function(offset) {
+  currentTrackDelay = Math.round((currentTrackDelay + offset) * 10) / 10;
+  const disp = document.getElementById('vlcTrackDelayText');
+  const sign = currentTrackDelay > 0 ? '+' : '';
+  if (disp) disp.textContent = sign + currentTrackDelay.toFixed(1) + 's';
+  showToast('Delay: ' + sign + currentTrackDelay.toFixed(1) + 's');
 };
 
 let aspectModes = ['fit', 'fill', 'center', 'stretch'];
@@ -13975,17 +14037,25 @@ function updateCCUI() {
 
 function startCCSubtitles() {
   clearInterval(ccInterval);
-  const sampleCaptions = [
-    "[CC] Broadcast sync audio stream...",
-    "[CC] National Headline coverage live from studios",
-    "[CC] High-definition multi-bitrate feed active",
-    "[CC] 24x7 continuous live broadcast transmission"
+  const hindiCaptions = [
+    "[CC] लाइव प्रसारण ऑडियो स्ट्रीम सक्रिय...",
+    "[CC] स्टूडियो से मुख्य समाचार बुलेटिन प्रसारित",
+    "[CC] उच्च गुणवत्ता मल्टी-बिटरेट फीड लाइव",
+    "[CC] 24x7 निरंतर हिंदी प्रसारण सेवा"
   ];
+  const englishCaptions = [
+    "[CC] Live broadcast audio sync stream active...",
+    "[CC] Studio headlines bulletin live coverage",
+    "[CC] High-definition multi-bitrate transmission",
+    "[CC] 24x7 continuous broadcast feed active"
+  ];
+  
   let cIdx = 0;
   ccInterval = setInterval(() => {
     const playerCcText = document.getElementById('playerCcText');
     if (playerCcText) {
-      playerCcText.textContent = sampleCaptions[cIdx % sampleCaptions.length];
+      const caps = currentSubtitleLanguage === 'english' ? englishCaptions : hindiCaptions;
+      playerCcText.textContent = caps[cIdx % caps.length];
       cIdx++;
     }
   }, 3500);

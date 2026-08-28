@@ -2083,9 +2083,9 @@ html, body {
   background: #000000;
   z-index: 9999;
   display: none !important;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -2094,16 +2094,18 @@ html, body {
   user-select: none !important;
   -webkit-user-select: none !important;
   transform: translateZ(0);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 .obsidian-player-modal.active {
   display: flex !important;
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.obsidian-player-modal:not(.active) * {
+  pointer-events: none !important;
+  display: none !important;
 }
 
 #luminaVideo {
