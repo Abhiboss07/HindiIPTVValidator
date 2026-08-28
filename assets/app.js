@@ -15599,7 +15599,10 @@ function initPlayerSwipeGestures() {
           }
           if (videoElement) {
             videoElement.volume = currentVolume / 100;
-            if (videoElement.muted && currentVolume > 0) videoElement.muted = false;
+            if (!isNativeDDPActive && videoElement.muted && currentVolume > 0) videoElement.muted = false;
+          }
+          if (isNativeDDPActive && window.AndroidMedia && window.AndroidMedia.syncNativeAudio) {
+            window.AndroidMedia.syncNativeAudio(videoElement.currentTime, !videoElement.paused, currentVolume / 100);
           }
           if (hudIcon) hudIcon.textContent = currentVolume === 0 ? '🔇' : (currentVolume > 50 ? '🔊' : '🔉');
           if (hudTitle) hudTitle.textContent = 'Volume';

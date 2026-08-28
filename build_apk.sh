@@ -29,12 +29,15 @@ javac --release 11 -cp $PLATFORM -d android_app/build/obj \
 echo "4️⃣ Converting to DEX (d8)..."
 $BUILD_TOOLS/d8 --lib $PLATFORM --output android_app/build/dex android_app/build/obj/com/aakashstream/app/*.class
 
-echo "5️⃣ Packaging DEX into APK with Python zipfile..."
+echo "5️⃣ Packaging DEX and Native Libraries (.so) into APK..."
 python3 -c "
-import zipfile
+import zipfile, os, glob
 with zipfile.ZipFile('android_app/build/apk/app-unaligned.apk', 'a') as zf:
     zf.write('android_app/build/dex/classes.dex', 'classes.dex')
-print('classes.dex added successfully!')
+    for so_file in glob.glob('android_app/src/main/jniLibs/*/*.so'):
+        rel = os.path.relpath(so_file, 'android_app/src/main/jniLibs')
+        zf.write(so_file, 'lib/' + rel)
+print('classes.dex and jniLibs added successfully!')
 "
 
 echo "6️⃣ Aligning APK (zipalign)..."
