@@ -12953,6 +12953,35 @@ function hideBufferingSpinner() {
   if (spinner) spinner.style.display = 'none';
 }
 
+function updateAudioArtwork() {
+  const artwork = document.getElementById('playerAudioArtwork');
+  if (!artwork) return;
+  if (!currentPlayingChannel) {
+    artwork.style.display = 'none';
+    return;
+  }
+  const isAudio = currentPlayingChannel.type === 'radio' || 
+                  (currentPlayingChannel.isLocal && currentPlayingChannel.type !== 'tv') ||
+                  (currentPlayingChannel.url && /\.(mp3|m4a|wav|aac|flac|ogg|opus)(\?|$)/i.test(currentPlayingChannel.url));
+  
+  if (isAudio) {
+    artwork.style.display = 'flex';
+    const titleEl = document.getElementById('audioArtworkTitle');
+    const subEl = document.getElementById('audioArtworkSub');
+    const cleanTitle = currentPlayingChannel.name ? currentPlayingChannel.name.replace(/\.(mp4|mkv|mov|webm|avi|flv|ts|3gp|mp3|m4a|wav|aac|flac|ogg|opus)$/i, '').replace(/[._]/g, ' ').replace(/\s+/g, ' ').trim() : 'Now Playing';
+    if (titleEl) titleEl.textContent = cleanTitle || 'Now Playing';
+    if (subEl) {
+      if (currentPlayingChannel.isLocal) {
+        subEl.textContent = '📂 ' + (currentPlayingChannel.folder || 'Device Storage') + (currentPlayingChannel.quality ? ' • ' + currentPlayingChannel.quality : '');
+      } else {
+        subEl.textContent = (currentPlayingChannel.countryName || 'Radio') + ' • ' + (currentPlayingChannel.category || 'Audio Stream');
+      }
+    }
+  } else {
+    artwork.style.display = 'none';
+  }
+}
+
 function playChannel(ch) {
   currentBackupIdx = 0;
   openFullPlayerModal();
@@ -12995,6 +13024,7 @@ function loadChannelMedia(ch, autoPlay) {
   if (miniThumb) miniThumb.textContent = ch.type === 'radio' ? '📻' : (ch.isLocal ? (ch.type === 'tv' ? '🎬' : '🎵') : (ch.flag || '📺'));
 
   updateFavIconUI();
+  updateAudioArtwork();
 
   if (hlsInstance) {
     try {
@@ -13014,8 +13044,12 @@ function loadChannelMedia(ch, autoPlay) {
     streamUrl = ch.backupUrls[currentBackupIdx];
   }
 
+  // Check saved resume point for offline/local media
+  const resumeKey = 'aakash_resume_' + ch.id;
+  const savedResumeTime = ch.isLocal ? parseInt(localStorage.getItem(resumeKey) || '0', 10) : 0;
+
   // Fast-start ABR HLS Configuration for instant mobile loading
-  if (streamUrl && (streamUrl.endsWith('.m3u8') || streamUrl.includes('m3u8')) && window.Hls && Hls.isSupported()) {
+  if (streamUrl && (streamUrl.endsWith('.m3u8') || streamUrl.includes('m3u8')) && window.Hls && Hls.isSupported() && !ch.isLocal) {
     hlsInstance = new Hls({
       enableWorker: true,
       autoStartLoad: true,
@@ -13048,6 +13082,7 @@ function loadChannelMedia(ch, autoPlay) {
     });
 
     hlsInstance.on(Hls.Events.ERROR, (event, data) => {
+      if (!hlsInstance) return;
       if (data.fatal) {
         switch (data.type) {
           case Hls.ErrorTypes.NETWORK_ERROR:
@@ -13055,15 +13090,20 @@ function loadChannelMedia(ch, autoPlay) {
               currentBackupIdx++;
               showToast('⚡ Connecting high-speed stream mirror...');
               loadChannelMedia(ch, true);
-            } else {
+            } else if (hlsInstance) {
               hlsInstance.startLoad();
             }
             break;
           case Hls.ErrorTypes.MEDIA_ERROR:
-            hlsInstance.recoverMediaError();
+            if (hlsInstance) {
+              hlsInstance.recoverMediaError();
+            }
             break;
           default:
-            hlsInstance.destroy();
+            if (hlsInstance) {
+              hlsInstance.destroy();
+              hlsInstance = null;
+            }
             break;
         }
       }
@@ -13086,6 +13126,18 @@ function loadChannelMedia(ch, autoPlay) {
     if (videoElement) {
       videoElement.src = streamUrl;
       videoElement.load();
+      
+      if (savedResumeTime > 5) {
+        const onLoaded = function() {
+          videoElement.removeEventListener('loadedmetadata', onLoaded);
+          if (videoElement.duration && savedResumeTime < videoElement.duration - 5) {
+            videoElement.currentTime = savedResumeTime;
+            showToast('Resumed at ' + formatSeekTime(savedResumeTime));
+          }
+        };
+        videoElement.addEventListener('loadedmetadata', onLoaded);
+      }
+
       if (autoPlay) {
         videoElement.play().catch(() => {});
       }
@@ -13132,6 +13184,24 @@ window.openFullPlayerModal = function() {
     playerModal.style.display = 'flex';
   }
   if (miniPlayer) miniPlayer.classList.remove('active');
+  
+  // Native Android: immersive fullscreen + keep screen on
+  try {
+    if (window.AndroidMedia) {
+      if (window.AndroidMedia.setFullscreen) window.AndroidMedia.setFullscreen(true);
+      if (window.AndroidMedia.keepScreenOn) window.AndroidMedia.keepScreenOn(true);
+      // Auto-rotate to landscape for video content, free rotation for audio
+      if (currentPlayingChannel && (currentPlayingChannel.type === 'tv' || currentPlayingChannel.type === 'video')) {
+        if (window.AndroidMedia.setOrientation) window.AndroidMedia.setOrientation('landscape');
+      } else {
+        if (window.AndroidMedia.setOrientation) window.AndroidMedia.setOrientation('auto');
+      }
+    }
+  } catch (e) {}
+
+  // Show/hide audio artwork based on content type
+  updateAudioArtwork();
+  
   resetPlayerHideTimer();
 };
 
@@ -13149,6 +13219,19 @@ window.minimizeToMiniPlayer = function(e) {
   if (miniPlayer && currentPlayingChannel) {
     miniPlayer.classList.add('active');
   }
+  
+  // Restore orientation and screen state
+  try {
+    if (window.AndroidMedia) {
+      if (window.AndroidMedia.setOrientation) window.AndroidMedia.setOrientation('auto');
+      if (window.AndroidMedia.keepScreenOn) window.AndroidMedia.keepScreenOn(false);
+    }
+  } catch (e2) {}
+  
+  // Hide audio artwork
+  const artwork = document.getElementById('playerAudioArtwork');
+  if (artwork) artwork.style.display = 'none';
+  
   showToast('Minimized to Mini Player');
 };
 
@@ -13173,6 +13256,8 @@ window.closeMiniPlayer = function(e) {
   const playerModal = document.getElementById('playerModal');
   const miniPlayer = document.getElementById('miniPlayer');
   
+  clearTimeout(streamWatchdogTimeout);
+
   if (videoElement) {
     videoElement.pause();
     videoElement.removeAttribute('src');
@@ -13180,7 +13265,9 @@ window.closeMiniPlayer = function(e) {
   }
   
   if (hlsInstance) {
-    hlsInstance.destroy();
+    try {
+      hlsInstance.destroy();
+    } catch (e) {}
     hlsInstance = null;
   }
   
@@ -13192,6 +13279,18 @@ window.closeMiniPlayer = function(e) {
   if (miniPlayer) {
     miniPlayer.classList.remove('active');
   }
+
+  // Restore orientation and screen state
+  try {
+    if (window.AndroidMedia) {
+      if (window.AndroidMedia.setOrientation) window.AndroidMedia.setOrientation('auto');
+      if (window.AndroidMedia.keepScreenOn) window.AndroidMedia.keepScreenOn(false);
+    }
+  } catch (e2) {}
+  
+  // Hide audio artwork
+  const artwork = document.getElementById('playerAudioArtwork');
+  if (artwork) artwork.style.display = 'none';
   
   isPlaying = false;
   currentPlayingChannel = null;
@@ -13234,10 +13333,27 @@ function updatePlayPauseIcons(playing) {
   });
 }
 
+function showSeekRipple(seconds) {
+  const playerModal = document.getElementById('playerModal');
+  if (!playerModal) return;
+  const isFwd = seconds > 0;
+  const ripple = document.createElement('div');
+  ripple.className = 'seek-ripple-feedback ' + (isFwd ? 'right' : 'left');
+  ripple.innerHTML = `
+    <div class="seek-ripple-circle"></div>
+    <span class="seek-ripple-text">${isFwd ? '⏩ +' + Math.abs(seconds) + 's' : '⏪ -' + Math.abs(seconds) + 's'}</span>
+  `;
+  playerModal.appendChild(ripple);
+  setTimeout(() => {
+    if (ripple.parentNode) ripple.parentNode.removeChild(ripple);
+  }, 600);
+}
+
 window.skipTime = function(seconds) {
   const videoElement = document.getElementById('luminaVideo');
   if (!videoElement) return;
   videoElement.currentTime = Math.max(0, videoElement.currentTime + seconds);
+  showSeekRipple(seconds);
   showToast((seconds > 0 ? '+' : '') + seconds + 's');
   resetPlayerHideTimer();
 };
@@ -13252,16 +13368,24 @@ window.handleSeekbarClick = function(e) {
 };
 
 window.toggleFullScreen = function() {
-  const playerModal = document.getElementById('playerModal');
-  if (!document.fullscreenElement) {
-    if (playerModal && playerModal.requestFullscreen) {
-      playerModal.requestFullscreen().catch(() => {});
-    }
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen().catch(() => {});
-    }
+  if (window.AndroidMedia && window.AndroidMedia.setFullscreen) {
+    window.AndroidMedia.setFullscreen(true);
   }
+  // Also try native fullscreen API as fallback for non-Android
+  try {
+    const playerModal = document.getElementById('playerModal');
+    if (!document.fullscreenElement) {
+      if (playerModal && playerModal.requestFullscreen) {
+        playerModal.requestFullscreen().catch(() => {});
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+  } catch (e) {}
+  showToast('Fullscreen Mode');
+  resetPlayerHideTimer();
 };
 
 // Pro Feature Controls
@@ -13395,7 +13519,10 @@ function startCCSubtitles() {
   }, 3500);
 }
 
-// Auto-hide controls overlay
+// Auto-hide controls overlay & Double-Tap detection
+let lastTapTime = 0;
+let lastTapX = 0;
+
 function initPlayerOverlayEvents() {
   const playerModal = document.getElementById('playerModal');
   const playerUiOverlay = document.getElementById('playerUiOverlay');
@@ -13407,8 +13534,27 @@ function initPlayerOverlayEvents() {
   if (playerModal) {
     playerModal.addEventListener('click', (e) => {
       if (isPlayerLocked) return;
-      if (e.target.closest('button') || e.target.closest('.player-seekbar-wrap') || e.target.closest('.player-pro-bar')) return;
+      if (e.target.closest('button') || e.target.closest('.player-seekbar-wrap') || e.target.closest('.player-pro-bar') || e.target.closest('.player-doubletap-zone')) return;
       
+      const now = Date.now();
+      const clickX = e.clientX;
+      const rect = playerModal.getBoundingClientRect();
+
+      // Double-click/double-tap detection on left or right third of screen
+      if (now - lastTapTime < 300 && Math.abs(clickX - lastTapX) < 60) {
+        if (clickX < rect.width * 0.35) {
+          skipTime(-10);
+          lastTapTime = 0;
+          return;
+        } else if (clickX > rect.width * 0.65) {
+          skipTime(10);
+          lastTapTime = 0;
+          return;
+        }
+      }
+      lastTapTime = now;
+      lastTapX = clickX;
+
       if (playerUiOverlay) {
         if (playerUiOverlay.classList.contains('hidden-controls')) {
           playerUiOverlay.classList.remove('hidden-controls');
@@ -13434,6 +13580,12 @@ function initPlayerOverlayEvents() {
           const tm = Math.floor(videoElement.duration / 60);
           const ts = Math.floor(videoElement.duration % 60);
           playerTimeTotal.textContent = tm + ':' + (ts < 10 ? '0' : '') + ts;
+        }
+        // Save resume position for offline / local media
+        if (currentPlayingChannel && currentPlayingChannel.isLocal && videoElement.currentTime > 5) {
+          try {
+            localStorage.setItem('aakash_resume_' + currentPlayingChannel.id, Math.floor(videoElement.currentTime));
+          } catch (e) {}
         }
       } else {
         if (playerSeekFill) playerSeekFill.style.width = '100%';
@@ -13475,6 +13627,9 @@ function formatSeekTime(secs) {
   return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
 }
 
+let initialPinchDist = 0;
+let pinchTriggered = false;
+
 function initPlayerSwipeGestures() {
   const playerModal = document.getElementById('playerModal');
   const brightOverlay = document.getElementById('playerBrightnessOverlay');
@@ -13486,17 +13641,41 @@ function initPlayerSwipeGestures() {
   if (!playerModal) return;
 
   playerModal.addEventListener('touchstart', (e) => {
-    if (isPlayerLocked || e.touches.length !== 1) return;
+    if (isPlayerLocked) return;
+    
+    // 2-Finger Pinch Detection (VLC-style aspect zoom)
+    if (e.touches.length === 2) {
+      initialPinchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      pinchTriggered = false;
+      activeGestureType = null;
+      return;
+    }
+
+    if (e.touches.length !== 1) return;
     const touch = e.touches[0];
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
     activeGestureType = null;
     isSeekingGesture = false;
     targetSeekTime = 0;
+    initialPinchDist = 0;
   }, { passive: true });
 
   playerModal.addEventListener('touchmove', (e) => {
-    if (isPlayerLocked || e.touches.length !== 1) return;
+    if (isPlayerLocked) return;
+
+    // Handle 2-finger pinch zoom
+    if (e.touches.length === 2 && initialPinchDist > 0 && !pinchTriggered) {
+      const currentDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      const pinchDiff = currentDist - initialPinchDist;
+      if (Math.abs(pinchDiff) > 55) {
+        pinchTriggered = true;
+        cycleAspectRatio();
+      }
+      return;
+    }
+
+    if (e.touches.length !== 1) return;
     const touch = e.touches[0];
     const dx = touch.clientX - touchStartX;
     const dy = touchStartY - touch.clientY;
@@ -13602,6 +13781,9 @@ function initPlayerSwipeGestures() {
   }, { passive: false });
 
   playerModal.addEventListener('touchend', () => {
+    initialPinchDist = 0;
+    pinchTriggered = false;
+
     if (!activeGestureType) return;
     
     // If seek gesture finished, apply the target seek position

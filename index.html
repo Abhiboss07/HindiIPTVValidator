@@ -381,6 +381,20 @@
         <!-- Pure Video Element -->
         <video id="luminaVideo" playsinline webkit-playsinline></video>
         <div id="playerBrightnessOverlay" class="player-brightness-overlay"></div>
+        <!-- Audio Artwork Visualizer (shown when playing audio/radio instead of gray screen) -->
+        <div id="playerAudioArtwork" class="player-audio-artwork" style="display: none;">
+            <div class="audio-artwork-bg"></div>
+            <div class="audio-artwork-content">
+                <div class="audio-artwork-icon">🎵</div>
+                <h2 id="audioArtworkTitle" class="audio-artwork-title">Now Playing</h2>
+                <p id="audioArtworkSub" class="audio-artwork-sub">Artist • Album</p>
+                <div class="audio-wave-visualizer">
+                    <span class="aw-bar"></span><span class="aw-bar"></span><span class="aw-bar"></span>
+                    <span class="aw-bar"></span><span class="aw-bar"></span><span class="aw-bar"></span>
+                    <span class="aw-bar"></span><span class="aw-bar"></span><span class="aw-bar"></span>
+                </div>
+            </div>
+        </div>
         <div id="playerBufferingSpinner" class="player-buffering-spinner" style="display: none;">
             <div class="spinner-ring"></div>
             <span class="spinner-text">Connecting Stream...</span>

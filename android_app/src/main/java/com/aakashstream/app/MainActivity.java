@@ -556,6 +556,46 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public void setFullscreen(boolean enter) {
+            runOnUiThread(() -> {
+                if (enter) {
+                    hideSystemUI();
+                    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                } else {
+                    hideSystemUI();
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void setOrientation(String mode) {
+            runOnUiThread(() -> {
+                try {
+                    if ("landscape".equals(mode)) {
+                        setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+                    } else if ("portrait".equals(mode)) {
+                        setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                    } else {
+                        setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Error setting orientation: " + e.getMessage());
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void keepScreenOn(boolean on) {
+            runOnUiThread(() -> {
+                if (on) {
+                    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                } else {
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                }
+            });
+        }
+
+        @JavascriptInterface
         public void requestStoragePermission() {
             runOnUiThread(() -> checkAndRequestPermissions());
         }
