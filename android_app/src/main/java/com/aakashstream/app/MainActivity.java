@@ -120,7 +120,6 @@ public class MainActivity extends Activity {
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
         webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
 
         setupWebView();
         webView.loadUrl("file:///android_asset/index.html");
@@ -276,7 +275,7 @@ public class MainActivity extends Activity {
                                                 Map<String, String> h = new HashMap<>();
                                                 h.put("Access-Control-Allow-Origin", "*");
                                                 h.put("Cache-Control", "max-age=86400");
-                                                return new WebResourceResponse("image/jpeg", "UTF-8", 200, "OK", h, new ByteArrayInputStream(baos.toByteArray()));
+                                                return new WebResourceResponse("image/jpeg", null, 200, "OK", h, new ByteArrayInputStream(baos.toByteArray()));
                                             }
                                         } catch (Exception ignored) {}
                                     }
@@ -292,7 +291,7 @@ public class MainActivity extends Activity {
                                             Map<String, String> h = new HashMap<>();
                                             h.put("Access-Control-Allow-Origin", "*");
                                             h.put("Cache-Control", "max-age=86400");
-                                            return new WebResourceResponse("image/jpeg", "UTF-8", 200, "OK", h, new ByteArrayInputStream(baos.toByteArray()));
+                                            return new WebResourceResponse("image/jpeg", null, 200, "OK", h, new ByteArrayInputStream(baos.toByteArray()));
                                         }
                                         mmr.release();
                                     } catch (Exception ignored) {}
@@ -307,7 +306,7 @@ public class MainActivity extends Activity {
                                             Map<String, String> h = new HashMap<>();
                                             h.put("Access-Control-Allow-Origin", "*");
                                             h.put("Cache-Control", "max-age=86400");
-                                            return new WebResourceResponse("image/jpeg", "UTF-8", 200, "OK", h, new ByteArrayInputStream(art));
+                                            return new WebResourceResponse("image/jpeg", null, 200, "OK", h, new ByteArrayInputStream(art));
                                         }
                                     } catch (Exception ignored) {}
                                 }
@@ -384,9 +383,9 @@ public class MainActivity extends Activity {
 
                                 if (isRange && totalLength > 0) {
                                     resHeaders.put("Content-Range", "bytes " + start + "-" + end + "/" + totalLength);
-                                    return new WebResourceResponse(mime, "UTF-8", 206, "Partial Content", resHeaders, stream);
+                                    return new WebResourceResponse(mime, null, 206, "Partial Content", resHeaders, stream);
                                 } else {
-                                    return new WebResourceResponse(mime, "UTF-8", 200, "OK", resHeaders, stream);
+                                    return new WebResourceResponse(mime, null, 200, "OK", resHeaders, stream);
                                 }
                             }
                         }

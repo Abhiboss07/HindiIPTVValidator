@@ -69,8 +69,6 @@ html, body {
   top: 0;
   z-index: 50;
   background: rgba(20, 20, 20, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-glass);
   padding-top: 26px;
   padding-bottom: 12px;
@@ -316,8 +314,6 @@ html, body {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition: all 0.15s ease;
 }
 
@@ -1188,8 +1184,6 @@ html, body {
   top: 0;
   z-index: 50;
   background: rgba(18, 18, 18, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-glass);
   padding-top: 26px;
   padding-bottom: 12px;
@@ -1221,8 +1215,6 @@ html, body {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   z-index: 999;
   display: none;
   opacity: 0;
@@ -1406,8 +1398,6 @@ html, body {
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition: all 0.15s ease;
 }
 
@@ -1476,8 +1466,6 @@ html, body {
   right: 18px;
   height: 62px;
   background: rgba(18, 18, 18, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 24px;
   display: flex;
@@ -1522,7 +1510,6 @@ html, body {
 
 .dock-tab-btn.active svg {
   transform: scale(1.12);
-  filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.6));
 }
 
 .dock-tab-btn:active {
@@ -1543,8 +1530,6 @@ html, body {
   align-items: center;
   gap: 12px;
   z-index: 85;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
@@ -1576,8 +1561,6 @@ html, body {
   gap: 8px;
   background: rgba(22, 22, 22, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-radius: 20px;
   padding: 6px 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
@@ -1715,8 +1698,6 @@ html, body {
   font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -1809,8 +1790,6 @@ html, body {
   align-items: center;
   gap: 12px;
   z-index: 150;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.85);
   opacity: 0;
   pointer-events: none;
@@ -1846,8 +1825,6 @@ html, body {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.76);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   z-index: 999;
   display: flex;
   visibility: hidden;
@@ -2083,7 +2060,6 @@ html, body {
   color: #FFFFFF;
   padding: 2px 6px;
   border-radius: 4px;
-  backdrop-filter: blur(8px);
 }
 
 .local-grid-info {
@@ -2262,7 +2238,6 @@ html, body {
   inset: -20px;
   background-size: cover;
   background-position: center;
-  filter: blur(40px) saturate(160%) brightness(0.45);
   transform: scale(1.15);
   opacity: 0.75;
   transition: opacity 0.4s ease, background-image 0.3s ease;
@@ -2334,7 +2309,6 @@ html, body {
 .audio-artwork-icon {
   font-size: 64px;
   line-height: 1;
-  filter: drop-shadow(0 0 16px rgba(229, 9, 20, 0.6));
 }
 
 .audio-artwork-title {

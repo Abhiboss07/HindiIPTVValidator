@@ -12118,21 +12118,12 @@ const DEFAULT_LOCAL_MEDIA = [
 
 const HERO_FEATURED_CHANNELS = [
   {
-    id: 'aajtak',
+    id: 'aajtak-hd',
     name: 'Aaj Tak HD Live',
     category: 'Hindi News • 1080p FHD',
     desc: "Watch India's leading 24x7 Hindi national breaking news, prime-time debates, and ground reports in Full HD.",
     bg: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=1200&auto=format&fit=crop&q=80',
     tag: 'LIVE 24/7',
-    quality: '1080p FHD'
-  },
-  {
-    id: 'abp-news',
-    name: 'ABP News Live',
-    category: 'Breaking News • 1080p FHD',
-    desc: "Top national political coverage, investigative ground reports, and live election coverage from across India.",
-    bg: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&auto=format&fit=crop&q=80',
-    tag: 'BREAKING',
     quality: '1080p FHD'
   },
   {
@@ -12145,30 +12136,21 @@ const HERO_FEATURED_CHANNELS = [
     quality: '1080p FHD'
   },
   {
-    id: 'air-vividh-bharati-12',
-    name: 'AIR Vividh Bharati 102.8 FM',
-    category: 'All India Radio • 102.8 MHz',
-    desc: "Evergreen Bollywood golden melodies, Sangeet Sarita, Chhaya Geet, and classic All India Radio broadcasts.",
-    bg: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200&auto=format&fit=crop&q=80',
-    tag: 'AIR LIVE',
-    quality: '32 kbps FM'
+    id: 'nasa-tv-uhd',
+    name: 'NASA TV HD (Space)',
+    category: 'Science & Space • 4K UHD',
+    desc: "Live views from the International Space Station, spacewalks, and Artemis rocket launches.",
+    bg: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
+    tag: 'NASA LIVE',
+    quality: '4K UHD'
   },
   {
-    id: 'aastha-tv',
-    name: 'Aastha TV HD Live',
-    category: 'Spiritual & Bhakti • 1080p',
-    desc: "Vedic chants, continuous live Aarti, yoga sessions by Swami Ramdev, and spiritual discourses 24x7.",
-    bg: 'https://images.unsplash.com/photo-1545239351-ef35f43d514b?w=1200&auto=format&fit=crop&q=80',
-    tag: 'DEVOTIONAL',
-    quality: '1080p FHD'
-  },
-  {
-    id: 'dd-news-hd',
-    name: 'DD News HD Live',
-    category: 'Doordarshan National • 1080p',
-    desc: "Official national public broadcaster of India with comprehensive governance news and Parliament bulletins.",
-    bg: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80',
-    tag: 'NATIONAL',
+    id: 'al-jazeera-en',
+    name: 'Al Jazeera World News HD',
+    category: 'World News • 1080p FHD',
+    desc: "Award-winning global breaking news, international headlines, and in-depth investigative reports.",
+    bg: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&auto=format&fit=crop&q=80',
+    tag: 'GLOBAL LIVE',
     quality: '1080p FHD'
   }
 ];
@@ -13128,8 +13110,20 @@ function loadChannelMedia(ch, autoPlay) {
 
     hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
       if (autoPlay && videoElement) {
-        videoElement.play().catch(() => {});
+        const p = videoElement.play();
+        if (p !== undefined) {
+          p.then(() => {
+            hideBufferingSpinner();
+            isPlaying = true;
+            updatePlayPauseIcons(true);
+          }).catch(() => {});
+        }
       }
+    });
+
+    hlsInstance.on(Hls.Events.LEVEL_LOADED, () => {
+      clearTimeout(streamWatchdogTimeout);
+      hideBufferingSpinner();
     });
 
     hlsInstance.on(Hls.Events.FRAG_BUFFERED, () => {
@@ -13200,17 +13194,20 @@ function loadChannelMedia(ch, autoPlay) {
       }
 
       if (autoPlay) {
-        videoElement.play().catch(() => {});
+        const p = videoElement.play();
+        if (p !== undefined) {
+          p.then(() => {
+            hideBufferingSpinner();
+            isPlaying = true;
+            updatePlayPauseIcons(true);
+          }).catch(() => {});
+        }
       }
     }
   }
 
-  // Safety fallback: auto-hide spinner after 3s if playback started
-  setTimeout(() => {
-    if (videoElement && (!videoElement.paused || videoElement.readyState >= 2)) {
-      hideBufferingSpinner();
-    }
-  }, 3000);
+  // Safety fallback: unconditionally hide spinner after 2.5s
+  setTimeout(hideBufferingSpinner, 2500);
 
   if (!autoPlay) {
     const miniPlayer = document.getElementById('miniPlayer');
