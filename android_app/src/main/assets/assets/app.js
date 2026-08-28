@@ -13026,8 +13026,10 @@ function loadChannelMedia(ch, autoPlay) {
   updateFavIconUI();
   updateAudioArtwork();
 
+  // Cleanly detach any previous HLS stream
   if (hlsInstance) {
     try {
+      hlsInstance.detachMedia();
       hlsInstance.destroy();
     } catch (e) {}
     hlsInstance = null;
@@ -13035,8 +13037,6 @@ function loadChannelMedia(ch, autoPlay) {
 
   if (videoElement) {
     videoElement.pause();
-    videoElement.removeAttribute('src');
-    videoElement.load();
   }
 
   let streamUrl = ch.url;
@@ -13048,28 +13048,50 @@ function loadChannelMedia(ch, autoPlay) {
   const resumeKey = 'aakash_resume_' + ch.id;
   const savedResumeTime = ch.isLocal ? parseInt(localStorage.getItem(resumeKey) || '0', 10) : 0;
 
+  // Bind video element events for spinner with multiple safety nets
+  if (videoElement) {
+    videoElement.onwaiting = () => showBufferingSpinner('Buffering...');
+    videoElement.onloadeddata = () => {
+      clearTimeout(streamWatchdogTimeout);
+      hideBufferingSpinner();
+    };
+    videoElement.onloadedmetadata = () => {
+      clearTimeout(streamWatchdogTimeout);
+      hideBufferingSpinner();
+    };
+    videoElement.onplaying = () => {
+      clearTimeout(streamWatchdogTimeout);
+      hideBufferingSpinner();
+      isPlaying = true;
+      updatePlayPauseIcons(true);
+    };
+    videoElement.oncanplay = () => {
+      clearTimeout(streamWatchdogTimeout);
+      hideBufferingSpinner();
+    };
+    videoElement.onerror = () => {
+      clearTimeout(streamWatchdogTimeout);
+      if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
+        currentBackupIdx++;
+        showToast('Connecting backup stream mirror...');
+        loadChannelMedia(ch, true);
+      } else {
+        hideBufferingSpinner();
+        showToast('Stream is currently offline. Please try another channel.');
+      }
+    };
+  }
+
   // Fast-start ABR HLS Configuration for instant mobile loading
   if (streamUrl && (streamUrl.endsWith('.m3u8') || streamUrl.includes('m3u8')) && window.Hls && Hls.isSupported() && !ch.isLocal) {
     hlsInstance = new Hls({
       enableWorker: true,
       autoStartLoad: true,
-      startLevel: -1,
-      capLevelToPlayerSize: true,
-      startFragPrefetch: true,
-      progressive: true,
       lowLatencyMode: false,
-      manifestLoadingTimeOut: 5000,
-      manifestLoadingMaxRetry: 4,
-      manifestLoadingRetryDelay: 400,
-      levelLoadingTimeOut: 5000,
-      levelLoadingMaxRetry: 4,
-      fragLoadingTimeOut: 6000,
-      fragLoadingMaxRetry: 4,
-      fragLoadingRetryDelay: 400,
-      maxBufferLength: 25,
-      maxMaxBufferLength: 50,
-      maxBufferSize: 30 * 1000 * 1000,
-      backBufferLength: 15
+      maxBufferLength: 30,
+      maxMaxBufferLength: 60,
+      manifestLoadingTimeOut: 8000,
+      fragLoadingTimeOut: 10000
     });
 
     hlsInstance.loadSource(streamUrl);
@@ -13079,6 +13101,16 @@ function loadChannelMedia(ch, autoPlay) {
       if (autoPlay && videoElement) {
         videoElement.play().catch(() => {});
       }
+    });
+
+    hlsInstance.on(Hls.Events.FRAG_BUFFERED, () => {
+      clearTimeout(streamWatchdogTimeout);
+      hideBufferingSpinner();
+    });
+
+    hlsInstance.on(Hls.Events.FRAG_LOADED, () => {
+      clearTimeout(streamWatchdogTimeout);
+      hideBufferingSpinner();
     });
 
     hlsInstance.on(Hls.Events.ERROR, (event, data) => {
@@ -13109,7 +13141,7 @@ function loadChannelMedia(ch, autoPlay) {
       }
     });
 
-    // Stream Speed Watchdog (4.5s auto-failover if stream hangs)
+    // Stream Speed Watchdog (5s auto-failover if stream hangs)
     if (autoPlay && ch.backupUrls && ch.backupUrls.length > 0) {
       streamWatchdogTimeout = setTimeout(() => {
         if (videoElement && (videoElement.paused || videoElement.readyState < 2)) {
@@ -13119,7 +13151,7 @@ function loadChannelMedia(ch, autoPlay) {
             loadChannelMedia(ch, true);
           }
         }
-      }, 4500);
+      }, 5000);
     }
 
   } else if (streamUrl) {
@@ -13144,31 +13176,12 @@ function loadChannelMedia(ch, autoPlay) {
     }
   }
 
-  // Bind video element events for spinner
-  if (videoElement) {
-    videoElement.onwaiting = () => showBufferingSpinner('Buffering...');
-    videoElement.onplaying = () => {
-      clearTimeout(streamWatchdogTimeout);
+  // Safety fallback: auto-hide spinner after 3s if playback started
+  setTimeout(() => {
+    if (videoElement && (!videoElement.paused || videoElement.readyState >= 2)) {
       hideBufferingSpinner();
-      isPlaying = true;
-      updatePlayPauseIcons(true);
-    };
-    videoElement.oncanplay = () => {
-      clearTimeout(streamWatchdogTimeout);
-      hideBufferingSpinner();
-    };
-    videoElement.onerror = () => {
-      clearTimeout(streamWatchdogTimeout);
-      if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
-        currentBackupIdx++;
-        showToast('Connecting backup stream mirror...');
-        loadChannelMedia(ch, true);
-      } else {
-        hideBufferingSpinner();
-        showToast('Stream is currently offline. Please try another channel.');
-      }
-    };
-  }
+    }
+  }, 3000);
 
   if (!autoPlay) {
     const miniPlayer = document.getElementById('miniPlayer');
@@ -13709,7 +13722,9 @@ function initPlayerSwipeGestures() {
     }
 
     if (!activeGestureType) return;
-    e.preventDefault();
+    if (e.cancelable) {
+      e.preventDefault();
+    }
     clearTimeout(hudHideTimeout);
 
     if (!rafSwipePending) {
