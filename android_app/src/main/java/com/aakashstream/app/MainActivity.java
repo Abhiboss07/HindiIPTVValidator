@@ -41,10 +41,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class MainActivity extends Activity {
     private static final String TAG = "AakashStream";
@@ -54,6 +57,9 @@ public class MainActivity extends Activity {
     private WebView webView;
     private ValueCallback<Uri[]> filePathCallback;
     private AudioManager audioManager;
+    private ServerSocket localServerSocket;
+    private int localServerPort = 0;
+    private volatile boolean isServerRunning = false;
 
     // Custom Bounded InputStream for HTTP 206 Partial Content Range streaming
     private static class BoundedInputStream extends InputStream {
@@ -93,11 +99,259 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void startLocalServer() {
+        new Thread(() -> {
+            try {
+                localServerSocket = new ServerSocket(0, 50, java.net.InetAddress.getByName("127.0.0.1"));
+                localServerPort = localServerSocket.getLocalPort();
+                isServerRunning = true;
+                Log.i(TAG, "LocalMediaServer running on 127.0.0.1:" + localServerPort);
+
+                while (isServerRunning && !localServerSocket.isClosed()) {
+                    try {
+                        Socket socket = localServerSocket.accept();
+                        new Thread(() -> handleClientSocket(socket)).start();
+                    } catch (Exception e) {
+                        if (!isServerRunning) break;
+                    }
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Error starting LocalMediaServer: " + e.getMessage());
+            }
+        }).start();
+    }
+
+    private void handleClientSocket(Socket socket) {
+        try {
+            InputStream in = socket.getInputStream();
+            OutputStream out = socket.getOutputStream();
+            java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(in));
+
+            String requestLine = reader.readLine();
+            if (requestLine == null || requestLine.isEmpty()) {
+                socket.close();
+                return;
+            }
+
+            String[] reqParts = requestLine.split(" ");
+            if (reqParts.length < 2) {
+                socket.close();
+                return;
+            }
+
+            String method = reqParts[0];
+            String uriStr = reqParts[1];
+
+            String rangeHeader = null;
+            String headerLine;
+            while ((headerLine = reader.readLine()) != null && !headerLine.isEmpty()) {
+                if (headerLine.regionMatches(true, 0, "Range:", 0, 6)) {
+                    rangeHeader = headerLine.substring(6).trim();
+                }
+            }
+
+            if ("OPTIONS".equalsIgnoreCase(method)) {
+                String resp = "HTTP/1.1 204 No Content\r\n" +
+                        "Access-Control-Allow-Origin: *\r\n" +
+                        "Access-Control-Allow-Methods: GET, HEAD, OPTIONS\r\n" +
+                        "Access-Control-Allow-Headers: *\r\n" +
+                        "Access-Control-Expose-Headers: Content-Range, Content-Length, Accept-Ranges\r\n" +
+                        "Content-Length: 0\r\n\r\n";
+                out.write(resp.getBytes("UTF-8"));
+                out.flush();
+                socket.close();
+                return;
+            }
+
+            String path = uriStr;
+            String query = null;
+            int qIdx = uriStr.indexOf('?');
+            if (qIdx >= 0) {
+                path = uriStr.substring(0, qIdx);
+                query = uriStr.substring(qIdx + 1);
+            }
+
+            Map<String, String> params = new HashMap<>();
+            if (query != null) {
+                for (String param : query.split("&")) {
+                    String[] entry = param.split("=");
+                    if (entry.length > 1) {
+                        params.put(entry[0], entry[1]);
+                    } else if (entry.length == 1) {
+                        params.put(entry[0], "");
+                    }
+                }
+            }
+
+            String idStr = params.get("id");
+            if (idStr == null) {
+                String resp = "HTTP/1.1 400 Bad Request\r\nContent-Length: 0\r\n\r\n";
+                out.write(resp.getBytes("UTF-8"));
+                out.flush();
+                socket.close();
+                return;
+            }
+
+            long id = Long.parseLong(idStr);
+
+            if ("/thumb".equals(path)) {
+                String mediaType = params.get("type");
+                byte[] artBytes = null;
+                if ("video".equals(mediaType)) {
+                    Uri contentUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        try {
+                            Bitmap thumb = getContentResolver().loadThumbnail(contentUri, new Size(320, 180), null);
+                            if (thumb != null) {
+                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                thumb.compress(Bitmap.CompressFormat.JPEG, 80, baos);
+                                artBytes = baos.toByteArray();
+                            }
+                        } catch (Exception ignored) {}
+                    }
+                    if (artBytes == null) {
+                        MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+                        try {
+                            mmr.setDataSource(MainActivity.this, contentUri);
+                            Bitmap thumb = mmr.getFrameAtTime(1000000, MediaMetadataRetriever.OPTION_CLOSEST_SYNC);
+                            if (thumb != null) {
+                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                thumb.compress(Bitmap.CompressFormat.JPEG, 80, baos);
+                                artBytes = baos.toByteArray();
+                            }
+                            mmr.release();
+                        } catch (Exception ignored) {}
+                    }
+                } else if ("audio".equals(mediaType)) {
+                    Uri contentUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
+                    MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+                    try {
+                        mmr.setDataSource(MainActivity.this, contentUri);
+                        artBytes = mmr.getEmbeddedPicture();
+                        mmr.release();
+                    } catch (Exception ignored) {}
+                }
+
+                if (artBytes != null) {
+                    String resp = "HTTP/1.1 200 OK\r\n" +
+                            "Content-Type: image/jpeg\r\n" +
+                            "Access-Control-Allow-Origin: *\r\n" +
+                            "Cache-Control: max-age=86400\r\n" +
+                            "Content-Length: " + artBytes.length + "\r\n\r\n";
+                    out.write(resp.getBytes("UTF-8"));
+                    out.write(artBytes);
+                    out.flush();
+                } else {
+                    String resp = "HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\n\r\n";
+                    out.write(resp.getBytes("UTF-8"));
+                    out.flush();
+                }
+                socket.close();
+                return;
+            }
+
+            // Stream Video or Audio with Native HTTP 206 Range support
+            boolean isVideo = "/video".equals(path);
+            Uri contentUri = isVideo
+                    ? ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id)
+                    : ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
+
+            String mime = isVideo ? "video/mp4" : "audio/mpeg";
+            AssetFileDescriptor afd = getContentResolver().openAssetFileDescriptor(contentUri, "r");
+            if (afd == null) {
+                String resp = "HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\n\r\n";
+                out.write(resp.getBytes("UTF-8"));
+                out.flush();
+                socket.close();
+                return;
+            }
+
+            long totalLength = afd.getLength();
+            if (totalLength < 0) {
+                ParcelFileDescriptor pfd = afd.getParcelFileDescriptor();
+                if (pfd != null) totalLength = pfd.getStatSize();
+            }
+
+            long start = 0;
+            long end = totalLength > 0 ? (totalLength - 1) : 0;
+            boolean isRange = false;
+
+            if (rangeHeader != null && rangeHeader.startsWith("bytes=")) {
+                isRange = true;
+                String rangeSpec = rangeHeader.substring(6).trim();
+                String[] parts = rangeSpec.split("-");
+                try {
+                    if (parts.length > 0 && !parts[0].isEmpty()) {
+                        start = Long.parseLong(parts[0]);
+                    }
+                    if (parts.length > 1 && !parts[1].isEmpty()) {
+                        end = Long.parseLong(parts[1]);
+                    }
+                } catch (NumberFormatException ignored) {}
+            }
+
+            if (totalLength > 0 && end >= totalLength) {
+                end = totalLength - 1;
+            }
+            if (start > end && totalLength > 0) {
+                start = 0;
+                end = totalLength - 1;
+            }
+
+            long contentLength = totalLength > 0 ? (end - start + 1) : 0;
+            FileInputStream fis = afd.createInputStream();
+            if (start > 0) {
+                fis.getChannel().position(start);
+            }
+
+            StringBuilder headers = new StringBuilder();
+            if (isRange && totalLength > 0) {
+                headers.append("HTTP/1.1 206 Partial Content\r\n");
+                headers.append("Content-Range: bytes ").append(start).append("-").append(end).append("/").append(totalLength).append("\r\n");
+            } else {
+                headers.append("HTTP/1.1 200 OK\r\n");
+            }
+            headers.append("Content-Type: ").append(mime).append("\r\n");
+            headers.append("Accept-Ranges: bytes\r\n");
+            headers.append("Access-Control-Allow-Origin: *\r\n");
+            headers.append("Access-Control-Allow-Methods: GET, HEAD, OPTIONS\r\n");
+            headers.append("Access-Control-Allow-Headers: *\r\n");
+            headers.append("Access-Control-Expose-Headers: Content-Range, Content-Length, Accept-Ranges\r\n");
+            headers.append("Cache-Control: no-cache, no-store\r\n");
+            if (contentLength > 0) {
+                headers.append("Content-Length: ").append(contentLength).append("\r\n");
+            }
+            headers.append("\r\n");
+
+            out.write(headers.toString().getBytes("UTF-8"));
+
+            if (!"HEAD".equalsIgnoreCase(method)) {
+                byte[] buffer = new byte[64 * 1024];
+                long bytesToRead = (totalLength > 0) ? contentLength : Long.MAX_VALUE;
+                while (bytesToRead > 0) {
+                    int toRead = (int) Math.min(buffer.length, bytesToRead);
+                    int read = fis.read(buffer, 0, toRead);
+                    if (read <= 0) break;
+                    out.write(buffer, 0, read);
+                    bytesToRead -= read;
+                }
+                out.flush();
+            }
+
+            fis.close();
+            afd.close();
+            socket.close();
+        } catch (Exception ignored) {
+            try { socket.close(); } catch (Exception e2) {}
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         WebView.setWebContentsDebuggingEnabled(true);
+        startLocalServer();
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -183,6 +437,7 @@ public class MainActivity extends Activity {
     }
 
     private void setupWebView() {
+        WebView.setWebContentsDebuggingEnabled(true);
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
@@ -202,7 +457,7 @@ public class MainActivity extends Activity {
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                Log.d(TAG, "[Console " + consoleMessage.messageLevel() + "] " + consoleMessage.message() + " -- From line "
+                Log.i(TAG, "[Console " + consoleMessage.messageLevel() + "] " + consoleMessage.message() + " -- From line "
                         + consoleMessage.lineNumber() + " of " + consoleMessage.sourceId());
                 return true;
             }
@@ -328,10 +583,6 @@ public class MainActivity extends Activity {
                                 : ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
                             
                             String mime = isVideo ? "video/mp4" : "audio/mpeg";
-                            try {
-                                String type = getContentResolver().getType(contentUri);
-                                if (type != null) mime = type;
-                            } catch (Exception ignored) {}
 
                             AssetFileDescriptor afd = getContentResolver().openAssetFileDescriptor(contentUri, "r");
                             if (afd != null) {
@@ -389,9 +640,6 @@ public class MainActivity extends Activity {
                                 resHeaders.put("Access-Control-Allow-Headers", "*");
                                 resHeaders.put("Access-Control-Expose-Headers", "Content-Range, Content-Length, Accept-Ranges");
                                 resHeaders.put("Cache-Control", "no-cache, no-store");
-                                if (contentLength > 0) {
-                                    resHeaders.put("Content-Length", String.valueOf(contentLength));
-                                }
 
                                 if (isRange && totalLength > 0) {
                                     resHeaders.put("Content-Range", "bytes " + start + "-" + end + "/" + totalLength);
@@ -459,8 +707,8 @@ public class MainActivity extends Activity {
                         obj.put("category", "Local Video");
                         obj.put("quality", sizeMb);
                         obj.put("description", "Device Storage: " + folder);
-                        obj.put("url", "https://app.localmedia/video?id=" + id);
-                        obj.put("thumbUrl", "https://app.localmedia/thumb?id=" + id + "&type=video");
+                        obj.put("url", "http://127.0.0.1:" + localServerPort + "/video?id=" + id);
+                        obj.put("thumbUrl", "http://127.0.0.1:" + localServerPort + "/thumb?id=" + id + "&type=video");
                         obj.put("duration", durFormatted);
                         obj.put("folder", folder);
                         obj.put("isLocal", true);
@@ -516,8 +764,8 @@ public class MainActivity extends Activity {
                         obj.put("category", (artist != null && !artist.contains("unknown")) ? artist : "Music Audio");
                         obj.put("quality", sizeMb);
                         obj.put("description", "Device Storage: " + folder);
-                        obj.put("url", "https://app.localmedia/audio?id=" + id);
-                        obj.put("thumbUrl", "https://app.localmedia/thumb?id=" + id + "&type=audio");
+                        obj.put("url", "http://127.0.0.1:" + localServerPort + "/audio?id=" + id);
+                        obj.put("thumbUrl", "http://127.0.0.1:" + localServerPort + "/thumb?id=" + id + "&type=audio");
                         obj.put("duration", durFormatted);
                         obj.put("folder", folder);
                         obj.put("isLocal", true);
@@ -668,6 +916,12 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+        isServerRunning = false;
+        if (localServerSocket != null) {
+            try {
+                localServerSocket.close();
+            } catch (Exception ignored) {}
+        }
         if (webView != null) {
             webView.destroy();
         }

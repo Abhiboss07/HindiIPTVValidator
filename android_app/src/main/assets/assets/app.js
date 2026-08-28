@@ -12994,7 +12994,7 @@ function updateAudioArtwork() {
 }
 
 function playChannel(ch) {
-  currentBackupIdx = 0;
+  currentBackupIdx = -1;
   openFullPlayerModal();
   loadChannelMedia(ch, true);
 }
@@ -13051,7 +13051,7 @@ function loadChannelMedia(ch, autoPlay) {
   }
 
   let streamUrl = ch.url;
-  if (ch.backupUrls && ch.backupUrls.length > 0 && currentBackupIdx < ch.backupUrls.length) {
+  if (currentBackupIdx >= 0 && ch.backupUrls && ch.backupUrls.length > 0 && currentBackupIdx < ch.backupUrls.length) {
     streamUrl = ch.backupUrls[currentBackupIdx];
   }
 
@@ -13180,7 +13180,6 @@ function loadChannelMedia(ch, autoPlay) {
   } else if (streamUrl) {
     if (videoElement) {
       videoElement.src = streamUrl;
-      videoElement.load();
       
       if (savedResumeTime > 5) {
         const onLoaded = function() {
@@ -13194,20 +13193,24 @@ function loadChannelMedia(ch, autoPlay) {
       }
 
       if (autoPlay) {
-        const p = videoElement.play();
-        if (p !== undefined) {
-          p.then(() => {
-            hideBufferingSpinner();
-            isPlaying = true;
-            updatePlayPauseIcons(true);
-          }).catch(() => {});
-        }
+        const startPlayback = () => {
+          const p = videoElement.play();
+          if (p !== undefined) {
+            p.then(() => {
+              hideBufferingSpinner();
+              isPlaying = true;
+              updatePlayPauseIcons(true);
+            }).catch(() => {});
+          }
+        };
+        startPlayback();
+        videoElement.addEventListener('canplay', startPlayback, { once: true });
       }
     }
   }
 
-  // Safety fallback: unconditionally hide spinner after 2.5s
-  setTimeout(hideBufferingSpinner, 2500);
+  // Safety fallback: unconditionally hide spinner after 2s
+  setTimeout(hideBufferingSpinner, 2000);
 
   if (!autoPlay) {
     const miniPlayer = document.getElementById('miniPlayer');
@@ -13915,45 +13918,8 @@ window.clearAppData = function() {
   closeSettingsModal();
 };
 
-// Canvas Particles
-function initParticles() {
-  const canvas = document.getElementById('particlesCanvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let width = canvas.width = window.innerWidth;
-  let height = canvas.height = window.innerHeight;
-
-  window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
-
-  const particles = Array.from({ length: 30 }, () => ({
-    x: Math.random() * width,
-    y: Math.random() * height,
-    vx: (Math.random() - 0.5) * 0.4,
-    vy: (Math.random() - 0.5) * 0.4,
-    r: Math.random() * 1.5 + 0.5
-  }));
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = 'rgba(229, 9, 20, 0.4)';
-    particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0) p.x = width;
-      if (p.x > width) p.x = 0;
-      if (p.y < 0) p.y = height;
-      if (p.y > height) p.y = 0;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
-}
+// Canvas Particles (Disabled for optimal 60fps GPU performance on mobile)
+function initParticles() {}
 
 // ==========================================================
 // ANDROID HARDWARE BACK BUTTON & MODAL DISMISS HANDLER
