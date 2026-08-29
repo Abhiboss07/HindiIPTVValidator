@@ -13211,6 +13211,7 @@ function startHeroRotator() {
 }
 
 function updateHeroUI(item) {
+  if (!item) return;
   const heroBgImg = document.getElementById('heroBgImg');
   const heroTitle = document.getElementById('heroTitle');
   const heroDesc = document.getElementById('heroDesc');
@@ -13219,10 +13220,16 @@ function updateHeroUI(item) {
 
   if (heroBgImg) {
     heroBgImg.style.opacity = '0.3';
-    setTimeout(() => {
+    const tempImg = new Image();
+    tempImg.onload = () => {
       heroBgImg.style.backgroundImage = "url('" + item.bg + "')";
       heroBgImg.style.opacity = '1';
-    }, 300);
+    };
+    tempImg.onerror = () => {
+      heroBgImg.style.backgroundImage = 'radial-gradient(circle at 80% 20%, #7f1d1d 0%, #170d14 60%, #0d0a10 100%)';
+      heroBgImg.style.opacity = '1';
+    };
+    tempImg.src = item.bg;
   }
 
   if (heroTitle) heroTitle.textContent = item.name;
@@ -13261,8 +13268,9 @@ function renderHomePage() {
 
       card.innerHTML = `
         <div class="live-now-thumb">
-          <img src="${thumbUrl}" alt="${ch.name}" loading="lazy">
-          <div class="live-viewer-chip">
+          <div class="live-thumb-fallback" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 32px; background: linear-gradient(135deg, #1e1b4b, #0f172a);">${ch.flag || '📺'}</div>
+          <img src="${thumbUrl}" alt="${ch.name}" loading="lazy" style="position: relative; z-index: 1;" onerror="this.style.display='none';">
+          <div class="live-viewer-chip" style="z-index: 2;">
             <svg viewBox="0 0 24 24" width="12" height="12" fill="#ffb4ab"><path d="M12 4C7.58 4 4 7.58 4 12c0 2.21.89 4.21 2.34 5.66l1.41-1.41C6.62 15.12 6 13.62 6 12c0-3.31 2.69-6 6-6s6 2.69 6 6c0 1.62-.62 3.12-1.76 4.24l1.41 1.41C19.11 16.21 20 14.21 20 12c0-4.42-3.58-8-8-8zm0 4c-2.21 0-4 1.79-4 4 0 1.1.45 2.1 1.17 2.83l1.41-1.41C10.22 13.06 10 12.56 10 12c0-1.1.9-2 2-2s2 .9 2 2c0 .56-.22 1.06-.59 1.41l1.41 1.41C15.55 14.1 16 13.1 16 12c0-2.21-1.79-4-4-4zm0 3c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg>
             <span>${viewers}</span>
           </div>
@@ -14087,81 +14095,96 @@ function loadChannelMedia(ch, autoPlay) {
   }
 
   // Fast-start ABR HLS Configuration for instant mobile loading
-  if (streamUrl && (streamUrl.endsWith('.m3u8') || streamUrl.includes('m3u8')) && window.Hls && Hls.isSupported() && !ch.isLocal) {
-    hlsInstance = new Hls({
-      enableWorker: true,
-      autoStartLoad: true,
-      lowLatencyMode: false,
-      maxBufferLength: 30,
-      maxMaxBufferLength: 60,
-      manifestLoadingTimeOut: 8000,
-      fragLoadingTimeOut: 10000
-    });
+  const isM3U8 = streamUrl && (streamUrl.endsWith('.m3u8') || streamUrl.includes('.m3u8') || streamUrl.includes('m3u8'));
+  const isAudioType = ch.type === 'radio' || (ch.isLocal && ch.type !== 'tv');
 
-    hlsInstance.loadSource(streamUrl);
-    hlsInstance.attachMedia(videoElement);
+  if (isM3U8 && window.Hls && Hls.isSupported() && !ch.isLocal && !isAudioType) {
+    try {
+      hlsInstance = new Hls({
+        enableWorker: false, // Disables WebWorker to avoid file:/// sandboxing issues in WebView
+        autoStartLoad: true,
+        lowLatencyMode: false,
+        maxBufferLength: 30,
+        maxMaxBufferLength: 60,
+        manifestLoadingTimeOut: 10000,
+        fragLoadingTimeOut: 15000
+      });
 
-    hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
-      if (autoPlay && videoElement) {
-        const p = videoElement.play();
-        if (p !== undefined) {
-          p.then(() => {
-            hideBufferingSpinner();
-            isPlaying = true;
-            updatePlayPauseIcons(true);
-          }).catch(() => {});
+      hlsInstance.loadSource(streamUrl);
+      hlsInstance.attachMedia(videoElement);
+
+      hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (autoPlay && videoElement) {
+          const p = videoElement.play();
+          if (p !== undefined) {
+            p.then(() => {
+              hideBufferingSpinner();
+              isPlaying = true;
+              updatePlayPauseIcons(true);
+            }).catch((err) => {
+              console.warn('Video play note:', err);
+              // Retry unmuted or with user touch
+              hideBufferingSpinner();
+            });
+          }
         }
-      }
-    });
+      });
 
-    hlsInstance.on(Hls.Events.LEVEL_LOADED, () => {
-      clearTimeout(streamWatchdogTimeout);
-      hideBufferingSpinner();
-    });
+      hlsInstance.on(Hls.Events.LEVEL_LOADED, () => {
+        clearTimeout(streamWatchdogTimeout);
+        hideBufferingSpinner();
+      });
 
-    hlsInstance.on(Hls.Events.FRAG_BUFFERED, () => {
-      clearTimeout(streamWatchdogTimeout);
-      hideBufferingSpinner();
-    });
+      hlsInstance.on(Hls.Events.FRAG_BUFFERED, () => {
+        clearTimeout(streamWatchdogTimeout);
+        hideBufferingSpinner();
+      });
 
-    hlsInstance.on(Hls.Events.FRAG_LOADED, () => {
-      clearTimeout(streamWatchdogTimeout);
-      hideBufferingSpinner();
-    });
+      hlsInstance.on(Hls.Events.FRAG_LOADED, () => {
+        clearTimeout(streamWatchdogTimeout);
+        hideBufferingSpinner();
+      });
 
-    hlsInstance.on(Hls.Events.ERROR, (event, data) => {
-      if (!hlsInstance) return;
-      if (data.fatal) {
-        switch (data.type) {
-          case Hls.ErrorTypes.NETWORK_ERROR:
-            if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
-              currentBackupIdx++;
-              showToast('⚡ Connecting high-speed stream mirror...');
-              loadChannelMedia(ch, true);
-            } else if (hlsInstance) {
-              hlsInstance.startLoad();
-            }
-            break;
-          case Hls.ErrorTypes.MEDIA_ERROR:
-            if (hlsInstance) {
-              hlsInstance.recoverMediaError();
-            }
-            break;
-          default:
-            if (hlsInstance) {
-              try { hlsInstance.destroy(); } catch (e) {}
-              hlsInstance = null;
-            }
-            if (videoElement && streamUrl) {
-              videoElement.src = streamUrl;
-              if (autoPlay) {
-                videoElement.play().catch(() => {});
+      hlsInstance.on(Hls.Events.ERROR, (event, data) => {
+        if (!hlsInstance) return;
+        if (data.fatal) {
+          switch (data.type) {
+            case Hls.ErrorTypes.NETWORK_ERROR:
+              if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
+                currentBackupIdx++;
+                showToast('⚡ Connecting stream mirror...');
+                loadChannelMedia(ch, true);
+              } else if (hlsInstance) {
+                hlsInstance.startLoad();
               }
-            }
-            break;
+              break;
+            case Hls.ErrorTypes.MEDIA_ERROR:
+              if (hlsInstance) {
+                hlsInstance.recoverMediaError();
+              }
+              break;
+            default:
+              if (hlsInstance) {
+                try { hlsInstance.destroy(); } catch (e) {}
+                hlsInstance = null;
+              }
+              if (videoElement && streamUrl) {
+                videoElement.src = streamUrl;
+                if (autoPlay) {
+                  videoElement.play().catch(() => {});
+                }
+              }
+              break;
+          }
         }
+      });
+    } catch (eHls) {
+      console.warn('HLS init note, falling back to native video:', eHls);
+      if (videoElement && streamUrl) {
+        videoElement.src = streamUrl;
+        if (autoPlay) videoElement.play().catch(() => {});
       }
-    });
+    }
 
     // Stream Speed Watchdog (5s auto-failover if stream hangs)
     if (autoPlay && ch.backupUrls && ch.backupUrls.length > 0) {
