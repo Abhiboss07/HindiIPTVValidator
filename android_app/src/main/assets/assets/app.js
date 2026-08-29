@@ -13530,8 +13530,17 @@ function createChannelListItem(ch) {
   const item = document.createElement('div');
   const isFav = favorites.includes(ch.id);
   const bitRatePct = Math.floor(Math.random() * 30) + 70;
+  const health = typeof getChannelHealthStatus === 'function' ? getChannelHealthStatus(ch.id) : 'healthy';
   
-  item.className = 'channel-list-item';
+  item.className = 'channel-list-item' + (health === 'quarantined' ? ' quarantined' : (health === 'soft_flagged' ? ' soft-flagged' : ''));
+  
+  let healthBadge = '';
+  if (health === 'quarantined') {
+    healthBadge = '<span class="channel-flag-badge danger">🚫 Quarantined</span>';
+  } else if (health === 'soft_flagged') {
+    healthBadge = '<span class="channel-flag-badge warning">⚠️ Flagged</span>';
+  }
+
   item.innerHTML = `
     <div class="channel-avatar-box">
       ${ch.type === 'radio' ? '📻' : (ch.flag || '📺')}
@@ -13539,6 +13548,7 @@ function createChannelListItem(ch) {
     <div class="channel-info-box">
       <div class="channel-header-row">
         <div class="channel-title-text">${ch.name}</div>
+        ${healthBadge}
         <div class="badge-live-tag">
           <span class="live-red-dot" style="width: 5px; height: 5px;"></span>
           <span>LIVE</span>
@@ -14653,6 +14663,12 @@ window.playPreviousChannel = function(e) {
   if (!Array.isArray(activeList) || activeList.length === 0) activeList = channelsData;
   if (activeList.length === 0) return;
 
+  // Filter out quarantined channels from sequential navigation
+  if (typeof getChannelHealthStatus === 'function') {
+    activeList = activeList.filter(c => getChannelHealthStatus(c.id) !== 'quarantined');
+  }
+  if (activeList.length === 0) return;
+
   const currentIdx = activeList.findIndex(c => c.id === currentPlayingChannel.id);
   const prevIdx = currentIdx > 0 ? currentIdx - 1 : activeList.length - 1;
   const prevChannel = activeList[prevIdx];
@@ -14680,6 +14696,12 @@ window.playNextChannel = function(e) {
   }
 
   if (!Array.isArray(activeList) || activeList.length === 0) activeList = channelsData;
+  if (activeList.length === 0) return;
+
+  // Filter out quarantined channels from sequential navigation
+  if (typeof getChannelHealthStatus === 'function') {
+    activeList = activeList.filter(c => getChannelHealthStatus(c.id) !== 'quarantined');
+  }
   if (activeList.length === 0) return;
 
   const currentIdx = activeList.findIndex(c => c.id === currentPlayingChannel.id);
@@ -16243,7 +16265,201 @@ function loadSettingsUI() {
     }
     dnsSelect.value = savedDns || 'default';
   }
+
+  // Populate Channel Health & Quarantine metrics
+  if (typeof renderChannelHealthManager === 'function') {
+    renderChannelHealthManager();
+  }
 }
+
+// ==========================================================
+// STREAM HEALTH, REPORTING & QUARANTINE SYSTEM (PARTS 1 & 2)
+// ==========================================================
+window.getChannelReports = function() {
+  try {
+    return JSON.parse(localStorage.getItem('aakash_channel_reports') || '{}');
+  } catch (e) {
+    return {};
+  }
+};
+
+window.saveChannelReports = function(reports) {
+  try {
+    localStorage.setItem('aakash_channel_reports', JSON.stringify(reports));
+  } catch (e) {}
+};
+
+window.getChannelHealthStatus = function(channelId) {
+  if (!channelId) return 'healthy';
+  const reports = getChannelReports();
+  const rep = reports[channelId];
+  if (!rep || !rep.count) return 'healthy';
+
+  // Quarantined: 3+ total reports OR 2+ mislabeled content reports
+  if (rep.count >= 3 || (rep.mislabeledCount && rep.mislabeledCount >= 2)) {
+    return 'quarantined';
+  }
+  // Soft-Flagged: 1+ reports
+  if (rep.count >= 1) {
+    return 'soft_flagged';
+  }
+  return 'healthy';
+};
+
+window.openReportChannelModal = function() {
+  if (typeof closeVlcMoreMenu === 'function') closeVlcMoreMenu();
+  const modal = document.getElementById('reportChannelModal');
+  const nameEl = document.getElementById('reportChannelName');
+  if (nameEl) {
+    nameEl.textContent = currentPlayingChannel ? ('Channel: ' + (currentPlayingChannel.name || 'Unknown Channel')) : 'No channel playing';
+  }
+  if (modal) modal.style.display = 'flex';
+};
+
+window.closeReportChannelModal = function() {
+  const modal = document.getElementById('reportChannelModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.submitChannelReport = function(reason) {
+  closeReportChannelModal();
+  if (!currentPlayingChannel) {
+    showToast('No active channel to report');
+    return;
+  }
+
+  const chId = currentPlayingChannel.id;
+  const chName = currentPlayingChannel.name || 'Unknown Channel';
+  const reports = getChannelReports();
+  const existing = reports[chId] || {
+    id: chId,
+    name: chName,
+    reason: reason,
+    count: 0,
+    mislabeledCount: 0,
+    firstReported: new Date().toISOString(),
+    lastReported: new Date().toISOString()
+  };
+
+  existing.count = (existing.count || 0) + 1;
+  existing.lastReported = new Date().toISOString();
+  existing.reason = reason;
+  if (reason === 'mislabeled') {
+    existing.mislabeledCount = (existing.mislabeledCount || 0) + 1;
+  }
+  reports[chId] = existing;
+  saveChannelReports(reports);
+
+  const status = getChannelHealthStatus(chId);
+  if (status === 'quarantined') {
+    showToast('🚫 Channel quarantined due to reports');
+    renderAllPages();
+    renderChannelHealthManager();
+  } else {
+    showToast('⚠️ Stream reported. Thank you for feedback!');
+    renderAllPages();
+    renderChannelHealthManager();
+  }
+};
+
+window.restoreChannelFromQuarantine = function(chId) {
+  const reports = getChannelReports();
+  if (reports[chId]) {
+    delete reports[chId];
+    saveChannelReports(reports);
+    showToast('✅ Channel restored to active catalog');
+    renderAllPages();
+    renderChannelHealthManager();
+  }
+};
+
+window.restoreAllQuarantinedChannels = function() {
+  saveChannelReports({});
+  showToast('✅ All quarantined channels restored');
+  renderAllPages();
+  renderChannelHealthManager();
+};
+
+window.exportQuarantineReport = function() {
+  const reports = getChannelReports();
+  const reportKeys = Object.keys(reports);
+  const dataObj = {
+    exported_at: new Date().toISOString(),
+    app_version: "2.5.0",
+    total_flagged: reportKeys.length,
+    reports: reportKeys.map(k => reports[k])
+  };
+
+  const jsonStr = JSON.stringify(dataObj, null, 2);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(jsonStr).then(() => {
+      showToast('📋 Copied Quarantine Report JSON to clipboard!');
+    }).catch(() => {
+      showToast('Quarantine Report: ' + reportKeys.length + ' channels flagged');
+    });
+  } else {
+    showToast('Quarantine Report: ' + reportKeys.length + ' channels flagged');
+  }
+
+  // Also log report to Android logcat
+  if (window.AndroidMedia && window.AndroidMedia.logError) {
+    window.AndroidMedia.logError("QUARANTINE_EXPORT: " + jsonStr);
+  }
+};
+
+window.renderChannelHealthManager = function() {
+  const totalEl = document.getElementById('healthTotalCount');
+  const activeEl = document.getElementById('healthActiveCount');
+  const flaggedEl = document.getElementById('healthFlaggedCount');
+  const quarantinedEl = document.getElementById('healthQuarantinedCount');
+  const listContainer = document.getElementById('quarantineListContainer');
+
+  const total = Array.isArray(channelsData) ? channelsData.length : 885;
+  const reports = getChannelReports();
+  const reportKeys = Object.keys(reports);
+
+  let flaggedCount = 0;
+  let quarantinedCount = 0;
+
+  reportKeys.forEach(k => {
+    const status = getChannelHealthStatus(k);
+    if (status === 'quarantined') quarantinedCount++;
+    else if (status === 'soft_flagged') flaggedCount++;
+  });
+
+  const activeCount = Math.max(0, total - quarantinedCount);
+
+  if (totalEl) totalEl.textContent = total;
+  if (activeEl) activeEl.textContent = activeCount;
+  if (flaggedEl) flaggedEl.textContent = flaggedCount;
+  if (quarantinedEl) quarantinedEl.textContent = quarantinedCount;
+
+  if (listContainer) {
+    listContainer.innerHTML = '';
+    if (reportKeys.length === 0) {
+      listContainer.innerHTML = '<div class="quarantine-empty-state">No channels currently quarantined. All streams healthy!</div>';
+      return;
+    }
+
+    reportKeys.forEach(k => {
+      const rep = reports[k];
+      const status = getChannelHealthStatus(k);
+      const isQuar = status === 'quarantined';
+      const reasonLabel = rep.reason === 'mislabeled' ? '🔄 Mislabeled' : (rep.reason === 'dead' ? '🚫 Dead Stream' : '🔇 Audio/Video Desync');
+      
+      const row = document.createElement('div');
+      row.className = 'quarantine-item-row ' + (isQuar ? 'danger' : 'warning');
+      row.innerHTML = `
+        <div class="quarantine-item-info">
+          <div class="quarantine-item-name">${rep.name || k}</div>
+          <div class="quarantine-item-reason">${reasonLabel} • ${rep.count} report${rep.count > 1 ? 's' : ''} ${isQuar ? '(Quarantined)' : '(Flagged)'}</div>
+        </div>
+        <button class="quarantine-item-btn-restore" onclick="restoreChannelFromQuarantine('${k}')">Restore</button>
+      `;
+      listContainer.appendChild(row);
+    });
+  }
+};
 
 window.saveAppSetting = function(key, val) {
   localStorage.setItem('aakash_' + key, val);

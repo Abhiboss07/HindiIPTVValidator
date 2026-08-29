@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-08-29T15:49:47.855173Z",
+  "summary": {
+    "total_checked": 5,
+    "healthy": 4,
+    "unreachable": 1,
+    "invalid_manifest": 0,
+    "potential_mismatch": 0
+  },
+  "results": [
+    {
+      "id": "discovery-channel-hindi-hd",
+      "name": "Discovery Channel HD (Hindi)",
+      "url": "https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": false,
+      "metadata_extracted": {
+        "content_type": "application/vnd.apple.mpegurl",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
+      "confirmed_dead": false,
+      "timestamp": "2026-08-29T15:49:26.157173Z"
+    },
+    {
+      "id": "natgeo-hindi-hd",
+      "name": "National Geographic HD (Hindi)",
+      "url": "https://dltiqboxjw21d.cloudfront.net/index.m3u8",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": true,
+      "metadata_extracted": {
+        "content_type": "application/vnd.apple.mpegurl",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
+      "confirmed_dead": false,
+      "timestamp": "2026-08-29T15:49:26.846550Z"
+    },
+    {
+      "id": "animal-planet-hindi-hd",
+      "name": "Animal Planet HD (Hindi)",
+      "url": "https://moonbug-rokuus.amagi.tv/playlist.m3u8",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": false,
+      "metadata_extracted": {
+        "content_type": "application/vnd.apple.mpegurl",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
+      "confirmed_dead": false,
+      "timestamp": "2026-08-29T15:49:33.318024Z"
+    },
+    {
+      "id": "disney-channel-hindi-hd",
+      "name": "Disney Channel HD (Hindi)",
+      "url": "https://dil9xdvretp0f.cloudfront.net/index.m3u8",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": true,
+      "metadata_extracted": {
+        "content_type": "application/vnd.apple.mpegurl",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
+      "confirmed_dead": false,
+      "timestamp": "2026-08-29T15:49:34.188525Z"
+    },
+    {
+      "id": "cartoon-network-hindi-hd",
+      "name": "Cartoon Network HD (Hindi Dubbed)",
+      "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8",
+      "status": "unreachable",
+      "http_code": 502,
+      "manifest_valid": false,
+      "has_cors": false,
+      "metadata_extracted": {},
+      "notes": "HTTP Error 502: Bad Gateway",
+      "confirmed_dead": false,
+      "timestamp": "2026-08-29T15:49:40.796926Z"
+    }
+  ]
+}

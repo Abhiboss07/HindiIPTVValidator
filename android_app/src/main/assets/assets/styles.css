@@ -3733,5 +3733,221 @@ html, body {
 }
 
 .player-error-btn:active {
+  transform: scale(0.96);
+}
+
+/* ==========================================================
+   STREAM HYGIENE & QUARANTINE SYSTEM STYLES
+   ========================================================== */
+.report-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.report-option-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.report-option-item:hover, .report-option-item:active {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.35);
+  transform: translateY(-1px);
+}
+
+.report-option-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.report-option-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.report-option-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.report-option-desc {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+/* Channel Flag & Quarantine Badges on Grid Cards */
+.channel-card.soft-flagged {
+  border-color: rgba(251, 191, 36, 0.4) !important;
+}
+
+.channel-card.quarantined {
+  opacity: 0.45;
+  filter: grayscale(85%);
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  background: rgba(20, 20, 20, 0.8) !important;
+}
+
+.channel-flag-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.channel-flag-badge.warning {
+  background: rgba(251, 191, 36, 0.22);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+.channel-flag-badge.danger {
+  background: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+}
+
+/* Health Manager Section in Settings */
+.channel-health-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.health-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.health-metric-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.health-metric-lbl {
+  font-size: 10px;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.health-metric-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.quarantine-list-container {
+  max-height: 180px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quarantine-empty-state {
+  text-align: center;
+  font-size: 11px;
+  color: #64748b;
+  padding: 18px 8px;
+}
+
+.quarantine-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  border-left: 3px solid #f87171;
+}
+
+.quarantine-item-row.warning {
+  border-left-color: #fbbf24;
+}
+
+.quarantine-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.quarantine-item-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.quarantine-item-reason {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.quarantine-item-btn-restore {
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.quarantine-item-btn-restore:active {
   transform: scale(0.95);
+}
+
+.health-btn-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.health-btn-action:active {
+  transform: scale(0.97);
 }

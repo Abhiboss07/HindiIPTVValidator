@@ -688,6 +688,14 @@
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
                     <span>Video player tips</span>
                 </div>
+                <!-- 17. Report Stream Issue -->
+                <div class="vlc-menu-item" onclick="openReportChannelModal()">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="#f87171"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6h-5.6z"/></svg>
+                    <div class="vlc-menu-item-text">
+                        <span style="color: #fca5a5;">Report Stream Issue</span>
+                        <small class="vlc-menu-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171;">Flag</small>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -993,6 +1001,42 @@
                 <button class="vlc-dialog-btn-primary" onclick="closeVlcSettingsModal()">Done</button>
             </div>
         </div>
+
+        <!-- 10. Report Channel / Stream Issue Modal -->
+        <div id="reportChannelModal" class="vlc-dialog-backdrop" onclick="closeReportChannelModal()" style="display: none;">
+            <div class="vlc-dialog-card" onclick="event.stopPropagation()">
+                <div class="vlc-dialog-header">
+                    <h3 style="font-size: 16px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px;">
+                        <span>🚩</span> Report Stream Issue
+                    </h3>
+                    <button class="vlc-dialog-close" onclick="closeReportChannelModal()">✕</button>
+                </div>
+                <p id="reportChannelName" style="font-size: 12px; color: #94a3b8; margin: 4px 0 14px 0;">Channel: Loading...</p>
+                <div class="report-options-list">
+                    <div class="report-option-item" onclick="submitChannelReport('mislabeled')">
+                        <span class="report-option-icon">🔄</span>
+                        <div class="report-option-meta">
+                            <div class="report-option-title">Mislabeled Content / Wrong Channel</div>
+                            <div class="report-option-desc">Broadcast content does not match channel name</div>
+                        </div>
+                    </div>
+                    <div class="report-option-item" onclick="submitChannelReport('dead')">
+                        <span class="report-option-icon">🚫</span>
+                        <div class="report-option-meta">
+                            <div class="report-option-title">Stream Dead / Unreachable</div>
+                            <div class="report-option-desc">Stream fails to connect, loads endlessly or 404s</div>
+                        </div>
+                    </div>
+                    <div class="report-option-item" onclick="submitChannelReport('desync')">
+                        <span class="report-option-icon">🔇</span>
+                        <div class="report-option-meta">
+                            <div class="report-option-title">Audio / Video Desync or Freezing</div>
+                            <div class="report-option-desc">Stuttering playback, distorted audio, or lag</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- ==========================================================
@@ -1219,6 +1263,52 @@
                 <p style="font-size: 11px; color: #94a3b8; margin: 2px 0 10px 0; line-height: 1.35;">
                     💡 DNS override helps resolve ISP-blocked stream domains. It does not restore channels if the broadcast server is offline.
                 </p>
+
+                <div class="drawer-divider"></div>
+
+                <!-- Channel Health & Quarantine Manager -->
+                <div class="channel-health-section">
+                    <div style="margin-bottom: 8px;">
+                        <div class="setting-item-title" style="display: flex; align-items: center; gap: 6px;">
+                            <span>🛡️</span> Channel Health & Quarantine
+                        </div>
+                        <div class="setting-item-desc">Track and manage flagged or mislabeled streams</div>
+                    </div>
+
+                    <div class="health-metrics-grid">
+                        <div class="health-metric-box">
+                            <span class="health-metric-lbl">Total</span>
+                            <span id="healthTotalCount" class="health-metric-val">885</span>
+                        </div>
+                        <div class="health-metric-box">
+                            <span class="health-metric-lbl">Active</span>
+                            <span id="healthActiveCount" class="health-metric-val" style="color: #4ade80;">885</span>
+                        </div>
+                        <div class="health-metric-box">
+                            <span class="health-metric-lbl">Flagged</span>
+                            <span id="healthFlaggedCount" class="health-metric-val" style="color: #fbbf24;">0</span>
+                        </div>
+                        <div class="health-metric-box">
+                            <span class="health-metric-lbl">Quarantined</span>
+                            <span id="healthQuarantinedCount" class="health-metric-val" style="color: #f87171;">0</span>
+                        </div>
+                    </div>
+
+                    <div id="quarantineListContainer" class="quarantine-list-container">
+                        <div class="quarantine-empty-state">No channels currently quarantined. All streams healthy!</div>
+                    </div>
+
+                    <div style="display: flex; gap: 8px; margin-top: 10px;">
+                        <button class="health-btn-action" style="flex: 1; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.3); color: #60a5fa;" onclick="exportQuarantineReport()">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            <span>Export (JSON)</span>
+                        </button>
+                        <button class="health-btn-action" style="flex: 1; background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.3); color: #4ade80;" onclick="restoreAllQuarantinedChannels()">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                            <span>Restore All</span>
+                        </button>
+                    </div>
+                </div>
 
                 <div class="drawer-divider"></div>
 
