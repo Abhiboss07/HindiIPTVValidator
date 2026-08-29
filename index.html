@@ -64,7 +64,11 @@
                 </div>
             </div>
         </div>
-        <div class="header-right">
+        <div class="header-right" style="display: flex; align-items: center; gap: 8px;">
+            <div id="topNetworkSpeedChip" class="header-speed-chip" onclick="openSpeedTestModal()" title="Real-Time Network Speed & Stream Optimizer">
+                <span id="topSpeedDot" class="speed-dot"></span>
+                <span id="topSpeedText">ONLINE</span>
+            </div>
             <button class="top-menu-btn" onclick="openSettingsModal()" title="Settings & Preferences">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="#c9c6c5"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
             </button>
@@ -1056,6 +1060,10 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="#facc15"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
                     <span style="color: #fff; font-weight: 600;">Saved Channels / My List</span>
                 </div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); openSpeedTestModal();">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#22c55e"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                    <span style="color: #22c55e; font-weight: 700;">⚡ Network Speed & Stream Optimizer</span>
+                </div>
                 <div class="drawer-divider"></div>
                 <div class="drawer-menu-item" onclick="toggleMenuDrawer(); openSettingsModal();">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
@@ -1070,6 +1078,60 @@
                     <span>Reload App & Streams</span>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+         REAL-TIME SPEED TEST & STREAM QUALITY OPTIMIZER MODAL
+         ========================================================== -->
+    <div id="speedTestModal" class="side-drawer-backdrop" onclick="closeSpeedTestModal()">
+        <div class="speed-test-modal-card" onclick="event.stopPropagation()">
+            <div class="settings-header" style="margin-bottom: 8px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 20px;">⚡</span>
+                    <h3 style="font-size: 17px; font-weight: 800; color: #fff;">Network Speed & Stream Optimizer</h3>
+                </div>
+                <button class="icon-btn-plain" onclick="closeSpeedTestModal()">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#a3a3a3"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 12px;">Measures live download throughput & latency to auto-match your video stream buffer for zero lag.</p>
+
+            <div class="speed-meter-container">
+                <div id="speedGaugeCircle" class="speed-gauge-circle">
+                    <span id="speedMeterVal" class="speed-gauge-val">--</span>
+                    <span class="speed-gauge-unit">MBPS DOWNLOAD</span>
+                </div>
+            </div>
+
+            <div class="speed-metrics-grid">
+                <div class="speed-metric-box">
+                    <div class="speed-metric-label">Ping Latency</div>
+                    <div id="speedPingVal" class="speed-metric-val">-- ms</div>
+                </div>
+                <div class="speed-metric-box">
+                    <div class="speed-metric-label">Network Type</div>
+                    <div id="speedTypeVal" class="speed-metric-val">Wi-Fi / 5G</div>
+                </div>
+                <div class="speed-metric-box">
+                    <div class="speed-metric-label">Jitter / Loss</div>
+                    <div id="speedJitterVal" class="speed-metric-val">0.0%</div>
+                </div>
+            </div>
+
+            <div class="quality-recommend-box">
+                <div>
+                    <div class="quality-recommend-title">Recommended Stream Quality</div>
+                    <div style="font-size: 11px; color: #cbd5e1;">Auto-matched for current bandwidth</div>
+                </div>
+                <span id="speedMatchedQualityBadge" class="quality-recommend-badge">1080p FHD</span>
+            </div>
+
+            <button id="btnRunSpeedTest" class="btn-speed-test-action" onclick="runLiveSpeedTest(true)">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+                <span>Test Internet & Match Quality</span>
+            </button>
         </div>
     </div>
 
@@ -1092,7 +1154,7 @@
                         <div class="setting-item-desc">Set default streaming resolution</div>
                     </div>
                     <select id="settingQuality" class="setting-select" onchange="saveAppSetting('quality', this.value)">
-                        <option value="auto">Auto (Adaptive)</option>
+                        <option value="auto">Auto (Matched to Speed)</option>
                         <option value="1080p">1080p FHD</option>
                         <option value="720p">720p HD</option>
                         <option value="480p">480p SD</option>

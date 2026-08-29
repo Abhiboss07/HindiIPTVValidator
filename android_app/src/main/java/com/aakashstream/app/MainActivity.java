@@ -811,6 +811,39 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public String getNetworkSpeedInfo() {
+            try {
+                android.net.ConnectivityManager cm = (android.net.ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (cm == null) return "{}";
+                android.net.Network activeNetwork = cm.getActiveNetwork();
+                if (activeNetwork == null) {
+                    JSONObject res = new JSONObject();
+                    res.put("connected", false);
+                    res.put("type", "none");
+                    res.put("downstreamKbps", 0);
+                    res.put("downstreamMbps", 0);
+                    return res.toString();
+                }
+                android.net.NetworkCapabilities caps = cm.getNetworkCapabilities(activeNetwork);
+                if (caps == null) return "{}";
+
+                boolean isWifi = caps.hasTransport(android.net.NetworkCapabilities.TRANSPORT_WIFI);
+                boolean isCellular = caps.hasTransport(android.net.NetworkCapabilities.TRANSPORT_CELLULAR);
+                boolean isEthernet = caps.hasTransport(android.net.NetworkCapabilities.TRANSPORT_ETHERNET);
+                int downKbps = caps.getLinkDownstreamBandwidthKbps();
+
+                JSONObject res = new JSONObject();
+                res.put("connected", true);
+                res.put("type", isWifi ? "wifi" : (isCellular ? "cellular" : (isEthernet ? "ethernet" : "other")));
+                res.put("downstreamKbps", downKbps);
+                res.put("downstreamMbps", Math.round((downKbps / 1000.0) * 10.0) / 10.0);
+                return res.toString();
+            } catch (Exception e) {
+                return "{}";
+            }
+        }
+
+        @JavascriptInterface
         public String scanDeviceMedia() {
             JSONArray arr = new JSONArray();
             try {

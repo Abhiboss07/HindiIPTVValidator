@@ -14114,6 +14114,12 @@ function loadChannelMedia(ch, autoPlay) {
       hlsInstance.attachMedia(videoElement);
 
       hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+        try {
+          if (typeof applySpeedMatchedQualityToHls === 'function') {
+            applySpeedMatchedQualityToHls(hlsInstance);
+          }
+        } catch (eQual) {}
+
         if (autoPlay && videoElement) {
           const p = videoElement.play();
           if (p !== undefined) {
