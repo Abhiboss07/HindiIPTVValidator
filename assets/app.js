@@ -14091,7 +14091,10 @@ function playChannel(ch) {
   loadChannelMedia(ch, true);
 }
 
+let currentStreamRequestId = 0;
+
 function loadChannelMedia(ch, autoPlay) {
+  const requestId = ++currentStreamRequestId;
   currentPlayingChannel = ch;
   const videoElement = document.getElementById('luminaVideo');
   clearTimeout(streamWatchdogTimeout);
@@ -14129,9 +14132,10 @@ function loadChannelMedia(ch, autoPlay) {
   updateFavIconUI();
   updateAudioArtwork();
 
-  // Cleanly detach any previous HLS stream
+  // Thorough cleanup of previous HLS instance and video pipeline
   if (hlsInstance) {
     try {
+      hlsInstance.stopLoad();
       hlsInstance.detachMedia();
       hlsInstance.destroy();
     } catch (e) {}
@@ -14140,6 +14144,8 @@ function loadChannelMedia(ch, autoPlay) {
 
   if (videoElement) {
     videoElement.pause();
+    videoElement.removeAttribute('src');
+    videoElement.load();
   }
 
   let streamUrl = ch.url;
@@ -14185,18 +14191,23 @@ function loadChannelMedia(ch, autoPlay) {
       videoElement.muted = false;
     }
 
-    videoElement.onwaiting = () => showBufferingSpinner('Buffering...');
+    videoElement.onwaiting = () => {
+      if (requestId === currentStreamRequestId) showBufferingSpinner('Buffering...');
+    };
     videoElement.onloadeddata = () => {
+      if (requestId !== currentStreamRequestId) return;
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
       hideStreamErrorState();
     };
     videoElement.onloadedmetadata = () => {
+      if (requestId !== currentStreamRequestId) return;
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
       hideStreamErrorState();
     };
     videoElement.onplaying = () => {
+      if (requestId !== currentStreamRequestId) return;
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
       hideStreamErrorState();
@@ -14207,6 +14218,7 @@ function loadChannelMedia(ch, autoPlay) {
       }
     };
     videoElement.onpause = () => {
+      if (requestId !== currentStreamRequestId) return;
       isPlaying = false;
       updatePlayPauseIcons(false);
       if (isNativeDDPActive && window.AndroidMedia && window.AndroidMedia.syncNativeAudio) {
@@ -14214,6 +14226,7 @@ function loadChannelMedia(ch, autoPlay) {
       }
     };
     videoElement.onseeked = () => {
+      if (requestId !== currentStreamRequestId) return;
       if (isNativeDDPActive && window.AndroidMedia) {
         if (window.AndroidMedia.seekNativeAudio) {
           window.AndroidMedia.seekNativeAudio(videoElement.currentTime);
@@ -14224,11 +14237,13 @@ function loadChannelMedia(ch, autoPlay) {
       }
     };
     videoElement.oncanplay = () => {
+      if (requestId !== currentStreamRequestId) return;
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
       hideStreamErrorState();
     };
     videoElement.onerror = () => {
+      if (requestId !== currentStreamRequestId) return;
       clearTimeout(streamWatchdogTimeout);
       const errCode = videoElement.error ? videoElement.error.code : 'Unknown';
       const diag = `HTML5 Video error [Code ${errCode}] on ${ch.name} (${streamUrl})`;
@@ -14259,7 +14274,7 @@ function loadChannelMedia(ch, autoPlay) {
         lowLatencyMode: false,
         maxBufferLength: 30,
         maxMaxBufferLength: 60,
-        manifestLoadingTimeOut: 12000,
+        manifestLoadingTimeOut: 15000,
         fragLoadingTimeOut: 15000
       });
 
@@ -14267,6 +14282,7 @@ function loadChannelMedia(ch, autoPlay) {
       hlsInstance.attachMedia(videoElement);
 
       hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (requestId !== currentStreamRequestId) return;
         try {
           if (typeof applySpeedMatchedQualityToHls === 'function') {
             applySpeedMatchedQualityToHls(hlsInstance);
@@ -14291,24 +14307,28 @@ function loadChannelMedia(ch, autoPlay) {
       });
 
       hlsInstance.on(Hls.Events.LEVEL_LOADED, () => {
+        if (requestId !== currentStreamRequestId) return;
         clearTimeout(streamWatchdogTimeout);
         hideBufferingSpinner();
         hideStreamErrorState();
       });
 
       hlsInstance.on(Hls.Events.FRAG_BUFFERED, () => {
+        if (requestId !== currentStreamRequestId) return;
         clearTimeout(streamWatchdogTimeout);
         hideBufferingSpinner();
         hideStreamErrorState();
       });
 
       hlsInstance.on(Hls.Events.FRAG_LOADED, () => {
+        if (requestId !== currentStreamRequestId) return;
         clearTimeout(streamWatchdogTimeout);
         hideBufferingSpinner();
         hideStreamErrorState();
       });
 
       hlsInstance.on(Hls.Events.ERROR, (event, data) => {
+        if (requestId !== currentStreamRequestId) return;
         const httpStatus = data.response ? data.response.code : (data.networkDetails ? data.networkDetails.status : 'N/A');
         const diag = `HLS Error: Type=${data.type}, Details=${data.details}, HTTP=${httpStatus}, Fatal=${data.fatal}, Channel=${ch.name}, URL=${streamUrl}`;
         console.warn('⚠️ ' + diag);
@@ -14363,12 +14383,13 @@ function loadChannelMedia(ch, autoPlay) {
       }
     }
 
-    // Global Connection Watchdog (12s timeout for hung/stuck streams)
+    // Global Connection Watchdog (15s timeout for hung/stuck streams)
     if (autoPlay) {
       clearTimeout(streamWatchdogTimeout);
       streamWatchdogTimeout = setTimeout(() => {
+        if (requestId !== currentStreamRequestId) return;
         if (videoElement && (videoElement.paused || videoElement.readyState < 2 || !isPlaying)) {
-          const diag = `Connection Timeout (12s) on ${ch.name}: ${streamUrl}`;
+          const diag = `Connection Timeout (15s) on ${ch.name}: ${streamUrl}`;
           console.warn('⚠️ ' + diag);
           if (window.AndroidMedia && window.AndroidMedia.logError) {
             window.AndroidMedia.logError(diag);
@@ -14386,11 +14407,11 @@ function loadChannelMedia(ch, autoPlay) {
             }
             showStreamErrorState(
               'Stream Unavailable',
-              'Broadcast server did not respond within 12 seconds. Channel may be temporarily offline or restricted.'
+              'Broadcast server did not respond within 15 seconds. Channel may be temporarily offline or restricted.'
             );
           }
         }
-      }, 12000);
+      }, 15000);
     }
 
   } else if (streamUrl) {
@@ -15228,6 +15249,17 @@ window.onEnterPipMode = function() {
     playerModal.style.display = 'flex';
     playerModal.style.background = '#000000';
   }
+
+  // Deterministic GPU compositor frame synchronization for PiP (Task 4)
+  try {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (window.AndroidMedia && window.AndroidMedia.onPipSurfaceReady) {
+          window.AndroidMedia.onPipSurfaceReady();
+        }
+      });
+    });
+  } catch (eRaf) {}
 };
 
 window.onExitPipMode = function() {

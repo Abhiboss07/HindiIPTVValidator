@@ -1108,53 +1108,74 @@ public class MainActivity extends Activity {
             });
         }
 
+        private volatile boolean isWaitingForPipReady = false;
+
+        @JavascriptInterface
+        public void onPipSurfaceReady() {
+            runOnUiThread(() -> {
+                if (isWaitingForPipReady) {
+                    executeEnterPip();
+                }
+            });
+        }
+
         @JavascriptInterface
         public void enterPipMode() {
             runOnUiThread(() -> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     try {
+                        isWaitingForPipReady = true;
                         if (webView != null) {
                             webView.evaluateJavascript("window.onEnterPipMode ? window.onEnterPipMode() : null", null);
                         }
 
-                        // Allow WebView to render the clean video frame before capturing PiP transition
+                        // Safety fallback: if JS compositor does not call onPipSurfaceReady within 180ms, proceed
                         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                            try {
-                                PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
-                                pipBuilder.setAspectRatio(new Rational(16, 9));
-
-                                if (webView != null && webView.getWidth() > 0 && webView.getHeight() > 0) {
-                                    Rect sourceRect = new Rect(0, 0, webView.getWidth(), webView.getHeight());
-                                    pipBuilder.setSourceRectHint(sourceRect);
-                                }
-
-                                ArrayList<RemoteAction> actions = new ArrayList<>();
-                                Intent prevIntent = new Intent(ACTION_PIP_PREV).setPackage(getPackageName());
-                                PendingIntent prevPending = PendingIntent.getBroadcast(MainActivity.this, 1, prevIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-                                Icon prevIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_previous);
-                                actions.add(new RemoteAction(prevIcon, "Previous", "Previous", prevPending));
-
-                                Intent playIntent = new Intent(ACTION_PIP_PLAY_PAUSE).setPackage(getPackageName());
-                                PendingIntent playPending = PendingIntent.getBroadcast(MainActivity.this, 2, playIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-                                Icon playIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_play);
-                                actions.add(new RemoteAction(playIcon, "Play/Pause", "Play/Pause", playPending));
-
-                                Intent nextIntent = new Intent(ACTION_PIP_NEXT).setPackage(getPackageName());
-                                PendingIntent nextPending = PendingIntent.getBroadcast(MainActivity.this, 3, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-                                Icon nextIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_next);
-                                actions.add(new RemoteAction(nextIcon, "Next", "Next", nextPending));
-
-                                pipBuilder.setActions(actions);
-                                enterPictureInPictureMode(pipBuilder.build());
-                            } catch (Exception ePip) {
-                                Log.e(TAG, "Error entering delayed PiP: " + ePip.getMessage());
+                            if (isWaitingForPipReady) {
+                                executeEnterPip();
                             }
-                        }, 40);
+                        }, 180);
                     } catch (Exception e) {
                         Log.e(TAG, "Error entering PiP mode: " + e.getMessage());
                     }
                 }
             });
+        }
+
+        private void executeEnterPip() {
+            isWaitingForPipReady = false;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                try {
+                    PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
+                    pipBuilder.setAspectRatio(new Rational(16, 9));
+
+                    if (webView != null && webView.getWidth() > 0 && webView.getHeight() > 0) {
+                        Rect sourceRect = new Rect(0, 0, webView.getWidth(), webView.getHeight());
+                        pipBuilder.setSourceRectHint(sourceRect);
+                    }
+
+                    ArrayList<RemoteAction> actions = new ArrayList<>();
+                    Intent prevIntent = new Intent(ACTION_PIP_PREV).setPackage(getPackageName());
+                    PendingIntent prevPending = PendingIntent.getBroadcast(MainActivity.this, 1, prevIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                    Icon prevIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_previous);
+                    actions.add(new RemoteAction(prevIcon, "Previous", "Previous", prevPending));
+
+                    Intent playIntent = new Intent(ACTION_PIP_PLAY_PAUSE).setPackage(getPackageName());
+                    PendingIntent playPending = PendingIntent.getBroadcast(MainActivity.this, 2, playIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                    Icon playIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_play);
+                    actions.add(new RemoteAction(playIcon, "Play/Pause", "Play/Pause", playPending));
+
+                    Intent nextIntent = new Intent(ACTION_PIP_NEXT).setPackage(getPackageName());
+                    PendingIntent nextPending = PendingIntent.getBroadcast(MainActivity.this, 3, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                    Icon nextIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_next);
+                    actions.add(new RemoteAction(nextIcon, "Next", "Next", nextPending));
+
+                    pipBuilder.setActions(actions);
+                    enterPictureInPictureMode(pipBuilder.build());
+                } catch (Exception ePip) {
+                    Log.e(TAG, "Error executing PiP: " + ePip.getMessage());
+                }
+            }
         }
 
         @JavascriptInterface
