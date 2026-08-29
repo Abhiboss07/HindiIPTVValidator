@@ -1,4 +1,24 @@
 // ==========================================================
+// T2L (TELEVISION TO LIVE) - GLOBAL ERROR HANDLER & BRIDGE
+// ==========================================================
+window.onerror = function(msg, src, line, col, err) {
+  var detail = 'JS ERROR: ' + msg + ' at ' + (src || 'inline') + ':' + line + ':' + col;
+  if (err && err.stack) detail += '\n' + err.stack;
+  console.error(detail);
+  if (window.AndroidMedia && window.AndroidMedia.logError) {
+    try { window.AndroidMedia.logError(detail); } catch (e) {}
+  }
+  return false;
+};
+window.addEventListener('unhandledrejection', function(e) {
+  var reason = e.reason ? (e.reason.stack || e.reason.message || e.reason) : 'unknown';
+  console.error('Unhandled Promise rejection: ' + reason);
+  if (window.AndroidMedia && window.AndroidMedia.logError) {
+    try { window.AndroidMedia.logError('Unhandled Promise rejection: ' + reason); } catch (ex) {}
+  }
+});
+
+// ==========================================================
 // AAKASHSTREAM - CORE APPLICATION & MEDIA ENGINE
 // ==========================================================
 
@@ -12897,20 +12917,80 @@ const FALLBACK_CHANNELS = [
   }
 ];
 let channelsData = FALLBACK_CHANNELS;
-let favorites = JSON.parse(localStorage.getItem('aakash_favs') || '["aajtak", "air-vividh-bharati-12"]');
-let recentChannels = JSON.parse(localStorage.getItem('aakash_recents') || '[]');
-let customLocalMedia = JSON.parse(localStorage.getItem('aakash_local_media') || 'null');
-if (!customLocalMedia || customLocalMedia.length === 0) {
+let favorites = ['aajtak', 'air-vividh-bharati-12'];
+let recentChannels = [];
+
+const DEFAULT_LOCAL_MEDIA = [
+  {
+    id: "sample_video_1",
+    name: "Sample 4K Cinema Trailer",
+    type: "tv",
+    country: "Local",
+    countryName: "Movies",
+    flag: "🎬",
+    category: "4K UHD Sample",
+    quality: "4K 60FPS",
+    description: "Hardware accelerated local video playback demo",
+    url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    duration: "09:56",
+    folder: "movies",
+    isLocal: true
+  },
+  {
+    id: "sample_audio_1",
+    name: "Bollywood Acoustic Beats (Lossless)",
+    type: "radio",
+    country: "Local",
+    countryName: "Music",
+    flag: "🎵",
+    category: "Dolby Audio",
+    quality: "320 KBPS",
+    description: "Crystal clear Dolby stereo audio demo",
+    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    duration: "06:12",
+    folder: "music",
+    isLocal: true
+  }
+];
+
+let customLocalMedia = DEFAULT_LOCAL_MEDIA;
+let isCCEnabled = false;
+
+try {
+  const f = localStorage.getItem('aakash_favs');
+  if (f) favorites = JSON.parse(f);
+} catch (e) {
+  console.warn('Could not load favorites from localStorage:', e);
+}
+
+try {
+  const r = localStorage.getItem('aakash_recents');
+  if (r) recentChannels = JSON.parse(r);
+} catch (e) {
+  console.warn('Could not load recents from localStorage:', e);
+}
+
+try {
+  const m = localStorage.getItem('aakash_local_media');
+  if (m) customLocalMedia = JSON.parse(m);
+  if (!customLocalMedia || customLocalMedia.length === 0) {
+    customLocalMedia = DEFAULT_LOCAL_MEDIA;
+  }
+} catch (e) {
   customLocalMedia = DEFAULT_LOCAL_MEDIA;
 }
+
+try {
+  isCCEnabled = localStorage.getItem('aakash_cc') === 'true';
+} catch (e) {}
 
 let currentActivePage = 'home';
 let currentPlayingChannel = null;
 let isPlaying = false;
-let isCCEnabled = localStorage.getItem('aakash_cc') === 'true';
 let hlsInstance = null;
 let ccInterval = null;
 let playerHideTimeout = null;
+
 const HERO_FEATURED_CHANNELS = [
   {
     id: "aajtak",
@@ -12958,30 +13038,87 @@ let touchStartVal = 0;
 let activeGestureType = null;
 let hudHideTimeout = null;
 
-// Initialize Application
+// ==========================================================
+// PAGE ROUTING & NAVIGATION (Exposed Early for Guaranteed Binding)
+// ==========================================================
+window.switchPage = function(pageId) {
+  try {
+    currentActivePage = pageId;
+    document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.dock-tab-btn').forEach(b => b.classList.remove('active'));
+
+    const targetPage = document.getElementById('page-' + pageId);
+    const targetTab = document.getElementById('tab-' + pageId);
+    if (targetPage) targetPage.classList.add('active');
+    if (targetTab) targetTab.classList.add('active');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (pageId === 'home') renderHomePage();
+    if (pageId === 'live') renderLiveTVPage();
+    if (pageId === 'radio') renderRadioPage();
+    if (pageId === 'favs') renderFavoritesPage();
+    if (pageId === 'local') renderLocalPage();
+  } catch (e) {
+    console.error('Error in switchPage(' + pageId + '):', e);
+  }
+};
+
+window.toggleMenuDrawer = function() {
+  try {
+    const drawer = document.getElementById('sideDrawerModal');
+    if (drawer) drawer.classList.toggle('active');
+  } catch (e) {}
+};
+
+window.openSettingsModal = function() {
+  try {
+    const modal = document.getElementById('settingsModal');
+    if (modal) modal.classList.add('active');
+  } catch (e) {}
+};
+
+window.closeSettingsModal = function() {
+  try {
+    const modal = document.getElementById('settingsModal');
+    if (modal) modal.classList.remove('active');
+  } catch (e) {}
+};
+
+// ==========================================================
+// APPLICATION INITIALIZATION
+// ==========================================================
 function initApp() {
-  initParticles();
-  initPlayerOverlayEvents();
-  initPlayerSwipeGestures();
-  initMiniPlayerSwipe();
-  updateCCUI();
-  loadDatabase().then(() => {
-    renderAllPages();
-  });
-  renderAllPages();
-  setTimeout(() => { autoScanDeviceMedia(); }, 300);
-  loadSettingsUI();
-  startHeroRotator();
+  try { initParticles(); } catch (e) { console.warn('initParticles note:', e); }
+  try { initPlayerOverlayEvents(); } catch (e) { console.warn('initPlayerOverlayEvents note:', e); }
+  try { initPlayerSwipeGestures(); } catch (e) { console.warn('initPlayerSwipeGestures note:', e); }
+  try { initMiniPlayerSwipe(); } catch (e) { console.warn('initMiniPlayerSwipe note:', e); }
+  try { updateCCUI(); } catch (e) { console.warn('updateCCUI note:', e); }
+
+  try {
+    loadDatabase().then(() => {
+      try { renderAllPages(); } catch (e) { console.error('renderAllPages after DB note:', e); }
+    });
+  } catch (e) {
+    console.warn('loadDatabase dispatch note:', e);
+  }
+
+  try { renderAllPages(); } catch (e) { console.error('Initial renderAllPages note:', e); }
+  try { setTimeout(() => { autoScanDeviceMedia(); }, 300); } catch (e) {}
+  try { loadSettingsUI(); } catch (e) {}
+  try { startHeroRotator(); } catch (e) {}
 
   // Dismiss T2L (Television to Live) Cinematic Splash Screen smoothly
   setTimeout(() => {
-    const splash = document.getElementById('t2lSplashScreen');
-    if (splash && !splash.classList.contains('splash-hidden')) {
-      splash.classList.add('splash-hidden');
-      setTimeout(() => {
-        if (splash.parentNode) splash.parentNode.removeChild(splash);
-      }, 500);
-    }
+    try {
+      const splash = document.getElementById('t2lSplashScreen');
+      if (splash && !splash.classList.contains('splash-hidden')) {
+        splash.classList.add('splash-hidden');
+        setTimeout(() => {
+          if (splash.parentNode) splash.parentNode.removeChild(splash);
+        }, 500);
+      }
+    } catch (e) {}
   }, 900);
 }
 
@@ -12992,12 +13129,60 @@ if (document.readyState === 'loading') {
 }
 
 async function loadDatabase() {
+  // Method 1: High speed Java AssetManager Bridge (100% reliable across all Android WebViews & OEMs)
+  if (window.AndroidMedia && window.AndroidMedia.loadAssetFile) {
+    try {
+      const jsonStr = window.AndroidMedia.loadAssetFile('data/channels.json');
+      if (jsonStr) {
+        const data = JSON.parse(jsonStr);
+        if (Array.isArray(data) && data.length > 0) {
+          channelsData = data;
+          console.log('✅ Loaded ' + data.length + ' channels via Android AssetManager');
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn('Bridge asset load note:', e);
+    }
+  }
+
+  // Method 2: XMLHttpRequest for file:///android_asset/ URLs
+  try {
+    const xhrData = await new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'data/channels.json', true);
+      xhr.onload = function() {
+        if (xhr.status === 200 || (xhr.status === 0 && xhr.responseText)) {
+          try {
+            resolve(JSON.parse(xhr.responseText));
+          } catch (err) {
+            reject(err);
+          }
+        } else {
+          reject(new Error('XHR status ' + xhr.status));
+        }
+      };
+      xhr.onerror = () => reject(new Error('XHR network error'));
+      xhr.send();
+    });
+
+    if (Array.isArray(xhrData) && xhrData.length > 0) {
+      channelsData = xhrData;
+      console.log('✅ Loaded ' + xhrData.length + ' channels via XHR');
+      return;
+    }
+  } catch (eXhr) {
+    console.warn('XHR load note:', eXhr);
+  }
+
+  // Method 3: Fetch API fallback
   try {
     const res = await fetch('data/channels.json');
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data) && data.length > 0) {
         channelsData = data;
+        return;
       }
     }
   } catch (e) {
@@ -13006,49 +13191,12 @@ async function loadDatabase() {
 }
 
 function renderAllPages() {
-  renderHomePage();
-  renderLiveTVPage();
-  renderRadioPage();
-  renderLocalPage();
-  renderFavoritesPage();
+  try { renderHomePage(); } catch (e) { console.error('renderHomePage error:', e); }
+  try { renderLiveTVPage(); } catch (e) { console.error('renderLiveTVPage error:', e); }
+  try { renderRadioPage(); } catch (e) { console.error('renderRadioPage error:', e); }
+  try { renderLocalPage(); } catch (e) { console.error('renderLocalPage error:', e); }
+  try { renderFavoritesPage(); } catch (e) { console.error('renderFavoritesPage error:', e); }
 }
-
-// ==========================================================
-// PAGE ROUTING & NAVIGATION
-// ==========================================================
-window.switchPage = function(pageId) {
-  currentActivePage = pageId;
-  document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.dock-tab-btn').forEach(b => b.classList.remove('active'));
-
-  const targetPage = document.getElementById('page-' + pageId);
-  const targetTab = document.getElementById('tab-' + pageId);
-  if (targetPage) targetPage.classList.add('active');
-  if (targetTab) targetTab.classList.add('active');
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  if (pageId === 'home') renderHomePage();
-  if (pageId === 'live') renderLiveTVPage();
-  if (pageId === 'radio') renderRadioPage();
-  if (pageId === 'favs') renderFavoritesPage();
-  if (pageId === 'local') renderLocalPage();
-};
-
-window.toggleMenuDrawer = function() {
-  const drawer = document.getElementById('sideDrawerModal');
-  if (drawer) drawer.classList.toggle('active');
-};
-
-window.openSettingsModal = function() {
-  const modal = document.getElementById('settingsModal');
-  if (modal) modal.classList.add('active');
-};
-
-window.closeSettingsModal = function() {
-  const modal = document.getElementById('settingsModal');
-  if (modal) modal.classList.remove('active');
-};
 
 // ==========================================================
 // 1. HOME PAGE & HERO ROTATOR

@@ -547,8 +547,15 @@ public class MainActivity extends Activity {
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                Log.i(TAG, "[Console " + consoleMessage.messageLevel() + "] " + consoleMessage.message() + " -- From line "
-                        + consoleMessage.lineNumber() + " of " + consoleMessage.sourceId());
+                String logMsg = "[Console " + consoleMessage.messageLevel() + "] " + consoleMessage.message()
+                        + " -- Line " + consoleMessage.lineNumber() + " of " + consoleMessage.sourceId();
+                if (consoleMessage.messageLevel() == ConsoleMessage.MessageLevel.ERROR) {
+                    Log.e(TAG, logMsg);
+                } else if (consoleMessage.messageLevel() == ConsoleMessage.MessageLevel.WARNING) {
+                    Log.w(TAG, logMsg);
+                } else {
+                    Log.i(TAG, logMsg);
+                }
                 return true;
             }
 
@@ -753,10 +760,56 @@ public class MainActivity extends Activity {
                 }
                 return super.shouldInterceptRequest(view, request);
             }
+
+            @Override
+            public boolean onRenderProcessGone(WebView view, android.webkit.RenderProcessGoneDetail detail) {
+                Log.e(TAG, "CRITICAL: WebView render process gone! didCrash=" + (detail != null && detail.didCrash())
+                        + " priority=" + (detail != null ? detail.rendererPriorityAtExit() : -1));
+                return super.onRenderProcessGone(view, detail);
+            }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, android.webkit.WebResourceError error) {
+                if (request != null && request.isForMainFrame()) {
+                    Log.e(TAG, "WebView main frame error: " + (error != null ? error.getDescription() : "unknown")
+                            + " url=" + request.getUrl());
+                } else if (request != null) {
+                    Log.w(TAG, "WebView sub-resource error: " + (error != null ? error.getDescription() : "unknown")
+                            + " url=" + request.getUrl());
+                }
+            }
         });
     }
 
     public class AndroidMediaBridge {
+        @JavascriptInterface
+        public String loadAssetFile(String assetPath) {
+            try {
+                InputStream is = getAssets().open(assetPath);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                byte[] buf = new byte[16384];
+                int read;
+                while ((read = is.read(buf)) != -1) {
+                    baos.write(buf, 0, read);
+                }
+                is.close();
+                return baos.toString("UTF-8");
+            } catch (Exception e) {
+                Log.e(TAG, "Error loading asset " + assetPath + ": " + e.getMessage());
+                return null;
+            }
+        }
+
+        @JavascriptInterface
+        public void logError(String msg) {
+            Log.e(TAG, "[JS ERROR] " + msg);
+        }
+
+        @JavascriptInterface
+        public void logInfo(String msg) {
+            Log.i(TAG, "[JS INFO] " + msg);
+        }
+
         @JavascriptInterface
         public String scanDeviceMedia() {
             JSONArray arr = new JSONArray();
