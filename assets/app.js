@@ -13531,17 +13531,8 @@ function createChannelListItem(ch) {
   const item = document.createElement('div');
   const isFav = favorites.includes(ch.id);
   const bitRatePct = Math.floor(Math.random() * 30) + 70;
-  const health = typeof getChannelHealthStatus === 'function' ? getChannelHealthStatus(ch.id) : 'healthy';
   
-  item.className = 'channel-list-item' + (health === 'quarantined' ? ' quarantined' : (health === 'soft_flagged' ? ' soft-flagged' : ''));
-  
-  let healthBadge = '';
-  if (health === 'quarantined') {
-    healthBadge = '<span class="channel-flag-badge danger">🚫 Quarantined</span>';
-  } else if (health === 'soft_flagged') {
-    healthBadge = '<span class="channel-flag-badge warning">⚠️ Flagged</span>';
-  }
-
+  item.className = 'channel-list-item';
   item.innerHTML = `
     <div class="channel-avatar-box">
       ${ch.type === 'radio' ? '📻' : (ch.flag || '📺')}
@@ -13549,7 +13540,6 @@ function createChannelListItem(ch) {
     <div class="channel-info-box">
       <div class="channel-header-row">
         <div class="channel-title-text">${ch.name}</div>
-        ${healthBadge}
         <div class="badge-live-tag">
           <span class="live-red-dot" style="width: 5px; height: 5px;"></span>
           <span>LIVE</span>
@@ -13569,7 +13559,6 @@ function createChannelListItem(ch) {
       </button>
     </div>
   `;
-
   item.onclick = () => playChannel(ch);
   return item;
 }
