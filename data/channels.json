@@ -1,5 +1,133 @@
 [
   {
+    "id": "discovery-channel-hindi-hd",
+    "name": "Discovery Channel HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "\ud83c\udf0d",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "World-famous documentaries, wildlife expeditions, and survival science in Hindi.",
+    "url": "https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8",
+    "backupUrls": [
+      "https://dltiqboxjw21d.cloudfront.net/index.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "natgeo-hindi-hd",
+    "name": "National Geographic HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "\ud83e\udd81",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Inspiring science, exploration, culture, and nature documentaries in Hindi.",
+    "url": "https://dltiqboxjw21d.cloudfront.net/index.m3u8",
+    "backupUrls": [
+      "https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "animal-planet-hindi-hd",
+    "name": "Animal Planet HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "\ud83d\udc3e",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Immersive wildlife documentaries, jungle safaris, and animal rescues in Hindi.",
+    "url": "https://moonbug-rokuus.amagi.tv/playlist.m3u8",
+    "backupUrls": [
+      "https://dil9xdvretp0f.cloudfront.net/index.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "disney-channel-hindi-hd",
+    "name": "Disney Channel HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "\u2728",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "Classic Disney cartoons, animated feature films, and teen sitcoms dubbed in Hindi.",
+    "url": "https://dil9xdvretp0f.cloudfront.net/index.m3u8",
+    "backupUrls": [
+      "https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "cartoon-network-hindi-hd",
+    "name": "Cartoon Network HD (Hindi Dubbed)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "\ud83c\udfa8",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "Ben 10, Tom & Jerry, Oggy, and top Cartoon Network animated series in Hindi.",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8",
+    "backupUrls": [
+      "https://dil9xdvretp0f.cloudfront.net/index.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "nickelodeon-hindi-hd",
+    "name": "Nickelodeon HD (Hindi Dubbed)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "\u26a1",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "Motu Patlu, Rudra, Shiva, and Ninja Hattori in Hindi.",
+    "url": "https://jmp2.uk/plu-63f87d057533d80008ab9549.m3u8",
+    "backupUrls": [
+      "https://sra72yz.s.gy/NICK_JR_US.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "sony-bbc-earth-hindi-hd",
+    "name": "Sony BBC Earth HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "\ud83c\udf0f",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Award-winning BBC Earth factual entertainment and natural history in Hindi.",
+    "url": "https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8",
+    "backupUrls": [
+      "https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "tlc-hindi-hd",
+    "name": "TLC HD (Hindi Lifestyle)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "\ud83c\udf70",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Premier international lifestyle, travel, cuisine, and makeover shows in Hindi.",
+    "url": "https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8",
+    "backupUrls": [
+      "https://dltiqboxjw21d.cloudfront.net/index.m3u8"
+    ],
+    "isFeatured": true
+  },
+  {
     "id": "zee-andtv-hd",
     "name": "&TV HD (Zee Entertainment)",
     "type": "tv",

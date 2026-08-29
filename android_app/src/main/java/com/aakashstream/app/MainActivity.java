@@ -64,6 +64,10 @@ import java.util.Map;
 import java.util.HashMap;
 import java.net.ServerSocket;
 import java.net.Socket;
+import android.graphics.Rect;
+import android.os.Handler;
+import android.os.Looper;
+import android.content.SharedPreferences;
 
 public class MainActivity extends Activity {
     private static final String TAG = "AakashStream";
@@ -431,6 +435,13 @@ public class MainActivity extends Activity {
         checkAndRequestPermissions();
         hideSystemUI();
 
+        // Initialize user-configured DNS override (Task 3)
+        try {
+            SharedPreferences prefs = getSharedPreferences("aakash_prefs", Context.MODE_PRIVATE);
+            String savedDns = prefs.getString("custom_dns_provider", "default");
+            applyDnsConfiguration(savedDns);
+        } catch (Exception ignored) {}
+
         webView = findViewById(R.id.webView);
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
@@ -448,6 +459,31 @@ public class MainActivity extends Activity {
         } else {
             registerReceiver(pipReceiver, pipFilter);
         }
+    }
+
+    private void applyDnsConfiguration(String provider) {
+        try {
+            if ("google".equalsIgnoreCase(provider)) {
+                System.setProperty("dns.server", "8.8.8.8,8.8.4.4");
+                System.setProperty("sun.net.spi.nameservice.nameservers", "8.8.8.8,8.8.4.4");
+                System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
+            } else if ("cloudflare".equalsIgnoreCase(provider)) {
+                System.setProperty("dns.server", "1.1.1.1,1.0.0.1");
+                System.setProperty("sun.net.spi.nameservice.nameservers", "1.1.1.1,1.0.0.1");
+                System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
+            } else if ("quad9".equalsIgnoreCase(provider)) {
+                System.setProperty("dns.server", "9.9.9.9,149.112.112.112");
+                System.setProperty("sun.net.spi.nameservice.nameservers", "9.9.9.9,149.112.112.112");
+                System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
+            } else if ("adguard".equalsIgnoreCase(provider)) {
+                System.setProperty("dns.server", "94.140.14.14,94.140.15.15");
+                System.setProperty("sun.net.spi.nameservice.nameservers", "94.140.14.14,94.140.15.15");
+                System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
+            } else {
+                System.clearProperty("dns.server");
+                System.clearProperty("sun.net.spi.nameservice.nameservers");
+            }
+        } catch (Exception ignored) {}
     }
 
     private void checkAndRequestPermissions() {
@@ -1014,17 +1050,51 @@ public class MainActivity extends Activity {
         public void setOrientation(String mode) {
             runOnUiThread(() -> {
                 try {
-                    if ("landscape".equals(mode)) {
+                    if ("landscape".equalsIgnoreCase(mode)) {
                         setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-                    } else if ("portrait".equals(mode)) {
+                    } else if ("portrait".equalsIgnoreCase(mode)) {
                         setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                     } else {
-                        setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
+                        // App default (Home / Browsing / Return from player): explicitly return to Portrait
+                        setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                     }
                 } catch (Exception e) {
                     Log.e(TAG, "Error setting orientation: " + e.getMessage());
                 }
             });
+        }
+
+        @JavascriptInterface
+        public void resetOrientationToDefault() {
+            runOnUiThread(() -> {
+                try {
+                    setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error resetting orientation: " + e.getMessage());
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void setCustomDnsProvider(String provider) {
+            try {
+                SharedPreferences prefs = getSharedPreferences("aakash_prefs", Context.MODE_PRIVATE);
+                prefs.edit().putString("custom_dns_provider", provider).apply();
+                applyDnsConfiguration(provider);
+                Log.i(TAG, "DNS Provider set to: " + provider);
+            } catch (Exception e) {
+                Log.e(TAG, "Error setting DNS provider: " + e.getMessage());
+            }
+        }
+
+        @JavascriptInterface
+        public String getCustomDnsProvider() {
+            try {
+                SharedPreferences prefs = getSharedPreferences("aakash_prefs", Context.MODE_PRIVATE);
+                return prefs.getString("custom_dns_provider", "default");
+            } catch (Exception e) {
+                return "default";
+            }
         }
 
         @JavascriptInterface
@@ -1046,27 +1116,40 @@ public class MainActivity extends Activity {
                         if (webView != null) {
                             webView.evaluateJavascript("window.onEnterPipMode ? window.onEnterPipMode() : null", null);
                         }
-                        PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
-                        pipBuilder.setAspectRatio(new Rational(16, 9));
 
-                        ArrayList<RemoteAction> actions = new ArrayList<>();
-                        Intent prevIntent = new Intent(ACTION_PIP_PREV).setPackage(getPackageName());
-                        PendingIntent prevPending = PendingIntent.getBroadcast(MainActivity.this, 1, prevIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-                        Icon prevIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_previous);
-                        actions.add(new RemoteAction(prevIcon, "Previous", "Previous", prevPending));
+                        // Allow WebView to render the clean video frame before capturing PiP transition
+                        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                            try {
+                                PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
+                                pipBuilder.setAspectRatio(new Rational(16, 9));
 
-                        Intent playIntent = new Intent(ACTION_PIP_PLAY_PAUSE).setPackage(getPackageName());
-                        PendingIntent playPending = PendingIntent.getBroadcast(MainActivity.this, 2, playIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-                        Icon playIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_play);
-                        actions.add(new RemoteAction(playIcon, "Play/Pause", "Play/Pause", playPending));
+                                if (webView != null && webView.getWidth() > 0 && webView.getHeight() > 0) {
+                                    Rect sourceRect = new Rect(0, 0, webView.getWidth(), webView.getHeight());
+                                    pipBuilder.setSourceRectHint(sourceRect);
+                                }
 
-                        Intent nextIntent = new Intent(ACTION_PIP_NEXT).setPackage(getPackageName());
-                        PendingIntent nextPending = PendingIntent.getBroadcast(MainActivity.this, 3, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-                        Icon nextIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_next);
-                        actions.add(new RemoteAction(nextIcon, "Next", "Next", nextPending));
+                                ArrayList<RemoteAction> actions = new ArrayList<>();
+                                Intent prevIntent = new Intent(ACTION_PIP_PREV).setPackage(getPackageName());
+                                PendingIntent prevPending = PendingIntent.getBroadcast(MainActivity.this, 1, prevIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                                Icon prevIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_previous);
+                                actions.add(new RemoteAction(prevIcon, "Previous", "Previous", prevPending));
 
-                        pipBuilder.setActions(actions);
-                        enterPictureInPictureMode(pipBuilder.build());
+                                Intent playIntent = new Intent(ACTION_PIP_PLAY_PAUSE).setPackage(getPackageName());
+                                PendingIntent playPending = PendingIntent.getBroadcast(MainActivity.this, 2, playIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                                Icon playIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_play);
+                                actions.add(new RemoteAction(playIcon, "Play/Pause", "Play/Pause", playPending));
+
+                                Intent nextIntent = new Intent(ACTION_PIP_NEXT).setPackage(getPackageName());
+                                PendingIntent nextPending = PendingIntent.getBroadcast(MainActivity.this, 3, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                                Icon nextIcon = Icon.createWithResource(MainActivity.this, android.R.drawable.ic_media_next);
+                                actions.add(new RemoteAction(nextIcon, "Next", "Next", nextPending));
+
+                                pipBuilder.setActions(actions);
+                                enterPictureInPictureMode(pipBuilder.build());
+                            } catch (Exception ePip) {
+                                Log.e(TAG, "Error entering delayed PiP: " + ePip.getMessage());
+                            }
+                        }, 40);
                     } catch (Exception e) {
                         Log.e(TAG, "Error entering PiP mode: " + e.getMessage());
                     }

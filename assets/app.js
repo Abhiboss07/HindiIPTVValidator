@@ -24,6 +24,118 @@ window.addEventListener('unhandledrejection', function(e) {
 
 const FALLBACK_CHANNELS = [
   {
+    "id": "discovery-channel-hindi-hd",
+    "name": "Discovery Channel HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "🌍",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "World-famous documentaries, wildlife expeditions, and survival science in Hindi.",
+    "url": "https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8",
+    "backupUrls": ["https://dltiqboxjw21d.cloudfront.net/index.m3u8"],
+    "isFeatured": true
+  },
+  {
+    "id": "natgeo-hindi-hd",
+    "name": "National Geographic HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "🦁",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Inspiring science, exploration, culture, and nature documentaries in Hindi.",
+    "url": "https://dltiqboxjw21d.cloudfront.net/index.m3u8",
+    "backupUrls": ["https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8"],
+    "isFeatured": true
+  },
+  {
+    "id": "animal-planet-hindi-hd",
+    "name": "Animal Planet HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "🐾",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Immersive wildlife documentaries, jungle safaris, and animal rescues in Hindi.",
+    "url": "https://dltiqboxjw21d.cloudfront.net/index.m3u8",
+    "backupUrls": ["https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8"],
+    "isFeatured": true
+  },
+  {
+    "id": "disney-channel-hindi-hd",
+    "name": "Disney Channel HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "✨",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "Classic Disney cartoons, animated feature films, and teen sitcoms dubbed in Hindi.",
+    "url": "https://dil9xdvretp0f.cloudfront.net/index.m3u8",
+    "backupUrls": ["https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8"],
+    "isFeatured": true
+  },
+  {
+    "id": "cartoon-network-hindi-hd",
+    "name": "Cartoon Network HD (Hindi Dubbed)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "🎨",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "Ben 10, Tom & Jerry, Oggy, and top Cartoon Network animated series in Hindi.",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8",
+    "backupUrls": ["https://dil9xdvretp0f.cloudfront.net/index.m3u8"],
+    "isFeatured": true
+  },
+  {
+    "id": "nickelodeon-hindi-hd",
+    "name": "Nickelodeon HD (Hindi Dubbed)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "⚡",
+    "category": "Kids & Animation",
+    "quality": "1080p FHD",
+    "description": "Motu Patlu, Rudra, Shiva, and Ninja Hattori in Hindi.",
+    "url": "https://jmp2.uk/plu-63f87d057533d80008ab9549.m3u8",
+    "backupUrls": ["https://dil9xdvretp0f.cloudfront.net/index.m3u8"],
+    "isFeatured": true
+  },
+  {
+    "id": "sony-bbc-earth-hindi-hd",
+    "name": "Sony BBC Earth HD (Hindi)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "🌏",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Award-winning BBC Earth factual entertainment and natural history in Hindi.",
+    "url": "https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8",
+    "backupUrls": ["https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8"],
+    "isFeatured": true
+  },
+  {
+    "id": "tlc-hindi-hd",
+    "name": "TLC HD (Hindi Lifestyle)",
+    "type": "tv",
+    "country": "IN",
+    "countryName": "India (International)",
+    "flag": "🍰",
+    "category": "Entertainment",
+    "quality": "1080p FHD",
+    "description": "Premier international lifestyle, travel, cuisine, and makeover shows in Hindi.",
+    "url": "https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8",
+    "backupUrls": ["https://dltiqboxjw21d.cloudfront.net/index.m3u8"],
+    "isFeatured": true
+  },
+  {
     "id": "zee-andtv-hd",
     "name": "&TV HD (Zee Entertainment)",
     "type": "tv",
@@ -13886,6 +13998,35 @@ function hideBufferingSpinner() {
   if (spinner) spinner.style.display = 'none';
 }
 
+function showStreamErrorState(title, desc) {
+  hideBufferingSpinner();
+  const errorOverlay = document.getElementById('playerErrorOverlay');
+  const errorTitle = document.getElementById('playerErrorTitle');
+  const errorDesc = document.getElementById('playerErrorDesc');
+  if (errorOverlay) {
+    if (errorTitle) errorTitle.textContent = title || 'Stream Unavailable';
+    if (errorDesc) errorDesc.textContent = desc || 'This broadcast is currently offline or geo-restricted.';
+    errorOverlay.style.display = 'flex';
+  }
+}
+
+function hideStreamErrorState() {
+  const errorOverlay = document.getElementById('playerErrorOverlay');
+  if (errorOverlay) errorOverlay.style.display = 'none';
+}
+
+window.retryCurrentStream = function(e) {
+  if (e) {
+    try { e.preventDefault(); e.stopPropagation(); } catch (err) {}
+  }
+  hideStreamErrorState();
+  if (currentPlayingChannel) {
+    currentBackupIdx = 0;
+    showToast('🔄 Retrying stream connection...');
+    loadChannelMedia(currentPlayingChannel, true);
+  }
+};
+
 function updateAudioArtwork() {
   const artwork = document.getElementById('playerAudioArtwork');
   const backdropImg = document.getElementById('playerBackdropImg');
@@ -14034,6 +14175,8 @@ function loadChannelMedia(ch, autoPlay) {
     }
   }
 
+  hideStreamErrorState();
+
   // Bind video element events for spinner with multiple safety nets
   if (videoElement) {
     if (isNativeDDPActive) {
@@ -14046,14 +14189,17 @@ function loadChannelMedia(ch, autoPlay) {
     videoElement.onloadeddata = () => {
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
+      hideStreamErrorState();
     };
     videoElement.onloadedmetadata = () => {
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
+      hideStreamErrorState();
     };
     videoElement.onplaying = () => {
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
+      hideStreamErrorState();
       isPlaying = true;
       updatePlayPauseIcons(true);
       if (isNativeDDPActive && window.AndroidMedia && window.AndroidMedia.syncNativeAudio) {
@@ -14080,16 +14226,23 @@ function loadChannelMedia(ch, autoPlay) {
     videoElement.oncanplay = () => {
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
+      hideStreamErrorState();
     };
     videoElement.onerror = () => {
       clearTimeout(streamWatchdogTimeout);
+      const errCode = videoElement.error ? videoElement.error.code : 'Unknown';
+      const diag = `HTML5 Video error [Code ${errCode}] on ${ch.name} (${streamUrl})`;
+      console.warn('⚠️ ' + diag);
+      if (window.AndroidMedia && window.AndroidMedia.logError) {
+        window.AndroidMedia.logError(diag);
+      }
       if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
         currentBackupIdx++;
-        showToast('Connecting backup stream mirror...');
+        showToast(`⚡ Connecting backup stream mirror (${currentBackupIdx + 1}/${ch.backupUrls.length + 1})...`);
         loadChannelMedia(ch, true);
       } else {
         hideBufferingSpinner();
-        showToast('Stream is currently offline. Please try another channel.');
+        showStreamErrorState('Stream Offline', 'Live stream broadcast is currently offline or unreachable. Please try another channel.');
       }
     };
   }
@@ -14106,7 +14259,7 @@ function loadChannelMedia(ch, autoPlay) {
         lowLatencyMode: false,
         maxBufferLength: 30,
         maxMaxBufferLength: 60,
-        manifestLoadingTimeOut: 10000,
+        manifestLoadingTimeOut: 12000,
         fragLoadingTimeOut: 15000
       });
 
@@ -14125,6 +14278,7 @@ function loadChannelMedia(ch, autoPlay) {
           if (p !== undefined) {
             p.then(() => {
               hideBufferingSpinner();
+              hideStreamErrorState();
               isPlaying = true;
               updatePlayPauseIcons(true);
             }).catch((err) => {
@@ -14139,34 +14293,49 @@ function loadChannelMedia(ch, autoPlay) {
       hlsInstance.on(Hls.Events.LEVEL_LOADED, () => {
         clearTimeout(streamWatchdogTimeout);
         hideBufferingSpinner();
+        hideStreamErrorState();
       });
 
       hlsInstance.on(Hls.Events.FRAG_BUFFERED, () => {
         clearTimeout(streamWatchdogTimeout);
         hideBufferingSpinner();
+        hideStreamErrorState();
       });
 
       hlsInstance.on(Hls.Events.FRAG_LOADED, () => {
         clearTimeout(streamWatchdogTimeout);
         hideBufferingSpinner();
+        hideStreamErrorState();
       });
 
       hlsInstance.on(Hls.Events.ERROR, (event, data) => {
+        const httpStatus = data.response ? data.response.code : (data.networkDetails ? data.networkDetails.status : 'N/A');
+        const diag = `HLS Error: Type=${data.type}, Details=${data.details}, HTTP=${httpStatus}, Fatal=${data.fatal}, Channel=${ch.name}, URL=${streamUrl}`;
+        console.warn('⚠️ ' + diag);
+        if (window.AndroidMedia && window.AndroidMedia.logError) {
+          window.AndroidMedia.logError(diag);
+        }
+
         if (!hlsInstance) return;
         if (data.fatal) {
+          clearTimeout(streamWatchdogTimeout);
           switch (data.type) {
             case Hls.ErrorTypes.NETWORK_ERROR:
               if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
                 currentBackupIdx++;
-                showToast('⚡ Connecting stream mirror...');
+                showToast(`⚡ Connecting stream mirror (${currentBackupIdx + 1}/${ch.backupUrls.length + 1})...`);
                 loadChannelMedia(ch, true);
-              } else if (hlsInstance) {
-                hlsInstance.startLoad();
+              } else {
+                hideBufferingSpinner();
+                showStreamErrorState('Network / Stream Error', `Server returned ${httpStatus !== 'N/A' ? 'HTTP ' + httpStatus : 'Network Failure'}. Broadcast is unreachable.`);
               }
               break;
             case Hls.ErrorTypes.MEDIA_ERROR:
-              if (hlsInstance) {
+              try {
                 hlsInstance.recoverMediaError();
+              } catch (eRec) {
+                hideBufferingSpinner();
+                showStreamErrorState('Media Decode Error', 'Audio/Video codec in stream could not be decoded.');
               }
               break;
             default:
@@ -14174,11 +14343,13 @@ function loadChannelMedia(ch, autoPlay) {
                 try { hlsInstance.destroy(); } catch (e) {}
                 hlsInstance = null;
               }
-              if (videoElement && streamUrl) {
-                videoElement.src = streamUrl;
-                if (autoPlay) {
-                  videoElement.play().catch(() => {});
-                }
+              if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
+                currentBackupIdx++;
+                showToast(`⚡ Switching to backup mirror (${currentBackupIdx + 1}/${ch.backupUrls.length + 1})...`);
+                loadChannelMedia(ch, true);
+              } else {
+                hideBufferingSpinner();
+                showStreamErrorState('Playback Failure', data.details ? `Stream error: ${data.details}` : 'Unable to parse live stream manifest.');
               }
               break;
           }
@@ -14192,17 +14363,34 @@ function loadChannelMedia(ch, autoPlay) {
       }
     }
 
-    // Stream Speed Watchdog (5s auto-failover if stream hangs)
-    if (autoPlay && ch.backupUrls && ch.backupUrls.length > 0) {
+    // Global Connection Watchdog (12s timeout for hung/stuck streams)
+    if (autoPlay) {
+      clearTimeout(streamWatchdogTimeout);
       streamWatchdogTimeout = setTimeout(() => {
-        if (videoElement && (videoElement.paused || videoElement.readyState < 2)) {
-          if (currentBackupIdx + 1 < ch.backupUrls.length) {
+        if (videoElement && (videoElement.paused || videoElement.readyState < 2 || !isPlaying)) {
+          const diag = `Connection Timeout (12s) on ${ch.name}: ${streamUrl}`;
+          console.warn('⚠️ ' + diag);
+          if (window.AndroidMedia && window.AndroidMedia.logError) {
+            window.AndroidMedia.logError(diag);
+          }
+
+          if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
             currentBackupIdx++;
-            showToast('⚡ Switching to high-speed stream mirror...');
+            showToast(`⚡ Stream timeout. Switching to mirror (${currentBackupIdx + 1}/${ch.backupUrls.length + 1})...`);
             loadChannelMedia(ch, true);
+          } else {
+            hideBufferingSpinner();
+            if (hlsInstance) {
+              try { hlsInstance.stopLoad(); hlsInstance.destroy(); } catch (e) {}
+              hlsInstance = null;
+            }
+            showStreamErrorState(
+              'Stream Unavailable',
+              'Broadcast server did not respond within 12 seconds. Channel may be temporarily offline or restricted.'
+            );
           }
         }
-      }, 5000);
+      }, 12000);
     }
 
   } else if (streamUrl) {
@@ -14323,11 +14511,13 @@ window.minimizeToMiniPlayer = function(e) {
     try { window.speechSynthesis.cancel(); } catch (eT) {}
   }
 
-  // Restore orientation and screen state
+  // Restore orientation and screen state (Task 5)
   try {
     if (window.AndroidMedia) {
-      if (window.AndroidMedia.setOrientation) window.AndroidMedia.setOrientation('auto');
+      if (window.AndroidMedia.setOrientation) window.AndroidMedia.setOrientation('portrait');
+      if (window.AndroidMedia.resetOrientationToDefault) window.AndroidMedia.resetOrientationToDefault();
       if (window.AndroidMedia.keepScreenOn) window.AndroidMedia.keepScreenOn(false);
+      if (window.AndroidMedia.setFullscreen) window.AndroidMedia.setFullscreen(false);
     }
   } catch (e2) {}
   
@@ -14399,11 +14589,13 @@ window.closeMiniPlayer = function(e) {
     miniPlayer.classList.remove('active');
   }
 
-  // Restore orientation and screen state
+  // Restore orientation and screen state (Task 5)
   try {
     if (window.AndroidMedia) {
-      if (window.AndroidMedia.setOrientation) window.AndroidMedia.setOrientation('auto');
+      if (window.AndroidMedia.setOrientation) window.AndroidMedia.setOrientation('portrait');
+      if (window.AndroidMedia.resetOrientationToDefault) window.AndroidMedia.resetOrientationToDefault();
       if (window.AndroidMedia.keepScreenOn) window.AndroidMedia.keepScreenOn(false);
+      if (window.AndroidMedia.setFullscreen) window.AndroidMedia.setFullscreen(false);
     }
   } catch (e2) {}
   
@@ -15011,12 +15203,30 @@ window.onEnterPipMode = function() {
   if (ccBox) ccBox.style.display = 'none';
   const miniPlayer = document.getElementById('miniPlayer');
   if (miniPlayer) miniPlayer.classList.remove('active');
+  const spinner = document.getElementById('playerBufferingSpinner');
+  if (spinner) spinner.style.display = 'none';
+  const errorOverlay = document.getElementById('playerErrorOverlay');
+  if (errorOverlay) errorOverlay.style.display = 'none';
+  const brightOverlay = document.getElementById('playerBrightnessOverlay');
+  if (brightOverlay) brightOverlay.style.opacity = '0';
+  const ambientBackdrop = document.getElementById('playerAmbientBackdrop');
+  if (ambientBackdrop) ambientBackdrop.style.display = 'none';
+
   if (typeof closeVlcMoreMenu === 'function') closeVlcMoreMenu();
+
+  // Keep video element 100% visible and unblanked when paused in PiP
+  const video = document.getElementById('luminaVideo');
+  if (video) {
+    video.style.display = 'block';
+    video.style.opacity = '1';
+    video.style.zIndex = '9999';
+  }
 
   const playerModal = document.getElementById('playerModal');
   if (playerModal) {
     playerModal.classList.add('active');
     playerModal.style.display = 'flex';
+    playerModal.style.background = '#000000';
   }
 };
 
@@ -15024,6 +15234,12 @@ window.onExitPipMode = function() {
   const uiOverlay = document.getElementById('playerUiOverlay');
   if (uiOverlay) {
     uiOverlay.style.display = '';
+  }
+  const ambientBackdrop = document.getElementById('playerAmbientBackdrop');
+  if (ambientBackdrop) ambientBackdrop.style.display = '';
+  const video = document.getElementById('luminaVideo');
+  if (video) {
+    video.style.zIndex = '';
   }
   resetPlayerHideTimer();
 };
@@ -15983,10 +16199,18 @@ function loadSettingsUI() {
   const qSelect = document.getElementById('settingQuality');
   const ccBox = document.getElementById('settingCC');
   const llBox = document.getElementById('settingLowLatency');
+  const dnsSelect = document.getElementById('settingDNS');
 
   if (qSelect) qSelect.value = localStorage.getItem('aakash_quality') || 'auto';
   if (ccBox) ccBox.checked = localStorage.getItem('aakash_cc') === 'true';
   if (llBox) llBox.checked = localStorage.getItem('aakash_low_latency') !== 'false';
+  if (dnsSelect) {
+    let savedDns = localStorage.getItem('aakash_dns');
+    if (!savedDns && window.AndroidMedia && window.AndroidMedia.getCustomDnsProvider) {
+      try { savedDns = window.AndroidMedia.getCustomDnsProvider(); } catch (e) {}
+    }
+    dnsSelect.value = savedDns || 'default';
+  }
 }
 
 window.saveAppSetting = function(key, val) {
@@ -15994,6 +16218,12 @@ window.saveAppSetting = function(key, val) {
   if (key === 'cc') {
     isCCEnabled = val;
     updateCCUI();
+  } else if (key === 'dns') {
+    if (window.AndroidMedia && window.AndroidMedia.setCustomDnsProvider) {
+      try { window.AndroidMedia.setCustomDnsProvider(val); } catch (e) {}
+    }
+    showToast('⚡ DNS Provider set to ' + val.toUpperCase());
+    return;
   }
   showToast('Setting Saved');
 };
