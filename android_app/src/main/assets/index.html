@@ -519,33 +519,43 @@
                     <span id="playerTimeTotal" class="vlc-time-text">- 0:00</span>
                 </div>
 
-                <!-- 3. VLC 5-Button Action Toolbar (Matching 1.jpeg) -->
+                <!-- 3. VLC Action Toolbar with Previous & Next Channel Navigation -->
                 <div class="vlc-transport-toolbar">
                     <!-- 1. Subtitles & Translations (Left) -->
                     <button id="btnVlcSubtitles" class="vlc-tool-btn" onclick="openVlcSubtitlesModal(event)" title="Subtitles & Translations [CC]">
-                        <svg viewBox="0 0 24 24" width="26" height="26" fill="#FFFFFF"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8z"/></svg>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8z"/></svg>
                     </button>
 
                     <!-- 2. Aspect Ratio / Resize (Left) -->
                     <button id="btnVlcAspect" class="vlc-tool-btn" onclick="cycleAspectRatio(event)" title="Aspect Ratio">
-                        <svg viewBox="0 0 24 24" width="26" height="26" fill="#FFFFFF"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
                     </button>
 
-                    <!-- 3. Play / Pause Circle (Center - Large White Circle matching 1.jpeg) -->
+                    <!-- 3. Backward / Previous Channel (⏮) -->
+                    <button id="btnVlcPrev" class="vlc-tool-btn vlc-channel-nav-btn" onclick="playPreviousChannel(event)" title="Previous Channel">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                    </button>
+
+                    <!-- 4. Play / Pause Circle (Center) -->
                     <button id="btnVlcPlayPause" class="vlc-primary-play-btn" onclick="togglePlay(event)" title="Play / Pause">
                         <div id="playerPlaySvgBox">
                             <svg viewBox="0 0 24 24" width="34" height="34" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
                         </div>
                     </button>
 
-                    <!-- 4. Pop-up Player (PiP) (Right) -->
-                    <button id="btnVlcPip" class="vlc-tool-btn" onclick="triggerVlcPip(event)" title="Pop-Up Player (PiP)">
-                        <svg viewBox="0 0 24 24" width="26" height="26" fill="#FFFFFF"><path d="M19 7h-8v6h8V7zm2-4H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"/></svg>
+                    <!-- 5. Forward / Next Channel (⏭) -->
+                    <button id="btnVlcNext" class="vlc-tool-btn vlc-channel-nav-btn" onclick="playNextChannel(event)" title="Next Channel">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
                     </button>
 
-                    <!-- 5. More Options (•••) (Right) -->
+                    <!-- 6. Pop-up Player (PiP) (Right) -->
+                    <button id="btnVlcPip" class="vlc-tool-btn" onclick="triggerVlcPip(event)" title="Pop-Up Player (PiP)">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M19 7h-8v6h8V7zm2-4H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"/></svg>
+                    </button>
+
+                    <!-- 7. More Options (•••) (Right) -->
                     <button id="btnVlcMore" class="vlc-tool-btn" onclick="openVlcMoreMenu(event)" title="More Options">
-                        <svg viewBox="0 0 24 24" width="26" height="26" fill="#FFFFFF"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
                     </button>
                 </div>
             </div>

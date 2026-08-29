@@ -14421,34 +14421,62 @@ window.closeMiniPlayerCompletely = function(e) {
   closeMiniPlayer(e);
 };
 
-// Mini-Player & Transport Channel Navigation (⏮ Prev / ⏭ Next)
+// Fullscreen & Mini-Player Channel Navigation (⏮ Backward / ⏭ Forward)
 window.playPreviousChannel = function(e) {
   if (e) {
-    e.preventDefault();
-    e.stopPropagation();
+    try { e.preventDefault(); e.stopPropagation(); } catch (err) {}
   }
-  if (!currentPlayingChannel || !Array.isArray(channelsData) || channelsData.length === 0) return;
-  const currentIdx = channelsData.findIndex(c => c.id === currentPlayingChannel.id);
-  const prevIdx = currentIdx > 0 ? currentIdx - 1 : channelsData.length - 1;
-  const prevChannel = channelsData[prevIdx];
+  if (!currentPlayingChannel) return;
+
+  let activeList = channelsData;
+  if (currentPlayingChannel.isLocal && Array.isArray(customLocalMedia) && customLocalMedia.length > 0) {
+    activeList = customLocalMedia;
+  } else if (currentPlayingChannel.type === 'radio') {
+    activeList = channelsData.filter(c => c.type === 'radio');
+  } else if (currentPlayingChannel.type === 'tv') {
+    activeList = channelsData.filter(c => c.type === 'tv');
+  }
+
+  if (!Array.isArray(activeList) || activeList.length === 0) activeList = channelsData;
+  if (activeList.length === 0) return;
+
+  const currentIdx = activeList.findIndex(c => c.id === currentPlayingChannel.id);
+  const prevIdx = currentIdx > 0 ? currentIdx - 1 : activeList.length - 1;
+  const prevChannel = activeList[prevIdx];
+
   if (prevChannel) {
     playChannel(prevChannel);
-    showToast('⏮ ' + (prevChannel.name || 'Previous Channel'));
+    const badge = prevChannel.flag || (prevChannel.type === 'radio' ? '📻' : '📺');
+    showToast('⏮ ' + badge + ' ' + (prevChannel.name || 'Previous Channel'));
   }
 };
 
 window.playNextChannel = function(e) {
   if (e) {
-    e.preventDefault();
-    e.stopPropagation();
+    try { e.preventDefault(); e.stopPropagation(); } catch (err) {}
   }
-  if (!currentPlayingChannel || !Array.isArray(channelsData) || channelsData.length === 0) return;
-  const currentIdx = channelsData.findIndex(c => c.id === currentPlayingChannel.id);
-  const nextIdx = currentIdx >= 0 && currentIdx < channelsData.length - 1 ? currentIdx + 1 : 0;
-  const nextChannel = channelsData[nextIdx];
+  if (!currentPlayingChannel) return;
+
+  let activeList = channelsData;
+  if (currentPlayingChannel.isLocal && Array.isArray(customLocalMedia) && customLocalMedia.length > 0) {
+    activeList = customLocalMedia;
+  } else if (currentPlayingChannel.type === 'radio') {
+    activeList = channelsData.filter(c => c.type === 'radio');
+  } else if (currentPlayingChannel.type === 'tv') {
+    activeList = channelsData.filter(c => c.type === 'tv');
+  }
+
+  if (!Array.isArray(activeList) || activeList.length === 0) activeList = channelsData;
+  if (activeList.length === 0) return;
+
+  const currentIdx = activeList.findIndex(c => c.id === currentPlayingChannel.id);
+  const nextIdx = currentIdx >= 0 && currentIdx < activeList.length - 1 ? currentIdx + 1 : 0;
+  const nextChannel = activeList[nextIdx];
+
   if (nextChannel) {
     playChannel(nextChannel);
-    showToast('⏭ ' + (nextChannel.name || 'Next Channel'));
+    const badge = nextChannel.flag || (nextChannel.type === 'radio' ? '📻' : '📺');
+    showToast('⏭ ' + badge + ' ' + (nextChannel.name || 'Next Channel'));
   }
 };
 
