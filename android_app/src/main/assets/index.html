@@ -1003,31 +1003,31 @@
         </div>
 
         <!-- 10. Report Channel / Stream Issue Modal -->
-        <div id="reportChannelModal" class="vlc-dialog-backdrop" onclick="closeReportChannelModal()" style="display: none;">
-            <div class="vlc-dialog-card" onclick="event.stopPropagation()">
+        <div id="reportChannelModal" class="vlc-dialog-backdrop" onclick="closeReportChannelModal()" ontouchstart="event.stopPropagation()" ontouchmove="event.stopPropagation()" style="display: none;">
+            <div class="vlc-dialog-card" onclick="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchmove="event.stopPropagation()">
                 <div class="vlc-dialog-header">
-                    <h3 style="font-size: 16px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px;">
+                    <h3 style="font-size: 16px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; margin: 0;">
                         <span>🚩</span> Report Stream Issue
                     </h3>
-                    <button class="vlc-dialog-close" onclick="closeReportChannelModal()">✕</button>
+                    <button type="button" class="vlc-dialog-close" onclick="closeReportChannelModal()">✕</button>
                 </div>
-                <p id="reportChannelName" style="font-size: 12px; color: #94a3b8; margin: 4px 0 14px 0;">Channel: Loading...</p>
+                <p id="reportChannelName" style="font-size: 12px; color: #94a3b8; margin: 4px 0 10px 0;">Channel: Loading...</p>
                 <div class="report-options-list">
-                    <div class="report-option-item" onclick="submitChannelReport('mislabeled')">
+                    <div class="report-option-item" data-reason="mislabeled" onclick="submitChannelReport('mislabeled')">
                         <span class="report-option-icon">🔄</span>
                         <div class="report-option-meta">
                             <div class="report-option-title">Mislabeled Content / Wrong Channel</div>
                             <div class="report-option-desc">Broadcast content does not match channel name</div>
                         </div>
                     </div>
-                    <div class="report-option-item" onclick="submitChannelReport('dead')">
+                    <div class="report-option-item" data-reason="dead" onclick="submitChannelReport('dead')">
                         <span class="report-option-icon">🚫</span>
                         <div class="report-option-meta">
                             <div class="report-option-title">Stream Dead / Unreachable</div>
                             <div class="report-option-desc">Stream fails to connect, loads endlessly or 404s</div>
                         </div>
                     </div>
-                    <div class="report-option-item" onclick="submitChannelReport('desync')">
+                    <div class="report-option-item" data-reason="desync" onclick="submitChannelReport('desync')">
                         <span class="report-option-icon">🔇</span>
                         <div class="report-option-meta">
                             <div class="report-option-title">Audio / Video Desync or Freezing</div>

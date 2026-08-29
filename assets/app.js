@@ -13205,6 +13205,7 @@ function initApp() {
   try { initPlayerOverlayEvents(); } catch (e) { console.warn('initPlayerOverlayEvents note:', e); }
   try { initPlayerSwipeGestures(); } catch (e) { console.warn('initPlayerSwipeGestures note:', e); }
   try { initMiniPlayerSwipe(); } catch (e) { console.warn('initMiniPlayerSwipe note:', e); }
+  try { initReportModalDelegation(); } catch (e) { console.warn('initReportModalDelegation note:', e); }
   try { updateCCUI(); } catch (e) { console.warn('updateCCUI note:', e); }
 
   try {
@@ -16040,7 +16041,7 @@ function initPlayerSwipeGestures() {
 
   playerModal.addEventListener('touchstart', (e) => {
     if (isPlayerLocked) return;
-    if (e.target.closest('#vlcMoreDrawer') || e.target.closest('.vlc-side-drawer') || e.target.closest('.vlc-dialog-backdrop') || e.target.closest('.vlc-dialog-card') || e.target.closest('#vlcABRepeatBar') || e.target.closest('.vlc-drawer-scroll') || e.target.closest('#vlcMoreDrawerBackdrop')) return;
+    if (e.target.closest('#vlcMoreDrawer') || e.target.closest('.vlc-side-drawer') || e.target.closest('.vlc-dialog-backdrop') || e.target.closest('.vlc-dialog-card') || e.target.closest('#vlcABRepeatBar') || e.target.closest('.vlc-drawer-scroll') || e.target.closest('#vlcMoreDrawerBackdrop') || e.target.closest('#reportChannelModal')) return;
     
     // 2-Finger Pinch Detection (VLC-style aspect zoom)
     if (e.touches.length === 2) {
@@ -16062,7 +16063,7 @@ function initPlayerSwipeGestures() {
 
   playerModal.addEventListener('touchmove', (e) => {
     if (isPlayerLocked) return;
-    if (e.target.closest('#vlcMoreDrawer') || e.target.closest('.vlc-side-drawer') || e.target.closest('.vlc-dialog-backdrop') || e.target.closest('.vlc-dialog-card') || e.target.closest('#vlcABRepeatBar') || e.target.closest('.vlc-drawer-scroll') || e.target.closest('#vlcMoreDrawerBackdrop')) return;
+    if (e.target.closest('#vlcMoreDrawer') || e.target.closest('.vlc-side-drawer') || e.target.closest('.vlc-dialog-backdrop') || e.target.closest('.vlc-dialog-card') || e.target.closest('#vlcABRepeatBar') || e.target.closest('.vlc-drawer-scroll') || e.target.closest('#vlcMoreDrawerBackdrop') || e.target.closest('#reportChannelModal')) return;
 
     // Handle 2-finger pinch zoom
     if (e.touches.length === 2 && initialPinchDist > 0 && !pinchTriggered) {
@@ -16306,12 +16307,15 @@ window.getChannelHealthStatus = function(channelId) {
   return 'healthy';
 };
 
+let activeReportingTarget = null;
+
 window.openReportChannelModal = function() {
   if (typeof closeVlcMoreMenu === 'function') closeVlcMoreMenu();
+  activeReportingTarget = currentPlayingChannel || null;
   const modal = document.getElementById('reportChannelModal');
   const nameEl = document.getElementById('reportChannelName');
   if (nameEl) {
-    nameEl.textContent = currentPlayingChannel ? ('Channel: ' + (currentPlayingChannel.name || 'Unknown Channel')) : 'No channel playing';
+    nameEl.textContent = activeReportingTarget ? ('Channel: ' + (activeReportingTarget.name || 'Unknown Channel')) : 'No channel active';
   }
   if (modal) modal.style.display = 'flex';
 };
@@ -16322,14 +16326,15 @@ window.closeReportChannelModal = function() {
 };
 
 window.submitChannelReport = function(reason) {
+  const targetCh = activeReportingTarget || currentPlayingChannel;
   closeReportChannelModal();
-  if (!currentPlayingChannel) {
+  if (!targetCh) {
     showToast('No active channel to report');
     return;
   }
 
-  const chId = currentPlayingChannel.id;
-  const chName = currentPlayingChannel.name || 'Unknown Channel';
+  const chId = targetCh.id;
+  const chName = targetCh.name || 'Unknown Channel';
   const reports = getChannelReports();
   const existing = reports[chId] || {
     id: chId,
@@ -16353,14 +16358,37 @@ window.submitChannelReport = function(reason) {
   const status = getChannelHealthStatus(chId);
   if (status === 'quarantined') {
     showToast('🚫 Channel quarantined due to reports');
-    renderAllPages();
-    renderChannelHealthManager();
   } else {
     showToast('⚠️ Stream reported. Thank you for feedback!');
-    renderAllPages();
-    renderChannelHealthManager();
   }
+  renderAllPages();
+  renderChannelHealthManager();
+  console.log('✅ Stream report submitted:', chId, reason, existing);
 };
+
+function initReportModalDelegation() {
+  const modal = document.getElementById('reportChannelModal');
+  if (!modal) return;
+  modal.addEventListener('click', (e) => {
+    const opt = e.target.closest('.report-option-item');
+    if (opt) {
+      e.preventDefault();
+      e.stopPropagation();
+      const reason = opt.getAttribute('data-reason') || 'dead';
+      if (typeof submitChannelReport === 'function') {
+        submitChannelReport(reason);
+      }
+      return;
+    }
+    const closeBtn = e.target.closest('.vlc-dialog-close');
+    if (closeBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeReportChannelModal();
+      return;
+    }
+  });
+}
 
 window.restoreChannelFromQuarantine = function(chId) {
   const reports = getChannelReports();
