@@ -159,6 +159,11 @@ public class PeerConnection implements Runnable {
         return peerPieces != null && peerPieces.get(index);
     }
 
+    public boolean isSeeder() {
+        if (peerPieces == null) return false;
+        return peerPieces.cardinality() > 0;
+    }
+
     public boolean canRequest() {
         return isConnected() && !peerChoking;
     }

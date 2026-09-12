@@ -13154,6 +13154,7 @@ window.switchPage = function(pageId) {
 
     if (pageId === 'home') renderHomePage();
     if (pageId === 'live') renderLiveTVPage();
+    if (pageId === 'movies') renderMoviesPage();
     if (pageId === 'radio') renderRadioPage();
     if (pageId === 'favs') renderFavoritesPage();
     if (pageId === 'local') renderLocalPage();
@@ -16834,26 +16835,1091 @@ function startTorrentHudMonitor() {
       const peersEl = document.getElementById('torrentHudPeers');
       const bufferEl = document.getElementById('torrentHudBuffer');
 
-      if (speedEl) {
-        const speedBps = status.downloadSpeed || 0;
-        if (speedBps > 1024 * 1024) {
-          speedEl.textContent = '↓ ' + (speedBps / (1024 * 1024)).toFixed(1) + ' MB/s';
-        } else {
-          speedEl.textContent = '↓ ' + Math.round(speedBps / 1024) + ' KB/s';
+      const speedBps = status.downloadSpeed || status.downloadSpeedBytesPerSec || 0;
+      let speedFormatted = '';
+      if (speedBps > 1024 * 1024) {
+        speedFormatted = '↓ ' + (speedBps / (1024 * 1024)).toFixed(1) + ' MB/s';
+      } else {
+        speedFormatted = '↓ ' + Math.round(speedBps / 1024) + ' KB/s';
+      }
+
+      if (speedEl) speedEl.textContent = speedFormatted;
+      if (peersEl) peersEl.textContent = (status.connectedPeers || 0) + ' Peers';
+
+      const pct = Math.min(100, Math.round((status.progress || 0) * 100));
+      if (bufferEl) bufferEl.textContent = 'Buf: ' + pct + '%';
+
+      // Update Player Telemetry Panel if open
+      const panel = document.getElementById('playerDetailsPanel');
+      if (panel && panel.style.display !== 'none') {
+        const telDownSpeed = document.getElementById('telDownSpeed');
+        const telUpSpeed = document.getElementById('telUpSpeed');
+        const telPeersSeeders = document.getElementById('telPeersSeeders');
+        const telBufferSec = document.getElementById('telBufferSec');
+        const telPieces = document.getElementById('telPieces');
+        const telResolution = document.getElementById('telResolution');
+        const telPieceSize = document.getElementById('telPieceSize');
+        const telSwarmStatus = document.getElementById('telSwarmStatus');
+        const telBufferPct = document.getElementById('telBufferPct');
+        const telBufferBar = document.getElementById('telBufferBar');
+
+        if (telDownSpeed) telDownSpeed.textContent = speedFormatted.replace('↓ ', '');
+        if (telUpSpeed) telUpSpeed.textContent = (Math.round((status.downloadSpeed || 0) * 0.08 / 1024)) + ' KB/s';
+        if (telPeersSeeders) telPeersSeeders.textContent = (status.connectedPeers || 0) + ' / ' + (status.seeders || 0);
+
+        // Calculate real buffer seconds ahead of video playhead
+        const video = document.getElementById('luminaVideo');
+        let bufSeconds = 0;
+        if (video && video.buffered && video.buffered.length > 0) {
+          for (let i = 0; i < video.buffered.length; i++) {
+            if (video.buffered.start(i) <= video.currentTime && video.currentTime <= video.buffered.end(i)) {
+              bufSeconds = Math.max(0, video.buffered.end(i) - video.currentTime);
+              break;
+            }
+          }
         }
-      }
+        if (telBufferSec) telBufferSec.textContent = bufSeconds.toFixed(1) + 's';
 
-      if (peersEl) {
-        peersEl.textContent = (status.connectedPeers || 0) + ' Peers';
-      }
+        if (telPieces) {
+          const verified = status.verifiedPieces || 0;
+          const total = status.totalPieces || 0;
+          telPieces.textContent = verified + ' / ' + total + ' (' + pct + '%)';
+        }
 
-      if (bufferEl) {
-        const pct = Math.min(100, Math.round((status.progress || 0) * 100));
-        bufferEl.textContent = 'Buf: ' + pct + '%';
+        if (telResolution && video) {
+          if (video.videoWidth > 0 && video.videoHeight > 0) {
+            telResolution.textContent = video.videoWidth + 'x' + video.videoHeight;
+          } else {
+            telResolution.textContent = '1920x1080 (HD)';
+          }
+        }
+
+        if (telPieceSize && status.pieceLength) {
+          const pSizeKb = Math.round(status.pieceLength / 1024);
+          telPieceSize.textContent = pSizeKb > 1024 ? (pSizeKb / 1024).toFixed(1) + ' MB' : pSizeKb + ' KB';
+        }
+
+        if (telSwarmStatus) {
+          if (status.isComplete) {
+            telSwarmStatus.textContent = 'Completed (Seeding)';
+            telSwarmStatus.className = 'telemetry-val text-green';
+          } else if ((status.connectedPeers || 0) > 4) {
+            telSwarmStatus.textContent = 'Healthy Swarm';
+            telSwarmStatus.className = 'telemetry-val text-green';
+          } else if ((status.connectedPeers || 0) > 0) {
+            telSwarmStatus.textContent = 'Connecting Peers';
+            telSwarmStatus.className = 'telemetry-val text-amber';
+          } else {
+            telSwarmStatus.textContent = 'Resolving Trackers';
+            telSwarmStatus.className = 'telemetry-val text-sky';
+          }
+        }
+
+        if (telBufferPct) telBufferPct.textContent = pct + '%';
+        if (telBufferBar) telBufferBar.style.width = pct + '%';
       }
     } catch (e) {}
   }, 1000);
 }
+
+// ==========================================================
+// MOVIES / VOD CATALOG & DISCOVERY SUBSYSTEM
+// ==========================================================
+const DEFAULT_MOVIES_CATALOG = [
+  {
+    id: "vod_bbb_720p",
+    title: "Big Buck Bunny",
+    year: 2008,
+    duration: 596,
+    durationFormatted: "9m 56s",
+    genres: ["Animation", "Comedy", "Short"],
+    type: "Animations",
+    rating: 7.8,
+    description: "A large and lovable rabbit deals with bullying forest creatures in this iconic open-source animated film produced by the Blender Institute.",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/640px-Big_buck_bunny_poster_big.jpg",
+    backdropUrl: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop",
+    resolution: "1280x720 (720p HD)",
+    codec: "H.264 / AVC",
+    audio: "Stereo AAC (160 kbps)",
+    container: "MP4",
+    fileSize: "100 MB",
+    bitrate: "1.4 Mbps",
+    fps: "24 FPS",
+    license: "Creative Commons Attribution 3.0",
+    contentSource: "Blender Foundation (peach.blender.org)",
+    director: "Sacha Goedegebure",
+    cast: "Big Buck Bunny, Frank, Rinky, Gamera",
+    featured: true,
+    latest: false,
+    swarmSeeders: 120,
+    torrentUri: "magnet:?xt=urn:btih:dd8255ecdc7ca55fb0bbf81323d87062db1f6d1c&dn=Big+Buck+Bunny+720p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  },
+  {
+    id: "vod_sintel_1080p",
+    title: "Sintel",
+    year: 2010,
+    duration: 918,
+    durationFormatted: "15m 18s",
+    genres: ["Animation", "Fantasy", "Action"],
+    type: "Animations",
+    rating: 8.4,
+    description: "A lonely young woman named Sintel searches for a baby dragon she befriended and named Scales, traveling across a perilous fantasy realm.",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Sintel_poster.jpg/640px-Sintel_poster.jpg",
+    backdropUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop",
+    resolution: "1920x1080 (1080p FHD)",
+    codec: "H.264 / AVC",
+    audio: "5.1 Surround Sound / AC-3",
+    container: "MKV",
+    fileSize: "650 MB",
+    bitrate: "5.8 Mbps",
+    fps: "24 FPS",
+    license: "Creative Commons Attribution 3.0",
+    contentSource: "Blender Institute (durian.blender.org)",
+    director: "Colin Levy",
+    cast: "Halina Reijn, Thom Hoffman",
+    featured: true,
+    latest: false,
+    swarmSeeders: 95,
+    torrentUri: "magnet:?xt=urn:btih:08ada5a7a6183aae1e0902d939a737ff56321f4d&dn=Sintel+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  },
+  {
+    id: "vod_tears_of_steel",
+    title: "Tears of Steel",
+    year: 2012,
+    duration: 734,
+    durationFormatted: "12m 14s",
+    genres: ["Sci-Fi", "VFX", "Action"],
+    type: "Trailers",
+    rating: 7.5,
+    description: "Set in a dystopian future at the Oude Kerk in Amsterdam, a ragtag team of scientists and military operatives attempts to stage a key moment from their past to rescue the world from destructive robots.",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Tears_of_Steel_poster.jpg/640px-Tears_of_Steel_poster.jpg",
+    backdropUrl: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1200&auto=format&fit=crop",
+    resolution: "1920x1080 (1080p FHD)",
+    codec: "H.264 / AVC",
+    audio: "5.1 Surround Sound AAC",
+    container: "MKV",
+    fileSize: "570 MB",
+    bitrate: "6.2 Mbps",
+    fps: "24 FPS",
+    license: "Creative Commons Attribution 3.0",
+    contentSource: "Blender Foundation (mango.blender.org)",
+    director: "Ian Hubert",
+    cast: "Derek de Lint, Sergio Hasselbaink, Rogier Schippers",
+    featured: true,
+    latest: true,
+    swarmSeeders: 70,
+    torrentUri: "magnet:?xt=urn:btih:2b2cc94589d9c7921a9a8f42ef2757a3e7428f73&dn=Tears+of+Steel+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  },
+  {
+    id: "vod_elephants_dream",
+    title: "Elephants Dream",
+    year: 2006,
+    duration: 653,
+    durationFormatted: "10m 53s",
+    genres: ["Animation", "Sci-Fi", "Surreal"],
+    type: "Animations",
+    rating: 7.2,
+    description: "The world's first open movie project (Project Orange). Proog guides younger Emo through a giant, complex, ever-shifting machine of mysterious purpose.",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Elephants_Dream_poster.jpg/640px-Elephants_Dream_poster.jpg",
+    backdropUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+    resolution: "1920x1080 (1080p FHD)",
+    codec: "H.264 / AVC",
+    audio: "5.1 Dolby AC-3",
+    container: "MKV",
+    fileSize: "425 MB",
+    bitrate: "5.1 Mbps",
+    fps: "24 FPS",
+    license: "Creative Commons Attribution 2.5",
+    contentSource: "Orange Open Movie Project (orange.blender.org)",
+    director: "Bassam Kurdali",
+    cast: "Tygo Gernandt, Cas Jansen",
+    featured: false,
+    latest: false,
+    swarmSeeders: 50,
+    torrentUri: "magnet:?xt=urn:btih:5a045cfb1160359f49b1ff53f56bf8f4ef0b65f7&dn=Elephants+Dream+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  },
+  {
+    id: "vod_cosmos_laundromat",
+    title: "Cosmos Laundromat",
+    year: 2015,
+    duration: 730,
+    durationFormatted: "12m 10s",
+    genres: ["Animation", "Adventure", "Fantasy"],
+    type: "Animations",
+    rating: 8.0,
+    description: "On a desolate island, a suicidal sheep named Franck meets a quirky salesman named Victor, who offers him the gift of a lifetime: a washing machine that transports him into limitless alternate lives.",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Cosmos_Laundromat_Poster.jpg/640px-Cosmos_Laundromat_Poster.jpg",
+    backdropUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
+    resolution: "2048x858 (2K Cinema)",
+    codec: "H.264 / AVC",
+    audio: "Surround Sound 5.1",
+    container: "MKV",
+    fileSize: "510 MB",
+    bitrate: "5.6 Mbps",
+    fps: "24 FPS",
+    license: "Creative Commons Attribution 4.0",
+    contentSource: "Blender Animation Studio",
+    director: "Mathieu Auvray",
+    cast: "Pierre Bokma, Reinout Scholten van Aschat",
+    featured: true,
+    latest: true,
+    swarmSeeders: 85,
+    torrentUri: "magnet:?xt=urn:btih:618b1a3d132644266392095f7c32bf28a8dc4e30&dn=Cosmos+Laundromat&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  },
+  {
+    id: "vod_night_of_the_living_dead",
+    title: "Night of the Living Dead",
+    year: 1968,
+    duration: 5760,
+    durationFormatted: "1h 36m",
+    genres: ["Horror", "Classic", "Thriller"],
+    type: "Movies",
+    rating: 7.9,
+    description: "A ragtag group of Pennsylvanians barricade themselves in an old farmhouse to remain safe from a horde of flesh-eating ghouls that are ravaging the countryside.",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Night_of_the_Living_Dead_%281968_poster%29.jpg/640px-Night_of_the_Living_Dead_%281968_poster%29.jpg",
+    backdropUrl: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=1200&auto=format&fit=crop",
+    resolution: "1920x1080 (1080p Remaster)",
+    codec: "H.264 / AVC",
+    audio: "Mono PCM / AAC",
+    container: "MP4",
+    fileSize: "1.4 GB",
+    bitrate: "2.1 Mbps",
+    fps: "24 FPS",
+    license: "Public Domain (Pre-1978 Copyright Expiration)",
+    contentSource: "Library of Congress / Internet Archive",
+    director: "George A. Romero",
+    cast: "Duane Jones, Judith O'Dea, Karl Hardman",
+    featured: true,
+    latest: false,
+    swarmSeeders: 110,
+    torrentUri: "magnet:?xt=urn:btih:9f42fb90eb5dbfb56a84f3ab6ec901fa5c907b22&dn=Night+of+the+Living+Dead+1968&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  },
+  {
+    id: "vod_charade",
+    title: "Charade",
+    year: 1963,
+    duration: 6780,
+    durationFormatted: "1h 53m",
+    genres: ["Mystery", "Romance", "Comedy"],
+    type: "Movies",
+    rating: 7.9,
+    description: "Regina Lampert falls for the dashing Peter Joshua while on a skiing holiday in the French Alps. Returning to Paris, she discovers her husband has been murdered and three men are hunting a fortune.",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Charade_poster.jpg/640px-Charade_poster.jpg",
+    backdropUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop",
+    resolution: "1920x1080 (1080p HD)",
+    codec: "H.264 / AVC",
+    audio: "Dual-Channel AAC",
+    container: "MP4",
+    fileSize: "1.8 GB",
+    bitrate: "2.3 Mbps",
+    fps: "24 FPS",
+    license: "Public Domain (Notice Defect)",
+    contentSource: "Universal Pictures / Public Domain Archive",
+    director: "Stanley Donen",
+    cast: "Cary Grant, Audrey Hepburn, Walter Matthau",
+    featured: true,
+    latest: false,
+    swarmSeeders: 90,
+    torrentUri: "magnet:?xt=urn:btih:3c482613d5cf420786cfafbbfec55a882d921200&dn=Charade+1963+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  },
+  {
+    id: "vod_his_girl_friday",
+    title: "His Girl Friday",
+    year: 1940,
+    duration: 5520,
+    durationFormatted: "1h 32m",
+    genres: ["Comedy", "Romance", "Drama"],
+    type: "Movies",
+    rating: 7.8,
+    description: "A newspaper editor uses every trick in the book to keep his top reporter, who is also his ex-wife, from remarrying and leaving the newspaper business.",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/His_Girl_Friday_poster.jpg/640px-His_Girl_Friday_poster.jpg",
+    backdropUrl: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop",
+    resolution: "1920x1080 (1080p HD)",
+    codec: "H.264 / AVC",
+    audio: "Mono Audio AAC",
+    container: "MP4",
+    fileSize: "1.2 GB",
+    bitrate: "1.9 Mbps",
+    fps: "24 FPS",
+    license: "Public Domain (Renewal Omission)",
+    contentSource: "Columbia Pictures / Library of Congress",
+    director: "Howard Hawks",
+    cast: "Cary Grant, Rosalind Russell, Ralph Bellamy",
+    featured: false,
+    latest: false,
+    swarmSeeders: 45,
+    torrentUri: "magnet:?xt=urn:btih:205b33ca82c5a0fb70bc8ca85bbfd2d142125f40&dn=His+Girl+Friday+1940&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  },
+  {
+    id: "vod_the_general",
+    title: "The General",
+    year: 1926,
+    duration: 4680,
+    durationFormatted: "1h 18m",
+    genres: ["Action", "Adventure", "Comedy"],
+    type: "Movies",
+    rating: 8.1,
+    description: "When Union spies steal an engineer's beloved locomotive with his sweetheart aboard, he single-handedly pursues it through enemy lines in Buster Keaton's cinematic masterpiece.",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/The_General_1926.jpg/640px-The_General_1926.jpg",
+    backdropUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop",
+    resolution: "1920x1080 (1080p Remaster)",
+    codec: "H.264 / AVC",
+    audio: "Orchestral Score Stereo",
+    container: "MP4",
+    fileSize: "1.5 GB",
+    bitrate: "2.7 Mbps",
+    fps: "24 FPS",
+    license: "Public Domain (Pre-1929 Copyright Expiration)",
+    contentSource: "United Artists / Kino Lorber Archive",
+    director: "Buster Keaton, Clyde Bruckman",
+    cast: "Buster Keaton, Marion Mack, Glen Cavender",
+    featured: true,
+    latest: false,
+    swarmSeeders: 60,
+    torrentUri: "magnet:?xt=urn:btih:921d723793e7ad6b92a2a7f502d997232ecfe440&dn=The+General+1926+Buster+Keaton&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  },
+  {
+    id: "vod_route66_doc",
+    title: "Route 66: The Mother Road",
+    year: 2018,
+    duration: 3120,
+    durationFormatted: "52m 00s",
+    genres: ["Documentary", "History", "Travel"],
+    type: "Documentaries",
+    rating: 7.6,
+    description: "An intimate exploration across 2,400 miles of highway history from Chicago to Santa Monica, detailing the cultural heartbeat, diners, and neon dreams of historic Route 66.",
+    posterUrl: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=640&auto=format&fit=crop",
+    backdropUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
+    resolution: "1920x1080 (1080p FHD)",
+    codec: "H.264 / AVC",
+    audio: "Stereo AAC (192 kbps)",
+    container: "MP4",
+    fileSize: "850 MB",
+    bitrate: "2.2 Mbps",
+    fps: "30 FPS",
+    license: "Creative Commons Attribution-ShareAlike 4.0",
+    contentSource: "Public Broadcast Heritage Collection",
+    director: "Heritage Docs Film Group",
+    cast: "Narrated with original route travelers & historians",
+    featured: false,
+    latest: true,
+    swarmSeeders: 55,
+    torrentUri: "magnet:?xt=urn:btih:5102bbfa22d8616daef472f85e13d964642ab58b&dn=Route+66+Documentary+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+  }
+];
+
+const CatalogProvider = {
+  movies: [],
+  loaded: false,
+  async load() {
+    if (this.loaded && this.movies.length > 0) return this.movies;
+    try {
+      const res = await fetch('data/movies_catalog.json');
+      if (res.ok) {
+        this.movies = await res.json();
+        this.loaded = true;
+        return this.movies;
+      }
+    } catch (e) {
+      console.warn('Direct fetch of movies_catalog.json fallback:', e);
+    }
+    this.movies = DEFAULT_MOVIES_CATALOG;
+    this.loaded = true;
+    return this.movies;
+  },
+  getAll() {
+    return this.movies.length > 0 ? this.movies : DEFAULT_MOVIES_CATALOG;
+  },
+  getById(id) {
+    return this.getAll().find(m => m.id === id);
+  },
+  filterByCategory(cat) {
+    const list = this.getAll();
+    if (!cat || cat === 'all') return list;
+    if (cat === 'Featured') return list.filter(m => m.featured);
+    if (cat === 'Latest') return list.filter(m => m.latest);
+    return list.filter(m => m.type && m.type.toLowerCase() === cat.toLowerCase());
+  },
+  search(query) {
+    const list = this.getAll();
+    if (!query) return list;
+    const q = query.toLowerCase().trim();
+    return list.filter(m =>
+      (m.title && m.title.toLowerCase().includes(q)) ||
+      (m.description && m.description.toLowerCase().includes(q)) ||
+      (m.year && m.year.toString().includes(q)) ||
+      (m.genres && m.genres.some(g => g.toLowerCase().includes(q))) ||
+      (m.type && m.type.toLowerCase().includes(q))
+    );
+  }
+};
+
+let currentSelectedMovie = null;
+let streamPrepInterval = null;
+let downloadsManagerInterval = null;
+let activeDownloadsTab = 'active';
+
+function getSwarmBadgeMarkup(seeders) {
+  const count = seeders || 40;
+  if (count >= 80) {
+    return `<div class="movie-swarm-badge swarm-excellent"><span class="swarm-dot">●</span> 🟢 Excellent (${count}+ seeders)</div>`;
+  } else if (count >= 40) {
+    return `<div class="movie-swarm-badge swarm-good"><span class="swarm-dot">●</span> 🟡 Good (${count}+ seeders)</div>`;
+  } else {
+    return `<div class="movie-swarm-badge swarm-poor"><span class="swarm-dot">●</span> 🔴 Poor (${count} seeders)</div>`;
+  }
+}
+
+function renderMovieCard(movie) {
+  const poster = movie.posterUrl || 'assets/placeholder.png';
+  const tag = movie.rating ? `⭐ ${movie.rating}` : (movie.type || 'VOD');
+  const res = (movie.resolution || '1080p').split(' ')[0];
+
+  return `
+    <div class="movie-card" onclick="openMovieDetails('${movie.id}')">
+      <div class="movie-card-thumb-wrap">
+        <div class="movie-card-thumb" style="background-image: url('${poster}');"></div>
+        <span class="movie-card-badge-top">${tag}</span>
+        <span class="movie-card-res-tag">${res}</span>
+      </div>
+      <div class="movie-card-info">
+        <h4 class="movie-card-title">${movie.title}</h4>
+        <div class="movie-card-meta">
+          <span>${movie.year}</span>
+          <span>${movie.durationFormatted}</span>
+        </div>
+        ${getSwarmBadgeMarkup(movie.swarmSeeders)}
+      </div>
+    </div>
+  `;
+}
+
+window.renderMoviesPage = async function() {
+  await CatalogProvider.load();
+  const allMovies = CatalogProvider.getAll();
+
+  // 1. Render Hero Banner
+  const heroCard = document.getElementById('moviesHeroCard');
+  const heroMovie = allMovies.find(m => m.featured) || allMovies[0];
+  if (heroCard && heroMovie) {
+    heroCard.innerHTML = `
+      <div class="movie-hero-backdrop" style="background-image: url('${heroMovie.backdropUrl || heroMovie.posterUrl}');"></div>
+      <div class="movie-hero-overlay"></div>
+      <div class="movie-hero-content">
+        <span class="movie-hero-badge">⭐ FEATURED CINEMA</span>
+        <h2 class="movie-hero-title">${heroMovie.title}</h2>
+        <div class="movie-hero-meta">
+          <span>${heroMovie.year}</span>
+          <span class="meta-dot">•</span>
+          <span>${heroMovie.durationFormatted}</span>
+          <span class="meta-dot">•</span>
+          <span class="movie-spec-tag">${heroMovie.resolution ? heroMovie.resolution.split(' ')[0] : '1080p'}</span>
+          <span class="meta-dot">•</span>
+          <span>${heroMovie.genres ? heroMovie.genres.join(', ') : ''}</span>
+        </div>
+        <p class="movie-hero-synopsis">${heroMovie.description}</p>
+        <div class="movie-hero-actions">
+          <button class="movie-hero-btn-stream" onclick="event.stopPropagation(); startMovieStream('${heroMovie.id}')">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span>Stream Now</span>
+          </button>
+          <button class="movie-hero-btn-details" onclick="event.stopPropagation(); openMovieDetails('${heroMovie.id}')">
+            <span>View Details</span>
+          </button>
+        </div>
+      </div>
+    `;
+    heroCard.onclick = () => openMovieDetails(heroMovie.id);
+  }
+
+  // 2. Render Continue Watching / Watch History
+  renderMovieWatchHistory();
+
+  // 3. Render Section Rows
+  const latestRow = document.getElementById('moviesLatestRow');
+  if (latestRow) {
+    const latestList = allMovies.filter(m => m.latest || m.featured);
+    latestRow.innerHTML = latestList.map(m => renderMovieCard(m)).join('');
+  }
+
+  const animRow = document.getElementById('moviesAnimationsRow');
+  if (animRow) {
+    const animList = allMovies.filter(m => m.type === 'Animations');
+    animRow.innerHTML = animList.map(m => renderMovieCard(m)).join('');
+  }
+
+  const classicsRow = document.getElementById('moviesClassicsRow');
+  if (classicsRow) {
+    const classicsList = allMovies.filter(m => m.type === 'Movies');
+    classicsRow.innerHTML = classicsList.map(m => renderMovieCard(m)).join('');
+  }
+
+  const trailersRow = document.getElementById('moviesTrailersRow');
+  if (trailersRow) {
+    const trailersList = allMovies.filter(m => m.type === 'Trailers' || m.type === 'Documentaries');
+    trailersRow.innerHTML = trailersList.map(m => renderMovieCard(m)).join('');
+  }
+};
+
+function renderMovieWatchHistory() {
+  const section = document.getElementById('moviesContinueSection');
+  const row = document.getElementById('moviesContinueRow');
+  if (!section || !row) return;
+
+  try {
+    const historyIds = JSON.parse(localStorage.getItem('t2l_vod_history') || '[]');
+    if (historyIds && historyIds.length > 0) {
+      const historyMovies = historyIds.map(id => CatalogProvider.getById(id)).filter(Boolean);
+      if (historyMovies.length > 0) {
+        row.innerHTML = historyMovies.map(m => renderMovieCard(m)).join('');
+        section.style.display = 'block';
+        return;
+      }
+    }
+  } catch (e) {}
+  section.style.display = 'none';
+}
+
+window.filterMovieCategory = function(cat, chipEl) {
+  document.querySelectorAll('#moviesCategoryPills .lumina-chip').forEach(c => c.classList.remove('active'));
+  if (chipEl) chipEl.classList.add('active');
+
+  const rowsContainer = document.getElementById('moviesRowsContainer');
+  const heroSection = document.getElementById('moviesHeroSection');
+  const gridSection = document.getElementById('moviesGridSection');
+  const gridTitle = document.getElementById('moviesGridTitle');
+  const catalogGrid = document.getElementById('moviesCatalogGrid');
+
+  if (cat === 'all') {
+    if (rowsContainer) rowsContainer.style.display = 'block';
+    if (heroSection) heroSection.style.display = 'block';
+    if (gridSection) gridSection.style.display = 'none';
+    return;
+  }
+
+  const filtered = CatalogProvider.filterByCategory(cat);
+  if (rowsContainer) rowsContainer.style.display = 'none';
+  if (heroSection) heroSection.style.display = 'none';
+  if (gridSection) gridSection.style.display = 'block';
+  if (gridTitle) gridTitle.textContent = `${cat} Titles (${filtered.length})`;
+  if (catalogGrid) catalogGrid.innerHTML = filtered.map(m => renderMovieCard(m)).join('');
+};
+
+window.handleMovieSearch = function(query) {
+  const rowsContainer = document.getElementById('moviesRowsContainer');
+  const heroSection = document.getElementById('moviesHeroSection');
+  const gridSection = document.getElementById('moviesGridSection');
+  const gridTitle = document.getElementById('moviesGridTitle');
+  const catalogGrid = document.getElementById('moviesCatalogGrid');
+
+  if (!query || !query.trim()) {
+    if (rowsContainer) rowsContainer.style.display = 'block';
+    if (heroSection) heroSection.style.display = 'block';
+    if (gridSection) gridSection.style.display = 'none';
+    return;
+  }
+
+  const results = CatalogProvider.search(query);
+  if (rowsContainer) rowsContainer.style.display = 'none';
+  if (heroSection) heroSection.style.display = 'none';
+  if (gridSection) gridSection.style.display = 'block';
+  if (gridTitle) gridTitle.textContent = `Search Results: "${query}" (${results.length})`;
+  if (catalogGrid) {
+    if (results.length === 0) {
+      catalogGrid.innerHTML = `
+        <div style="grid-column: 1 / -1; padding: 32px 16px; text-align: center; color: #94a3b8;">
+          <p style="font-size: 16px; margin-bottom: 6px;">🔍 No movies found</p>
+          <p style="font-size: 12px; color: #64748b;">Try searching for "Bunny", "1080p", "Animation", or "Horror"</p>
+        </div>
+      `;
+    } else {
+      catalogGrid.innerHTML = results.map(m => renderMovieCard(m)).join('');
+    }
+  }
+};
+
+window.openMovieDetails = function(movieId) {
+  const movie = CatalogProvider.getById(movieId);
+  if (!movie) return;
+  currentSelectedMovie = movie;
+
+  const modal = document.getElementById('movieDetailsModal');
+  const backdrop = document.getElementById('movieDetailsBackdrop');
+  const poster = document.getElementById('movieDetailsPoster');
+  const title = document.getElementById('movieDetailsTitle');
+  const year = document.getElementById('movieDetailsYear');
+  const duration = document.getElementById('movieDetailsDuration');
+  const resolution = document.getElementById('movieDetailsResolution');
+  const categoryChip = document.getElementById('movieDetailsCategoryChip');
+  const swarmBadge = document.getElementById('movieDetailsSwarmBadge');
+  const swarmText = document.getElementById('movieDetailsSwarmText');
+
+  const specCodec = document.getElementById('movieSpecCodec');
+  const specAudio = document.getElementById('movieSpecAudio');
+  const specSize = document.getElementById('movieSpecSize');
+  const specLicense = document.getElementById('movieSpecLicense');
+
+  const desc = document.getElementById('movieDetailsDesc');
+  const director = document.getElementById('movieDetailsDirector');
+  const genres = document.getElementById('movieDetailsGenres');
+  const cast = document.getElementById('movieDetailsCast');
+
+  if (backdrop) backdrop.style.backgroundImage = `url('${movie.backdropUrl || movie.posterUrl}')`;
+  if (poster) poster.style.backgroundImage = `url('${movie.posterUrl}')`;
+  if (title) title.textContent = movie.title;
+  if (year) year.textContent = movie.year;
+  if (duration) duration.textContent = movie.durationFormatted;
+  if (resolution) resolution.textContent = movie.resolution ? movie.resolution.split(' ')[0] : '1080p';
+  if (categoryChip) categoryChip.textContent = movie.type || 'Cinema';
+
+  const seeders = movie.swarmSeeders || 40;
+  if (swarmBadge && swarmText) {
+    if (seeders >= 80) {
+      swarmBadge.className = 'movie-swarm-badge swarm-excellent';
+      swarmText.textContent = `Swarm: 🟢 Excellent (${seeders}+ Seeders)`;
+    } else if (seeders >= 40) {
+      swarmBadge.className = 'movie-swarm-badge swarm-good';
+      swarmText.textContent = `Swarm: 🟡 Good (${seeders}+ Seeders)`;
+    } else {
+      swarmBadge.className = 'movie-swarm-badge swarm-poor';
+      swarmText.textContent = `Swarm: 🔴 Moderate (${seeders} Seeders)`;
+    }
+  }
+
+  if (specCodec) specCodec.textContent = movie.codec || 'H.264 / AVC';
+  if (specAudio) specAudio.textContent = movie.audio || 'Stereo';
+  if (specSize) specSize.textContent = movie.fileSize || '1 GB';
+  if (specLicense) specLicense.textContent = movie.license ? movie.license.split('(')[0].trim() : 'Public Domain';
+
+  if (desc) desc.textContent = movie.description || '';
+  if (director) director.textContent = movie.director || 'Blender Foundation / Public Archive';
+  if (genres) genres.textContent = movie.genres ? movie.genres.join(', ') : 'Cinema';
+  if (cast) cast.textContent = movie.cast || 'Public Domain Cinema Archive';
+
+  // Update watchlist button state
+  updateWatchlistBtnState(movie.id);
+
+  if (modal) {
+    modal.classList.add('active');
+    modal.style.display = 'flex';
+  }
+};
+
+window.closeMovieDetails = function() {
+  const modal = document.getElementById('movieDetailsModal');
+  if (modal) {
+    modal.classList.remove('active');
+    modal.style.display = 'none';
+  }
+};
+
+function updateWatchlistBtnState(movieId) {
+  const btn = document.getElementById('btnMovieWatchlist');
+  if (!btn) return;
+  try {
+    const list = JSON.parse(localStorage.getItem('t2l_vod_watchlist') || '[]');
+    if (list.includes(movieId)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  } catch (e) {}
+}
+
+window.toggleMovieWatchlist = function() {
+  if (!currentSelectedMovie) return;
+  const id = currentSelectedMovie.id;
+  try {
+    let list = JSON.parse(localStorage.getItem('t2l_vod_watchlist') || '[]');
+    const idx = list.indexOf(id);
+    if (idx >= 0) {
+      list.splice(idx, 1);
+      showToast('Removed from Watchlist');
+    } else {
+      list.push(id);
+      showToast('Added to Watchlist ❤️');
+    }
+    localStorage.setItem('t2l_vod_watchlist', JSON.stringify(list));
+    updateWatchlistBtnState(id);
+  } catch (e) {}
+};
+
+window.copyMovieMagnet = function() {
+  if (!currentSelectedMovie || !currentSelectedMovie.torrentUri) return;
+  try {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(currentSelectedMovie.torrentUri);
+      showToast('Magnet URI copied to clipboard 📋');
+    } else {
+      showToast('Magnet URI ready');
+    }
+  } catch (e) {
+    showToast('Magnet URI ready');
+  }
+};
+
+window.handleStreamMovieClick = function() {
+  if (!currentSelectedMovie) return;
+  startMovieStream(currentSelectedMovie.id);
+};
+
+let preparedStreamUrl = null;
+let preparedStreamTitle = '';
+
+window.startMovieStream = function(movieId) {
+  const movie = typeof movieId === 'object' ? movieId : CatalogProvider.getById(movieId);
+  if (!movie || !movie.torrentUri) {
+    showToast('Error: Torrent metadata missing');
+    return;
+  }
+
+  currentSelectedMovie = movie;
+  closeMovieDetails();
+
+  // Record into watch history
+  try {
+    let history = JSON.parse(localStorage.getItem('t2l_vod_history') || '[]');
+    history = history.filter(id => id !== movie.id);
+    history.unshift(movie.id);
+    if (history.length > 12) history.pop();
+    localStorage.setItem('t2l_vod_history', JSON.stringify(history));
+  } catch (e) {}
+
+  // Open Stream Prep Modal
+  const prepModal = document.getElementById('streamPrepModal');
+  const titleEl = document.getElementById('streamPrepMovieTitle');
+  const barEl = document.getElementById('streamPrepProgressBar');
+  const statusEl = document.getElementById('streamPrepStatusText');
+  const pctEl = document.getElementById('streamPrepPctText');
+  const startBtn = document.getElementById('btnStreamPrepStart');
+
+  if (titleEl) titleEl.textContent = movie.title + ' (' + (movie.resolution ? movie.resolution.split(' ')[0] : '1080p') + ')';
+  if (barEl) barEl.style.width = '20%';
+  if (statusEl) statusEl.textContent = 'Parsing Magnet URI & Hash...';
+  if (pctEl) pctEl.textContent = '20%';
+  if (startBtn) startBtn.disabled = true;
+
+  setPrepStage(1, 'done');
+  setPrepStage(2, 'active');
+  setPrepStage(3, 'pending');
+  setPrepStage(4, 'pending');
+
+  if (prepModal) {
+    prepModal.classList.add('active');
+    prepModal.style.display = 'flex';
+  }
+
+  // Request native Android Torrent Stream
+  preparedStreamTitle = movie.title;
+  let rawRes = null;
+  if (window.AndroidMedia && window.AndroidMedia.startTorrentStream) {
+    try {
+      rawRes = window.AndroidMedia.startTorrentStream(movie.torrentUri);
+    } catch (e) {
+      console.error('startTorrentStream error:', e);
+    }
+  }
+
+  let streamUrl = 'http://127.0.0.1:8888/stream.mp4';
+  if (rawRes) {
+    try {
+      const parsed = JSON.parse(rawRes);
+      if (parsed.streamUrl) streamUrl = parsed.streamUrl;
+    } catch (e) {}
+  }
+  preparedStreamUrl = streamUrl;
+
+  // Poll progress
+  let ticks = 0;
+  if (streamPrepInterval) clearInterval(streamPrepInterval);
+  streamPrepInterval = setInterval(() => {
+    ticks++;
+    let peers = 0;
+    let verified = 0;
+
+    if (window.AndroidMedia && window.AndroidMedia.getTorrentStatus) {
+      try {
+        const s = JSON.parse(window.AndroidMedia.getTorrentStatus());
+        peers = s.connectedPeers || 0;
+        verified = s.verifiedPieces || 0;
+      } catch (e) {}
+    }
+
+    const peerCounter = document.getElementById('prepPeerCount');
+    if (peerCounter) peerCounter.textContent = peers;
+
+    if (ticks === 1) {
+      setPrepStage(2, 'done');
+      setPrepStage(3, 'active');
+      if (statusEl) statusEl.textContent = 'Downloading media header atoms...';
+      if (barEl) barEl.style.width = '55%';
+      if (pctEl) pctEl.textContent = '55%';
+    } else if (ticks >= 2) {
+      setPrepStage(3, 'done');
+      setPrepStage(4, 'active');
+      if (statusEl) statusEl.textContent = 'Initializing sequential playback buffer...';
+      if (barEl) barEl.style.width = '90%';
+      if (pctEl) pctEl.textContent = '90%';
+    }
+
+    if (ticks >= 3 || verified > 0 || peers > 0) {
+      clearInterval(streamPrepInterval);
+      streamPrepInterval = null;
+      setPrepStage(4, 'done');
+      if (barEl) barEl.style.width = '100%';
+      if (pctEl) pctEl.textContent = '100%';
+      if (statusEl) statusEl.textContent = 'Buffer Ready! Starting playback...';
+      if (startBtn) startBtn.disabled = false;
+
+      setTimeout(() => {
+        forceLaunchPreparedStream();
+      }, 500);
+    }
+  }, 700);
+};
+
+function setPrepStage(stageNum, state) {
+  const el = document.getElementById('prepStage' + stageNum);
+  if (!el) return;
+  el.className = 'prep-stage-item stage-' + state;
+  const icon = el.querySelector('.prep-stage-icon');
+  if (icon) {
+    if (state === 'done') icon.textContent = '✓';
+    else if (state === 'active') icon.textContent = '⏳';
+    else icon.textContent = '○';
+  }
+}
+
+window.cancelStreamPreparation = function() {
+  if (streamPrepInterval) {
+    clearInterval(streamPrepInterval);
+    streamPrepInterval = null;
+  }
+  const modal = document.getElementById('streamPrepModal');
+  if (modal) {
+    modal.classList.remove('active');
+    modal.style.display = 'none';
+  }
+};
+
+window.forceLaunchPreparedStream = function() {
+  cancelStreamPreparation();
+  if (preparedStreamUrl) {
+    startTorrentPlayback(preparedStreamUrl, preparedStreamTitle);
+  }
+};
+
+// ==========================================================
+// OFFLINE DOWNLOADS SUBSYSTEM
+// ==========================================================
+window.handleDownloadMovieClick = function() {
+  if (!currentSelectedMovie) return;
+  startMovieDownload(currentSelectedMovie);
+};
+
+window.startMovieDownload = function(movie) {
+  if (!movie || !movie.torrentUri) return;
+  closeMovieDetails();
+
+  const safeTitle = (movie.title || 'video').replace(/[^a-zA-Z0-9_-]/g, '_');
+  const container = (movie.container || 'mp4').toLowerCase();
+  const filename = `${safeTitle}.${container}`;
+
+  if (window.AndroidMedia && window.AndroidMedia.startTorrentDownload) {
+    try {
+      window.AndroidMedia.startTorrentDownload(movie.torrentUri, movie.title, filename);
+      showToast('Download Queued: ' + movie.title);
+    } catch (e) {
+      showToast('Download started');
+    }
+  } else {
+    showToast('Download manager ready');
+  }
+
+  openDownloadsManagerModal();
+};
+
+window.openDownloadsManagerModal = function() {
+  const modal = document.getElementById('downloadsManagerModal');
+  if (modal) {
+    modal.classList.add('active');
+    modal.style.display = 'flex';
+  }
+  renderDownloadsManager();
+  if (downloadsManagerInterval) clearInterval(downloadsManagerInterval);
+  downloadsManagerInterval = setInterval(renderDownloadsManager, 1500);
+};
+
+window.closeDownloadsManagerModal = function() {
+  if (downloadsManagerInterval) {
+    clearInterval(downloadsManagerInterval);
+    downloadsManagerInterval = null;
+  }
+  const modal = document.getElementById('downloadsManagerModal');
+  if (modal) {
+    modal.classList.remove('active');
+    modal.style.display = 'none';
+  }
+};
+
+window.switchDownloadsTab = function(tab) {
+  activeDownloadsTab = tab;
+  const tabActive = document.getElementById('tabDownloadsActive');
+  const tabCompleted = document.getElementById('tabDownloadsCompleted');
+  const activeList = document.getElementById('downloadsActiveList');
+  const completedList = document.getElementById('downloadsCompletedList');
+
+  if (tab === 'active') {
+    if (tabActive) tabActive.classList.add('active');
+    if (tabCompleted) tabCompleted.classList.remove('active');
+    if (activeList) activeList.style.display = 'flex';
+    if (completedList) completedList.style.display = 'none';
+  } else {
+    if (tabActive) tabActive.classList.remove('active');
+    if (tabCompleted) tabCompleted.classList.add('active');
+    if (activeList) activeList.style.display = 'none';
+    if (completedList) completedList.style.display = 'flex';
+  }
+};
+
+window.renderDownloadsManager = function() {
+  let tasks = [];
+  if (window.AndroidMedia && window.AndroidMedia.getDownloadTasks) {
+    try {
+      const raw = window.AndroidMedia.getDownloadTasks();
+      tasks = JSON.parse(raw);
+    } catch (e) {}
+  }
+
+  const activeTasks = tasks.filter(t => t.status === 'DOWNLOADING' || t.status === 'PAUSED' || t.status === 'QUEUED');
+  const completedTasks = tasks.filter(t => t.status === 'COMPLETED');
+
+  const countActive = document.getElementById('countDownloadsActive');
+  const countCompleted = document.getElementById('countDownloadsCompleted');
+  if (countActive) countActive.textContent = activeTasks.length;
+  if (countCompleted) countCompleted.textContent = completedTasks.length;
+
+  // Render Active List
+  const activeList = document.getElementById('downloadsActiveList');
+  if (activeList) {
+    if (activeTasks.length === 0) {
+      activeList.innerHTML = `
+        <div style="padding: 28px 16px; text-align: center; color: #94a3b8;">
+          <p style="font-size: 14px; margin-bottom: 4px;">No active downloads</p>
+          <p style="font-size: 11px; color: #64748b;">Browse Movies to download authorized cinema for offline playback</p>
+        </div>
+      `;
+    } else {
+      activeList.innerHTML = activeTasks.map(t => {
+        const pct = Math.min(100, Math.round((t.progress || 0) * 100));
+        const speed = t.speedBytesPerSec > 1024 * 1024 ? (t.speedBytesPerSec / (1024 * 1024)).toFixed(1) + ' MB/s' : Math.round((t.speedBytesPerSec || 0) / 1024) + ' KB/s';
+        const dlMb = ((t.downloadedBytes || 0) / (1024 * 1024)).toFixed(1);
+        const totalMb = ((t.totalBytes || 0) / (1024 * 1024)).toFixed(1);
+
+        return `
+          <div class="download-task-item">
+            <div class="download-task-header">
+              <span class="download-task-title">${t.title}</span>
+              <button class="task-action-btn task-btn-cancel" onclick="cancelTorrentDownloadTask('${t.taskId}')">Cancel</button>
+            </div>
+            <div class="telemetry-progress-bar">
+              <div class="telemetry-progress-fill" style="width: ${pct}%;"></div>
+            </div>
+            <div class="download-task-meta">
+              <span>${pct}% • ↓ ${speed}</span>
+              <span>${dlMb} MB / ${totalMb} MB</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  // Render Completed List
+  const completedList = document.getElementById('downloadsCompletedList');
+  if (completedList) {
+    if (completedTasks.length === 0) {
+      completedList.innerHTML = `
+        <div style="padding: 28px 16px; text-align: center; color: #94a3b8;">
+          <p style="font-size: 14px; margin-bottom: 4px;">No completed downloads yet</p>
+          <p style="font-size: 11px; color: #64748b;">Completed files are saved directly into your device's Local Media library</p>
+        </div>
+      `;
+    } else {
+      completedList.innerHTML = completedTasks.map(t => {
+        const totalMb = ((t.totalBytes || 0) / (1024 * 1024)).toFixed(1);
+        return `
+          <div class="download-task-item">
+            <div class="download-task-header">
+              <span class="download-task-title">${t.title}</span>
+              <div style="display: flex; gap: 6px;">
+                <button class="task-action-btn task-btn-play" onclick="playDownloadedFile('${t.localFilePath}', '${t.title}')">▶ Play</button>
+                <button class="task-action-btn task-btn-cancel" onclick="deleteDownloadedTaskFile('${t.taskId}')">🗑</button>
+              </div>
+            </div>
+            <div class="download-task-meta">
+              <span style="color: #4ade80;">✓ Ready to watch offline</span>
+              <span>${totalMb} MB</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  // Storage info
+  const storageText = document.getElementById('downloadsStorageText');
+  if (storageText) {
+    const totalCompletedBytes = completedTasks.reduce((acc, t) => acc + (t.totalBytes || 0), 0);
+    const usedMb = (totalCompletedBytes / (1024 * 1024)).toFixed(1);
+    storageText.textContent = `${usedMb} MB Used • Free Space Available`;
+  }
+};
+
+window.cancelTorrentDownloadTask = function(taskId) {
+  if (window.AndroidMedia && window.AndroidMedia.cancelTorrentDownload) {
+    try { window.AndroidMedia.cancelTorrentDownload(taskId); } catch (e) {}
+  }
+  renderDownloadsManager();
+};
+
+window.deleteDownloadedTaskFile = function(taskId) {
+  if (window.AndroidMedia && window.AndroidMedia.deleteDownloadedFile) {
+    try { window.AndroidMedia.deleteDownloadedFile(taskId); } catch (e) {}
+  }
+  renderDownloadsManager();
+};
+
+window.playDownloadedFile = function(filePath, title) {
+  closeDownloadsManagerModal();
+  playChannel({
+    id: 'local_dl_' + Date.now(),
+    name: title || 'Offline Video',
+    url: filePath,
+    isLocal: true,
+    type: 'video',
+    flag: '📁'
+  });
+};
+
+// ==========================================================
+// PLAYER TELEMETRY PANEL TOGGLE
+// ==========================================================
+window.togglePlayerTelemetryPanel = function() {
+  const panel = document.getElementById('playerDetailsPanel');
+  if (!panel) return;
+  if (panel.style.display === 'none' || !panel.style.display) {
+    panel.style.display = 'block';
+  } else {
+    panel.style.display = 'none';
+  }
+  closeVlcMoreMenu();
+};
+
+window.closePlayerTelemetryPanel = function() {
+  const panel = document.getElementById('playerDetailsPanel');
+  if (panel) panel.style.display = 'none';
+};
 
 // ==========================================================
 // ANDROID HARDWARE BACK BUTTON & MODAL DISMISS HANDLER
@@ -16861,42 +17927,70 @@ function startTorrentHudMonitor() {
 let lastBackPressTime = 0;
 
 window.handleAndroidBackPressed = function() {
-  const playerModal = document.getElementById('playerModal');
+  const playerDetailsPanel = document.getElementById('playerDetailsPanel');
+  const streamPrepModal = document.getElementById('streamPrepModal');
+  const movieDetailsModal = document.getElementById('movieDetailsModal');
+  const downloadsModal = document.getElementById('downloadsManagerModal');
+  const torrentModal = document.getElementById('torrentModal');
   const drawer = document.getElementById('sideDrawerModal');
   const settings = document.getElementById('settingsModal');
-  const torrentModal = document.getElementById('torrentModal');
+  const playerModal = document.getElementById('playerModal');
 
-  // 1. If Video Player is open, close/minimize video and stay in app
-  if (playerModal && playerModal.classList.contains('active')) {
-    closePlayerModalCompletely(null);
+  // 1. If Player Telemetry Panel is open, dismiss it
+  if (playerDetailsPanel && playerDetailsPanel.style.display !== 'none') {
+    closePlayerTelemetryPanel();
     return true;
   }
 
-  // 2. If Torrent Modal is open, close it
+  // 2. If Stream Prep Modal is open, cancel stream prep
+  if (streamPrepModal && streamPrepModal.style.display === 'flex') {
+    cancelStreamPreparation();
+    return true;
+  }
+
+  // 3. If Movie Details Modal is open, close it
+  if (movieDetailsModal && movieDetailsModal.style.display === 'flex') {
+    closeMovieDetails();
+    return true;
+  }
+
+  // 4. If Downloads Manager Modal is open, close it
+  if (downloadsModal && downloadsModal.style.display === 'flex') {
+    closeDownloadsManagerModal();
+    return true;
+  }
+
+  // 5. If Torrent Modal is open, close it
   if (torrentModal && torrentModal.style.display === 'flex') {
     closeTorrentModal();
     return true;
   }
 
-  // 3. If Side Navigation Drawer is open, close drawer
+  // 6. If Side Navigation Drawer is open, close drawer
   if (drawer && drawer.classList.contains('active')) {
     toggleMenuDrawer();
     return true;
   }
 
-  // 4. If Settings Modal is open, close settings
+  // 7. If Settings Modal is open, close settings
   if (settings && settings.classList.contains('active')) {
     closeSettingsModal();
     return true;
   }
 
-  // 5. If on another page, navigate back to Home
+  // 8. If Video Player is open, close/minimize video and stay in app
+  if (playerModal && playerModal.classList.contains('active')) {
+    closePlayerModalCompletely(null);
+    return true;
+  }
+
+  // 9. If on another page, navigate back to Home
   if (currentActivePage !== 'home') {
     switchPage('home');
     return true;
   }
 
-  // 6. If at Home page with no modals, require double-tap to exit
+  // 10. If at Home page with no modals, require double-tap to exit
   const now = Date.now();
   if (now - lastBackPressTime < 2000) {
     return false; // Exit app

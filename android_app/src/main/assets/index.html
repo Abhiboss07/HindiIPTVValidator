@@ -422,6 +422,109 @@
             <div id="favoritesFeed" class="channels-list-container"></div>
         </div>
 
+        <!-- ==========================================================
+             PAGE 6: MOVIES & CINEMA (VOD TORRENT STREAMING & DOWNLOADS)
+             ========================================================== -->
+        <div id="page-movies" class="page-view">
+            <!-- Header & Search -->
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                    <h1 class="page-heading-main" style="display: flex; align-items: center; gap: 8px;">
+                        <span>🎬</span> Movies & Cinema
+                    </h1>
+                    <button class="section-action-btn" onclick="openDownloadsManagerModal()" style="display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 9999px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8;">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        <span>Downloads</span>
+                    </button>
+                </div>
+                <p style="font-size: 13px; color: #8e9192;">Public Domain & Open-Source Cinema • Real-Time Sequential Streaming</p>
+            </div>
+
+            <!-- Search Box Pill -->
+            <div class="search-box-pill" style="margin-bottom: 16px;">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#8e9192"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="text" id="moviesSearchInput" placeholder="Search movies, animations, genres, year..." oninput="handleMovieSearch(this.value)">
+            </div>
+
+            <!-- Category Filter Chips -->
+            <div class="channel-filter-carousel" id="moviesCategoryPills" style="margin-bottom: 20px;">
+                <button class="lumina-chip active" onclick="filterMovieCategory('all', this)">All Titles</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Featured', this)">⭐ Featured</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Animations', this)">🎨 Animations</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Movies', this)">🍿 Feature Films</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Documentaries', this)">🌍 Documentaries</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Trailers', this)">🎞️ Trailers & VFX</button>
+            </div>
+
+            <!-- Continue Watching / Watch History Row (Hidden when empty) -->
+            <section id="moviesContinueSection" style="display: none; margin-bottom: 24px;">
+                <div class="section-heading-row">
+                    <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                        <span>⏱️</span> Continue Watching
+                    </h2>
+                </div>
+                <div class="obsidian-h-scroll" id="moviesContinueRow"></div>
+            </section>
+
+            <!-- Featured Cinema Hero Showcase -->
+            <section id="moviesHeroSection" style="margin-bottom: 26px;">
+                <div id="moviesHeroCard" class="movie-hero-card">
+                    <!-- Populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Rows Container (When not searching) -->
+            <div id="moviesRowsContainer">
+                <!-- Section 1: Latest Cinema -->
+                <section style="margin-bottom: 26px;">
+                    <div class="section-heading-row">
+                        <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                            <span>🔥</span> Latest Cinema & Open Movies
+                        </h2>
+                    </div>
+                    <div class="obsidian-h-scroll" id="moviesLatestRow"></div>
+                </section>
+
+                <!-- Section 2: Open Source Animations (Blender Foundation) -->
+                <section style="margin-bottom: 26px;">
+                    <div class="section-heading-row">
+                        <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                            <span>🎨</span> Award-Winning Animations
+                        </h2>
+                    </div>
+                    <div class="obsidian-h-scroll" id="moviesAnimationsRow"></div>
+                </section>
+
+                <!-- Section 3: Classic Hollywood & Mystery -->
+                <section style="margin-bottom: 26px;">
+                    <div class="section-heading-row">
+                        <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                            <span>🏛️</span> Golden Age Classics
+                        </h2>
+                    </div>
+                    <div class="obsidian-h-scroll" id="moviesClassicsRow"></div>
+                </section>
+
+                <!-- Section 4: Documentaries & VFX Shorts -->
+                <section style="margin-bottom: 26px;">
+                    <div class="section-heading-row">
+                        <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                            <span>📽️</span> Documentaries & VFX Shorts
+                        </h2>
+                    </div>
+                    <div class="obsidian-h-scroll" id="moviesTrailersRow"></div>
+                </section>
+            </div>
+
+            <!-- Full Catalog Grid (Used during search or category filtering) -->
+            <div id="moviesGridSection" style="display: none; margin-bottom: 28px;">
+                <div class="section-heading-row">
+                    <h2 class="section-heading-text" id="moviesGridTitle">Search Results</h2>
+                </div>
+                <div class="movies-bento-grid" id="moviesCatalogGrid"></div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Hidden Local File Input -->
@@ -492,7 +595,7 @@
         </div>
 
         <!-- Torrent Diagnostics HUD Overlay -->
-        <div id="torrentHud" class="torrent-hud-overlay" style="display: none;">
+        <div id="torrentHud" class="torrent-hud-overlay" style="display: none;" onclick="event.stopPropagation(); togglePlayerTelemetryPanel()">
             <div class="torrent-hud-badge">⚡ TORRENT</div>
             <div class="torrent-hud-stats">
                 <span id="torrentHudSpeed">↓ 0 KB/s</span>
@@ -719,6 +822,14 @@
                     <div class="vlc-menu-item-text">
                         <span style="color: #fca5a5;">Report Stream Issue</span>
                         <small class="vlc-menu-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171;">Flag</small>
+                    </div>
+                </div>
+                <!-- 18. Torrent & Stream Telemetry -->
+                <div class="vlc-menu-item" onclick="togglePlayerTelemetryPanel()">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="#38bdf8"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.14 17.91 14.21 19 12 19z"/></svg>
+                    <div class="vlc-menu-item-text">
+                        <span style="color: #38bdf8;">Torrent & Stream Stats</span>
+                        <small class="vlc-menu-badge" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">Telemetry</small>
                     </div>
                 </div>
             </div>
@@ -1062,6 +1173,66 @@
                 </div>
             </div>
         </div>
+
+        <!-- ==========================================================
+             PLAYER TELEMETRY & TORRENT METRICS PANEL (SLIDE-UP)
+             ========================================================== -->
+        <div id="playerDetailsPanel" class="player-details-sheet" onclick="event.stopPropagation()" style="display: none;">
+            <div class="player-details-sheet-header">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 16px;">📊</span>
+                    <span style="font-weight: 700; font-size: 14px; color: #fff;">Stream & Swarm Telemetry</span>
+                </div>
+                <button type="button" class="icon-btn-plain" onclick="closePlayerTelemetryPanel()" style="padding: 4px;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            
+            <div class="player-telemetry-grid">
+                <div class="telemetry-card">
+                    <span class="telemetry-lbl">DOWNLOAD SPEED</span>
+                    <span id="telDownSpeed" class="telemetry-val text-sky">0 KB/s</span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-lbl">UPLOAD SPEED</span>
+                    <span id="telUpSpeed" class="telemetry-val">0 KB/s</span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-lbl">PEERS / SEEDERS</span>
+                    <span id="telPeersSeeders" class="telemetry-val">0 / 0</span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-lbl">BUFFER HEALTH</span>
+                    <span id="telBufferSec" class="telemetry-val text-green">0.0s</span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-lbl">PIECES VERIFIED</span>
+                    <span id="telPieces" class="telemetry-val">0 / 0 (0%)</span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-lbl">STREAM RESOLUTION</span>
+                    <span id="telResolution" class="telemetry-val">1920x1080</span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-lbl">PIECE SIZE</span>
+                    <span id="telPieceSize" class="telemetry-val">--</span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-lbl">SWARM STATUS</span>
+                    <span id="telSwarmStatus" class="telemetry-val text-amber">Active</span>
+                </div>
+            </div>
+
+            <div class="telemetry-progress-wrap">
+                <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px; color: #94a3b8;">
+                    <span>Sequential Download Buffer</span>
+                    <span id="telBufferPct">0%</span>
+                </div>
+                <div class="telemetry-progress-bar">
+                    <div id="telBufferBar" class="telemetry-progress-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- ==========================================================
@@ -1098,7 +1269,7 @@
          OBSIDIAN 5-TAB BOTTOM NAVIGATION BAR (FIXED & COMFORTABLE)
          ========================================================== -->
     <!-- ==========================================================
-         FLOATING TRANSPARENT GLASS DOCK (4 TABS)
+         FLOATING TRANSPARENT GLASS DOCK (5 TABS)
          ========================================================== -->
     <nav class="obsidian-dock-nav">
         <button id="tab-home" class="dock-tab-btn active" onclick="switchPage('home')">
@@ -1108,6 +1279,10 @@
         <button id="tab-live" class="dock-tab-btn" onclick="switchPage('live')">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z"/></svg>
             <span>Live TV</span>
+        </button>
+        <button id="tab-movies" class="dock-tab-btn" onclick="switchPage('movies')">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+            <span>Movies</span>
         </button>
         <button id="tab-radio" class="dock-tab-btn" onclick="switchPage('radio')">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM20 20H4V8h16v12zm-8-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
@@ -1142,6 +1317,10 @@
                 <div class="drawer-menu-item" onclick="toggleMenuDrawer(); switchPage('live');">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z"/></svg>
                     <span>Live TV Channels</span>
+                </div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); switchPage('movies');">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#38bdf8"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+                    <span style="color: #38bdf8; font-weight: 700;">Movies & Cinema (VOD)</span>
                 </div>
                 <div class="drawer-menu-item" onclick="toggleMenuDrawer(); switchPage('radio');">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM20 20H4V8h16v12zm-8-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
@@ -1220,6 +1399,193 @@
             <div style="display: flex; gap: 10px;">
                 <button class="torrent-action-btn torrent-action-cancel" onclick="closeTorrentModal()">Cancel</button>
                 <button id="btnStartTorrent" class="torrent-action-btn torrent-action-start" onclick="submitStartTorrentMagnet()">Start Streaming</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+         MOVIE DETAILS BOTTOM SHEET / MODAL
+         ========================================================== -->
+    <div id="movieDetailsModal" class="side-drawer-backdrop" onclick="closeMovieDetails()" style="display: none;">
+        <div class="movie-details-sheet" onclick="event.stopPropagation()">
+            <!-- Backdrop Image with Gradient Header -->
+            <div class="movie-details-backdrop-wrap">
+                <div id="movieDetailsBackdrop" class="movie-details-backdrop"></div>
+                <div class="movie-details-backdrop-grad"></div>
+                <button class="movie-details-close-btn" onclick="closeMovieDetails()">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+
+            <!-- Content Container -->
+            <div class="movie-details-content">
+                <div class="movie-details-top-row">
+                    <div id="movieDetailsPoster" class="movie-details-poster"></div>
+                    <div class="movie-details-header-meta">
+                        <div id="movieDetailsCategoryChip" class="movie-tag-pill">Feature Film</div>
+                        <h2 id="movieDetailsTitle" class="movie-details-title">Title</h2>
+                        <div class="movie-details-sub-meta">
+                            <span id="movieDetailsYear">1968</span>
+                            <span class="meta-dot">•</span>
+                            <span id="movieDetailsDuration">1h 36m</span>
+                            <span class="meta-dot">•</span>
+                            <span id="movieDetailsResolution" class="movie-spec-tag">1080p</span>
+                        </div>
+                        <div id="movieDetailsSwarmBadge" class="movie-swarm-badge swarm-good">
+                            <span class="swarm-dot">●</span>
+                            <span id="movieDetailsSwarmText">Swarm: 🟡 Good (40+ Seeders)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primary Action Buttons Row -->
+                <div class="movie-details-actions-row">
+                    <button id="btnMovieStream" class="movie-action-btn-primary" onclick="handleStreamMovieClick()">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        <span>STREAM NOW</span>
+                    </button>
+                    <button id="btnMovieDownload" class="movie-action-btn-secondary" onclick="handleDownloadMovieClick()">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        <span>DOWNLOAD</span>
+                    </button>
+                    <button id="btnMovieWatchlist" class="movie-action-btn-icon" onclick="toggleMovieWatchlist()" title="Add to Watchlist">
+                        <svg id="movieWatchlistSvg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>
+                    </button>
+                    <button class="movie-action-btn-icon" onclick="copyMovieMagnet()" title="Copy Magnet URI">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                    </button>
+                </div>
+
+                <!-- Tech Specs Bento Bar -->
+                <div class="movie-tech-specs-bar">
+                    <div class="spec-pill"><span class="spec-label">CODEC</span> <span id="movieSpecCodec" class="spec-value">H.264 / AVC</span></div>
+                    <div class="spec-pill"><span class="spec-label">AUDIO</span> <span id="movieSpecAudio" class="spec-value">AAC Stereo</span></div>
+                    <div class="spec-pill"><span class="spec-label">SIZE</span> <span id="movieSpecSize" class="spec-value">1.4 GB</span></div>
+                    <div class="spec-pill"><span class="spec-label">LICENSE</span> <span id="movieSpecLicense" class="spec-value">Public Domain</span></div>
+                </div>
+
+                <!-- Synopsis -->
+                <div class="movie-details-section">
+                    <h3 class="movie-section-heading">Synopsis</h3>
+                    <p id="movieDetailsDesc" class="movie-synopsis-text"></p>
+                </div>
+
+                <!-- Info Grid: Director, Cast, Genres -->
+                <div class="movie-info-grid">
+                    <div>
+                        <span class="info-label">Director</span>
+                        <p id="movieDetailsDirector" class="info-value">--</p>
+                    </div>
+                    <div>
+                        <span class="info-label">Genres</span>
+                        <p id="movieDetailsGenres" class="info-value">--</p>
+                    </div>
+                    <div style="grid-column: span 2;">
+                        <span class="info-label">Starring</span>
+                        <p id="movieDetailsCast" class="info-value">--</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+         STREAM PREPARATION & MULTI-STAGE BUFFERING MODAL
+         ========================================================== -->
+    <div id="streamPrepModal" class="side-drawer-backdrop" onclick="cancelStreamPreparation()" style="display: none;">
+        <div class="stream-prep-card" onclick="event.stopPropagation()">
+            <div class="stream-prep-header">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="stream-prep-pulse-dot"></span>
+                    <h3 class="stream-prep-title">Preparing Stream Buffer</h3>
+                </div>
+                <button type="button" class="icon-btn-plain" onclick="cancelStreamPreparation()">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+
+            <p id="streamPrepMovieTitle" class="stream-prep-subtitle">Title Loading...</p>
+
+            <!-- Progress Bar -->
+            <div class="prep-progress-container">
+                <div id="streamPrepProgressBar" class="prep-progress-fill" style="width: 15%;"></div>
+            </div>
+            <div class="prep-pct-row">
+                <span id="streamPrepStatusText">Resolving metadata & peers...</span>
+                <span id="streamPrepPctText">15%</span>
+            </div>
+
+            <!-- Multi-Stage Checklist -->
+            <div class="prep-stages-list">
+                <div id="prepStage1" class="prep-stage-item stage-done">
+                    <span class="prep-stage-icon">✓</span>
+                    <span class="prep-stage-text">Parse Magnet URI & Media Hash</span>
+                </div>
+                <div id="prepStage2" class="prep-stage-item stage-active">
+                    <span class="prep-stage-icon">⏳</span>
+                    <span class="prep-stage-text">Connect to Open Trackers & DHT Swarm (<span id="prepPeerCount">0</span> peers)</span>
+                </div>
+                <div id="prepStage3" class="prep-stage-item stage-pending">
+                    <span class="prep-stage-icon">○</span>
+                    <span class="prep-stage-text">Download Header Atoms & Initial Media Chunks</span>
+                </div>
+                <div id="prepStage4" class="prep-stage-item stage-pending">
+                    <span class="prep-stage-icon">○</span>
+                    <span class="prep-stage-text">Initialize Sequential Playback Pipeline</span>
+                </div>
+            </div>
+
+            <div class="prep-actions">
+                <button class="prep-cancel-btn" onclick="cancelStreamPreparation()">Cancel</button>
+                <button id="btnStreamPrepStart" class="prep-play-btn" disabled onclick="forceLaunchPreparedStream()">
+                    ▶ Start Stream Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+         OFFLINE DOWNLOADS & TRANSFERS MODAL
+         ========================================================== -->
+    <div id="downloadsManagerModal" class="side-drawer-backdrop" onclick="closeDownloadsManagerModal()" style="display: none;">
+        <div class="downloads-modal-card" onclick="event.stopPropagation()">
+            <div class="settings-header" style="margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 20px;">⬇️</span>
+                    <h3 style="font-size: 17px; font-weight: 800; color: #fff;">Offline Downloads & Transfers</h3>
+                </div>
+                <button class="icon-btn-plain" onclick="closeDownloadsManagerModal()">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#a3a3a3"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+
+            <!-- Storage Indicator -->
+            <div class="downloads-storage-box">
+                <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px;">
+                    <span style="color: #94a3b8;">Local Media Storage</span>
+                    <span id="downloadsStorageText" style="color: #38bdf8; font-weight: 600;">Calculating...</span>
+                </div>
+                <div class="downloads-storage-bar">
+                    <div id="downloadsStorageFill" class="downloads-storage-fill" style="width: 25%;"></div>
+                </div>
+            </div>
+
+            <!-- Tabs: Active & Completed -->
+            <div class="downloads-tabs-row">
+                <button id="tabDownloadsActive" class="downloads-tab-btn active" onclick="switchDownloadsTab('active')">
+                    Active (<span id="countDownloadsActive">0</span>)
+                </button>
+                <button id="tabDownloadsCompleted" class="downloads-tab-btn" onclick="switchDownloadsTab('completed')">
+                    Completed (<span id="countDownloadsCompleted">0</span>)
+                </button>
+            </div>
+
+            <!-- List Container -->
+            <div id="downloadsActiveList" class="downloads-tasks-list">
+                <!-- Dynamically populated -->
+            </div>
+            <div id="downloadsCompletedList" class="downloads-tasks-list" style="display: none;">
+                <!-- Dynamically populated -->
             </div>
         </div>
     </div>

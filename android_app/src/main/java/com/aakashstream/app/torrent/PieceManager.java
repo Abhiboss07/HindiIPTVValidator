@@ -249,6 +249,30 @@ public class PieceManager {
         return buffered;
     }
 
+    public synchronized boolean isComplete() {
+        return getCompletedPieceCount() >= totalPieces;
+    }
+
+    public boolean assembleToFile(File targetFile) throws IOException {
+        if (targetFile.getParentFile() != null && !targetFile.getParentFile().exists()) {
+            targetFile.getParentFile().mkdirs();
+        }
+        try (FileOutputStream fos = new FileOutputStream(targetFile)) {
+            byte[] buf = new byte[64 * 1024];
+            for (int i = 0; i < totalPieces; i++) {
+                File pFile = getPieceFile(i);
+                if (!pFile.exists()) return false;
+                try (FileInputStream fis = new FileInputStream(pFile)) {
+                    int r;
+                    while ((r = fis.read(buf)) != -1) {
+                        fos.write(buf, 0, r);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
     public void cleanCache() {
         if (torrentDir.exists()) {
             File[] files = torrentDir.listFiles();

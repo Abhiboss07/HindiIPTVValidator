@@ -68,7 +68,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import android.graphics.Rect;
 import android.os.Handler;
+import android.os.Environment;
 import android.os.Looper;
+import java.util.concurrent.ConcurrentHashMap;
 import android.content.SharedPreferences;
 
 public class MainActivity extends Activity {
@@ -1028,6 +1030,175 @@ public class MainActivity extends Activity {
             if (torrentEngine != null) {
                 torrentEngine.stop();
             }
+        }
+
+        // ==========================================================
+        // TORRENT DOWNLOAD MANAGER (BACKGROUND COMPLETED DOWNLOADS)
+        // ==========================================================
+        private final Map<String, DownloadTask> downloadTasks = new ConcurrentHashMap<>();
+
+        public class DownloadTask {
+            public final String id;
+            public final String title;
+            public final String magnetUri;
+            public final String fileName;
+            public final File targetFile;
+            public volatile String status = "DOWNLOADING"; // DOWNLOADING, PAUSED, COMPLETED, FAILED
+            public volatile double progress = 0.0;
+            public volatile long speedBytes = 0;
+            public volatile long downloadedBytes = 0;
+            public volatile long totalBytes = 0;
+            public TorrentEngine engine;
+
+            public DownloadTask(String id, String title, String magnetUri, String fileName, File targetFile) {
+                this.id = id;
+                this.title = title;
+                this.magnetUri = magnetUri;
+                this.fileName = fileName;
+                this.targetFile = targetFile;
+            }
+
+            public JSONObject toJson() {
+                JSONObject obj = new JSONObject();
+                try {
+                    obj.put("id", id);
+                    obj.put("title", title);
+                    obj.put("fileName", fileName);
+                    obj.put("filePath", targetFile.getAbsolutePath());
+                    obj.put("status", status);
+                    obj.put("progress", progress);
+                    obj.put("speedBytes", speedBytes);
+                    obj.put("downloadedBytes", downloadedBytes);
+                    obj.put("totalBytes", totalBytes);
+                } catch (Exception ignored) {}
+                return obj;
+            }
+        }
+
+        @JavascriptInterface
+        public String startTorrentDownload(String magnetUri, String title, String outputFilename) {
+            try {
+                MagnetUri magnet = MagnetUri.parse(magnetUri);
+                String safeName = (outputFilename != null && !outputFilename.isEmpty()) ? outputFilename : (title.replaceAll("[^a-zA-Z0-9.-]", "_") + ".mp4");
+                File moviesDir = getExternalFilesDir(Environment.DIRECTORY_MOVIES);
+                if (moviesDir == null) moviesDir = new File(getFilesDir(), "movies");
+                if (!moviesDir.exists()) moviesDir.mkdirs();
+                File targetFile = new File(moviesDir, safeName);
+
+                String taskId = "dl_" + magnet.hexInfoHash;
+                DownloadTask task = new DownloadTask(taskId, title, magnetUri, safeName, targetFile);
+
+                TorrentMetadata meta = new TorrentMetadata(
+                    magnet.infoHash,
+                    safeName,
+                    1024 * 1024L,
+                    new byte[100][20],
+                    100 * 1024 * 1024L,
+                    java.util.Collections.singletonList(new TorrentMetadata.TorrentFile(0, safeName, safeName, 100 * 1024 * 1024L, 0)),
+                    magnet.trackers
+                );
+
+                TorrentEngine dlEngine = new TorrentEngine(MainActivity.this);
+                task.engine = dlEngine;
+                dlEngine.start(meta);
+                downloadTasks.put(taskId, task);
+
+                // Monitor download completion in background thread
+                new Thread(() -> {
+                    while (task.status.equals("DOWNLOADING") && dlEngine.isRunning()) {
+                        try {
+                            Thread.sleep(1000);
+                            JSONObject st = dlEngine.getStatusJson();
+                            task.progress = st.optDouble("progressPercent", 0.0);
+                            task.speedBytes = st.optLong("downloadSpeedBytesPerSec", 0);
+                            task.downloadedBytes = st.optLong("downloadedBytes", 0);
+                            task.totalBytes = st.optLong("totalBytes", 0);
+
+                            if (st.optBoolean("isComplete", false)) {
+                                dlEngine.getPieceManager().assembleToFile(targetFile);
+                                task.status = "COMPLETED";
+                                task.progress = 100.0;
+                                dlEngine.stop();
+                                Log.i(TAG, "Download completed for " + title + " -> " + targetFile.getAbsolutePath());
+                                break;
+                            }
+                        } catch (Exception e) {
+                            Log.w(TAG, "Download task monitor error: " + e.getMessage());
+                        }
+                    }
+                }, "DownloadTaskMonitor-" + taskId).start();
+
+                return task.toJson().toString();
+            } catch (Exception e) {
+                Log.e(TAG, "Error starting download: " + e.getMessage());
+                return "{\"error\":\"" + e.getMessage() + "\"}";
+            }
+        }
+
+        @JavascriptInterface
+        public String getDownloadTasks() {
+            JSONArray arr = new JSONArray();
+            for (DownloadTask task : downloadTasks.values()) {
+                arr.put(task.toJson());
+            }
+            return arr.toString();
+        }
+
+        @JavascriptInterface
+        public boolean pauseTorrentDownload(String taskId) {
+            DownloadTask task = downloadTasks.get(taskId);
+            if (task != null && task.engine != null) {
+                task.engine.stop();
+                task.status = "PAUSED";
+                return true;
+            }
+            return false;
+        }
+
+        @JavascriptInterface
+        public boolean resumeTorrentDownload(String taskId) {
+            DownloadTask task = downloadTasks.get(taskId);
+            if (task != null && task.status.equals("PAUSED")) {
+                try {
+                    MagnetUri magnet = MagnetUri.parse(task.magnetUri);
+                    TorrentMetadata meta = new TorrentMetadata(
+                        magnet.infoHash,
+                        task.fileName,
+                        1024 * 1024L,
+                        new byte[100][20],
+                        100 * 1024 * 1024L,
+                        java.util.Collections.singletonList(new TorrentMetadata.TorrentFile(0, task.fileName, task.fileName, 100 * 1024 * 1024L, 0)),
+                        magnet.trackers
+                    );
+                    task.engine = new TorrentEngine(MainActivity.this);
+                    task.status = "DOWNLOADING";
+                    task.engine.start(meta);
+                    return true;
+                } catch (Exception ignored) {}
+            }
+            return false;
+        }
+
+        @JavascriptInterface
+        public boolean cancelTorrentDownload(String taskId) {
+            DownloadTask task = downloadTasks.remove(taskId);
+            if (task != null) {
+                if (task.engine != null) task.engine.stop();
+                if (task.targetFile.exists()) task.targetFile.delete();
+                return true;
+            }
+            return false;
+        }
+
+        @JavascriptInterface
+        public boolean deleteDownloadedFile(String taskId) {
+            DownloadTask task = downloadTasks.remove(taskId);
+            if (task != null) {
+                if (task.engine != null) task.engine.stop();
+                if (task.targetFile.exists()) task.targetFile.delete();
+                return true;
+            }
+            return false;
         }
 
         @JavascriptInterface

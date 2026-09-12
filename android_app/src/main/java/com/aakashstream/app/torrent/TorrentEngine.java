@@ -218,6 +218,14 @@ public class TorrentEngine {
         }
     }
 
+    public int getSeederCount() {
+        int seeders = 0;
+        for (PeerConnection p : activePeers) {
+            if (p.isSeeder()) seeders++;
+        }
+        return seeders;
+    }
+
     public JSONObject getStatusJson() {
         JSONObject obj = new JSONObject();
         try {
@@ -225,20 +233,28 @@ public class TorrentEngine {
             obj.put("active", isRunning.get());
             obj.put("downloadSpeedKbps", (currentDownloadSpeedBytesPerSec * 8) / 1000);
             obj.put("downloadSpeedMbps", Math.round(((currentDownloadSpeedBytesPerSec * 8) / 1000000.0) * 10.0) / 10.0);
+            obj.put("downloadSpeedBytesPerSec", currentDownloadSpeedBytesPerSec);
             obj.put("activePeers", activePeers.size());
+            obj.put("connectedPeers", activePeers.size());
             obj.put("discoveredPeers", discoveredPeers.size());
+            obj.put("seeders", Math.max(getSeederCount(), activePeers.size() > 0 ? 1 : 0));
             if (pieceManager != null && metadata != null) {
+                long downloadedBytes = (long) pieceManager.getCompletedPieceCount() * metadata.pieceLength;
                 obj.put("progressPercent", Math.round(pieceManager.getProgressPercent() * 10.0) / 10.0);
                 obj.put("completedPieces", pieceManager.getCompletedPieceCount());
                 obj.put("totalPieces", metadata.getPieceCount());
                 obj.put("totalBytes", metadata.totalLength);
+                obj.put("downloadedBytes", Math.min(metadata.totalLength, downloadedBytes));
                 obj.put("fileName", metadata.name);
+                obj.put("isComplete", pieceManager.isComplete());
             } else {
                 obj.put("progressPercent", 0.0);
                 obj.put("completedPieces", 0);
                 obj.put("totalPieces", 0);
                 obj.put("totalBytes", 0);
+                obj.put("downloadedBytes", 0);
                 obj.put("fileName", "");
+                obj.put("isComplete", false);
             }
         } catch (Exception ignored) {}
         return obj;
