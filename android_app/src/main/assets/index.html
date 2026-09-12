@@ -441,19 +441,37 @@
             </div>
 
             <!-- Search Box Pill -->
-            <div class="search-box-pill" style="margin-bottom: 16px;">
+            <div class="search-box-pill" style="margin-bottom: 14px;">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="#8e9192"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                 <input type="text" id="moviesSearchInput" placeholder="Search movies, animations, genres, year..." oninput="handleMovieSearch(this.value)">
             </div>
 
+            <!-- Instant Stream Any Movie (Magnet / Torrent) Card -->
+            <div class="stream-any-movie-card">
+                <div class="sam-header">
+                    <div class="sam-title-wrap">
+                        <span class="sam-badge">⚡ INSTANT STREAMER</span>
+                        <h3 class="sam-title">Stream Any Hollywood / Bollywood Movie</h3>
+                    </div>
+                    <span class="sam-sub">Paste any Magnet URI or Torrent link to stream immediately</span>
+                </div>
+                <div class="sam-input-row">
+                    <input type="text" id="customMovieMagnetInput" placeholder="magnet:?xt=urn:btih:... or https://...movie.torrent" />
+                    <button class="sam-stream-btn" onclick="handleStreamCustomMagnet()">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        <span>Stream Now</span>
+                    </button>
+                </div>
+            </div>
+
             <!-- Category Filter Chips -->
-            <div class="channel-filter-carousel" id="moviesCategoryPills" style="margin-bottom: 20px;">
+            <div class="channel-filter-carousel category-chips-row" id="moviesCategoryPills">
                 <button class="lumina-chip active" onclick="filterMovieCategory('all', this)">All Titles</button>
-                <button class="lumina-chip" onclick="filterMovieCategory('Featured', this)">⭐ Featured</button>
-                <button class="lumina-chip" onclick="filterMovieCategory('Animations', this)">🎨 Animations</button>
-                <button class="lumina-chip" onclick="filterMovieCategory('Movies', this)">🍿 Feature Films</button>
-                <button class="lumina-chip" onclick="filterMovieCategory('Documentaries', this)">🌍 Documentaries</button>
-                <button class="lumina-chip" onclick="filterMovieCategory('Trailers', this)">🎞️ Trailers & VFX</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Hollywood', this)">🎬 Hollywood</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Bollywood', this)">🇮🇳 Bollywood</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Thrillers', this)">🔪 Thrillers</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Action', this)">🏎️ Action</button>
+                <button class="lumina-chip" onclick="filterMovieCategory('Open Movies', this)">🌐 Open Cinema</button>
             </div>
 
             <!-- Continue Watching / Watch History Row (Hidden when empty) -->
@@ -475,44 +493,54 @@
 
             <!-- Rows Container (When not searching) -->
             <div id="moviesRowsContainer">
-                <!-- Section 1: Latest Cinema -->
+                <!-- Section 1: Hollywood Classics & Full Feature Films -->
                 <section style="margin-bottom: 26px;">
                     <div class="section-heading-row">
                         <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
-                            <span>🔥</span> Latest Cinema & Open Movies
+                            <span>🎬</span> Hollywood Full Feature Classics
                         </h2>
                     </div>
-                    <div class="obsidian-h-scroll" id="moviesLatestRow"></div>
+                    <div class="obsidian-h-scroll" id="moviesHollywoodRow"></div>
                 </section>
 
-                <!-- Section 2: Open Source Animations (Blender Foundation) -->
+                <!-- Section 2: Bollywood & Indian Feature Cinema -->
                 <section style="margin-bottom: 26px;">
                     <div class="section-heading-row">
                         <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
-                            <span>🎨</span> Award-Winning Animations
+                            <span>🇮🇳</span> Bollywood & Indian Feature Cinema
                         </h2>
                     </div>
-                    <div class="obsidian-h-scroll" id="moviesAnimationsRow"></div>
+                    <div class="obsidian-h-scroll" id="moviesBollywoodRow"></div>
                 </section>
 
-                <!-- Section 3: Classic Hollywood & Mystery -->
+                <!-- Section 3: Crime, Mystery & Thrillers -->
                 <section style="margin-bottom: 26px;">
                     <div class="section-heading-row">
                         <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
-                            <span>🏛️</span> Golden Age Classics
+                            <span>🔪</span> Crime, Mystery & Thrillers
                         </h2>
                     </div>
-                    <div class="obsidian-h-scroll" id="moviesClassicsRow"></div>
+                    <div class="obsidian-h-scroll" id="moviesThrillersRow"></div>
                 </section>
 
-                <!-- Section 4: Documentaries & VFX Shorts -->
+                <!-- Section 4: Action & Martial Arts -->
                 <section style="margin-bottom: 26px;">
                     <div class="section-heading-row">
                         <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
-                            <span>📽️</span> Documentaries & VFX Shorts
+                            <span>🏎️</span> Action & Martial Arts
                         </h2>
                     </div>
-                    <div class="obsidian-h-scroll" id="moviesTrailersRow"></div>
+                    <div class="obsidian-h-scroll" id="moviesActionRow"></div>
+                </section>
+
+                <!-- Section 5: Open Source Cinema & Animation -->
+                <section style="margin-bottom: 26px;">
+                    <div class="section-heading-row">
+                        <h2 class="section-heading-text" style="display: flex; align-items: center; gap: 8px;">
+                            <span>🌐</span> Open Source Cinema & VFX
+                        </h2>
+                    </div>
+                    <div class="obsidian-h-scroll" id="moviesOpenRow"></div>
                 </section>
             </div>
 

@@ -152,7 +152,10 @@ public class TorrentEngine {
                 if (activePeers.size() >= MAX_ACTIVE_PEERS) break;
                 boolean alreadyConnected = false;
                 for (PeerConnection c : activePeers) {
-                    // check if matching
+                    if (addr.equals(c.getAddress())) {
+                        alreadyConnected = true;
+                        break;
+                    }
                 }
                 if (!alreadyConnected) {
                     PeerConnection conn = new PeerConnection(addr, metadata.infoHash, myPeerId, pieceManager);
@@ -234,6 +237,7 @@ public class TorrentEngine {
             obj.put("downloadSpeedKbps", (currentDownloadSpeedBytesPerSec * 8) / 1000);
             obj.put("downloadSpeedMbps", Math.round(((currentDownloadSpeedBytesPerSec * 8) / 1000000.0) * 10.0) / 10.0);
             obj.put("downloadSpeedBytesPerSec", currentDownloadSpeedBytesPerSec);
+            obj.put("downloadSpeed", currentDownloadSpeedBytesPerSec);
             obj.put("activePeers", activePeers.size());
             obj.put("connectedPeers", activePeers.size());
             obj.put("discoveredPeers", discoveredPeers.size());

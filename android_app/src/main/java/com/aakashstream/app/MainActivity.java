@@ -230,7 +230,7 @@ public class MainActivity extends Activity {
                 }
             }
 
-            if ("/torrent/stream".equals(path)) {
+            if ("/torrent/stream".equals(path) || "/stream.mp4".equals(path)) {
                 handleTorrentStreamRequest(socket, method, rangeHeader, out);
                 return;
             }
@@ -970,6 +970,16 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public String startTorrentStream(String magnetUri) {
+            return startTorrentFromMagnet(magnetUri);
+        }
+
+        @JavascriptInterface
+        public int getLocalServerPort() {
+            return localServerPort;
+        }
+
+        @JavascriptInterface
         public String startTorrentFromMagnet(String magnetUri) {
             try {
                 MagnetUri magnet = MagnetUri.parse(magnetUri);
@@ -1019,10 +1029,49 @@ public class MainActivity extends Activity {
             }
         }
 
+        private long lastUidRxBytes = -1;
+        private long lastUidRxTime = 0;
+
+        @JavascriptInterface
+        public long getNetworkDownloadSpeedBps() {
+            try {
+                long currentRx = android.net.TrafficStats.getUidRxBytes(android.os.Process.myUid());
+                if (currentRx < 0) return 0;
+                long now = System.currentTimeMillis();
+                if (lastUidRxTime == 0 || lastUidRxBytes < 0) {
+                    lastUidRxBytes = currentRx;
+                    lastUidRxTime = now;
+                    return 0;
+                }
+                long elapsed = now - lastUidRxTime;
+                if (elapsed <= 0) return 0;
+                long diff = currentRx - lastUidRxBytes;
+                if (diff < 0) diff = 0;
+                lastUidRxBytes = currentRx;
+                lastUidRxTime = now;
+                return (diff * 1000L) / elapsed;
+            } catch (Exception e) {
+                return 0;
+            }
+        }
+
         @JavascriptInterface
         public String getTorrentStatus() {
             if (torrentEngine == null) return "{}";
-            return torrentEngine.getStatusJson().toString();
+            org.json.JSONObject status = torrentEngine.getStatusJson();
+            try {
+                long appSpeed = getNetworkDownloadSpeedBps();
+                long currentSpeed = status.optLong("downloadSpeedBytesPerSec", 0);
+                if (appSpeed > 0 && currentSpeed == 0) {
+                    status.put("downloadSpeedBytesPerSec", appSpeed);
+                    status.put("downloadSpeed", appSpeed);
+                    status.put("downloadSpeedKbps", (appSpeed * 8) / 1000);
+                    status.put("downloadSpeedMbps", Math.round(((appSpeed * 8) / 1000000.0) * 10.0) / 10.0);
+                } else if (currentSpeed > 0) {
+                    status.put("downloadSpeed", currentSpeed);
+                }
+            } catch (Exception ignored) {}
+            return status.toString();
         }
 
         @JavascriptInterface

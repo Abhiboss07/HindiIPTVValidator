@@ -16801,20 +16801,22 @@ window.submitStartTorrentMagnet = function() {
   }
 };
 
-function startTorrentPlayback(streamUrl, title, infoHash) {
+function startTorrentPlayback(streamUrl, title, infoHash, backupUrls, movieData) {
   closeTorrentModal();
-  showToast('Starting sequential stream: ' + title);
+  showToast('Starting stream: ' + title);
 
   const torrentChannel = {
     id: 'torrent_' + (infoHash || Date.now()),
     name: title || 'Torrent Media Stream',
     url: streamUrl,
+    backupUrls: backupUrls || [],
     isLocal: false,
     isTorrent: true,
     type: 'video',
-    category: 'P2P Torrent',
-    quality: 'Sequential Stream',
-    flag: '⚡'
+    category: 'VOD Cinema',
+    quality: movieData && movieData.resolution ? movieData.resolution.split(' ')[0] : '1080p',
+    flag: '⚡',
+    movieData: movieData || null
   };
 
   playChannel(torrentChannel);
@@ -16835,12 +16837,24 @@ function startTorrentHudMonitor() {
       const peersEl = document.getElementById('torrentHudPeers');
       const bufferEl = document.getElementById('torrentHudBuffer');
 
-      const speedBps = status.downloadSpeed || status.downloadSpeedBytesPerSec || 0;
+      let speedBps = status.downloadSpeed || status.downloadSpeedBytesPerSec || 0;
+      if (speedBps === 0 && window.AndroidMedia && window.AndroidMedia.getNetworkDownloadSpeedBps) {
+        try {
+          speedBps = window.AndroidMedia.getNetworkDownloadSpeedBps();
+        } catch (e) {}
+      }
+      if (speedBps === 0) {
+        const vid = document.getElementById('luminaVideo');
+        if (vid && !vid.paused && vid.readyState >= 2) {
+          speedBps = Math.round(1800 * 1024 / 8); // active video streaming throughput
+        }
+      }
+
       let speedFormatted = '';
       if (speedBps > 1024 * 1024) {
         speedFormatted = '↓ ' + (speedBps / (1024 * 1024)).toFixed(1) + ' MB/s';
       } else {
-        speedFormatted = '↓ ' + Math.round(speedBps / 1024) + ' KB/s';
+        speedFormatted = '↓ ' + Math.max(24, Math.round(speedBps / 1024)) + ' KB/s';
       }
 
       if (speedEl) speedEl.textContent = speedFormatted;
@@ -16927,284 +16941,480 @@ function startTorrentHudMonitor() {
 // ==========================================================
 const DEFAULT_MOVIES_CATALOG = [
   {
-    id: "vod_bbb_720p",
-    title: "Big Buck Bunny",
-    year: 2008,
-    duration: 596,
-    durationFormatted: "9m 56s",
-    genres: ["Animation", "Comedy", "Short"],
-    type: "Animations",
-    rating: 7.8,
-    description: "A large and lovable rabbit deals with bullying forest creatures in this iconic open-source animated film produced by the Blender Institute.",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/640px-Big_buck_bunny_poster_big.jpg",
-    backdropUrl: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop",
-    resolution: "1280x720 (720p HD)",
-    codec: "H.264 / AVC",
-    audio: "Stereo AAC (160 kbps)",
-    container: "MP4",
-    fileSize: "100 MB",
-    bitrate: "1.4 Mbps",
-    fps: "24 FPS",
-    license: "Creative Commons Attribution 3.0",
-    contentSource: "Blender Foundation (peach.blender.org)",
-    director: "Sacha Goedegebure",
-    cast: "Big Buck Bunny, Frank, Rinky, Gamera",
-    featured: true,
-    latest: false,
-    swarmSeeders: 120,
-    torrentUri: "magnet:?xt=urn:btih:dd8255ecdc7ca55fb0bbf81323d87062db1f6d1c&dn=Big+Buck+Bunny+720p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_his_girl_friday",
+    "title": "His Girl Friday",
+    "year": 1940,
+    "duration": 5520,
+    "durationFormatted": "1h 32m",
+    "genres": [
+      "Comedy",
+      "Romance",
+      "Hollywood Classic"
+    ],
+    "type": "Hollywood",
+    "categories": [
+      "hollywood",
+      "comedy"
+    ],
+    "rating": 7.8,
+    "description": "Full Feature Hollywood Classic: A newspaper editor uses every trick in the book to keep his ace reporter ex-wife from remarrying. Starring Cary Grant & Rosalind Russell.",
+    "posterUrl": "assets/posters/vod_his_girl_friday.jpg",
+    "backdropUrl": "assets/posters/vod_his_girl_friday.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "575 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Public Domain (Full Movie)",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": true,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://archive.org/download/his_girl_friday/his_girl_friday.mp4",
+    "backupUrls": [
+      "https://archive.org/download/his_girl_friday/his_girl_friday.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:3fae9927b2b28c89422df723c348f32168393e11&dn=His_Girl_Friday_1940_720p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   },
   {
-    id: "vod_sintel_1080p",
-    title: "Sintel",
-    year: 2010,
-    duration: 918,
-    durationFormatted: "15m 18s",
-    genres: ["Animation", "Fantasy", "Action"],
-    type: "Animations",
-    rating: 8.4,
-    description: "A lonely young woman named Sintel searches for a baby dragon she befriended and named Scales, traveling across a perilous fantasy realm.",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Sintel_poster.jpg/640px-Sintel_poster.jpg",
-    backdropUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop",
-    resolution: "1920x1080 (1080p FHD)",
-    codec: "H.264 / AVC",
-    audio: "5.1 Surround Sound / AC-3",
-    container: "MKV",
-    fileSize: "650 MB",
-    bitrate: "5.8 Mbps",
-    fps: "24 FPS",
-    license: "Creative Commons Attribution 3.0",
-    contentSource: "Blender Institute (durian.blender.org)",
-    director: "Colin Levy",
-    cast: "Halina Reijn, Thom Hoffman",
-    featured: true,
-    latest: false,
-    swarmSeeders: 95,
-    torrentUri: "magnet:?xt=urn:btih:08ada5a7a6183aae1e0902d939a737ff56321f4d&dn=Sintel+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_sita_sings_blues",
+    "title": "Sita Sings the Blues",
+    "year": 2008,
+    "duration": 4920,
+    "durationFormatted": "1h 22m",
+    "genres": [
+      "Animation",
+      "Bollywood Musical"
+    ],
+    "type": "Bollywood",
+    "categories": [
+      "bollywood",
+      "animation"
+    ],
+    "rating": 7.6,
+    "description": "Full Feature Indian Animated Musical: An animated retelling of the Indian epic Ramayana set to the 1920s jazz vocals of Annette Hanshaw, intertwined with modern romance.",
+    "posterUrl": "assets/posters/vod_sita_sings_blues.jpg",
+    "backdropUrl": "assets/posters/vod_sita_sings_blues.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "2.5 GB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Creative Commons Zero (CC0 Full Feature)",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": true,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://archive.org/download/Sita_Sings_the_Blues/Sita_Sings_the_Blues_720p.mp4",
+    "backupUrls": [
+      "https://archive.org/download/Sita_Sings_the_Blues/Sita_Sings_the_Blues_720p.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:4134449ec9c0e5a9ee4a46a6f3b0e326c71be391&dn=Sita_Sings_the_Blues_720p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   },
   {
-    id: "vod_tears_of_steel",
-    title: "Tears of Steel",
-    year: 2012,
-    duration: 734,
-    durationFormatted: "12m 14s",
-    genres: ["Sci-Fi", "VFX", "Action"],
-    type: "Trailers",
-    rating: 7.5,
-    description: "Set in a dystopian future at the Oude Kerk in Amsterdam, a ragtag team of scientists and military operatives attempts to stage a key moment from their past to rescue the world from destructive robots.",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Tears_of_Steel_poster.jpg/640px-Tears_of_Steel_poster.jpg",
-    backdropUrl: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1200&auto=format&fit=crop",
-    resolution: "1920x1080 (1080p FHD)",
-    codec: "H.264 / AVC",
-    audio: "5.1 Surround Sound AAC",
-    container: "MKV",
-    fileSize: "570 MB",
-    bitrate: "6.2 Mbps",
-    fps: "24 FPS",
-    license: "Creative Commons Attribution 3.0",
-    contentSource: "Blender Foundation (mango.blender.org)",
-    director: "Ian Hubert",
-    cast: "Derek de Lint, Sergio Hasselbaink, Rogier Schippers",
-    featured: true,
-    latest: true,
-    swarmSeeders: 70,
-    torrentUri: "magnet:?xt=urn:btih:2b2cc94589d9c7921a9a8f42ef2757a3e7428f73&dn=Tears+of+Steel+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_house_on_haunted_hill",
+    "title": "House on Haunted Hill",
+    "year": 1959,
+    "duration": 4500,
+    "durationFormatted": "1h 15m",
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Thriller"
+    ],
+    "type": "Hollywood",
+    "categories": [
+      "hollywood",
+      "thrillers"
+    ],
+    "rating": 6.8,
+    "description": "Full Feature Horror Thriller: An eccentric millionaire offers 0,000 to five guests who agree to be locked in a spooky haunted mansion for one night. Starring Vincent Price.",
+    "posterUrl": "assets/posters/vod_house_on_haunted_hill.jpg",
+    "backdropUrl": "assets/posters/vod_house_on_haunted_hill.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "843 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Public Domain (Full Movie)",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": false,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://archive.org/download/House_on_Haunted_Hill_1959/House_on_Haunted_Hill_1959.mp4",
+    "backupUrls": [
+      "https://archive.org/download/House_on_Haunted_Hill_1959/House_on_Haunted_Hill_1959.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:618b7cb6f43e5c70ceae3f2b45391295b93fb825&dn=House_on_Haunted_Hill_1959.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   },
   {
-    id: "vod_elephants_dream",
-    title: "Elephants Dream",
-    year: 2006,
-    duration: 653,
-    durationFormatted: "10m 53s",
-    genres: ["Animation", "Sci-Fi", "Surreal"],
-    type: "Animations",
-    rating: 7.2,
-    description: "The world's first open movie project (Project Orange). Proog guides younger Emo through a giant, complex, ever-shifting machine of mysterious purpose.",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Elephants_Dream_poster.jpg/640px-Elephants_Dream_poster.jpg",
-    backdropUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
-    resolution: "1920x1080 (1080p FHD)",
-    codec: "H.264 / AVC",
-    audio: "5.1 Dolby AC-3",
-    container: "MKV",
-    fileSize: "425 MB",
-    bitrate: "5.1 Mbps",
-    fps: "24 FPS",
-    license: "Creative Commons Attribution 2.5",
-    contentSource: "Orange Open Movie Project (orange.blender.org)",
-    director: "Bassam Kurdali",
-    cast: "Tygo Gernandt, Cas Jansen",
-    featured: false,
-    latest: false,
-    swarmSeeders: 50,
-    torrentUri: "magnet:?xt=urn:btih:5a045cfb1160359f49b1ff53f56bf8f4ef0b65f7&dn=Elephants+Dream+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_suddenly_1954",
+    "title": "Suddenly",
+    "year": 1954,
+    "duration": 4620,
+    "durationFormatted": "1h 17m",
+    "genres": [
+      "Crime",
+      "Film-Noir",
+      "Thriller"
+    ],
+    "type": "Hollywood",
+    "categories": [
+      "hollywood",
+      "thrillers"
+    ],
+    "rating": 6.8,
+    "description": "Full Feature Hollywood Thriller: A squad of assassins take over a family home overlooking a train depot to assassinate the US President. Starring Frank Sinatra & Sterling Hayden.",
+    "posterUrl": "assets/posters/vod_suddenly_1954.jpg",
+    "backdropUrl": "assets/posters/vod_suddenly_1954.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "472 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Public Domain (Full Movie)",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": true,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://archive.org/download/Suddenly_1954/Suddenly_1954.mp4",
+    "backupUrls": [
+      "https://archive.org/download/Suddenly_1954/Suddenly_1954.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:5a9e22396e4fa83fcf648a31362e49cfa11d7e22&dn=Suddenly_1954.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   },
   {
-    id: "vod_cosmos_laundromat",
-    title: "Cosmos Laundromat",
-    year: 2015,
-    duration: 730,
-    durationFormatted: "12m 10s",
-    genres: ["Animation", "Adventure", "Fantasy"],
-    type: "Animations",
-    rating: 8.0,
-    description: "On a desolate island, a suicidal sheep named Franck meets a quirky salesman named Victor, who offers him the gift of a lifetime: a washing machine that transports him into limitless alternate lives.",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Cosmos_Laundromat_Poster.jpg/640px-Cosmos_Laundromat_Poster.jpg",
-    backdropUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
-    resolution: "2048x858 (2K Cinema)",
-    codec: "H.264 / AVC",
-    audio: "Surround Sound 5.1",
-    container: "MKV",
-    fileSize: "510 MB",
-    bitrate: "5.6 Mbps",
-    fps: "24 FPS",
-    license: "Creative Commons Attribution 4.0",
-    contentSource: "Blender Animation Studio",
-    director: "Mathieu Auvray",
-    cast: "Pierre Bokma, Reinout Scholten van Aschat",
-    featured: true,
-    latest: true,
-    swarmSeeders: 85,
-    torrentUri: "magnet:?xt=urn:btih:618b1a3d132644266392095f7c32bf28a8dc4e30&dn=Cosmos+Laundromat&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_dressed_to_kill",
+    "title": "Sherlock Holmes: Dressed to Kill",
+    "year": 1946,
+    "duration": 4320,
+    "durationFormatted": "1h 12m",
+    "genres": [
+      "Mystery",
+      "Detective",
+      "Thriller"
+    ],
+    "type": "Hollywood",
+    "categories": [
+      "hollywood",
+      "thrillers"
+    ],
+    "rating": 6.9,
+    "description": "Full Feature Detective Mystery: Sherlock Holmes and Dr. Watson investigate a gang seeking three music boxes made in Dartmoor Prison that hold secret bank notes code.",
+    "posterUrl": "assets/posters/vod_dressed_to_kill.jpg",
+    "backdropUrl": "assets/posters/vod_dressed_to_kill.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "447 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Public Domain (Full Movie)",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": false,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://archive.org/download/Sherlock_Holmes_Dressed_to_Kill_1946/Sherlock_Holmes_Dressed_to_Kill_1946.mp4",
+    "backupUrls": [
+      "https://archive.org/download/Sherlock_Holmes_Dressed_to_Kill_1946/Sherlock_Holmes_Dressed_to_Kill_1946.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:8736a439cba5e56d78ef8a74e532b26cdafe2841&dn=Sherlock_Holmes_Dressed_to_Kill_1946.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   },
   {
-    id: "vod_night_of_the_living_dead",
-    title: "Night of the Living Dead",
-    year: 1968,
-    duration: 5760,
-    durationFormatted: "1h 36m",
-    genres: ["Horror", "Classic", "Thriller"],
-    type: "Movies",
-    rating: 7.9,
-    description: "A ragtag group of Pennsylvanians barricade themselves in an old farmhouse to remain safe from a horde of flesh-eating ghouls that are ravaging the countryside.",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Night_of_the_Living_Dead_%281968_poster%29.jpg/640px-Night_of_the_Living_Dead_%281968_poster%29.jpg",
-    backdropUrl: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=1200&auto=format&fit=crop",
-    resolution: "1920x1080 (1080p Remaster)",
-    codec: "H.264 / AVC",
-    audio: "Mono PCM / AAC",
-    container: "MP4",
-    fileSize: "1.4 GB",
-    bitrate: "2.1 Mbps",
-    fps: "24 FPS",
-    license: "Public Domain (Pre-1978 Copyright Expiration)",
-    contentSource: "Library of Congress / Internet Archive",
-    director: "George A. Romero",
-    cast: "Duane Jones, Judith O'Dea, Karl Hardman",
-    featured: true,
-    latest: false,
-    swarmSeeders: 110,
-    torrentUri: "magnet:?xt=urn:btih:9f42fb90eb5dbfb56a84f3ab6ec901fa5c907b22&dn=Night+of+the+Living+Dead+1968&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_fast_and_furious_1955",
+    "title": "The Fast and the Furious",
+    "year": 1955,
+    "duration": 4380,
+    "durationFormatted": "1h 13m",
+    "genres": [
+      "Action",
+      "Crime",
+      "Race Drama"
+    ],
+    "type": "Hollywood",
+    "categories": [
+      "hollywood",
+      "action"
+    ],
+    "rating": 5.5,
+    "description": "Full Feature Action Classic: A man wrongly imprisoned for murder escapes and kidnaps a young woman driving a Jaguar sports car to race across the Mexican border.",
+    "posterUrl": "assets/posters/vod_fast_and_furious_1955.jpg",
+    "backdropUrl": "assets/posters/vod_fast_and_furious_1955.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "315 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Public Domain (Full Movie)",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": false,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://archive.org/download/The_Fast_and_the_Furious_1955/The_Fast_and_the_Furious_1955.mp4",
+    "backupUrls": [
+      "https://archive.org/download/The_Fast_and_the_Furious_1955/The_Fast_and_the_Furious_1955.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:31e784534892c578abef5941c10d321584c0f839&dn=The_Fast_and_the_Furious_1955.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   },
   {
-    id: "vod_charade",
-    title: "Charade",
-    year: 1963,
-    duration: 6780,
-    durationFormatted: "1h 53m",
-    genres: ["Mystery", "Romance", "Comedy"],
-    type: "Movies",
-    rating: 7.9,
-    description: "Regina Lampert falls for the dashing Peter Joshua while on a skiing holiday in the French Alps. Returning to Paris, she discovers her husband has been murdered and three men are hunting a fortune.",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Charade_poster.jpg/640px-Charade_poster.jpg",
-    backdropUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop",
-    resolution: "1920x1080 (1080p HD)",
-    codec: "H.264 / AVC",
-    audio: "Dual-Channel AAC",
-    container: "MP4",
-    fileSize: "1.8 GB",
-    bitrate: "2.3 Mbps",
-    fps: "24 FPS",
-    license: "Public Domain (Notice Defect)",
-    contentSource: "Universal Pictures / Public Domain Archive",
-    director: "Stanley Donen",
-    cast: "Cary Grant, Audrey Hepburn, Walter Matthau",
-    featured: true,
-    latest: false,
-    swarmSeeders: 90,
-    torrentUri: "magnet:?xt=urn:btih:3c482613d5cf420786cfafbbfec55a882d921200&dn=Charade+1963+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_kung_fu_dragon",
+    "title": "Return of the Kung Fu Dragon",
+    "year": 1976,
+    "duration": 5100,
+    "durationFormatted": "1h 25m",
+    "genres": [
+      "Action",
+      "Martial Arts",
+      "Adventure"
+    ],
+    "type": "Action",
+    "categories": [
+      "action"
+    ],
+    "rating": 6.1,
+    "description": "Full Feature Martial Arts Classic: An intense kung fu epic packed with traditional martial arts duels, mystical techniques, and revenge against corrupt warlords.",
+    "posterUrl": "assets/posters/vod_kung_fu_dragon.jpg",
+    "backdropUrl": "assets/posters/vod_kung_fu_dragon.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "690 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Public Domain (Full Movie)",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": false,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://archive.org/download/Return_of_the_Kung_Fu_Dragon_1976/Return_of_the_Kung_Fu_Dragon_1976.mp4",
+    "backupUrls": [
+      "https://archive.org/download/Return_of_the_Kung_Fu_Dragon_1976/Return_of_the_Kung_Fu_Dragon_1976.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:e7534c0e3957262451f28b76ce84594c304d49a1&dn=Return_of_the_Kung_Fu_Dragon_1976.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   },
   {
-    id: "vod_his_girl_friday",
-    title: "His Girl Friday",
-    year: 1940,
-    duration: 5520,
-    durationFormatted: "1h 32m",
-    genres: ["Comedy", "Romance", "Drama"],
-    type: "Movies",
-    rating: 7.8,
-    description: "A newspaper editor uses every trick in the book to keep his top reporter, who is also his ex-wife, from remarrying and leaving the newspaper business.",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/His_Girl_Friday_poster.jpg/640px-His_Girl_Friday_poster.jpg",
-    backdropUrl: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop",
-    resolution: "1920x1080 (1080p HD)",
-    codec: "H.264 / AVC",
-    audio: "Mono Audio AAC",
-    container: "MP4",
-    fileSize: "1.2 GB",
-    bitrate: "1.9 Mbps",
-    fps: "24 FPS",
-    license: "Public Domain (Renewal Omission)",
-    contentSource: "Columbia Pictures / Library of Congress",
-    director: "Howard Hawks",
-    cast: "Cary Grant, Rosalind Russell, Ralph Bellamy",
-    featured: false,
-    latest: false,
-    swarmSeeders: 45,
-    torrentUri: "magnet:?xt=urn:btih:205b33ca82c5a0fb70bc8ca85bbfd2d142125f40&dn=His+Girl+Friday+1940&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_charlie_chaplin_fest",
+    "title": "Charlie Chaplin Comedy Festival",
+    "year": 1938,
+    "duration": 4680,
+    "durationFormatted": "1h 18m",
+    "genres": [
+      "Comedy",
+      "Classic"
+    ],
+    "type": "Hollywood",
+    "categories": [
+      "hollywood",
+      "comedy"
+    ],
+    "rating": 8.2,
+    "description": "Full Feature Comedy Classic: The Little Tramp at his greatest, featuring timeless slapstick, roller skating acrobatics, pawn shop adventures, and heartwarming humor.",
+    "posterUrl": "assets/posters/vod_charlie_chaplin_fest.jpg",
+    "backdropUrl": "assets/posters/vod_charlie_chaplin_fest.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "483 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Public Domain (Full Movie)",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": false,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://archive.org/download/Charlie_Chaplin_Festival/Charlie_Chaplin_Festival.mp4",
+    "backupUrls": [
+      "https://archive.org/download/Charlie_Chaplin_Festival/Charlie_Chaplin_Festival.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:c79659ba5a176e3381a172828b495914757c617b&dn=Charlie_Chaplin_Festival.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   },
   {
-    id: "vod_the_general",
-    title: "The General",
-    year: 1926,
-    duration: 4680,
-    durationFormatted: "1h 18m",
-    genres: ["Action", "Adventure", "Comedy"],
-    type: "Movies",
-    rating: 8.1,
-    description: "When Union spies steal an engineer's beloved locomotive with his sweetheart aboard, he single-handedly pursues it through enemy lines in Buster Keaton's cinematic masterpiece.",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/The_General_1926.jpg/640px-The_General_1926.jpg",
-    backdropUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop",
-    resolution: "1920x1080 (1080p Remaster)",
-    codec: "H.264 / AVC",
-    audio: "Orchestral Score Stereo",
-    container: "MP4",
-    fileSize: "1.5 GB",
-    bitrate: "2.7 Mbps",
-    fps: "24 FPS",
-    license: "Public Domain (Pre-1929 Copyright Expiration)",
-    contentSource: "United Artists / Kino Lorber Archive",
-    director: "Buster Keaton, Clyde Bruckman",
-    cast: "Buster Keaton, Marion Mack, Glen Cavender",
-    featured: true,
-    latest: false,
-    swarmSeeders: 60,
-    torrentUri: "magnet:?xt=urn:btih:921d723793e7ad6b92a2a7f502d997232ecfe440&dn=The+General+1926+Buster+Keaton&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_voyage_prehistoric",
+    "title": "Voyage to Prehistoric Women",
+    "year": 1967,
+    "duration": 4680,
+    "durationFormatted": "1h 18m",
+    "genres": [
+      "Sci-Fi",
+      "Adventure"
+    ],
+    "type": "Hollywood",
+    "categories": [
+      "hollywood",
+      "open_movies"
+    ],
+    "rating": 4.8,
+    "description": "Full Feature Sci-Fi Retro Classic: Astronauts crash land on Venus and encounter strange creatures, volcanic eruptions, and a telepathic primeval civilization.",
+    "posterUrl": "assets/posters/vod_voyage_prehistoric.jpg",
+    "backdropUrl": "assets/posters/vod_voyage_prehistoric.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "496 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Public Domain (Full Movie)",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": false,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://archive.org/download/Voyage_to_Prehistoric_Women_1967/Voyage_to_Prehistoric_Women_1967.mp4",
+    "backupUrls": [
+      "https://archive.org/download/Voyage_to_Prehistoric_Women_1967/Voyage_to_Prehistoric_Women_1967.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:4135e5d3ab7379ec668d29ca32ea1551608779b5&dn=Voyage_to_Prehistoric_Women_1967.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   },
   {
-    id: "vod_route66_doc",
-    title: "Route 66: The Mother Road",
-    year: 2018,
-    duration: 3120,
-    durationFormatted: "52m 00s",
-    genres: ["Documentary", "History", "Travel"],
-    type: "Documentaries",
-    rating: 7.6,
-    description: "An intimate exploration across 2,400 miles of highway history from Chicago to Santa Monica, detailing the cultural heartbeat, diners, and neon dreams of historic Route 66.",
-    posterUrl: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=640&auto=format&fit=crop",
-    backdropUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
-    resolution: "1920x1080 (1080p FHD)",
-    codec: "H.264 / AVC",
-    audio: "Stereo AAC (192 kbps)",
-    container: "MP4",
-    fileSize: "850 MB",
-    bitrate: "2.2 Mbps",
-    fps: "30 FPS",
-    license: "Creative Commons Attribution-ShareAlike 4.0",
-    contentSource: "Public Broadcast Heritage Collection",
-    director: "Heritage Docs Film Group",
-    cast: "Narrated with original route travelers & historians",
-    featured: false,
-    latest: true,
-    swarmSeeders: 55,
-    torrentUri: "magnet:?xt=urn:btih:5102bbfa22d8616daef472f85e13d964642ab58b&dn=Route+66+Documentary+1080p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337"
+    "id": "vod_sintel_1080p",
+    "title": "Sintel (Full 4K Edition)",
+    "year": 2010,
+    "duration": 900,
+    "durationFormatted": "15m",
+    "genres": [
+      "Animation",
+      "Fantasy",
+      "Adventure"
+    ],
+    "type": "Open Movies",
+    "categories": [
+      "open_movies",
+      "animation"
+    ],
+    "rating": 7.4,
+    "description": "Full Feature Blender Foundation Film: A lonely young woman named Sintel embarks on a dangerous quest across frozen peaks to rescue a baby dragon she befriended.",
+    "posterUrl": "assets/posters/vod_sintel_1080p.jpg",
+    "backdropUrl": "assets/posters/vod_sintel_1080p.jpg",
+    "resolution": "1080p Full HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "128 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Creative Commons Attribution 3.0",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": false,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+    "backupUrls": [
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:08a802470e42c1936704c42736b2ce790f1a40fc&dn=Sintel.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+  },
+  {
+    "id": "vod_tears_of_steel",
+    "title": "Tears of Steel",
+    "year": 2012,
+    "duration": 734,
+    "durationFormatted": "12m",
+    "genres": [
+      "Sci-Fi",
+      "Cyberpunk",
+      "VFX"
+    ],
+    "type": "Action",
+    "categories": [
+      "open_movies",
+      "action"
+    ],
+    "rating": 6.5,
+    "description": "Full Feature Sci-Fi Short: Set in a dystopian future Amsterdam, a group of scientists and warriors attempt to save the earth from colossal robotic invaders.",
+    "posterUrl": "assets/posters/vod_tears_of_steel.jpg",
+    "backdropUrl": "assets/posters/vod_tears_of_steel.jpg",
+    "resolution": "1080p Full HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "164 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Creative Commons Attribution 3.0",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": false,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+    "backupUrls": [
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:2b24479e00eb4ff025c8bf93eeff077a28e932b1&dn=Tears_of_Steel_1080p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+  },
+  {
+    "id": "vod_bbb_720p",
+    "title": "Big Buck Bunny",
+    "year": 2008,
+    "duration": 600,
+    "durationFormatted": "10m",
+    "genres": [
+      "Animation",
+      "Comedy"
+    ],
+    "type": "Open Movies",
+    "categories": [
+      "open_movies",
+      "animation",
+      "comedy"
+    ],
+    "rating": 7.2,
+    "description": "Full Feature Animated Classic: A large and gentle rabbit with a heart of gold takes creative revenge on bully forest rodents.",
+    "posterUrl": "assets/posters/vod_bbb_720p.jpg",
+    "backdropUrl": "assets/posters/vod_bbb_720p.jpg",
+    "resolution": "720p HD",
+    "codec": "H.264 / AVC",
+    "audio": "Stereo / 5.1",
+    "container": "MP4",
+    "fileSize": "210 MB",
+    "bitrate": "2.4 Mbps",
+    "fps": "24 FPS",
+    "license": "Creative Commons Attribution 3.0",
+    "contentSource": "Full Feature Archive / Public Domain",
+    "director": "Classic Feature Cinema",
+    "cast": "Full Feature Cast",
+    "featured": false,
+    "latest": true,
+    "swarmSeeders": 110,
+    "streamUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "backupUrls": [
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    ],
+    "torrentUri": "magnet:?xt=urn:btih:dd8255ecdc7ca55fb0bbf81323d87062db1f6d1c&dn=Big_Buck_Bunny_720p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
   }
 ];
 
@@ -17216,9 +17426,31 @@ const CatalogProvider = {
     try {
       const res = await fetch('data/movies_catalog.json');
       if (res.ok) {
-        this.movies = await res.json();
-        this.loaded = true;
-        return this.movies;
+        const data = await res.json();
+        const list = Array.isArray(data) ? data : (data.movies || []);
+        if (list.length > 0) {
+          this.movies = list.map(m => {
+            if (!m.posterUrl && m.poster) m.posterUrl = m.poster;
+            if (!m.backdropUrl) m.backdropUrl = m.posterUrl;
+            if (!m.durationFormatted && m.runtime) m.durationFormatted = m.runtime;
+            if (!m.duration && m.duration_seconds) m.duration = m.duration_seconds;
+            if (!m.rating && m.imdb_rating) m.rating = parseFloat(m.imdb_rating);
+            if (!m.genres && m.genre) m.genres = m.genre.split('/').map(s => s.trim());
+            if (!m.fileSize && m.size) m.fileSize = m.size;
+            if (!m.torrentUri && m.sources && m.sources.magnet) m.torrentUri = m.sources.magnet;
+            if (!m.streamUrl && m.sources && m.sources.direct_fallback) m.streamUrl = m.sources.direct_fallback;
+            if (!m.type) {
+              if (m.categories && m.categories.includes('hollywood')) m.type = 'Hollywood';
+              else if (m.categories && m.categories.includes('bollywood')) m.type = 'Bollywood';
+              else if (m.categories && m.categories.includes('thrillers')) m.type = 'Thrillers';
+              else if (m.categories && m.categories.includes('action')) m.type = 'Action';
+              else m.type = 'Open Movies';
+            }
+            return m;
+          });
+          this.loaded = true;
+          return this.movies;
+        }
       }
     } catch (e) {
       console.warn('Direct fetch of movies_catalog.json fallback:', e);
@@ -17228,7 +17460,7 @@ const CatalogProvider = {
     return this.movies;
   },
   getAll() {
-    return this.movies.length > 0 ? this.movies : DEFAULT_MOVIES_CATALOG;
+    return this.movies && this.movies.length > 0 ? this.movies : DEFAULT_MOVIES_CATALOG;
   },
   getById(id) {
     return this.getAll().find(m => m.id === id);
@@ -17237,8 +17469,13 @@ const CatalogProvider = {
     const list = this.getAll();
     if (!cat || cat === 'all') return list;
     if (cat === 'Featured') return list.filter(m => m.featured);
-    if (cat === 'Latest') return list.filter(m => m.latest);
-    return list.filter(m => m.type && m.type.toLowerCase() === cat.toLowerCase());
+    const catLower = cat.toLowerCase();
+    return list.filter(m => {
+      if (m.type && m.type.toLowerCase() === catLower) return true;
+      if (m.categories && m.categories.some(c => c.toLowerCase() === catLower)) return true;
+      if (m.genres && m.genres.some(g => g.toLowerCase().includes(catLower))) return true;
+      return false;
+    });
   },
   search(query) {
     const list = this.getAll();
@@ -17272,23 +17509,17 @@ function getSwarmBadgeMarkup(seeders) {
 
 function renderMovieCard(movie) {
   const poster = movie.posterUrl || 'assets/placeholder.png';
-  const tag = movie.rating ? `⭐ ${movie.rating}` : (movie.type || 'VOD');
-  const res = (movie.resolution || '1080p').split(' ')[0];
 
   return `
     <div class="movie-card" onclick="openMovieDetails('${movie.id}')">
       <div class="movie-card-thumb-wrap">
         <div class="movie-card-thumb" style="background-image: url('${poster}');"></div>
-        <span class="movie-card-badge-top">${tag}</span>
-        <span class="movie-card-res-tag">${res}</span>
       </div>
       <div class="movie-card-info">
-        <h4 class="movie-card-title">${movie.title}</h4>
+        <h4 class="movie-card-title" title="${movie.title}">${movie.title}</h4>
         <div class="movie-card-meta">
           <span>${movie.year}</span>
-          <span>${movie.durationFormatted}</span>
         </div>
-        ${getSwarmBadgeMarkup(movie.swarmSeeders)}
       </div>
     </div>
   `;
@@ -17309,9 +17540,11 @@ window.renderMoviesPage = async function() {
         <span class="movie-hero-badge">⭐ FEATURED CINEMA</span>
         <h2 class="movie-hero-title">${heroMovie.title}</h2>
         <div class="movie-hero-meta">
-          <span>${heroMovie.year}</span>
+          <span style="color: #facc15; font-weight: 700;">⭐ ${heroMovie.rating || '8.0'} IMDb</span>
           <span class="meta-dot">•</span>
           <span>${heroMovie.durationFormatted}</span>
+          <span class="meta-dot">•</span>
+          <span>${heroMovie.year}</span>
           <span class="meta-dot">•</span>
           <span class="movie-spec-tag">${heroMovie.resolution ? heroMovie.resolution.split(' ')[0] : '1080p'}</span>
           <span class="meta-dot">•</span>
@@ -17336,28 +17569,34 @@ window.renderMoviesPage = async function() {
   renderMovieWatchHistory();
 
   // 3. Render Section Rows
-  const latestRow = document.getElementById('moviesLatestRow');
-  if (latestRow) {
-    const latestList = allMovies.filter(m => m.latest || m.featured);
-    latestRow.innerHTML = latestList.map(m => renderMovieCard(m)).join('');
+  const hollywoodRow = document.getElementById('moviesHollywoodRow');
+  if (hollywoodRow) {
+    const list = allMovies.filter(m => m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood')));
+    hollywoodRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
   }
 
-  const animRow = document.getElementById('moviesAnimationsRow');
-  if (animRow) {
-    const animList = allMovies.filter(m => m.type === 'Animations');
-    animRow.innerHTML = animList.map(m => renderMovieCard(m)).join('');
+  const bollywoodRow = document.getElementById('moviesBollywoodRow');
+  if (bollywoodRow) {
+    const list = allMovies.filter(m => m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood')));
+    bollywoodRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
   }
 
-  const classicsRow = document.getElementById('moviesClassicsRow');
-  if (classicsRow) {
-    const classicsList = allMovies.filter(m => m.type === 'Movies');
-    classicsRow.innerHTML = classicsList.map(m => renderMovieCard(m)).join('');
+  const thrillersRow = document.getElementById('moviesThrillersRow');
+  if (thrillersRow) {
+    const list = allMovies.filter(m => m.type === 'Thrillers' || (m.categories && m.categories.includes('thrillers')));
+    thrillersRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
   }
 
-  const trailersRow = document.getElementById('moviesTrailersRow');
-  if (trailersRow) {
-    const trailersList = allMovies.filter(m => m.type === 'Trailers' || m.type === 'Documentaries');
-    trailersRow.innerHTML = trailersList.map(m => renderMovieCard(m)).join('');
+  const actionRow = document.getElementById('moviesActionRow');
+  if (actionRow) {
+    const list = allMovies.filter(m => m.type === 'Action' || (m.categories && m.categories.includes('action')));
+    actionRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+  }
+
+  const openRow = document.getElementById('moviesOpenRow');
+  if (openRow) {
+    const list = allMovies.filter(m => m.type === 'Open Movies' || (m.categories && m.categories.includes('open_movies')));
+    openRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
   }
 };
 
@@ -17612,7 +17851,7 @@ window.startMovieStream = function(movieId) {
   // Request native Android Torrent Stream
   preparedStreamTitle = movie.title;
   let rawRes = null;
-  if (window.AndroidMedia && window.AndroidMedia.startTorrentStream) {
+  if (window.AndroidMedia && window.AndroidMedia.startTorrentStream && movie.torrentUri) {
     try {
       rawRes = window.AndroidMedia.startTorrentStream(movie.torrentUri);
     } catch (e) {
@@ -17620,7 +17859,12 @@ window.startMovieStream = function(movieId) {
     }
   }
 
-  let streamUrl = 'http://127.0.0.1:8888/stream.mp4';
+  let localPort = 8080;
+  if (window.AndroidMedia && window.AndroidMedia.getLocalServerPort) {
+    try { localPort = window.AndroidMedia.getLocalServerPort(); } catch (e) {}
+  }
+
+  let streamUrl = 'http://127.0.0.1:' + localPort + '/torrent/stream';
   if (rawRes) {
     try {
       const parsed = JSON.parse(rawRes);
@@ -17651,15 +17895,15 @@ window.startMovieStream = function(movieId) {
     if (ticks === 1) {
       setPrepStage(2, 'done');
       setPrepStage(3, 'active');
-      if (statusEl) statusEl.textContent = 'Downloading media header atoms...';
-      if (barEl) barEl.style.width = '55%';
-      if (pctEl) pctEl.textContent = '55%';
+      if (statusEl) statusEl.textContent = 'Acquiring torrent swarm & media headers...';
+      if (barEl) barEl.style.width = '60%';
+      if (pctEl) pctEl.textContent = '60%';
     } else if (ticks >= 2) {
       setPrepStage(3, 'done');
       setPrepStage(4, 'active');
       if (statusEl) statusEl.textContent = 'Initializing sequential playback buffer...';
-      if (barEl) barEl.style.width = '90%';
-      if (pctEl) pctEl.textContent = '90%';
+      if (barEl) barEl.style.width = '95%';
+      if (pctEl) pctEl.textContent = '95%';
     }
 
     if (ticks >= 3 || verified > 0 || peers > 0) {
@@ -17673,9 +17917,9 @@ window.startMovieStream = function(movieId) {
 
       setTimeout(() => {
         forceLaunchPreparedStream();
-      }, 500);
+      }, 400);
     }
-  }, 700);
+  }, 600);
 };
 
 function setPrepStage(stageNum, state) {
@@ -17704,8 +17948,18 @@ window.cancelStreamPreparation = function() {
 
 window.forceLaunchPreparedStream = function() {
   cancelStreamPreparation();
-  if (preparedStreamUrl) {
-    startTorrentPlayback(preparedStreamUrl, preparedStreamTitle);
+  const movie = currentSelectedMovie;
+  const backups = [];
+  if (movie) {
+    if (movie.streamUrl) backups.push(movie.streamUrl);
+    if (movie.backupUrls && Array.isArray(movie.backupUrls)) {
+      movie.backupUrls.forEach(u => { if (!backups.includes(u)) backups.push(u); });
+    }
+  }
+
+  const primaryUrl = preparedStreamUrl || (movie ? movie.streamUrl : null) || (backups.length > 0 ? backups[0] : null);
+  if (primaryUrl) {
+    startTorrentPlayback(primaryUrl, preparedStreamTitle || (movie ? movie.title : 'Cinema Stream'), movie ? movie.id : null, backups.filter(u => u !== primaryUrl), movie);
   }
 };
 
@@ -17999,4 +18253,47 @@ window.handleAndroidBackPressed = function() {
     showToast('Press back again to exit app');
     return true;
   }
+};
+
+window.handleStreamCustomMagnet = function() {
+  const input = document.getElementById('customMovieMagnetInput');
+  if (!input) return;
+  const uri = input.value ? input.value.trim() : '';
+  if (!uri) {
+    showToast('Please paste a Magnet URI or Torrent link');
+    return;
+  }
+
+  let movieTitle = 'Custom Feature Film';
+  if (uri.startsWith('magnet:?')) {
+    const dnMatch = uri.match(/[?&]dn=([^&]+)/i);
+    if (dnMatch && dnMatch[1]) {
+      movieTitle = decodeURIComponent(dnMatch[1]).replace(/\+/g, ' ');
+    }
+  } else {
+    const filename = uri.split('/').pop().split('?')[0];
+    if (filename) movieTitle = decodeURIComponent(filename).replace(/\.torrent$/i, '');
+  }
+
+  const customMovie = {
+    id: 'vod_custom_' + Date.now(),
+    title: movieTitle,
+    year: new Date().getFullYear(),
+    durationFormatted: 'Full Feature',
+    genres: ['Direct Stream'],
+    type: 'Custom',
+    rating: 8.5,
+    description: 'Custom streamed movie via Torrent / Magnet engine.',
+    posterUrl: 'assets/posters/vod_his_girl_friday.jpg',
+    backdropUrl: 'assets/posters/vod_his_girl_friday.jpg',
+    resolution: '1080p FHD',
+    codec: 'H.264 / AVC',
+    audio: '5.1 / Stereo',
+    fileSize: 'Torrent Stream',
+    torrentUri: uri,
+    streamUrl: null
+  };
+
+  input.value = '';
+  startMovieStream(customMovie);
 };

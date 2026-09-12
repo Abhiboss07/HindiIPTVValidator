@@ -41,6 +41,10 @@ public class PeerConnection implements Runnable {
         return socket != null && socket.isConnected() && !socket.isClosed();
     }
 
+    public InetSocketAddress getAddress() {
+        return address;
+    }
+
     public void close() {
         isRunning.set(false);
         try {

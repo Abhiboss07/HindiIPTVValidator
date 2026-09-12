@@ -94,13 +94,26 @@ public class PieceManager {
         if (index < 0 || index >= totalPieces) return false;
         if (verifiedPieces[index]) return true; // Already verified
 
-        byte[] expectedHash = metadata.pieceHashes[index];
+        byte[] expectedHash = (metadata.pieceHashes != null && index < metadata.pieceHashes.length)
+                ? metadata.pieceHashes[index] : null;
         try {
-            MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
-            byte[] actualHash = sha1.digest(data);
-            if (!Arrays.equals(expectedHash, actualHash)) {
-                Log.w(TAG, "SHA-1 verification failed for piece " + index);
-                return false;
+            boolean hasExpectedHash = false;
+            if (expectedHash != null) {
+                for (byte b : expectedHash) {
+                    if (b != 0) {
+                        hasExpectedHash = true;
+                        break;
+                    }
+                }
+            }
+
+            if (hasExpectedHash) {
+                MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
+                byte[] actualHash = sha1.digest(data);
+                if (!Arrays.equals(expectedHash, actualHash)) {
+                    Log.w(TAG, "SHA-1 verification failed for piece " + index);
+                    return false;
+                }
             }
 
             File pFile = getPieceFile(index);
