@@ -106,9 +106,7 @@
     "quality": "1080p FHD",
     "description": "Award-winning BBC Earth factual entertainment and natural history in Hindi.",
     "url": "https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8",
-    "backupUrls": [
-      "https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8"
-    ],
+    "backupUrls": [],
     "isFeatured": true
   },
   {
@@ -117,27 +115,11 @@
     "type": "tv",
     "country": "IN",
     "countryName": "India (International)",
-    "flag": "\ud83c\udf70",
+    "flag": "🍰",
     "category": "Entertainment",
     "quality": "1080p FHD",
     "description": "Premier international lifestyle, travel, cuisine, and makeover shows in Hindi.",
-    "url": "https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8",
-    "backupUrls": [
-      "https://dltiqboxjw21d.cloudfront.net/index.m3u8"
-    ],
-    "isFeatured": true
-  },
-  {
-    "id": "zee-andtv-hd",
-    "name": "&TV HD (Zee Entertainment)",
-    "type": "tv",
-    "country": "IN",
-    "countryName": "India",
-    "flag": "\ud83c\udfad",
-    "category": "Entertainment",
-    "quality": "1080p FHD",
-    "description": "Popular Hindi drama serials, comedy shows, and family entertainment.",
-    "url": "https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8",
+    "url": "https://dltiqboxjw21d.cloudfront.net/index.m3u8",
     "backupUrls": [],
     "isFeatured": true
   },

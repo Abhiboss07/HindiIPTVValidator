@@ -837,6 +837,35 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public String fetchRemoteUrl(String urlString) {
+            try {
+                java.net.URL url = new java.net.URL(urlString);
+                java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setConnectTimeout(10000);
+                conn.setReadTimeout(15000);
+                conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android 14; Pixel 6a) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36 T2L/2.5");
+                int respCode = conn.getResponseCode();
+                if (respCode >= 200 && respCode < 300) {
+                    java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(conn.getInputStream(), java.nio.charset.StandardCharsets.UTF_8));
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line).append('\n');
+                    }
+                    reader.close();
+                    return sb.toString();
+                } else {
+                    Log.w(TAG, "fetchRemoteUrl HTTP " + respCode + " for " + urlString);
+                    return null;
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "fetchRemoteUrl error: " + e.getMessage());
+                return null;
+            }
+        }
+
+        @JavascriptInterface
         public void logError(String msg) {
             Log.e(TAG, "[JS ERROR] " + msg);
         }

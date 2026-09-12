@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-29T15:49:47.855173Z",
+  "generated_at": "2026-09-12T06:00:20.176054+00:00",
   "summary": {
-    "total_checked": 5,
-    "healthy": 4,
-    "unreachable": 1,
+    "total_checked": 10,
+    "healthy": 10,
+    "unreachable": 0,
     "invalid_manifest": 0,
     "potential_mismatch": 0
   },
@@ -22,7 +22,7 @@
       },
       "notes": "Stream responsive with valid media manifest.",
       "confirmed_dead": false,
-      "timestamp": "2026-08-29T15:49:26.157173Z"
+      "timestamp": "2026-09-12T06:00:08.431856+00:00"
     },
     {
       "id": "natgeo-hindi-hd",
@@ -38,7 +38,7 @@
       },
       "notes": "Stream responsive with valid media manifest.",
       "confirmed_dead": false,
-      "timestamp": "2026-08-29T15:49:26.846550Z"
+      "timestamp": "2026-09-12T06:00:09.488482+00:00"
     },
     {
       "id": "animal-planet-hindi-hd",
@@ -54,7 +54,7 @@
       },
       "notes": "Stream responsive with valid media manifest.",
       "confirmed_dead": false,
-      "timestamp": "2026-08-29T15:49:33.318024Z"
+      "timestamp": "2026-09-12T06:00:10.208745+00:00"
     },
     {
       "id": "disney-channel-hindi-hd",
@@ -70,20 +70,103 @@
       },
       "notes": "Stream responsive with valid media manifest.",
       "confirmed_dead": false,
-      "timestamp": "2026-08-29T15:49:34.188525Z"
+      "timestamp": "2026-09-12T06:00:11.095538+00:00"
     },
     {
       "id": "cartoon-network-hindi-hd",
       "name": "Cartoon Network HD (Hindi Dubbed)",
       "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8",
-      "status": "unreachable",
-      "http_code": 502,
-      "manifest_valid": false,
-      "has_cors": false,
-      "metadata_extracted": {},
-      "notes": "HTTP Error 502: Bad Gateway",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": true,
+      "metadata_extracted": {
+        "content_type": "application/vnd.apple.mpegurl",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
       "confirmed_dead": false,
-      "timestamp": "2026-08-29T15:49:40.796926Z"
+      "timestamp": "2026-09-12T06:00:11.691860+00:00"
+    },
+    {
+      "id": "nickelodeon-hindi-hd",
+      "name": "Nickelodeon HD (Hindi Dubbed)",
+      "url": "https://jmp2.uk/plu-63f87d057533d80008ab9549.m3u8",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": true,
+      "metadata_extracted": {
+        "content_type": "application/x-mpegURL",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
+      "confirmed_dead": false,
+      "timestamp": "2026-09-12T06:00:12.713900+00:00"
+    },
+    {
+      "id": "sony-bbc-earth-hindi-hd",
+      "name": "Sony BBC Earth HD (Hindi)",
+      "url": "https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": false,
+      "metadata_extracted": {
+        "content_type": "application/vnd.apple.mpegurl",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
+      "confirmed_dead": false,
+      "timestamp": "2026-09-12T06:00:16.076731+00:00"
+    },
+    {
+      "id": "tlc-hindi-hd",
+      "name": "TLC HD (Hindi Lifestyle)",
+      "url": "https://dltiqboxjw21d.cloudfront.net/index.m3u8",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": true,
+      "metadata_extracted": {
+        "content_type": "application/vnd.apple.mpegurl",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
+      "confirmed_dead": false,
+      "timestamp": "2026-09-12T06:00:17.204250+00:00"
+    },
+    {
+      "id": "9x-jalwa",
+      "name": "9X Jalwa Classic Hits HD",
+      "url": "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": false,
+      "metadata_extracted": {
+        "content_type": "application/x-mpegURL",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
+      "confirmed_dead": false,
+      "timestamp": "2026-09-12T06:00:17.795160+00:00"
+    },
+    {
+      "id": "9xm-hd",
+      "name": "9XM Bollywood Music HD",
+      "url": "https://9xjio.wiseplayout.com/9XM/master.m3u8",
+      "status": "healthy",
+      "http_code": 200,
+      "manifest_valid": true,
+      "has_cors": true,
+      "metadata_extracted": {
+        "content_type": "application/vnd.apple.mpegurl",
+        "hls_type": "master_playlist"
+      },
+      "notes": "Stream responsive with valid media manifest.",
+      "confirmed_dead": false,
+      "timestamp": "2026-09-12T06:00:18.261722+00:00"
     }
   ]
 }

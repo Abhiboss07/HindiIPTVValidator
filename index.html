@@ -1266,6 +1266,26 @@
 
                 <div class="drawer-divider"></div>
 
+                <!-- Dynamic Remote Catalog Sync -->
+                <div class="setting-item-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <div>
+                            <div class="setting-item-title" style="display: flex; align-items: center; gap: 6px;">
+                                <span>🌐</span> Dynamic Catalog Updates
+                            </div>
+                            <div id="catalogSyncStatusText" class="setting-item-desc" style="color: #94a3b8;">Automatic cloud sync enabled</div>
+                        </div>
+                        <button id="catalogSyncBtn" class="health-btn-action" style="background: rgba(229, 9, 20, 0.15); border: 1px solid rgba(229, 9, 20, 0.4); color: #f87171; padding: 6px 12px;" onclick="syncRemoteCatalog(true)">
+                            <span>🔄</span> Update Now
+                        </button>
+                    </div>
+                    <div style="width: 100%; margin-top: 4px;">
+                        <input id="settingRemoteCatalogUrl" type="url" class="vlc-custom-input" placeholder="Custom Catalog JSON URL (optional)" style="width: 100%; font-size: 11px; padding: 6px 10px; box-sizing: border-box; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: #fff;" onchange="saveAppSetting('remote_catalog_url', this.value.trim())">
+                    </div>
+                </div>
+
+                <div class="drawer-divider"></div>
+
                 <!-- Channel Health & Quarantine Manager -->
                 <div class="channel-health-section">
                     <div style="margin-bottom: 8px;">
