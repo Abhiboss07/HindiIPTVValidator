@@ -7,6 +7,12 @@ PLATFORM="$SDK_DIR/platforms/android-35/android.jar"
 
 echo "🚀 Building T2L (Television to Live) APK..."
 
+echo "0️⃣ Syncing Web Assets to android_app/src/main/assets..."
+mkdir -p android_app/src/main/assets
+cp -f index.html android_app/src/main/assets/index.html
+cp -rf assets android_app/src/main/assets/
+cp -rf data android_app/src/main/assets/
+
 rm -rf android_app/build
 mkdir -p android_app/build/obj android_app/build/apk android_app/build/dex
 
@@ -23,11 +29,12 @@ $BUILD_TOOLS/aapt2 link -I $PLATFORM \
   --min-sdk-version 24 --target-sdk-version 34 --auto-add-overlay
 
 echo "3️⃣ Compiling Java Code..."
-javac --release 11 -cp $PLATFORM -d android_app/build/obj \
-  android_app/src/main/java/com/aakashstream/app/*.java
+JAVA_FILES=$(find android_app/src/main/java -name "*.java")
+javac --release 11 -cp $PLATFORM -d android_app/build/obj $JAVA_FILES
 
 echo "4️⃣ Converting to DEX (d8)..."
-$BUILD_TOOLS/d8 --lib $PLATFORM --output android_app/build/dex android_app/build/obj/com/aakashstream/app/*.class
+CLASS_FILES=$(find android_app/build/obj -name "*.class")
+$BUILD_TOOLS/d8 --lib $PLATFORM --output android_app/build/dex $CLASS_FILES
 
 echo "5️⃣ Packaging DEX and Native Libraries (.so) into APK..."
 python3 -c "

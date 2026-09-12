@@ -3995,3 +3995,130 @@ html, body {
 .health-btn-action:active {
   transform: scale(0.97);
 }
+
+/* ==========================================================
+   SEQUENTIAL TORRENT STREAM & DIAGNOSTICS HUD
+   ========================================================== */
+#torrentModal, #speedTestModal {
+  align-items: center;
+  justify-content: center;
+}
+
+.torrent-modal-card {
+  width: 92%;
+  max-width: 460px;
+  background: #121316;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 22px;
+  padding: 22px;
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.torrent-textarea {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 12px;
+  font-family: var(--font-mono, monospace);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.torrent-textarea:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.torrent-quick-btn {
+  flex: 1;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.torrent-quick-btn:hover, .torrent-quick-btn:active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.torrent-action-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.1s ease;
+}
+
+.torrent-action-btn:active {
+  transform: scale(0.97);
+}
+
+.torrent-action-cancel {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.torrent-action-start {
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: #000;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);
+}
+
+/* Player Torrent HUD Overlay */
+.torrent-hud-overlay {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  animation: modalFadeIn 0.3s ease;
+}
+
+.torrent-hud-badge {
+  font-size: 10px;
+  font-weight: 900;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+}
+
+.torrent-hud-stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f1f5f9;
+  font-family: var(--font-mono, monospace);
+}
+
+.torrent-hud-dot {
+  color: rgba(255, 255, 255, 0.3);
+}

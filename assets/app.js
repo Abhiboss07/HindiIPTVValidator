@@ -14240,6 +14240,19 @@ function loadChannelMedia(ch, autoPlay) {
   }
   isNativeDDPActive = false;
 
+  // Stop previous torrent stream if switching to another media
+  if (!ch.isTorrent) {
+    if (typeof torrentHudInterval !== 'undefined' && torrentHudInterval) {
+      clearInterval(torrentHudInterval);
+      torrentHudInterval = null;
+    }
+    const torrentHud = document.getElementById('torrentHud');
+    if (torrentHud) torrentHud.style.display = 'none';
+    if (window.AndroidMedia && window.AndroidMedia.stopTorrentStream) {
+      try { window.AndroidMedia.stopTorrentStream(); } catch(eT) {}
+    }
+  }
+
   // Check saved resume point for offline/local media
   const resumeKey = 'aakash_resume_' + ch.id;
   const savedResumeTime = ch.isLocal ? parseInt(localStorage.getItem(resumeKey) || '0', 10) : 0;
@@ -14681,6 +14694,17 @@ window.closeMiniPlayer = function(e) {
     window.AndroidMedia.stopNativeAudio();
   }
   isNativeDDPActive = false;
+
+  // Stop torrent engine if streaming
+  if (typeof torrentHudInterval !== 'undefined' && torrentHudInterval) {
+    clearInterval(torrentHudInterval);
+    torrentHudInterval = null;
+  }
+  const torrentHud = document.getElementById('torrentHud');
+  if (torrentHud) torrentHud.style.display = 'none';
+  if (window.AndroidMedia && window.AndroidMedia.stopTorrentStream) {
+    try { window.AndroidMedia.stopTorrentStream(); } catch(eT) {}
+  }
 
   if (playerModal) {
     playerModal.classList.remove('active');
@@ -16659,6 +16683,179 @@ window.clearAppData = function() {
 function initParticles() {}
 
 // ==========================================================
+// SEQUENTIAL TORRENT STREAMING SUBSYSTEM
+// ==========================================================
+let torrentHudInterval = null;
+const SAMPLE_MAGNET_URI = 'magnet:?xt=urn:btih:dd8255ecdc7ca55fb0bbf81323d87062db1f6d1c&dn=Big+Buck+Bunny+720p&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337';
+
+window.openTorrentModal = function() {
+  const modal = document.getElementById('torrentModal');
+  if (modal) {
+    modal.classList.add('active');
+    modal.style.display = 'flex';
+  }
+  const statusEl = document.getElementById('torrentModalStatus');
+  if (statusEl) statusEl.style.display = 'none';
+};
+
+window.closeTorrentModal = function() {
+  const modal = document.getElementById('torrentModal');
+  if (modal) {
+    modal.classList.remove('active');
+    modal.style.display = 'none';
+  }
+};
+
+window.pasteSampleMagnet = function() {
+  const input = document.getElementById('torrentMagnetInput');
+  if (input) {
+    input.value = SAMPLE_MAGNET_URI;
+    showToast('Pasted Big Buck Bunny sample magnet');
+  }
+};
+
+window.handleTorrentFileSelect = function(event) {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+
+  const statusEl = document.getElementById('torrentModalStatus');
+  if (statusEl) {
+    statusEl.textContent = 'Reading torrent file: ' + file.name + '...';
+    statusEl.style.display = 'block';
+  }
+
+  const reader = new FileReader();
+  reader.onload = function() {
+    try {
+      const base64Content = reader.result.split(',')[1];
+      if (!window.AndroidMedia || !window.AndroidMedia.startTorrentFromFile) {
+        if (statusEl) statusEl.textContent = 'Torrent engine available in native Android app only.';
+        return;
+      }
+      const rawRes = window.AndroidMedia.startTorrentFromFile(base64Content, file.name);
+      let res = {};
+      if (typeof rawRes === 'string' && rawRes.startsWith('{')) {
+        res = JSON.parse(rawRes);
+      } else if (typeof rawRes === 'string' && rawRes.startsWith('http')) {
+        res = { success: true, streamUrl: rawRes, name: file.name };
+      }
+      if (res.success && res.streamUrl) {
+        startTorrentPlayback(res.streamUrl, res.name || file.name, res.infoHash);
+      } else {
+        if (statusEl) statusEl.textContent = 'Error: ' + (res.error || 'Failed to start torrent');
+      }
+    } catch (e) {
+      if (statusEl) statusEl.textContent = 'Error reading file: ' + e.message;
+    }
+  };
+  reader.readAsDataURL(file);
+};
+
+window.submitStartTorrentMagnet = function() {
+  const input = document.getElementById('torrentMagnetInput');
+  const magnetUri = input ? input.value.trim() : '';
+  const statusEl = document.getElementById('torrentModalStatus');
+
+  if (!magnetUri) {
+    if (statusEl) {
+      statusEl.textContent = 'Please enter a valid magnet link (magnet:?xt=urn:btih:...)';
+      statusEl.style.display = 'block';
+    }
+    return;
+  }
+
+  if (!magnetUri.startsWith('magnet:?')) {
+    if (statusEl) {
+      statusEl.textContent = 'Invalid URI. Must start with "magnet:?"';
+      statusEl.style.display = 'block';
+    }
+    return;
+  }
+
+  if (statusEl) {
+    statusEl.textContent = 'Connecting to BitTorrent swarm and discovering peers...';
+    statusEl.style.display = 'block';
+  }
+
+  if (!window.AndroidMedia || !window.AndroidMedia.startTorrentFromMagnet) {
+    if (statusEl) statusEl.textContent = 'Torrent engine available in native Android app only.';
+    return;
+  }
+
+  try {
+    const rawRes = window.AndroidMedia.startTorrentFromMagnet(magnetUri);
+    let res = {};
+    if (typeof rawRes === 'string' && rawRes.startsWith('{')) {
+      res = JSON.parse(rawRes);
+    } else if (typeof rawRes === 'string' && rawRes.startsWith('http')) {
+      res = { success: true, streamUrl: rawRes, name: 'Torrent Video Stream' };
+    }
+    if (res.success && res.streamUrl) {
+      startTorrentPlayback(res.streamUrl, res.name || 'Torrent Video Stream', res.infoHash);
+    } else {
+      if (statusEl) statusEl.textContent = 'Error: ' + (res.error || 'Failed to start torrent');
+    }
+  } catch (e) {
+    if (statusEl) statusEl.textContent = 'Engine error: ' + e.message;
+  }
+};
+
+function startTorrentPlayback(streamUrl, title, infoHash) {
+  closeTorrentModal();
+  showToast('Starting sequential stream: ' + title);
+
+  const torrentChannel = {
+    id: 'torrent_' + (infoHash || Date.now()),
+    name: title || 'Torrent Media Stream',
+    url: streamUrl,
+    isLocal: false,
+    isTorrent: true,
+    type: 'video',
+    category: 'P2P Torrent',
+    quality: 'Sequential Stream',
+    flag: '⚡'
+  };
+
+  playChannel(torrentChannel);
+  startTorrentHudMonitor();
+}
+
+function startTorrentHudMonitor() {
+  if (torrentHudInterval) clearInterval(torrentHudInterval);
+  const hudEl = document.getElementById('torrentHud');
+  if (hudEl) hudEl.style.display = 'flex';
+
+  torrentHudInterval = setInterval(() => {
+    if (!window.AndroidMedia || !window.AndroidMedia.getTorrentStatus) return;
+    try {
+      const rawStatus = window.AndroidMedia.getTorrentStatus();
+      const status = JSON.parse(rawStatus);
+      const speedEl = document.getElementById('torrentHudSpeed');
+      const peersEl = document.getElementById('torrentHudPeers');
+      const bufferEl = document.getElementById('torrentHudBuffer');
+
+      if (speedEl) {
+        const speedBps = status.downloadSpeed || 0;
+        if (speedBps > 1024 * 1024) {
+          speedEl.textContent = '↓ ' + (speedBps / (1024 * 1024)).toFixed(1) + ' MB/s';
+        } else {
+          speedEl.textContent = '↓ ' + Math.round(speedBps / 1024) + ' KB/s';
+        }
+      }
+
+      if (peersEl) {
+        peersEl.textContent = (status.connectedPeers || 0) + ' Peers';
+      }
+
+      if (bufferEl) {
+        const pct = Math.min(100, Math.round((status.progress || 0) * 100));
+        bufferEl.textContent = 'Buf: ' + pct + '%';
+      }
+    } catch (e) {}
+  }, 1000);
+}
+
+// ==========================================================
 // ANDROID HARDWARE BACK BUTTON & MODAL DISMISS HANDLER
 // ==========================================================
 let lastBackPressTime = 0;
@@ -16667,6 +16864,7 @@ window.handleAndroidBackPressed = function() {
   const playerModal = document.getElementById('playerModal');
   const drawer = document.getElementById('sideDrawerModal');
   const settings = document.getElementById('settingsModal');
+  const torrentModal = document.getElementById('torrentModal');
 
   // 1. If Video Player is open, close/minimize video and stay in app
   if (playerModal && playerModal.classList.contains('active')) {
@@ -16674,25 +16872,31 @@ window.handleAndroidBackPressed = function() {
     return true;
   }
 
-  // 2. If Side Navigation Drawer is open, close drawer
+  // 2. If Torrent Modal is open, close it
+  if (torrentModal && torrentModal.style.display === 'flex') {
+    closeTorrentModal();
+    return true;
+  }
+
+  // 3. If Side Navigation Drawer is open, close drawer
   if (drawer && drawer.classList.contains('active')) {
     toggleMenuDrawer();
     return true;
   }
 
-  // 3. If Settings Modal is open, close settings
+  // 4. If Settings Modal is open, close settings
   if (settings && settings.classList.contains('active')) {
     closeSettingsModal();
     return true;
   }
 
-  // 4. If on another page, navigate back to Home
+  // 5. If on another page, navigate back to Home
   if (currentActivePage !== 'home') {
     switchPage('home');
     return true;
   }
 
-  // 5. If at Home page with no modals, require double-tap to exit
+  // 6. If at Home page with no modals, require double-tap to exit
   const now = Date.now();
   if (now - lastBackPressTime < 2000) {
     return false; // Exit app

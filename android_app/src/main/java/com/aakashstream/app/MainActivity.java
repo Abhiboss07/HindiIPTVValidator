@@ -19,7 +19,9 @@ import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import com.aakashstream.app.torrent.*;
 import java.nio.ByteBuffer;
+import java.io.File;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import android.os.Bundle;
@@ -82,6 +84,7 @@ public class MainActivity extends Activity {
     private volatile boolean isServerRunning = false;
     private java.util.concurrent.ExecutorService serverExecutor;
     private AndroidMediaBridge mediaBridge;
+    private TorrentEngine torrentEngine;
 
     private static final String ACTION_PIP_PREV = "com.aakashstream.app.PIP_PREV";
     private static final String ACTION_PIP_PLAY_PAUSE = "com.aakashstream.app.PIP_PLAY_PAUSE";
@@ -223,6 +226,11 @@ public class MainActivity extends Activity {
                         params.put(entry[0], "");
                     }
                 }
+            }
+
+            if ("/torrent/stream".equals(path)) {
+                handleTorrentStreamRequest(socket, method, rangeHeader, out);
+                return;
             }
 
             String idStr = params.get("id");
@@ -410,6 +418,99 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void handleTorrentStreamRequest(Socket socket, String method, String rangeHeader, OutputStream out) {
+        try {
+            if (torrentEngine == null || !torrentEngine.isRunning() || torrentEngine.getMetadata() == null) {
+                String resp = "HTTP/1.1 503 Service Unavailable\r\nContent-Length: 0\r\n\r\n";
+                out.write(resp.getBytes("UTF-8"));
+                out.flush();
+                socket.close();
+                return;
+            }
+
+            TorrentMetadata meta = torrentEngine.getMetadata();
+            TorrentMetadata.TorrentFile videoFile = meta.getPlayableVideoFile();
+            long totalLength = videoFile != null ? videoFile.length : meta.totalLength;
+
+            long start = 0;
+            long end = totalLength > 0 ? (totalLength - 1) : 0;
+            boolean isRange = false;
+            boolean isExplicitEnd = false;
+
+            if (rangeHeader != null && rangeHeader.startsWith("bytes=")) {
+                isRange = true;
+                String rangeSpec = rangeHeader.substring(6).trim();
+                String[] parts = rangeSpec.split("-");
+                try {
+                    if (parts.length > 0 && !parts[0].isEmpty()) {
+                        start = Long.parseLong(parts[0]);
+                    }
+                    if (parts.length > 1 && !parts[1].isEmpty()) {
+                        end = Long.parseLong(parts[1]);
+                        isExplicitEnd = true;
+                    }
+                } catch (NumberFormatException ignored) {}
+            }
+
+            if (!isExplicitEnd && totalLength > 0) {
+                long maxChunk = 2 * 1024 * 1024;
+                end = Math.min(start + maxChunk - 1, totalLength - 1);
+            }
+            if (totalLength > 0 && end >= totalLength) end = totalLength - 1;
+            if (start > end && totalLength > 0) {
+                start = 0;
+                end = totalLength - 1;
+            }
+
+            long contentLength = totalLength > 0 ? (end - start + 1) : 0;
+            torrentEngine.setPlaybackPosition(start);
+
+            StringBuilder headers = new StringBuilder();
+            if (isRange && totalLength > 0) {
+                headers.append("HTTP/1.1 206 Partial Content\r\n");
+                headers.append("Content-Range: bytes ").append(start).append("-").append(end).append("/").append(totalLength).append("\r\n");
+            } else {
+                headers.append("HTTP/1.1 200 OK\r\n");
+            }
+            headers.append("Content-Type: video/mp4\r\n");
+            headers.append("Accept-Ranges: bytes\r\n");
+            headers.append("Access-Control-Allow-Origin: *\r\n");
+            headers.append("Access-Control-Allow-Methods: GET, HEAD, OPTIONS\r\n");
+            headers.append("Access-Control-Allow-Headers: *\r\n");
+            headers.append("Access-Control-Expose-Headers: Content-Range, Content-Length, Accept-Ranges\r\n");
+            headers.append("Cache-Control: no-cache, no-store\r\n");
+            if (contentLength > 0) {
+                headers.append("Content-Length: ").append(contentLength).append("\r\n");
+            }
+            headers.append("\r\n");
+
+            BufferedOutputStream bos = new BufferedOutputStream(out, 64 * 1024);
+            bos.write(headers.toString().getBytes("UTF-8"));
+
+            if (!"HEAD".equalsIgnoreCase(method) && contentLength > 0) {
+                byte[] buffer = new byte[32768];
+                long remaining = contentLength;
+                long curOffset = start;
+
+                while (remaining > 0 && isServerRunning) {
+                    int toRead = (int) Math.min(remaining, buffer.length);
+                    int read = torrentEngine.readStreamBytes(curOffset, toRead, buffer, 0, 10000);
+                    if (read > 0) {
+                        bos.write(buffer, 0, read);
+                        curOffset += read;
+                        remaining -= read;
+                    } else {
+                        break;
+                    }
+                }
+                bos.flush();
+            }
+            socket.close();
+        } catch (Exception e) {
+            try { socket.close(); } catch (Exception ignored) {}
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -417,6 +518,7 @@ public class MainActivity extends Activity {
         boolean isDebuggable = (getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0;
         WebView.setWebContentsDebuggingEnabled(isDebuggable);
         startLocalServer();
+        torrentEngine = new TorrentEngine(this);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -862,6 +964,69 @@ public class MainActivity extends Activity {
             } catch (Exception e) {
                 Log.e(TAG, "fetchRemoteUrl error: " + e.getMessage());
                 return null;
+            }
+        }
+
+        @JavascriptInterface
+        public String startTorrentFromMagnet(String magnetUri) {
+            try {
+                MagnetUri magnet = MagnetUri.parse(magnetUri);
+                TorrentMetadata meta = new TorrentMetadata(
+                    magnet.infoHash,
+                    magnet.displayName,
+                    1024 * 1024L,
+                    new byte[100][20],
+                    100 * 1024 * 1024L,
+                    java.util.Collections.singletonList(new TorrentMetadata.TorrentFile(0, magnet.displayName, magnet.displayName, 100 * 1024 * 1024L, 0)),
+                    magnet.trackers
+                );
+                torrentEngine.start(meta);
+                org.json.JSONObject obj = new org.json.JSONObject();
+                obj.put("success", true);
+                obj.put("streamUrl", "http://127.0.0.1:" + localServerPort + "/torrent/stream");
+                obj.put("name", magnet.displayName);
+                obj.put("infoHash", magnet.hexInfoHash);
+                return obj.toString();
+            } catch (Exception e) {
+                Log.e(TAG, "Error starting torrent magnet: " + e.getMessage());
+                return "{\"success\":false,\"error\":\"" + e.getMessage() + "\"}";
+            }
+        }
+
+        @JavascriptInterface
+        public String startTorrentFromFile(String base64OrPath, String fileName) {
+            try {
+                byte[] data;
+                File f = new File(base64OrPath);
+                if (f.exists() && f.isFile()) {
+                    data = java.nio.file.Files.readAllBytes(f.toPath());
+                } else {
+                    data = android.util.Base64.decode(base64OrPath, android.util.Base64.DEFAULT);
+                }
+                TorrentMetadata meta = TorrentMetadata.fromBytes(data);
+                torrentEngine.start(meta);
+                org.json.JSONObject obj = new org.json.JSONObject();
+                obj.put("success", true);
+                obj.put("streamUrl", "http://127.0.0.1:" + localServerPort + "/torrent/stream");
+                obj.put("name", meta.name);
+                obj.put("infoHash", meta.hexInfoHash);
+                return obj.toString();
+            } catch (Exception e) {
+                Log.e(TAG, "Error starting torrent file: " + e.getMessage());
+                return "{\"success\":false,\"error\":\"" + e.getMessage() + "\"}";
+            }
+        }
+
+        @JavascriptInterface
+        public String getTorrentStatus() {
+            if (torrentEngine == null) return "{}";
+            return torrentEngine.getStatusJson().toString();
+        }
+
+        @JavascriptInterface
+        public void stopTorrentStream() {
+            if (torrentEngine != null) {
+                torrentEngine.stop();
             }
         }
 
@@ -1444,6 +1609,11 @@ public class MainActivity extends Activity {
         if (mediaBridge != null) {
             try {
                 mediaBridge.stopNativeAudio();
+            } catch (Exception ignored) {}
+        }
+        if (torrentEngine != null) {
+            try {
+                torrentEngine.stop();
             } catch (Exception ignored) {}
         }
         isServerRunning = false;

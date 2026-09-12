@@ -337,6 +337,19 @@
                     <span style="font-size: 13px; font-weight: 700; color: #E50914; background: rgba(229, 9, 20, 0.2); padding: 4px 10px; border-radius: 9999px;">SCAN</span>
                 </div>
 
+                <div class="obsidian-card" style="padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.08);" onclick="openTorrentModal()">
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: #0284c7; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        </div>
+                        <div>
+                            <span style="font-size: 15px; font-weight: 700; color: #fff; display: block;">⚡ Sequential Torrent Stream</span>
+                            <span style="font-size: 12px; color: #38bdf8;">Stream videos directly from Magnet link or .torrent file</span>
+                        </div>
+                    </div>
+                    <span style="font-size: 12px; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.2); padding: 4px 10px; border-radius: 9999px;">STREAM</span>
+                </div>
+
                 <div class="obsidian-card" style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;" onclick="document.getElementById('localFileInput').click()">
                     <div style="display: flex; align-items: center; gap: 12px;">
                         <span style="font-size: 20px;">📁</span>
@@ -475,6 +488,18 @@
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span id="playerSwipeHudTitle" style="font-size: 13px; font-weight: 700; color: #FFFFFF;">Volume</span>
                 <span id="playerSwipeHudPct" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: #E50914;">100%</span>
+            </div>
+        </div>
+
+        <!-- Torrent Diagnostics HUD Overlay -->
+        <div id="torrentHud" class="torrent-hud-overlay" style="display: none;">
+            <div class="torrent-hud-badge">⚡ TORRENT</div>
+            <div class="torrent-hud-stats">
+                <span id="torrentHudSpeed">↓ 0 KB/s</span>
+                <span class="torrent-hud-dot">•</span>
+                <span id="torrentHudPeers">0 Peers</span>
+                <span class="torrent-hud-dot">•</span>
+                <span id="torrentHudBuffer">Buf: 0%</span>
             </div>
         </div>
 
@@ -1130,6 +1155,10 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="#facc15"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
                     <span style="color: #fff; font-weight: 600;">Saved Channels / My List</span>
                 </div>
+                <div class="drawer-menu-item" onclick="toggleMenuDrawer(); openTorrentModal();">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#38bdf8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                    <span style="color: #38bdf8; font-weight: 700;">⚡ Sequential Torrent Stream</span>
+                </div>
                 <div class="drawer-menu-item" onclick="toggleMenuDrawer(); openSpeedTestModal();">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="#22c55e"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
                     <span style="color: #22c55e; font-weight: 700;">⚡ Network Speed & Stream Optimizer</span>
@@ -1147,6 +1176,50 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="#a3a3a3"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
                     <span>Reload App & Streams</span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+         SEQUENTIAL TORRENT STREAM MODAL
+         ========================================================== -->
+    <div id="torrentModal" class="side-drawer-backdrop" onclick="closeTorrentModal()">
+        <div class="torrent-modal-card" onclick="event.stopPropagation()">
+            <div class="settings-header" style="margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 20px;">⚡</span>
+                    <h3 style="font-size: 17px; font-weight: 800; color: #fff;">Sequential Torrent Stream</h3>
+                </div>
+                <button class="icon-btn-plain" onclick="closeTorrentModal()">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#a3a3a3"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 16px; line-height: 1.5;">
+                Stream your authorized media in real-time as chunks download sequentially. No waiting for full downloads.
+            </p>
+
+            <div style="margin-bottom: 14px;">
+                <label style="display: block; font-size: 12px; font-weight: 600; color: #e2e8f0; margin-bottom: 6px;">Magnet URI</label>
+                <textarea id="torrentMagnetInput" placeholder="magnet:?xt=urn:btih:...&dn=..." rows="3" class="torrent-textarea"></textarea>
+            </div>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                <button type="button" class="torrent-quick-btn" onclick="pasteSampleMagnet()">
+                    📋 Paste Sample
+                </button>
+                <button type="button" class="torrent-quick-btn" onclick="document.getElementById('torrentFileInput').click()">
+                    📁 Open .torrent File
+                </button>
+                <input type="file" id="torrentFileInput" accept=".torrent" style="display: none;" onchange="handleTorrentFileSelect(event)">
+            </div>
+
+            <div id="torrentModalStatus" style="display: none; padding: 10px 12px; border-radius: 8px; font-size: 12px; margin-bottom: 14px; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <button class="torrent-action-btn torrent-action-cancel" onclick="closeTorrentModal()">Cancel</button>
+                <button id="btnStartTorrent" class="torrent-action-btn torrent-action-start" onclick="submitStartTorrentMagnet()">Start Streaming</button>
             </div>
         </div>
     </div>
