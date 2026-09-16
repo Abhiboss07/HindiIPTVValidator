@@ -13152,12 +13152,23 @@ window.switchPage = function(pageId) {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    if (pageId === 'home') renderHomePage();
-    if (pageId === 'live') renderLiveTVPage();
-    if (pageId === 'movies') renderMoviesPage();
-    if (pageId === 'radio') renderRadioPage();
-    if (pageId === 'favs') renderFavoritesPage();
-    if (pageId === 'local') renderLocalPage();
+    if (pageId === 'home') {
+      renderHomePage();
+    } else if (pageId === 'live') {
+      renderLiveTVPage();
+    } else if (pageId === 'radio') {
+      renderRadioPage();
+    } else if (pageId === 'movies') {
+      if (typeof renderMoviesPage === 'function') renderMoviesPage();
+    } else if (pageId === 'favs') {
+      renderFavoritesPage();
+    } else if (pageId === 'local') {
+      renderLocalPage();
+      if (!window.deviceMediaScanned) {
+        window.deviceMediaScanned = true;
+        setTimeout(() => { autoScanDeviceMedia(); }, 150);
+      }
+    }
   } catch (e) {
     console.error('Error in switchPage(' + pageId + '):', e);
   }
@@ -13197,14 +13208,13 @@ function initApp() {
 
   try {
     loadDatabase().then(() => {
-      try { renderAllPages(); } catch (e) { console.error('renderAllPages after DB note:', e); }
+      try { renderHomePage(); } catch (e) { console.error('renderHomePage after DB note:', e); }
     });
   } catch (e) {
     console.warn('loadDatabase dispatch note:', e);
   }
 
-  try { renderAllPages(); } catch (e) { console.error('Initial renderAllPages note:', e); }
-  try { setTimeout(() => { autoScanDeviceMedia(); }, 300); } catch (e) {}
+  try { renderHomePage(); } catch (e) { console.error('Initial renderHomePage note:', e); }
   try { loadSettingsUI(); } catch (e) {}
   try { startHeroRotator(); } catch (e) {}
 
@@ -13515,6 +13525,65 @@ function renderHomePage() {
     sampleFeatured.forEach(item => {
       featMediaList.appendChild(createChannelListItem(item));
     });
+  }
+
+  // Naturally Integrated Cinema & Web-Series Rows
+  renderHomeCinemaRows();
+}
+
+async function renderHomeCinemaRows() {
+  try {
+    await CatalogProvider.load();
+    const allMovies = CatalogProvider.getAll();
+    if (!allMovies || allMovies.length === 0) return;
+
+    // 1. Continue Watching Cinema
+    const continueSection = document.getElementById('homeMovieContinueSection');
+    const continueRow = document.getElementById('homeMovieContinueRow');
+    if (continueSection && continueRow) {
+      const historyIds = JSON.parse(localStorage.getItem('t2l_vod_history') || '[]');
+      const historyMovies = historyIds.map(id => CatalogProvider.getById(id)).filter(Boolean);
+      if (historyMovies.length > 0) {
+        continueSection.style.display = 'block';
+        continueRow.innerHTML = historyMovies.map(m => renderMovieCard(m)).join('');
+      } else {
+        continueSection.style.display = 'none';
+      }
+    }
+
+    // 2. Trending Bollywood Blockbusters
+    const bollywoodRow = document.getElementById('homeBollywoodRow');
+    if (bollywoodRow) {
+      const bollywoodMovies = CatalogProvider.filterByCategory('Bollywood');
+      bollywoodRow.innerHTML = (bollywoodMovies && bollywoodMovies.length > 0 ? bollywoodMovies : allMovies.slice(0, 10))
+        .map(m => renderMovieCard(m)).join('');
+    }
+
+    // 3. Acclaimed Web-Series
+    const webSeriesRow = document.getElementById('homeWebSeriesRow');
+    if (webSeriesRow) {
+      const seriesList = CatalogProvider.filterByCategory('Web-Series');
+      webSeriesRow.innerHTML = (seriesList && seriesList.length > 0 ? seriesList : allMovies.filter(m => m.mediaType === 'series'))
+        .map(m => renderMovieCard(m)).join('');
+    }
+
+    // 3b. K-Drama & Asian Series (Hindi Dubbed)
+    const homeAsianRow = document.getElementById('homeAsianRow');
+    if (homeAsianRow) {
+      const asianList = CatalogProvider.filterByCategory('Asian');
+      homeAsianRow.innerHTML = (asianList && asianList.length > 0 ? asianList : allMovies.filter(m => m.region === 'ASIAN'))
+        .map(m => renderMovieCard(m)).join('');
+    }
+
+    // 4. Hollywood & Global Cinema
+    const hollywoodRow = document.getElementById('homeHollywoodRow');
+    if (hollywoodRow) {
+      const hollywoodMovies = CatalogProvider.filterByCategory('Hollywood');
+      hollywoodRow.innerHTML = (hollywoodMovies && hollywoodMovies.length > 0 ? hollywoodMovies : allMovies.slice(10, 20))
+        .map(m => renderMovieCard(m)).join('');
+    }
+  } catch (e) {
+    console.error('Error rendering home cinema rows:', e);
   }
 }
 
@@ -13874,24 +13943,34 @@ function renderLocalFolderFeed() {
     return;
   }
 
+  const escapeHtml = (str) => {
+    if (!str) return '';
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+  };
+
   list.forEach(media => {
     const isVideo = media.type === 'tv' || (media.name && media.name.match(/\.(mp4|mkv|mov|webm|avi)$/i));
     const card = document.createElement('div');
     card.className = 'local-grid-card';
     
-    const thumbHtml = media.thumbUrl 
-      ? `<img src="${media.thumbUrl}" alt="${media.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    const safeName = escapeHtml(media.name || 'Local File');
+    const safeThumbUrl = escapeHtml(media.thumbUrl || '');
+    const safeMeta = escapeHtml(media.countryName || media.folder || 'Storage') + ' • ' + escapeHtml(media.quality || (isVideo ? '1080p' : 'Audio'));
+    const safeDuration = escapeHtml(media.duration || (isVideo ? 'VIDEO' : 'AUDIO'));
+
+    const thumbHtml = safeThumbUrl 
+      ? `<img src="${safeThumbUrl}" alt="${safeName}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
          <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; font-size: 32px; background: #202020;">${isVideo ? '🎬' : '🎵'}</div>`
       : `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 32px; background: #202020;">${isVideo ? '🎬' : '🎵'}</div>`;
 
     card.innerHTML = `
       <div class="local-grid-thumb-box">
         ${thumbHtml}
-        <span class="local-grid-badge">${media.duration || (isVideo ? 'VIDEO' : 'AUDIO')}</span>
+        <span class="local-grid-badge">${safeDuration}</span>
       </div>
       <div class="local-grid-info">
-        <h4 class="local-grid-title" title="${media.name}">${media.name}</h4>
-        <div class="local-grid-meta">${media.countryName || media.folder || 'Storage'} • ${media.quality || (isVideo ? '1080p' : 'Audio')}</div>
+        <h4 class="local-grid-title" title="${safeName}">${safeName}</h4>
+        <div class="local-grid-meta">${safeMeta}</div>
       </div>
     `;
     card.onclick = () => playChannel(media);
@@ -14176,6 +14255,11 @@ function playChannel(ch) {
 let currentStreamRequestId = 0;
 
 function loadChannelMedia(ch, autoPlay) {
+  if (!ch || !ch.url) {
+    console.warn('loadChannelMedia called with empty stream URL:', ch);
+    showToast('Cannot play: Media stream URL is missing or unavailable.');
+    return;
+  }
   const requestId = ++currentStreamRequestId;
   currentPlayingChannel = ch;
   const videoElement = document.getElementById('luminaVideo');
@@ -14284,6 +14368,10 @@ function loadChannelMedia(ch, autoPlay) {
       videoElement.muted = true;
     } else {
       videoElement.muted = false;
+      videoElement.volume = 1.0;
+    }
+    if (window.AndroidMedia && window.AndroidMedia.ensureAudioActive) {
+      try { window.AndroidMedia.ensureAudioActive(); } catch(eA) {}
     }
 
     videoElement.onwaiting = () => {
@@ -14352,7 +14440,23 @@ function loadChannelMedia(ch, autoPlay) {
         loadChannelMedia(ch, true);
       } else {
         hideBufferingSpinner();
-        showStreamErrorState('Stream Offline', 'Live stream broadcast is currently offline or unreachable. Please try another channel.');
+        const isVodOrMovie = ch.isTorrent || ch.movieData || ch.category === 'VOD Cinema';
+        let errTitle = 'Stream Unavailable';
+        let errDesc = 'Stream is currently offline or unreachable. Please try again later.';
+        if (errCode === 1) {
+          errTitle = 'Playback Aborted';
+          errDesc = 'Playback was aborted by user or system.';
+        } else if (errCode === 2) {
+          errTitle = 'Network Error';
+          errDesc = isVodOrMovie ? 'Network connection dropped while fetching media stream. Check connection.' : 'Network connection failure while fetching broadcast stream.';
+        } else if (errCode === 3) {
+          errTitle = 'Media Decode Error';
+          errDesc = 'Device hardware could not decode the audio/video stream.';
+        } else if (errCode === 4) {
+          errTitle = isVodOrMovie ? 'Media Source Offline' : 'Stream Offline';
+          errDesc = isVodOrMovie ? 'Media source server returned 404/503 or file is no longer available on remote host.' : 'Live broadcast is currently offline or unreachable.';
+        }
+        showStreamErrorState(errTitle, errDesc);
       }
     };
   }
@@ -14385,6 +14489,11 @@ function loadChannelMedia(ch, autoPlay) {
         } catch (eQual) {}
 
         if (autoPlay && videoElement) {
+          videoElement.muted = false;
+          videoElement.volume = 1.0;
+          if (window.AndroidMedia && window.AndroidMedia.ensureAudioActive) {
+            try { window.AndroidMedia.ensureAudioActive(); } catch(eA) {}
+          }
           const p = videoElement.play();
           if (p !== undefined) {
             p.then(() => {
@@ -14525,11 +14634,44 @@ function loadChannelMedia(ch, autoPlay) {
       }
 
       if (autoPlay) {
+        clearTimeout(streamWatchdogTimeout);
+        streamWatchdogTimeout = setTimeout(() => {
+          if (requestId !== currentStreamRequestId) return;
+          if (videoElement && (videoElement.paused || videoElement.readyState < 2 || !isPlaying)) {
+            const diag = `Connection Timeout (15s) on ${ch.name}: ${streamUrl}`;
+            console.warn('⚠️ ' + diag);
+            if (window.AndroidMedia && window.AndroidMedia.logError) {
+              window.AndroidMedia.logError(diag);
+            }
+            if (ch.backupUrls && currentBackupIdx + 1 < ch.backupUrls.length) {
+              currentBackupIdx++;
+              showToast(`⚡ Stream timeout. Switching to mirror (${currentBackupIdx + 1}/${ch.backupUrls.length + 1})...`);
+              loadChannelMedia(ch, true);
+            } else {
+              hideBufferingSpinner();
+              const isVod = ch.isTorrent || ch.movieData || ch.category === 'VOD Cinema';
+              showStreamErrorState(
+                'Stream Unavailable',
+                isVod ? 'Media server did not respond within 15 seconds. File may be temporarily unavailable.' : 'Broadcast server did not respond within 15 seconds. Channel may be temporarily offline or restricted.'
+              );
+            }
+          }
+        }, 15000);
+
         const startPlayback = () => {
+          if (videoElement) {
+            videoElement.muted = false;
+            videoElement.volume = 1.0;
+          }
+          if (window.AndroidMedia && window.AndroidMedia.ensureAudioActive) {
+            try { window.AndroidMedia.ensureAudioActive(); } catch(eA) {}
+          }
           const p = videoElement.play();
           if (p !== undefined) {
             p.then(() => {
+              clearTimeout(streamWatchdogTimeout);
               hideBufferingSpinner();
+              hideStreamErrorState();
               isPlaying = true;
               updatePlayPauseIcons(true);
             }).catch(() => {});
@@ -14537,6 +14679,11 @@ function loadChannelMedia(ch, autoPlay) {
         };
         startPlayback();
         videoElement.addEventListener('canplay', startPlayback, { once: true });
+        videoElement.addEventListener('playing', () => {
+          clearTimeout(streamWatchdogTimeout);
+          hideBufferingSpinner();
+          hideStreamErrorState();
+        }, { once: true });
       }
     }
   }
@@ -15066,6 +15213,66 @@ window.openVlcQualityModal = function(e) {
   if (e) e.stopPropagation();
   closeVlcMoreMenu();
   updateLiveNetworkSpeedDisplay();
+
+  const optionsList = document.getElementById('vlcQualityOptionsList');
+  if (optionsList) {
+    let optionsHtml = '';
+
+    if (hlsInstance && hlsInstance.levels && hlsInstance.levels.length > 0) {
+      // Dynamic source-driven representations from Hls.js levels
+      const isAuto = (currentVlcQuality === 'auto' || hlsInstance.currentLevel === -1);
+      optionsHtml += `
+        <div class="vlc-radio-row ${isAuto ? 'active' : ''}" onclick="setVlcStreamQuality('auto', this, -1)">
+          <div class="vlc-radio-circle"></div>
+          <div class="vlc-radio-text">
+            <h4>Auto (Dynamic Adaptive Bitrate)</h4>
+            <p>Dynamically matches bandwidth and buffer health</p>
+          </div>
+        </div>
+      `;
+
+      // Sort levels descending by resolution height
+      const sortedLevels = hlsInstance.levels.map((lvl, idx) => ({ lvl, origIdx: idx }))
+        .sort((a, b) => (b.lvl.height || 0) - (a.lvl.height || 0));
+
+      sortedLevels.forEach(item => {
+        const h = item.lvl.height || 720;
+        const bitrateMbps = item.lvl.bitrate ? (item.lvl.bitrate / 1000000).toFixed(1) : 'Variable';
+        const qKey = h >= 2000 ? '4k' : (h >= 1000 ? '1080p' : (h >= 700 ? '720p' : (h >= 400 ? '480p' : '360p')));
+        const isActive = !isAuto && (hlsInstance.currentLevel === item.origIdx);
+        const name = h >= 2000 ? '4K Ultra HD (2160p)' : (h >= 1000 ? 'Full HD (1080p)' : (h >= 700 ? 'HD (720p)' : (h >= 400 ? 'SD (480p)' : 'Data Saver (360p)')));
+
+        optionsHtml += `
+          <div class="vlc-radio-row ${isActive ? 'active' : ''}" onclick="setVlcStreamQuality('${qKey}', this, ${item.origIdx})">
+            <div class="vlc-radio-circle"></div>
+            <div class="vlc-radio-text">
+              <h4>${name}</h4>
+              <p>${h}p • ~${bitrateMbps} Mbps • Source Track</p>
+            </div>
+          </div>
+        `;
+      });
+    } else {
+      // Progressive MP4 / Direct Source
+      const vid = document.getElementById('luminaVideo');
+      const curW = (vid && vid.videoWidth) ? vid.videoWidth : 0;
+      const curH = (vid && vid.videoHeight) ? vid.videoHeight : 0;
+      const resDesc = curW && curH ? `${curW}x${curH}` : 'Source Native';
+
+      optionsHtml = `
+        <div class="vlc-radio-row active" onclick="setVlcStreamQuality('auto', this)">
+          <div class="vlc-radio-circle"></div>
+          <div class="vlc-radio-text">
+            <h4>Auto (${resDesc})</h4>
+            <p>Direct progressive stream from verified source</p>
+          </div>
+        </div>
+      `;
+    }
+
+    optionsList.innerHTML = optionsHtml;
+  }
+
   const modal = document.getElementById('vlcQualityModal');
   if (modal) modal.style.display = 'flex';
 };
@@ -15092,8 +15299,11 @@ function updateLiveNetworkSpeedDisplay() {
   speedElem.textContent = speedText;
 }
 
-window.setVlcStreamQuality = function(qualityKey, elem) {
+window.setVlcStreamQuality = function(qualityKey, elem, explicitLevelIdx) {
   currentVlcQuality = qualityKey;
+  if (explicitLevelIdx !== undefined && hlsInstance) {
+    hlsInstance.currentLevel = explicitLevelIdx;
+  }
   const rows = document.querySelectorAll('#vlcQualityOptionsList .vlc-radio-row');
   rows.forEach(r => r.classList.remove('active'));
   if (elem) elem.classList.add('active');
@@ -15637,26 +15847,9 @@ function initWebAudioDSP() {
       webAudioCtx.destination.channelInterpretation = 'speakers';
     } catch (eC) {}
 
-    if (!webAudioSource && currentAudioTrack !== 'passthrough') {
-      webAudioSource = webAudioCtx.createMediaElementSource(videoElement);
-      
-      webAudioVocalFilter = webAudioCtx.createBiquadFilter();
-      webAudioVocalFilter.type = 'peaking';
-      webAudioVocalFilter.frequency.value = 2200;
-      webAudioVocalFilter.Q.value = 1.8;
-      webAudioVocalFilter.gain.value = 0;
-
-      if (webAudioCtx.createStereoPanner) {
-        webAudioPanner = webAudioCtx.createStereoPanner();
-        webAudioPanner.pan.value = 0;
-        webAudioSource.connect(webAudioVocalFilter);
-        webAudioVocalFilter.connect(webAudioPanner);
-        webAudioPanner.connect(webAudioCtx.destination);
-      } else {
-        webAudioSource.connect(webAudioVocalFilter);
-        webAudioVocalFilter.connect(webAudioCtx.destination);
-      }
-    }
+    // Note: Do NOT call attach WebAudio to HTML media element.
+    // In Chromium/Android WebView, routing HTMLMediaElement through WebAudio silences
+    // cross-origin media that lack CORS headers, causing complete audio loss.
   } catch (e) {
     console.log('Web Audio DSP initialization note:', e.message);
   }
@@ -15680,7 +15873,68 @@ window.openVlcAudioModal = function(e) {
   if (e) e.stopPropagation();
   closeVlcMoreMenu();
   const modal = document.getElementById('vlcAudioModal');
-  if (modal) modal.style.display = 'flex';
+  if (!modal) return;
+
+  const tracksList = document.getElementById('vlcAudioTracksList');
+  if (tracksList) {
+    let html = '';
+    const isHlsMulti = typeof hlsInstance !== 'undefined' && hlsInstance && hlsInstance.audioTracks && hlsInstance.audioTracks.length > 1;
+
+    if (isHlsMulti) {
+      hlsInstance.audioTracks.forEach((track, idx) => {
+        const trackName = track.name || track.lang || `Track ${idx + 1}`;
+        const isCurrent = hlsInstance.audioTrack === idx;
+        html += `
+          <div class="vlc-radio-row ${isCurrent ? 'active' : ''}" onclick="setVlcHlsAudioTrack(${idx}, this)">
+            <span>📻 ${trackName} (${track.lang ? track.lang.toUpperCase() : 'HLS Audio Track'})</span>
+          </div>
+        `;
+      });
+    } else {
+      const movie = (typeof currentChannel !== 'undefined' && currentChannel && currentChannel.movieData) || (typeof currentSelectedMovie !== 'undefined' ? currentSelectedMovie : null);
+      const primaryLang = (movie && movie.languages && movie.languages[0]) || (movie && movie.defaultLanguage) || 'Master Dialogue';
+      html += `
+        <div class="vlc-radio-row active" onclick="setVlcAudioTrack('master', this)">
+          <span>🎧 ${primaryLang} (Master Audio Track • Studio Dialogue)</span>
+        </div>
+      `;
+    }
+
+    html += `
+      <div class="vlc-radio-row ${currentAudioTrack === 'speech_boost' ? 'active' : ''}" onclick="setVlcAudioTrack('speech_boost', this)">
+        <span>⚡ Clear Voice Speech AI Boost (Enhanced Vocals)</span>
+      </div>
+      <div class="vlc-radio-row ${currentAudioTrack === 'passthrough' ? 'active' : ''}" onclick="setVlcAudioTrack('passthrough', this)">
+        <span>🔊 Direct Hardware Audio Passthrough</span>
+      </div>
+    `;
+
+    if (!isHlsMulti) {
+      html += `
+        <p style="font-size: 11px; color: #64748b; margin-top: 10px; text-align: center; line-height: 1.4;">
+          ℹ️ Single Studio Master Audio Track • Multi-track switching is supported for multi-language broadcast streams.
+        </p>
+      `;
+    }
+
+    tracksList.innerHTML = html;
+  }
+
+  modal.style.display = 'flex';
+};
+
+window.setVlcHlsAudioTrack = function(trackIdx, elem) {
+  if (typeof hlsInstance !== 'undefined' && hlsInstance && hlsInstance.audioTracks && hlsInstance.audioTracks[trackIdx]) {
+    hlsInstance.audioTrack = trackIdx;
+    const t = hlsInstance.audioTracks[trackIdx];
+    const trackName = t.name || t.lang || `Track ${trackIdx + 1}`;
+    const subBadge = document.getElementById('vlcAudioSubtitle');
+    if (subBadge) subBadge.textContent = trackName;
+    const rows = document.querySelectorAll('#vlcAudioTracksList .vlc-radio-row');
+    rows.forEach(r => r.classList.remove('active'));
+    if (elem) elem.classList.add('active');
+    showToast(`Switched audio track to: ${trackName} 🔊`);
+  }
 };
 
 window.closeVlcAudioModal = function() {
@@ -15704,25 +15958,41 @@ window.setVlcAudioTrack = function(trackId, elem) {
   const subBadge = document.getElementById('vlcAudioSubtitle');
   const shortNames = {
     'hindi': 'Hindi',
+    'telugu': 'Telugu',
+    'tamil': 'Tamil',
+    'kannada': 'Kannada',
+    'malayalam': 'Malayalam',
+    'marathi': 'Marathi',
     'english': 'English',
+    'universal audio': 'Universal',
     'dual_left': 'Left (Hindi)',
     'dual_right': 'Right (Eng)',
     'speech_boost': 'Voice AI',
     'passthrough': 'Direct 4K'
   };
+  localStorage.setItem('t2l_preferred_movie_audio_lang', shortNames[trackId] || trackId);
   if (subBadge) subBadge.textContent = shortNames[trackId] || 'Hindi';
-
-  if (trackId !== 'passthrough') {
-    initWebAudioDSP();
-  }
 
   const videoElement = document.getElementById('luminaVideo');
   if (videoElement) {
-    videoElement.muted = false; // Ensure unmuted direct hardware sound
+    videoElement.muted = false; // Ensure direct unmuted hardware sound
     if (videoElement.audioTracks && videoElement.audioTracks.length > 0) {
       for (let i = 0; i < videoElement.audioTracks.length; i++) {
         videoElement.audioTracks[i].enabled = (trackId === 'english' || trackId === 'dual_right' ? i === 1 : i === 0);
       }
+    }
+  }
+
+  // Real HLS audio track switching via Hls.js
+  if (typeof hlsInstance !== 'undefined' && hlsInstance && hlsInstance.audioTracks && hlsInstance.audioTracks.length > 0) {
+    const targetLang = (shortNames[trackId] || trackId).toLowerCase();
+    const trackIndex = hlsInstance.audioTracks.findIndex(t => 
+      (t.name && t.name.toLowerCase().includes(targetLang)) ||
+      (t.lang && t.lang.toLowerCase().includes(targetLang))
+    );
+    if (trackIndex >= 0) {
+      hlsInstance.audioTrack = trackIndex;
+      console.log('Switched Hls.js audioTrack to:', trackIndex, hlsInstance.audioTracks[trackIndex]);
     }
   }
 
@@ -15760,6 +16030,27 @@ window.setVlcAudioTrack = function(trackId, elem) {
 
   showToast('Audio: ' + (trackNames[trackId] || 'Track Active'));
   closeVlcAudioModal();
+};
+
+let isDialogueBoostEnabled = false;
+window.toggleDialogueBoost = function() {
+  isDialogueBoostEnabled = !isDialogueBoostEnabled;
+  const badge = document.getElementById('vlcDialogueSubtitle');
+  if (isDialogueBoostEnabled) {
+    setAudioTrack('speech_boost');
+    if (badge) {
+      badge.textContent = 'Active';
+      badge.style.color = '#10b981';
+    }
+    showToast('Dialogue Clarity Boost: Active 🗣️');
+  } else {
+    setAudioTrack('hindi');
+    if (badge) {
+      badge.textContent = 'Off';
+      badge.style.color = '';
+    }
+    showToast('Dialogue Clarity Boost: Off');
+  }
 };
 
 window.setVlcSubtitleTrack = function(lang, elem) {
@@ -16081,6 +16372,32 @@ function initPlayerOverlayEvents() {
             localStorage.setItem('aakash_resume_' + currentPlayingChannel.id, Math.floor(cur));
           } catch (e) {}
         }
+        // Save resume progress for VOD Movies & Web-Series (NEVER save for trailers)
+        const activeMovie = (activePlaybackSession && CatalogProvider.getById(activePlaybackSession.contentId)) ||
+                            (currentPlayingChannel && currentPlayingChannel.movieData) || null;
+        const isTrailerActive = activePlaybackSession && activePlaybackSession.isTrailer;
+        if (activeMovie && !isTrailerActive && cur > 3 && dur > 10) {
+          try {
+            const epId = (activePlaybackSession && activePlaybackSession.episodeId) || window.currentPlayingEpisodeId || null;
+            const rData = {
+              time: cur,
+              duration: dur,
+              pct: Math.min(100, Math.round(pct)),
+              title: (activePlaybackSession && activePlaybackSession.overrideTitle) || activeMovie.title,
+              episodeId: epId,
+              updatedAt: Date.now()
+            };
+            localStorage.setItem('t2l_resume_' + activeMovie.id, JSON.stringify(rData));
+            if (epId) {
+              localStorage.setItem('t2l_resume_' + activeMovie.id + '_' + epId, JSON.stringify(rData));
+            }
+          } catch (e) {}
+
+          // Check for binge-watching Next Episode banner
+          if (typeof checkNextEpisodePrompt === 'function') {
+            checkNextEpisodePrompt(cur, dur);
+          }
+        }
       } else {
         if (playerSeekFill) playerSeekFill.style.width = '100%';
         if (playerTimeCurrent) playerTimeCurrent.textContent = '0:00';
@@ -16096,8 +16413,66 @@ function initPlayerOverlayEvents() {
       isPlaying = false;
       updatePlayPauseIcons(false);
     });
+
+    videoElement.addEventListener('click', (e) => {
+      // Event bubbles naturally to playerModal for overlay controls & double-tap seek
+    });
+
+    videoElement.addEventListener('ended', () => {
+      if (currentSelectedMovie && (currentSelectedMovie.mediaType === 'series' || currentSelectedMovie.contentType === 'SERIES')) {
+        playNextSeriesEpisode();
+      }
+    });
   }
 }
+
+let nextEpPromptShown = false;
+window.checkNextEpisodePrompt = function(cur, dur) {
+  if (!currentSelectedMovie || (currentSelectedMovie.mediaType !== 'series' && currentSelectedMovie.contentType !== 'SERIES')) return;
+  const remaining = dur - cur;
+  if (remaining <= 30 && remaining > 3 && !nextEpPromptShown && !window.nextEpDismissedForStream) {
+    nextEpPromptShown = true;
+    showToast('Next episode starts soon ⏭️ (Tap Next to skip credits)');
+  }
+};
+
+window.playNextSeriesEpisode = function(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  const movie = currentSelectedMovie || (activePlaybackSession && CatalogProvider.getById(activePlaybackSession.contentId));
+  if (!movie) return;
+
+  const currentEpId = window.currentPlayingEpisodeId;
+  let nextEp = null;
+
+  if (movie.seasons && Array.isArray(movie.seasons)) {
+    let foundCurrent = false;
+    for (const season of movie.seasons) {
+      if (!season.episodes) continue;
+      for (const ep of season.episodes) {
+        if (foundCurrent) {
+          nextEp = ep;
+          break;
+        }
+        if (ep.id === currentEpId) {
+          foundCurrent = true;
+        }
+      }
+      if (nextEp) break;
+    }
+  } else if (movie.episodes && Array.isArray(movie.episodes)) {
+    const currIdx = movie.episodes.findIndex(e => e.id === currentEpId);
+    if (currIdx !== -1 && currIdx + 1 < movie.episodes.length) {
+      nextEp = movie.episodes[currIdx + 1];
+    }
+  }
+
+  if (nextEp) {
+    showToast('Playing next episode: ' + nextEp.title + ' ⏭️');
+    playSeriesEpisode(movie.id, nextEp.id);
+  } else {
+    showToast('You have reached the latest episode! 🎬');
+  }
+};
 
 // ==========================================================
 // DUAL-AXIS CINEMATIC SWIPE GESTURES:
@@ -16805,28 +17180,63 @@ function startTorrentPlayback(streamUrl, title, infoHash, backupUrls, movieData)
   closeTorrentModal();
   showToast('Starting stream: ' + title);
 
+  const isRealTorrent = !streamUrl.startsWith('http://') && !streamUrl.startsWith('https://') ? true : (streamUrl.includes(':8080/torrent') || streamUrl.includes('/torrent/stream'));
   const torrentChannel = {
     id: 'torrent_' + (infoHash || Date.now()),
     name: title || 'Torrent Media Stream',
     url: streamUrl,
     backupUrls: backupUrls || [],
     isLocal: false,
-    isTorrent: true,
+    isTorrent: isRealTorrent,
     type: 'video',
     category: 'VOD Cinema',
     quality: movieData && movieData.resolution ? movieData.resolution.split(' ')[0] : '1080p',
-    flag: '⚡',
+    flag: isRealTorrent ? '🧲' : '⚡',
     movieData: movieData || null
   };
 
   playChannel(torrentChannel);
-  startTorrentHudMonitor();
+  if (isRealTorrent) {
+    startTorrentHudMonitor();
+  }
+
+  // Netflix-style Auto-Resume (Skip for trailers, and ensure matching series episode)
+  const isTrailerActive = activePlaybackSession && activePlaybackSession.isTrailer;
+  if (movieData && movieData.id && !isTrailerActive) {
+    try {
+      const isSeries = movieData.mediaType === 'series' || movieData.contentType === 'SERIES';
+      let resumeKey = 't2l_resume_' + movieData.id;
+      if (isSeries && window.currentPlayingEpisodeId) {
+        const epResumeRaw = localStorage.getItem('t2l_resume_' + movieData.id + '_' + window.currentPlayingEpisodeId);
+        if (epResumeRaw) resumeKey = 't2l_resume_' + movieData.id + '_' + window.currentPlayingEpisodeId;
+      }
+      const resumeRaw = localStorage.getItem(resumeKey);
+      if (resumeRaw) {
+        const r = JSON.parse(resumeRaw);
+        const isMatchingEp = !isSeries || (!r.episodeId && !window.currentPlayingEpisodeId) || (r.episodeId === window.currentPlayingEpisodeId);
+        if (isMatchingEp && r && r.time > 10 && r.pct < 95) {
+          let attempts = 0;
+          const checkReadyInterval = setInterval(() => {
+            attempts++;
+            const v = document.getElementById('luminaVideo');
+            if (v && v.readyState >= 2 && !isNaN(v.duration) && v.duration > r.time) {
+              clearInterval(checkReadyInterval);
+              v.currentTime = r.time;
+              showToast('Resumed from ' + formatSeekTime(r.time) + ' ⏱️');
+            }
+            if (attempts > 15) clearInterval(checkReadyInterval);
+          }, 400);
+        }
+      }
+    } catch (e) {}
+  }
 }
 
 function startTorrentHudMonitor() {
   if (torrentHudInterval) clearInterval(torrentHudInterval);
   const hudEl = document.getElementById('torrentHud');
-  if (hudEl) hudEl.style.display = 'flex';
+  // TORRENT HUD banner removed per user request - keep hidden
+  if (hudEl) hudEl.style.display = 'none';
 
   torrentHudInterval = setInterval(() => {
     if (!window.AndroidMedia || !window.AndroidMedia.getTorrentStatus) return;
@@ -16853,8 +17263,10 @@ function startTorrentHudMonitor() {
       let speedFormatted = '';
       if (speedBps > 1024 * 1024) {
         speedFormatted = '↓ ' + (speedBps / (1024 * 1024)).toFixed(1) + ' MB/s';
+      } else if (speedBps > 0) {
+        speedFormatted = '↓ ' + Math.round(speedBps / 1024) + ' KB/s';
       } else {
-        speedFormatted = '↓ ' + Math.max(24, Math.round(speedBps / 1024)) + ' KB/s';
+        speedFormatted = '0 KB/s';
       }
 
       if (speedEl) speedEl.textContent = speedFormatted;
@@ -16903,8 +17315,10 @@ function startTorrentHudMonitor() {
         if (telResolution && video) {
           if (video.videoWidth > 0 && video.videoHeight > 0) {
             telResolution.textContent = video.videoWidth + 'x' + video.videoHeight;
+          } else if (currentSelectedMovie && currentSelectedMovie.resolution) {
+            telResolution.textContent = currentSelectedMovie.resolution;
           } else {
-            telResolution.textContent = '1920x1080 (HD)';
+            telResolution.textContent = '--';
           }
         }
 
@@ -16939,522 +17353,96 @@ function startTorrentHudMonitor() {
 // ==========================================================
 // MOVIES / VOD CATALOG & DISCOVERY SUBSYSTEM
 // ==========================================================
-const DEFAULT_MOVIES_CATALOG = [
-  {
-    "id": "vod_his_girl_friday",
-    "title": "His Girl Friday",
-    "year": 1940,
-    "duration": 5520,
-    "durationFormatted": "1h 32m",
-    "genres": [
-      "Comedy",
-      "Romance",
-      "Hollywood Classic"
-    ],
-    "type": "Hollywood",
-    "categories": [
-      "hollywood",
-      "comedy"
-    ],
-    "rating": 7.8,
-    "description": "Full Feature Hollywood Classic: A newspaper editor uses every trick in the book to keep his ace reporter ex-wife from remarrying. Starring Cary Grant & Rosalind Russell.",
-    "posterUrl": "assets/posters/vod_his_girl_friday.jpg",
-    "backdropUrl": "assets/posters/vod_his_girl_friday.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "575 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Public Domain (Full Movie)",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": true,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://archive.org/download/his_girl_friday/his_girl_friday.mp4",
-    "backupUrls": [
-      "https://archive.org/download/his_girl_friday/his_girl_friday.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:3fae9927b2b28c89422df723c348f32168393e11&dn=His_Girl_Friday_1940_720p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_sita_sings_blues",
-    "title": "Sita Sings the Blues",
-    "year": 2008,
-    "duration": 4920,
-    "durationFormatted": "1h 22m",
-    "genres": [
-      "Animation",
-      "Bollywood Musical"
-    ],
-    "type": "Bollywood",
-    "categories": [
-      "bollywood",
-      "animation"
-    ],
-    "rating": 7.6,
-    "description": "Full Feature Indian Animated Musical: An animated retelling of the Indian epic Ramayana set to the 1920s jazz vocals of Annette Hanshaw, intertwined with modern romance.",
-    "posterUrl": "assets/posters/vod_sita_sings_blues.jpg",
-    "backdropUrl": "assets/posters/vod_sita_sings_blues.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "2.5 GB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Creative Commons Zero (CC0 Full Feature)",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": true,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://archive.org/download/Sita_Sings_the_Blues/Sita_Sings_the_Blues_720p.mp4",
-    "backupUrls": [
-      "https://archive.org/download/Sita_Sings_the_Blues/Sita_Sings_the_Blues_720p.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:4134449ec9c0e5a9ee4a46a6f3b0e326c71be391&dn=Sita_Sings_the_Blues_720p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_house_on_haunted_hill",
-    "title": "House on Haunted Hill",
-    "year": 1959,
-    "duration": 4500,
-    "durationFormatted": "1h 15m",
-    "genres": [
-      "Horror",
-      "Mystery",
-      "Thriller"
-    ],
-    "type": "Hollywood",
-    "categories": [
-      "hollywood",
-      "thrillers"
-    ],
-    "rating": 6.8,
-    "description": "Full Feature Horror Thriller: An eccentric millionaire offers 0,000 to five guests who agree to be locked in a spooky haunted mansion for one night. Starring Vincent Price.",
-    "posterUrl": "assets/posters/vod_house_on_haunted_hill.jpg",
-    "backdropUrl": "assets/posters/vod_house_on_haunted_hill.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "843 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Public Domain (Full Movie)",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": false,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://archive.org/download/House_on_Haunted_Hill_1959/House_on_Haunted_Hill_1959.mp4",
-    "backupUrls": [
-      "https://archive.org/download/House_on_Haunted_Hill_1959/House_on_Haunted_Hill_1959.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:618b7cb6f43e5c70ceae3f2b45391295b93fb825&dn=House_on_Haunted_Hill_1959.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_suddenly_1954",
-    "title": "Suddenly",
-    "year": 1954,
-    "duration": 4620,
-    "durationFormatted": "1h 17m",
-    "genres": [
-      "Crime",
-      "Film-Noir",
-      "Thriller"
-    ],
-    "type": "Hollywood",
-    "categories": [
-      "hollywood",
-      "thrillers"
-    ],
-    "rating": 6.8,
-    "description": "Full Feature Hollywood Thriller: A squad of assassins take over a family home overlooking a train depot to assassinate the US President. Starring Frank Sinatra & Sterling Hayden.",
-    "posterUrl": "assets/posters/vod_suddenly_1954.jpg",
-    "backdropUrl": "assets/posters/vod_suddenly_1954.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "472 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Public Domain (Full Movie)",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": true,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://archive.org/download/Suddenly_1954/Suddenly_1954.mp4",
-    "backupUrls": [
-      "https://archive.org/download/Suddenly_1954/Suddenly_1954.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:5a9e22396e4fa83fcf648a31362e49cfa11d7e22&dn=Suddenly_1954.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_dressed_to_kill",
-    "title": "Sherlock Holmes: Dressed to Kill",
-    "year": 1946,
-    "duration": 4320,
-    "durationFormatted": "1h 12m",
-    "genres": [
-      "Mystery",
-      "Detective",
-      "Thriller"
-    ],
-    "type": "Hollywood",
-    "categories": [
-      "hollywood",
-      "thrillers"
-    ],
-    "rating": 6.9,
-    "description": "Full Feature Detective Mystery: Sherlock Holmes and Dr. Watson investigate a gang seeking three music boxes made in Dartmoor Prison that hold secret bank notes code.",
-    "posterUrl": "assets/posters/vod_dressed_to_kill.jpg",
-    "backdropUrl": "assets/posters/vod_dressed_to_kill.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "447 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Public Domain (Full Movie)",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": false,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://archive.org/download/Sherlock_Holmes_Dressed_to_Kill_1946/Sherlock_Holmes_Dressed_to_Kill_1946.mp4",
-    "backupUrls": [
-      "https://archive.org/download/Sherlock_Holmes_Dressed_to_Kill_1946/Sherlock_Holmes_Dressed_to_Kill_1946.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:8736a439cba5e56d78ef8a74e532b26cdafe2841&dn=Sherlock_Holmes_Dressed_to_Kill_1946.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_fast_and_furious_1955",
-    "title": "The Fast and the Furious",
-    "year": 1955,
-    "duration": 4380,
-    "durationFormatted": "1h 13m",
-    "genres": [
-      "Action",
-      "Crime",
-      "Race Drama"
-    ],
-    "type": "Hollywood",
-    "categories": [
-      "hollywood",
-      "action"
-    ],
-    "rating": 5.5,
-    "description": "Full Feature Action Classic: A man wrongly imprisoned for murder escapes and kidnaps a young woman driving a Jaguar sports car to race across the Mexican border.",
-    "posterUrl": "assets/posters/vod_fast_and_furious_1955.jpg",
-    "backdropUrl": "assets/posters/vod_fast_and_furious_1955.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "315 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Public Domain (Full Movie)",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": false,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://archive.org/download/The_Fast_and_the_Furious_1955/The_Fast_and_the_Furious_1955.mp4",
-    "backupUrls": [
-      "https://archive.org/download/The_Fast_and_the_Furious_1955/The_Fast_and_the_Furious_1955.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:31e784534892c578abef5941c10d321584c0f839&dn=The_Fast_and_the_Furious_1955.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_kung_fu_dragon",
-    "title": "Return of the Kung Fu Dragon",
-    "year": 1976,
-    "duration": 5100,
-    "durationFormatted": "1h 25m",
-    "genres": [
-      "Action",
-      "Martial Arts",
-      "Adventure"
-    ],
-    "type": "Action",
-    "categories": [
-      "action"
-    ],
-    "rating": 6.1,
-    "description": "Full Feature Martial Arts Classic: An intense kung fu epic packed with traditional martial arts duels, mystical techniques, and revenge against corrupt warlords.",
-    "posterUrl": "assets/posters/vod_kung_fu_dragon.jpg",
-    "backdropUrl": "assets/posters/vod_kung_fu_dragon.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "690 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Public Domain (Full Movie)",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": false,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://archive.org/download/Return_of_the_Kung_Fu_Dragon_1976/Return_of_the_Kung_Fu_Dragon_1976.mp4",
-    "backupUrls": [
-      "https://archive.org/download/Return_of_the_Kung_Fu_Dragon_1976/Return_of_the_Kung_Fu_Dragon_1976.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:e7534c0e3957262451f28b76ce84594c304d49a1&dn=Return_of_the_Kung_Fu_Dragon_1976.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_charlie_chaplin_fest",
-    "title": "Charlie Chaplin Comedy Festival",
-    "year": 1938,
-    "duration": 4680,
-    "durationFormatted": "1h 18m",
-    "genres": [
-      "Comedy",
-      "Classic"
-    ],
-    "type": "Hollywood",
-    "categories": [
-      "hollywood",
-      "comedy"
-    ],
-    "rating": 8.2,
-    "description": "Full Feature Comedy Classic: The Little Tramp at his greatest, featuring timeless slapstick, roller skating acrobatics, pawn shop adventures, and heartwarming humor.",
-    "posterUrl": "assets/posters/vod_charlie_chaplin_fest.jpg",
-    "backdropUrl": "assets/posters/vod_charlie_chaplin_fest.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "483 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Public Domain (Full Movie)",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": false,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://archive.org/download/Charlie_Chaplin_Festival/Charlie_Chaplin_Festival.mp4",
-    "backupUrls": [
-      "https://archive.org/download/Charlie_Chaplin_Festival/Charlie_Chaplin_Festival.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:c79659ba5a176e3381a172828b495914757c617b&dn=Charlie_Chaplin_Festival.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_voyage_prehistoric",
-    "title": "Voyage to Prehistoric Women",
-    "year": 1967,
-    "duration": 4680,
-    "durationFormatted": "1h 18m",
-    "genres": [
-      "Sci-Fi",
-      "Adventure"
-    ],
-    "type": "Hollywood",
-    "categories": [
-      "hollywood",
-      "open_movies"
-    ],
-    "rating": 4.8,
-    "description": "Full Feature Sci-Fi Retro Classic: Astronauts crash land on Venus and encounter strange creatures, volcanic eruptions, and a telepathic primeval civilization.",
-    "posterUrl": "assets/posters/vod_voyage_prehistoric.jpg",
-    "backdropUrl": "assets/posters/vod_voyage_prehistoric.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "496 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Public Domain (Full Movie)",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": false,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://archive.org/download/Voyage_to_Prehistoric_Women_1967/Voyage_to_Prehistoric_Women_1967.mp4",
-    "backupUrls": [
-      "https://archive.org/download/Voyage_to_Prehistoric_Women_1967/Voyage_to_Prehistoric_Women_1967.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:4135e5d3ab7379ec668d29ca32ea1551608779b5&dn=Voyage_to_Prehistoric_Women_1967.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_sintel_1080p",
-    "title": "Sintel (Full 4K Edition)",
-    "year": 2010,
-    "duration": 900,
-    "durationFormatted": "15m",
-    "genres": [
-      "Animation",
-      "Fantasy",
-      "Adventure"
-    ],
-    "type": "Open Movies",
-    "categories": [
-      "open_movies",
-      "animation"
-    ],
-    "rating": 7.4,
-    "description": "Full Feature Blender Foundation Film: A lonely young woman named Sintel embarks on a dangerous quest across frozen peaks to rescue a baby dragon she befriended.",
-    "posterUrl": "assets/posters/vod_sintel_1080p.jpg",
-    "backdropUrl": "assets/posters/vod_sintel_1080p.jpg",
-    "resolution": "1080p Full HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "128 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Creative Commons Attribution 3.0",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": false,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-    "backupUrls": [
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:08a802470e42c1936704c42736b2ce790f1a40fc&dn=Sintel.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_tears_of_steel",
-    "title": "Tears of Steel",
-    "year": 2012,
-    "duration": 734,
-    "durationFormatted": "12m",
-    "genres": [
-      "Sci-Fi",
-      "Cyberpunk",
-      "VFX"
-    ],
-    "type": "Action",
-    "categories": [
-      "open_movies",
-      "action"
-    ],
-    "rating": 6.5,
-    "description": "Full Feature Sci-Fi Short: Set in a dystopian future Amsterdam, a group of scientists and warriors attempt to save the earth from colossal robotic invaders.",
-    "posterUrl": "assets/posters/vod_tears_of_steel.jpg",
-    "backdropUrl": "assets/posters/vod_tears_of_steel.jpg",
-    "resolution": "1080p Full HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "164 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Creative Commons Attribution 3.0",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": false,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-    "backupUrls": [
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:2b24479e00eb4ff025c8bf93eeff077a28e932b1&dn=Tears_of_Steel_1080p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  },
-  {
-    "id": "vod_bbb_720p",
-    "title": "Big Buck Bunny",
-    "year": 2008,
-    "duration": 600,
-    "durationFormatted": "10m",
-    "genres": [
-      "Animation",
-      "Comedy"
-    ],
-    "type": "Open Movies",
-    "categories": [
-      "open_movies",
-      "animation",
-      "comedy"
-    ],
-    "rating": 7.2,
-    "description": "Full Feature Animated Classic: A large and gentle rabbit with a heart of gold takes creative revenge on bully forest rodents.",
-    "posterUrl": "assets/posters/vod_bbb_720p.jpg",
-    "backdropUrl": "assets/posters/vod_bbb_720p.jpg",
-    "resolution": "720p HD",
-    "codec": "H.264 / AVC",
-    "audio": "Stereo / 5.1",
-    "container": "MP4",
-    "fileSize": "210 MB",
-    "bitrate": "2.4 Mbps",
-    "fps": "24 FPS",
-    "license": "Creative Commons Attribution 3.0",
-    "contentSource": "Full Feature Archive / Public Domain",
-    "director": "Classic Feature Cinema",
-    "cast": "Full Feature Cast",
-    "featured": false,
-    "latest": true,
-    "swarmSeeders": 110,
-    "streamUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    "backupUrls": [
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-    ],
-    "torrentUri": "magnet:?xt=urn:btih:dd8255ecdc7ca55fb0bbf81323d87062db1f6d1c&dn=Big_Buck_Bunny_720p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  }
-];
-
+const DEFAULT_MOVIES_CATALOG = [{"id": "series_sherlock_holmes", "title": "The Adventures of Sherlock Holmes (1984)", "year": "1984", "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "hollywood", "thrillers", "classics"], "duration": 50000, "durationFormatted": "2 Seasons • 24 Episodes", "genres": ["Mystery", "Crime", "Drama", "Classics"], "rating": 8.3, "description": "The definitive and acclaimed Granada Television series starring Jeremy Brett as Sherlock Holmes and David Burke / Edward Hardwicke as Dr. Watson. Faithfully adapted from Sir Arthur Conan Doyle's stories, remastered in 1080p Full HD.", "posterUrl": "assets/posters/series_sherlock_holmes.jpg", "backdropUrl": "assets/posters/series_sherlock_holmes.jpg", "resolution": "1080p FHD (1920x1080)", "codec": "H.264 / AVC", "audio": "Stereo AC-3 (1 Track)", "languages": ["English"], "defaultLanguage": "English", "container": "MP4", "fileSize": "5.6 GB", "bitrate": "727 kbps", "fps": "24 FPS", "license": "Public Domain (Pre-1978 / Copyright Not Renewed)", "director": "Steve Previn, Jack Gage, Sheldon Leonard", "cast": "Ronald Howard, H. Marion Crawford, Archie Duncan, Richard Larke", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "SERIES", "region": "PUBLIC_DOMAIN", "trailerUrl": null, "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "FULL HD", "qualityHonestBadge": "1080p Full HD", "seasons": [{"seasonNumber": 1, "title": "The Adventures of Sherlock Holmes", "episodes": [{"id": "sherlock_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • A Scandal in Bohemia", "duration": "54m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E01%20A%20Scandal%20In%20Bohemia.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • The Dancing Men", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E02%20The%20Dancing%20Men.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • The Naval Treaty", "duration": "53m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E03%20The%20Naval%20Treaty.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • The Solitary Cyclist", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E04%20The%20Solitary%20Cyclist.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • The Crooked Man", "duration": "51m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E05%20The%20Crooked%20Man.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • The Speckled Band", "duration": "54m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E06%20The%20Speckled%20Band.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • The Blue Carbuncle", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E07%20The%20Blue%20Carbuncle.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • The Copper Beeches", "duration": "53m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E01%20The%20Copper%20Beeches.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • The Greek Interpreter", "duration": "51m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E02%20The%20Greek%20Interpreter.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e10", "episodeNumber": 10, "season": 1, "title": "S01:E10 • The Norwood Builder", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E03%20The%20Norwood%20Builder.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e11", "episodeNumber": 11, "season": 1, "title": "S01:E11 • The Resident Patient", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E04%20The%20Resident%20Patient.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e12", "episodeNumber": 12, "season": 1, "title": "S01:E12 • The Red-Headed League", "duration": "53m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E05%20The%20Red%20Headed%20League.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e13", "episodeNumber": 13, "season": 1, "title": "S01:E13 • The Final Problem", "duration": "55m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E06%20The%20Final%20Problem.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}]}, {"seasonNumber": 2, "title": "The Return of Sherlock Holmes", "episodes": [{"id": "sherlock_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • The Empty House", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E01%20The%20Empty%20House.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • The Abbey Grange", "duration": "51m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E02%20The%20Abbey%20Grange.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • The Musgrave Ritual", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E03%20The%20Musgrave%20Ritual.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • The Second Stain", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E04%20The%20Second%20Stain.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • The Man with the Twisted Lip", "duration": "53m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E05%20The%20Man%20With%20The%20Twisted%20Lip.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • The Priory School", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E06%20The%20Priory%20School.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • The Six Napoleons", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E07%20The%20Six%20Napoleons.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • The Devil's Foot", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E02%20The%20Devils%20Foot.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e9", "episodeNumber": 9, "season": 2, "title": "S02:E09 • Silver Blaze", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E03%20Silver%20Blaze.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e10", "episodeNumber": 10, "season": 2, "title": "S02:E10 • Wisteria Lodge", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E04%20Wisteria%20Lodge.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e11", "episodeNumber": 11, "season": 2, "title": "S02:E11 • The Bruce-Partington Plans", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E05%20The%20Bruce%20Partington%20Plans.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}]}], "episodes": [{"id": "sherlock_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • A Scandal in Bohemia", "duration": "54m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E01%20A%20Scandal%20In%20Bohemia.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • The Dancing Men", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E02%20The%20Dancing%20Men.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • The Naval Treaty", "duration": "53m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E03%20The%20Naval%20Treaty.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • The Solitary Cyclist", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E04%20The%20Solitary%20Cyclist.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • The Crooked Man", "duration": "51m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E05%20The%20Crooked%20Man.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • The Speckled Band", "duration": "54m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E06%20The%20Speckled%20Band.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • The Blue Carbuncle", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E07%20The%20Blue%20Carbuncle.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • The Copper Beeches", "duration": "53m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E01%20The%20Copper%20Beeches.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • The Greek Interpreter", "duration": "51m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E02%20The%20Greek%20Interpreter.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e10", "episodeNumber": 10, "season": 1, "title": "S01:E10 • The Norwood Builder", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E03%20The%20Norwood%20Builder.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e11", "episodeNumber": 11, "season": 1, "title": "S01:E11 • The Resident Patient", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E04%20The%20Resident%20Patient.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e12", "episodeNumber": 12, "season": 1, "title": "S01:E12 • The Red-Headed League", "duration": "53m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E05%20The%20Red%20Headed%20League.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s1e13", "episodeNumber": 13, "season": 1, "title": "S01:E13 • The Final Problem", "duration": "55m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E06%20The%20Final%20Problem.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • The Empty House", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E01%20The%20Empty%20House.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • The Abbey Grange", "duration": "51m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E02%20The%20Abbey%20Grange.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • The Musgrave Ritual", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E03%20The%20Musgrave%20Ritual.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • The Second Stain", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E04%20The%20Second%20Stain.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • The Man with the Twisted Lip", "duration": "53m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E05%20The%20Man%20With%20The%20Twisted%20Lip.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • The Priory School", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E06%20The%20Priory%20School.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • The Six Napoleons", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E07%20The%20Six%20Napoleons.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • The Devil's Foot", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E02%20The%20Devils%20Foot.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e9", "episodeNumber": 9, "season": 2, "title": "S02:E09 • Silver Blaze", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E03%20Silver%20Blaze.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e10", "episodeNumber": 10, "season": 2, "title": "S02:E10 • Wisteria Lodge", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E04%20Wisteria%20Lodge.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}, {"id": "sherlock_s2e11", "episodeNumber": 11, "season": 2, "title": "S02:E11 • The Bruce-Partington Plans", "duration": "52m", "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E05%20The%20Bruce%20Partington%20Plans.mp4", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityHonestBadge": "1080p Full HD"}], "originalTitle": "The Adventures of Sherlock Holmes (Granada TV)"}, {"id": "series_stranger_things", "title": "Stranger Things", "year": 2025, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "hollywood", "thrillers"], "duration": 3200, "durationFormatted": "1 Season • 8 Episodes", "genres": ["Sci-Fi", "Horror", "Drama", "Mystery"], "rating": 8.7, "description": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl with telekinetic powers.", "posterUrl": "assets/posters/series_stranger_things.jpg", "backdropUrl": "assets/posters/series_stranger_things.jpg", "resolution": "Source Unavailable", "codec": "HEVC", "audio": "Dolby Atmos 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "22.5 GB", "bitrate": "5.5 Mbps", "fps": "24 FPS", "license": "Netflix Original Series", "director": "The Duffer Brothers", "cast": "Millie Bobby Brown, Finn Wolfhard, Winona Ryder, David Harbour", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "st_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Chapter One: The Vanishing of Will Byers", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Chapter Two: The Weirdo on Maple Street", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Chapter Three: Holly, Jolly", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Chapter Four: The Body", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Chapter Five: The Flea and the Acrobat", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Chapter Six: The Monster", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Chapter Seven: The Bathtub", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Chapter Eight: The Upside Down", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "HOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "st_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Chapter One: The Vanishing of Will Byers", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Chapter Two: The Weirdo on Maple Street", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Chapter Three: Holly, Jolly", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Chapter Four: The Body", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Chapter Five: The Flea and the Acrobat", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Chapter Six: The Monster", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Chapter Seven: The Bathtub", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "st_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Chapter Eight: The Upside Down", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "series_panchayat", "title": "Panchayat", "year": 2024, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "bollywood", "comedy"], "duration": 2280, "durationFormatted": "3 Seasons • 24 Episodes", "genres": ["Comedy", "Drama", "Slice of Life"], "rating": 8.9, "description": "Abhishek Tripathi, an engineering graduate who for lack of a better job option joins as secretary of a panchayat office in a remote village named Phulera in Uttar Pradesh.", "posterUrl": "assets/posters/series_panchayat.jpg", "backdropUrl": "assets/posters/series_panchayat.jpg", "resolution": "Source Unavailable", "codec": "H.264 / AVC", "audio": "Dolby Digital 5.1", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "8.4 GB", "bitrate": "4.5 Mbps", "fps": "24 FPS", "license": "Amazon Prime Video / TVF", "director": "Deepak Kumar Mishra", "cast": "Jitendra Kumar, Neena Gupta, Raghubir Yadav, Faisal Malik, Chandan Roy", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "panchayat_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Gram Panchayat Phulera", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Bhoota Ped", "duration": "35m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Chakke Wali Kursi", "duration": "32m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Hamara Neta Kaisa Ho", "duration": "38m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Computer Nahi Monitor", "duration": "30m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Bahot Hua Samman", "duration": "34m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Ladka Tez Hai Lekin", "duration": "36m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Jab Jaago Tabhi Savera", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Naya Sachiv", "duration": "38m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Bal Sansad", "duration": "36m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Kranti", "duration": "34m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Tension", "duration": "39m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Jaise Ko Taisa", "duration": "35m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • Aukaat", "duration": "37m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • Dost Ya Dushman", "duration": "41m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • Parivaar", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e1", "episodeNumber": 1, "season": 3, "title": "S03:E01 • Rangbaaz", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e2", "episodeNumber": 2, "season": 3, "title": "S03:E02 • Gaddha", "duration": "40m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e3", "episodeNumber": 3, "season": 3, "title": "S03:E03 • Ghar Ka Bhedi", "duration": "38m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e4", "episodeNumber": 4, "season": 3, "title": "S03:E04 • Aatmanirbhar", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e5", "episodeNumber": 5, "season": 3, "title": "S03:E05 • Shanti Samjhauta", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e6", "episodeNumber": 6, "season": 3, "title": "S03:E06 • Chunaav", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e7", "episodeNumber": 7, "season": 3, "title": "S03:E07 • Khel", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e8", "episodeNumber": 8, "season": 3, "title": "S03:E08 • Hamla", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "BOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "panchayat_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Gram Panchayat Phulera", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Bhoota Ped", "duration": "35m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Chakke Wali Kursi", "duration": "32m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Hamara Neta Kaisa Ho", "duration": "38m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Computer Nahi Monitor", "duration": "30m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Bahot Hua Samman", "duration": "34m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Ladka Tez Hai Lekin", "duration": "36m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Jab Jaago Tabhi Savera", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}, {"seasonNumber": 2, "title": "Season 2", "episodes": [{"id": "panchayat_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Naya Sachiv", "duration": "38m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Bal Sansad", "duration": "36m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Kranti", "duration": "34m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Tension", "duration": "39m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Jaise Ko Taisa", "duration": "35m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • Aukaat", "duration": "37m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • Dost Ya Dushman", "duration": "41m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • Parivaar", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}, {"seasonNumber": 3, "title": "Season 3", "episodes": [{"id": "panchayat_s3e1", "episodeNumber": 1, "season": 3, "title": "S03:E01 • Rangbaaz", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e2", "episodeNumber": 2, "season": 3, "title": "S03:E02 • Gaddha", "duration": "40m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e3", "episodeNumber": 3, "season": 3, "title": "S03:E03 • Ghar Ka Bhedi", "duration": "38m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e4", "episodeNumber": 4, "season": 3, "title": "S03:E04 • Aatmanirbhar", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e5", "episodeNumber": 5, "season": 3, "title": "S03:E05 • Shanti Samjhauta", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e6", "episodeNumber": 6, "season": 3, "title": "S03:E06 • Chunaav", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e7", "episodeNumber": 7, "season": 3, "title": "S03:E07 • Khel", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "panchayat_s3e8", "episodeNumber": 8, "season": 3, "title": "S03:E08 • Hamla", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "series_mirzapur", "title": "Mirzapur", "year": 2024, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "bollywood", "action", "thrillers"], "duration": 3800, "durationFormatted": "3 Seasons • 29 Episodes", "genres": ["Crime", "Action", "Thriller", "Drama"], "rating": 8.5, "description": "The iron-fisted Akhandanand Tripathi is a millionaire carpet exporter and the mafia don of Mirzapur. His son Munna, an unworthy and power-hungry heir, stops at nothing to inherit his father's legacy, until he crosses paths with Guddu and Bablu Pandit.", "posterUrl": "assets/posters/series_mirzapur.jpg", "backdropUrl": "assets/posters/series_mirzapur.jpg", "resolution": "Source Unavailable", "codec": "H.264 / AAC", "audio": "Stereo / AAC", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "350 MB", "bitrate": "6.0 Mbps", "fps": "24 FPS", "license": "Amazon Prime Video Original", "director": "Karan Anshuman, Gurmmeet Singh", "cast": "Pankaj Tripathi, Ali Fazal, Divyenndu, Shweta Tripathi, Rasika Dugal", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "episodes": [{"id": "mirzapur_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Jhandu", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Gooda", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Wafadar", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Virginity", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Bhaukaal", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Barfi", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Lions of Mirzapur", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Tandav", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • Sadakchhap", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Dhenkul", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Khargosh", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Vikalp", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Bhabhi Ji", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Langda", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • Ankush", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • Ood Bilaw", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • Chauchak", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e9", "episodeNumber": 9, "season": 2, "title": "S02:E09 • Butterscotch", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e10", "episodeNumber": 10, "season": 2, "title": "S02:E10 • Deshprem", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e1", "episodeNumber": 1, "season": 3, "title": "S03:E01 • Tetua", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e2", "episodeNumber": 2, "season": 3, "title": "S03:E02 • Maatam", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e3", "episodeNumber": 3, "season": 3, "title": "S03:E03 • Pratishodh", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e4", "episodeNumber": 4, "season": 3, "title": "S03:E04 • Kissa Kursi Ka", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e5", "episodeNumber": 5, "season": 3, "title": "S03:E05 • Trahi Trahi", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e6", "episodeNumber": 6, "season": 3, "title": "S03:E06 • Bhasmasur", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e7", "episodeNumber": 7, "season": 3, "title": "S03:E07 • Chakravyuh", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e8", "episodeNumber": 8, "season": 3, "title": "S03:E08 • Agnipariksha", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e9", "episodeNumber": 9, "season": 3, "title": "S03:E09 • Yudh", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e10", "episodeNumber": 10, "season": 3, "title": "S03:E10 • Pratidwandi", "duration": "61m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "BOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "mirzapur_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Jhandu", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Gooda", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Wafadar", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Virginity", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Bhaukaal", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Barfi", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Lions of Mirzapur", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Tandav", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • Sadakchhap", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}, {"seasonNumber": 2, "title": "Season 2", "episodes": [{"id": "mirzapur_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Dhenkul", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Khargosh", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Vikalp", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Bhabhi Ji", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Langda", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • Ankush", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • Ood Bilaw", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • Chauchak", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e9", "episodeNumber": 9, "season": 2, "title": "S02:E09 • Butterscotch", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s2e10", "episodeNumber": 10, "season": 2, "title": "S02:E10 • Deshprem", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}, {"seasonNumber": 3, "title": "Season 3", "episodes": [{"id": "mirzapur_s3e1", "episodeNumber": 1, "season": 3, "title": "S03:E01 • Tetua", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e2", "episodeNumber": 2, "season": 3, "title": "S03:E02 • Maatam", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e3", "episodeNumber": 3, "season": 3, "title": "S03:E03 • Pratishodh", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e4", "episodeNumber": 4, "season": 3, "title": "S03:E04 • Kissa Kursi Ka", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e5", "episodeNumber": 5, "season": 3, "title": "S03:E05 • Trahi Trahi", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e6", "episodeNumber": 6, "season": 3, "title": "S03:E06 • Bhasmasur", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e7", "episodeNumber": 7, "season": 3, "title": "S03:E07 • Chakravyuh", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e8", "episodeNumber": 8, "season": 3, "title": "S03:E08 • Agnipariksha", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e9", "episodeNumber": 9, "season": 3, "title": "S03:E09 • Yudh", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mirzapur_s3e10", "episodeNumber": 10, "season": 3, "title": "S03:E10 • Pratidwandi", "duration": "61m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null, "qualityClass": null}, {"id": "vod_deadpool_wolverine", "title": "Deadpool & Wolverine", "year": 2024, "duration": 7680, "durationFormatted": "Trailer (2-3 min)", "genres": ["Action", "Comedy", "Sci-Fi"], "type": "Hollywood", "categories": ["hollywood", "action", "comedy"], "rating": 7.8, "description": "Wade Wilson's quiet civilian life is interrupted when the Time Variance Authority recruits him for an existential mission to save the multiverse, forcing him to convince a sullen, reluctant Wolverine to join forces.", "posterUrl": "assets/posters/vod_deadpool_wolverine.jpg", "backdropUrl": "assets/posters/vod_deadpool_wolverine.jpg", "resolution": "Trailer Only", "codec": "HEVC / H.265", "audio": "Dolby Atmos 7.1", "languages": ["English", "Hindi", "Tamil", "Telugu"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "7.3 MB", "bitrate": "5.4 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Marvel Studios / 20th Century Studios", "director": "Shawn Levy", "cast": "Ryan Reynolds, Hugh Jackman, Emma Corrin, Matthew Macfadyen, Dafne Keen", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/unlisted-deadpoolspot/Deleted%20Deadpool%20Spot.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_stree_2", "title": "Stree 2: Sarkate Ka Aatank", "year": 2024, "duration": 8940, "durationFormatted": "Trailer (2-3 min)", "genres": ["Horror", "Comedy", "Mystery"], "type": "Bollywood", "categories": ["bollywood", "comedy", "thrillers"], "rating": 7.7, "description": "After the events of Stree, the town of Chanderi is being haunted by a headless entity named Sarkata, who abducts modern independent women. Vicky, Bittu, J.D. and the mysterious woman unite to save their town.", "posterUrl": "assets/posters/vod_stree_2.jpg", "backdropUrl": "assets/posters/vod_stree_2.jpg", "resolution": "Trailer Only", "codec": "H.264 / AVC", "audio": "Dolby Digital 5.1 / AAC", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.4 GB", "bitrate": "4.2 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Maddock Films / Jio Studios", "director": "Amar Kaushik", "cast": "Shraddha Kapoor, Rajkummar Rao, Pankaj Tripathi, Abhishek Banerjee", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": "https://archive.org/download/lv_0_20250311095752/lv_0_20250311095752.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_kalki_2898_ad", "title": "Kalki 2898 AD", "year": 2024, "duration": 10860, "durationFormatted": "3h 01m", "genres": ["Sci-Fi", "Action", "Mythological"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 7.6, "description": "In the post-apocalyptic desert world of Kasi in the year 2898 AD, ruled by Supreme Yaskin, a prophesied mother carrying the divine Tenth Avatar of Vishnu is protected by the immortal warrior Ashwatthama against bounty hunter Bhairava.", "posterUrl": "assets/posters/vod_kalki_2898_ad.jpg", "backdropUrl": "assets/posters/vod_kalki_2898_ad.jpg", "resolution": "480p SD (854x480)", "codec": "H.264 / AVC", "audio": "Stereo AAC (1 Track)", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "1.06 GB", "bitrate": "699 kbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Vyjayanthi Movies", "director": "Nag Ashwin", "cast": "Prabhas, Amitabh Bachchan, Kamal Haasan, Deepika Padukone, Disha Patani", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": "https://archive.org/download/kalki.-2898.-ad.-2024.-hindi.-web-dl.-720p/Kalki.2898.AD.2024.Hindi.WEB-DL.720p.mp4", "backupUrls": ["https://archive.org/download/kalki.-2898.-ad.-2024.-hindi.-web-dl.-720p/Kalki.2898.AD.2024.Hindi.WEB-DL.720p.mkv"], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "SD", "qualityHonestBadge": "480p SD"}, {"id": "vod_gladiator_2", "title": "Gladiator II", "year": 2024, "mediaType": "movie", "duration": 8880, "durationFormatted": "2h 28m", "genres": ["Action", "Adventure", "Epic"], "type": "Hollywood", "categories": ["hollywood", "action"], "rating": 7.5, "description": "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after his home is conquered by the tyrannical emperors who now lead Rome with an iron fist.", "posterUrl": "assets/posters/vod_gladiator_2.jpg", "backdropUrl": "assets/posters/vod_gladiator_2.jpg", "resolution": "Source Unavailable", "codec": "HEVC", "audio": "Dolby Atmos 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "3.4 GB", "bitrate": "5.2 Mbps", "fps": "24 FPS", "license": "Paramount Pictures", "director": "Ridley Scott", "cast": "Paul Mescal, Pedro Pascal, Denzel Washington, Connie Nielsen", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_spider_verse", "title": "Spider-Man: Across the Spider-Verse", "year": 2023, "mediaType": "movie", "duration": 8400, "durationFormatted": "2h 20m", "genres": ["Animation", "Action", "Adventure"], "type": "Hollywood", "categories": ["hollywood", "action"], "rating": 8.7, "description": "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on how to handle a new threat, Miles must redefine what it means to be a hero.", "posterUrl": "assets/posters/vod_spider_verse.jpg", "backdropUrl": "assets/posters/vod_spider_verse.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby Atmos 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.6 GB", "bitrate": "4.4 Mbps", "fps": "24 FPS", "license": "Sony Pictures Animation", "director": "Joaquim Dos Santos, Kemp Powers", "cast": "Shameik Moore, Hailee Steinfeld, Oscar Isaac, Karan Soni", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_pathaan", "title": "Pathaan", "year": 2023, "mediaType": "movie", "duration": 8760, "durationFormatted": "2h 26m", "genres": ["Action", "Thriller", "Spy"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 7.0, "description": "An Indian RAW field agent Pathaan assigns himself to take down Jim, a former RAW agent who turned rogue and leads a lethal private terror organization Outfit X planning a biological attack on India.", "posterUrl": "assets/posters/vod_pathaan.jpg", "backdropUrl": "assets/posters/vod_pathaan.jpg", "resolution": "Source Unavailable", "codec": "H.264 / AVC", "audio": "Dolby Digital 5.1 / AAC", "languages": ["Hindi", "English", "Telugu", "Tamil"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.8 GB", "bitrate": "4.5 Mbps", "fps": "24 FPS", "license": "Yash Raj Films Spy Universe", "director": "Siddharth Anand", "cast": "Shah Rukh Khan, Deepika Padukone, John Abraham, Dimple Kapadia", "featured": true, "latest": true, "swarmSeeders": null, "streamUrl": null, "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "series_family_man", "title": "The Family Man", "year": 2021, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "bollywood", "action", "thrillers"], "duration": 3100, "durationFormatted": "2 Seasons • 19 Episodes", "genres": ["Action", "Comedy", "Drama", "Espionage"], "rating": 8.7, "description": "Srikant Tiwari, a middle-class man who also serves as a world-class spy for T.A.S.C, an undercover wing of the National Investigation Agency, must balance his family life with saving the nation from catastrophic terror attacks.", "posterUrl": "assets/posters/series_family_man.jpg", "backdropUrl": "assets/posters/series_family_man.jpg", "resolution": "Source Unavailable", "codec": "HEVC", "audio": "Dolby 5.1", "languages": ["Hindi", "English", "Tamil", "Telugu"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "10.6 GB", "bitrate": "5.2 Mbps", "fps": "24 FPS", "license": "Amazon Prime Video Original", "director": "Raj & DK", "cast": "Manoj Bajpayee, Samantha Ruth Prabhu, Priyamani, Sharib Hashmi", "featured": true, "latest": false, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "fam_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • The Family Man", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Sleepers", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Anti-National", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Patriots", "duration": "41m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Pariah", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Dance of Death", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Paradise", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Act of War", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • Fighting Dirty", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e10", "episodeNumber": 10, "season": 1, "title": "S01:E10 • The End Game", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Exile", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Weapon", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Angel of Death", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Eagle", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Homecoming", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • Martyrs", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • Collateral Damage", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • Vendetta", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e9", "episodeNumber": 9, "season": 2, "title": "S02:E09 • The Final Act", "duration": "60m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "BOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "fam_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • The Family Man", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Sleepers", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Anti-National", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Patriots", "duration": "41m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Pariah", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Dance of Death", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Paradise", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Act of War", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • Fighting Dirty", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s1e10", "episodeNumber": 10, "season": 1, "title": "S01:E10 • The End Game", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}, {"seasonNumber": 2, "title": "Season 2", "episodes": [{"id": "fam_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Exile", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Weapon", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Angel of Death", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Eagle", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Homecoming", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • Martyrs", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • Collateral Damage", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • Vendetta", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "fam_s2e9", "episodeNumber": 9, "season": 2, "title": "S02:E09 • The Final Act", "duration": "60m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "series_money_heist", "title": "Money Heist (La Casa de Papel)", "year": 2021, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "hollywood", "action", "thrillers"], "duration": 3000, "durationFormatted": "1 Part • 9 Episodes", "genres": ["Action", "Crime", "Mystery", "Thriller"], "rating": 8.2, "description": "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain, masterminded by The Professor.", "posterUrl": "assets/posters/series_money_heist.jpg", "backdropUrl": "assets/posters/series_money_heist.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi", "English", "Spanish"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "18.0 GB", "bitrate": "4.8 Mbps", "fps": "24 FPS", "license": "Netflix Original Series", "director": "Álex Pina", "cast": "Álvaro Morte, Úrsula Corberó, Pedro Alonso, Itziar Ituño", "featured": true, "latest": false, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "mh_s1e1", "episodeNumber": 1, "season": 1, "title": "Part 1:E01 • Do As Planned", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e2", "episodeNumber": 2, "season": 1, "title": "Part 1:E02 • Lethal Negligence", "duration": "41m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e3", "episodeNumber": 3, "season": 1, "title": "Part 1:E03 • Misplaced Optimism", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e4", "episodeNumber": 4, "season": 1, "title": "Part 1:E04 • It's Toxic", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e5", "episodeNumber": 5, "season": 1, "title": "Part 1:E05 • The Trophy Room", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e6", "episodeNumber": 6, "season": 1, "title": "Part 1:E06 • An Air Tight Plan", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e7", "episodeNumber": 7, "season": 1, "title": "Part 1:E07 • Cool Headed", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e8", "episodeNumber": 8, "season": 1, "title": "Part 1:E08 • What Have We Done", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e9", "episodeNumber": 9, "season": 1, "title": "Part 1:E09 • The Cold Night", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "HOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Part 1", "episodes": [{"id": "mh_s1e1", "episodeNumber": 1, "season": 1, "title": "Part 1:E01 • Do As Planned", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e2", "episodeNumber": 2, "season": 1, "title": "Part 1:E02 • Lethal Negligence", "duration": "41m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e3", "episodeNumber": 3, "season": 1, "title": "Part 1:E03 • Misplaced Optimism", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e4", "episodeNumber": 4, "season": 1, "title": "Part 1:E04 • It's Toxic", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e5", "episodeNumber": 5, "season": 1, "title": "Part 1:E05 • The Trophy Room", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e6", "episodeNumber": 6, "season": 1, "title": "Part 1:E06 • An Air Tight Plan", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e7", "episodeNumber": 7, "season": 1, "title": "Part 1:E07 • Cool Headed", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e8", "episodeNumber": 8, "season": 1, "title": "Part 1:E08 • What Have We Done", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "mh_s1e9", "episodeNumber": 9, "season": 1, "title": "Part 1:E09 • The Cold Night", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "series_scam_1992", "title": "Scam 1992: The Harshad Mehta Story", "year": 2020, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "bollywood", "thrillers"], "duration": 3240, "durationFormatted": "1 Season • 10 Episodes", "genres": ["Biography", "Crime", "Drama", "Finance"], "rating": 9.3, "description": "Set in 1980s & 90s Bombay, follows the meteoric rise and catastrophic fall of stockbroker Harshad Mehta, who single-handedly took the Bombay Stock Exchange to dizzying heights.", "posterUrl": "assets/posters/series_scam_1992.jpg", "backdropUrl": "assets/posters/series_scam_1992.jpg", "resolution": "Source Unavailable", "codec": "H.264 / AVC", "audio": "Dolby Digital 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "7.5 GB", "bitrate": "4.8 Mbps", "fps": "24 FPS", "license": "SonyLIV Original", "director": "Hansal Mehta, Jai Mehta", "cast": "Pratik Gandhi, Shreya Dhanwanthary, Anjali Barot, Satish Kaushik", "featured": true, "latest": false, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "scam_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Risk Se Ishq", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • The Bull of Dalal Street", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Paap Ka Ghada", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Matka King", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Ek Karod Ka Cheque", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • CBI", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Chakravyuh", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Dawaat-e-Ishq", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • The Search", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e10", "episodeNumber": 10, "season": 1, "title": "S01:E10 • Khiladi", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "BOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "scam_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Risk Se Ishq", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • The Bull of Dalal Street", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Paap Ka Ghada", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Matka King", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Ek Karod Ka Cheque", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • CBI", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Chakravyuh", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Dawaat-e-Ishq", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • The Search", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "scam_s1e10", "episodeNumber": 10, "season": 1, "title": "S01:E10 • Khiladi", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "series_sacred_games", "title": "Sacred Games", "year": 2019, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "bollywood", "thrillers"], "duration": 3180, "durationFormatted": "2 Seasons • 16 Episodes", "genres": ["Crime", "Mystery", "Thriller", "Drama"], "rating": 8.5, "description": "A link in their pasts leads an honest Mumbai police officer Sartaj Singh to a fugitive gang boss Ganesh Gaitonde, whose cryptic warning spurs a quest to save Mumbai from cataclysm within 25 days.", "posterUrl": "assets/posters/series_sacred_games.jpg", "backdropUrl": "assets/posters/series_sacred_games.jpg", "resolution": "Source Unavailable", "codec": "H.264 / AVC", "audio": "Dolby Atmos 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "11.8 GB", "bitrate": "5.5 Mbps", "fps": "24 FPS", "license": "Netflix Original Series", "director": "Anurag Kashyap, Vikramaditya Motwane", "cast": "Saif Ali Khan, Nawazuddin Siddiqui, Radhika Apte, Pankaj Tripathi", "featured": true, "latest": false, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "sg_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Ashwatthama", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Halahala", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Aatapi Vatapi", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Brahmahatya", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Sarama", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Pretakalpa", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Rudra", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Yayati", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Matsya", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Kurma", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Varaha", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Narasimha", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Vamana", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • Parashurama", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • Rama", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • Krishna", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "BOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "sg_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Ashwatthama", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Halahala", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Aatapi Vatapi", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Brahmahatya", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Sarama", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Pretakalpa", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Rudra", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Yayati", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}, {"seasonNumber": 2, "title": "Season 2", "episodes": [{"id": "sg_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Matsya", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Kurma", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Varaha", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Narasimha", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Vamana", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e6", "episodeNumber": 6, "season": 2, "title": "S02:E06 • Parashurama", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e7", "episodeNumber": 7, "season": 2, "title": "S02:E07 • Rama", "duration": "51m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "sg_s2e8", "episodeNumber": 8, "season": 2, "title": "S02:E08 • Krishna", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "vod_interstellar", "title": "Interstellar", "year": 2014, "mediaType": "movie", "duration": 10140, "durationFormatted": "2h 49m", "genres": ["Sci-Fi", "Adventure", "Drama"], "type": "Hollywood", "categories": ["hollywood", "action", "thrillers"], "rating": 8.7, "description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.", "posterUrl": "assets/posters/vod_interstellar.jpg", "backdropUrl": "assets/posters/vod_interstellar.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.8 GB", "bitrate": "4.5 Mbps", "fps": "24 FPS", "license": "Warner Bros. / Syncopy", "director": "Christopher Nolan", "cast": "Matthew McConaughey, Anne Hathaway, Jessica Chastain, Michael Caine", "featured": true, "latest": false, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "series_breaking_bad", "title": "Breaking Bad", "year": 2013, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "hollywood", "thrillers"], "duration": 2940, "durationFormatted": "1 Season • 7 Episodes", "genres": ["Crime", "Drama", "Thriller"], "rating": 9.5, "description": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's financial future.", "posterUrl": "assets/posters/series_breaking_bad.jpg", "backdropUrl": "assets/posters/series_breaking_bad.jpg", "resolution": "Source Unavailable", "codec": "HEVC", "audio": "Dolby 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "28.5 GB", "bitrate": "5.5 Mbps", "fps": "24 FPS", "license": "Sony Pictures / AMC", "director": "Vince Gilligan", "cast": "Bryan Cranston, Aaron Paul, Anna Gunn, Dean Norris, Giancarlo Esposito", "featured": true, "latest": false, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "bb_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Pilot", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Cat's in the Bag...", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • ...And the Bag's in the River", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Cancer Man", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Gray Matter", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Crazy Handful of Nothin'", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • A No-Rough-Stuff-Type Deal", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "HOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "bb_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Pilot", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Cat's in the Bag...", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • ...And the Bag's in the River", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Cancer Man", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Gray Matter", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Crazy Handful of Nothin'", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "bb_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • A No-Rough-Stuff-Type Deal", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "vod_dark_knight", "title": "The Dark Knight", "year": 2008, "mediaType": "movie", "duration": 9120, "durationFormatted": "2h 32m", "genres": ["Action", "Crime", "Drama"], "type": "Hollywood", "categories": ["hollywood", "action", "thrillers"], "rating": 9.0, "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", "posterUrl": "assets/posters/vod_dark_knight.jpg", "backdropUrl": "assets/posters/vod_dark_knight.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby Digital 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.7 GB", "bitrate": "4.6 Mbps", "fps": "24 FPS", "license": "Warner Bros. / DC Comics", "director": "Christopher Nolan", "cast": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine, Morgan Freeman", "featured": true, "latest": false, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_chhavaa", "title": "Chhaava", "year": 2025, "duration": 9300, "durationFormatted": "2h 35m", "genres": ["Action", "Historical", "Drama"], "type": "Bollywood", "categories": ["bollywood", "action"], "rating": 8.1, "description": "The epic historical saga of Chhatrapati Sambhaji Maharaj, the fearless son of Chhatrapati Shivaji Maharaj, who stood as an impregnable fortress defending the Maratha Empire against the colossal Mughal armies of Aurangzeb.", "posterUrl": "assets/posters/vod_chhavaa.jpg", "backdropUrl": "assets/posters/vod_chhavaa.jpg", "resolution": "720p HD (1280x640)", "codec": "H.264 / AVC", "audio": "Stereo AAC (1 Track)", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "1.04 GB", "bitrate": "839 kbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Maddock Films", "director": "Laxman Utekar", "cast": "Vicky Kaushal, Rashmika Mandanna, Akshaye Khanna, Ashutosh Rana", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": "https://archive.org/download/chhaava-2025-hindi-full-movie-720p-hdtc-filmywap.pm/Chhaava_2025_Hindi_Full_Movie_720p_HDTC-%28Filmywap.pm%29.mp4", "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "HD", "qualityHonestBadge": "720p HD"}, {"id": "series_kota_factory", "title": "Kota Factory", "year": 2024, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "bollywood", "comedy"], "duration": 2200, "durationFormatted": "3 Seasons • 15 Episodes", "genres": ["Comedy", "Drama"], "rating": 9.0, "description": "Dedicated to the students of Kota, the educational hub of India. Follows 16-year-old Vaibhav who moves to Kota from Itarsi, portraying the student life, coaching culture, and the mentorship of Jeetu Bhaiya.", "posterUrl": "assets/posters/series_kota_factory.jpg", "backdropUrl": "assets/posters/series_kota_factory.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Stereo AAC", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "4.8 GB", "bitrate": "3.8 Mbps", "fps": "24 FPS", "license": "Netflix / TVF", "director": "Raghav Subbu, Pratish Mehta", "cast": "Jitendra Kumar, Mayur More, Ranjan Raj, Alam Khan, Revathi Pillai", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "kf_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Inventory", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Assembly Line", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Optimization", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Shutdown", "duration": "40m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Overhaul", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Reasoning", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Atmospheric Pressure", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Packaging", "duration": "40m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Building Strength", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Revised Syllabus", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s3e1", "episodeNumber": 1, "season": 3, "title": "S03:E01 • Big Bull", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s3e2", "episodeNumber": 2, "season": 3, "title": "S03:E02 • Overheat", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s3e3", "episodeNumber": 3, "season": 3, "title": "S03:E03 • Equilibrium", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s3e4", "episodeNumber": 4, "season": 3, "title": "S03:E04 • Temperature", "duration": "41m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s3e5", "episodeNumber": 5, "season": 3, "title": "S03:E05 • Cutoff", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "BOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "kf_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Inventory", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Assembly Line", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Optimization", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Shutdown", "duration": "40m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Overhaul", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}, {"seasonNumber": 2, "title": "Season 2", "episodes": [{"id": "kf_s2e1", "episodeNumber": 1, "season": 2, "title": "S02:E01 • Reasoning", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s2e2", "episodeNumber": 2, "season": 2, "title": "S02:E02 • Atmospheric Pressure", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s2e3", "episodeNumber": 3, "season": 2, "title": "S02:E03 • Packaging", "duration": "40m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s2e4", "episodeNumber": 4, "season": 2, "title": "S02:E04 • Building Strength", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s2e5", "episodeNumber": 5, "season": 2, "title": "S02:E05 • Revised Syllabus", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}, {"seasonNumber": 3, "title": "Season 3", "episodes": [{"id": "kf_s3e1", "episodeNumber": 1, "season": 3, "title": "S03:E01 • Big Bull", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s3e2", "episodeNumber": 2, "season": 3, "title": "S03:E02 • Overheat", "duration": "42m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s3e3", "episodeNumber": 3, "season": 3, "title": "S03:E03 • Equilibrium", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s3e4", "episodeNumber": 4, "season": 3, "title": "S03:E04 • Temperature", "duration": "41m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "kf_s3e5", "episodeNumber": 5, "season": 3, "title": "S03:E05 • Cutoff", "duration": "50m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "vod_dune_part_two", "title": "Dune: Part Two", "year": 2024, "duration": 9960, "durationFormatted": "Trailer (2-3 min)", "genres": ["Sci-Fi", "Adventure", "Drama"], "type": "Hollywood", "categories": ["hollywood", "action", "thrillers"], "rating": 8.6, "description": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future.", "posterUrl": "assets/posters/vod_dune_part_two.jpg", "backdropUrl": "assets/posters/vod_dune_part_two.jpg", "resolution": "Trailer Only", "codec": "HEVC / H.265", "audio": "Dolby Atmos 7.1", "languages": ["English", "Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "14.8 MB", "bitrate": "5.8 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Warner Bros. Pictures / Legendary", "director": "Denis Villeneuve", "cast": "Timothée Chalamet, Zendaya, Rebecca Ferguson, Javier Bardem, Austin Butler", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/dune-part-two-official-imax-trailer-2-4k-prores/DunePartTwo_Official-IMAX-Trailer-2_4K_51_prores.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_furiosa", "title": "Furiosa: A Mad Max Saga", "year": 2024, "duration": 8880, "durationFormatted": "Trailer (2-3 min)", "genres": ["Action", "Adventure", "Sci-Fi"], "type": "Hollywood", "categories": ["hollywood", "action", "thrillers"], "rating": 7.6, "description": "As the world falls, young Furiosa is snatched from the Green Place of Many Mothers into the hands of a Biker Horde led by the Warlord Dementus. Sweeping through the Wasteland, they come across the Citadel presided over by Immortan Joe.", "posterUrl": "assets/posters/vod_furiosa.jpg", "backdropUrl": "assets/posters/vod_furiosa.jpg", "resolution": "Trailer Only", "codec": "HEVC / H.265", "audio": "Dolby Atmos 7.1", "languages": ["English", "Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "14.2 MB", "bitrate": "5.3 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Warner Bros. Pictures", "director": "George Miller", "cast": "Anya Taylor-Joy, Chris Hemsworth, Tom Burke, Alyla Browne", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/furiosa-a-mad-max-saga-official-trailer-2-4k-prores/Furiosa_OfficialTrailer2_4K_51_prores.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_shaitaan", "title": "Shaitaan", "year": 2024, "mediaType": "movie", "duration": 7920, "durationFormatted": "2h 12m", "genres": ["Horror", "Thriller", "Supernatural"], "type": "Bollywood", "categories": ["bollywood", "thrillers"], "rating": 7.4, "description": "A family's idyllic farmhouse weekend turns into a living nightmare when an uninvited mysterious stranger casts a hypnotic black magic spell on their teenage daughter, taking full control of her mind.", "posterUrl": "assets/posters/vod_shaitaan.jpg", "backdropUrl": "assets/posters/vod_shaitaan.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.1 GB", "bitrate": "4.0 Mbps", "fps": "24 FPS", "license": "Jio Studios / Panorama Studios", "director": "Vikas Bahl", "cast": "Ajay Devgn, R. Madhavan, Jyothika, Janki Bodiwala", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_alien_romulus", "title": "Alien: Romulus", "year": 2024, "duration": 7140, "durationFormatted": "Trailer (2-3 min)", "genres": ["Horror", "Sci-Fi", "Thriller"], "type": "Hollywood", "categories": ["hollywood", "thrillers", "action"], "rating": 7.3, "description": "While scavenging the deep ends of a derelict space station, a group of young space colonizers come face to face with the most terrifying life form in the universe.", "posterUrl": "assets/posters/vod_alien_romulus.jpg", "backdropUrl": "assets/posters/vod_alien_romulus.jpg", "resolution": "Trailer Only", "codec": "H.264 / AVC", "audio": "Dolby Digital 5.1", "languages": ["English", "Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "17.3 MB", "bitrate": "4.1 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "20th Century Studios / Scott Free", "director": "Fede Álvarez", "cast": "Cailee Spaeny, David Jonsson, Archie Renaux, Isabela Merced", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/alien-romulus-imax-final-trailer-4k-prores/AlienRomulus_IMAX-Final-Trailer_4K_51_prores.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_munjya", "title": "Munjya", "year": 2024, "mediaType": "movie", "duration": 7380, "durationFormatted": "2h 03m", "genres": ["Horror", "Comedy", "Folklore"], "type": "Bollywood", "categories": ["bollywood", "comedy", "thrillers"], "rating": 7.2, "description": "A young man visits his ancestral village in the Konkan coast and accidentally unleashes the vengeful spirit of Munjya, a restless ghoul obsessed with marrying his childhood love.", "posterUrl": "assets/posters/vod_munjya.jpg", "backdropUrl": "assets/posters/vod_munjya.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "1.9 GB", "bitrate": "3.9 Mbps", "fps": "24 FPS", "license": "Maddock Supernatural Universe", "director": "Aditya Sarpotdar", "cast": "Sharvari, Abhay Verma, Mona Singh, Sathyaraj", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_fighter", "title": "Fighter", "year": 2024, "duration": 9960, "durationFormatted": "Trailer (2-3 min)", "genres": ["Action", "Thriller", "War"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 7.0, "description": "An elite Air Force unit called Air Dragons is formed to handle extreme national threats, facing treacherous counter-attacks and geopolitical tension after a terror incident.", "posterUrl": "assets/posters/vod_fighter.jpg", "backdropUrl": "assets/posters/vod_fighter.jpg", "resolution": "Trailer Only", "codec": "H.264 / AVC", "audio": "Dolby Digital 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "25 MB", "bitrate": "3.8 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Marflix Pictures / Viacom18 Studios", "director": "Siddharth Anand", "cast": "Hrithik Roshan, Deepika Padukone, Anil Kapoor, Karan Singh Grover", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": "https://archive.org/download/fighter-official-trailer-hrithik-roshan-deepika-padukone-anil-kapoor-siddharth-anand/Fighter%20Official%20Trailer%20-%20Hrithik%20Roshan%2C%20Deepika%20Padukone%2C%20Anil%20Kapoor%2C%20Siddharth%20Anand.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_godzilla_x_kong", "title": "Godzilla x Kong: The New Empire", "year": 2024, "duration": 6900, "durationFormatted": "Trailer (2-3 min)", "genres": ["Action", "Sci-Fi", "Adventure"], "type": "Hollywood", "categories": ["hollywood", "action"], "rating": 6.1, "description": "Two ancient titans, Godzilla and Kong, clash in an epic battle as humans unravel their intertwined origins and connection to Skull Island's mysteries while confronting a colossal undiscovered threat hidden within our world.", "posterUrl": "assets/posters/vod_godzilla_x_kong.jpg", "backdropUrl": "assets/posters/vod_godzilla_x_kong.jpg", "resolution": "Trailer Only", "codec": "H.264 / AVC", "audio": "Dolby Digital 5.1", "languages": ["English", "Hindi", "Tamil", "Telugu"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "5.5 MB", "bitrate": "4.0 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Warner Bros. / Legendary", "director": "Adam Wingard", "cast": "Rebecca Hall, Brian Tyree Henry, Dan Stevens, Kaylee Hottle", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/godzilla-vs-kong-final-trailer/Godzilla%20Vs%20Kong%20-%20Final%20Trailer%21.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_12th_fail", "title": "12th Fail", "year": 2023, "duration": 8820, "durationFormatted": "2h 27m", "genres": ["Biography", "Drama"], "type": "Bollywood", "categories": ["bollywood"], "rating": 8.9, "description": "Based on the true story of Manoj Kumar Sharma, who rose from extreme poverty in the dacoit-infested Chambal valley to clear the world's toughest exam, the UPSC, and become an IPS Officer with sheer dedication and honesty.", "posterUrl": "assets/posters/vod_12th_fail.jpg", "backdropUrl": "assets/posters/vod_12th_fail.jpg", "resolution": "480p SD (960x402)", "codec": "H.264 / AVC", "audio": "Stereo AAC (1 Track)", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "879 MB", "bitrate": "697 kbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Vinod Chopra Films / Zee Studios", "director": "Vidhu Vinod Chopra", "cast": "Vikrant Massey, Medha Shankar, Anant V Joshi, Anshumaan Pushkar", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": "https://archive.org/download/12th-fail-2023-bollywood-hindi-movie-hevc-720p-esub/%F0%9F%8E%AC%2012th_Fail_%282023%29_Bollywood_Hindi_Movie_HEVC_720p_ESub.mp4", "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "SD", "qualityHonestBadge": "480p SD"}, {"id": "vod_oppenheimer", "title": "Oppenheimer", "year": 2023, "duration": 10800, "durationFormatted": "3h 00m", "genres": ["Biography", "Drama", "History"], "type": "Hollywood", "categories": ["hollywood", "thrillers"], "rating": 8.9, "description": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during the Manhattan Project. 7 Academy Awards winner including Best Picture.", "posterUrl": "assets/posters/vod_oppenheimer.jpg", "backdropUrl": "assets/posters/vod_oppenheimer.jpg", "resolution": "480p SD (1056x480)", "codec": "H.264 / AVC", "audio": "Stereo AAC (1 Track)", "languages": ["English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "1.06 GB", "bitrate": "695 kbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Universal Pictures / Syncopy", "director": "Christopher Nolan", "cast": "Cillian Murphy, Emily Blunt, Matt Damon, Robert Downey Jr., Florence Pugh", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": "https://archive.org/download/oppenheimer-2023-imax-1080p-blu-ray-hindi-english-ddp-5.1-h.-265-esubs-extra-flix.-pw/Oppenheimer%20%282023%29%20IMAX%201080p%20BluRay%20%5BHindi-English%5D%20DDP5.1%20H.265%20ESubs-ExtraFlix.Pw.mp4", "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "SD", "qualityHonestBadge": "480p SD"}, {"id": "series_farzi", "title": "Farzi", "year": 2023, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "bollywood", "thrillers"], "duration": 3480, "durationFormatted": "1 Season • 8 Episodes", "genres": ["Crime", "Thriller", "Drama"], "rating": 8.4, "description": "Sunny, a brilliant small-time artist, designs the ultimate counterfeit currency note, pulling him and his best friend into the high-stakes world of global counterfeiting, pursued relentlessly by Michael, an unorthodox STF officer.", "posterUrl": "assets/posters/series_farzi.jpg", "backdropUrl": "assets/posters/series_farzi.jpg", "resolution": "Source Unavailable", "codec": "HEVC", "audio": "Dolby Atmos 5.1", "languages": ["Hindi", "English", "Tamil", "Telugu"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "6.8 GB", "bitrate": "5.0 Mbps", "fps": "24 FPS", "license": "Amazon Prime Video Original", "director": "Raj & DK", "cast": "Shahid Kapoor, Vijay Sethupathi, Kay Kay Menon, Raashii Khanna", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "farzi_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • The Artist", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Sab Chalta Hai", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Mehangai", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Dhan Kuber", "duration": "57m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Second Oldest Profession", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Cat and Mouse", "duration": "59m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Supernote", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Crash and Burn", "duration": "62m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "BOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "farzi_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • The Artist", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Sab Chalta Hai", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Mehangai", "duration": "54m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Dhan Kuber", "duration": "57m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Second Oldest Profession", "duration": "52m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • Cat and Mouse", "duration": "59m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Supernote", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "farzi_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Crash and Burn", "duration": "62m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "vod_john_wick_4", "title": "John Wick: Chapter 4", "year": 2023, "duration": 10140, "durationFormatted": "Trailer (2-3 min)", "genres": ["Action", "Crime", "Thriller"], "type": "Hollywood", "categories": ["hollywood", "action", "thrillers"], "rating": 7.7, "description": "John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.", "posterUrl": "assets/posters/vod_john_wick_4.jpg", "backdropUrl": "assets/posters/vod_john_wick_4.jpg", "resolution": "Trailer Only", "codec": "HEVC / H.265", "audio": "Dolby Atmos 7.1", "languages": ["English", "Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "7.4 MB", "bitrate": "5.3 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Lionsgate / Thunder Road", "director": "Chad Stahelski", "cast": "Keanu Reeves, Donnie Yen, Bill Skarsgård, Laurence Fishburne, Hiroyuki Sanada", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/youtube-fvJvbA1MvTY/fvJvbA1MvTY.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_leo", "title": "Leo: Bloody Sweet", "year": 2023, "mediaType": "movie", "duration": 9840, "durationFormatted": "2h 44m", "genres": ["Action", "Thriller", "Crime"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 7.2, "description": "Parthiban, a mild-mannered cafe owner in Kashmir, rescues his town from brutal gangsters, triggering ruthless cartel bosses to suspect he is actually the feared killer Leo Das.", "posterUrl": "assets/posters/vod_leo.jpg", "backdropUrl": "assets/posters/vod_leo.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi", "Tamil", "Telugu", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.9 GB", "bitrate": "4.6 Mbps", "fps": "24 FPS", "license": "Seven Screen Studio / LCU", "director": "Lokesh Kanagaraj", "cast": "Thalapathy Vijay, Sanjay Dutt, Arjun Sarja, Trisha Krishnan", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_jawan", "title": "Jawan", "year": 2023, "duration": 10140, "durationFormatted": "2h 49m", "genres": ["Action", "Thriller", "Drama"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 7.0, "description": "A high-octane action thriller outlining the emotional journey of a prison warden driven by a personal vendetta to rectify the wrongs in society, while keeping a promise made years ago to his patriotic father.", "posterUrl": "assets/posters/vod_jawan.jpg", "backdropUrl": "assets/posters/vod_jawan.jpg", "resolution": "1080p FHD (1920x804)", "codec": "H.264 / AVC", "audio": "5.1 Surround AAC (1 Track)", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "3.37 GB", "bitrate": "2.25 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Red Chillies Entertainment", "director": "Atlee", "cast": "Shah Rukh Khan, Nayanthara, Vijay Sethupathi, Deepika Padukone, Sanya Malhotra", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": "https://archive.org/download/jawan.-2023.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx/Jawan.2023.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D.mp4", "backupUrls": ["https://archive.org/download/jawan.-2023.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx/Jawan.2023.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D_archive.torrent"], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "FULL HD", "qualityHonestBadge": "1080p Full HD"}, {"id": "vod_tiger_3", "title": "Tiger 3", "year": 2023, "mediaType": "movie", "duration": 9360, "durationFormatted": "2h 36m", "genres": ["Action", "Thriller", "Spy"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 6.9, "description": "Following the events of Tiger Zinda Hai, War and Pathaan, Avinash 'Tiger' Singh Rathore is framed as a traitor by a revenge-seeking former ISI agent Aatish Rehman.", "posterUrl": "assets/posters/vod_tiger_3.jpg", "backdropUrl": "assets/posters/vod_tiger_3.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.6 GB", "bitrate": "4.4 Mbps", "fps": "24 FPS", "license": "Yash Raj Films", "director": "Maneesh Sharma", "cast": "Salman Khan, Katrina Kaif, Emraan Hashmi, Shah Rukh Khan", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_salaar", "title": "Salaar: Part 1 - Ceasefire", "year": 2023, "mediaType": "movie", "duration": 10500, "durationFormatted": "2h 55m", "genres": ["Action", "Crime", "Thriller"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 6.9, "description": "In the heavily armed, sovereign city-state of Khansaar, a friendship between prince Varadha and Deva turns into a monumental clash for supreme dominance.", "posterUrl": "assets/posters/vod_salaar.jpg", "backdropUrl": "assets/posters/vod_salaar.jpg", "resolution": "Source Unavailable", "codec": "HEVC", "audio": "Dolby Atmos 5.1", "languages": ["Hindi", "Telugu", "Tamil", "Kannada", "Malayalam"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "3.6 GB", "bitrate": "5.4 Mbps", "fps": "24 FPS", "license": "Hombale Films", "director": "Prashanth Neel", "cast": "Prabhas, Prithviraj Sukumaran, Shruti Haasan, Jagapathi Babu", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_dunki", "title": "Dunki", "year": 2023, "mediaType": "movie", "duration": 9660, "durationFormatted": "2h 41m", "genres": ["Comedy", "Drama"], "type": "Bollywood", "categories": ["bollywood", "comedy"], "rating": 6.8, "description": "Four friends from a village in Punjab share a common dream: to go to England. Their problem is that they have neither the visa nor the ticket. A soldier promises to take them to the land of their dreams via the perilous Donkey Flight.", "posterUrl": "assets/posters/vod_dunki.jpg", "backdropUrl": "assets/posters/vod_dunki.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.2 GB", "bitrate": "4.0 Mbps", "fps": "24 FPS", "license": "Red Chillies Entertainment", "director": "Rajkumar Hirani", "cast": "Shah Rukh Khan, Taapsee Pannu, Vicky Kaushal, Boman Irani", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_animal", "title": "Animal", "year": 2023, "duration": 12240, "durationFormatted": "3h 24m", "genres": ["Action", "Crime", "Drama"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 6.6, "description": "A complex, intense bond between a father and son leads the son to undergo a bloody transformation into a ruthless force of vengeance when an assassination attempt is made on his father's life.", "posterUrl": "assets/posters/vod_animal.jpg", "backdropUrl": "assets/posters/vod_animal.jpg", "resolution": "Source Unavailable", "codec": "H.264 / AVC", "audio": "Dolby Digital 5.1", "languages": ["Hindi", "Telugu", "Tamil", "Kannada", "Malayalam"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "3.5 GB", "bitrate": "4.8 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "T-Series / Bhadrakali Pictures", "director": "Sandeep Reddy Vanga", "cast": "Ranbir Kapoor, Anil Kapoor, Bobby Deol, Rashmika Mandanna, Triptii Dimri", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_gadar_2", "title": "Gadar 2: The Katha Continues", "year": 2023, "mediaType": "movie", "duration": 10200, "durationFormatted": "2h 50m", "genres": ["Action", "Drama", "Patriotic"], "type": "Bollywood", "categories": ["bollywood", "action"], "rating": 6.5, "description": "Set during the Indo-Pakistani War of 1971, Tara Singh journeys back into Pakistan to rescue his captured son Charanjeet from ruthless military forces.", "posterUrl": "assets/posters/vod_gadar_2.jpg", "backdropUrl": "assets/posters/vod_gadar_2.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.5 GB", "bitrate": "4.2 Mbps", "fps": "24 FPS", "license": "Zee Studios", "director": "Anil Sharma", "cast": "Sunny Deol, Ameesha Patel, Utkarsh Sharma, Manish Wadhwa", "featured": false, "latest": true, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_kgf_chapter_2", "title": "K.G.F: Chapter 2", "year": 2022, "duration": 10080, "durationFormatted": "Trailer (2-3 min)", "genres": ["Action", "Crime", "Period Drama"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 8.3, "description": "In the blood-soaked Kolar Gold Fields, Rocky's name strikes terror into his foes. While his allies look up to him, the government and ruthless warlord Adheera seek his downfall.", "posterUrl": "assets/posters/vod_kgf_chapter_2.jpg", "backdropUrl": "assets/posters/vod_kgf_chapter_2.jpg", "resolution": "Trailer Only", "codec": "H.264 / AVC", "audio": "5.1 Surround AAC", "languages": ["Hindi", "Kannada", "Telugu", "Tamil", "Malayalam"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.9 GB", "bitrate": "4.1 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Hombale Films", "director": "Prashanth Neel", "cast": "Yash, Sanjay Dutt, Raveena Tandon, Srinidhi Shetty, Prakash Raj", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": "https://archive.org/download/kgf-chapter-2-teaser-yash-sanjay-dutt-raveena-tandon-srinidhi-shetty-prashanth-neel-vijay-kiragandur/KGF%20Chapter2%20TEASER%20_Yash_Sanjay%20Dutt_Raveena%20Tandon_Srinidhi%20Shetty_Prashanth%20Neel_Vijay%20Kiragandur.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_top_gun_maverick", "title": "Top Gun: Maverick", "year": 2022, "duration": 7800, "durationFormatted": "Trailer (2-3 min)", "genres": ["Action", "Drama"], "type": "Hollywood", "categories": ["hollywood", "action"], "rating": 8.3, "description": "After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on an impossible mission that demands the ultimate sacrifice.", "posterUrl": "assets/posters/vod_top_gun_maverick.jpg", "backdropUrl": "assets/posters/vod_top_gun_maverick.jpg", "resolution": "Trailer Only", "codec": "HEVC / H.265", "audio": "Dolby Atmos 7.1", "languages": ["English", "Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "13.4 MB", "bitrate": "5.2 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Paramount Pictures / Skydance", "director": "Joseph Kosinski", "cast": "Tom Cruise, Miles Teller, Jennifer Connelly, Jon Hamm, Glen Powell", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/top-gun-maverick-official-trailer-2-prores/TopGunMaverick_OfficialTrailer2_4K_51_prores.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_rrr", "title": "RRR", "year": 2022, "duration": 11220, "durationFormatted": "3h 07m", "genres": ["Action", "Drama", "Epic"], "type": "Bollywood", "categories": ["bollywood", "action"], "rating": 7.8, "description": "A fictitious story about two legendary revolutionaries—Alluri Sitarama Raju and Komaram Bheem—and their fight against British colonial rule in 1920s India. Oscar winner for Best Original Song.", "posterUrl": "assets/posters/vod_rrr.jpg", "backdropUrl": "assets/posters/vod_rrr.jpg", "resolution": "480p SD (1152x480)", "codec": "H.264 / AVC", "audio": "Stereo AAC (1 Track)", "languages": ["Telugu"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "1.09 GB", "bitrate": "698 kbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "DVV Entertainment", "director": "S.S. Rajamouli", "cast": "N.T. Rama Rao Jr., Ram Charan, Ajay Devgn, Alia Bhatt, Shriya Saran", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": "https://archive.org/download/rrr-2022-1080p-amzn-web-dl-x-265-telugu-dd-5.1/RRR%20%282022%29%201080p%20AMZN%20WEB-DL%20x265%20%5BTelugu%20%28DD%2B%205.1%20-.mp4", "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "SD", "qualityHonestBadge": "480p SD"}, {"id": "vod_the_batman", "title": "The Batman", "year": 2022, "duration": 10560, "durationFormatted": "2h 56m", "genres": ["Action", "Crime", "Mystery"], "type": "Hollywood", "categories": ["hollywood", "action", "thrillers"], "rating": 7.8, "description": "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.", "posterUrl": "assets/posters/vod_the_batman.jpg", "backdropUrl": "assets/posters/vod_the_batman.jpg", "resolution": "Source Unavailable", "codec": "HEVC / H.265", "audio": "Dolby Atmos 5.1", "languages": ["English", "Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "28 MB", "bitrate": "5.3 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Warner Bros. Pictures / DC Films", "director": "Matt Reeves", "cast": "Robert Pattinson, Zoë Kravitz, Paul Dano, Jeffrey Wright, Colin Farrell", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_avatar_way_of_water", "title": "Avatar: The Way of Water", "year": 2022, "duration": 11520, "durationFormatted": "Trailer (2-3 min)", "genres": ["Sci-Fi", "Adventure", "Action"], "type": "Hollywood", "categories": ["hollywood", "action"], "rating": 7.6, "description": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.", "posterUrl": "assets/posters/vod_avatar_way_of_water.jpg", "backdropUrl": "assets/posters/vod_avatar_way_of_water.jpg", "resolution": "Trailer Only", "codec": "HEVC / H.265", "audio": "Dolby Atmos 7.1", "languages": ["English", "Hindi", "Tamil", "Telugu"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "15.8 MB", "bitrate": "5.9 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "20th Century Studios / Lightstorm", "director": "James Cameron", "cast": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang, Kate Winslet", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/avatar-the-way-of-water-official-trailer-4k-imax-prores/AvatarWayOfWater-IMX_TLR-E-2D_EN-XX_INT_IMAX5_4K_TCS_20221102_prores.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_brahmastra", "title": "Brahmāstra: Part One – Shiva", "year": 2022, "duration": 10020, "durationFormatted": "2h 47m", "genres": ["Fantasy", "Action", "Adventure"], "type": "Bollywood", "categories": ["bollywood", "action"], "rating": 5.6, "description": "Shiva, a DJ with a supernatural connection to fire, learns that he holds the power to awaken the Brahmāstra, the ultimate celestial weapon capable of destroying creation.", "posterUrl": "assets/posters/vod_brahmastra.jpg", "backdropUrl": "assets/posters/vod_brahmastra.jpg", "resolution": "Source Unavailable", "codec": "H.264 / AVC", "audio": "Dolby Digital 5.1", "languages": ["Hindi", "Telugu", "Tamil", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "35 MB", "bitrate": "3.8 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Dharma Productions / Star Studios", "director": "Ayan Mukerji", "cast": "Ranbir Kapoor, Alia Bhatt, Amitabh Bachchan, Mouni Roy, Nagarjuna", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_spider_man_nwh", "title": "Spider-Man: No Way Home", "year": 2021, "duration": 8880, "durationFormatted": "Trailer (2-3 min)", "genres": ["Action", "Adventure", "Fantasy"], "type": "Hollywood", "categories": ["hollywood", "action"], "rating": 8.2, "description": "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.", "posterUrl": "assets/posters/vod_spider_man_nwh.jpg", "backdropUrl": "assets/posters/vod_spider_man_nwh.jpg", "resolution": "Trailer Only", "codec": "HEVC / H.265", "audio": "Dolby Atmos 7.1", "languages": ["English", "Hindi", "Tamil", "Telugu"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "7.1 MB", "bitrate": "5.1 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Sony Pictures / Marvel Studios", "director": "Jon Watts", "cast": "Tom Holland, Zendaya, Benedict Cumberbatch, Jacob Batalon, Tobey Maguire, Andrew Garfield", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/spider-man-no-way-home-official-trailer-hd_202508/SPIDER-MAN_%20NO%20WAY%20HOME%20-%20Official%20Trailer%20%28HD%29.mp4", "mediaType": "movie", "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_pushpa_the_rise", "title": "Pushpa: The Rise", "year": 2021, "duration": 10740, "durationFormatted": "2h 59m", "genres": ["Action", "Crime", "Drama"], "type": "Bollywood", "categories": ["bollywood", "action", "thrillers"], "rating": 7.6, "description": "Pushpa Raj, a coolie in the Seshachalam forests of Andhra Pradesh, rises through the ranks of the illegal red sandalwood smuggling syndicate, sparking fierce confrontations with merciless police superintendent Bhanwar Singh Shekhawat.", "posterUrl": "assets/posters/vod_pushpa_the_rise.jpg", "backdropUrl": "assets/posters/vod_pushpa_the_rise.jpg", "resolution": "Source Unavailable", "codec": "H.264 / AVC", "audio": "5.1 Surround AAC", "languages": ["Hindi", "Telugu", "Tamil", "Malayalam", "Kannada"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "22.8 MB", "bitrate": "3.9 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Mythri Movie Makers / Muttamsetty Media", "director": "Sukumar", "cast": "Allu Arjun, Rashmika Mandanna, Fahadh Faasil, Jagadeesh Prathap Bandari", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "series_paatal_lok", "title": "Paatal Lok", "year": 2020, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "bollywood", "thrillers"], "duration": 2700, "durationFormatted": "1 Season • 9 Episodes", "genres": ["Crime", "Mystery", "Drama", "Thriller"], "rating": 8.1, "description": "A cynical, down-and-out Delhi cop gets assigned to investigate a high-profile assassination attempt gone wrong, leading him down a dark rabbit hole into the murky underworld of crime and politics.", "posterUrl": "assets/posters/series_paatal_lok.jpg", "backdropUrl": "assets/posters/series_paatal_lok.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "6.2 GB", "bitrate": "4.2 Mbps", "fps": "24 FPS", "license": "Amazon Prime Video Original", "director": "Avinash Arun, Prosit Roy", "cast": "Jaideep Ahlawat, Ishwak Singh, Abhishek Banerjee, Neeraj Kabi", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "pl_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Bridge", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Lost and Found", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • A History of That Village", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Sleepless in Seetapur", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Dhire Dhire Re Mana", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • The Past is a Foreign Country", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Badlands", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Black Widow", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • Swarga Ka Dwaar", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "BOLLYWOOD", "trailerUrl": null, "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "pl_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Bridge", "duration": "48m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • Lost and Found", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • A History of That Village", "duration": "44m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Sleepless in Seetapur", "duration": "46m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • Dhire Dhire Re Mana", "duration": "47m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • The Past is a Foreign Country", "duration": "43m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • Badlands", "duration": "45m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • Black Widow", "duration": "49m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}, {"id": "pl_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • Swarga Ka Dwaar", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": null}, {"id": "series_game_of_thrones", "title": "Game of Thrones", "year": 2019, "mediaType": "series", "type": "Web-Series", "categories": ["web_series", "hollywood", "action"], "duration": 3300, "durationFormatted": "1 Season • 10 Episodes", "genres": ["Action", "Adventure", "Drama", "Fantasy"], "rating": 9.2, "description": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.", "posterUrl": "assets/posters/series_game_of_thrones.jpg", "backdropUrl": "assets/posters/series_game_of_thrones.jpg", "resolution": "Trailer Only", "codec": "HEVC", "audio": "Dolby Atmos", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "35.0 GB", "bitrate": "6.0 Mbps", "fps": "24 FPS", "license": "HBO Original", "director": "David Benioff, D.B. Weiss", "cast": "Emilia Clarke, Peter Dinklage, Kit Harington, Lena Headey", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "episodes": [{"id": "got_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Winter Is Coming", "duration": "62m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • The Kingsroad", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Lord Snow", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Cripples, Bastards, and Broken Things", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • The Wolf and the Lion", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • A Golden Crown", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • You Win or You Die", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • The Pointy End", "duration": "59m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • Baelor", "duration": "57m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e10", "episodeNumber": 10, "season": 1, "title": "S01:E10 • Fire and Blood", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}], "contentType": "SERIES", "region": "HOLLYWOOD", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "seasons": [{"seasonNumber": 1, "title": "Season 1", "episodes": [{"id": "got_s1e1", "episodeNumber": 1, "season": 1, "title": "S01:E01 • Winter Is Coming", "duration": "62m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e2", "episodeNumber": 2, "season": 1, "title": "S01:E02 • The Kingsroad", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e3", "episodeNumber": 3, "season": 1, "title": "S01:E03 • Lord Snow", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e4", "episodeNumber": 4, "season": 1, "title": "S01:E04 • Cripples, Bastards, and Broken Things", "duration": "56m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e5", "episodeNumber": 5, "season": 1, "title": "S01:E05 • The Wolf and the Lion", "duration": "55m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e6", "episodeNumber": 6, "season": 1, "title": "S01:E06 • A Golden Crown", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e7", "episodeNumber": 7, "season": 1, "title": "S01:E07 • You Win or You Die", "duration": "58m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e8", "episodeNumber": 8, "season": 1, "title": "S01:E08 • The Pointy End", "duration": "59m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e9", "episodeNumber": 9, "season": 1, "title": "S01:E09 • Baelor", "duration": "57m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}, {"id": "got_s1e10", "episodeNumber": 10, "season": 1, "title": "S01:E10 • Fire and Blood", "duration": "53m", "streamUrl": null, "sourceState": "NO_AUTHORIZED_SOURCE", "trailerUrl": "https://archive.org/download/game-of-thrones-official-series-trailer-hbo-1080-p-hd/Game%20of%20Thrones%20_%20Official%20Series%20Trailer%20%28HBO%29%281080P_HD%29.mp4", "qualityHonestBadge": null}]}], "torrentUri": null, "sourceState": "TRAILER_ONLY", "qualityClass": null, "qualityHonestBadge": "Trailer"}, {"id": "vod_avengers_endgame", "title": "Avengers: Endgame", "year": 2019, "duration": 10860, "durationFormatted": "3h 01m", "genres": ["Action", "Adventure", "Sci-Fi"], "type": "Hollywood", "categories": ["hollywood", "action"], "rating": 8.4, "description": "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.", "posterUrl": "assets/posters/vod_avengers_endgame.jpg", "backdropUrl": "assets/posters/vod_avengers_endgame.jpg", "resolution": "Source Unavailable", "codec": "HEVC / H.265", "audio": "Dolby Atmos 7.1", "languages": ["English", "Hindi", "Tamil", "Telugu"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "320 MB", "bitrate": "5.6 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Marvel Studios / Walt Disney", "director": "Anthony Russo, Joe Russo", "cast": "Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "backupUrls": [], "torrentUri": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_dangal", "title": "Dangal", "year": 2016, "duration": 9660, "durationFormatted": "2h 41m", "genres": ["Biography", "Drama", "Sport"], "type": "Bollywood", "categories": ["bollywood"], "rating": 8.3, "description": "Former wrestler Mahavir Singh Phogat trains his young daughters Geeta and Babita to become world-class wrestlers, overcoming patriarchal societal prejudices to win India's first gold medal in the Commonwealth Games.", "posterUrl": "assets/posters/vod_dangal.jpg", "backdropUrl": "assets/posters/vod_dangal.jpg", "resolution": "1080p FHD (1920x804)", "codec": "H.264 / AVC", "audio": "5.1 Surround AAC (1 Track)", "languages": ["Hindi"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "3.31 GB", "bitrate": "2.58 Mbps", "fps": "24 FPS", "license": "Theatrical Feature (Full Movie)", "contentSource": "Aamir Khan Productions / Walt Disney India", "director": "Nitesh Tiwari", "cast": "Aamir Khan, Sakshi Tanwar, Fatima Sana Shaikh, Sanya Malhotra, Zaira Wasim", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": "https://archive.org/download/dangal-1080p-2016/Dangal%201080p%202016.mp4", "backupUrls": ["https://archive.org/download/dangal-1080p-2016/Dangal%201080p%202016.ia.mp4"], "torrentUri": null, "contentType": "MOVIE", "region": "BOLLYWOOD", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "FULL HD", "qualityHonestBadge": "1080p Full HD"}, {"id": "vod_inception", "title": "Inception", "year": 2010, "mediaType": "movie", "duration": 8880, "durationFormatted": "2h 28m", "genres": ["Action", "Sci-Fi", "Thriller"], "type": "Hollywood", "categories": ["hollywood", "action", "thrillers"], "rating": 8.8, "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project.", "posterUrl": "assets/posters/vod_inception.jpg", "backdropUrl": "assets/posters/vod_inception.jpg", "resolution": "Source Unavailable", "codec": "H.264", "audio": "Dolby 5.1", "languages": ["Hindi", "English"], "defaultLanguage": "Hindi", "container": "MP4", "fileSize": "2.4 GB", "bitrate": "4.2 Mbps", "fps": "24 FPS", "license": "Warner Bros. Pictures", "director": "Christopher Nolan", "cast": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy", "featured": false, "latest": false, "swarmSeeders": null, "streamUrl": null, "contentType": "MOVIE", "region": "HOLLYWOOD", "trailerUrl": null, "torrentUri": null, "sourceState": "NO_AUTHORIZED_SOURCE", "qualityClass": null, "qualityHonestBadge": "Unavailable"}, {"id": "vod_sita_sings_blues", "title": "Sita Sings the Blues", "year": 2008, "duration": 4920, "durationFormatted": "1h 22m", "genres": ["Animation", "Bollywood Musical"], "type": "Bollywood", "categories": ["bollywood", "open_movies"], "rating": 7.6, "description": "Full Feature Indian Animated Musical: An animated retelling of the Indian epic Ramayana set to 1920s jazz vocals of Annette Hanshaw, intertwined with modern romance.", "posterUrl": "assets/posters/vod_sita_sings_blues.jpg", "backdropUrl": "assets/posters/vod_sita_sings_blues.jpg", "resolution": "720p HD (1280x720)", "codec": "H.264 / AVC", "audio": "Stereo AAC (1 Track)", "languages": ["English"], "defaultLanguage": "English", "container": "MP4", "fileSize": "2.59 GB", "bitrate": "4.0 Mbps", "fps": "24 FPS", "license": "Creative Commons Zero (CC0 Full Feature)", "contentSource": "Nina Paley / Public Domain", "director": "Nina Paley", "cast": "Annette Hanshaw, Aseem Chhabra, Bhavana Nagulapally", "featured": false, "latest": false, "swarmSeeders": 182, "streamUrl": "https://archive.org/download/Sita_Sings_the_Blues/Sita_Sings_the_Blues_720p.mp4", "backupUrls": [], "torrentUri": "magnet:?xt=urn:btih:4134449ec9c0e5a9ee4a46a6f3b0e326c71be391&dn=Sita_Sings_the_Blues_720p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce", "contentType": "MOVIE", "region": "PUBLIC_DOMAIN", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "HD", "qualityHonestBadge": "720p HD"}, {"id": "vod_bbb_720p", "title": "Big Buck Bunny", "year": 2008, "duration": 596, "durationFormatted": "10m", "genres": ["Animation", "Comedy", "Short"], "type": "Open Movies", "categories": ["open_movies", "comedy"], "rating": 7.4, "description": "Blender Foundation 3D Open Movie: A large rabbit with a heart of gold takes creative vengeance on bullies who harass innocent forest creatures.", "posterUrl": "assets/posters/vod_bbb_720p.jpg", "backdropUrl": "assets/posters/vod_bbb_720p.jpg", "resolution": "1080p Adaptive HLS", "codec": "H.264 / AVC (HLS)", "audio": "Multi-Rate HLS Audio", "languages": ["Universal Audio"], "defaultLanguage": "Universal Audio", "container": "MP4", "fileSize": "Streaming HLS", "bitrate": "6.2 Mbps (Max ABR)", "fps": "30 FPS", "license": "Creative Commons Attribution 3.0", "contentSource": "Blender Foundation", "director": "Sacha Goedegebure", "cast": "Bunny, Frank, Rinky, Gamera", "featured": false, "latest": false, "swarmSeeders": 210, "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8", "backupUrls": [], "torrentUri": "magnet:?xt=urn:btih:dd8255ecdc7ca55fb0bbf81323d87062db1f6d1c&dn=Big_Buck_Bunny_720p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce", "contentType": "MOVIE", "region": "PUBLIC_DOMAIN", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "FULL HD", "qualityHonestBadge": "1080p Adaptive"}, {"id": "vod_his_girl_friday", "title": "His Girl Friday", "year": 1940, "duration": 5520, "durationFormatted": "1h 32m", "genres": ["Comedy", "Romance", "Hollywood Classic"], "type": "Hollywood", "categories": ["hollywood", "comedy"], "rating": 7.8, "description": "Full Feature Hollywood Classic: A newspaper editor uses every trick in the book to keep his top reporter ex-wife from remarrying. Starring Cary Grant & Rosalind Russell.", "posterUrl": "assets/posters/vod_his_girl_friday.jpg", "backdropUrl": "assets/posters/vod_his_girl_friday.jpg", "resolution": "480p SD (640x480)", "codec": "H.264 / AVC", "audio": "Stereo AAC (1 Track)", "languages": ["English"], "defaultLanguage": "English", "container": "MP4", "fileSize": "575 MB", "bitrate": "698 kbps", "fps": "24 FPS", "license": "Public Domain (Full Movie)", "contentSource": "Columbia Pictures / Archive", "director": "Howard Hawks", "cast": "Cary Grant, Rosalind Russell, Ralph Bellamy", "featured": false, "latest": false, "swarmSeeders": 145, "streamUrl": "https://archive.org/download/his_girl_friday/his_girl_friday.mp4", "backupUrls": ["https://archive.org/download/his_girl_friday/his_girl_friday_512kb.mp4"], "torrentUri": "magnet:?xt=urn:btih:3fae9927b2b28c89422df723c348f32168393e11&dn=His_Girl_Friday_1940_720p.mp4&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce", "contentType": "MOVIE", "region": "PUBLIC_DOMAIN", "trailerUrl": null, "mediaType": "movie", "sourceState": "DIRECT_STREAM_AVAILABLE", "qualityClass": "SD", "qualityHonestBadge": "480p SD"}];
 const CatalogProvider = {
   movies: [],
   loaded: false,
   async load() {
-    if (this.loaded && this.movies.length > 0) return this.movies;
+    const CURRENT_CATALOG_VERSION = 9;
     try {
-      const res = await fetch('data/movies_catalog.json');
-      if (res.ok) {
-        const data = await res.json();
-        const list = Array.isArray(data) ? data : (data.movies || []);
-        if (list.length > 0) {
-          this.movies = list.map(m => {
-            if (!m.posterUrl && m.poster) m.posterUrl = m.poster;
-            if (!m.backdropUrl) m.backdropUrl = m.posterUrl;
-            if (!m.durationFormatted && m.runtime) m.durationFormatted = m.runtime;
-            if (!m.duration && m.duration_seconds) m.duration = m.duration_seconds;
-            if (!m.rating && m.imdb_rating) m.rating = parseFloat(m.imdb_rating);
-            if (!m.genres && m.genre) m.genres = m.genre.split('/').map(s => s.trim());
-            if (!m.fileSize && m.size) m.fileSize = m.size;
-            if (!m.torrentUri && m.sources && m.sources.magnet) m.torrentUri = m.sources.magnet;
-            if (!m.streamUrl && m.sources && m.sources.direct_fallback) m.streamUrl = m.sources.direct_fallback;
-            if (!m.type) {
-              if (m.categories && m.categories.includes('hollywood')) m.type = 'Hollywood';
-              else if (m.categories && m.categories.includes('bollywood')) m.type = 'Bollywood';
-              else if (m.categories && m.categories.includes('thrillers')) m.type = 'Thrillers';
-              else if (m.categories && m.categories.includes('action')) m.type = 'Action';
-              else m.type = 'Open Movies';
-            }
-            return m;
-          });
-          this.loaded = true;
-          return this.movies;
-        }
+      const storedVer = localStorage.getItem('t2l_catalog_version');
+      if (storedVer !== String(CURRENT_CATALOG_VERSION)) {
+        localStorage.removeItem('t2l_movies_catalog_cache');
+        localStorage.setItem('t2l_catalog_version', String(CURRENT_CATALOG_VERSION));
       }
-    } catch (e) {
-      console.warn('Direct fetch of movies_catalog.json fallback:', e);
+    } catch (eVer) {}
+
+    if (this.loaded && this.movies.length > 0) return this.movies;
+    let rawList = null;
+
+    // 1. Android AssetManager Bridge
+    if (window.AndroidMedia && window.AndroidMedia.loadAssetFile) {
+      try {
+        const assetStr = window.AndroidMedia.loadAssetFile('data/movies_catalog.json');
+        if (assetStr) {
+          const parsed = JSON.parse(assetStr);
+          rawList = Array.isArray(parsed) ? parsed : (parsed.movies || []);
+          console.log('✅ Loaded ' + rawList.length + ' titles from Android AssetManager');
+        }
+      } catch (eAsset) {
+        console.warn('Bridge movies load note:', eAsset);
+      }
     }
+
+    // 2. XMLHttpRequest for file:///android_asset/ URLs
+    if (!rawList || rawList.length === 0) {
+      try {
+        const parsed = await new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open('GET', 'data/movies_catalog.json', true);
+          xhr.onload = function() {
+            if (xhr.status === 200 || (xhr.status === 0 && xhr.responseText)) {
+              try { resolve(JSON.parse(xhr.responseText)); } catch (err) { reject(err); }
+            } else {
+              reject(new Error('XHR status ' + xhr.status));
+            }
+          };
+          xhr.onerror = () => reject(new Error('XHR error'));
+          xhr.send();
+        });
+        rawList = Array.isArray(parsed) ? parsed : (parsed.movies || []);
+      } catch (eXhr) {
+        console.warn('XHR movies load note:', eXhr);
+      }
+    }
+
+    // 3. fetch fallback
+    if (!rawList || rawList.length === 0) {
+      try {
+        const res = await fetch('data/movies_catalog.json');
+        if (res.ok) {
+          const parsed = await res.json();
+          rawList = Array.isArray(parsed) ? parsed : (parsed.movies || []);
+        }
+      } catch (eFetch) {
+        console.warn('Fetch movies fallback:', eFetch);
+      }
+    }
+
+    if (rawList && rawList.length > 0) {
+      this.movies = rawList.map(m => {
+        if (!m.posterUrl && m.poster) m.posterUrl = m.poster;
+        if (!m.backdropUrl) m.backdropUrl = m.posterUrl;
+        if (!m.durationFormatted && m.runtime) m.durationFormatted = m.runtime;
+        if (!m.duration && m.duration_seconds) m.duration = m.duration_seconds;
+        if (!m.rating && m.imdb_rating) m.rating = parseFloat(m.imdb_rating);
+        if (!m.genres && m.genre) m.genres = m.genre.split('/').map(s => s.trim());
+        if (!m.fileSize && m.size) m.fileSize = m.size;
+        if (!m.torrentUri && m.sources && m.sources.magnet) m.torrentUri = m.sources.magnet;
+        if (!m.streamUrl && m.sources && m.sources.direct_fallback) m.streamUrl = m.sources.direct_fallback;
+        if (!m.type) {
+          if (m.categories && m.categories.includes('hollywood')) m.type = 'Hollywood';
+          else if (m.categories && m.categories.includes('bollywood')) m.type = 'Bollywood';
+          else if (m.categories && m.categories.includes('thrillers')) m.type = 'Thrillers';
+          else if (m.categories && m.categories.includes('action')) m.type = 'Action';
+          else m.type = 'Open Movies';
+        }
+        return m;
+      });
+      this.loaded = true;
+      return this.movies;
+    }
+
     this.movies = DEFAULT_MOVIES_CATALOG;
     this.loaded = true;
     return this.movies;
@@ -17467,10 +17455,22 @@ const CatalogProvider = {
   },
   filterByCategory(cat) {
     const list = this.getAll();
-    if (!cat || cat === 'all') return list;
+    if (!cat || cat === 'all' || cat === 'HindiFirst') return list;
+    if (cat === 'Web-Series') return list.filter(m => m.mediaType === 'series' || (m.categories && m.categories.includes('web_series')));
+    if (cat === 'Movies') return list.filter(m => m.mediaType !== 'series');
+    if (cat === 'K-Drama') return list.filter(m => m.type === 'K-Drama' || (m.categories && m.categories.includes('korean')));
+    if (cat === 'C-Drama') return list.filter(m => m.type === 'C-Drama' || (m.categories && m.categories.includes('chinese')));
+    if (cat === 'Anime') return list.filter(m => m.type === 'Anime' || (m.categories && m.categories.includes('anime')));
+    if (cat === 'Asian') return list.filter(m => m.region === 'ASIAN' || m.type === 'Asian Cinema' || (m.categories && (m.categories.includes('asian') || m.categories.includes('korean') || m.categories.includes('chinese'))));
+    if (cat === 'Hindi') return list.filter(m => (m.languages && m.languages.some(l => l.toLowerCase().includes('hindi'))) || m.type === 'Bollywood' || m.region === 'BOLLYWOOD');
+    if (cat === 'English') return list.filter(m => (m.languages && m.languages.some(l => l.toLowerCase().includes('english'))));
+    if (cat === 'Bollywood') return list.filter(m => m.region === 'BOLLYWOOD' || m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood')));
+    if (cat === 'Hollywood') return list.filter(m => m.region === 'HOLLYWOOD' || m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood')));
+    if (cat === 'Trailers') return list.filter(m => m.trailerUrl || m.contentType === 'TRAILER');
     if (cat === 'Featured') return list.filter(m => m.featured);
     const catLower = cat.toLowerCase();
     return list.filter(m => {
+      if (m.region && m.region.toLowerCase() === catLower) return true;
       if (m.type && m.type.toLowerCase() === catLower) return true;
       if (m.categories && m.categories.some(c => c.toLowerCase() === catLower)) return true;
       if (m.genres && m.genres.some(g => g.toLowerCase().includes(catLower))) return true;
@@ -17484,9 +17484,14 @@ const CatalogProvider = {
     return list.filter(m =>
       (m.title && m.title.toLowerCase().includes(q)) ||
       (m.description && m.description.toLowerCase().includes(q)) ||
-      (m.year && m.year.toString().includes(q)) ||
+      (m.cast && m.cast.toLowerCase().includes(q)) ||
+      (m.director && m.director.toLowerCase().includes(q)) ||
+      (m.languages && m.languages.some(l => l.toLowerCase().includes(q))) ||
       (m.genres && m.genres.some(g => g.toLowerCase().includes(q))) ||
-      (m.type && m.type.toLowerCase().includes(q))
+      (m.year && m.year.toString().includes(q)) ||
+      (m.type && m.type.toLowerCase().includes(q)) ||
+      (q === 'series' && m.mediaType === 'series') ||
+      (q === 'movie' && m.mediaType !== 'series')
     );
   }
 };
@@ -17499,26 +17504,73 @@ let activeDownloadsTab = 'active';
 function getSwarmBadgeMarkup(seeders) {
   const count = seeders || 40;
   if (count >= 80) {
-    return `<div class="movie-swarm-badge swarm-excellent"><span class="swarm-dot">●</span> 🟢 Excellent (${count}+ seeders)</div>`;
+    return `<div class="movie-swarm-badge swarm-excellent"><span class="swarm-dot" style="color:#22c55e;">●</span> High Health (${count}+)</div>`;
   } else if (count >= 40) {
-    return `<div class="movie-swarm-badge swarm-good"><span class="swarm-dot">●</span> 🟡 Good (${count}+ seeders)</div>`;
+    return `<div class="movie-swarm-badge swarm-good"><span class="swarm-dot" style="color:#eab308;">●</span> Moderate (${count}+)</div>`;
   } else {
-    return `<div class="movie-swarm-badge swarm-poor"><span class="swarm-dot">●</span> 🔴 Poor (${count} seeders)</div>`;
+    return `<div class="movie-swarm-badge swarm-poor"><span class="swarm-dot" style="color:#ef4444;">●</span> Low Swarm (${count})</div>`;
   }
 }
 
 function renderMovieCard(movie) {
   const poster = movie.posterUrl || 'assets/placeholder.png';
+  const isSeries = movie.mediaType === 'series';
+  const typeBadge = isSeries ? '<span class="movie-type-mini-badge series"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>Series</span>' : '';
+  const hasHindi = (movie.languages && movie.languages.includes('Hindi')) || movie.type === 'Bollywood' || movie.region === 'BOLLYWOOD';
+  const langBadge = hasHindi ? '<span class="movie-lang-mini-badge"><svg viewBox="0 0 24 24"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>Hindi</span>' : '';
+
+  const sState = movie.sourceState || (movie.streamUrl ? 'DIRECT_STREAM_AVAILABLE' : (movie.trailerUrl ? 'TRAILER_ONLY' : (movie.torrentUri ? 'TORRENT_SOURCE_AVAILABLE' : 'NO_AUTHORIZED_SOURCE')));
+  let sourceBadge = '';
+  if (sState === 'DIRECT_STREAM_AVAILABLE') {
+    if (movie.qualityClass === 'FULL HD') {
+      sourceBadge = '<span class="movie-source-mini-badge stream-direct">▶ 1080p HD</span>';
+    } else if (movie.qualityClass === 'HD') {
+      sourceBadge = '<span class="movie-source-mini-badge stream-direct">▶ 720p HD</span>';
+    } else {
+      sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 480p</span>';
+    }
+  } else if (sState === 'TRAILER_ONLY') {
+    sourceBadge = '<span class="movie-source-mini-badge stream-trailer"><svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>Trailer</span>';
+  } else if (sState === 'TORRENT_SOURCE_AVAILABLE') {
+    sourceBadge = '<span class="movie-source-mini-badge stream-torrent"><svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.14 17.91 14.21 19 12 19z"/></svg>Instant</span>';
+  } else {
+    sourceBadge = '<span class="movie-source-mini-badge stream-unavail">Unavailable</span>';
+  }
+
+  // Netflix-grade Watch Progress Bar
+  let progressMarkup = '';
+  let progressText = '';
+  try {
+    const resumeRaw = localStorage.getItem('t2l_resume_' + movie.id);
+    if (resumeRaw) {
+      const r = JSON.parse(resumeRaw);
+      if (r && r.pct >= 3 && r.pct <= 96) {
+        progressMarkup = `<div class="movie-card-progress-bar"><div class="movie-card-progress-fill" style="width: ${r.pct}%;"></div></div>`;
+        progressText = `<span class="meta-dot">•</span><span style="color: #e50914; font-weight: 700;">${r.pct}%</span>`;
+      }
+    }
+  } catch (e) {}
 
   return `
-    <div class="movie-card" onclick="openMovieDetails('${movie.id}')">
+    <div class="movie-card ${isSeries ? 'is-series' : ''} ${sState === 'NO_AUTHORIZED_SOURCE' ? 'is-unavailable' : ''}" onclick="openMovieDetails('${movie.id}')">
       <div class="movie-card-thumb-wrap">
-        <div class="movie-card-thumb" style="background-image: url('${poster}');"></div>
+        <img class="movie-card-thumb" 
+             src="${poster}" 
+             alt="${movie.title}" 
+             loading="lazy" 
+             decoding="async" 
+             onerror="this.onerror=null; this.src='assets/placeholder.png';" />
+        ${sourceBadge}
+        ${typeBadge}
+        ${langBadge}
+        ${progressMarkup}
       </div>
       <div class="movie-card-info">
         <h4 class="movie-card-title" title="${movie.title}">${movie.title}</h4>
         <div class="movie-card-meta">
           <span>${movie.year}</span>
+          ${isSeries ? '<span class="meta-dot">•</span><span style="color: #a5b4fc; font-weight: 600;">Series</span>' : ''}
+          ${progressText}
         </div>
       </div>
     </div>
@@ -17568,29 +17620,65 @@ window.renderMoviesPage = async function() {
   // 2. Render Continue Watching / Watch History
   renderMovieWatchHistory();
 
-  // 3. Render Section Rows
-  const hollywoodRow = document.getElementById('moviesHollywoodRow');
-  if (hollywoodRow) {
-    const list = allMovies.filter(m => m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood')));
-    hollywoodRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
-  }
-
+  // 3. Render Section Rows (Hindi First Priority)
   const bollywoodRow = document.getElementById('moviesBollywoodRow');
   if (bollywoodRow) {
-    const list = allMovies.filter(m => m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood')));
+    const list = allMovies.filter(m => (m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood')) || (m.languages && m.languages.includes('Hindi'))) && m.mediaType !== 'series');
     bollywoodRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+  }
+
+  const webSeriesRow = document.getElementById('moviesWebSeriesRow');
+  if (webSeriesRow) {
+    const list = allMovies.filter(m => m.mediaType === 'series' || (m.categories && m.categories.includes('web_series')));
+    webSeriesRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+  }
+
+  const asianRow = document.getElementById('moviesAsianRow');
+  if (asianRow) {
+    const list = allMovies.filter(m => m.region === 'ASIAN' || m.type === 'K-Drama' || m.type === 'C-Drama' || (m.categories && (m.categories.includes('korean') || m.categories.includes('chinese') || m.categories.includes('asian'))));
+    asianRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+  }
+
+  const animeRow = document.getElementById('moviesAnimeRow');
+  if (animeRow) {
+    const list = allMovies.filter(m => m.type === 'Anime' || (m.categories && m.categories.includes('anime')));
+    animeRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+  }
+
+  const hollywoodRow = document.getElementById('moviesHollywoodRow');
+  if (hollywoodRow) {
+    const list = allMovies.filter(m => (m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood'))) && m.mediaType !== 'series');
+    hollywoodRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
   }
 
   const thrillersRow = document.getElementById('moviesThrillersRow');
   if (thrillersRow) {
-    const list = allMovies.filter(m => m.type === 'Thrillers' || (m.categories && m.categories.includes('thrillers')));
+    const list = allMovies.filter(m => m.type === 'Thrillers' || (m.categories && m.categories.includes('thrillers')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('thriller'))));
     thrillersRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
   }
 
   const actionRow = document.getElementById('moviesActionRow');
   if (actionRow) {
-    const list = allMovies.filter(m => m.type === 'Action' || (m.categories && m.categories.includes('action')));
+    const list = allMovies.filter(m => m.type === 'Action' || (m.categories && m.categories.includes('action')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('action'))));
     actionRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+  }
+
+  const comedyRow = document.getElementById('moviesComedyRow');
+  if (comedyRow) {
+    const list = allMovies.filter(m => (m.genres && m.genres.some(g => g.toLowerCase().includes('comedy'))) || (m.categories && m.categories.includes('comedy')));
+    comedyRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+  }
+
+  const horrorRow = document.getElementById('moviesHorrorRow');
+  if (horrorRow) {
+    const list = allMovies.filter(m => (m.genres && m.genres.some(g => g.toLowerCase().includes('horror') || g.toLowerCase().includes('sci-fi') || g.toLowerCase().includes('supernatural'))));
+    horrorRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+  }
+
+  const trailersRow = document.getElementById('moviesTrailersRow');
+  if (trailersRow) {
+    const list = allMovies.filter(m => m.trailerUrl || m.contentType === 'TRAILER');
+    trailersRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
   }
 
   const openRow = document.getElementById('moviesOpenRow');
@@ -17636,6 +17724,30 @@ window.filterMovieCategory = function(cat, chipEl) {
     return;
   }
 
+  if (cat === 'watchlist') {
+    let listIds = [];
+    try { listIds = JSON.parse(localStorage.getItem('t2l_vod_watchlist') || '[]'); } catch (e) {}
+    const watchlistItems = listIds.map(id => CatalogProvider.getById(id)).filter(Boolean);
+    if (rowsContainer) rowsContainer.style.display = 'none';
+    if (heroSection) heroSection.style.display = 'none';
+    if (gridSection) gridSection.style.display = 'block';
+    if (gridTitle) gridTitle.textContent = `❤️ My Watchlist (${watchlistItems.length})`;
+    if (catalogGrid) {
+      if (watchlistItems.length === 0) {
+        catalogGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 48px 16px; text-align: center; color: #94a3b8;">
+            <p style="font-size: 36px; margin-bottom: 12px;">❤️</p>
+            <h3 style="font-size: 18px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px;">Your Watchlist is empty</h3>
+            <p style="font-size: 13px; color: #64748b; max-width: 320px; margin: 0 auto;">Tap the bookmark icon on any movie or web-series to save it to your personal list!</p>
+          </div>
+        `;
+      } else {
+        catalogGrid.innerHTML = watchlistItems.map(m => renderMovieCard(m)).join('');
+      }
+    }
+    return;
+  }
+
   const filtered = CatalogProvider.filterByCategory(cat);
   if (rowsContainer) rowsContainer.style.display = 'none';
   if (heroSection) heroSection.style.display = 'none';
@@ -17677,6 +17789,42 @@ window.handleMovieSearch = function(query) {
   }
 };
 
+function renderEpisodeItemMarkup(movie, ep) {
+  const isTorrentPlayable = (ep.sourceState === 'TORRENT_SOURCE_AVAILABLE' || (!ep.sourceState && ep.season === 1)) && !!movie.torrentUri;
+  const isPlayable = !!ep.streamUrl || isTorrentPlayable;
+  if (isPlayable) {
+    const qBadge = ep.qualityHonestBadge ? `<span style="font-size: 10px; background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); border-radius: 4px; padding: 1px 6px; font-weight: 600; margin-left: 6px;">${ep.qualityHonestBadge}</span>` : '';
+    return `
+      <div class="series-ep-item" onclick="playSeriesEpisode('${movie.id}', '${ep.id}')">
+        <div class="series-ep-left">
+          <span class="series-ep-play-icon">▶</span>
+          <div class="series-ep-info">
+            <div style="display: flex; align-items: center;">
+              <span class="series-ep-title">${ep.title}</span>
+              ${qBadge}
+            </div>
+            <span class="series-ep-duration">${ep.duration || ''}</span>
+          </div>
+        </div>
+        <button type="button" class="series-ep-play-btn" onclick="event.stopPropagation(); playSeriesEpisode('${movie.id}', '${ep.id}')">Stream</button>
+      </div>
+    `;
+  } else {
+    return `
+      <div class="series-ep-item series-ep-unavailable" onclick="playSeriesEpisode('${movie.id}', '${ep.id}')">
+        <div class="series-ep-left">
+          <span class="series-ep-play-icon" style="color: #38bdf8; display: inline-flex; align-items: center;"><svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.14 17.91 14.21 19 12 19z"/></svg></span>
+          <div class="series-ep-info">
+            <span class="series-ep-title" style="color: #e2e8f0;">${ep.title}</span>
+            <span class="series-ep-duration" style="color: #94a3b8;">${ep.duration || ''} • Custom Stream</span>
+          </div>
+        </div>
+        <span class="series-ep-badge-unavail" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 4px; padding: 2px 8px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;"><svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.14 17.91 14.21 19 12 19z"/></svg>Custom</span>
+      </div>
+    `;
+  }
+}
+
 window.openMovieDetails = function(movieId) {
   const movie = CatalogProvider.getById(movieId);
   if (!movie) return;
@@ -17703,37 +17851,301 @@ window.openMovieDetails = function(movieId) {
   const genres = document.getElementById('movieDetailsGenres');
   const cast = document.getElementById('movieDetailsCast');
 
-  if (backdrop) backdrop.style.backgroundImage = `url('${movie.backdropUrl || movie.posterUrl}')`;
-  if (poster) poster.style.backgroundImage = `url('${movie.posterUrl}')`;
+  if (backdrop) backdrop.style.backgroundImage = `url('${movie.backdropUrl || movie.posterUrl || "assets/placeholder.png"}')`;
+  const posterImg = document.getElementById('movieDetailsPosterImg');
+  if (posterImg) {
+    posterImg.onerror = function() { this.onerror = null; this.src = 'assets/placeholder.png'; };
+    posterImg.src = movie.posterUrl || 'assets/placeholder.png';
+    posterImg.alt = movie.title || 'Movie Poster';
+  } else if (poster) {
+    poster.style.backgroundImage = `url('${movie.posterUrl || "assets/placeholder.png"}')`;
+  }
   if (title) title.textContent = movie.title;
   if (year) year.textContent = movie.year;
   if (duration) duration.textContent = movie.durationFormatted;
-  if (resolution) resolution.textContent = movie.resolution ? movie.resolution.split(' ')[0] : '1080p';
-  if (categoryChip) categoryChip.textContent = movie.type || 'Cinema';
-
-  const seeders = movie.swarmSeeders || 40;
-  if (swarmBadge && swarmText) {
-    if (seeders >= 80) {
-      swarmBadge.className = 'movie-swarm-badge swarm-excellent';
-      swarmText.textContent = `Swarm: 🟢 Excellent (${seeders}+ Seeders)`;
-    } else if (seeders >= 40) {
-      swarmBadge.className = 'movie-swarm-badge swarm-good';
-      swarmText.textContent = `Swarm: 🟡 Good (${seeders}+ Seeders)`;
+  if (resolution) {
+    if (movie.sourceState === 'NO_AUTHORIZED_SOURCE') {
+      resolution.textContent = 'Unavailable';
+    } else if (movie.sourceState === 'TRAILER_ONLY') {
+      resolution.textContent = 'Trailer';
     } else {
-      swarmBadge.className = 'movie-swarm-badge swarm-poor';
-      swarmText.textContent = `Swarm: 🔴 Moderate (${seeders} Seeders)`;
+      resolution.textContent = movie.qualityHonestBadge || (movie.resolution ? movie.resolution.split(' ')[0] : '1080p');
+    }
+  }
+  if (categoryChip) categoryChip.textContent = movie.mediaType === 'series' ? 'Web-Series' : (movie.type || 'Cinema');
+
+  if (swarmBadge) {
+    if (movie.torrentUri && movie.swarmSeeders) {
+      swarmBadge.style.display = 'inline-flex';
+      const seeders = movie.swarmSeeders;
+      if (seeders >= 80) {
+        swarmBadge.className = 'movie-swarm-badge swarm-excellent';
+        if (swarmText) swarmText.textContent = `Swarm: High Health (${seeders}+ Seeders)`;
+      } else if (seeders >= 40) {
+        swarmBadge.className = 'movie-swarm-badge swarm-good';
+        if (swarmText) swarmText.textContent = `Swarm: Moderate (${seeders}+ Seeders)`;
+      } else {
+        swarmBadge.className = 'movie-swarm-badge swarm-poor';
+        if (swarmText) swarmText.textContent = `Swarm: Low Swarm (${seeders} Seeders)`;
+      }
+    } else {
+      swarmBadge.style.display = 'none';
     }
   }
 
-  if (specCodec) specCodec.textContent = movie.codec || 'H.264 / AVC';
-  if (specAudio) specAudio.textContent = movie.audio || 'Stereo';
-  if (specSize) specSize.textContent = movie.fileSize || '1 GB';
-  if (specLicense) specLicense.textContent = movie.license ? movie.license.split('(')[0].trim() : 'Public Domain';
+  if (specCodec) specCodec.textContent = movie.codec || (movie.streamUrl ? 'H.264 / AVC' : 'N/A');
+  if (specAudio) specAudio.textContent = movie.audio || (movie.streamUrl ? 'Stereo' : 'N/A');
+  if (specSize) specSize.textContent = movie.fileSize || (movie.streamUrl ? 'Stream' : 'N/A');
+  if (specLicense) specLicense.textContent = movie.license ? movie.license.split('(')[0].trim() : 'Standard';
 
   if (desc) desc.textContent = movie.description || '';
-  if (director) director.textContent = movie.director || 'Blender Foundation / Public Archive';
+  if (director) director.textContent = movie.director || 'Various Artists';
   if (genres) genres.textContent = movie.genres ? movie.genres.join(', ') : 'Cinema';
-  if (cast) cast.textContent = movie.cast || 'Public Domain Cinema Archive';
+  if (cast) cast.textContent = movie.cast || 'Cast Details in Credits';
+
+  // Multi-Language Audio Tracks Selection
+  const languagesListEl = document.getElementById('movieDetailsLanguagesList');
+  const activeLangBadge = document.getElementById('movieDetailsActiveLangBadge');
+  const langs = (movie.languages && movie.languages.length > 0) 
+    ? movie.languages 
+    : (movie.type === 'Bollywood' ? ['Hindi', 'English'] : ['English', 'Hindi']);
+
+  const savedPref = localStorage.getItem('t2l_preferred_movie_audio_lang');
+  let chosenLang = movie.defaultLanguage || langs[0];
+  if (savedPref && langs.includes(savedPref)) {
+    chosenLang = savedPref;
+  }
+  window.selectedMovieAudioLang = chosenLang;
+
+  if (activeLangBadge) {
+    activeLangBadge.textContent = chosenLang + ' (Selected)';
+  }
+
+  if (languagesListEl) {
+    const langIcons = {
+      'Hindi': '🇮🇳',
+      'Telugu': '🇮🇳',
+      'Tamil': '🇮🇳',
+      'Kannada': '🇮🇳',
+      'Malayalam': '🇮🇳',
+      'Marathi': '🇮🇳',
+      'English': '🌐',
+      'Universal Audio': '🎵'
+    };
+    languagesListEl.innerHTML = langs.map(l => {
+      const isSelected = (l === chosenLang);
+      const icon = langIcons[l] || '🎧';
+      return `
+        <button type="button" 
+                class="movie-lang-pill ${isSelected ? 'active' : ''}" 
+                onclick="selectMovieDetailsLang('${l}', this)"
+                style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; border: 1px solid ${isSelected ? '#00FF66' : 'rgba(255,255,255,0.15)'}; background: ${isSelected ? 'rgba(0,255,102,0.15)' : 'rgba(255,255,255,0.06)'}; color: ${isSelected ? '#00FF66' : '#e2e8f0'};">
+          <span>${icon}</span>
+          <span>${l}</span>
+          ${isSelected ? '<span class="check-icon" style="font-size: 10px;">✓</span>' : ''}
+        </button>
+      `;
+    }).join('');
+  }
+
+  // Source-Driven Quality Selector Population
+  const qualitySec = document.getElementById('movieQualitySelectorSection');
+  const qualityContainer = document.getElementById('movieQualityPillsContainer');
+  const qualityBadge = document.getElementById('movieDetailsActiveQualityBadge');
+
+  window.selectedMovieStreamQuality = 'auto'; // Default: AUTO
+
+  const sStateNow = movie.sourceState || (movie.streamUrl ? 'DIRECT_STREAM_AVAILABLE' : (movie.trailerUrl ? 'TRAILER_ONLY' : (movie.torrentUri ? 'TORRENT_SOURCE_AVAILABLE' : 'NO_AUTHORIZED_SOURCE')));
+
+  if (qualitySec && qualityContainer) {
+    if (sStateNow === 'NO_AUTHORIZED_SOURCE') {
+      qualitySec.style.display = 'none';
+    } else {
+      qualitySec.style.display = 'block';
+      let qOptions = [];
+
+      if (movie.streamUrl && movie.streamUrl.includes('.m3u8')) {
+        // Adaptive multi-bitrate stream
+        qOptions = [
+          { key: 'auto', label: 'Auto (Dynamic Adaptive)', badge: 'ABR' },
+          { key: '1080p', label: '1080p Full HD', badge: '1080p' },
+          { key: '720p', label: '720p HD', badge: '720p' },
+          { key: '480p', label: '480p SD', badge: '480p' }
+        ];
+      } else if (sStateNow === 'DIRECT_STREAM_AVAILABLE' || !!movie.streamUrl) {
+        const honestRes = movie.qualityHonestBadge || (movie.qualityClass === 'FULL HD' ? '1080p HD' : (movie.qualityClass === 'HD' ? '720p HD' : 'SD 480p'));
+        qOptions = [
+          { key: 'direct', label: `Direct Stream (${honestRes})`, badge: honestRes }
+        ];
+      } else if (sStateNow === 'TORRENT_SOURCE_AVAILABLE' || !!movie.torrentUri) {
+        qOptions = [
+          { key: 'auto', label: 'Auto (Swarm Native)', badge: movie.qualityHonestBadge || 'Torrent HD' }
+        ];
+      } else if (sStateNow === 'TRAILER_ONLY' || !!movie.trailerUrl) {
+        qOptions = [
+          { key: 'trailer', label: 'Official Trailer', badge: 'Trailer' }
+        ];
+      }
+
+      qualityContainer.innerHTML = qOptions.map((opt, idx) => {
+        const isSelected = (idx === 0);
+        return `
+          <button type="button" 
+                  class="movie-quality-pill ${isSelected ? 'active' : ''}" 
+                  onclick="selectMovieQualityOption('${opt.key}', '${opt.label}', this)">
+            <span>${opt.label}</span>
+            <span class="movie-quality-badge-tag">${opt.badge}</span>
+            ${isSelected ? '<span class="check-icon">✓</span>' : ''}
+          </button>
+        `;
+      }).join('');
+
+      if (qualityBadge) {
+        qualityBadge.textContent = qOptions[0] ? qOptions[0].label : 'Auto (Adaptive)';
+      }
+    }
+  }
+
+  // Web-Series Episodes & Seasons Section Handling
+  const episodesSec = document.getElementById('seriesEpisodesSection');
+  const episodesBadge = document.getElementById('seriesTotalEpisodesBadge');
+  const episodesList = document.getElementById('seriesEpisodesList');
+
+  const hasSeasonsData = movie.seasons && Array.isArray(movie.seasons) && movie.seasons.length > 0;
+  const hasEpisodes = movie.episodes && movie.episodes.length > 0;
+
+  if (movie.mediaType === 'series' && (hasSeasonsData || hasEpisodes)) {
+    if (episodesSec) episodesSec.style.display = 'block';
+    if (episodesBadge) episodesBadge.textContent = movie.durationFormatted || (movie.episodes ? movie.episodes.length + ' Episodes' : '');
+
+    if (episodesList) {
+      if (hasSeasonsData) {
+        // Ensure seasons are sorted numerically
+        movie.seasons.sort((a, b) => (parseInt(a.seasonNumber, 10) || 0) - (parseInt(b.seasonNumber, 10) || 0));
+
+        const seasonOptions = movie.seasons.map(s =>
+          `<option value="${s.seasonNumber}">Season ${s.seasonNumber}${s.title ? ' — ' + s.title : ''}</option>`
+        ).join('');
+
+        const seasonSelector = `
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 0 4px;">
+            <label style="font-size: 13px; font-weight: 700; color: #e2e8f0; white-space: nowrap;">Season:</label>
+            <select id="seasonSelector" onchange="renderSeasonEpisodes('${movie.id}', this.value)"
+              style="flex: 1; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #f1f5f9; font-size: 13px; font-weight: 600; appearance: auto;">
+              ${seasonOptions}
+            </select>
+          </div>
+        `;
+
+        const firstSeason = movie.seasons[0];
+        const sortedFirstEps = [...(firstSeason.episodes || [])].sort((a, b) => (parseInt(a.episodeNumber, 10) || 0) - (parseInt(b.episodeNumber, 10) || 0));
+        const firstSeasonEps = sortedFirstEps.map(ep => renderEpisodeItemMarkup(movie, ep)).join('');
+        episodesList.innerHTML = seasonSelector + `<div id="seasonEpisodesContainer">${firstSeasonEps}</div>`;
+      } else {
+        // Flat episodes fallback (backward compatibility)
+        const sortedFlatEps = [...(movie.episodes || [])].sort((a, b) => (parseInt(a.episodeNumber, 10) || 0) - (parseInt(b.episodeNumber, 10) || 0));
+        episodesList.innerHTML = sortedFlatEps.map(ep => renderEpisodeItemMarkup(movie, ep)).join('');
+      }
+    }
+  } else {
+    if (episodesSec) episodesSec.style.display = 'none';
+  }
+
+  // Primary Stream & Trailer Action Buttons Handling
+  const btnStream = document.getElementById('btnMovieStream');
+  const btnStreamText = document.getElementById('btnMovieStreamText');
+  const btnTrailer = document.getElementById('btnMovieTrailer');
+
+  // Check whether direct HTTP stream exists vs torrent
+  const hasDirectStreamEp = movie.mediaType === 'series' && (
+    (movie.seasons && movie.seasons.some(s => s.episodes && s.episodes.some(e => !!e.streamUrl))) ||
+    (movie.episodes && movie.episodes.some(e => !!e.streamUrl))
+  );
+
+  const sState = movie.sourceState || (movie.streamUrl ? 'DIRECT_STREAM_AVAILABLE' : (movie.trailerUrl ? 'TRAILER_ONLY' : (movie.torrentUri ? 'TORRENT_SOURCE_AVAILABLE' : 'NO_AUTHORIZED_SOURCE')));
+  const isTorrent = (sState === 'TORRENT_SOURCE_AVAILABLE' || (!movie.streamUrl && !hasDirectStreamEp && !!movie.torrentUri));
+  const isDirect = !isTorrent && (sState === 'DIRECT_STREAM_AVAILABLE' || !!movie.streamUrl || hasDirectStreamEp);
+  const isTrailerOnly = !isTorrent && !isDirect && (sState === 'TRAILER_ONLY' || (!!movie.trailerUrl && !movie.streamUrl && !hasDirectStreamEp));
+
+  if (btnTrailer) {
+    btnTrailer.style.display = (movie.trailerUrl && (isDirect || isTorrent)) ? 'inline-flex' : 'none';
+  }
+
+  if (btnStream) {
+    if (isDirect) {
+      btnStream.disabled = false;
+      btnStream.style.opacity = '1';
+      btnStream.style.pointerEvents = 'auto';
+      btnStream.className = 'movie-btn-stream direct-stream';
+      if (btnStreamText) {
+        if (movie.mediaType === 'series') {
+          try {
+            const resumeRaw = localStorage.getItem('t2l_resume_' + movie.id);
+            let hasValidResume = false;
+            if (resumeRaw) {
+              const r = JSON.parse(resumeRaw);
+              if (r && r.episodeId && movie.seasons) {
+                for (const s of movie.seasons) {
+                  if (s.episodes && s.episodes.some(e => String(e.id) === String(r.episodeId))) {
+                    hasValidResume = true;
+                    break;
+                  }
+                }
+              }
+            }
+            if (hasValidResume) {
+              btnStreamText.textContent = 'RESUME EPISODE';
+            } else {
+              btnStreamText.textContent = '▶ STREAM SERIES';
+            }
+          } catch (e) {
+            btnStreamText.textContent = '▶ STREAM SERIES';
+          }
+        } else {
+          let qLabel = 'DIRECT';
+          if (movie.qualityClass === 'FULL HD') qLabel = 'DIRECT (1080p HD)';
+          else if (movie.qualityClass === 'HD') qLabel = 'DIRECT (720p HD)';
+          else if (movie.qualityClass === 'LOW' || movie.qualityClass === 'SD') qLabel = 'DIRECT (SD 480p)';
+          btnStreamText.textContent = `▶ STREAM ${qLabel}`;
+        }
+      }
+    } else if (isTrailerOnly) {
+      btnStream.disabled = false;
+      btnStream.style.opacity = '1';
+      btnStream.style.pointerEvents = 'auto';
+      btnStream.className = 'movie-btn-stream trailer-stream';
+      if (btnStreamText) btnStreamText.textContent = 'WATCH TRAILER';
+    } else if (isTorrent) {
+      btnStream.disabled = false;
+      btnStream.style.opacity = '1';
+      btnStream.style.pointerEvents = 'auto';
+      btnStream.className = 'movie-btn-stream torrent-stream';
+      if (btnStreamText) {
+        if (movie.mediaType === 'series') {
+          btnStreamText.textContent = 'STREAM SERIES (TORRENT)';
+        } else {
+          btnStreamText.textContent = 'STREAM VIA TORRENT';
+        }
+      }
+    } else {
+      btnStream.disabled = false;
+      btnStream.style.opacity = '1';
+      btnStream.style.pointerEvents = 'auto';
+      btnStream.className = 'movie-btn-stream custom-stream';
+      if (btnStreamText) btnStreamText.textContent = 'PLAY VIA INSTANT STREAMER';
+    }
+  }
+
+  // Handle Download & Magnet action buttons
+  const btnDownload = document.getElementById('btnMovieDownload');
+  if (btnDownload) {
+    const isDownloadable = !!movie.torrentUri || (!!movie.streamUrl && !movie.streamUrl.includes('.m3u8'));
+    btnDownload.style.display = isDownloadable ? 'inline-flex' : 'none';
+  }
+  const btnMagnetCopy = document.getElementById('btnMovieMagnetCopy');
+  if (btnMagnetCopy) {
+    btnMagnetCopy.style.display = movie.torrentUri ? 'inline-flex' : 'none';
+  }
 
   // Update watchlist button state
   updateWatchlistBtnState(movie.id);
@@ -17741,7 +18153,25 @@ window.openMovieDetails = function(movieId) {
   if (modal) {
     modal.classList.add('active');
     modal.style.display = 'flex';
+    document.body.classList.add('modal-open-locked');
+    document.documentElement.classList.add('modal-open-locked');
   }
+};
+
+// Helper: Render episodes for a selected season in the detail modal
+window.renderSeasonEpisodes = function(movieId, seasonNumber) {
+  const movie = CatalogProvider.getById(movieId);
+  if (!movie || !movie.seasons) return;
+  const season = movie.seasons.find(s => String(s.seasonNumber) === String(seasonNumber));
+  if (!season) return;
+  const selector = document.getElementById('seasonSelector');
+  if (selector && selector.value !== String(seasonNumber)) {
+    selector.value = String(seasonNumber);
+  }
+  const container = document.getElementById('seasonEpisodesContainer');
+  if (!container) return;
+  const sortedEps = [...(season.episodes || [])].sort((a, b) => (parseInt(a.episodeNumber, 10) || 0) - (parseInt(b.episodeNumber, 10) || 0));
+  container.innerHTML = sortedEps.map(ep => renderEpisodeItemMarkup(movie, ep)).join('');
 };
 
 window.closeMovieDetails = function() {
@@ -17749,6 +18179,8 @@ window.closeMovieDetails = function() {
   if (modal) {
     modal.classList.remove('active');
     modal.style.display = 'none';
+    document.body.classList.remove('modal-open-locked');
+    document.documentElement.classList.remove('modal-open-locked');
   }
 };
 
@@ -17797,32 +18229,191 @@ window.copyMovieMagnet = function() {
   }
 };
 
+window.handleWatchTrailerClick = function() {
+  if (!currentSelectedMovie || !currentSelectedMovie.trailerUrl) {
+    showToast('Trailer is currently unavailable');
+    return;
+  }
+  startMovieStream(currentSelectedMovie.id, currentSelectedMovie.trailerUrl, currentSelectedMovie.title + ' (Official Trailer)', true);
+};
+
 window.handleStreamMovieClick = function() {
   if (!currentSelectedMovie) return;
+  const sState = currentSelectedMovie.sourceState || (currentSelectedMovie.streamUrl ? 'DIRECT_STREAM_AVAILABLE' : (currentSelectedMovie.trailerUrl ? 'TRAILER_ONLY' : (currentSelectedMovie.torrentUri ? 'TORRENT_SOURCE_AVAILABLE' : 'NO_AUTHORIZED_SOURCE')));
+
+  if (sState === 'TRAILER_ONLY' || (!currentSelectedMovie.streamUrl && !currentSelectedMovie.torrentUri && currentSelectedMovie.trailerUrl)) {
+    handleWatchTrailerClick();
+    return;
+  }
+
+  if (sState === 'NO_AUTHORIZED_SOURCE' && !currentSelectedMovie.streamUrl && !currentSelectedMovie.torrentUri) {
+    const title = currentSelectedMovie.title;
+    closeMovieDetails();
+    openInstantStreamerModal();
+    const input = document.getElementById('torrentMagnetInput');
+    if (input) {
+      input.placeholder = 'Paste stream URL or Magnet for ' + title;
+      setTimeout(() => input.focus(), 200);
+    }
+    showToast('💡 Paste stream URL or Magnet to play ' + title);
+    return;
+  }
+
+  if (currentSelectedMovie.mediaType === 'series') {
+    try {
+      const resumeRaw = localStorage.getItem('t2l_resume_' + currentSelectedMovie.id);
+      if (resumeRaw) {
+        const r = JSON.parse(resumeRaw);
+        if (r && r.episodeId) {
+          let resumeEp = null;
+          if (currentSelectedMovie.seasons) {
+            for (const s of currentSelectedMovie.seasons) {
+              if (s.episodes) {
+                resumeEp = s.episodes.find(e => String(e.id) === String(r.episodeId));
+                if (resumeEp) break;
+              }
+            }
+          }
+          if (!resumeEp && currentSelectedMovie.episodes) {
+            resumeEp = currentSelectedMovie.episodes.find(e => String(e.id) === String(r.episodeId));
+          }
+          if (resumeEp && (resumeEp.streamUrl || (resumeEp.sourceState === 'TORRENT_SOURCE_AVAILABLE' && !!currentSelectedMovie.torrentUri))) {
+            playSeriesEpisode(currentSelectedMovie.id, resumeEp.id);
+            return;
+          }
+        }
+      }
+    } catch (e) {}
+    // Find first playable episode, or fallback to first episode
+    let targetEp = null;
+    if (currentSelectedMovie.seasons && Array.isArray(currentSelectedMovie.seasons)) {
+      for (const s of currentSelectedMovie.seasons) {
+        if (s.episodes) {
+          targetEp = s.episodes.find(e => !!e.streamUrl || (e.sourceState === 'TORRENT_SOURCE_AVAILABLE' && !!currentSelectedMovie.torrentUri));
+          if (targetEp) break;
+        }
+      }
+    }
+    if (!targetEp && currentSelectedMovie.episodes) {
+      targetEp = currentSelectedMovie.episodes.find(e => !!e.streamUrl || (e.sourceState === 'TORRENT_SOURCE_AVAILABLE' && !!currentSelectedMovie.torrentUri));
+    }
+    if (!targetEp) {
+      targetEp = (currentSelectedMovie.seasons && currentSelectedMovie.seasons[0] && currentSelectedMovie.seasons[0].episodes && currentSelectedMovie.seasons[0].episodes[0]) ||
+                 (currentSelectedMovie.episodes && currentSelectedMovie.episodes[0]);
+    }
+    if (targetEp) {
+      playSeriesEpisode(currentSelectedMovie.id, targetEp.id);
+      return;
+    }
+  }
   startMovieStream(currentSelectedMovie.id);
 };
 
 let preparedStreamUrl = null;
 let preparedStreamTitle = '';
+let activePlaybackSession = null;
 
-window.startMovieStream = function(movieId) {
-  const movie = typeof movieId === 'object' ? movieId : CatalogProvider.getById(movieId);
-  if (!movie || !movie.torrentUri) {
-    showToast('Error: Torrent metadata missing');
+window.playSeriesEpisode = function(movieId, episodeId) {
+  const movie = CatalogProvider.getById(movieId);
+  if (!movie) return;
+
+  // Search episode across seasons first, then flat list (STRICT matching)
+  let ep = null;
+  if (movie.seasons && Array.isArray(movie.seasons)) {
+    for (const s of movie.seasons) {
+      if (s.episodes) {
+        ep = s.episodes.find(e => String(e.id) === String(episodeId));
+        if (ep) break;
+      }
+    }
+  }
+  if (!ep && movie.episodes) {
+    ep = movie.episodes.find(e => String(e.id) === String(episodeId));
+  }
+
+  // Strictly reject if episode was requested by ID but does not exist
+  if (!ep) {
+    showToast('Episode not found in catalog');
     return;
   }
+
+  const isTorrentPlayable = (ep.sourceState === 'TORRENT_SOURCE_AVAILABLE' || (!ep.sourceState && ep.season === 1)) && !!movie.torrentUri;
+  if (!ep.streamUrl && !isTorrentPlayable) {
+    const fullEpTitle = `${movie.title} - ${ep.title}`;
+    closeMovieDetails();
+    openInstantStreamerModal();
+    const input = document.getElementById('torrentMagnetInput');
+    if (input) {
+      input.placeholder = 'Paste stream URL or Magnet for ' + fullEpTitle;
+      setTimeout(() => input.focus(), 200);
+    }
+    showToast('💡 Paste stream URL or Magnet to play ' + fullEpTitle);
+    return;
+  }
+
+  window.currentPlayingEpisodeId = ep.id;
+  nextEpDismissedForStream = false;
+
+  const btnNext = document.getElementById('btnPlayerNextEp');
+  if (btnNext) btnNext.style.display = 'inline-flex';
+
+  const epTitle = `${movie.title}: ${ep.title}`;
+  startMovieStream(movieId, ep.streamUrl, epTitle, false, ep.id);
+};
+
+window.startMovieStream = function(movieId, overrideUrl, overrideTitle, isTrailer, episodeId) {
+  const movie = typeof movieId === 'object' ? movieId : CatalogProvider.getById(movieId);
+  if (!movie) {
+    showToast('Error: Content not found');
+    return;
+  }
+
+  // Strict Validation: If movie/series requested, require movie source or torrent
+  if (!isTrailer && !movie.torrentUri && !movie.streamUrl && !overrideUrl) {
+    showToast('No authorized stream is currently available for ' + movie.title);
+    return;
+  }
+
+  // If trailer requested, require trailer URL
+  if (isTrailer && !overrideUrl && !movie.trailerUrl) {
+    showToast('Trailer is currently unavailable for ' + movie.title);
+    return;
+  }
+
+
+  // Create immutable playback session
+  const sessionId = 'ps_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+  activePlaybackSession = {
+    sessionId: sessionId,
+    contentId: movie.id,
+    contentType: isTrailer ? 'TRAILER' : (movie.contentType || (movie.mediaType === 'series' ? 'SERIES' : 'MOVIE')),
+    title: movie.title,
+    overrideTitle: overrideTitle,
+    overrideUrl: overrideUrl,
+    isTrailer: !!isTrailer,
+    episodeId: episodeId || null,
+    torrentUri: movie.torrentUri || null,
+    requestedAt: Date.now()
+  };
 
   currentSelectedMovie = movie;
   closeMovieDetails();
 
-  // Record into watch history
-  try {
-    let history = JSON.parse(localStorage.getItem('t2l_vod_history') || '[]');
-    history = history.filter(id => id !== movie.id);
-    history.unshift(movie.id);
-    if (history.length > 12) history.pop();
-    localStorage.setItem('t2l_vod_history', JSON.stringify(history));
-  } catch (e) {}
+  const btnNext = document.getElementById('btnPlayerNextEp');
+  if (btnNext && !episodeId) btnNext.style.display = 'none';
+  if (!episodeId) window.currentPlayingEpisodeId = null;
+  window.nextEpPromptShown = false;
+
+  // Record into watch history only if actual movie/series
+  if (!isTrailer) {
+    try {
+      let history = JSON.parse(localStorage.getItem('t2l_vod_history') || '[]');
+      history = history.filter(id => id !== movie.id);
+      history.unshift(movie.id);
+      if (history.length > 12) history.pop();
+      localStorage.setItem('t2l_vod_history', JSON.stringify(history));
+    } catch (e) {}
+  }
 
   // Open Stream Prep Modal
   const prepModal = document.getElementById('streamPrepModal');
@@ -17832,9 +18423,10 @@ window.startMovieStream = function(movieId) {
   const pctEl = document.getElementById('streamPrepPctText');
   const startBtn = document.getElementById('btnStreamPrepStart');
 
-  if (titleEl) titleEl.textContent = movie.title + ' (' + (movie.resolution ? movie.resolution.split(' ')[0] : '1080p') + ')';
+  const streamDisplayTitle = overrideTitle || (isTrailer ? movie.title + ' (Official Trailer)' : movie.title);
+  if (titleEl) titleEl.textContent = streamDisplayTitle + ' (' + (movie.resolution ? movie.resolution.split(' ')[0] : '1080p') + ')';
   if (barEl) barEl.style.width = '20%';
-  if (statusEl) statusEl.textContent = 'Parsing Magnet URI & Hash...';
+  if (statusEl) statusEl.textContent = isTrailer ? 'Loading Official Trailer...' : (overrideUrl ? 'Connecting to Episode Stream...' : (movie.streamUrl ? 'Connecting to Verified Cinema Stream...' : 'Connecting to Distributed Torrent Swarm...'));
   if (pctEl) pctEl.textContent = '20%';
   if (startBtn) startBtn.disabled = true;
 
@@ -17848,10 +18440,11 @@ window.startMovieStream = function(movieId) {
     prepModal.style.display = 'flex';
   }
 
-  // Request native Android Torrent Stream
-  preparedStreamTitle = movie.title;
+  preparedStreamTitle = streamDisplayTitle;
   let rawRes = null;
-  if (window.AndroidMedia && window.AndroidMedia.startTorrentStream && movie.torrentUri) {
+
+  // Only start torrent engine if this is not a trailer and no direct stream is provided
+  if (!isTrailer && !overrideUrl && !movie.streamUrl && movie.torrentUri && window.AndroidMedia && window.AndroidMedia.startTorrentStream) {
     try {
       rawRes = window.AndroidMedia.startTorrentStream(movie.torrentUri);
     } catch (e) {
@@ -17864,19 +18457,30 @@ window.startMovieStream = function(movieId) {
     try { localPort = window.AndroidMedia.getLocalServerPort(); } catch (e) {}
   }
 
-  let streamUrl = 'http://127.0.0.1:' + localPort + '/torrent/stream';
-  if (rawRes) {
-    try {
-      const parsed = JSON.parse(rawRes);
-      if (parsed.streamUrl) streamUrl = parsed.streamUrl;
-    } catch (e) {}
+  let streamUrl = overrideUrl || (isTrailer ? movie.trailerUrl : movie.streamUrl);
+  if (!streamUrl && !isTrailer) {
+    streamUrl = 'http://127.0.0.1:' + localPort + '/torrent/stream';
+    if (rawRes) {
+      try {
+        const parsed = JSON.parse(rawRes);
+        if (parsed.streamUrl) streamUrl = parsed.streamUrl;
+      } catch (e) {}
+    }
   }
   preparedStreamUrl = streamUrl;
 
-  // Poll progress
+  // Poll progress with session guard to eliminate race conditions
   let ticks = 0;
   if (streamPrepInterval) clearInterval(streamPrepInterval);
+  const currentSessionId = sessionId;
+
   streamPrepInterval = setInterval(() => {
+    // Guard against stale callback from previous request
+    if (!activePlaybackSession || activePlaybackSession.sessionId !== currentSessionId) {
+      clearInterval(streamPrepInterval);
+      return;
+    }
+
     ticks++;
     let peers = 0;
     let verified = 0;
@@ -17892,34 +18496,71 @@ window.startMovieStream = function(movieId) {
     const peerCounter = document.getElementById('prepPeerCount');
     if (peerCounter) peerCounter.textContent = peers;
 
-    if (ticks === 1) {
-      setPrepStage(2, 'done');
-      setPrepStage(3, 'active');
-      if (statusEl) statusEl.textContent = 'Acquiring torrent swarm & media headers...';
-      if (barEl) barEl.style.width = '60%';
-      if (pctEl) pctEl.textContent = '60%';
-    } else if (ticks >= 2) {
-      setPrepStage(3, 'done');
-      setPrepStage(4, 'active');
-      if (statusEl) statusEl.textContent = 'Initializing sequential playback buffer...';
-      if (barEl) barEl.style.width = '95%';
-      if (pctEl) pctEl.textContent = '95%';
-    }
+    const isDirectOrTrailer = isTrailer || !!movie.streamUrl || !!overrideUrl;
 
-    if (ticks >= 3 || verified > 0 || peers > 0) {
-      clearInterval(streamPrepInterval);
-      streamPrepInterval = null;
-      setPrepStage(4, 'done');
-      if (barEl) barEl.style.width = '100%';
-      if (pctEl) pctEl.textContent = '100%';
-      if (statusEl) statusEl.textContent = 'Buffer Ready! Starting playback...';
-      if (startBtn) startBtn.disabled = false;
+    if (isDirectOrTrailer) {
+      if (ticks === 1) {
+        setPrepStage(2, 'done');
+        setPrepStage(3, 'active');
+        if (statusEl) statusEl.textContent = isTrailer ? 'Loading Trailer Stream...' : 'Acquiring media headers...';
+        if (barEl) barEl.style.width = '60%';
+        if (pctEl) pctEl.textContent = '60%';
+      } else if (ticks >= 2) {
+        setPrepStage(3, 'done');
+        setPrepStage(4, 'active');
+        if (statusEl) statusEl.textContent = 'Initializing playback buffer...';
+        if (barEl) barEl.style.width = '95%';
+        if (pctEl) pctEl.textContent = '95%';
+      }
+      if (ticks >= 3) {
+        clearInterval(streamPrepInterval);
+        streamPrepInterval = null;
+        setPrepStage(4, 'done');
+        if (barEl) barEl.style.width = '100%';
+        if (pctEl) pctEl.textContent = '100%';
+        if (statusEl) statusEl.textContent = 'Buffer Ready! Starting playback...';
+        if (startBtn) startBtn.disabled = false;
 
-      setTimeout(() => {
-        forceLaunchPreparedStream();
-      }, 400);
+        setTimeout(() => {
+          if (activePlaybackSession && activePlaybackSession.sessionId === currentSessionId) {
+            forceLaunchPreparedStream(currentSessionId);
+          }
+        }, 300);
+      }
+    } else {
+      // Torrent streaming: check peer discovery and pieces
+      if (verified > 0 || peers > 0) {
+        setPrepStage(2, 'done');
+        setPrepStage(3, 'done');
+        setPrepStage(4, 'done');
+        if (barEl) barEl.style.width = '100%';
+        if (pctEl) pctEl.textContent = '100%';
+        if (statusEl) statusEl.textContent = `Swarm connected (${peers} peers)! Launching stream...`;
+        if (startBtn) startBtn.disabled = false;
+        clearInterval(streamPrepInterval);
+        streamPrepInterval = null;
+        setTimeout(() => {
+          if (activePlaybackSession && activePlaybackSession.sessionId === currentSessionId) {
+            forceLaunchPreparedStream(currentSessionId);
+          }
+        }, 400);
+      } else if (ticks < 10) {
+        setPrepStage(2, 'active');
+        if (statusEl) statusEl.textContent = `Connecting to distributed swarm... searching for peers (${ticks}s)`;
+        if (barEl) barEl.style.width = Math.min(20 + ticks * 5, 75) + '%';
+        if (pctEl) pctEl.textContent = Math.min(20 + ticks * 5, 75) + '%';
+      } else {
+        // Swarm unreachable or 0 peers after 5 seconds
+        clearInterval(streamPrepInterval);
+        streamPrepInterval = null;
+        setPrepStage(2, 'pending');
+        if (statusEl) statusEl.textContent = 'Torrent Swarm Offline: 0 reachable peers.';
+        if (barEl) barEl.style.width = '30%';
+        if (pctEl) pctEl.textContent = '30%';
+        showToast('Torrent swarm offline: No active seeders found.');
+      }
     }
-  }, 600);
+  }, 500);
 };
 
 function setPrepStage(stageNum, state) {
@@ -17946,21 +18587,68 @@ window.cancelStreamPreparation = function() {
   }
 };
 
-window.forceLaunchPreparedStream = function() {
+window.forceLaunchPreparedStream = function(expectedSessionId) {
   cancelStreamPreparation();
+
+  // Session race-condition validation
+  if (expectedSessionId && activePlaybackSession && activePlaybackSession.sessionId !== expectedSessionId) {
+    console.warn('Blocked stale stream launch for session:', expectedSessionId);
+    return;
+  }
+
   const movie = currentSelectedMovie;
+  if (!movie) return;
+
+  const session = activePlaybackSession;
+  const isTrailer = session ? session.isTrailer : false;
+
+  let primaryUrl = null;
   const backups = [];
-  if (movie) {
-    if (movie.streamUrl) backups.push(movie.streamUrl);
-    if (movie.backupUrls && Array.isArray(movie.backupUrls)) {
-      movie.backupUrls.forEach(u => { if (!backups.includes(u)) backups.push(u); });
+
+  if (isTrailer) {
+    // Explicit Trailer playback requested
+    primaryUrl = (session && session.overrideUrl) || movie.trailerUrl;
+  } else {
+    // MOVIE or SERIES playback requested — NEVER substitute trailer!
+    if (movie.isCustomMagnet) {
+      primaryUrl = preparedStreamUrl || movie.streamUrl;
+    } else if (session && session.overrideUrl) {
+      primaryUrl = session.overrideUrl;
+    } else if (movie.streamUrl) {
+      primaryUrl = movie.streamUrl;
+    } else if (preparedStreamUrl) {
+      // Ensure preparedStreamUrl is not accidentally a trailer
+      if (movie.trailerUrl && preparedStreamUrl === movie.trailerUrl) {
+        primaryUrl = null;
+      } else {
+        primaryUrl = preparedStreamUrl;
+      }
     }
   }
 
-  const primaryUrl = preparedStreamUrl || (movie ? movie.streamUrl : null) || (backups.length > 0 ? backups[0] : null);
-  if (primaryUrl) {
-    startTorrentPlayback(primaryUrl, preparedStreamTitle || (movie ? movie.title : 'Cinema Stream'), movie ? movie.id : null, backups.filter(u => u !== primaryUrl), movie);
+  if (movie.backupUrls && Array.isArray(movie.backupUrls)) {
+    movie.backupUrls.forEach(u => {
+      if (u && !backups.includes(u) && u !== primaryUrl && (!movie.trailerUrl || u !== movie.trailerUrl)) {
+        backups.push(u);
+      }
+    });
   }
+
+  // Pre-playback validation: Never play if primaryUrl is missing or invalid
+  if (!primaryUrl) {
+    showToast('No authorized movie source is currently available.');
+    return;
+  }
+
+  const launchTitle = (session && session.overrideTitle) || preparedStreamTitle || (isTrailer ? movie.title + ' (Official Trailer)' : movie.title);
+
+  startTorrentPlayback(
+    primaryUrl,
+    launchTitle,
+    movie.id,
+    backups.filter(u => u !== primaryUrl),
+    movie
+  );
 };
 
 // ==========================================================
@@ -17972,25 +18660,65 @@ window.handleDownloadMovieClick = function() {
 };
 
 window.startMovieDownload = function(movie) {
-  if (!movie || !movie.torrentUri) return;
-  closeMovieDetails();
+  if (!movie) return;
 
   const safeTitle = (movie.title || 'video').replace(/[^a-zA-Z0-9_-]/g, '_');
   const container = (movie.container || 'mp4').toLowerCase();
   const filename = `${safeTitle}.${container}`;
 
-  if (window.AndroidMedia && window.AndroidMedia.startTorrentDownload) {
-    try {
-      window.AndroidMedia.startTorrentDownload(movie.torrentUri, movie.title, filename);
-      showToast('Download Queued: ' + movie.title);
-    } catch (e) {
-      showToast('Download started');
+  // Route 1: Torrent download (magnet URI available)
+  if (movie.torrentUri) {
+    closeMovieDetails();
+    if (window.AndroidMedia && window.AndroidMedia.startTorrentDownload) {
+      try {
+        window.AndroidMedia.startTorrentDownload(movie.torrentUri, movie.title, filename);
+        showToast('⬇️ Torrent Download Queued: ' + movie.title);
+      } catch (e) {
+        showToast('Download started');
+      }
+    } else {
+      showToast('Download manager ready');
     }
-  } else {
-    showToast('Download manager ready');
+    openDownloadsManagerModal();
+    return;
   }
 
-  openDownloadsManagerModal();
+  // Route 2: HTTP download (direct stream URL available as progressive MP4)
+  if (movie.streamUrl && !movie.streamUrl.includes('.m3u8')) {
+    closeMovieDetails();
+    if (window.AndroidMedia && window.AndroidMedia.startHttpDownload) {
+      try {
+        window.AndroidMedia.startHttpDownload(movie.streamUrl, movie.title, filename);
+        showToast('⬇️ Download Started: ' + movie.title);
+      } catch (e) {
+        showToast('Download started');
+      }
+    } else {
+      // Fallback: try opening URL in browser for download
+      try {
+        window.open(movie.streamUrl, '_blank');
+        showToast('Opening download in browser...');
+      } catch (e) {
+        showToast('Download unavailable');
+      }
+    }
+    openDownloadsManagerModal();
+    return;
+  }
+
+  // Route 3: HLS stream — cannot be downloaded directly
+  if (movie.streamUrl && movie.streamUrl.includes('.m3u8')) {
+    showToast('⚠️ Adaptive streams cannot be downloaded offline');
+    return;
+  }
+
+  // Route 4: Trailer-only or unavailable — no download possible
+  if (movie.sourceState === 'TRAILER_ONLY' || movie.trailerUrl) {
+    showToast('⚠️ Only the trailer is available — full movie download is not available');
+    return;
+  }
+
+  showToast('⚠️ Download is not available for this title');
 };
 
 window.openDownloadsManagerModal = function() {
@@ -18108,7 +18836,7 @@ window.renderDownloadsManager = function() {
               <span class="download-task-title">${t.title}</span>
               <div style="display: flex; gap: 6px;">
                 <button class="task-action-btn task-btn-play" onclick="playDownloadedFile('${t.localFilePath}', '${t.title}')">▶ Play</button>
-                <button class="task-action-btn task-btn-cancel" onclick="deleteDownloadedTaskFile('${t.taskId}')">🗑</button>
+                <button class="task-action-btn task-btn-cancel" onclick="deleteDownloadedTaskFile('${t.taskId}')" title="Delete"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
               </div>
             </div>
             <div class="download-task-meta">
@@ -18277,6 +19005,7 @@ window.handleStreamCustomMagnet = function() {
 
   const customMovie = {
     id: 'vod_custom_' + Date.now(),
+    isCustomMagnet: true,
     title: movieTitle,
     year: new Date().getFullYear(),
     durationFormatted: 'Full Feature',
@@ -18296,4 +19025,157 @@ window.handleStreamCustomMagnet = function() {
 
   input.value = '';
   startMovieStream(customMovie);
+};
+
+
+window.selectMovieDetailsLang = function(lang, btn) {
+  window.selectedMovieAudioLang = lang;
+  localStorage.setItem('t2l_preferred_movie_audio_lang', lang);
+  const badge = document.getElementById('movieDetailsActiveLangBadge');
+  if (badge) badge.textContent = lang + ' (Selected)';
+  
+  const container = document.getElementById('movieDetailsLanguagesList');
+  if (container) {
+    container.querySelectorAll('.movie-lang-pill').forEach(b => {
+      b.classList.remove('active');
+      b.style.borderColor = 'rgba(255,255,255,0.15)';
+      b.style.background = 'rgba(255,255,255,0.06)';
+      b.style.color = '#e2e8f0';
+      const check = b.querySelector('.check-icon');
+      if (check) check.remove();
+    });
+  }
+  if (btn) {
+    btn.classList.add('active');
+    btn.style.borderColor = '#00FF66';
+    btn.style.background = 'rgba(0,255,102,0.15)';
+    btn.style.color = '#00FF66';
+    const s = document.createElement('span');
+    s.className = 'check-icon';
+    s.style.fontSize = '10px';
+    s.textContent = '✓';
+    btn.appendChild(s);
+  }
+  showToast('Audio Language: ' + lang);
+};
+
+
+// ==========================================================
+// INSTANT STREAMER (HAMBURGER DRAWER SUBSYSTEM)
+// ==========================================================
+window.openInstantStreamerModal = function() {
+  const modal = document.getElementById('torrentModal');
+  if (modal) {
+    modal.classList.add('active');
+    modal.style.display = 'flex';
+  }
+  const input = document.getElementById('torrentMagnetInput');
+  if (input) {
+    setTimeout(() => { input.focus(); }, 150);
+  }
+};
+
+window.closeInstantStreamerModal = function() {
+  const modal = document.getElementById('torrentModal');
+  if (modal) {
+    modal.classList.remove('active');
+    modal.style.display = 'none';
+  }
+  const statusEl = document.getElementById('torrentModalStatus');
+  if (statusEl) statusEl.style.display = 'none';
+};
+
+window.openTorrentModal = window.openInstantStreamerModal;
+window.closeTorrentModal = window.closeInstantStreamerModal;
+
+window.submitInstantStreamerMagnet = function() {
+  const input = document.getElementById('torrentMagnetInput');
+  if (!input || !input.value.trim()) {
+    showToast('Please enter a Magnet URI, Torrent link, or Stream URL');
+    return;
+  }
+  const val = input.value.trim();
+
+  // Direct HTTP/HTTPS Video Link (MP4, MKV, M3U8)
+  if (val.startsWith('http://') || val.startsWith('https://')) {
+    let cleanTitle = 'Instant Stream';
+    try {
+      const u = new URL(val);
+      const filename = u.pathname.split('/').pop();
+      if (filename) cleanTitle = decodeURIComponent(filename.replace(/\.[^/.]+$/, '').replace(/[-_+]/g, ' '));
+    } catch (e) {}
+
+    const customMovie = {
+      id: 'vod_custom_' + Date.now(),
+      isCustomMagnet: true,
+      title: cleanTitle,
+      year: new Date().getFullYear(),
+      durationFormatted: 'Direct Stream',
+      genres: ['Instant Stream'],
+      type: 'Custom',
+      posterUrl: 'assets/placeholder.png',
+      backdropUrl: 'assets/placeholder.png',
+      resolution: 'Source Native',
+      torrentUri: null,
+      streamUrl: val
+    };
+
+    closeInstantStreamerModal();
+    input.value = '';
+    startMovieStream(customMovie);
+    return;
+  }
+
+  // BitTorrent Magnet Link
+  if (val.startsWith('magnet:?')) {
+    let movieTitle = 'Instant Stream';
+    const dnMatch = val.match(/[?&]dn=([^&]+)/i);
+    if (dnMatch && dnMatch[1]) {
+      try { movieTitle = decodeURIComponent(dnMatch[1].replace(/\+/g, ' ')); } catch (e) { movieTitle = dnMatch[1]; }
+    }
+
+    const customMovie = {
+      id: 'vod_custom_' + Date.now(),
+      isCustomMagnet: true,
+      title: movieTitle,
+      year: new Date().getFullYear(),
+      durationFormatted: 'Direct Swarm',
+      genres: ['Torrent Swarm'],
+      type: 'Custom',
+      posterUrl: 'assets/placeholder.png',
+      backdropUrl: 'assets/placeholder.png',
+      resolution: 'Source Native',
+      torrentUri: val,
+      streamUrl: null
+    };
+
+    closeInstantStreamerModal();
+    input.value = '';
+    startMovieStream(customMovie);
+    return;
+  }
+
+  showToast('Please enter a valid magnet: URI or direct http(s) video stream link');
+};
+
+
+window.selectMovieQualityOption = function(qualityKey, label, elem) {
+  window.selectedMovieStreamQuality = qualityKey;
+  const container = document.getElementById('movieQualityPillsContainer');
+  if (container) {
+    container.querySelectorAll('.movie-quality-pill').forEach(p => {
+      p.classList.remove('active');
+      const icon = p.querySelector('.check-icon');
+      if (icon) icon.remove();
+    });
+    if (elem) {
+      elem.classList.add('active');
+      const chk = document.createElement('span');
+      chk.className = 'check-icon';
+      chk.textContent = '✓';
+      elem.appendChild(chk);
+    }
+  }
+  const badge = document.getElementById('movieDetailsActiveQualityBadge');
+  if (badge) badge.textContent = label;
 };
