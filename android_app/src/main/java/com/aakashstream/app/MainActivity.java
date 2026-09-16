@@ -517,8 +517,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        boolean isDebuggable = (getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0;
-        WebView.setWebContentsDebuggingEnabled(isDebuggable);
+        WebView.setWebContentsDebuggingEnabled(true);
         startLocalServer();
         torrentEngine = new TorrentEngine(this);
 
@@ -1097,6 +1096,7 @@ public class MainActivity extends Activity {
             public volatile long speedBytes = 0;
             public volatile long downloadedBytes = 0;
             public volatile long totalBytes = 0;
+            public volatile long downloadId = -1;
             public TorrentEngine engine;
 
             public DownloadTask(String id, String title, String magnetUri, String fileName, File targetFile) {
@@ -1111,12 +1111,15 @@ public class MainActivity extends Activity {
                 JSONObject obj = new JSONObject();
                 try {
                     obj.put("id", id);
+                    obj.put("taskId", id);
                     obj.put("title", title);
                     obj.put("fileName", fileName);
                     obj.put("filePath", targetFile.getAbsolutePath());
+                    obj.put("localFilePath", targetFile.getAbsolutePath());
                     obj.put("status", status);
                     obj.put("progress", progress);
                     obj.put("speedBytes", speedBytes);
+                    obj.put("speedBytesPerSec", speedBytes);
                     obj.put("downloadedBytes", downloadedBytes);
                     obj.put("totalBytes", totalBytes);
                 } catch (Exception ignored) {}
@@ -1185,7 +1188,66 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public String startHttpDownload(String url, String title, String outputFilename) {
+            try {
+                android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(android.net.Uri.parse(url));
+                request.setTitle(title != null ? title : "T2L Download");
+                request.setDescription("Downloading via T2L");
+                request.setNotificationVisibility(android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                String safeName = (outputFilename != null && !outputFilename.isEmpty()) ? outputFilename : (title.replaceAll("[^a-zA-Z0-9.-]", "_") + ".mp4");
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MOVIES, safeName);
+                request.allowScanningByMediaScanner();
+
+                android.app.DownloadManager dm = (android.app.DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                long downloadId = dm.enqueue(request);
+                Log.i(TAG, "HTTP download started: " + title + " -> " + safeName + " (id=" + downloadId + ")");
+
+                File moviesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES);
+                File targetFile = new File(moviesDir, safeName);
+                String taskId = "http_dl_" + downloadId;
+                DownloadTask task = new DownloadTask(taskId, title != null ? title : safeName, null, safeName, targetFile);
+                task.status = "DOWNLOADING";
+                task.downloadId = downloadId;
+                downloadTasks.put(taskId, task);
+
+                return "{\"status\":\"STARTED\",\"taskId\":\"" + taskId + "\",\"downloadId\":" + downloadId + ",\"filename\":\"" + safeName + "\"}";
+            } catch (Exception e) {
+                Log.e(TAG, "HTTP download error: " + e.getMessage());
+                return "{\"error\":\"" + e.getMessage() + "\"}";
+            }
+        }
+
+        @JavascriptInterface
         public String getDownloadTasks() {
+            android.app.DownloadManager dm = (android.app.DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+            for (DownloadTask task : downloadTasks.values()) {
+                if (task.downloadId > 0 && dm != null) {
+                    try {
+                        android.app.DownloadManager.Query q = new android.app.DownloadManager.Query();
+                        q.setFilterById(task.downloadId);
+                        try (android.database.Cursor c = dm.query(q)) {
+                            if (c != null && c.moveToFirst()) {
+                                int bytesSoFar = c.getInt(c.getColumnIndexOrThrow(android.app.DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                                int totalBytes = c.getInt(c.getColumnIndexOrThrow(android.app.DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+                                int status = c.getInt(c.getColumnIndexOrThrow(android.app.DownloadManager.COLUMN_STATUS));
+                                task.downloadedBytes = bytesSoFar;
+                                task.totalBytes = totalBytes;
+                                if (status == android.app.DownloadManager.STATUS_SUCCESSFUL) {
+                                    task.status = "COMPLETED";
+                                    task.progress = 1.0;
+                                } else if (status == android.app.DownloadManager.STATUS_FAILED) {
+                                    task.status = "FAILED";
+                                } else if (status == android.app.DownloadManager.STATUS_PAUSED) {
+                                    task.status = "PAUSED";
+                                } else {
+                                    task.status = "DOWNLOADING";
+                                    task.progress = totalBytes > 0 ? ((double) bytesSoFar / totalBytes) : 0.0;
+                                }
+                            }
+                        }
+                    } catch (Exception ignored) {}
+                }
+            }
             JSONArray arr = new JSONArray();
             for (DownloadTask task : downloadTasks.values()) {
                 arr.put(task.toJson());
@@ -1233,6 +1295,12 @@ public class MainActivity extends Activity {
             DownloadTask task = downloadTasks.remove(taskId);
             if (task != null) {
                 if (task.engine != null) task.engine.stop();
+                if (task.downloadId > 0) {
+                    try {
+                        android.app.DownloadManager dm = (android.app.DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                        if (dm != null) dm.remove(task.downloadId);
+                    } catch (Exception ignored) {}
+                }
                 if (task.targetFile.exists()) task.targetFile.delete();
                 return true;
             }
@@ -1241,13 +1309,7 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public boolean deleteDownloadedFile(String taskId) {
-            DownloadTask task = downloadTasks.remove(taskId);
-            if (task != null) {
-                if (task.engine != null) task.engine.stop();
-                if (task.targetFile.exists()) task.targetFile.delete();
-                return true;
-            }
-            return false;
+            return cancelTorrentDownload(taskId);
         }
 
         @JavascriptInterface
@@ -1441,6 +1503,35 @@ public class MainActivity extends Activity {
                 }
             }
             return 100;
+        }
+
+        @JavascriptInterface
+        public void ensureAudioActive() {
+            if (audioManager != null) {
+                try {
+                    int current = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+                    int max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+                    if (current == 0 && max > 0) {
+                        int safeVol = Math.max(1, max / 2);
+                        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, safeVol, 0);
+                        Log.i(TAG, "Restored media volume to: " + safeVol);
+                    }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        AudioAttributes attrs = new AudioAttributes.Builder()
+                                .setUsage(AudioAttributes.USAGE_MEDIA)
+                                .setContentType(AudioAttributes.CONTENT_TYPE_MOVIE)
+                                .build();
+                        android.media.AudioFocusRequest focusRequest = new android.media.AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+                                .setAudioAttributes(attrs)
+                                .build();
+                        audioManager.requestAudioFocus(focusRequest);
+                    } else {
+                        audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Error ensuring audio active: " + e.getMessage());
+                }
+            }
         }
 
         @JavascriptInterface

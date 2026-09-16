@@ -130,6 +130,18 @@ public class PieceManager {
 
     private boolean verifyPieceOnDisk(int index, File pFile) {
         try {
+            if (metadata.pieceHashes == null || index >= metadata.pieceHashes.length || metadata.pieceHashes[index] == null) {
+                return true;
+            }
+            // Check if piece hash is all zeros (e.g. magnet link without pre-computed piece hashes)
+            boolean allZero = true;
+            for (byte b : metadata.pieceHashes[index]) {
+                if (b != 0) { allZero = false; break; }
+            }
+            if (allZero) {
+                return true;
+            }
+
             MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
             byte[] buf = new byte[8192];
             try (FileInputStream fis = new FileInputStream(pFile)) {
