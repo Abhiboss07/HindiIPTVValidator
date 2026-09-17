@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>T2L - Television to Live | TV, Radio &amp; Media Player</title>
     
     <!-- Fonts -->
@@ -676,6 +677,8 @@
 
         <!-- Pure Video Element -->
         <video id="luminaVideo" playsinline webkit-playsinline></video>
+        <!-- Dual-Engine Embedded Stream Player -->
+        <iframe id="luminaIframe" class="player-iframe" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="display: none; width: 100%; height: 100%; border: none; position: absolute; top: 0; left: 0; z-index: 5;"></iframe>
         <div id="playerBrightnessOverlay" class="player-brightness-overlay"></div>
 
         <!-- Cinematic Audio Artwork Visualizer (Shown for songs/radio/audio playback) -->

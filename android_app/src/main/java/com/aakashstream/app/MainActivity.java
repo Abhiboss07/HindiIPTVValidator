@@ -551,7 +551,7 @@ public class MainActivity extends Activity {
         webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
         setupWebView();
-        webView.loadUrl("file:///android_asset/index.html");
+        webView.loadUrl("https://appassets.androidplatform.net/index.html");
 
         IntentFilter pipFilter = new IntentFilter();
         pipFilter.addAction(ACTION_PIP_PREV);
@@ -745,6 +745,27 @@ public class MainActivity extends Activity {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 Uri uri = request.getUrl();
+                if (uri != null && "appassets.androidplatform.net".equals(uri.getHost())) {
+                    try {
+                        String path = uri.getPath();
+                        if (path == null || path.isEmpty() || "/".equals(path)) {
+                            path = "index.html";
+                        }
+                        while (path.startsWith("/")) {
+                            path = path.substring(1);
+                        }
+                        InputStream is = getAssets().open(path);
+                        String mime = getMimeTypeForAsset(path);
+                        String encoding = (mime.startsWith("text/") || "application/javascript".equals(mime) || "application/json".equals(mime)) ? "UTF-8" : null;
+                        Map<String, String> h = new HashMap<>();
+                        h.put("Access-Control-Allow-Origin", "*");
+                        h.put("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
+                        h.put("Access-Control-Allow-Headers", "*");
+                        return new WebResourceResponse(mime, encoding, 200, "OK", h, is);
+                    } catch (Exception e) {
+                        Log.w(TAG, "Asset load failed for: " + uri + " (" + e.getMessage() + ")");
+                    }
+                }
                 if (uri != null && "app.localmedia".equals(uri.getHost())) {
                     try {
                         String path = uri.getPath();
@@ -2132,5 +2153,23 @@ public class MainActivity extends Activity {
                 }
             }
         }
+    }
+
+    private String getMimeTypeForAsset(String path) {
+        if (path.endsWith(".html")) return "text/html";
+        if (path.endsWith(".js")) return "application/javascript";
+        if (path.endsWith(".css")) return "text/css";
+        if (path.endsWith(".json")) return "application/json";
+        if (path.endsWith(".png")) return "image/png";
+        if (path.endsWith(".jpg") || path.endsWith(".jpeg")) return "image/jpeg";
+        if (path.endsWith(".webp")) return "image/webp";
+        if (path.endsWith(".gif")) return "image/gif";
+        if (path.endsWith(".svg")) return "image/svg+xml";
+        if (path.endsWith(".woff2")) return "font/woff2";
+        if (path.endsWith(".woff")) return "font/woff";
+        if (path.endsWith(".ttf")) return "font/ttf";
+        if (path.endsWith(".mp4")) return "video/mp4";
+        if (path.endsWith(".mp3")) return "audio/mpeg";
+        return "application/octet-stream";
     }
 }

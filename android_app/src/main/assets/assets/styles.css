@@ -2376,14 +2376,20 @@ html, body {
   display: none !important;
 }
 
-#luminaVideo {
+#luminaVideo,
+#luminaIframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #000000;
+  background: #000;
   z-index: 2;
+}
+
+#luminaIframe {
+  border: none;
+  z-index: 5;
 }
 
 .player-brightness-overlay {
@@ -2722,6 +2728,21 @@ html, body {
 .vlc-controls-overlay.hidden-controls {
   opacity: 0 !important;
   pointer-events: none !important;
+}
+
+.obsidian-player-modal.is-embedded-player .vlc-controls-overlay {
+  pointer-events: none !important;
+}
+
+.obsidian-player-modal.is-embedded-player .vlc-top-bar {
+  pointer-events: auto !important;
+}
+
+.obsidian-player-modal.is-embedded-player .vlc-bottom-bar,
+.obsidian-player-modal.is-embedded-player .vlc-center-controls,
+.obsidian-player-modal.is-embedded-player .player-seekbar-wrap,
+.obsidian-player-modal.is-embedded-player #playerBrightnessOverlay {
+  display: none !important;
 }
 
 /* 1. VLC Top Bar */
