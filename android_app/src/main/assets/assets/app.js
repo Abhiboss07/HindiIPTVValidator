@@ -17730,27 +17730,28 @@ function renderMovieCard(movie) {
 
   const sState = movie.sourceState || (movie.streamUrl ? 'DIRECT_STREAM_AVAILABLE' : (movie.trailerUrl ? 'TRAILER_ONLY' : (movie.torrentUri ? 'TORRENT_SOURCE_AVAILABLE' : 'NO_AUTHORIZED_SOURCE')));
   let sourceBadge = '';
-  if (sState === 'DIRECT_STREAM_AVAILABLE') {
+  if (sState === 'DIRECT_STREAM_AVAILABLE' || sState === 'ACTIVE_STREAM') {
     const qb = (movie.qualityHonestBadge || '').toLowerCase();
     const qc = (movie.qualityClass || '').toUpperCase();
     const res = (movie.resolution || '').toLowerCase();
+    const sUrl = (movie.streamUrl || '').toLowerCase();
 
-    if (qb.includes('4k') || qb.includes('2160') || qc === '4K' || qc === 'UHD' || res.includes('2160') || res.includes('4k')) {
+    if (qb.includes('4k') || qb.includes('2160') || qc === '4K' || qc === 'UHD' || res.includes('2160') || res.includes('4k') || sUrl.includes('2160p') || sUrl.includes('4k')) {
       sourceBadge = '<span class="movie-source-mini-badge stream-direct" style="background: rgba(168, 85, 247, 0.25); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.4);">▶ 4K UHD</span>';
-    } else if (qb.includes('1440') || qb.includes('2k') || qc === '2K' || res.includes('1440') || res.includes('2k')) {
+    } else if (qb.includes('1440') || qb.includes('2k') || qc === '2K' || res.includes('1440') || res.includes('2k') || sUrl.includes('1440p') || sUrl.includes('2k')) {
       sourceBadge = '<span class="movie-source-mini-badge stream-direct" style="background: rgba(168, 85, 247, 0.25); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.4);">▶ 2K 1440p</span>';
-    } else if (qb.includes('1080') || qc === 'FULL HD' || qc.includes('1080') || res.includes('1080') || res.includes('fhd')) {
+    } else if (qb.includes('1080') || qc === 'FULL HD' || qc.includes('1080') || res.includes('1080') || res.includes('fhd') || sUrl.includes('1080p') || sUrl.includes('1080') || sUrl.includes('bluray')) {
       sourceBadge = '<span class="movie-source-mini-badge stream-direct">▶ 1080p HD</span>';
-    } else if (qb.includes('720') || qc === 'HD' || qc.includes('720') || res.includes('720')) {
+    } else if (qb.includes('720') || qc === 'HD' || qc.includes('720') || res.includes('720') || sUrl.includes('720p') || sUrl.includes('720')) {
       sourceBadge = '<span class="movie-source-mini-badge stream-direct" style="background: rgba(6, 182, 212, 0.25); color: #22d3ee; border: 1px solid rgba(34, 211, 238, 0.4);">▶ 720p HD</span>';
-    } else if (qb.includes('360') || qc.includes('360') || res.includes('360')) {
+    } else if (qb.includes('360') || qc.includes('360') || res.includes('360') || sUrl.includes('360p')) {
       sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 360p</span>';
-    } else if (qb.includes('240') || qc.includes('240') || res.includes('240')) {
+    } else if (qb.includes('240') || qc.includes('240') || res.includes('240') || sUrl.includes('240p')) {
       sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 240p</span>';
     } else {
       sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 480p</span>';
     }
-  } else if (sState === 'TRAILER_ONLY') {
+  } else if (sState === 'TRAILER_ONLY' || sState === 'UPCOMING_TRAILER') {
     sourceBadge = '<span class="movie-source-mini-badge stream-trailer"><svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>Trailer</span>';
   } else if (sState === 'TORRENT_SOURCE_AVAILABLE') {
     sourceBadge = '<span class="movie-source-mini-badge stream-torrent"><svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.14 17.91 14.21 19 12 19z"/></svg>Instant</span>';
