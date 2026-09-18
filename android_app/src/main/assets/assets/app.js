@@ -16178,13 +16178,30 @@ window.setVlcAudioTrack = function(trackId, elem) {
     }
   }
 
-  // Real HLS audio track switching via Hls.js
+  const CANONICAL_LANG_MAP = {
+    'hindi': 'hi', 'hin': 'hi', 'हिन्दी': 'hi',
+    'english': 'en', 'eng': 'en',
+    'japanese': 'ja', 'jpn': 'ja',
+    'korean': 'ko', 'kor': 'ko',
+    'telugu': 'te', 'tel': 'te',
+    'tamil': 'ta', 'tam': 'ta',
+    'kannada': 'kn', 'kan': 'kn',
+    'malayalam': 'ml', 'mal': 'ml',
+    'marathi': 'mr', 'mar': 'mr',
+    'bengali': 'bn', 'ben': 'bn',
+    'spanish': 'es', 'spa': 'es'
+  };
+
+  // Real HLS audio track switching via Hls.js with canonical normalization
   if (typeof hlsInstance !== 'undefined' && hlsInstance && hlsInstance.audioTracks && hlsInstance.audioTracks.length > 0) {
-    const targetLang = (shortNames[trackId] || trackId).toLowerCase();
-    const trackIndex = hlsInstance.audioTracks.findIndex(t => 
-      (t.name && t.name.toLowerCase().includes(targetLang)) ||
-      (t.lang && t.lang.toLowerCase().includes(targetLang))
-    );
+    const rawTarget = (shortNames[trackId] || trackId).toLowerCase();
+    const targetNorm = CANONICAL_LANG_MAP[rawTarget] || rawTarget;
+    const trackIndex = hlsInstance.audioTracks.findIndex(t => {
+      const tLang = (t.lang || '').toLowerCase();
+      const tNorm = CANONICAL_LANG_MAP[tLang] || tLang;
+      const tName = (t.name || '').toLowerCase();
+      return tNorm === targetNorm || tLang.includes(targetNorm) || tName.includes(targetNorm) || tName.includes(rawTarget);
+    });
     if (trackIndex >= 0) {
       hlsInstance.audioTrack = trackIndex;
       console.log('Switched Hls.js audioTrack to:', trackIndex, hlsInstance.audioTracks[trackIndex]);
@@ -18013,8 +18030,7 @@ window.handleMovieSearch = function(query) {
 
 function renderEpisodeItemMarkup(movie, ep) {
   const isTorrentPlayable = (ep.sourceState === 'TORRENT_SOURCE_AVAILABLE' || (!ep.sourceState && ep.season === 1)) && !!movie.torrentUri;
-  const isDirectPlayable = !!ep.streamUrl || isTorrentPlayable;
-  const hasPreview = !isDirectPlayable && !!movie.trailerUrl;
+  const isDirectPlayable = (!!ep.streamUrl || isTorrentPlayable) && ep.episodeType !== 'no_authorized_source';
 
   if (isDirectPlayable) {
     const qBadge = ep.qualityHonestBadge ? `<span style="font-size: 10px; background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); border-radius: 4px; padding: 1px 6px; font-weight: 600; margin-left: 6px;">${ep.qualityHonestBadge}</span>` : '';
@@ -18033,22 +18049,6 @@ function renderEpisodeItemMarkup(movie, ep) {
         <button type="button" class="series-ep-play-btn" onclick="event.stopPropagation(); playSeriesEpisode('${movie.id}', '${ep.id}')">Stream</button>
       </div>
     `;
-  } else if (hasPreview) {
-    return `
-      <div class="series-ep-item" onclick="playSeriesEpisode('${movie.id}', '${ep.id}')" style="border-left: 3px solid #f59e0b;">
-        <div class="series-ep-left">
-          <span class="series-ep-play-icon" style="color: #f59e0b;">🎬</span>
-          <div class="series-ep-info">
-            <div style="display: flex; align-items: center;">
-              <span class="series-ep-title">${ep.title}</span>
-              <span style="font-size: 10px; background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); border-radius: 4px; padding: 1px 6px; font-weight: 600; margin-left: 6px;">Preview Only</span>
-            </div>
-            <span class="series-ep-duration" style="color: #94a3b8;">${ep.duration || ''} • Official Series Preview</span>
-          </div>
-        </div>
-        <button type="button" class="series-ep-play-btn" style="background: rgba(245,158,11,0.2); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4);" onclick="event.stopPropagation(); playSeriesEpisode('${movie.id}', '${ep.id}')">Preview</button>
-      </div>
-    `;
   } else {
     return `
       <div class="series-ep-item series-ep-unavailable" onclick="playSeriesEpisode('${movie.id}', '${ep.id}')">
@@ -18056,7 +18056,7 @@ function renderEpisodeItemMarkup(movie, ep) {
           <span class="series-ep-play-icon" style="color: #38bdf8; display: inline-flex; align-items: center;"><svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.14 17.91 14.21 19 12 19z"/></svg></span>
           <div class="series-ep-info">
             <span class="series-ep-title" style="color: #e2e8f0;">${ep.title}</span>
-            <span class="series-ep-duration" style="color: #94a3b8;">${ep.duration || ''} • Custom Stream</span>
+            <span class="series-ep-duration" style="color: #94a3b8;">${ep.duration || ''} • Custom Stream (No Public Stream)</span>
           </div>
         </div>
         <span class="series-ep-badge-unavail" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 4px; padding: 2px 8px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;"><svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.14 17.91 14.21 19 12 19z"/></svg>Custom</span>
@@ -18599,11 +18599,6 @@ window.playSeriesEpisode = function(movieId, episodeId) {
 
   const isTorrentPlayable = (ep.sourceState === 'TORRENT_SOURCE_AVAILABLE' || (!ep.sourceState && ep.season === 1)) && !!movie.torrentUri;
   if (!ep.streamUrl && !isTorrentPlayable) {
-    if (movie.trailerUrl) {
-      showToast(`🎬 Playing preview clip for ${movie.title}`);
-      startMovieStream(movieId, movie.trailerUrl, `${movie.title} (Official Series Preview)`, true, ep.id);
-      return;
-    }
     const fullEpTitle = `${movie.title} - ${ep.title}`;
     closeMovieDetails();
     openInstantStreamerModal();
@@ -18612,7 +18607,13 @@ window.playSeriesEpisode = function(movieId, episodeId) {
       input.placeholder = 'Paste stream URL or Magnet for ' + fullEpTitle;
       setTimeout(() => input.focus(), 200);
     }
-    showToast('💡 Paste stream URL or Magnet to play ' + fullEpTitle);
+    showToast('Episode unavailable in catalog. Paste stream URL or Magnet to play ' + fullEpTitle);
+    return;
+  }
+
+  // Strict Episode Identity Invariant: Verify requested episode matches resolved episode
+  if (String(ep.id) !== String(episodeId)) {
+    showToast('Episode resolution identity violation');
     return;
   }
 
