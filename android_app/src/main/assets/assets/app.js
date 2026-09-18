@@ -14164,17 +14164,62 @@ function showStreamErrorState(title, desc) {
   const errorOverlay = document.getElementById('playerErrorOverlay');
   const errorTitle = document.getElementById('playerErrorTitle');
   const errorDesc = document.getElementById('playerErrorDesc');
+  const ytBtn = document.getElementById('btnPlayerErrorExternalYt');
+  const nextBtn = document.getElementById('btnPlayerErrorNext');
+  const closeBtn = document.getElementById('btnPlayerErrorClose');
+
+  const isVodContent = currentPlayingChannel && (
+    currentPlayingChannel.isTorrent || !!currentPlayingChannel.movieData ||
+    currentPlayingChannel.category === 'VOD Cinema' ||
+    currentPlayingChannel.playbackMode === 'VOD_MOVIE' ||
+    currentPlayingChannel.playbackMode === 'VOD_SERIES'
+  );
+
   if (errorOverlay) {
     if (errorTitle) errorTitle.textContent = title || 'Stream Unavailable';
-    if (errorDesc) errorDesc.textContent = desc || 'This broadcast is currently offline or geo-restricted.';
+    if (errorDesc) {
+      if (desc) {
+        errorDesc.textContent = desc;
+      } else if (isVodContent) {
+        errorDesc.textContent = 'This media stream is currently unreachable. Please check your network connection or try another source.';
+      } else {
+        errorDesc.textContent = 'This broadcast is currently offline or geo-restricted.';
+      }
+    }
+    if (ytBtn) {
+      ytBtn.style.display = window.currentEmbeddedYouTubeId ? 'inline-flex' : 'none';
+    }
+    if (nextBtn) {
+      nextBtn.style.display = isVodContent ? 'none' : 'inline-flex';
+    }
+    if (closeBtn) {
+      closeBtn.style.display = isVodContent ? 'inline-flex' : 'none';
+    }
     errorOverlay.style.display = 'flex';
   }
 }
 
 function hideStreamErrorState() {
   const errorOverlay = document.getElementById('playerErrorOverlay');
+  const ytBtn = document.getElementById('btnPlayerErrorExternalYt');
+  const closeBtn = document.getElementById('btnPlayerErrorClose');
   if (errorOverlay) errorOverlay.style.display = 'none';
+  if (ytBtn) ytBtn.style.display = 'none';
+  if (closeBtn) closeBtn.style.display = 'none';
 }
+
+window.openExternalYouTube = function(vidId) {
+  const id = vidId || window.currentEmbeddedYouTubeId;
+  if (!id) return;
+  const targetUrl = 'https://www.youtube.com/watch?v=' + id;
+  if (window.AndroidMedia && window.AndroidMedia.openExternalUrl) {
+    try {
+      window.AndroidMedia.openExternalUrl(targetUrl);
+      return;
+    } catch (e) {}
+  }
+  window.open(targetUrl, '_blank');
+};
 
 window.retryCurrentStream = function(e) {
   if (e) {
@@ -14270,7 +14315,10 @@ function loadChannelMedia(ch, autoPlay) {
     showBufferingSpinner('Connecting Stream...');
   }
 
-  if (!ch.isLocal) {
+  const isVodContent = ch.isTorrent || !!ch.movieData || ch.category === 'VOD Cinema' || ch.playbackMode === 'VOD_MOVIE' || ch.playbackMode === 'VOD_SERIES';
+  const isSeriesContent = ch.playbackMode === 'VOD_SERIES' || (ch.movieData && (ch.movieData.mediaType === 'series' || ch.movieData.contentType === 'SERIES'));
+
+  if (!ch.isLocal && !isVodContent) {
     recentChannels = [ch.id, ...recentChannels.filter(id => id !== ch.id)].slice(0, 10);
     localStorage.setItem('aakash_recents', JSON.stringify(recentChannels));
   }
@@ -14287,13 +14335,40 @@ function loadChannelMedia(ch, autoPlay) {
   if (playerSubTitle) {
     if (ch.isLocal) {
       playerSubTitle.textContent = '📂 ' + (ch.folder || 'Storage') + ' • ' + (ch.type === 'tv' ? 'Local Video' : 'Local Audio') + (ch.quality ? ' • ' + ch.quality : '');
+    } else if (isVodContent) {
+      const m = ch.movieData || {};
+      const year = m.year ? `${m.year} • ` : '';
+      const honestAudio = m.audioClassification === 'HINDI_AUDIO' ? '🇮🇳 Hindi Audio' : (m.audioClassification === 'MULTI_AUDIO_INCLUDING_HINDI' ? '🌐 Multi Audio' : (m.audioClassification === 'HINDI_SUBTITLE_ONLY' ? '💬 Hindi Subtitles' : (m.audioClassification === 'NON_HINDI_AUDIO' ? '🌐 ' + (m.defaultLanguage || 'Audio') : '🎧 Audio')));
+      if (isSeriesContent) {
+        playerSubTitle.textContent = `📺 Web-Series • ${year}${ch.quality || '1080p FHD'} • ${honestAudio}`;
+      } else {
+        playerSubTitle.textContent = `🎬 Cinema VOD • ${year}${ch.quality || '1080p FHD'} • ${honestAudio}`;
+      }
     } else {
       playerSubTitle.textContent = (ch.flag ? ch.flag + ' ' : '') + (ch.countryName || 'Live') + ' • ' + (ch.category || 'Stream') + ' • ' + (ch.quality || 'HD');
     }
   }
   if (miniTitle) miniTitle.textContent = cleanTitle || ch.name;
-  if (miniSub) miniSub.textContent = ch.isLocal ? 'OFFLINE • ' + (ch.folder || 'STORAGE') : 'LIVE STREAM • ' + (ch.quality || 'HD');
-  if (miniThumb) miniThumb.textContent = ch.type === 'radio' ? '📻' : (ch.isLocal ? (ch.type === 'tv' ? '🎬' : '🎵') : (ch.flag || '📺'));
+  if (miniSub) {
+    if (ch.isLocal) {
+      miniSub.textContent = 'OFFLINE • ' + (ch.folder || 'STORAGE');
+    } else if (isVodContent) {
+      miniSub.textContent = isSeriesContent ? 'SERIES VOD • ' + (ch.quality || '1080p') : 'CINEMA VOD • ' + (ch.quality || '1080p');
+    } else {
+      miniSub.textContent = 'LIVE STREAM • ' + (ch.quality || 'HD');
+    }
+  }
+  if (miniThumb) {
+    if (isVodContent) {
+      miniThumb.textContent = '🎬';
+    } else if (ch.type === 'radio') {
+      miniThumb.textContent = '📻';
+    } else if (ch.isLocal) {
+      miniThumb.textContent = ch.type === 'tv' ? '🎬' : '🎵';
+    } else {
+      miniThumb.textContent = ch.flag || '📺';
+    }
+  }
 
   updateFavIconUI();
   updateAudioArtwork();
@@ -14343,8 +14418,9 @@ function loadChannelMedia(ch, autoPlay) {
         videoElement.style.display = 'none';
       }
       if (iframeElement) {
+        window.currentEmbeddedYouTubeId = videoId;
         iframeElement.style.display = 'block';
-        iframeElement.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&playsinline=1&controls=1&rel=0&modestbranding=1&enablejsapi=1&origin=https://appassets.androidplatform.net';
+        iframeElement.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&playsinline=1&controls=1&rel=0&modestbranding=1&enablejsapi=1';
         iframeElement.onload = () => {
           hideBufferingSpinner();
           hideStreamErrorState();
@@ -14634,13 +14710,26 @@ function loadChannelMedia(ch, autoPlay) {
       }
     }
 
-    // Global Connection Watchdog (15s timeout for hung/stuck streams)
+    // Global Connection Watchdog (progressive timeout for hung/stuck streams)
     if (autoPlay) {
       clearTimeout(streamWatchdogTimeout);
-      streamWatchdogTimeout = setTimeout(() => {
+      const isVodHls = ch.isTorrent || ch.movieData || ch.category === 'VOD Cinema' || ch.isVod;
+      const hlsMaxSec = isVodHls ? 45 : 25;
+      let hlsElapsed = 0;
+
+      const checkHlsWatchdog = () => {
         if (requestId !== currentStreamRequestId) return;
         if (videoElement && (videoElement.paused || videoElement.readyState < 2 || !isPlaying)) {
-          const diag = `Connection Timeout (15s) on ${ch.name}: ${streamUrl}`;
+          hlsElapsed += 5;
+          if (hlsElapsed < hlsMaxSec) {
+            if (hlsElapsed === 10 || hlsElapsed === 20) {
+              if (isVodHls) showToast(`⏳ Connecting to high-definition stream (${hlsElapsed}s)...`);
+            }
+            streamWatchdogTimeout = setTimeout(checkHlsWatchdog, 5000);
+            return;
+          }
+
+          const diag = `Connection Timeout (${hlsMaxSec}s) on ${ch.name}: ${streamUrl}`;
           console.warn('⚠️ ' + diag);
           if (window.AndroidMedia && window.AndroidMedia.logError) {
             window.AndroidMedia.logError(diag);
@@ -14658,11 +14747,12 @@ function loadChannelMedia(ch, autoPlay) {
             }
             showStreamErrorState(
               'Stream Unavailable',
-              'Broadcast server did not respond within 15 seconds. Channel may be temporarily offline or restricted.'
+              isVodHls ? 'Media server did not respond in time. The stream may be temporarily offline or slow to buffer.' : 'Broadcast server did not respond within 25 seconds. Channel may be temporarily offline or restricted.'
             );
           }
         }
-      }, 15000);
+      };
+      streamWatchdogTimeout = setTimeout(checkHlsWatchdog, 5000);
     }
 
   } else if (streamUrl) {
@@ -14682,10 +14772,38 @@ function loadChannelMedia(ch, autoPlay) {
 
       if (autoPlay) {
         clearTimeout(streamWatchdogTimeout);
-        streamWatchdogTimeout = setTimeout(() => {
+        const isVodStream = ch.isTorrent || ch.movieData || ch.category === 'VOD Cinema' || ch.isVod;
+        const progressiveMaxSec = isVodStream ? 60 : 25;
+        let progElapsed = 0;
+
+        const checkProgWatchdog = () => {
           if (requestId !== currentStreamRequestId) return;
           if (videoElement && (videoElement.paused || videoElement.readyState < 2 || !isPlaying)) {
-            const diag = `Connection Timeout (15s) on ${ch.name}: ${streamUrl}`;
+            progElapsed += 5;
+
+            // Check if actively buffering or downloading bytes
+            const isActivelyLoading = videoElement.networkState === 2 || 
+              (videoElement.buffered && videoElement.buffered.length > 0 && videoElement.buffered.end(0) > 0) ||
+              videoElement.readyState >= 1;
+
+            if (progElapsed === 10 || progElapsed === 25 || progElapsed === 40) {
+              if (isVodStream) {
+                showBufferingSpinner();
+                showToast(`⏳ Buffering high-definition cinema stream (${progElapsed}s)... please wait`);
+              }
+            }
+
+            if (isActivelyLoading && progElapsed < progressiveMaxSec) {
+              streamWatchdogTimeout = setTimeout(checkProgWatchdog, 5000);
+              return;
+            }
+
+            if (progElapsed < progressiveMaxSec) {
+              streamWatchdogTimeout = setTimeout(checkProgWatchdog, 5000);
+              return;
+            }
+
+            const diag = `Connection Timeout (${progressiveMaxSec}s) on ${ch.name}: ${streamUrl}`;
             console.warn('⚠️ ' + diag);
             if (window.AndroidMedia && window.AndroidMedia.logError) {
               window.AndroidMedia.logError(diag);
@@ -14696,14 +14814,15 @@ function loadChannelMedia(ch, autoPlay) {
               loadChannelMedia(ch, true);
             } else {
               hideBufferingSpinner();
-              const isVod = ch.isTorrent || ch.movieData || ch.category === 'VOD Cinema';
               showStreamErrorState(
                 'Stream Unavailable',
-                isVod ? 'Media server did not respond within 15 seconds. File may be temporarily unavailable.' : 'Broadcast server did not respond within 15 seconds. Channel may be temporarily offline or restricted.'
+                isVodStream ? 'Media server did not respond within 60 seconds. Please check your internet or retry.' : 'Broadcast server did not respond within 25 seconds. Channel may be temporarily offline or restricted.'
               );
             }
           }
-        }, 15000);
+        };
+
+        streamWatchdogTimeout = setTimeout(checkProgWatchdog, 5000);
 
         const startPlayback = () => {
           if (videoElement) {
@@ -14725,18 +14844,34 @@ function loadChannelMedia(ch, autoPlay) {
           }
         };
         startPlayback();
+
+        const onWaiting = () => {
+          if (requestId === currentStreamRequestId && videoElement && videoElement.readyState < 3) {
+            showBufferingSpinner();
+          }
+        };
+        const onPlayingSuccess = () => {
+          if (requestId === currentStreamRequestId) {
+            clearTimeout(streamWatchdogTimeout);
+            hideBufferingSpinner();
+            hideStreamErrorState();
+            isPlaying = true;
+            updatePlayPauseIcons(true);
+          }
+        };
+
+        videoElement.addEventListener('waiting', onWaiting);
+        videoElement.addEventListener('stalled', onWaiting);
         videoElement.addEventListener('canplay', startPlayback, { once: true });
-        videoElement.addEventListener('playing', () => {
-          clearTimeout(streamWatchdogTimeout);
-          hideBufferingSpinner();
-          hideStreamErrorState();
-        }, { once: true });
+        videoElement.addEventListener('playing', onPlayingSuccess);
       }
     }
   }
 
-  // Safety fallback: unconditionally hide spinner after 2s
-  setTimeout(hideBufferingSpinner, 2000);
+  // Hide spinner if already ready to play, otherwise let video events manage it
+  if (videoElement && videoElement.readyState >= 3) {
+    hideBufferingSpinner();
+  }
 
   if (!autoPlay) {
     const miniPlayer = document.getElementById('miniPlayer');
@@ -14865,6 +15000,8 @@ window.closeMiniPlayer = function(e) {
   if (playerModal) {
     playerModal.classList.remove('is-embedded-player');
   }
+
+  window.currentEmbeddedYouTubeId = null;
 
   if (iframeElement) {
     iframeElement.src = 'about:blank';
@@ -17239,19 +17376,23 @@ function startTorrentPlayback(streamUrl, title, infoHash, backupUrls, movieData)
   showToast('Starting stream: ' + title);
 
   const isRealTorrent = !streamUrl.startsWith('http://') && !streamUrl.startsWith('https://') ? true : (streamUrl.includes(':8080/torrent') || streamUrl.includes('/torrent/stream'));
+  const isSeries = movieData && (movieData.mediaType === 'series' || movieData.contentType === 'SERIES');
   const torrentChannel = {
-    id: 'torrent_' + (infoHash || Date.now()),
-    name: title || 'Torrent Media Stream',
-    url: streamUrl,
-    backupUrls: backupUrls || [],
-    isLocal: false,
-    isTorrent: isRealTorrent,
-    type: 'video',
-    category: 'VOD Cinema',
-    quality: movieData && movieData.resolution ? movieData.resolution.split(' ')[0] : '1080p',
-    flag: isRealTorrent ? '🧲' : '⚡',
-    movieData: movieData || null
-  };
+    id: (movieData ? movieData.id : 'torrent_' + (infoHash || Date.now())),
+      name: title || 'Torrent Media Stream',
+      url: streamUrl,
+      backupUrls: backupUrls || [],
+      isLocal: false,
+      isTorrent: isRealTorrent,
+      type: 'video',
+      contentType: isSeries ? 'SERIES' : 'MOVIE',
+      playbackMode: isSeries ? 'VOD_SERIES' : 'VOD_MOVIE',
+      category: isSeries ? 'Web-Series' : 'VOD Cinema',
+      countryName: '',
+      quality: movieData && movieData.resolution ? movieData.resolution.split(' ')[0] : '1080p',
+      flag: isRealTorrent ? '🧲' : '⚡',
+      movieData: movieData || null
+    };
 
   playChannel(torrentChannel);
   if (isRealTorrent) {
@@ -17574,16 +17715,38 @@ function renderMovieCard(movie) {
   const poster = movie.posterUrl || 'assets/placeholder.png';
   const isSeries = movie.mediaType === 'series';
   const typeBadge = isSeries ? '<span class="movie-type-mini-badge series"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>Series</span>' : '';
-  const hasHindi = (movie.languages && movie.languages.includes('Hindi')) || movie.type === 'Bollywood' || movie.region === 'BOLLYWOOD';
-  const langBadge = hasHindi ? '<span class="movie-lang-mini-badge"><svg viewBox="0 0 24 24"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>Hindi</span>' : '';
+  let langBadge = '';
+  const aClass = movie.audioClassification || (movie.audio && movie.audio.classification);
+  if (aClass === 'HINDI_AUDIO') {
+    langBadge = '<span class="movie-lang-mini-badge hindi" style="background: rgba(34, 197, 94, 0.25); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.4);"><svg viewBox="0 0 24 24"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>🇮🇳 Hindi</span>';
+  } else if (aClass === 'MULTI_AUDIO_INCLUDING_HINDI') {
+    langBadge = '<span class="movie-lang-mini-badge multi" style="background: rgba(59, 130, 246, 0.25); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.4);"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>🌐 Multi</span>';
+  } else if (aClass === 'HINDI_SUBTITLE_ONLY') {
+    langBadge = '<span class="movie-lang-mini-badge sub" style="background: rgba(234, 179, 8, 0.25); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.4);">💬 Hi-Sub</span>';
+  } else if (aClass === 'NON_HINDI_AUDIO') {
+    const primary = (movie.languages && movie.languages[0]) || movie.defaultLanguage || 'English';
+    langBadge = `<span class="movie-lang-mini-badge non-hindi" style="background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid rgba(203, 213, 225, 0.3);">🌐 ${primary}</span>`;
+  }
 
   const sState = movie.sourceState || (movie.streamUrl ? 'DIRECT_STREAM_AVAILABLE' : (movie.trailerUrl ? 'TRAILER_ONLY' : (movie.torrentUri ? 'TORRENT_SOURCE_AVAILABLE' : 'NO_AUTHORIZED_SOURCE')));
   let sourceBadge = '';
   if (sState === 'DIRECT_STREAM_AVAILABLE') {
-    if (movie.qualityClass === 'FULL HD') {
+    const qb = (movie.qualityHonestBadge || '').toLowerCase();
+    const qc = (movie.qualityClass || '').toUpperCase();
+    const res = (movie.resolution || '').toLowerCase();
+
+    if (qb.includes('4k') || qb.includes('2160') || qc === '4K' || qc === 'UHD' || res.includes('2160') || res.includes('4k')) {
+      sourceBadge = '<span class="movie-source-mini-badge stream-direct" style="background: rgba(168, 85, 247, 0.25); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.4);">▶ 4K UHD</span>';
+    } else if (qb.includes('1440') || qb.includes('2k') || qc === '2K' || res.includes('1440') || res.includes('2k')) {
+      sourceBadge = '<span class="movie-source-mini-badge stream-direct" style="background: rgba(168, 85, 247, 0.25); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.4);">▶ 2K 1440p</span>';
+    } else if (qb.includes('1080') || qc === 'FULL HD' || qc.includes('1080') || res.includes('1080') || res.includes('fhd')) {
       sourceBadge = '<span class="movie-source-mini-badge stream-direct">▶ 1080p HD</span>';
-    } else if (movie.qualityClass === 'HD') {
-      sourceBadge = '<span class="movie-source-mini-badge stream-direct">▶ 720p HD</span>';
+    } else if (qb.includes('720') || qc === 'HD' || qc.includes('720') || res.includes('720')) {
+      sourceBadge = '<span class="movie-source-mini-badge stream-direct" style="background: rgba(6, 182, 212, 0.25); color: #22d3ee; border: 1px solid rgba(34, 211, 238, 0.4);">▶ 720p HD</span>';
+    } else if (qb.includes('360') || qc.includes('360') || res.includes('360')) {
+      sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 360p</span>';
+    } else if (qb.includes('240') || qc.includes('240') || res.includes('240')) {
+      sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 240p</span>';
     } else {
       sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 480p</span>';
     }
@@ -17849,8 +18012,10 @@ window.handleMovieSearch = function(query) {
 
 function renderEpisodeItemMarkup(movie, ep) {
   const isTorrentPlayable = (ep.sourceState === 'TORRENT_SOURCE_AVAILABLE' || (!ep.sourceState && ep.season === 1)) && !!movie.torrentUri;
-  const isPlayable = !!ep.streamUrl || isTorrentPlayable || !!movie.trailerUrl;
-  if (isPlayable) {
+  const isDirectPlayable = !!ep.streamUrl || isTorrentPlayable;
+  const hasPreview = !isDirectPlayable && !!movie.trailerUrl;
+
+  if (isDirectPlayable) {
     const qBadge = ep.qualityHonestBadge ? `<span style="font-size: 10px; background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); border-radius: 4px; padding: 1px 6px; font-weight: 600; margin-left: 6px;">${ep.qualityHonestBadge}</span>` : '';
     return `
       <div class="series-ep-item" onclick="playSeriesEpisode('${movie.id}', '${ep.id}')">
@@ -17861,10 +18026,26 @@ function renderEpisodeItemMarkup(movie, ep) {
               <span class="series-ep-title">${ep.title}</span>
               ${qBadge}
             </div>
-            <span class="series-ep-duration">${ep.duration || ''}</span>
+            <span class="series-ep-duration">${ep.duration || ''} • Full Episode</span>
           </div>
         </div>
         <button type="button" class="series-ep-play-btn" onclick="event.stopPropagation(); playSeriesEpisode('${movie.id}', '${ep.id}')">Stream</button>
+      </div>
+    `;
+  } else if (hasPreview) {
+    return `
+      <div class="series-ep-item" onclick="playSeriesEpisode('${movie.id}', '${ep.id}')" style="border-left: 3px solid #f59e0b;">
+        <div class="series-ep-left">
+          <span class="series-ep-play-icon" style="color: #f59e0b;">🎬</span>
+          <div class="series-ep-info">
+            <div style="display: flex; align-items: center;">
+              <span class="series-ep-title">${ep.title}</span>
+              <span style="font-size: 10px; background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); border-radius: 4px; padding: 1px 6px; font-weight: 600; margin-left: 6px;">Preview Only</span>
+            </div>
+            <span class="series-ep-duration" style="color: #94a3b8;">${ep.duration || ''} • Official Series Preview</span>
+          </div>
+        </div>
+        <button type="button" class="series-ep-play-btn" style="background: rgba(245,158,11,0.2); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4);" onclick="event.stopPropagation(); playSeriesEpisode('${movie.id}', '${ep.id}')">Preview</button>
       </div>
     `;
   } else {
@@ -17927,7 +18108,11 @@ window.openMovieDetails = function(movieId) {
     } else if (movie.sourceState === 'TRAILER_ONLY') {
       resolution.textContent = 'Trailer';
     } else {
-      resolution.textContent = movie.qualityHonestBadge || (movie.resolution ? movie.resolution.split(' ')[0] : '1080p');
+      let rText = movie.qualityHonestBadge || (movie.resolution ? movie.resolution.split(' ')[0] : '1080p');
+      if (movie.streamUrl && rText.toLowerCase().includes('trailer')) {
+        rText = (movie.qualityClass === 'FULL HD' ? '1080p FHD' : (movie.qualityClass === 'HD' ? '720p HD' : '480p SD'));
+      }
+      resolution.textContent = rText;
     }
   }
   if (categoryChip) categoryChip.textContent = movie.mediaType === 'series' ? 'Web-Series' : (movie.type || 'Cinema');
@@ -17966,7 +18151,9 @@ window.openMovieDetails = function(movieId) {
   const activeLangBadge = document.getElementById('movieDetailsActiveLangBadge');
   const langs = (movie.languages && movie.languages.length > 0) 
     ? movie.languages 
-    : (movie.type === 'Bollywood' ? ['Hindi', 'English'] : ['English', 'Hindi']);
+    : (movie.audio && movie.audio.availableLanguages && movie.audio.availableLanguages.length > 0)
+      ? movie.audio.availableLanguages
+      : [movie.defaultLanguage || (movie.audioClassification === 'NON_HINDI_AUDIO' ? 'English' : 'Hindi')];
 
   const savedPref = localStorage.getItem('t2l_preferred_movie_audio_lang');
   let chosenLang = movie.defaultLanguage || langs[0];
@@ -17976,7 +18163,17 @@ window.openMovieDetails = function(movieId) {
   window.selectedMovieAudioLang = chosenLang;
 
   if (activeLangBadge) {
-    activeLangBadge.textContent = chosenLang + ' (Selected)';
+    if (movie.audioClassification === 'HINDI_AUDIO') {
+      activeLangBadge.textContent = '🇮🇳 Hindi Audio (Verified)';
+    } else if (movie.audioClassification === 'MULTI_AUDIO_INCLUDING_HINDI') {
+      activeLangBadge.textContent = `🌐 Multi-Audio (${chosenLang} Selected)`;
+    } else if (movie.audioClassification === 'HINDI_SUBTITLE_ONLY') {
+      activeLangBadge.textContent = `💬 ${chosenLang} Audio • Hindi Subs`;
+    } else if (movie.audioClassification === 'NON_HINDI_AUDIO') {
+      activeLangBadge.textContent = `🌐 ${chosenLang} Audio (Non-Hindi)`;
+    } else {
+      activeLangBadge.textContent = chosenLang + ' (Selected)';
+    }
   }
 
   if (languagesListEl) {
@@ -18031,7 +18228,10 @@ window.openMovieDetails = function(movieId) {
           { key: '480p', label: '480p SD', badge: '480p' }
         ];
       } else if (sStateNow === 'DIRECT_STREAM_AVAILABLE' || !!movie.streamUrl) {
-        const honestRes = movie.qualityHonestBadge || (movie.qualityClass === 'FULL HD' ? '1080p HD' : (movie.qualityClass === 'HD' ? '720p HD' : 'SD 480p'));
+        let honestRes = movie.qualityHonestBadge || (movie.qualityClass === 'FULL HD' ? '1080p HD' : (movie.qualityClass === 'HD' ? '720p HD' : 'SD 480p'));
+        if (honestRes.toLowerCase().includes('trailer')) {
+          honestRes = (movie.qualityClass === 'FULL HD' ? '1080p FHD' : (movie.qualityClass === 'HD' ? '720p HD' : '480p SD'));
+        }
         qOptions = [
           { key: 'direct', label: `Direct Stream (${honestRes})`, badge: honestRes }
         ];
@@ -18164,6 +18364,7 @@ window.openMovieDetails = function(movieId) {
           if (movie.qualityClass === 'FULL HD') qLabel = 'DIRECT (1080p HD)';
           else if (movie.qualityClass === 'HD') qLabel = 'DIRECT (720p HD)';
           else if (movie.qualityClass === 'LOW' || movie.qualityClass === 'SD') qLabel = 'DIRECT (SD 480p)';
+          else qLabel = 'DIRECT (1080p HD)';
           btnStreamText.textContent = `▶ STREAM ${qLabel}`;
         }
       }
@@ -18172,7 +18373,7 @@ window.openMovieDetails = function(movieId) {
       btnStream.style.opacity = '1';
       btnStream.style.pointerEvents = 'auto';
       btnStream.className = 'movie-btn-stream trailer-stream';
-      if (btnStreamText) btnStreamText.textContent = 'WATCH TRAILER';
+      if (btnStreamText) btnStreamText.textContent = '🎬 WATCH TRAILER / PREVIEW';
     } else if (isTorrent) {
       btnStream.disabled = false;
       btnStream.style.opacity = '1';
@@ -18398,8 +18599,8 @@ window.playSeriesEpisode = function(movieId, episodeId) {
   const isTorrentPlayable = (ep.sourceState === 'TORRENT_SOURCE_AVAILABLE' || (!ep.sourceState && ep.season === 1)) && !!movie.torrentUri;
   if (!ep.streamUrl && !isTorrentPlayable) {
     if (movie.trailerUrl) {
-      showToast('Playing preview for ' + ep.title);
-      startMovieStream(movieId, movie.trailerUrl, `${movie.title}: ${ep.title} (Official Preview)`, true, ep.id);
+      showToast(`🎬 Playing preview clip for ${movie.title}`);
+      startMovieStream(movieId, movie.trailerUrl, `${movie.title} (Official Series Preview)`, true, ep.id);
       return;
     }
     const fullEpTitle = `${movie.title} - ${ep.title}`;
@@ -19095,7 +19296,13 @@ window.selectMovieDetailsLang = function(lang, btn) {
   window.selectedMovieAudioLang = lang;
   localStorage.setItem('t2l_preferred_movie_audio_lang', lang);
   const badge = document.getElementById('movieDetailsActiveLangBadge');
-  if (badge) badge.textContent = lang + ' (Selected)';
+  if (badge) {
+    if (window.currentSelectedMovie && window.currentSelectedMovie.audioClassification === 'MULTI_AUDIO_INCLUDING_HINDI') {
+      badge.textContent = `🌐 Multi-Audio (${lang} Selected)`;
+    } else {
+      badge.textContent = lang + ' (Selected)';
+    }
+  }
   
   const container = document.getElementById('movieDetailsLanguagesList');
   if (container) {

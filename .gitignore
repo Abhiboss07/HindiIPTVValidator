@@ -9,3 +9,5 @@ node_modules
 /temp/__pycache__/
 *.pyc
 android_app/build/
+*.bak
+*.bak.*
