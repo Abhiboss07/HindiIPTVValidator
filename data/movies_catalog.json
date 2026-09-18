@@ -1,6 +1,6 @@
 {
   "version": 10,
-  "updated_at": "2026-09-18T14:40:09Z",
+  "updated_at": "2026-09-18T16:12:54Z",
   "total_movies": 80,
   "total_series": 37,
   "default_language_filter": "Hindi",
@@ -2126,8 +2126,8 @@
       "description": "Wade Wilson's quiet civilian life is interrupted when the Time Variance Authority recruits him for an existential mission to save the multiverse, forcing him to convince a sullen, reluctant Wolverine to join forces.",
       "posterUrl": "assets/posters/vod_deadpool_wolverine.jpg",
       "backdropUrl": "assets/posters/vod_deadpool_wolverine.jpg",
-      "resolution": "480p SD (854x480)",
-      "codec": "HEVC / H.265",
+      "resolution": "1080p FHD (1920x780)",
+      "codec": "MPEG-4 / H.264",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
         "hasHindiAudio": true,
@@ -2158,7 +2158,7 @@
       "featured": true,
       "latest": true,
       "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/deadpool-wolverine_HD_DUBLADO_SINCRONIZADO/Deadpool%20%26%20Wolverine.ia.mp4",
+      "streamUrl": "https://archive.org/download/deadpool-wolverine_HD_DUBLADO_SINCRONIZADO/Deadpool%20%26%20Wolverine.mp4",
       "backupUrls": [],
       "torrentUri": null,
       "contentType": "MOVIE",
@@ -2166,8 +2166,8 @@
       "trailerUrl": "https://archive.org/download/unlisted-deadpoolspot/Deleted%20Deadpool%20Spot.mp4",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
         "originalLanguage": "hi",
@@ -2274,7 +2274,7 @@
       "description": "In the post-apocalyptic desert world of Kasi in the year 2898 AD, ruled by Supreme Yaskin, a prophesied mother carrying the divine Tenth Avatar of Vishnu is protected by the immortal warrior Ashwatthama against bounty hunter Bhairava.",
       "posterUrl": "assets/posters/vod_kalki_2898_ad.jpg",
       "backdropUrl": "assets/posters/vod_kalki_2898_ad.jpg",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x720)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -2310,8 +2310,8 @@
       "trailerUrl": null,
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -5249,7 +5249,7 @@
       "description": "Based on the true story of Manoj Kumar Sharma, who rose from extreme poverty in the dacoit-infested Chambal valley to clear the world's toughest exam, the UPSC, and become an IPS Officer with sheer dedication and honesty.",
       "posterUrl": "assets/posters/vod_12th_fail.jpg",
       "backdropUrl": "assets/posters/vod_12th_fail.jpg",
-      "resolution": "480p SD (960x402)",
+      "resolution": "720p HD (1280x720)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -5283,8 +5283,8 @@
       "trailerUrl": null,
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -5316,7 +5316,7 @@
       "description": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during the Manhattan Project. 7 Academy Awards winner including Best Picture.",
       "posterUrl": "assets/posters/vod_oppenheimer.jpg",
       "backdropUrl": "assets/posters/vod_oppenheimer.jpg",
-      "resolution": "480p SD (1056x480)",
+      "resolution": "1080p FHD (1920x872)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -5350,8 +5350,8 @@
       "trailerUrl": null,
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "en",
@@ -5912,7 +5912,7 @@
       "description": "In the heavily armed, sovereign city-state of Khansaar, a friendship between prince Varadha and Deva turns into a monumental clash for supreme dominance.",
       "posterUrl": "assets/posters/vod_salaar.jpg",
       "backdropUrl": "assets/posters/vod_salaar.jpg",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x544)",
       "codec": "HEVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -5943,8 +5943,8 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/4GPvYMKtrtI",
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -6310,7 +6310,7 @@
       "description": "A fictitious story about two legendary revolutionaries—Alluri Sitarama Raju and Komaram Bheem—and their fight against British colonial rule in 1920s India. Oscar winner for Best Original Song.",
       "posterUrl": "assets/posters/vod_rrr.jpg",
       "backdropUrl": "assets/posters/vod_rrr.jpg",
-      "resolution": "480p SD (1152x480)",
+      "resolution": "1080p FHD (1920x800)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -6344,8 +6344,8 @@
       "trailerUrl": null,
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -6521,7 +6521,7 @@
       "description": "Shiva, a DJ with a supernatural connection to fire, learns that he holds the power to awaken the Brahmāstra, the ultimate celestial weapon capable of destroying creation.",
       "posterUrl": "assets/posters/vod_brahmastra.jpg",
       "backdropUrl": "assets/posters/vod_brahmastra.jpg",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x536)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -6561,8 +6561,8 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/kF5n62A3qxo",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
         "originalLanguage": "hi",
@@ -7270,7 +7270,7 @@
       "torrentUri": null,
       "sourceState": "TRAILER_ONLY",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
         "originalLanguage": "hi",
@@ -13031,7 +13031,7 @@
       ],
       "rating": 7.6,
       "description": "While a zombie virus breaks out in South Korea, passengers struggle to survive on the bullet train from Seoul to Busan.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x696)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -13058,8 +13058,8 @@
       "backdropUrl": "assets/posters/vod_train_to_busan.jpg",
       "streamUrl": "https://archive.org/download/train-to-busan-2016_202504/Train%20to%20Busan%202016%20720p%2010Bit%20HEVC%20BluRay%20Hindi%20AMZN%20Korean%20-%20ESubs%20-%20MoviesMod.Org.In.mp4",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "ASIAN",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -13094,7 +13094,7 @@
       ],
       "rating": 8.5,
       "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "4K UHD (3840x2160)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -13121,8 +13121,8 @@
       "streamUrl": "https://archive.org/download/parasite-2019_202408/Parasite%20%282019%29%20%5BREPACK%5D%20%5B2160p%5D%20%5B4K%5D%20%5BBluRay%5D%20%5B7.1%5D%20%5BYTS.MX%5D/Parasite.2019.REPACK.2160p.4K.BluRay.x265.10bit.AAC7.1-%5BYTS.MX%5D.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/5xH0HfJHsaY",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "4K",
+      "qualityHonestBadge": "4K UHD",
       "contentType": "MOVIE",
       "region": "ASIAN",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -13222,7 +13222,7 @@
       ],
       "rating": 8.0,
       "description": "During the Sino-Japanese War, a martial arts master in Foshan refuses to teach his skills to invading Japanese troops, fighting for national dignity.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x536)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -13249,8 +13249,8 @@
       "streamUrl": "https://archive.org/download/ip-man-04/Ip%20man%2004.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/RBYbqO_FUA4",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "ASIAN",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -13285,7 +13285,7 @@
       ],
       "rating": 7.0,
       "description": "Kung Fu master Ip Man travels to the U.S. where his student Bruce Lee has upset the local martial arts community by opening a Wing Chun school.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x528)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -13312,8 +13312,8 @@
       "streamUrl": "https://archive.org/download/cimaclub.comip.man.4.the.finale.2019.720p.bluray/%5BCimaClub.Com%5D-Ip.Man.4.The.Finale.2019.720p.Bluray.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/oCBGTCNJW2g",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "ASIAN",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -13607,7 +13607,7 @@
       ],
       "rating": 7.0,
       "description": "Detective Ma Seok-do travels to Vietnam to extradite a suspect, only to discover a serial kidnapper murdering South Korean tourists.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "1080p FHD (1920x806)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -13634,8 +13634,8 @@
       "streamUrl": "https://archive.org/download/the.-roundup.-punishment.-2024.1080p.-blu-ray.-hindi.-hq.-dub.-1-xbet/The.Roundup.Punishment.2024.1080p.BluRay.HINDI.HQ.DUB.1XBET.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/PDEl1rw_Vn0",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "contentType": "MOVIE",
       "region": "ASIAN",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -15130,7 +15130,7 @@
       ],
       "rating": 7.5,
       "description": "In the small town of Chanderi, men live in fear of an evil spirit named Stree who abducts men in the night during festival days.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "1080p FHD (1920x800)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15155,8 +15155,8 @@
       "streamUrl": "https://archive.org/download/Stree2018ReworkEnglishSinhalaSub/Stree.2018.EN%2BSI_ESub.1080p.HDTV.x264.AAC2.0-ColomboGMGS2.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/gzeaGcLLl_A",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "audioClassification": "HINDI_AUDIO",
@@ -15251,7 +15251,7 @@
       ],
       "rating": 8.2,
       "description": "When greed paves the way for betrayal and murder, a young tribal man reluctantly dons the traditions of his ancestors to seek justice.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "1080p FHD (1920x1080)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15276,8 +15276,8 @@
       "streamUrl": "https://archive.org/download/tamil-vip.tv-kantara-2022-tamil-true-web-dl-1080p-avc-dd-5-1-640-kbps-aac-3-gb-esub-nq-360p/TamilVip.tv_-_Kantara_%282022%29_Tamil_TRUE_WEB_DL_1080p_AVC_%28DD%2B5_1_640Kbps_%26_AAC%29_3GB_ESub_NQ_360p.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/6oKFao0aISA",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "audioClassification": "HINDI_AUDIO",
@@ -15311,7 +15311,7 @@
       ],
       "rating": 8.2,
       "description": "In the 1970s, a fierce rebel rises against brutal oppression and becomes the symbol of hope to the enslaved workers of the Kolar Gold Fields.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "1080p FHD (1920x816)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15336,8 +15336,8 @@
       "streamUrl": "https://archive.org/download/k.-g.-f.-chapter-1-2018-hindi-org-1080p-web-dl/K.G.F.%20Chapter%201%20%282018%29%20Hindi%20ORG%201080p%20WEB%20DL.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/-KfsY-qwBS0",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "audioClassification": "HINDI_AUDIO",
@@ -15431,7 +15431,7 @@
       ],
       "rating": 8.2,
       "description": "After learning that Bhallaladeva killed his father, Mahendra Baahubali raises an army to defeat the tyrant and free the kingdom of Mahishmati.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x590)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15456,8 +15456,8 @@
       "streamUrl": "https://archive.org/download/jeosdnsdnjw/MoviesGap.com_Baahubali%202%20The%20Conclusion%20%282017%29%20720p%20WEBRip%20x264.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/qD-6d8Wo3do",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "audioClassification": "HINDI_AUDIO",
@@ -15492,7 +15492,7 @@
       ],
       "rating": 8.2,
       "description": "A mythological story about a goddess who created the entire universe. The plot revolves around the consequences when humans build a temple for her first-born monster, Hastar.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x544)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15517,8 +15517,8 @@
       "streamUrl": "https://archive.org/download/tumbbad-720p/Tumbbad720p.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/YGIcZrUBY0k",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "audioClassification": "HINDI_AUDIO",
@@ -15553,7 +15553,7 @@
       ],
       "rating": 8.2,
       "description": "A series of mysterious events changes the life of a blind pianist who now must report a murder that he never actually saw.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x568)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15578,8 +15578,8 @@
       "streamUrl": "https://archive.org/download/bollywoodmovies/Andhadhun%20%282018%29.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/2iVYI99VGaw",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "audioClassification": "HINDI_AUDIO",
@@ -15731,7 +15731,7 @@
       ],
       "rating": 8.2,
       "description": "A clash between Sultan and Shahid Khan leads to the expulsion of Khan from Wasseypur, sparking a deadly blood feud spanning three generations.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x534)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15756,8 +15756,8 @@
       "streamUrl": "https://archive.org/download/gangs-of-wasseypur.-2012.-part-2.-blu-ray.-720p.-hevc.-hindi.-aac-5.1.x-264.-esub-hdhub-4u.-tv/Gangs%20of%20Wasseypur.2012.Part1.BluRay.720p.HEVC.Hindi.AAC5.1.x265.Esub-HDHub4u.Tv.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/9ZpPQdrHfl8",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "audioClassification": "HINDI_AUDIO",
@@ -15792,7 +15792,7 @@
       ],
       "rating": 7.1,
       "description": "A tough police officer sets out to track down and kill an equally tough gangster. A story of moral ambiguity inspired by the ancient tale of Vikram and Betal.",
-      "resolution": "480p SD (854x480)",
+      "resolution": "720p HD (1280x720)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15817,8 +15817,8 @@
       "streamUrl": "https://archive.org/download/vikram-vedha-2017-tamil/Vikram%20Vedha%20%282017%29%20Tamil.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/hpwnlr-ZHB0",
       "torrentUri": null,
-      "qualityClass": null,
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "audioClassification": "HINDI_AUDIO",
@@ -17016,7 +17016,7 @@
       ],
       "rating": 7.2,
       "description": "Sonu Sood stars as Fateh, a former special-ops agent waging a relentless war against a high-tech international cybercrime syndicate.",
-      "resolution": "480p SD (1146x480)",
+      "resolution": "720p HD (1280x536)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -17047,8 +17047,8 @@
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -17150,7 +17150,7 @@
       ],
       "rating": 7.0,
       "description": "An upright IAS officer takes on corrupt politicians and oligarchical crime lords to reform electoral governance.",
-      "resolution": "480p SD (1152x480)",
+      "resolution": "1080p FHD (1920x800)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -17183,8 +17183,8 @@
       "contentType": "MOVIE",
       "region": "SOUTH",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
         "originalLanguage": "te",
@@ -17286,7 +17286,7 @@
       ],
       "rating": 7.9,
       "description": "In the wake of Kashmir unrest, an NIA officer leads an undercover operation to quell terrorism and enable constitutional reform.",
-      "resolution": "480p SD (1154x480)",
+      "resolution": "720p HD (1280x532)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -17317,8 +17317,8 @@
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -17821,7 +17821,7 @@
       ],
       "rating": 8.2,
       "description": "Three childhood friends embark on an adventurous bachelor road trip across Spain, confronting their fears and healing past wounds.",
-      "resolution": "480p SD (1130x480)",
+      "resolution": "720p HD (1280x544)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -17852,8 +17852,8 @@
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -18134,6 +18134,1678 @@
       },
       "posterUrl": "assets/posters/vod_lagaan_2001.jpg",
       "backdropUrl": "assets/posters/vod_lagaan_2001.jpg"
+    },
+    {
+      "id": "vod_aavesham_2024",
+      "title": "Aavesham",
+      "originalTitle": "Aavesham",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Mollywood",
+      "categories": [
+        "action",
+        "comedy",
+        "mollywood",
+        "trending"
+      ],
+      "duration": 9336,
+      "durationFormatted": "2h 35m",
+      "genres": [
+        "Action",
+        "Comedy"
+      ],
+      "rating": 7.9,
+      "description": "Three college students in Bangalore seek the help of an eccentric local gangster named Ranga to deal with college seniors who bullied them.",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "hin",
+          "mal"
+        ],
+        "detectedTracks": [
+          "hin:aac",
+          "mal:aac"
+        ]
+      },
+      "languages": [
+        "Hindi",
+        "Malayalam"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "2.2 GB",
+      "bitrate": "2000 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Jithu Madhavan",
+      "cast": "Fahadh Faasil, Hipzster, Mithun Jai Shankar, Roshan Shanavas",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/aavesham-2024-malayalam-movie-in-hindi-org-dual-audio-south-movie-uncut-1080p-hdrip-2.69-gb-esubs/Aav3sham%20%282024%29%20M%40l%40yal4m%20Movie%20in%20Hindi%20ORG%20Dual%20Audio%20South%20Movie%20UNCUT%201080p%20HDRip%202.69GB%20ESubs.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/L0yEMl8PXnw",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "metadata": {
+        "originalLanguage": "ml",
+        "spokenLanguages": [
+          "Hindi",
+          "Malayalam"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_aavesham_2024.jpg",
+      "backdropUrl": "assets/posters/vod_aavesham_2024.jpg"
+    },
+    {
+      "id": "vod_bramayugam_2024",
+      "title": "Bramayugam",
+      "originalTitle": "Bramayugam",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Mollywood",
+      "categories": [
+        "horror",
+        "mystery",
+        "thriller",
+        "mollywood"
+      ],
+      "duration": 8358,
+      "durationFormatted": "2h 19m",
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Thriller"
+      ],
+      "rating": 7.8,
+      "description": "In 17th-century Malabar, a folk singer fleeing slavery finds refuge in a decaying, mysterious mansion inhabited by a sinister patriarch.",
+      "resolution": "720p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "hin",
+          "mal"
+        ],
+        "detectedTracks": [
+          "hin:aac",
+          "mal:aac"
+        ]
+      },
+      "languages": [
+        "Hindi",
+        "Malayalam"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "1.3 GB",
+      "bitrate": "1300 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Rahul Sadasivan",
+      "cast": "Mammootty, Arjun Ashokan, Sidharth Bharathan, Amalda Liz",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/bramayugam-2024-web-rip-720p-hindi-malayalam-aac-2.0-x-264-esub/Bramayugam%202024%20WebRip%20720p%20Hindi%20Malayalam%20AAC%202.0%20x264%20ESub%20-%20mkvCinemas.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/yW7t8224F5M",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "metadata": {
+        "originalLanguage": "ml",
+        "spokenLanguages": [
+          "Hindi",
+          "Malayalam"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_bramayugam_2024.jpg",
+      "backdropUrl": "assets/posters/vod_bramayugam_2024.jpg"
+    },
+    {
+      "id": "vod_aadujeevitham_2024",
+      "title": "The Goat Life (Aadujeevitham)",
+      "originalTitle": "Aadujeevitham",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Mollywood",
+      "categories": [
+        "adventure",
+        "biography",
+        "drama",
+        "mollywood"
+      ],
+      "duration": 10248,
+      "durationFormatted": "2h 50m",
+      "genres": [
+        "Adventure",
+        "Biography",
+        "Drama"
+      ],
+      "rating": 8.1,
+      "description": "An Indian immigrant worker Najeeb travels to Saudi Arabia seeking prosperity but is forced into brutal, isolated goat herding in the desert.",
+      "resolution": "720p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "hin"
+        ],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "1.4 GB",
+      "bitrate": "1200 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Blessy",
+      "cast": "Prithviraj Sukumaran, Jimmy Jean-Louis, K. R. Gokul, Amala Paul",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/aadujeevitham-the-goat-life-2024-web-rip-720p-hindi-aac-5.1-x-264-esub/Aadujeevitham%20The%20Goat%20Life%202024%20WebRip%20720p%20Hindi%20AAC%205.1%20x264%20ESub%20-%20mkvCinemas.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/q13d11b3wF8",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "ml",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_aadujeevitham_2024.jpg",
+      "backdropUrl": "assets/posters/vod_aadujeevitham_2024.jpg"
+    },
+    {
+      "id": "vod_maharaja_2024",
+      "title": "Maharaja",
+      "originalTitle": "Maharaja",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Kollywood",
+      "categories": [
+        "action",
+        "crime",
+        "drama",
+        "thriller",
+        "kollywood"
+      ],
+      "duration": 8454,
+      "durationFormatted": "2h 20m",
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "rating": 8.5,
+      "description": "A modest barber reports a missing dustbin to the police, triggering an intense, multi-layered criminal investigation that unravels shocking revelations.",
+      "resolution": "720p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "tam:aac"
+        ]
+      },
+      "languages": [
+        "Tamil"
+      ],
+      "defaultLanguage": "Tamil",
+      "container": "MP4",
+      "fileSize": "1.3 GB",
+      "bitrate": "1300 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Nithilan Saminathan",
+      "cast": "Vijay Sethupathi, Anurag Kashyap, Mamta Mohandas, Natarajan Subramaniam",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/maharaja.-2024./Maharaja.2024..mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/e18VfA481sA",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "ta",
+        "spokenLanguages": [
+          "Tamil"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_maharaja_2024.jpg",
+      "backdropUrl": "assets/posters/vod_maharaja_2024.jpg"
+    },
+    {
+      "id": "vod_premalu_2024",
+      "title": "Premalu",
+      "originalTitle": "Premalu",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Mollywood",
+      "categories": [
+        "comedy",
+        "romance",
+        "mollywood"
+      ],
+      "duration": 9288,
+      "durationFormatted": "2h 34m",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "rating": 7.8,
+      "description": "A carefree graduate moves to Hyderabad for GATE coaching and unexpectedly falls in love with an ambitious IT professional, leading to humorous complications.",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "mal:eac3"
+        ]
+      },
+      "languages": [
+        "Malayalam"
+      ],
+      "defaultLanguage": "Malayalam",
+      "container": "MKV",
+      "fileSize": "2.1 GB",
+      "bitrate": "1900 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Girish A. D.",
+      "cast": "Naslen, Mamitha Baiju, Shyam Mohan, Sangeeth Prathap",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/mm-premalu-2024-malayalam-hdrip-1080p-hevc/%5BMM%5D%20Premalu%20%282024%29%20Malayalam%20HDRip%201080p%20HEVC%20.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/rQxL9Hn4L4k",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "ml",
+        "spokenLanguages": [
+          "Malayalam"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_premalu_2024.jpg",
+      "backdropUrl": "assets/posters/vod_premalu_2024.jpg"
+    },
+    {
+      "id": "vod_manjummel_boys_2024",
+      "title": "Manjummel Boys",
+      "originalTitle": "Manjummel Boys",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Mollywood",
+      "categories": [
+        "adventure",
+        "drama",
+        "thriller",
+        "mollywood"
+      ],
+      "duration": 8064,
+      "durationFormatted": "2h 14m",
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Thriller"
+      ],
+      "rating": 8.3,
+      "description": "Based on a real incident, a group of close friends from Kochi go on a vacation to Kodaikanal where one slips into a perilous, pitch-black subterranean cavern.",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "tam"
+        ],
+        "detectedTracks": [
+          "tam:eac3"
+        ]
+      },
+      "languages": [
+        "Tamil"
+      ],
+      "defaultLanguage": "Tamil",
+      "container": "MKV",
+      "fileSize": "2.4 GB",
+      "bitrate": "2500 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Chidambaram",
+      "cast": "Soubin Shahir, Sreenath Bhasi, Balu Varghese, Ganapathi",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/ms-manjummel-boys-2024-tamil-hdrip-1080p-hevc/%5BMS%5D%20Manjummel%20Boys%20%282024%29%20Tamil%20HDRip%201080p%C2%A0HEVC%20.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/idQ_9A8e9Xk",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "ml",
+        "spokenLanguages": [
+          "Tamil"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_manjummel_boys_2024.jpg",
+      "backdropUrl": "assets/posters/vod_manjummel_boys_2024.jpg"
+    },
+    {
+      "id": "vod_amar_singh_chamkila_2024",
+      "title": "Amar Singh Chamkila",
+      "originalTitle": "Amar Singh Chamkila",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "categories": [
+        "biography",
+        "drama",
+        "music",
+        "bollywood"
+      ],
+      "duration": 8670,
+      "durationFormatted": "2h 24m",
+      "genres": [
+        "Biography",
+        "Drama",
+        "Music"
+      ],
+      "rating": 7.8,
+      "description": "Chronicles the life, controversial rise, and untimely assassination of Punjab's legendary folk sensation Amar Singh Chamkila.",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi",
+        "Punjabi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MP4",
+      "fileSize": "1.7 GB",
+      "bitrate": "1650 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Imtiaz Ali",
+      "cast": "Diljit Dosanjh, Parineeti Chopra, Apinderdeep Singh, Nisha Bano",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/amar-singh-chamkila-1080p-2024/Amar%20Singh%20Chamkila%201080p%202024.ia.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/g8l6p3zC3aM",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "hi",
+        "spokenLanguages": [
+          "Hindi",
+          "Punjabi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_amar_singh_chamkila_2024.jpg",
+      "backdropUrl": "assets/posters/vod_amar_singh_chamkila_2024.jpg"
+    },
+    {
+      "id": "vod_blackout_2024",
+      "title": "Blackout",
+      "originalTitle": "Blackout",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "categories": [
+        "comedy",
+        "crime",
+        "thriller",
+        "bollywood"
+      ],
+      "duration": 6966,
+      "durationFormatted": "1h 56m",
+      "genres": [
+        "Comedy",
+        "Crime",
+        "Thriller"
+      ],
+      "rating": 6.2,
+      "description": "During a city-wide power outage in Pune, a crime reporter stumbles upon a truck loaded with stolen gold and cash, unleashing chaotic greed.",
+      "resolution": "720p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "1.1 GB",
+      "bitrate": "1300 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Devang Bhavsar",
+      "cast": "Vikrant Massey, Mouni Roy, Sunil Grover, Jisshu Sengupta",
+      "featured": false,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/maharaja-2024-hindi-tamil-dual-audio-un-cut-movie-hd-720p-esub/Blackout%20%282024%29%20Bollywood%20Hindi%20Movies%20HD%20720p%20ESub.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/7n7Y_w-xO78",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "hi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_blackout_2024.jpg",
+      "backdropUrl": "assets/posters/vod_blackout_2024.jpg"
+    },
+    {
+      "id": "vod_hanuman_2024",
+      "title": "Hanu-Man",
+      "originalTitle": "Hanu-Man",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Tollywood",
+      "categories": [
+        "action",
+        "adventure",
+        "fantasy",
+        "sci_fi",
+        "tollywood"
+      ],
+      "duration": 9510,
+      "durationFormatted": "2h 38m",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "Sci-Fi"
+      ],
+      "rating": 7.9,
+      "description": "In the fictional village of Anjanadri, a petty thief accidentally discovers a mystical solar gem granting him the superpowers of Lord Hanuman.",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "hin"
+        ],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "2.5 GB",
+      "bitrate": "2200 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Prasanth Varma",
+      "cast": "Teja Sajja, Amritha Aiyer, Varalaxmi Sarathkumar, Vinay Rai",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/hanuman-2024-hindi-1080p-web-dl-x-264-aac-2.5-gb-qrips/Hanuman%20%282024%29%20Hindi%201080p%20WEB-DL%20x264%20AAC%202.5GB%20-%20QRips.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/OivkdWd9-z4",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "te",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_hanuman_2024.jpg",
+      "backdropUrl": "assets/posters/vod_hanuman_2024.jpg"
+    },
+    {
+      "id": "vod_kill_2024",
+      "title": "Kill",
+      "originalTitle": "Kill",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "categories": [
+        "action",
+        "crime",
+        "thriller",
+        "bollywood"
+      ],
+      "duration": 6324,
+      "durationFormatted": "1h 45m",
+      "genres": [
+        "Action",
+        "Crime",
+        "Thriller"
+      ],
+      "rating": 7.6,
+      "description": "When a band of bloodthirsty bandits hijack a New Delhi-bound train, army commando Amrit wages a relentless, close-quarters war to protect the passengers.",
+      "resolution": "720p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MP4",
+      "fileSize": "300 MB",
+      "bitrate": "400 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Nikhil Nagesh Bhat",
+      "cast": "Lakshya, Raghav Juyal, Tanya Maniktala, Abhishek Chauhan",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/kill-2024-hindi_202409/Kill_2024_Hindi_.ia.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/da3b_H9b0_M",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "hi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_kill_2024.jpg",
+      "backdropUrl": "assets/posters/vod_kill_2024.jpg"
+    },
+    {
+      "id": "vod_crew_2024",
+      "title": "Crew",
+      "originalTitle": "Crew",
+      "year": 2024,
+      "releaseYear": 2024,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "categories": [
+        "comedy",
+        "drama",
+        "bollywood"
+      ],
+      "duration": 7236,
+      "durationFormatted": "2h 00m",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "rating": 6.0,
+      "description": "Three diligent flight attendants working for a bankrupt airline inadvertently get entangled in a high-stakes gold smuggling operation.",
+      "resolution": "720p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MP4",
+      "fileSize": "387 MB",
+      "bitrate": "450 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Rajesh A Krishnan",
+      "cast": "Tabu, Kareena Kapoor Khan, Kriti Sanon, Diljit Dosanjh",
+      "featured": false,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/crew-2024-hindi-full-movie-web-dl-filmy-zilla.vin/Crew_2024_Hindi_Full_Movie_WEB-DL_%28FilmyZilla.vin%29.ia.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/1B1qg7tQ1Gg",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "hi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_crew_2024.jpg",
+      "backdropUrl": "assets/posters/vod_crew_2024.jpg"
+    },
+    {
+      "id": "vod_jailer_2023",
+      "title": "Jailer",
+      "originalTitle": "Jailer",
+      "year": 2023,
+      "releaseYear": 2023,
+      "mediaType": "movie",
+      "type": "Kollywood",
+      "categories": [
+        "action",
+        "crime",
+        "comedy",
+        "kollywood"
+      ],
+      "duration": 9918,
+      "durationFormatted": "2h 45m",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Crime"
+      ],
+      "rating": 7.1,
+      "description": "A retired prison warden springs back into action when an eccentric idol smuggler murders his ACP son, calling upon old underworld confederates.",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "tam:eac3"
+        ]
+      },
+      "languages": [
+        "Tamil"
+      ],
+      "defaultLanguage": "Tamil",
+      "container": "MKV",
+      "fileSize": "2.8 GB",
+      "bitrate": "2400 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Nelson Dilipkumar",
+      "cast": "Rajinikanth, Vinayakan, Ramya Krishnan, Mohanlal, Shiva Rajkumar",
+      "featured": true,
+      "latest": false,
+      "streamUrl": null,
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/xenOE1Tma0A",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "TRAILER_ONLY",
+      "qualityClass": "TRAILER",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "ta",
+        "spokenLanguages": [
+          "Tamil"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_jailer_2023.jpg",
+      "backdropUrl": "assets/posters/vod_jailer_2023.jpg"
+    },
+    {
+      "id": "vod_sam_bahadur_2023",
+      "title": "Sam Bahadur",
+      "originalTitle": "Sam Bahadur",
+      "year": 2023,
+      "releaseYear": 2023,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "categories": [
+        "biography",
+        "drama",
+        "war",
+        "bollywood"
+      ],
+      "duration": 8928,
+      "durationFormatted": "2h 28m",
+      "genres": [
+        "Biography",
+        "Drama",
+        "War"
+      ],
+      "rating": 7.8,
+      "description": "The courageous biopic of Field Marshal Sam Manekshaw, one of India's most celebrated military leaders, culminating in the historic 1971 victory.",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "2.6 GB",
+      "bitrate": "2500 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Meghna Gulzar",
+      "cast": "Vicky Kaushal, Fatima Sana Shaikh, Sanya Malhotra, Neeraj Kabi",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/sam-bahadur-2023-1080p/Sam%20Bahadur%202023%201080p.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/1bN_k-1a-1k",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "hi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_sam_bahadur_2023.jpg",
+      "backdropUrl": "assets/posters/vod_sam_bahadur_2023.jpg"
+    },
+    {
+      "id": "vod_vikram_2022",
+      "title": "Vikram",
+      "originalTitle": "Vikram",
+      "year": 2022,
+      "releaseYear": 2022,
+      "mediaType": "movie",
+      "type": "Kollywood",
+      "categories": [
+        "action",
+        "crime",
+        "thriller",
+        "kollywood"
+      ],
+      "duration": 10242,
+      "durationFormatted": "2h 50m",
+      "genres": [
+        "Action",
+        "Crime",
+        "Thriller"
+      ],
+      "rating": 8.3,
+      "description": "A high-ranking black-ops operative investigates masked vigilante executions while an undercover commander pursues a ruthless drug cartel.",
+      "resolution": "720p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "tel",
+          "tam",
+          "hin"
+        ],
+        "detectedTracks": [
+          "tel:aac",
+          "tam:aac",
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Telugu",
+        "Tamil",
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "1.7 GB",
+      "bitrate": "1400 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Lokesh Kanagaraj",
+      "cast": "Kamal Haasan, Vijay Sethupathi, Fahadh Faasil, Suriya",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/vikram-2022-multi-auds-tel-tam-hin-720-p-pre-dvd-rip-avc-aac-2.0-320-kbps-2.3-gb-dsm/Vikram%20%282022%29%20-%20Multi%20Auds%5BTel%20%20%20Tam%20%20%20Hin%5D%20-%20720P%20-%20PreDvdRip%20-%20AVC%20-%20AAC%282.0%29%20-%20320Kbps%20-%202.3GB%20-%20%5BDSM%5D.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/OKBMCL-hrPU",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "metadata": {
+        "originalLanguage": "ta",
+        "spokenLanguages": [
+          "Telugu",
+          "Tamil",
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_vikram_2022.jpg",
+      "backdropUrl": "assets/posters/vod_vikram_2022.jpg"
+    },
+    {
+      "id": "vod_sita_ramam_2022",
+      "title": "Sita Ramam",
+      "originalTitle": "Sita Ramam",
+      "year": 2022,
+      "releaseYear": 2022,
+      "mediaType": "movie",
+      "type": "Tollywood",
+      "categories": [
+        "action",
+        "drama",
+        "mystery",
+        "romance",
+        "tollywood"
+      ],
+      "duration": 9504,
+      "durationFormatted": "2h 38m",
+      "genres": [
+        "Action",
+        "Drama",
+        "Mystery",
+        "Romance"
+      ],
+      "rating": 8.6,
+      "description": "An orphaned Indian soldier stationed in Kashmir receives romantic letters from an unknown woman named Sita Mahalakshmi, triggering an unforgettable journey.",
+      "resolution": "360p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "mal"
+        ],
+        "detectedTracks": [
+          "mal:aac"
+        ]
+      },
+      "languages": [
+        "Malayalam"
+      ],
+      "defaultLanguage": "Malayalam",
+      "container": "MP4",
+      "fileSize": "580 MB",
+      "bitrate": "520 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Hanu Raghavapudi",
+      "cast": "Dulquer Salmaan, Mrunal Thakur, Rashmika Mandanna, Sumanth",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/mm-sita-ramam-2022-malayalam-hdrip/%5BMM%5D%20Sita%20Ramam%20%282022%29%20Malayalam%20HDRip.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Fw0W64iZ8qg",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "SD",
+      "qualityHonestBadge": "360p SD",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "te",
+        "spokenLanguages": [
+          "Malayalam"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_sita_ramam_2022.jpg",
+      "backdropUrl": "assets/posters/vod_sita_ramam_2022.jpg"
+    },
+    {
+      "id": "vod_karthikeya_2_2022",
+      "title": "Karthikeya 2",
+      "originalTitle": "Karthikeya 2",
+      "year": 2022,
+      "releaseYear": 2022,
+      "mediaType": "movie",
+      "type": "Tollywood",
+      "categories": [
+        "action",
+        "adventure",
+        "fantasy",
+        "mystery",
+        "tollywood"
+      ],
+      "duration": 8280,
+      "durationFormatted": "2h 18m",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "Mystery"
+      ],
+      "rating": 7.9,
+      "description": "Dr. Karthikeya embarks on an archaeological quest to locate an ancient sacred anklet belonging to Lord Krishna hidden across Dwaraka.",
+      "resolution": "720p",
+      "codec": "HEVC",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "tel:eac3"
+        ]
+      },
+      "languages": [
+        "Telugu"
+      ],
+      "defaultLanguage": "Telugu",
+      "container": "MKV",
+      "fileSize": "1.2 GB",
+      "bitrate": "1200 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Chandoo Mondeti",
+      "cast": "Nikhil Siddharth, Anupama Parameswaran, Anupam Kher, Srinivasa Reddy",
+      "featured": false,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/karthikeya-2-2022-1080p-telugu-hq-web-dl-x-264-dd-5.1-384-kbps-aac-2.0-esub_202406/Karthikeya%202%20%282022%29%20720p%20Telugu%20HQ%20HDRip%20x264%20%28DD%2B%205.1%20-%20384Kbps%20%26%20AAC%202.0%29%20ESub.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/K8qY7iM59pU",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "te",
+        "spokenLanguages": [
+          "Telugu"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_karthikeya_2_2022.jpg",
+      "backdropUrl": "assets/posters/vod_karthikeya_2_2022.jpg"
+    },
+    {
+      "id": "vod_777_charlie_2022",
+      "title": "777 Charlie",
+      "originalTitle": "777 Charlie",
+      "year": 2022,
+      "releaseYear": 2022,
+      "mediaType": "movie",
+      "type": "Sandalwood",
+      "categories": [
+        "adventure",
+        "comedy",
+        "drama",
+        "sandalwood"
+      ],
+      "duration": 9828,
+      "durationFormatted": "2h 43m",
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Drama"
+      ],
+      "rating": 8.8,
+      "description": "A reclusive and lonely factory laborer finds redemption and a new purpose in life after taking in a playful Labrador pup named Charlie.",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "tam"
+        ],
+        "detectedTracks": [
+          "tam:eac3"
+        ]
+      },
+      "languages": [
+        "Tamil"
+      ],
+      "defaultLanguage": "Tamil",
+      "container": "MKV",
+      "fileSize": "2.4 GB",
+      "bitrate": "2100 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Kiranraj K.",
+      "cast": "Charlie, Rakshit Shetty, Sangeetha Sringeri, Raj B. Shetty",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/777-charlie-2022/777%20Charlie%20%282022%29.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/5c_Y6z8wLbg",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "kn",
+        "spokenLanguages": [
+          "Tamil"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_777_charlie_2022.jpg",
+      "backdropUrl": "assets/posters/vod_777_charlie_2022.jpg"
+    },
+    {
+      "id": "vod_minnal_murali_2021",
+      "title": "Minnal Murali",
+      "originalTitle": "Minnal Murali",
+      "year": 2021,
+      "releaseYear": 2021,
+      "mediaType": "movie",
+      "type": "Mollywood",
+      "categories": [
+        "action",
+        "adventure",
+        "comedy",
+        "sci_fi",
+        "mollywood"
+      ],
+      "duration": 9558,
+      "durationFormatted": "2h 39m",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Sci-Fi"
+      ],
+      "rating": 7.8,
+      "description": "A tailor struck by a bolt of lightning gains superhuman abilities and must protect his native village from an outcast who received the same power.",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "tel",
+          "tam",
+          "mal",
+          "hin",
+          "kan"
+        ],
+        "detectedTracks": [
+          "tel:aac",
+          "tam:aac",
+          "mal:aac",
+          "hin:aac",
+          "kan:aac"
+        ]
+      },
+      "languages": [
+        "Telugu",
+        "Tamil",
+        "Malayalam",
+        "Hindi",
+        "Kannada"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "2.7 GB",
+      "bitrate": "2400 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Basil Joseph",
+      "cast": "Tovino Thomas, Guru Somasundaram, Aju Varghese, Femina George",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/dsm-minnal-murali-2021-multi-auds-tel-tam-mal-hin-kan-hdrip-1080-p-hevc-aac-2.0-/%5BDSM%5D%20-%20Minnal%20Murali%20%282021%29%20Multi%20Auds%5BTel%20%2B%20Tam%20%2B%20Mal%20%2B%20Hin%20%2B%20Kan%5D%20-%20HDRip%20-%201080P%20-%20HEVC%20-%20AAC%282.0%29%20-%2064Kbps%20-%20ESubs%20-%201.7GB%20-%20%5BDSM%5D.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/zB4I68XVPzQ",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "metadata": {
+        "originalLanguage": "ml",
+        "spokenLanguages": [
+          "Telugu",
+          "Tamil",
+          "Malayalam",
+          "Hindi",
+          "Kannada"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_minnal_murali_2021.jpg",
+      "backdropUrl": "assets/posters/vod_minnal_murali_2021.jpg"
+    },
+    {
+      "id": "vod_sardar_udham_2021",
+      "title": "Sardar Udham",
+      "originalTitle": "Sardar Udham",
+      "year": 2021,
+      "releaseYear": 2021,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "categories": [
+        "biography",
+        "crime",
+        "drama",
+        "history",
+        "bollywood"
+      ],
+      "duration": 9768,
+      "durationFormatted": "2h 42m",
+      "genres": [
+        "Biography",
+        "Crime",
+        "Drama",
+        "History"
+      ],
+      "rating": 8.4,
+      "description": "The extraordinary story of Indian revolutionary freedom fighter Udham Singh, who spent two decades planning revenge for the 1919 Jallianwala Bagh massacre.",
+      "resolution": "720p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "hin:eac3"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "1.3 GB",
+      "bitrate": "1200 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Shoojit Sircar",
+      "cast": "Vicky Kaushal, Shaun Scott, Stephen Hogan, Amol Parashar",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/telegram-apdbackup-sardar-udham-2021-720p-amzn-web-dl-ddp-5-1-hevc/Telegram%40APDBackupSardar_Udham_2021_720p_AMZN_WEB_DL_DDP5_1_HEVC.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/EDbW3k8J-3k",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "hi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_sardar_udham_2021.jpg",
+      "backdropUrl": "assets/posters/vod_sardar_udham_2021.jpg"
+    },
+    {
+      "id": "vod_jai_bhim_2021",
+      "title": "Jai Bhim",
+      "originalTitle": "Jai Bhim",
+      "year": 2021,
+      "releaseYear": 2021,
+      "mediaType": "movie",
+      "type": "Kollywood",
+      "categories": [
+        "crime",
+        "drama",
+        "mystery",
+        "kollywood"
+      ],
+      "duration": 9072,
+      "durationFormatted": "2h 31m",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "rating": 8.8,
+      "description": "When an innocent tribal man is falsely arrested for theft and dies mysteriously in police custody, an unyielding human rights lawyer fights for justice.",
+      "resolution": "360p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "hin"
+        ],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MP4",
+      "fileSize": "620 MB",
+      "bitrate": "550 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "T. J. Gnanavel",
+      "cast": "Suriya, Lijomol Jose, Manikandan, Rajisha Vijayan",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/jai-bhim-new-south-indian-hindi-dubbed-web-rip-full-hd-movie/Jai_Bhim_New_South_Indian_Hindi_Dubbed_WebRip_Full_HD_Movie.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Gc6dEDnL8JA",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "SD",
+      "qualityHonestBadge": "360p SD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "ta",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_jai_bhim_2021.jpg",
+      "backdropUrl": "assets/posters/vod_jai_bhim_2021.jpg"
+    },
+    {
+      "id": "vod_ala_vaikunthapurramuloo_2020",
+      "title": "Ala Vaikunthapurramuloo",
+      "originalTitle": "Ala Vaikunthapurramuloo",
+      "year": 2020,
+      "releaseYear": 2020,
+      "mediaType": "movie",
+      "type": "Tollywood",
+      "categories": [
+        "action",
+        "comedy",
+        "drama",
+        "tollywood"
+      ],
+      "duration": 9750,
+      "durationFormatted": "2h 42m",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "rating": 7.3,
+      "description": "A neglected son discovers he was swapped at birth with the heir of an ultra-wealthy business dynasty, leading him to reclaim his true family legacy.",
+      "resolution": "1080p",
+      "codec": "HEVC",
+      "audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [
+          "hin",
+          "tel"
+        ],
+        "detectedTracks": [
+          "hin:eac3",
+          "tel:eac3"
+        ]
+      },
+      "languages": [
+        "Hindi",
+        "Telugu"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "2.8 GB",
+      "bitrate": "2400 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Trivikram Srinivas",
+      "cast": "Allu Arjun, Pooja Hegde, Tabu, Jayaram, Sushanth",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/ala-vaikunthapurramuloo-2020-dual-hindi-telugu-1080p-ds-4-k-webrip-x-265-10bit-ddp/Ala%20Vaikunthapurramuloo%20%282020%29%20DUAL%20%28Hindi%2BTelugu%29%20%281080p%20DS4K%20WEBRip%20x265%2010bit%20DDP%29.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/2_YnCsm1z7M",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "metadata": {
+        "originalLanguage": "te",
+        "spokenLanguages": [
+          "Hindi",
+          "Telugu"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_ala_vaikunthapurramuloo_2020.jpg",
+      "backdropUrl": "assets/posters/vod_ala_vaikunthapurramuloo_2020.jpg"
+    },
+    {
+      "id": "vod_ludo_2020",
+      "title": "Ludo",
+      "originalTitle": "Ludo",
+      "year": 2020,
+      "releaseYear": 2020,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "categories": [
+        "action",
+        "comedy",
+        "crime",
+        "drama",
+        "bollywood"
+      ],
+      "duration": 9012,
+      "durationFormatted": "2h 30m",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Crime",
+        "Drama"
+      ],
+      "rating": 7.6,
+      "description": "From a leaked sex tape to a suitcase full of money, four vastly different stories overlap at the whims of fate and an eccentric criminal kingpin.",
+      "resolution": "720p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "1.2 GB",
+      "bitrate": "1200 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Anurag Basu",
+      "cast": "Abhishek Bachchan, Aditya Roy Kapur, Rajkummar Rao, Pankaj Tripathi, Sanya Malhotra",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/ludo.-2020.-hindi.-720p.-webrip.x-264/Ludo.2020.Hindi.720p.WEBRip.x264.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/caY1L9G-6e8",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "hi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_ludo_2020.jpg",
+      "backdropUrl": "assets/posters/vod_ludo_2020.jpg"
+    },
+    {
+      "id": "vod_thappad_2020",
+      "title": "Thappad",
+      "originalTitle": "Thappad",
+      "year": 2020,
+      "releaseYear": 2020,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "categories": [
+        "drama",
+        "bollywood"
+      ],
+      "duration": 8508,
+      "durationFormatted": "2h 21m",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.0,
+      "description": "A dedicated homemaker re-evaluates her entire marriage and self-worth after her husband publicly slaps her at an office celebration.",
+      "resolution": "360p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "400 MB",
+      "bitrate": "400 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Anubhav Sinha",
+      "cast": "Taapsee Pannu, Pavail Gulati, Dia Mirza, Maya Sarao",
+      "featured": false,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/www.-8xflix.org-thappad-2020-hindi-hdrip-400-mb-x-264-mp-3-esubs/www.8xflix.org%20-%20THAPPAD%20%282020%29%20Hindi%20HDRip%20-%20400MB%20-%20x264%20-%20MP3%20-%20ESubs.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/jBw_EROnOSo",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "SD",
+      "qualityHonestBadge": "360p SD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "hi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_thappad_2020.jpg",
+      "backdropUrl": "assets/posters/vod_thappad_2020.jpg"
+    },
+    {
+      "id": "vod_bandaa_2023",
+      "title": "Sirf Ek Bandaa Kaafi Hai",
+      "originalTitle": "Sirf Ek Bandaa Kaafi Hai",
+      "year": 2023,
+      "releaseYear": 2023,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "categories": [
+        "biography",
+        "drama",
+        "courtroom",
+        "bollywood"
+      ],
+      "duration": 7920,
+      "durationFormatted": "2h 12m",
+      "genres": [
+        "Biography",
+        "Drama"
+      ],
+      "rating": 7.9,
+      "description": "An ordinary sessions court lawyer fights an extraordinary five-year legal battle against a powerful godman to deliver justice to a minor girl.",
+      "posterUrl": "assets/posters/vod_bandaa_2023.jpg",
+      "backdropUrl": "assets/posters/vod_bandaa_2023.jpg",
+      "resolution": "1080p",
+      "codec": "H.264",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "dubbedLanguages": [],
+        "detectedTracks": [
+          "hin:aac"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "container": "MKV",
+      "fileSize": "2.5 GB",
+      "bitrate": "2400 kbps",
+      "fps": "24 FPS",
+      "license": "Public Archival Media",
+      "director": "Apoorv Singh Karki",
+      "cast": "Manoj Bajpayee, Vipin Sharma, Adrija Sinha, Surya Mohan Kulshrestha",
+      "featured": true,
+      "latest": false,
+      "streamUrl": "https://archive.org/download/sirf-ek-bandaa-kaafi-hai-2023-1080p-web-dl-aac-5-1-esub-x-264-hdhub-4u/Sirf_Ek_Bandaa_Kaafi_Hai_2023_1080p_WEB_DL_AAC_5_1_ESub_x264_HDHub4u.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Pj1L5a05-x0",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "sourceState": "ACTIVE_STREAM",
+      "qualityClass": "Full HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "audioClassification": "HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "hi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      }
     }
   ]
 }
