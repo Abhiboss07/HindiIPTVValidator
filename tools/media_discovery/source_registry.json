@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": 1,
+  "description": "T2L Zero-Trust Authorized Media Source Registry & Allowlist",
+  "sources": [
+    {
+      "id": "archive_org_feature_films",
+      "name": "Internet Archive - Feature Films Collection",
+      "baseUrl": "https://archive.org/",
+      "domain": "archive.org",
+      "allowedCollections": [
+        "feature_films",
+        "moviesandfilms",
+        "silent_films",
+        "film_noir",
+        "Comedy_Films",
+        "SciFi_Horror",
+        "classic_tv",
+        "animationandcartoons",
+        "prelinger"
+      ],
+      "licensePolicy": "PUBLIC_DOMAIN_AND_OPEN_ARCHIVAL",
+      "allowed": true,
+      "notes": "Verified public domain, open archival, and historic broadcast collections. User community uploads outside these curated collections are rejected."
+    },
+    {
+      "id": "wikimedia_commons",
+      "name": "Wikimedia Commons",
+      "baseUrl": "https://commons.wikimedia.org/",
+      "domain": "commons.wikimedia.org",
+      "allowedCollections": [
+        "Videos",
+        "Featured_videos",
+        "Public_domain_videos"
+      ],
+      "licensePolicy": "CREATIVE_COMMONS_AND_PUBLIC_DOMAIN",
+      "allowed": true,
+      "notes": "Freely usable media repository under CC0, CC-BY, CC-BY-SA or Public Domain."
+    },
+    {
+      "id": "blender_open_projects",
+      "name": "Blender Foundation Open Projects & Test Streams",
+      "baseUrl": "https://test-streams.mux.dev/",
+      "domain": "test-streams.mux.dev",
+      "allowedCollections": [
+        "x36xhzz",
+        "test-streams"
+      ],
+      "licensePolicy": "CREATIVE_COMMONS_ATTRIBUTION",
+      "allowed": true,
+      "notes": "Creative Commons Attribution open films and test assets."
+    },
+    {
+      "id": "durian_blender_org",
+      "name": "Blender Foundation - Sintel Project",
+      "baseUrl": "https://durian.blender.org/",
+      "domain": "durian.blender.org",
+      "allowedCollections": [
+        "sharing"
+      ],
+      "licensePolicy": "CREATIVE_COMMONS_ATTRIBUTION",
+      "allowed": true,
+      "notes": "Official Blender Open Movie release repository."
+    }
+  ],
+  "forbiddenDomains": [
+    "piratebay",
+    "1337x",
+    "yts",
+    "torrent",
+    "fmovies",
+    "bflix",
+    "megaupload",
+    "rapidgator",
+    "uploaded",
+    "turbobit",
+    "gofile",
+    "pixeldrain"
+  ],
+  "forbiddenQueryOperators": [
+    "intitle:\"index of\"",
+    "intitle:index.of",
+    "inurl:\"view/index.shtml\"",
+    "\"index of /\"",
+    "intitle:",
+    "inurl:",
+    "filetype:"
+  ]
+}
