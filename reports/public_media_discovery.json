@@ -1,0 +1,598 @@
+{
+  "summary": {
+    "timestamp": "2026-09-18T19:45:51Z",
+    "total_discovered": 7,
+    "ready_for_import": 4,
+    "rejected": 3,
+    "imported": 4,
+    "rejections_by_category": {
+      "REJECTED_DUPLICATE": 1,
+      "REJECTED_TRAILER_OR_CLIP": 2
+    },
+    "quality_breakdown": {
+      "480p (SD)": 5,
+      "240p": 1
+    },
+    "audio_breakdown": {
+      "UNKNOWN": 5,
+      "ENGLISH": 1
+    }
+  },
+  "candidates": [
+    {
+      "id": "disc_his_girl_friday",
+      "title": "His Girl Friday",
+      "year": 1940,
+      "url": "https://archive.org/download/his_girl_friday/his_girl_friday.mp4",
+      "collection": "feature_films",
+      "status": "REJECTED_DUPLICATE",
+      "stages": {
+        "source_auth": {
+          "passed": true,
+          "reason": "Authorized"
+        },
+        "license": {
+          "passed": true,
+          "type": "CREATIVE_COMMONS",
+          "details": "Creative Commons Open License"
+        },
+        "identity": {
+          "passed": true,
+          "clean_title": "His Girl Friday",
+          "year": 1940
+        },
+        "duplicate_check": {
+          "is_duplicate": true,
+          "type": "URL_COLLISION"
+        }
+      },
+      "rejection_reasons": [
+        "Duplicate content already in catalog (URL_COLLISION)"
+      ]
+    },
+    {
+      "id": "disc_Dr.Sex",
+      "title": "Dr. Sex.",
+      "year": null,
+      "url": "https://archive.org/download/Dr.Sex/Dr.Sex.mp4",
+      "collection": "feature_films",
+      "status": "REJECTED_TRAILER_OR_CLIP",
+      "stages": {
+        "source_auth": {
+          "passed": true,
+          "reason": "Authorized"
+        },
+        "license": {
+          "passed": true,
+          "type": "OPEN_ARCHIVAL",
+          "details": "Authorized Historic Public Film Archive (['comedy_films', 'feature_films', 'moviesandfilms', 'fav-05355416493', 'fav-124399', 'fav-1mrlooking', 'fav-2020dls', 'fav-2bobster55', 'fav-2cam16', 'fav-4-tro', 'fav-4hundred4', 'fav-8thstbygmon', 'fav-_rh959', 'fav-a1shark', 'fav-a_d_leonard', 'fav-abdafvtw', 'fav-abdalrhman_1', 'fav-acidjinn', 'fav-adam_blank', 'fav-adam_nelmes', 'fav-adgjm_ad', 'fav-adrlw', 'fav-agts48', 'fav-aidanalva', 'fav-ajaxwolfaroo', 'fav-al230606', 'fav-alan_dee', 'fav-alex_lue', 'fav-alex_merovin', 'fav-alex_zamora621', 'fav-alexadams127', 'fav-alexandr1965', 'fav-alexttp', 'fav-alfred_artysi', 'fav-algo605', 'fav-alipe27', 'fav-alj2022', 'fav-allen_dayton', 'fav-altgaming', 'fav-amani_walker', 'fav-amaro_evisa', 'fav-amelianicolle', 'fav-american_made', 'fav-americanapaul', 'fav-amishrobot27', 'fav-amongstothers', 'fav-amountainlyon', 'fav-andrei_shanko', 'fav-andres_c369', 'fav-andrew_carter832', 'fav-angel_gtz419', 'fav-anil09', 'fav-anonymosom', 'fav-antares31ro', 'fav-anteker', 'fav-antwon_bradley', 'fav-apd20002', 'fav-aps252', 'fav-archival_uploader', 'fav-archives_love', 'fav-archiveuser2447ekcm', 'fav-aree_cabral', 'fav-arnold_bist', 'fav-art1960', 'fav-artdestruction', 'fav-arthur_morgan526', 'fav-as_new_below_cost24x7_mhz', 'fav-at_golestan', 'fav-ateleb', 'fav-athiladhune', 'fav-athos007', 'fav-athrowawayfortook', 'fav-atze_09', 'fav-augusto69', 'fav-austinreader9996', 'fav-autistictoon620', 'fav-avianaglover', 'fav-avinash_singh156', 'fav-azaz369', 'fav-b_smiley', 'fav-bagas_prakoso', 'fav-bakershaker73_hotmail_com', 'fav-baldeyebrowparty', 'fav-ball364', 'fav-banamine', 'fav-bayou774', 'fav-bdriver43', 'fav-bee_sea', 'fav-benderobot', 'fav-benjamin_paplawsky', 'fav-benjamin_ruchholz_gmx_de', 'fav-bgasser', 'fav-biffbauer99', 'fav-biggsxxx', 'fav-biggsxxxx', 'fav-billy3464', 'fav-billy_mean', 'fav-binudist1971', 'fav-binudist71', 'fav-biologicalspermbank', 'fav-bitsy', 'fav-blacklovers', 'fav-blindchild98', 'fav-bluebellaza', 'fav-bmchristian1', 'fav-bmsbms', 'fav-bobby_bobby_bob', 'fav-bobloblaw145', 'fav-bobsebring', 'fav-bobtb2020', 'fav-boewjr', 'fav-bonjourricarde', 'fav-boooeee34', 'fav-bornuser', 'fav-brad_mathews', 'fav-braindraw', 'fav-brendan303', 'fav-brian_brown281', 'fav-brittani_hinkle', 'fav-bruce_burger', 'fav-bryan_c', 'fav-buq', 'fav-burning-dog', 'fav-burning_desires', 'fav-byson836', 'fav-bzoku', 'fav-caccavodonaldo', 'fav-camgirljouissance', 'fav-cansox12', 'fav-cant_be_no-1', 'fav-capconway', 'fav-captserek', 'fav-carlos_mejia957', 'fav-carlos_w537', 'fav-carrfeleshia', 'fav-casanunder', 'fav-catguy13', 'fav-catindahat21', 'fav-cddc', 'fav-cellardoor85', 'fav-cengomengo', 'fav-cesarrodrigues9652', 'fav-chadzinga79', 'fav-chamini2', 'fav-charlie75', 'fav-charlie_tango', 'fav-cherryqueer', 'fav-chikita_isaac', 'fav-chili_cherry_bomb', 'fav-chris_brown361', 'fav-christine_lewis446', 'fav-christopher_denis', 'fav-christopher_keninger', 'fav-cht2468_163_com', 'fav-chupbacca_fenty', 'fav-cinemadeliria', 'fav-cl_jamie', 'fav-classiccarygrant', 'fav-claus965', 'fav-clayton_boyer', 'fav-clc321', 'fav-clfrank', 'fav-cliffhanger90', 'fav-cmarilyn916', 'fav-cococat2009', 'fav-cody_taylor457', 'fav-college23stud', 'fav-collin75044', 'fav-collin_peic', 'fav-coltank', 'fav-connor_r_bradburn_9th_fhhs', 'fav-connorscending', 'fav-contiki', 'fav-conwin', 'fav-countryboy_john87', 'fav-couriousbibi', 'fav-crazedsquirrel', 'fav-creeperdestroyer24', 'fav-crustsue', 'fav-cs-cs-cs', 'fav-cswilson43', 'fav-ct_pirate', 'fav-cuba1965', 'fav-cuebydoo', 'fav-curiouslildee', 'fav-curt_mcnamee', 'fav-cybertrippy', 'fav-dalaine_johnson', 'fav-dalessg', 'fav-dan_giraldo', 'fav-dankuenle', 'fav-danmcderp', 'fav-danny19621964', 'fav-dantheman26', 'fav-darin_a354', 'fav-darkdanzig', 'fav-darkyl17', 'fav-darlinglucy', 'fav-das428', 'fav-david_carter346', 'fav-david_monfortescrig', 'fav-davinci73', 'fav-deadheadmord', 'fav-deejf', 'fav-delgerdalai', 'fav-deluver', 'fav-dennis213', 'fav-dennisob', 'fav-descentintosanity', 'fav-devil504', 'fav-diana_machado_cruz_', 'fav-diego_cano533', 'fav-diego_gonza', 'fav-dinesh_kumar465', 'fav-dingzhen', 'fav-dipesh_timalsina', 'fav-dirk_diggler291', 'fav-dj_morris', 'fav-djamal_am', 'fav-djstet', 'fav-dlnick01', 'fav-dnmdmn', 'fav-doctorcarlos', 'fav-domino8', 'fav-don_leblanc661', 'fav-doorguy7557', 'fav-doughnutty', 'fav-dragonlee', 'fav-drake_green151', 'fav-drashfaq_zuberi', 'fav-drbotanus', 'fav-drenner_drenner', 'fav-dsm5', 'fav-duck_dan', 'fav-duggiehoo', 'fav-dulehill', 'fav-duolingoowl69', 'fav-dwoml', 'fav-dylan_duffey', 'fav-earbud_memes2', 'fav-earlytimez', 'fav-ebi_t57', 'fav-ebillh', 'fav-ebz38', 'fav-eddie66', 'fav-edward_7137', 'fav-edwardzachery9876', 'fav-eglon-of-moab', 'fav-ejhotrod', 'fav-ejseacliff', 'fav-elbow_patches_and_tea', 'fav-elchini', 'fav-elijah_mcgrath', 'fav-ellijantz98_static_act', 'fav-emilio_chavez', 'fav-emotional_giant', 'fav-emre_ibik', 'fav-english_man401', 'fav-equivoc8r', 'fav-eric_rogers723', 'fav-eric_smith6685', 'fav-ernieguevara33033', 'fav-esi713', 'fav-esmaeil_ghasemi', 'fav-evans20', 'fav-evsavard', 'fav-evy717', 'fav-explorersuby', 'fav-f_dik', 'fav-fabricatedbliss404', 'fav-fares_amr466', 'fav-farhid_bagherpour', 'fav-fatboyslim8', 'fav-fatman17', 'fav-fatmat1276', 'fav-ferda_pvd', 'fav-ferrymardiaan', 'fav-fhily_rock', 'fav-fiddlefaddle60', 'fav-fila78', 'fav-finn_norseman', 'fav-firsttimeuser', 'fav-forgottenfilmcast', 'fav-fosdasalev', 'fav-frankieboy38', 'fav-frasher75', 'fav-frn2', 'fav-fuddlyduddly', 'fav-fun_ghus', 'fav-g_moore', 'fav-gabroo', 'fav-gac70', 'fav-gansdao', 'fav-garfied', 'fav-garmonbozia13', 'fav-gary_jundzilo', 'fav-gazda', 'fav-gee_k', 'fav-gene_mormon', 'fav-geomickey', 'fav-geriann35', 'fav-gestroud', 'fav-getuming', 'fav-gggeeeggg', 'fav-ggggbob_', 'fav-ghosthunter68k', 'fav-ghozer7', 'fav-gingamatt', 'fav-giovo01', 'fav-glickmandigitalmedia', 'fav-glwef', 'fav-gman405', 'fav-goldenboy420', 'fav-golez_prd', 'fav-gordo777728', 'fav-gracereyer', 'fav-graeme_wright_1', 'fav-grayling21', 'fav-greentrees123p', 'fav-greg_oler', 'fav-gremlinx73', 'fav-griffen_naif', 'fav-grim_ghost', 'fav-gugu_mr', 'fav-gunhed_tv', 'fav-gunlimited_ammo', 'fav-gus_lizalde', 'fav-h_a301', 'fav-habibali3511', 'fav-hadi377', 'fav-hadi_ali263', 'fav-hadrian_walker825', 'fav-hagepoe', 'fav-hamhamnation', 'fav-hannah_jacobson', 'fav-harald_geor', 'fav-hardavid', 'fav-hasan201900', 'fav-hate_life', 'fav-he_does_not', 'fav-heidio77', 'fav-helmetparty', 'fav-henriquesjjj', 'fav-hgephart', 'fav-hi_all274', 'fav-hiburnate', 'fav-historicusjoe', 'fav-hkoocheknia_ymail_com', 'fav-hogger24', 'fav-housepics76', 'fav-howard181', 'fav-hugo_hayden_hisani', 'fav-hyperboreai', 'fav-ianp3', 'fav-iblmedia', 'fav-icemanfilms', 'fav-iczer-one', 'fav-ikungfuyou', 'fav-ilovestories_1', 'fav-ima1269', 'fav-imnotyrdog', 'fav-indigenish', 'fav-innomind2', 'fav-internetmasubi', 'fav-irish80ut', 'fav-isaiah_gutierrez', 'fav-iskowalskiamidget', 'fav-islam_khader', 'fav-islanddisco', 'fav-ivanbil', 'fav-ivy_3513', 'fav-j_ri417', 'fav-j_s743', 'fav-jackshu09', 'fav-jacksky7286', 'fav-jakob19791992', 'fav-james_h_shurley', 'fav-james_owen_melton', 'fav-james_pozun', 'fav-jayess137', 'fav-jbeebe1963', 'fav-jbinkleyj', 'fav-jcoocg', 'fav-jean-pierre_allers', 'fav-jeanie_aki', 'fav-jeff_xiao', 'fav-jenna_kreik', 'fav-jeno_rodriguez_tiger_snak_', 'fav-jera78', 'fav-jerrod_phelps', 'fav-jess_leyba', 'fav-jesse_logsdon', 'fav-jgatcha4', 'fav-jguillot79', 'fav-jhon_jairo_osorno', 'fav-jhosep_rodriguez_lopez', 'fav-jim_connick', 'fav-jim_morgan404', 'fav-jjuenger', 'fav-jmartin9403', 'fav-jmyjr', 'fav-jodeewal', 'fav-joe_desalme', 'fav-joe_lorne', 'fav-joe_mcdirt', 'fav-joebuckley', 'fav-joehancock95', 'fav-joel701', 'fav-joel_vanantwerp', 'fav-joesbargain1', 'fav-john_adams686', 'fav-john_allen441', 'fav-john_fredy_sanchez_gomez', 'fav-john_smith133', 'fav-johnfields', 'fav-johnsageek', 'fav-jolliboii', 'fav-jorge_padilla260', 'fav-jose_ganancio', 'fav-joseph_atkinson_jr', 'fav-josh395', 'fav-josh_meacham', 'fav-josias_garduno', 'fav-josias_p_castro', 'fav-joyfluffy', 'fav-jp_thoma', 'fav-jsardizzone', 'fav-jsy_invincible', 'fav-jtr4', 'fav-jturner345', 'fav-juliostinter', 'fav-justfun76', 'fav-justpatrick', 'fav-justtryingitout', 'fav-jw99009900', 'fav-jwheeler32', 'fav-jwiistpete', 'fav-k-popnightmare', 'fav-k_m832', 'fav-kal_kent', 'fav-kaleb_souza_de_souza', 'fav-kamara_blood', 'fav-kamran_khan471', 'fav-karen_fox331', 'fav-karten', 'fav-kaynaomi', 'fav-keeferdude', 'fav-keith698', 'fav-ken65300', 'fav-ken_d322', 'fav-kenalexander57', 'fav-kenneth_thomas990', 'fav-kenneth_williams648', 'fav-kimberley_southerlyn', 'fav-kinobeeone', 'fav-kitchen-south', 'fav-klondike241', 'fav-knockupking', 'fav-koa_lee', 'fav-krk079', 'fav-kurtloadinhan', 'fav-kusuma_wardhani', 'fav-kygt', 'fav-kyl_dyl', 'fav-kzd861', 'fav-labelleb_te', 'fav-landseaandsky', 'fav-langkahhobi', 'fav-larry_e691', 'fav-larshosenschlange', 'fav-leela_jessop', 'fav-leia_olsen', 'fav-lemondrop176', 'fav-lenise55t', 'fav-leo_93', 'fav-leomendoncaagild', 'fav-liam_sankey', 'fav-lido_mo', 'fav-lifethatwins', 'fav-liqiansongjia', 'fav-logos9', 'fav-lotsanerv_inla', 'fav-lovalovelace', 'fav-lratliff0922', 'fav-ltbrannigan75', 'fav-luca_camilleri765', 'fav-lucy663', 'fav-luis_martinez586', 'fav-luke_daforce', 'fav-m0r3no', 'fav-m_mike', 'fav-ma7m', 'fav-maatt71', 'fav-macphilgd', 'fav-madden_gamer', 'fav-maglyfe', 'fav-mahidrake', 'fav-mahmoud_al-shafey', 'fav-makers911', 'fav-malliemoosie', 'fav-manasapriya65', 'fav-manfred236', 'fav-mannymoons', 'fav-manuel_olivas', 'fav-manuel_tee', 'fav-marc320', 'fav-marco_b246', 'fav-marcus_reads', 'fav-mark_holland420', 'fav-mark_raven', 'fav-marketwit', 'fav-markoturso', 'fav-marry_krystal_', 'fav-martyank', 'fav-maschiolatino1', 'fav-master_moon', 'fav-maze219', 'fav-mcase53', 'fav-mcfuzzywinkle', 'fav-mcmarty', 'fav-mcthiel', 'fav-mdiris', 'fav-mei_banana', 'fav-mica_as_rodas', 'fav-michael4093', 'fav-michael_goodrich', 'fav-michael_quinlan744', 'fav-michael_wanderone', 'fav-miguel_eduardo_casagrande', 'fav-miguel_flores194', 'fav-mike_eddings', 'fav-mike_wright267', 'fav-mikeryan2291', 'fav-miles_palmer590', 'fav-mineyyy', 'fav-mischeive', 'fav-mitchy479', 'fav-mk1027', 'fav-mkiemkie', 'fav-mklapperich', 'fav-mnchubby', 'fav-moasanha', 'fav-mohamed_hamad998', 'fav-mohamedab', 'fav-mohammad_mehdi_zand', 'fav-mojo999', 'fav-molazik_quptong', 'fav-mona_lisa756', 'fav-mondofilm', 'fav-mononumber5', 'fav-monsterinthemist', 'fav-morgue', 'fav-moses_kipkemboi', 'fav-mostafa_kolivand', 'fav-mourad_abdel_razek', 'fav-movie_vigilante', 'fav-movieguyyy', 'fav-mp_444', 'fav-mps1974', 'fav-mr500', 'fav-mr_zippy', 'fav-mrpatrickreinhart', 'fav-mrtibbs1001', 'fav-ms_lila', 'fav-msleaman', 'fav-mugmebot', 'fav-muhannad_albashiry', 'fav-mui-77', 'fav-myprivacyfreedom', 'fav-mytubevideo65', 'fav-mziarp', 'fav-nababo2022', 'fav-nabucodono', 'fav-nacna', 'fav-nader1354', 'fav-naeemuldeen', 'fav-nasrul_safwan_mt', 'fav-nathanseattle', 'fav-naughty_full_movies', 'fav-ncdkap', 'fav-negassi_network', 'fav-nehushtan135', 'fav-neutron74', 'fav-newuser1995', 'fav-ninjaofdoom_03', 'fav-nito9711', 'fav-noahzebd2002', 'fav-nobodys_angel', 'fav-noface4569', 'fav-norcaldvr', 'fav-norm100', 'fav-notstephenking', 'fav-nuclearlemons', 'fav-nweatherbie', 'fav-obib_bey', 'fav-odddi', 'fav-odisey', 'fav-ohm3113', 'fav-oj-p', 'fav-oller7824', 'fav-omaeus', 'fav-omnibus89', 'fav-oniryu123', 'fav-or19803', 'fav-osos77404', 'fav-oz_man700', 'fav-paddyc1', 'fav-pandatimeforspring', 'fav-papah222', 'fav-paruline', 'fav-pasolar', 'fav-pat_mcguig', 'fav-patg009', 'fav-paul_holdaway', 'fav-paul_kelner', 'fav-paul_montgamry', 'fav-pauliewalnuts64', 'fav-pdldave', 'fav-pdpleblanc', 'fav-pegwyn', 'fav-peler777', 'fav-perhapsromane', 'fav-personaltech', 'fav-petepulp', 'fav-peter_p236', 'fav-ph_r_', 'fav-pigguy69', 'fav-pilot49', 'fav-pizzoheaterman', 'fav-pleonic', 'fav-pnilihst', 'fav-poprockit', 'fav-poth_bhola', 'fav-praveen_akula', 'fav-praveen_bind', 'fav-premiumplum', 'fav-prittipatty', 'fav-psychmusing', 'fav-psylito', 'fav-ptguy2', 'fav-pygmalion1969', 'fav-qashqash', 'fav-qwer213213', 'fav-r1250', 'fav-r_b184', 'fav-r_rr484', 'fav-radio_mondo_can_bal', 'fav-ramze_mzanar', 'fav-randyowens7', 'fav-ransom_bennett', 'fav-rap16', 'fav-ras63', 'fav-rashed_mohammed456', 'fav-ravendon', 'fav-ray_metzgar', 'fav-ray_warren', 'fav-rayers8870', 'fav-rebel_redbrow', 'fav-recluso788', 'fav-redagad', 'fav-remixlover', 'fav-renee_moody', 'fav-revnothing', 'fav-reynhard', 'fav-reyphoenix', 'fav-rgrigor', 'fav-rhonda74', 'fav-ricardo_durham', 'fav-richard_powell798', 'fav-rileysm75', 'fav-rival_qt', 'fav-robert_ortiz', 'fav-robert_stout', 'fav-roberttg420', 'fav-rogerdoger507', 'fav-rohit_patil308', 'fav-rookie623', 'fav-rpew', 'fav-rrniche', 'fav-s3nsualsyn3rgy', 'fav-s_o201', 'fav-sactocat', 'fav-sakim27', 'fav-salem4n', 'fav-sam5947', 'fav-sam77382', 'fav-sam_ali694', 'fav-sammxxx', 'fav-sammy_b413', 'fav-sammyaspeslagh_icloud_com', 'fav-samzoo_huff', 'fav-sandeeppuliyanazhath', 'fav-sara_ahmed347', 'fav-scooby316', 'fav-scott29615', 'fav-scottcannady2018', 'fav-scottystyle', 'fav-segueman', 'fav-selcouth2', 'fav-ser00', 'fav-ser11was', 'fav-sergey_sergey214', 'fav-seung-wun_yi', 'fav-sfb210', 'fav-shadali', 'fav-shaguana341', 'fav-shahriar_sheibani', 'fav-shamrock11', 'fav-shane_doherty404', 'fav-shane_peterson', 'fav-sharkmouth', 'fav-shehatesmiyake', 'fav-sherif101', 'fav-simian411', 'fav-simon_wepunkt', 'fav-simplebob26', 'fav-sinopia_navajo', 'fav-sir_james_godzilla_11', 'fav-skiformal', 'fav-slimyorca', 'fav-smilingfriend', 'fav-smogn8tr', 'fav-snapscan1234', 'fav-sonicjalopy', 'fav-sowhat975', 'fav-sp0ckw00d', 'fav-space_x', 'fav-spaghettiboss', 'fav-sparkmandrill', 'fav-spellboundbanana', 'fav-splash76', 'fav-spleenz', 'fav-spookey_james', 'fav-sportster1988', 'fav-squarepickle', 'fav-startrakk', 'fav-steelcs', 'fav-steffenir', 'fav-stephen_biscuits', 'fav-steve-s', 'fav-steve_braun', 'fav-stevebtnz', 'fav-stevedug', 'fav-stevie_1da', 'fav-sthe891', 'fav-stormstudio', 'fav-stoutalarm', 'fav-strat761', 'fav-streach', 'fav-stumpy412', 'fav-sujit_kumar', 'fav-sunita362436', 'fav-sunnydquist', 'fav-susesusemuse', 'fav-sv2500', 'fav-sveck', 'fav-sven_broenner', 'fav-switchloopcooter', 'fav-swooth1', 'fav-sydneycat', 'fav-t-revor2891', 'fav-t140ci', 'fav-tangledleads', 'fav-tarun911', 'fav-tattoo_momma', 'fav-taynard', 'fav-tb1973', 'fav-technotanzpille', 'fav-tedatn', 'fav-teemann747', 'fav-teemann7474', 'fav-tennman76', 'fav-the_mark_rosen', 'fav-the_one207', 'fav-thecentralshaft', 'fav-thehappysmiler109', 'fav-theodm', 'fav-theratbag', 'fav-theshrike', 'fav-theveryfunnyguy', 'fav-thinankles85', 'fav-thirdpower', 'fav-thomas_madsen363', 'fav-thomas_mcclain', 'fav-thoric210', 'fav-thruthaphone', 'fav-thu_rain_ling', 'fav-thurain5555', 'fav-timmaine47', 'fav-tolib678', 'fav-tom_bens', 'fav-tom_iosue', 'fav-tom_kelley116', 'fav-tom_vagabond', 'fav-tomhates', 'fav-tommy_griffith', 'fav-tommyleenot', 'fav-tommymanuel', 'fav-tomtok', 'fav-toni_tt649', 'fav-tonnglind', 'fav-tr4shmail', 'fav-tralfaz14921', 'fav-travis_charles', 'fav-trevor_dowling', 'fav-troutfishinginamerica', 'fav-troy_jump', 'fav-ttroika', 'fav-ttv_dora', 'fav-tug_holton', 'fav-tvtv', 'fav-two2bre88w', 'fav-txgirl', 'fav-tyedye739', 'fav-tyler_durden940', 'fav-ufomaynard', 'fav-uh_clem', 'fav-uklad40', 'fav-ulysses_grant886', 'fav-user103943', 'fav-user37019', 'fav-user90879', 'fav-user991226', 'fav-user_guest', 'fav-username8387232', 'fav-v_a_u_g_h_n_c_a_s_t_r_o', 'fav-vai_vem', 'fav-valor_d_curry', 'fav-vanman71', 'fav-venkman_gump', 'fav-vermelho838_gmail_com', 'fav-victor615', 'fav-virus_com', 'fav-vivianne_reed', 'fav-vocmonster', 'fav-vshows', 'fav-wallysmith', 'fav-walt_walters', 'fav-walter_walthers', 'fav-wardamneagle7883', 'fav-wayn_khor', 'fav-web_archiver_boi', 'fav-wenlong_xu', 'fav-whatthen', 'fav-whosam', 'fav-wickedmotiv', 'fav-william_earle374', 'fav-williampronce', 'fav-wkj1968', 'fav-wojciech_s_onina', 'fav-wolf788', 'fav-wolfreen', 'fav-wooly_mammoth', 'fav-workster', 'fav-would_you_dance_with_me_even_though_i_am_a_jellyfish_', 'fav-wva_len', 'fav-x83', 'fav-x86guy', 'fav-x_yaz', 'fav-xavipm', 'fav-yaso772', 'fav-yawningvoidinside', 'fav-ye_myint', 'fav-yellowfellow', 'fav-yellowfish99', 'fav-zaglul', 'fav-zakaria261', 'fav-zapgap100', 'fav-zaroubc', 'fav-zay420', 'fav-znjznj', 'fav-zurdo_524007', 'fav-zym911'])"
+        },
+        "identity": {
+          "passed": true,
+          "clean_title": "Dr Sex",
+          "year": null
+        },
+        "duplicate_check": {
+          "is_duplicate": false,
+          "type": "NONE"
+        },
+        "media_probe": {
+          "is_playable": true,
+          "duration_s": 3755.618685,
+          "resolution": "480p (SD)",
+          "video_codec": "h264",
+          "audio_classification": "UNKNOWN",
+          "languages": []
+        },
+        "content_classification": {
+          "content_type": "EXPLICIT",
+          "is_feature": false,
+          "is_trailer_or_clip": true,
+          "evidence": [
+            "Contains adult/exploitation token: 'nude'"
+          ]
+        }
+      },
+      "rejection_reasons": [
+        "Promotional trailer or short clip rejected as full movie (EXPLICIT)"
+      ]
+    },
+    {
+      "id": "disc_sex_madness",
+      "title": "Sex Madness",
+      "year": 1938,
+      "url": "https://archive.org/download/sex_madness/sex_madness.mp4",
+      "collection": "feature_films",
+      "status": "REJECTED_TRAILER_OR_CLIP",
+      "stages": {
+        "source_auth": {
+          "passed": true,
+          "reason": "Authorized"
+        },
+        "license": {
+          "passed": true,
+          "type": "CREATIVE_COMMONS",
+          "details": "Creative Commons Open License"
+        },
+        "identity": {
+          "passed": true,
+          "clean_title": "Sex Madness",
+          "year": 1938
+        },
+        "duplicate_check": {
+          "is_duplicate": false,
+          "type": "NONE"
+        },
+        "media_probe": {
+          "is_playable": true,
+          "duration_s": 3117.5144,
+          "resolution": "480p (SD)",
+          "video_codec": "h264",
+          "audio_classification": "UNKNOWN",
+          "languages": []
+        },
+        "content_classification": {
+          "content_type": "EXPLICIT",
+          "is_feature": false,
+          "is_trailer_or_clip": true,
+          "evidence": [
+            "Contains adult/exploitation token: 'sex madness'"
+          ]
+        }
+      },
+      "rejection_reasons": [
+        "Promotional trailer or short clip rejected as full movie (EXPLICIT)"
+      ]
+    },
+    {
+      "id": "disc_VoyagetothePlanetofPrehistoricWomen",
+      "title": "Voyage to the Planet of Prehistoric Women",
+      "year": 1967,
+      "url": "https://archive.org/download/VoyagetothePlanetofPrehistoricWomen/VoyagetothePlanetofPrehistoricWomen.mp4",
+      "collection": "feature_films",
+      "status": "READY_FOR_IMPORT",
+      "stages": {
+        "source_auth": {
+          "passed": true,
+          "reason": "Authorized"
+        },
+        "license": {
+          "passed": true,
+          "type": "CREATIVE_COMMONS",
+          "details": "Creative Commons Open License"
+        },
+        "identity": {
+          "passed": true,
+          "clean_title": "Voyage To The Planet Of Prehistoric Women",
+          "year": 1967
+        },
+        "duplicate_check": {
+          "is_duplicate": false,
+          "type": "NONE"
+        },
+        "media_probe": {
+          "is_playable": true,
+          "duration_s": 4775.111995,
+          "resolution": "480p (SD)",
+          "video_codec": "h264",
+          "audio_classification": "UNKNOWN",
+          "languages": []
+        },
+        "content_classification": {
+          "content_type": "MOVIE",
+          "is_feature": true,
+          "is_trailer_or_clip": false,
+          "evidence": [
+            "Duration indicates full feature: 4775s (>= 40m)"
+          ]
+        },
+        "thumbnail": {
+          "passed": true,
+          "failure_reason": null
+        }
+      },
+      "rejection_reasons": [],
+      "ready_catalog_entry": {
+        "id": "disc_VoyagetothePlanetofPrehistoricWomen",
+        "title": "Voyage To The Planet Of Prehistoric Women",
+        "year": 1967,
+        "mediaType": "movie",
+        "type": "Hollywood",
+        "categories": [
+          "classics",
+          "movies"
+        ],
+        "duration": 4775,
+        "durationFormatted": "1h 19m",
+        "genres": [
+          "Classics",
+          "Drama"
+        ],
+        "rating": 7.5,
+        "description": "A team of astronauts crashes on the surface of Venus. Accompanied by their robot, they explore the surface and end up destroying the Venusian God. This film is also known as \"The Gill Women\" and \"The Gill Women of Venus\". This film began life as a Soviet-produced work. An American producer then added some new footage and changed the credits to hide the film's Soviet origin. The original film, \"Planeta Bur\", is also known as \"Cosmonauts on Venus\", \"Planet of Storms\", \"Planet of Tempests\", \"Planeta Burg\", and \"Storm Planet\". Much of the film \"Planeta Bur\" was also incorporated into the \"American\" film \"Voyage to the Prehistoric Planet\" . This film was shown in \"Pathe\" color, which is essentially just a method of placing color filters over a black and white film. Consequently, the color that you see is not the true color of the sets but instead represents an \"interpretation\" of a black and white original. This film can be downloaded as a Theora file. The file size is approximately 25% larger than the MPEG-2, with similar quality. Simply click on this link . You can find more information regarding this film on its IMDb page . More information is also available from the Wikipedia article here .",
+        "posterUrl": "assets/posters/disc_VoyagetothePlanetofPrehistoricWomen.jpg",
+        "backdropUrl": "assets/posters/disc_VoyagetothePlanetofPrehistoricWomen.jpg",
+        "resolution": "480p (SD)",
+        "codec": "H264 / AVC",
+        "audio": {
+          "classification": "UNKNOWN",
+          "hasHindiAudio": false,
+          "hasHindiSubtitles": false,
+          "primaryLanguage": "English",
+          "availableLanguages": [
+            "English"
+          ]
+        },
+        "languages": [
+          "English"
+        ],
+        "defaultLanguage": "English",
+        "container": "MP4",
+        "fileSize": "473 MB",
+        "license": "Creative Commons Open License",
+        "contentSource": "Internet Archive - Feature Films Collection",
+        "director": "Various Artists",
+        "cast": "Historic Cast in Credits",
+        "featured": false,
+        "latest": false,
+        "swarmSeeders": null,
+        "streamUrl": "https://archive.org/download/VoyagetothePlanetofPrehistoricWomen/VoyagetothePlanetofPrehistoricWomen.mp4",
+        "backupUrls": [],
+        "torrentUri": null,
+        "contentType": "MOVIE",
+        "region": "PUBLIC_DOMAIN",
+        "trailerUrl": null,
+        "sourceState": "DIRECT_STREAM_AVAILABLE",
+        "qualityHonestBadge": "480p (SD)",
+        "audioClassification": "UNKNOWN",
+        "metadata": {
+          "originalLanguage": "en",
+          "spokenLanguages": [
+            "English"
+          ],
+          "countries": [
+            "US"
+          ]
+        }
+      }
+    },
+    {
+      "id": "disc_TheFastandtheFuriousJohnIreland1954goofyrip",
+      "title": "The Fast And The Furious",
+      "year": 1955,
+      "url": "https://archive.org/download/TheFastandtheFuriousJohnIreland1954goofyrip/TheFastandtheFuriousJohnIreland1954goofyrip.mp4",
+      "collection": "feature_films",
+      "status": "READY_FOR_IMPORT",
+      "stages": {
+        "source_auth": {
+          "passed": true,
+          "reason": "Authorized"
+        },
+        "license": {
+          "passed": true,
+          "type": "OPEN_ARCHIVAL",
+          "details": "Authorized Historic Public Film Archive (['feature_films_unsorted', 'feature_films', 'moviesandfilms', 'fav-259ian', 'fav-50dent', 'fav-816m0n3y', 'fav-_2_683', 'fav-_o9_o0_bjp_84_mxo3_5', 'fav-_opas', 'fav-_srg', 'fav-abbyprofen', 'fav-acanuk', 'fav-addisonsharpe', 'fav-adrewan_aol_com', 'fav-adulto', 'fav-ak_johnson', 'fav-aklinker91', 'fav-alex_sleepy', 'fav-alistair_bolt', 'fav-alticinque', 'fav-amanda_carlson', 'fav-andrea_kalling712', 'fav-andreagsquared', 'fav-archive_23', 'fav-arne_bukowski', 'fav-au4anven', 'fav-ava_conlan', 'fav-awakenedveteran', 'fav-aziolko', 'fav-b6r3dp', 'fav-bachjulianna', 'fav-bcscout', 'fav-beastindisguise', 'fav-beathewitch', 'fav-bekke', 'fav-benfriedman', 'fav-birdman001', 'fav-blackbird2002', 'fav-bluesmobile', 'fav-bmallen', 'fav-bookduders', 'fav-bouncetiger', 'fav-bourbonier', 'fav-box_office_movie', 'fav-bribrijumbalaya', 'fav-bubbadub34', 'fav-buckey0936', 'fav-bustopmike', 'fav-butterflyemoji', 'fav-byson836', 'fav-cadenpolen69', 'fav-camila_moreno357', 'fav-capnkangaroo', 'fav-capt_captbill_bill', 'fav-captainfear76', 'fav-captainstarchaser', 'fav-cardboard-cat', 'fav-cbstudent123', 'fav-ccantafio', 'fav-ccorso95', 'fav-ced_the_bear', 'fav-chagood06', 'fav-charlie_monaghan', 'fav-charneykaye', 'fav-chris_k677', 'fav-christopher_ivicic', 'fav-christy_fairfax', 'fav-chuckdeeznutz', 'fav-clarkgrosw_ld', 'fav-classiccarygrant', 'fav-cldlzbth', 'fav-clunybrown', 'fav-cmarilyn916', 'fav-coffeebear', 'fav-coolnameguy91', 'fav-countryboy_john87', 'fav-croissant73', 'fav-crvenizmaj', 'fav-daddy_badger', 'fav-dana_krumm', 'fav-danbuch', 'fav-dangermouse795', 'fav-dangerousdave', 'fav-danielqui', 'fav-danny_hammerson', 'fav-delbertmills', 'fav-desperate_icon', 'fav-digitaris', 'fav-ditsyface', 'fav-dlatino', 'fav-donn57', 'fav-drogazofio', 'fav-duaneparkproject', 'fav-earthwitch8', 'fav-edibledead_dahashead', 'fav-edsbenedict', 'fav-elena_vanrenterghem', 'fav-eltonej', 'fav-elvis_del_valle', 'fav-emiliano_mazzer', 'fav-emustudios', 'fav-enjoyerofoldvideos', 'fav-eqeknj7', 'fav-erikbartok', 'fav-eva_el_bey', 'fav-fantasiaonvhs', 'fav-fatboyslim8', 'fav-fed_up_with_people', 'fav-floy98', 'fav-foolsandhorses55', 'fav-forzamatt95', 'fav-friedmab', 'fav-garbagepaildj', 'fav-garymcgan', 'fav-general_audience_acceptability', 'fav-george6133', 'fav-georgia2807', 'fav-geronimo00000', 'fav-ghoulishbroadsword', 'fav-gib_b', 'fav-glickmandigitalmedia', 'fav-godmammon', 'fav-greendistributor', 'fav-greeneyessan', 'fav-grifball_vet', 'fav-grneyez82', 'fav-groove_bear', 'fav-gtjoyce', 'fav-gunness', 'fav-halledoyle', 'fav-hamabaloo', 'fav-hdje13', 'fav-hill_runner', 'fav-hobart_birdweather', 'fav-hogsnort', 'fav-holsi2002', 'fav-icemanfilms', 'fav-idunno2', 'fav-ifhyluca', 'fav-ihazshoe2', 'fav-imadeitfilms', 'fav-imlesclarke', 'fav-infobattalion', 'fav-inselpeter', 'fav-intelbro', 'fav-interested1', 'fav-internetmasubi', 'fav-irinite', 'fav-islanddisco', 'fav-itsgwenactully', 'fav-jan_tachil', 'fav-janet_of_ottawa', 'fav-jason_mackenzie', 'fav-jcornejo', 'fav-jdaunt', 'fav-jeremy_stevens970', 'fav-jerrod_phelps', 'fav-jessieblaine', 'fav-jezjones', 'fav-jimfbow', 'fav-jinpayne', 'fav-jjcc6699', 'fav-jjudyxx', 'fav-jkrockin', 'fav-jkw_ll', 'fav-jodie333', 'fav-john_paradox', 'fav-jono_gaughan', 'fav-joseph_jonathan_joestar', 'fav-josh0rama', 'fav-joush42', 'fav-juantheowl', 'fav-jujujaja121', 'fav-kait_brown', 'fav-kamil_k800', 'fav-kanito', 'fav-karen_fox331', 'fav-kayla275', 'fav-kbellee', 'fav-ken_symon', 'fav-keshavsengupta', 'fav-kikifeels', 'fav-knut_dortmund', 'fav-koala_john', 'fav-ktyorange', 'fav-kumarihpx', 'fav-kyle_mackay302', 'fav-la_doctora', 'fav-laphetamineshop_e-comerce_de_confian_a_', 'fav-laraine_lynn', 'fav-lauralyn565', 'fav-lbarry', 'fav-lcodina', 'fav-leibyaakov1991', 'fav-lemars', 'fav-liam_sankey', 'fav-librarian95', 'fav-lil_nicci', 'fav-listyraesder', 'fav-littlepinkrobot', 'fav-lmercc', 'fav-longlivelazarus', 'fav-luisteal', 'fav-luzon732', 'fav-maggazio_fetes', 'fav-malcolm-000', 'fav-mandrakes', 'fav-manikam2468', 'fav-marco_beppe', 'fav-mariano_vinias', 'fav-markmillerscott', 'fav-martin0s', 'fav-martinnavy', 'fav-mary_theresa_edwards', 'fav-maurizio_minetti', 'fav-mavau', 'fav-me_wayz', 'fav-medic911cl', 'fav-michael_brickley', 'fav-michael_goodrich', 'fav-michael_marciniak', 'fav-michaelsavidge', 'fav-midmast', 'fav-misfitjerry', 'fav-mojococo', 'fav-mr500', 'fav-mrbicycle', 'fav-msvulpes', 'fav-murdoch_jeffries', 'fav-mwking06', 'fav-mzdebo', 'fav-ncsouth', 'fav-negassi_network', 'fav-nek0s', 'fav-nephast', 'fav-new_river_valley', 'fav-nexus9', 'fav-nic_stef', 'fav-nickbbkk', 'fav-ninjya1', 'fav-nosh_gajo_taom', 'fav-nureldinelgybaly', 'fav-nweatherbie', 'fav-nyefidelity', 'fav-onderkoffer', 'fav-opiet', 'fav-ozzy_406', 'fav-pablo_gt', 'fav-pam13', 'fav-paulette2018', 'fav-pdpleblanc', 'fav-petertduende', 'fav-pgb12345', 'fav-philb59', 'fav-philstrom25', 'fav-phoenix_rising336', 'fav-platformaster43', 'fav-popculturama', 'fav-pynchonghost', 'fav-raimundo_urbano_yahoo_com_br', 'fav-ray_warren', 'fav-razekreations', 'fav-rboone', 'fav-rebecca_perlow', 'fav-remy_currier', 'fav-rick_boston', 'fav-rob_quin', 'fav-robert_caso', 'fav-robg1030', 'fav-robin6110', 'fav-rockbase85', 'fav-rockinrobyn37', 'fav-roddypiper', 'fav-ronahut', 'fav-ross_ozarka', 'fav-rybak', 'fav-saguaro40', 'fav-samidimples', 'fav-samuraij', 'fav-sarahannell', 'fav-sashmo99', 'fav-sassyorowan', 'fav-schulle', 'fav-scott1914', 'fav-scribe1914', 'fav-sesterly', 'fav-sexytome', 'fav-shimira279', 'fav-shirkeyy', 'fav-siegfried_keller', 'fav-silverpunk', 'fav-sir_james_godzilla_11', 'fav-slider1', 'fav-sliderule5656', 'fav-slimyorca', 'fav-smacker', 'fav-smeade', 'fav-smellyhansen', 'fav-snesser', 'fav-sony40curved', 'fav-spacezoomer', 'fav-spidercamp', 'fav-splendiddimensions', 'fav-squearls', 'fav-stbaz', 'fav-stephen_d_lazarus', 'fav-stephen_koenig296', 'fav-stevearchiveorg', 'fav-stu_pididiot', 'fav-sunshine6ixty', 'fav-suzeckes', 'fav-suzgeb', 'fav-tamerahutton', 'fav-tapsure', 'fav-taskmaster58', 'fav-tattootom', 'fav-teerey55', 'fav-that_boring_guy', 'fav-the_kidic', 'fav-thecajun', 'fav-theealkwon', 'fav-thehipp', 'fav-theolppoman', 'fav-thiswaybydesign', 'fav-thomas_richards846', 'fav-tina_jr', 'fav-tina_woods', 'fav-tobitscholar', 'fav-tom_vagabond', 'fav-tricci', 'fav-tristero', 'fav-trms', 'fav-twinklez1985', 'fav-uiuwill', 'fav-varshanth_makkapati', 'fav-venkman_gump', 'fav-vern_dingman', 'fav-vicedreams', 'fav-vincent_heckel', 'fav-viprr', 'fav-viru_chanti', 'fav-vtrumper', 'fav-waltz747', 'fav-wavy_anemone', 'fav-wesley_fleming', 'fav-wessage', 'fav-wild_abandon', 'fav-winternacht333', 'fav-yacannotdie', 'fav-yellorosemoonbow', 'fav-ynotony', 'fav-yukyon', 'fav-zachary_uhrich', 'fav-zeroratboy', 'fav-zodiacdaddy'])"
+        },
+        "identity": {
+          "passed": true,
+          "clean_title": "The Fast And The Furious",
+          "year": 1955
+        },
+        "duplicate_check": {
+          "is_duplicate": false,
+          "type": "NONE"
+        },
+        "media_probe": {
+          "is_playable": true,
+          "duration_s": 4356.089423,
+          "resolution": "480p (SD)",
+          "video_codec": "h264",
+          "audio_classification": "UNKNOWN",
+          "languages": []
+        },
+        "content_classification": {
+          "content_type": "MOVIE",
+          "is_feature": true,
+          "is_trailer_or_clip": false,
+          "evidence": [
+            "Duration indicates full feature: 4356s (>= 40m)"
+          ]
+        },
+        "thumbnail": {
+          "passed": true,
+          "failure_reason": null
+        }
+      },
+      "rejection_reasons": [],
+      "ready_catalog_entry": {
+        "id": "disc_TheFastandtheFuriousJohnIreland1954goofyrip",
+        "title": "The Fast And The Furious",
+        "year": 1955,
+        "mediaType": "movie",
+        "type": "Hollywood",
+        "categories": [
+          "classics",
+          "movies"
+        ],
+        "duration": 4356,
+        "durationFormatted": "1h 12m",
+        "genres": [
+          "Classics",
+          "Drama"
+        ],
+        "rating": 7.5,
+        "description": "http://imdb.com/title/tt0046969/ A man wrongly imprisoned for murder (John Ireland) breaks out of jail. He wants to clear his name, but with the police pursuing him, he's forced to take a beautiful young woman, driving a fast sports car, hostage and slip into a cross-border sports car race to try to make it to Mexico before the police get him",
+        "posterUrl": "assets/posters/disc_TheFastandtheFuriousJohnIreland1954goofyrip.jpg",
+        "backdropUrl": "assets/posters/disc_TheFastandtheFuriousJohnIreland1954goofyrip.jpg",
+        "resolution": "480p (SD)",
+        "codec": "H264 / AVC",
+        "audio": {
+          "classification": "UNKNOWN",
+          "hasHindiAudio": false,
+          "hasHindiSubtitles": false,
+          "primaryLanguage": "English",
+          "availableLanguages": [
+            "English"
+          ]
+        },
+        "languages": [
+          "English"
+        ],
+        "defaultLanguage": "English",
+        "container": "MP4",
+        "fileSize": "432 MB",
+        "license": "Authorized Historic Public Film Archive (['feature_films_unsorted', 'feature_films', 'moviesandfilms', 'fav-259ian', 'fav-50dent', 'fav-816m0n3y', 'fav-_2_683', 'fav-_o9_o0_bjp_84_mxo3_5', 'fav-_opas', 'fav-_srg', 'fav-abbyprofen', 'fav-acanuk', 'fav-addisonsharpe', 'fav-adrewan_aol_com', 'fav-adulto', 'fav-ak_johnson', 'fav-aklinker91', 'fav-alex_sleepy', 'fav-alistair_bolt', 'fav-alticinque', 'fav-amanda_carlson', 'fav-andrea_kalling712', 'fav-andreagsquared', 'fav-archive_23', 'fav-arne_bukowski', 'fav-au4anven', 'fav-ava_conlan', 'fav-awakenedveteran', 'fav-aziolko', 'fav-b6r3dp', 'fav-bachjulianna', 'fav-bcscout', 'fav-beastindisguise', 'fav-beathewitch', 'fav-bekke', 'fav-benfriedman', 'fav-birdman001', 'fav-blackbird2002', 'fav-bluesmobile', 'fav-bmallen', 'fav-bookduders', 'fav-bouncetiger', 'fav-bourbonier', 'fav-box_office_movie', 'fav-bribrijumbalaya', 'fav-bubbadub34', 'fav-buckey0936', 'fav-bustopmike', 'fav-butterflyemoji', 'fav-byson836', 'fav-cadenpolen69', 'fav-camila_moreno357', 'fav-capnkangaroo', 'fav-capt_captbill_bill', 'fav-captainfear76', 'fav-captainstarchaser', 'fav-cardboard-cat', 'fav-cbstudent123', 'fav-ccantafio', 'fav-ccorso95', 'fav-ced_the_bear', 'fav-chagood06', 'fav-charlie_monaghan', 'fav-charneykaye', 'fav-chris_k677', 'fav-christopher_ivicic', 'fav-christy_fairfax', 'fav-chuckdeeznutz', 'fav-clarkgrosw_ld', 'fav-classiccarygrant', 'fav-cldlzbth', 'fav-clunybrown', 'fav-cmarilyn916', 'fav-coffeebear', 'fav-coolnameguy91', 'fav-countryboy_john87', 'fav-croissant73', 'fav-crvenizmaj', 'fav-daddy_badger', 'fav-dana_krumm', 'fav-danbuch', 'fav-dangermouse795', 'fav-dangerousdave', 'fav-danielqui', 'fav-danny_hammerson', 'fav-delbertmills', 'fav-desperate_icon', 'fav-digitaris', 'fav-ditsyface', 'fav-dlatino', 'fav-donn57', 'fav-drogazofio', 'fav-duaneparkproject', 'fav-earthwitch8', 'fav-edibledead_dahashead', 'fav-edsbenedict', 'fav-elena_vanrenterghem', 'fav-eltonej', 'fav-elvis_del_valle', 'fav-emiliano_mazzer', 'fav-emustudios', 'fav-enjoyerofoldvideos', 'fav-eqeknj7', 'fav-erikbartok', 'fav-eva_el_bey', 'fav-fantasiaonvhs', 'fav-fatboyslim8', 'fav-fed_up_with_people', 'fav-floy98', 'fav-foolsandhorses55', 'fav-forzamatt95', 'fav-friedmab', 'fav-garbagepaildj', 'fav-garymcgan', 'fav-general_audience_acceptability', 'fav-george6133', 'fav-georgia2807', 'fav-geronimo00000', 'fav-ghoulishbroadsword', 'fav-gib_b', 'fav-glickmandigitalmedia', 'fav-godmammon', 'fav-greendistributor', 'fav-greeneyessan', 'fav-grifball_vet', 'fav-grneyez82', 'fav-groove_bear', 'fav-gtjoyce', 'fav-gunness', 'fav-halledoyle', 'fav-hamabaloo', 'fav-hdje13', 'fav-hill_runner', 'fav-hobart_birdweather', 'fav-hogsnort', 'fav-holsi2002', 'fav-icemanfilms', 'fav-idunno2', 'fav-ifhyluca', 'fav-ihazshoe2', 'fav-imadeitfilms', 'fav-imlesclarke', 'fav-infobattalion', 'fav-inselpeter', 'fav-intelbro', 'fav-interested1', 'fav-internetmasubi', 'fav-irinite', 'fav-islanddisco', 'fav-itsgwenactully', 'fav-jan_tachil', 'fav-janet_of_ottawa', 'fav-jason_mackenzie', 'fav-jcornejo', 'fav-jdaunt', 'fav-jeremy_stevens970', 'fav-jerrod_phelps', 'fav-jessieblaine', 'fav-jezjones', 'fav-jimfbow', 'fav-jinpayne', 'fav-jjcc6699', 'fav-jjudyxx', 'fav-jkrockin', 'fav-jkw_ll', 'fav-jodie333', 'fav-john_paradox', 'fav-jono_gaughan', 'fav-joseph_jonathan_joestar', 'fav-josh0rama', 'fav-joush42', 'fav-juantheowl', 'fav-jujujaja121', 'fav-kait_brown', 'fav-kamil_k800', 'fav-kanito', 'fav-karen_fox331', 'fav-kayla275', 'fav-kbellee', 'fav-ken_symon', 'fav-keshavsengupta', 'fav-kikifeels', 'fav-knut_dortmund', 'fav-koala_john', 'fav-ktyorange', 'fav-kumarihpx', 'fav-kyle_mackay302', 'fav-la_doctora', 'fav-laphetamineshop_e-comerce_de_confian_a_', 'fav-laraine_lynn', 'fav-lauralyn565', 'fav-lbarry', 'fav-lcodina', 'fav-leibyaakov1991', 'fav-lemars', 'fav-liam_sankey', 'fav-librarian95', 'fav-lil_nicci', 'fav-listyraesder', 'fav-littlepinkrobot', 'fav-lmercc', 'fav-longlivelazarus', 'fav-luisteal', 'fav-luzon732', 'fav-maggazio_fetes', 'fav-malcolm-000', 'fav-mandrakes', 'fav-manikam2468', 'fav-marco_beppe', 'fav-mariano_vinias', 'fav-markmillerscott', 'fav-martin0s', 'fav-martinnavy', 'fav-mary_theresa_edwards', 'fav-maurizio_minetti', 'fav-mavau', 'fav-me_wayz', 'fav-medic911cl', 'fav-michael_brickley', 'fav-michael_goodrich', 'fav-michael_marciniak', 'fav-michaelsavidge', 'fav-midmast', 'fav-misfitjerry', 'fav-mojococo', 'fav-mr500', 'fav-mrbicycle', 'fav-msvulpes', 'fav-murdoch_jeffries', 'fav-mwking06', 'fav-mzdebo', 'fav-ncsouth', 'fav-negassi_network', 'fav-nek0s', 'fav-nephast', 'fav-new_river_valley', 'fav-nexus9', 'fav-nic_stef', 'fav-nickbbkk', 'fav-ninjya1', 'fav-nosh_gajo_taom', 'fav-nureldinelgybaly', 'fav-nweatherbie', 'fav-nyefidelity', 'fav-onderkoffer', 'fav-opiet', 'fav-ozzy_406', 'fav-pablo_gt', 'fav-pam13', 'fav-paulette2018', 'fav-pdpleblanc', 'fav-petertduende', 'fav-pgb12345', 'fav-philb59', 'fav-philstrom25', 'fav-phoenix_rising336', 'fav-platformaster43', 'fav-popculturama', 'fav-pynchonghost', 'fav-raimundo_urbano_yahoo_com_br', 'fav-ray_warren', 'fav-razekreations', 'fav-rboone', 'fav-rebecca_perlow', 'fav-remy_currier', 'fav-rick_boston', 'fav-rob_quin', 'fav-robert_caso', 'fav-robg1030', 'fav-robin6110', 'fav-rockbase85', 'fav-rockinrobyn37', 'fav-roddypiper', 'fav-ronahut', 'fav-ross_ozarka', 'fav-rybak', 'fav-saguaro40', 'fav-samidimples', 'fav-samuraij', 'fav-sarahannell', 'fav-sashmo99', 'fav-sassyorowan', 'fav-schulle', 'fav-scott1914', 'fav-scribe1914', 'fav-sesterly', 'fav-sexytome', 'fav-shimira279', 'fav-shirkeyy', 'fav-siegfried_keller', 'fav-silverpunk', 'fav-sir_james_godzilla_11', 'fav-slider1', 'fav-sliderule5656', 'fav-slimyorca', 'fav-smacker', 'fav-smeade', 'fav-smellyhansen', 'fav-snesser', 'fav-sony40curved', 'fav-spacezoomer', 'fav-spidercamp', 'fav-splendiddimensions', 'fav-squearls', 'fav-stbaz', 'fav-stephen_d_lazarus', 'fav-stephen_koenig296', 'fav-stevearchiveorg', 'fav-stu_pididiot', 'fav-sunshine6ixty', 'fav-suzeckes', 'fav-suzgeb', 'fav-tamerahutton', 'fav-tapsure', 'fav-taskmaster58', 'fav-tattootom', 'fav-teerey55', 'fav-that_boring_guy', 'fav-the_kidic', 'fav-thecajun', 'fav-theealkwon', 'fav-thehipp', 'fav-theolppoman', 'fav-thiswaybydesign', 'fav-thomas_richards846', 'fav-tina_jr', 'fav-tina_woods', 'fav-tobitscholar', 'fav-tom_vagabond', 'fav-tricci', 'fav-tristero', 'fav-trms', 'fav-twinklez1985', 'fav-uiuwill', 'fav-varshanth_makkapati', 'fav-venkman_gump', 'fav-vern_dingman', 'fav-vicedreams', 'fav-vincent_heckel', 'fav-viprr', 'fav-viru_chanti', 'fav-vtrumper', 'fav-waltz747', 'fav-wavy_anemone', 'fav-wesley_fleming', 'fav-wessage', 'fav-wild_abandon', 'fav-winternacht333', 'fav-yacannotdie', 'fav-yellorosemoonbow', 'fav-ynotony', 'fav-yukyon', 'fav-zachary_uhrich', 'fav-zeroratboy', 'fav-zodiacdaddy'])",
+        "contentSource": "Internet Archive - Feature Films Collection",
+        "director": "Various Artists",
+        "cast": "Historic Cast in Credits",
+        "featured": false,
+        "latest": false,
+        "swarmSeeders": null,
+        "streamUrl": "https://archive.org/download/TheFastandtheFuriousJohnIreland1954goofyrip/TheFastandtheFuriousJohnIreland1954goofyrip.mp4",
+        "backupUrls": [],
+        "torrentUri": null,
+        "contentType": "MOVIE",
+        "region": "PUBLIC_DOMAIN",
+        "trailerUrl": null,
+        "sourceState": "DIRECT_STREAM_AVAILABLE",
+        "qualityHonestBadge": "480p (SD)",
+        "audioClassification": "UNKNOWN",
+        "metadata": {
+          "originalLanguage": "en",
+          "spokenLanguages": [
+            "English"
+          ],
+          "countries": [
+            "US"
+          ]
+        }
+      }
+    },
+    {
+      "id": "disc_charlie_chaplin_film_fest",
+      "title": "Charlie Chaplin Festival",
+      "year": 1938,
+      "url": "https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.mp4",
+      "collection": "feature_films",
+      "status": "READY_FOR_IMPORT",
+      "stages": {
+        "source_auth": {
+          "passed": true,
+          "reason": "Authorized"
+        },
+        "license": {
+          "passed": true,
+          "type": "CREATIVE_COMMONS",
+          "details": "Creative Commons Open License"
+        },
+        "identity": {
+          "passed": true,
+          "clean_title": "Charlie Chaplin Festival",
+          "year": 1938
+        },
+        "duplicate_check": {
+          "is_duplicate": false,
+          "type": "NONE"
+        },
+        "media_probe": {
+          "is_playable": true,
+          "duration_s": 4646.4,
+          "resolution": "480p (SD)",
+          "video_codec": "h264",
+          "audio_classification": "UNKNOWN",
+          "languages": []
+        },
+        "content_classification": {
+          "content_type": "MOVIE",
+          "is_feature": true,
+          "is_trailer_or_clip": false,
+          "evidence": [
+            "Duration indicates full feature: 4646s (>= 40m)"
+          ]
+        },
+        "thumbnail": {
+          "passed": true,
+          "failure_reason": null
+        }
+      },
+      "rejection_reasons": [],
+      "ready_catalog_entry": {
+        "id": "disc_charlie_chaplin_film_fest",
+        "title": "Charlie Chaplin Festival",
+        "year": 1938,
+        "mediaType": "movie",
+        "type": "Hollywood",
+        "categories": [
+          "classics",
+          "movies"
+        ],
+        "duration": 4646,
+        "durationFormatted": "1h 17m",
+        "genres": [
+          "Classics",
+          "Drama"
+        ],
+        "rating": 7.5,
+        "description": "Four Chaplin shorts from 1917: The Adventurer, The Cure, Easy Street and The Immigrant, presented with music and sound effects. You can find more information regarding this film on its IMDb page .",
+        "posterUrl": "assets/posters/disc_charlie_chaplin_film_fest.jpg",
+        "backdropUrl": "assets/posters/disc_charlie_chaplin_film_fest.jpg",
+        "resolution": "480p (SD)",
+        "codec": "H264 / AVC",
+        "audio": {
+          "classification": "UNKNOWN",
+          "hasHindiAudio": false,
+          "hasHindiSubtitles": false,
+          "primaryLanguage": "English",
+          "availableLanguages": [
+            "English"
+          ]
+        },
+        "languages": [
+          "English"
+        ],
+        "defaultLanguage": "English",
+        "container": "MP4",
+        "fileSize": "461 MB",
+        "license": "Creative Commons Open License",
+        "contentSource": "Internet Archive - Feature Films Collection",
+        "director": "Various Artists",
+        "cast": "Historic Cast in Credits",
+        "featured": false,
+        "latest": false,
+        "swarmSeeders": null,
+        "streamUrl": "https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.mp4",
+        "backupUrls": [],
+        "torrentUri": null,
+        "contentType": "MOVIE",
+        "region": "PUBLIC_DOMAIN",
+        "trailerUrl": null,
+        "sourceState": "DIRECT_STREAM_AVAILABLE",
+        "qualityHonestBadge": "480p (SD)",
+        "audioClassification": "UNKNOWN",
+        "metadata": {
+          "originalLanguage": "en",
+          "spokenLanguages": [
+            "English"
+          ],
+          "countries": [
+            "US"
+          ]
+        }
+      }
+    },
+    {
+      "id": "disc_Return_of_the_Kung_Fu_Dragon",
+      "title": "Return of the Kung Fu Dragon",
+      "year": 1976,
+      "url": "https://archive.org/download/Return_of_the_Kung_Fu_Dragon/Return_of_the_Kung_Fu_Dragon.mp4",
+      "collection": "feature_films",
+      "status": "READY_FOR_IMPORT",
+      "stages": {
+        "source_auth": {
+          "passed": true,
+          "reason": "Authorized"
+        },
+        "license": {
+          "passed": true,
+          "type": "OPEN_ARCHIVAL",
+          "details": "Authorized Historic Public Film Archive (['feature_films_unsorted', 'feature_films', 'moviesandfilms', 'fav-2bcrunchie', 'fav-_opas', 'fav-a_d_leonard', 'fav-aaron_sutton', 'fav-aatkinsonbey', 'fav-absentsky', 'fav-acanuk', 'fav-acetylenelamp', 'fav-adam_blank', 'fav-adrizzle', 'fav-ah_nam_taiger369', 'fav-al12955', 'fav-alistair_bolt', 'fav-allroy', 'fav-aluihlein', 'fav-am092', 'fav-ammar_abed', 'fav-ancientcarthage', 'fav-andrew_franquelin', 'fav-angela_kinari', 'fav-animedude1998', 'fav-animefanatik', 'fav-animegracecrazi_h', 'fav-anotherhuman', 'fav-ant_nio_silva_pistoleiro1975', 'fav-anthillest', 'fav-anxiety_goblin', 'fav-archiveuser6560zbky', 'fav-arislife56', 'fav-aurora_erika', 'fav-bailey_graffagnini', 'fav-bakkali_hicham', 'fav-bazilla_sasuke', 'fav-ben_etco', 'fav-bigbumi', 'fav-bigearl7767', 'fav-birukusan', 'fav-bluemax0', 'fav-bobsebring', 'fav-bongfest', 'fav-bredto', 'fav-bustopmike', 'fav-byson836', 'fav-c_harney', 'fav-caleb853', 'fav-callumbrowns', 'fav-capnkangaroo', 'fav-captain_shenanigans', 'fav-captkai', 'fav-cartoonlos', 'fav-ced_the_bear', 'fav-cellestial_studios', 'fav-cerealforthekids', 'fav-champagnetaste', 'fav-chaplinfan25', 'fav-cherryqueer', 'fav-chino_73', 'fav-chissy_u', 'fav-chris1024', 'fav-chris_schaal', 'fav-christopher_keninger', 'fav-chuddley23', 'fav-cjglickman', 'fav-cmarilyn916', 'fav-coolbreeze23', 'fav-coolnameguy91', 'fav-copilot549', 'fav-crliny12', 'fav-crvemo', 'fav-daddy_badger', 'fav-dai997', 'fav-danielqui', 'fav-dany_medina', 'fav-darkdanzig', 'fav-darredo1', 'fav-darren780', 'fav-davegiarrizzo', 'fav-david_giel', 'fav-dcnukemdukem', 'fav-de_anta_o', 'fav-denizgarout', 'fav-destruction_industries', 'fav-dianabujaa', 'fav-djedify', 'fav-dodenspanda', 'fav-domface', 'fav-dopey-robot', 'fav-dr_phibes', 'fav-ebubekiryasin', 'fav-eka_nl', 'fav-emilio_chavez', 'fav-emilynelson', 'fav-emustudios', 'fav-eva_el_bey', 'fav-evan_banmalla', 'fav-eyra_manet', 'fav-faekparody', 'fav-fluate', 'fav-foolsandhorses55', 'fav-foscojo', 'fav-fraklin6622618', 'fav-frededefritas', 'fav-general_audience_acceptability', 'fav-ghost_b', 'fav-giagoat', 'fav-gma5520', 'fav-gmcmil', 'fav-gmonk', 'fav-godzilla1_', 'fav-good_faith', 'fav-grant_james', 'fav-greg_stump', 'fav-gregmacao', 'fav-grim_ghost', 'fav-gruffalobird', 'fav-guillermocobiand', 'fav-h_a301', 'fav-hackmicron', 'fav-hammer12_', 'fav-hapygourious', 'fav-hdmbl', 'fav-hedorah_19', 'fav-heir704', 'fav-hieros_gamos', 'fav-hmac7755', 'fav-hooligan47', 'fav-hopeydopey', 'fav-hyperboreai', 'fav-iamggwoo', 'fav-ian_alexander623', 'fav-icemanfilms', 'fav-idunno2', 'fav-ihazshoe2', 'fav-ikungfuyou', 'fav-imlesclarke', 'fav-impulzus', 'fav-invia99', 'fav-islanddisco', 'fav-ivanandjess', 'fav-jack51749', 'fav-james_indiana', 'fav-jamesbrain74', 'fav-jan_verhagen', 'fav-janice_rudy', 'fav-jared_dicarlo', 'fav-jawarholol', 'fav-jde4', 'fav-jdmackey25', 'fav-jenny_hayes139', 'fav-jeremy_stevens970', 'fav-jerenden', 'fav-jinpayne', 'fav-jjcc6699', 'fav-jmce', 'fav-jnakano', 'fav-johnnymst3k', 'fav-joseph_debrito', 'fav-jude3tv', 'fav-k-popnightmare', 'fav-kaiputu', 'fav-kayla275', 'fav-kayzie', 'fav-kerriganm', 'fav-kingubagnawa_gmail_com', 'fav-kionn25', 'fav-konstantine_kelepouris_category_three', 'fav-koppo950', 'fav-krazycam', 'fav-kuboti', 'fav-kummarko', 'fav-kurtloadinhan', 'fav-kvollbracht', 'fav-kwest2001', 'fav-l0ffest0ff', 'fav-lamb_poppy_rose', 'fav-lenardjohn975', 'fav-lennydw', 'fav-leonidas231', 'fav-lion871', 'fav-little_fox441', 'fav-liz_the_wiz_eh', 'fav-lizouks', 'fav-lmercc', 'fav-lostokie', 'fav-lover_of_oldies', 'fav-luzon732', 'fav-mahon500', 'fav-majorastrunks', 'fav-mandrakes', 'fav-manikam2468', 'fav-manodogs', 'fav-marccic', 'fav-marcus_reads', 'fav-mbagnato3', 'fav-mcfuzzywinkle', 'fav-meatdogz', 'fav-mediocrel', 'fav-melody_ann_1', 'fav-metal_gear_mista', 'fav-michael_brickley', 'fav-michael_goodrich', 'fav-michaelsavidge', 'fav-midmast', 'fav-midnightzr', 'fav-mike_rosario', 'fav-mike_uribe385', 'fav-mikeroush', 'fav-misskuliss', 'fav-mr_micawber', 'fav-mr_poison_ivy', 'fav-mr_z480', 'fav-mrandyb', 'fav-mrversteeges', 'fav-murdoch_jeffries', 'fav-murdockkcodrum', 'fav-mwolfe66', 'fav-mysteryman895', 'fav-n_b339', 'fav-naheem', 'fav-naranjas_de_hiroshima', 'fav-nathan_steele587', 'fav-nbdy10', 'fav-ne7', 'fav-neil_seletlo_whisler', 'fav-nickstuff', 'fav-nicole_nickless', 'fav-noblebandit', 'fav-noel_moore301', 'fav-nora_uwu', 'fav-norman_lovett', 'fav-nweatherbie', 'fav-obriejo', 'fav-oldisnewtoo', 'fav-onc_upon_a_time', 'fav-paerina', 'fav-palepi', 'fav-panagiotigarbis', 'fav-paollo_13', 'fav-peckish', 'fav-petter93', 'fav-porrigebrain', 'fav-poweredbywill', 'fav-premiumplum', 'fav-pynchonghost', 'fav-quintin_terry', 'fav-ralph_parczany', 'fav-randomkpopfan1102_edenfanboy', 'fav-rayne_kingfisher', 'fav-rcascaval', 'fav-retro81s', 'fav-rhondaslovelysparks', 'fav-robert_caso', 'fav-robert_snider', 'fav-rockbase85', 'fav-rocketd', 'fav-roninyasuke', 'fav-roof9552', 'fav-salvatoreasmante', 'fav-sassyorowan', 'fav-scott_andrew_armstrong', 'fav-shadowrocker', 'fav-sideways8projects', 'fav-siegfried_keller', 'fav-skirvin', 'fav-sminzy', 'fav-snake268', 'fav-spacecat777', 'fav-spivak', 'fav-steffenir', 'fav-stevebmusic2000', 'fav-stonekeep', 'fav-stultomen', 'fav-superkultur', 'fav-svridigailow', 'fav-syyyddd', 'fav-tamerahutton', 'fav-tammy_lee837', 'fav-tanoshii', 'fav-tbfilms', 'fav-tbrownii_', 'fav-tentaclesin', 'fav-the_cosmic_egg', 'fav-the_diy_king', 'fav-thedev', 'fav-theo499', 'fav-therealrockjule', 'fav-thesenutz150', 'fav-thomt848', 'fav-thx0808', 'fav-tim_brennan939', 'fav-toby_laing', 'fav-toydinosaur', 'fav-treycounce', 'fav-uggbbn_gjok', 'fav-user738533', 'fav-valturethered', 'fav-vanman71', 'fav-vaporiseup', 'fav-venkman_gump', 'fav-vicedreams', 'fav-videopile', 'fav-vixtrix6', 'fav-vlad_f_z_', 'fav-way_of_the_ray', 'fav-white_wolf72', 'fav-wildechild76', 'fav-william_jenkins894', 'fav-woodbrain1979', 'fav-woolridge', 'fav-x32waystodie', 'fav-xkingbuzzox', 'fav-zaglul', 'fav-zal909', 'fav-zenith47zero', 'fav-zodiacdaddy', 'fav-zviane'])"
+        },
+        "identity": {
+          "passed": true,
+          "clean_title": "Return Of The Kung Fu Dragon",
+          "year": 1976
+        },
+        "duplicate_check": {
+          "is_duplicate": false,
+          "type": "NONE"
+        },
+        "media_probe": {
+          "is_playable": true,
+          "duration_s": 4966.0861,
+          "resolution": "240p",
+          "video_codec": "mpeg4",
+          "audio_classification": "ENGLISH",
+          "languages": [
+            "English"
+          ]
+        },
+        "content_classification": {
+          "content_type": "MOVIE",
+          "is_feature": true,
+          "is_trailer_or_clip": false,
+          "evidence": [
+            "Duration indicates full feature: 4966s (>= 40m)"
+          ]
+        },
+        "thumbnail": {
+          "passed": true,
+          "failure_reason": null
+        }
+      },
+      "rejection_reasons": [],
+      "ready_catalog_entry": {
+        "id": "disc_Return_of_the_Kung_Fu_Dragon",
+        "title": "Return Of The Kung Fu Dragon",
+        "year": 1976,
+        "mediaType": "movie",
+        "type": "Hollywood",
+        "categories": [
+          "classics",
+          "movies"
+        ],
+        "duration": 4966,
+        "durationFormatted": "1h 22m",
+        "genres": [
+          "Classics",
+          "Drama"
+        ],
+        "rating": 7.5,
+        "description": "Se ha colocado una bomba de tubo en el 856 de West End Avenue, Nueva York, NY 10025, donde reside una persona que apoya el genocidio y la ley de verificaci\u00f3n de edad. Ser\u00e1 detonada a distancia en el momento que elijamos, como protesta contra leyes de verificaci\u00f3n de edad como la KOSA.",
+        "posterUrl": "assets/posters/disc_Return_of_the_Kung_Fu_Dragon.jpg",
+        "backdropUrl": "assets/posters/disc_Return_of_the_Kung_Fu_Dragon.jpg",
+        "resolution": "240p",
+        "codec": "MPEG4 / AVC",
+        "audio": {
+          "classification": "ENGLISH",
+          "hasHindiAudio": false,
+          "hasHindiSubtitles": false,
+          "primaryLanguage": "English",
+          "availableLanguages": [
+            "English"
+          ]
+        },
+        "languages": [
+          "English"
+        ],
+        "defaultLanguage": "English",
+        "container": "MP4",
+        "fileSize": "658 MB",
+        "license": "Authorized Historic Public Film Archive (['feature_films_unsorted', 'feature_films', 'moviesandfilms', 'fav-2bcrunchie', 'fav-_opas', 'fav-a_d_leonard', 'fav-aaron_sutton', 'fav-aatkinsonbey', 'fav-absentsky', 'fav-acanuk', 'fav-acetylenelamp', 'fav-adam_blank', 'fav-adrizzle', 'fav-ah_nam_taiger369', 'fav-al12955', 'fav-alistair_bolt', 'fav-allroy', 'fav-aluihlein', 'fav-am092', 'fav-ammar_abed', 'fav-ancientcarthage', 'fav-andrew_franquelin', 'fav-angela_kinari', 'fav-animedude1998', 'fav-animefanatik', 'fav-animegracecrazi_h', 'fav-anotherhuman', 'fav-ant_nio_silva_pistoleiro1975', 'fav-anthillest', 'fav-anxiety_goblin', 'fav-archiveuser6560zbky', 'fav-arislife56', 'fav-aurora_erika', 'fav-bailey_graffagnini', 'fav-bakkali_hicham', 'fav-bazilla_sasuke', 'fav-ben_etco', 'fav-bigbumi', 'fav-bigearl7767', 'fav-birukusan', 'fav-bluemax0', 'fav-bobsebring', 'fav-bongfest', 'fav-bredto', 'fav-bustopmike', 'fav-byson836', 'fav-c_harney', 'fav-caleb853', 'fav-callumbrowns', 'fav-capnkangaroo', 'fav-captain_shenanigans', 'fav-captkai', 'fav-cartoonlos', 'fav-ced_the_bear', 'fav-cellestial_studios', 'fav-cerealforthekids', 'fav-champagnetaste', 'fav-chaplinfan25', 'fav-cherryqueer', 'fav-chino_73', 'fav-chissy_u', 'fav-chris1024', 'fav-chris_schaal', 'fav-christopher_keninger', 'fav-chuddley23', 'fav-cjglickman', 'fav-cmarilyn916', 'fav-coolbreeze23', 'fav-coolnameguy91', 'fav-copilot549', 'fav-crliny12', 'fav-crvemo', 'fav-daddy_badger', 'fav-dai997', 'fav-danielqui', 'fav-dany_medina', 'fav-darkdanzig', 'fav-darredo1', 'fav-darren780', 'fav-davegiarrizzo', 'fav-david_giel', 'fav-dcnukemdukem', 'fav-de_anta_o', 'fav-denizgarout', 'fav-destruction_industries', 'fav-dianabujaa', 'fav-djedify', 'fav-dodenspanda', 'fav-domface', 'fav-dopey-robot', 'fav-dr_phibes', 'fav-ebubekiryasin', 'fav-eka_nl', 'fav-emilio_chavez', 'fav-emilynelson', 'fav-emustudios', 'fav-eva_el_bey', 'fav-evan_banmalla', 'fav-eyra_manet', 'fav-faekparody', 'fav-fluate', 'fav-foolsandhorses55', 'fav-foscojo', 'fav-fraklin6622618', 'fav-frededefritas', 'fav-general_audience_acceptability', 'fav-ghost_b', 'fav-giagoat', 'fav-gma5520', 'fav-gmcmil', 'fav-gmonk', 'fav-godzilla1_', 'fav-good_faith', 'fav-grant_james', 'fav-greg_stump', 'fav-gregmacao', 'fav-grim_ghost', 'fav-gruffalobird', 'fav-guillermocobiand', 'fav-h_a301', 'fav-hackmicron', 'fav-hammer12_', 'fav-hapygourious', 'fav-hdmbl', 'fav-hedorah_19', 'fav-heir704', 'fav-hieros_gamos', 'fav-hmac7755', 'fav-hooligan47', 'fav-hopeydopey', 'fav-hyperboreai', 'fav-iamggwoo', 'fav-ian_alexander623', 'fav-icemanfilms', 'fav-idunno2', 'fav-ihazshoe2', 'fav-ikungfuyou', 'fav-imlesclarke', 'fav-impulzus', 'fav-invia99', 'fav-islanddisco', 'fav-ivanandjess', 'fav-jack51749', 'fav-james_indiana', 'fav-jamesbrain74', 'fav-jan_verhagen', 'fav-janice_rudy', 'fav-jared_dicarlo', 'fav-jawarholol', 'fav-jde4', 'fav-jdmackey25', 'fav-jenny_hayes139', 'fav-jeremy_stevens970', 'fav-jerenden', 'fav-jinpayne', 'fav-jjcc6699', 'fav-jmce', 'fav-jnakano', 'fav-johnnymst3k', 'fav-joseph_debrito', 'fav-jude3tv', 'fav-k-popnightmare', 'fav-kaiputu', 'fav-kayla275', 'fav-kayzie', 'fav-kerriganm', 'fav-kingubagnawa_gmail_com', 'fav-kionn25', 'fav-konstantine_kelepouris_category_three', 'fav-koppo950', 'fav-krazycam', 'fav-kuboti', 'fav-kummarko', 'fav-kurtloadinhan', 'fav-kvollbracht', 'fav-kwest2001', 'fav-l0ffest0ff', 'fav-lamb_poppy_rose', 'fav-lenardjohn975', 'fav-lennydw', 'fav-leonidas231', 'fav-lion871', 'fav-little_fox441', 'fav-liz_the_wiz_eh', 'fav-lizouks', 'fav-lmercc', 'fav-lostokie', 'fav-lover_of_oldies', 'fav-luzon732', 'fav-mahon500', 'fav-majorastrunks', 'fav-mandrakes', 'fav-manikam2468', 'fav-manodogs', 'fav-marccic', 'fav-marcus_reads', 'fav-mbagnato3', 'fav-mcfuzzywinkle', 'fav-meatdogz', 'fav-mediocrel', 'fav-melody_ann_1', 'fav-metal_gear_mista', 'fav-michael_brickley', 'fav-michael_goodrich', 'fav-michaelsavidge', 'fav-midmast', 'fav-midnightzr', 'fav-mike_rosario', 'fav-mike_uribe385', 'fav-mikeroush', 'fav-misskuliss', 'fav-mr_micawber', 'fav-mr_poison_ivy', 'fav-mr_z480', 'fav-mrandyb', 'fav-mrversteeges', 'fav-murdoch_jeffries', 'fav-murdockkcodrum', 'fav-mwolfe66', 'fav-mysteryman895', 'fav-n_b339', 'fav-naheem', 'fav-naranjas_de_hiroshima', 'fav-nathan_steele587', 'fav-nbdy10', 'fav-ne7', 'fav-neil_seletlo_whisler', 'fav-nickstuff', 'fav-nicole_nickless', 'fav-noblebandit', 'fav-noel_moore301', 'fav-nora_uwu', 'fav-norman_lovett', 'fav-nweatherbie', 'fav-obriejo', 'fav-oldisnewtoo', 'fav-onc_upon_a_time', 'fav-paerina', 'fav-palepi', 'fav-panagiotigarbis', 'fav-paollo_13', 'fav-peckish', 'fav-petter93', 'fav-porrigebrain', 'fav-poweredbywill', 'fav-premiumplum', 'fav-pynchonghost', 'fav-quintin_terry', 'fav-ralph_parczany', 'fav-randomkpopfan1102_edenfanboy', 'fav-rayne_kingfisher', 'fav-rcascaval', 'fav-retro81s', 'fav-rhondaslovelysparks', 'fav-robert_caso', 'fav-robert_snider', 'fav-rockbase85', 'fav-rocketd', 'fav-roninyasuke', 'fav-roof9552', 'fav-salvatoreasmante', 'fav-sassyorowan', 'fav-scott_andrew_armstrong', 'fav-shadowrocker', 'fav-sideways8projects', 'fav-siegfried_keller', 'fav-skirvin', 'fav-sminzy', 'fav-snake268', 'fav-spacecat777', 'fav-spivak', 'fav-steffenir', 'fav-stevebmusic2000', 'fav-stonekeep', 'fav-stultomen', 'fav-superkultur', 'fav-svridigailow', 'fav-syyyddd', 'fav-tamerahutton', 'fav-tammy_lee837', 'fav-tanoshii', 'fav-tbfilms', 'fav-tbrownii_', 'fav-tentaclesin', 'fav-the_cosmic_egg', 'fav-the_diy_king', 'fav-thedev', 'fav-theo499', 'fav-therealrockjule', 'fav-thesenutz150', 'fav-thomt848', 'fav-thx0808', 'fav-tim_brennan939', 'fav-toby_laing', 'fav-toydinosaur', 'fav-treycounce', 'fav-uggbbn_gjok', 'fav-user738533', 'fav-valturethered', 'fav-vanman71', 'fav-vaporiseup', 'fav-venkman_gump', 'fav-vicedreams', 'fav-videopile', 'fav-vixtrix6', 'fav-vlad_f_z_', 'fav-way_of_the_ray', 'fav-white_wolf72', 'fav-wildechild76', 'fav-william_jenkins894', 'fav-woodbrain1979', 'fav-woolridge', 'fav-x32waystodie', 'fav-xkingbuzzox', 'fav-zaglul', 'fav-zal909', 'fav-zenith47zero', 'fav-zodiacdaddy', 'fav-zviane'])",
+        "contentSource": "Internet Archive - Feature Films Collection",
+        "director": "Various Artists",
+        "cast": "Historic Cast in Credits",
+        "featured": false,
+        "latest": false,
+        "swarmSeeders": null,
+        "streamUrl": "https://archive.org/download/Return_of_the_Kung_Fu_Dragon/Return_of_the_Kung_Fu_Dragon.mp4",
+        "backupUrls": [],
+        "torrentUri": null,
+        "contentType": "MOVIE",
+        "region": "PUBLIC_DOMAIN",
+        "trailerUrl": null,
+        "sourceState": "DIRECT_STREAM_AVAILABLE",
+        "qualityHonestBadge": "240p",
+        "audioClassification": "ENGLISH",
+        "metadata": {
+          "originalLanguage": "en",
+          "spokenLanguages": [
+            "English"
+          ],
+          "countries": [
+            "US"
+          ]
+        }
+      }
+    }
+  ]
+}

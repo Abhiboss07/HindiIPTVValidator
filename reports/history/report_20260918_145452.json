@@ -1,0 +1,2806 @@
+{
+  "metrics": {
+    "total_movies": 99,
+    "movies_passed": 94,
+    "movies_failed": 0,
+    "movies_trailer_only": 5,
+    "movies_no_source": 0,
+    "movies_quality_mismatch": 0,
+    "movies_identity_unverified": 0,
+    "trailer_without_movie_count": 5,
+    "movies_4k_count": 0,
+    "movies_1080p_count": 27,
+    "movies_below_1080p": 67,
+    "total_series": 37,
+    "total_episodes": 0,
+    "episodes_passed": 0,
+    "episodes_failed": 0,
+    "episodes_no_stream": 0,
+    "episodes_wrong_mapping": 0,
+    "total_trailers": 0,
+    "trailers_passed": 0,
+    "trailers_failed": 0,
+    "total_channels": 0,
+    "channels_passed": 0,
+    "channels_failed": 0,
+    "total_posters": 99,
+    "posters_passed": 99,
+    "posters_failed": 0,
+    "pass_rate_pct": 94.9,
+    "failure_rate_pct": 0.0,
+    "timestamp": "2026-09-18 14:54:52 UTC"
+  },
+  "items": [
+    {
+      "category": "MOVIE",
+      "id": "vod_gladiator_2",
+      "title": "Gladiator II",
+      "parent_title": null,
+      "stream_url": null,
+      "source_state": "TRAILER_ONLY",
+      "http_status": 0,
+      "content_type": "",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "",
+      "claimed_audio": "",
+      "probed_audio": "",
+      "probed_duration_s": 0.0,
+      "status": "TRAILER_ONLY",
+      "failure_reason": "Only official trailer is available; full movie stream absent.",
+      "identity_status": "TRAILER_ONLY",
+      "poster_status": "PASS",
+      "resolution_tier": ""
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_pathaan",
+      "title": "Pathaan",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/pathaan_202304/lv_0_20230408003252.ia.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "English",
+          "Telugu",
+          "Tamil"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 8579.331995,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_interstellar",
+      "title": "Interstellar",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/interstellar-2014-english/Interstellar%20%282014%29%20-%20%5B1080%20BluRay%5D%20%7BH.264%20%2B%20AAC%20%2B%20eSub%7D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10144.0,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_kalki_2898_ad",
+      "title": "Kalki 2898 AD",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/kalki.-2898.-ad.-2024.-hindi.-web-dl.-720p/Kalki.2898.AD.2024.Hindi.WEB-DL.720p.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10558.037,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_furiosa",
+      "title": "Furiosa: A Mad Max Saga",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/furiosa.-a.-mad.-max.-saga.-2024.720p.-webrip.x-264.-aac-yts.-mx_202604/Furiosa.A.Mad.Max.Saga.2024.720p.WEBRip.x264.AAC-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 8891.776,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_shaitaan",
+      "title": "Shaitaan",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/shaitaan-2024-hindi-1080p-web-dl-esub-bolly-flix/Shaitaan%20%282024%29%20Hindi%201080p%20WEB-DL%20ESub%20%5BBollyFlix%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7688.875,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_dark_knight",
+      "title": "Iron Man",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/My-Favorite-Movies_202503/Iron%20Man%20%282008%29.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7561.727,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_spider_verse",
+      "title": "Spider-Man: Into the Spider-Verse",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/My-Favorite-Movies_202503/Spider-man%20Into%20The%20Spiderverse.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7010.026,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_stree_2",
+      "title": "Stree 2: Sarkate Ka Aatank",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/stree-1080p-2018/Stree%201080p%202018.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "English"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 7535.54,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_chhavaa",
+      "title": "Chhaava",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/chhaava-2025-hindi-full-movie-720p-hdtc-filmywap.pm/Chhaava_2025_Hindi_Full_Movie_720p_HDTC-%28Filmywap.pm%29.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "720p HD (1280x640)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9236.569903,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_alien_romulus",
+      "title": "Alien: Romulus",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/alien-romulus-2024_202408/Alien-%20Romulus%202024.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6661.708322,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_munjya",
+      "title": "Munjya",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/munjya-2024/Munjya%20%282024%29.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7104.516644,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_godzilla_x_kong",
+      "title": "Godzilla x Kong: The New Empire",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/My-Favorite-Movies_202503/Godzilla%20Vs%20Kong%202%20The%20New%20Empire.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1440p (2K)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6932.375,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_12th_fail",
+      "title": "12th Fail",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/12th-fail-2023-bollywood-hindi-movie-hevc-720p-esub/%F0%9F%8E%AC%2012th_Fail_%282023%29_Bollywood_Hindi_Movie_HEVC_720p_ESub.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (960x402)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 8878.186,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_dune_part_two",
+      "title": "Dune: Part Two",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/DuneTheCompleteSagaVimeo/Dune%20-%20The%20Complete%20Saga_vimeo_54644338.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10988.415,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_oppenheimer",
+      "title": "Oppenheimer",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/oppenheimer-2023-imax-1080p-blu-ray-hindi-english-ddp-5.1-h.-265-esubs-extra-flix.-pw/Oppenheimer%20%282023%29%20IMAX%201080p%20BluRay%20%5BHindi-English%5D%20DDP5.1%20H.265%20ESubs-ExtraFlix.Pw.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (1056x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10822.143453,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_leo",
+      "title": "Leo: Bloody Sweet",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/leo-2023-thalapathy-vijay-lokesh-kanagraj-full-movie-1080p/Leo%282023%29_%20Thalapathy%20Vijay%20_%20Lokesh%20Kanagraj%20_%20Full%20Movie%201080p.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Tamil",
+          "Telugu",
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9691.936,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_jawan",
+      "title": "Jawan",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/jawan.-2023.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx/Jawan.2023.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x804)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 10238.833333,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_salaar",
+      "title": "Salaar: Part 1 - Ceasefire",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/www.-5-movie-rulz.red-salaar-part-1-ceasefire-2023-720p-telugu-hq-hdrip-hevc-dd-/www.5MovieRulz.red%20-%20Salaar%20Part%201%20-%20Ceasefire%20%282023%29%20720p%20Telugu%20HQ%20HDRip%20-%20HEVC%20-%20%28DD%2B5.1%20-%20192kbps%20%26%20AAC%29%20-%20950MB%20-%20ESub.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10444.448,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_dunki",
+      "title": "Dunki",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/Dunki/Dunki.ia.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9608.874915,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_top_gun_maverick",
+      "title": "Top Gun: Maverick",
+      "parent_title": null,
+      "stream_url": null,
+      "source_state": "TRAILER_ONLY",
+      "http_status": 0,
+      "content_type": "",
+      "claimed_resolution": "Official Trailer",
+      "probed_resolution": "",
+      "claimed_audio": "",
+      "probed_audio": "",
+      "probed_duration_s": 0.0,
+      "status": "TRAILER_ONLY",
+      "failure_reason": "Only official trailer is available; full movie stream absent.",
+      "identity_status": "TRAILER_ONLY",
+      "poster_status": "PASS",
+      "resolution_tier": ""
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_fighter",
+      "title": "Fighter",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/fighter-1080p-2024_202602/Fighter%201080p%202024.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "English"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 9737.815,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_the_batman",
+      "title": "The Batman",
+      "parent_title": null,
+      "stream_url": null,
+      "source_state": "TRAILER_ONLY",
+      "http_status": 0,
+      "content_type": "",
+      "claimed_resolution": "Official Trailer",
+      "probed_resolution": "",
+      "claimed_audio": "",
+      "probed_audio": "",
+      "probed_duration_s": 0.0,
+      "status": "TRAILER_ONLY",
+      "failure_reason": "Only official trailer is available; full movie stream absent.",
+      "identity_status": "TRAILER_ONLY",
+      "poster_status": "PASS",
+      "resolution_tier": ""
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_gadar_2",
+      "title": "Gadar 2: The Katha Continues",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/gadar-ek-prem-katha-1080p-2001/Gadar%202%201080p%202023.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 9782.225,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_rrr",
+      "title": "RRR",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/rrr-2022-1080p-amzn-web-dl-x-265-telugu-dd-5.1/RRR%20%282022%29%201080p%20AMZN%20WEB-DL%20x265%20%5BTelugu%20%28DD%2B%205.1%20-.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (1152x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10746.848,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_avatar_way_of_water",
+      "title": "Avatar: The Way of Water",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/Popcornarchive-avatarTheWayOfWaternone3d/Popcornarchive-avatarTheWayOfWaternone3d.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "English",
+          "Hindi",
+          "Tamil",
+          "Telugu"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 11558.1,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_brahmastra",
+      "title": "Brahm\u0101stra: Part One \u2013 Shiva",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/brahmastra-part-one-shiva-2022/Brahm%C4%81stra%20Part%20One%20-%20Shiva%20%282022%29.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Telugu",
+          "Tamil",
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10135.52,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_tiger_3",
+      "title": "Tiger 3",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/tiger-3-4k-2023/Tiger%203%201080p%202023.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "English"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 9306.388,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_animal",
+      "title": "Animal",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/animal.-2023.-hindi.-mkv-movies-point-1080p-web-dl/Animal.2023.Hindi.%5BMkvMoviesPoint%5D%201080p%20WEB-DL.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 12078.418,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_spider_man_nwh",
+      "title": "Spider-Man: No Way Home",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/My-Favorite-Movies_202503/Spider-man%208%20No%20Way%20Home.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "English",
+          "Hindi",
+          "Tamil",
+          "Telugu"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 8889.92,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_avengers_endgame",
+      "title": "Avengers: Endgame",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/avengers-endgame_20210921/Avengers%20Endgame.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10865.896708,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_inception",
+      "title": "Inception",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/26.10.2001-inception/26.10.2001%20Inception.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9245.094603,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_bbb_720p",
+      "title": "Big Buck Bunny",
+      "parent_title": null,
+      "stream_url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "audio/mpegurl",
+      "claimed_resolution": "1080p Adaptive HLS",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "",
+      "probed_duration_s": 0.0,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_deadpool_wolverine",
+      "title": "Deadpool & Wolverine",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/deadpool-wolverine_HD_DUBLADO_SINCRONIZADO/Deadpool%20%26%20Wolverine.ia.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "English",
+          "Hindi",
+          "Tamil",
+          "Telugu"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7717.541667,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_sita_sings_blues",
+      "title": "Sita Sings the Blues",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/Sita_Sings_the_Blues/Sita_Sings_the_Blues_720p.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "720p HD (1280x720)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 4891.224563,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_his_girl_friday",
+      "title": "His Girl Friday",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/his_girl_friday/his_girl_friday.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (640x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 5504.565733,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_train_to_busan",
+      "title": "Train to Busan",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/train-to-busan-2016_202504/Train%20to%20Busan%202016%20720p%2010Bit%20HEVC%20BluRay%20Hindi%20AMZN%20Korean%20-%20ESubs%20-%20MoviesMod.Org.In.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Korean"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7088.073394,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_kgf_chapter_2",
+      "title": "K.G.F: Chapter 2",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/k.-g.-f-chapter-2-2022-hindi-dubbed-alu-1080p-z-flix-co/K.G.F%2FK.G.F%20Chapter%202%20%282022%29%20Hindi%20Dubbed%201080p_zFlix%20CO.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9880.850998,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_parasite",
+      "title": "Parasite",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/parasite-2019_202408/Parasite%20%282019%29%20%5BREPACK%5D%20%5B2160p%5D%20%5B4K%5D%20%5BBluRay%5D%20%5B7.1%5D%20%5BYTS.MX%5D/Parasite.2019.REPACK.2160p.4K.BluRay.x265.10bit.AAC7.1-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Korean"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7914.762302,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_pushpa_the_rise",
+      "title": "Pushpa: The Rise",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/filmy-4wap.xyz-pushpa-2021-new-south-hindi-full-movie-hevc-720p/Filmy4wap.xyz%20Pushpa%20%282021%29%20New%20South%20Hindi%20Full%20Movie%20HEVC%20720p.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "720p HD (1280x720)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10535.744,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_ip_man_4",
+      "title": "Ip Man 4: The Finale",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/cimaclub.comip.man.4.the.finale.2019.720p.bluray/%5BCimaClub.Com%5D-Ip.Man.4.The.Finale.2019.720p.Bluray.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Cantonese"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6310.993061,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_the_raid_redemption",
+      "title": "The Raid: Redemption",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/the-raid-redemption-2011/The%20Raid%20Redemption%20%282011%29.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Indonesian"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6064.192,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_ip_man",
+      "title": "Ip Man",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/ip-man-04/Ip%20man%2004.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Cantonese"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6314.048,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_peninsula",
+      "title": "Peninsula",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/peninsula_202107/peninsula.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Korean"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6954.771156,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_dangal",
+      "title": "Dangal",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/dangal-1080p-2016/Dangal%201080p%202016.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x804)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 9554.12333,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_john_wick_4",
+      "title": "John Wick: Chapter 4",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/john.-wick.-4.2023.-ts.-720p.-latino.-line.-mega-1080p/John.Wick.4.2023.Ts.720p.Latino.LINE.Mega1080p.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9715.968,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_shaolin_soccer",
+      "title": "Shaolin Soccer",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/stephenchowmoviescollection/Shaolin.Soccer.2001.1080p.BluRay.x264.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Cantonese"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6742.277208,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_the_outlaws",
+      "title": "The Outlaws",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/the-outlaws-2017/The-Outlaws-2017.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "720p HD (1280x720)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Korean",
+        "availableLanguages": [
+          "Korean",
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7270.725079,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_suzume",
+      "title": "Suzume",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/suzume.compressed/Suzume%28%E3%81%99%E3%81%9A%E3%82%81%E3%81%AE%E6%88%B8%E7%B7%A0%E3%81%BE%E3%82%8A%29.com.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7310.379,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_jujutsu_kaisen_0",
+      "title": "Jujutsu Kaisen 0",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/Jujutsu_Kaisen_0/Jujutsu%20Kaisen%200%201080p.ia.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Japanese",
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6295.378278,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_your_name",
+      "title": "Your Name (Kimi no Na wa)",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/your.-name.-2016.-1.8-gb.-1080p.-dual.-audio.-hin-eng.-vegamovies.-nl/Your.Name.%282016%29.1.8GB.1080p.Dual.Audio.%28Hin-Eng%29.Vegamovies.NL.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Japanese"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6400.2,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_the_roundup",
+      "title": "The Roundup",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/the.-roundup.-punishment.-2024.1080p.-blu-ray.-hindi.-hq.-dub.-1-xbet/The.Roundup.Punishment.2024.1080p.BluRay.HINDI.HQ.DUB.1XBET.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Korean"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6662.485,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_one_piece_film_red",
+      "title": "One Piece Film: Red",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/film-one-piece-film-red-2022-en-streaming-complet/Film%20One%20Piece%20Film%20-%20Red%20%282022%29%20en%20streaming%20complet.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Japanese"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6921.791995,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_stree",
+      "title": "Stree",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/Stree2018ReworkEnglishSinhalaSub/Stree.2018.EN%2BSI_ESub.1080p.HDTV.x264.AAC2.0-ColomboGMGS2.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7671.019,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_kung_fu_hustle",
+      "title": "Kung Fu Hustle",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/kung-fu-hustle-2004-1080-p-x-264-1-hardcoded-mp-4/Kung%20Fu%20Hustle%202004%201080P%20X264-1%20HARDCODED%20MP4.ia.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Cantonese"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 5966.001689,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_drishyam_2",
+      "title": "Drishyam 2",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/drishyam-2-2021-new-sout-full-movie-hindi-fan-dubbed-hindi-fan-dubbed-and-malaya/Drishyam%202%20%282021%29%20New%20Sout%20Full%20Movie%20Hindi%20Fan%20Dubbed%20%5BHindi%20%28Fan%20Dubbed%29%20And%20Malayalam%5D%20Esub%20HD%20%5BNo%20Ads%5D%20400mb.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9196.223991,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_kantara",
+      "title": "Kantara",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/tamil-vip.tv-kantara-2022-tamil-true-web-dl-1080p-avc-dd-5-1-640-kbps-aac-3-gb-esub-nq-360p/TamilVip.tv_-_Kantara_%282022%29_Tamil_TRUE_WEB_DL_1080p_AVC_%28DD%2B5_1_640Kbps_%26_AAC%29_3GB_ESub_NQ_360p.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 8872.16,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_3_idiots",
+      "title": "3 Idiots",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/3-idiots_202108/3_Idiots.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10267.522,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_kgf_chapter_1",
+      "title": "K.G.F: Chapter 1",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/k.-g.-f.-chapter-1-2018-hindi-org-1080p-web-dl/K.G.F.%20Chapter%201%20%282018%29%20Hindi%20ORG%201080p%20WEB%20DL.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9291.12,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_andhadhun",
+      "title": "Andhadhun",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/bollywoodmovies/Andhadhun%20%282018%29.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 8249.120998,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_baahubali_2",
+      "title": "Baahubali 2: The Conclusion",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/jeosdnsdnjw/MoviesGap.com_Baahubali%202%20The%20Conclusion%20%282017%29%20720p%20WEBRip%20x264.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 10084.167415,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_demon_slayer_mugen_train",
+      "title": "Demon Slayer: Mugen Train",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/demon-slayer-mugen-train-animation/Demon%20Slayer%20-%20Mugen%20Train%20%28Animation%29.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Japanese",
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7185.023,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_gangs_of_wasseypur",
+      "title": "Gangs of Wasseypur",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/gangs-of-wasseypur.-2012.-part-2.-blu-ray.-720p.-hevc.-hindi.-aac-5.1.x-264.-esub-hdhub-4u.-tv/Gangs%20of%20Wasseypur.2012.Part1.BluRay.720p.HEVC.Hindi.AAC5.1.x265.Esub-HDHub4u.Tv.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9615.416667,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_tumbbad",
+      "title": "Tumbbad",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/tumbbad-720p/Tumbbad720p.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6301.933,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_masoom_1983",
+      "title": "Masoom",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/masoom-1983-1080p-web-dl/Masoom%201983%20WEBDL-1080p.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 8278.0,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_baahubali_1",
+      "title": "Baahubali: The Beginning",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/baahubali-the-beginning-hindi-version/Baahubali_%20The%20Beginning%20%28Hindi%20Version%29.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9515.221333,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_do_bigha_zamin",
+      "title": "Do Bigha Zamin",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/do.-bigha.-zamin.-1953.576p.-mubi.-web-dl.x-264/Do.Bigha.Zamin.1953.576p.MUBI.WEB-DL.x264.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "576p SD (720x576)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7183.0,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_shershaah",
+      "title": "Uri: The Surgical Strike",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/uri-the-surgical-strike-1080p-2019/Uri%20The%20Surgical%20Strike%201080p%202019.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 8156.665,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_carnival_of_souls",
+      "title": "Carnival of Souls",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/CarnivalofSouls/CarnivalOfSouls.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 4979.5746,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_charade_1963",
+      "title": "Charade",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/charade-stanley-donen-1963-cary-grant-audrey-hepburn-comedie-policiere/Charade%20Stanley%20Donen%201963%20Cary%20Grant%20Audrey%20Hepburn%20Com%C3%A9die%20polici%C3%A8re.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "240p",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6524.6,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_house_on_haunted_hill",
+      "title": "House on Haunted Hill",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/house_on_haunted_hill_ipod/house_on_haunted_hill.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "720p HD (1280x720)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 1ch",
+      "probed_duration_s": 4483.21655,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_vikram_vedha",
+      "title": "Vikram Vedha",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/vikram-vedha-2017-tamil/Vikram%20Vedha%20%282017%29%20Tamil.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (854x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 8748.992,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_chhoti_si_baat",
+      "title": "Chhoti Si Baat",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/chhoti-si-baat-1975/chhoti%20si%20baat%201975.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "720p HD (1280x720)",
+      "probed_resolution": "240p",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7429.899917,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_avengers_doomsday_2026",
+      "title": "Avengers: Doomsday",
+      "parent_title": null,
+      "stream_url": null,
+      "source_state": "TRAILER_ONLY",
+      "http_status": 0,
+      "content_type": "",
+      "claimed_resolution": "Official Studio Teaser",
+      "probed_resolution": "",
+      "claimed_audio": "",
+      "probed_audio": "",
+      "probed_duration_s": 0.0,
+      "status": "TRAILER_ONLY",
+      "failure_reason": "Only official trailer is available; full movie stream absent.",
+      "identity_status": "TRAILER_ONLY",
+      "poster_status": "PASS",
+      "resolution_tier": ""
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_the_batman_part_ii_2026",
+      "title": "The Batman Part II",
+      "parent_title": null,
+      "stream_url": null,
+      "source_state": "TRAILER_ONLY",
+      "http_status": 0,
+      "content_type": "",
+      "claimed_resolution": "Official Studio Teaser",
+      "probed_resolution": "",
+      "claimed_audio": "",
+      "probed_audio": "",
+      "probed_duration_s": 0.0,
+      "status": "TRAILER_ONLY",
+      "failure_reason": "Only official trailer is available; full movie stream absent.",
+      "identity_status": "TRAILER_ONLY",
+      "poster_status": "PASS",
+      "resolution_tier": ""
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_dressed_to_kill",
+      "title": "Dressed to Kill (Sherlock Holmes)",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/dressed_to_kill/dressed_to_kill.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "720p HD (1280x720)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 4290.48,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_jaane_bhi_do_yaaro",
+      "title": "Jaane Bhi Do Yaaro",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/jaane-bhi-do-yaaro-1983-dvdrip/Jaane%20Bhi%20Do%20Yaaro%201983%20DVDrip.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "720p HD (1280x720)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6779.75,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "disc_TheFastandtheFuriousJohnIreland1954goofyrip",
+      "title": "The Fast And The Furious",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/TheFastandtheFuriousJohnIreland1954goofyrip/TheFastandtheFuriousJohnIreland1954goofyrip.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p (SD)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "UNKNOWN",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 4356.089423,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "disc_charlie_chaplin_film_fest",
+      "title": "Charlie Chaplin Festival",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p (SD)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "UNKNOWN",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 4646.4,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "IDENTITY_UNVERIFIED",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_night_of_the_living_dead",
+      "title": "Night of the Living Dead",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/Night.Of.The.Living.Dead_1080p/NightOfTheLivingDead_1080p.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x1080)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 5752.793995,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_fateh_2025",
+      "title": "Fateh",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/fateh-2025-720p-hindi-org-web-dl_202512/Fateh%20%282025%29%20720p%20Hindi%20ORG%20WEB%20DL.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (1146x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 7671.0,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "disc_Return_of_the_Kung_Fu_Dragon",
+      "title": "Return Of The Kung Fu Dragon",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/Return_of_the_Kung_Fu_Dragon/Return_of_the_Kung_Fu_Dragon.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "240p",
+      "probed_resolution": "240p",
+      "claimed_audio": {
+        "classification": "ENGLISH",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 4966.0861,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_game_changer_2025",
+      "title": "Game Changer",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/game.-changer.-2025-dual-audio-hindi-bingehub.fun-1080p-web-dl/Game.Changer.2025%20Dual%20Audio%20Hindi%20bingehub.fun%201080p%20WEB-DL.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (1152x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Telugu",
+        "availableLanguages": [
+          "Telugu",
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9469.268,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_badla_2019",
+      "title": "Badla",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/lagaan.-once.-upon.-a.-time.-in.-india.-2001.1080p.-webrip.x-264.-aac-5.1-yts.-mx_202406/Badla%20%282019%29%20%5B1080p%5D%20%5BWEBRip%5D%20%5B5.1%5D%20%5BYTS.MX%5D/Badla.2019.1080p.WEBRip.x264.AAC5.1-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x804)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 7038.464,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_laapataa_ladies_2024",
+      "title": "Laapataa Ladies",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/laapataa.-ladies/Laapataa.Ladies.mkv",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "application/octet-stream",
+      "claimed_resolution": "1080p FHD (1920x960)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "eac3 6ch",
+      "probed_duration_s": 7421.375,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_article_370_2024",
+      "title": "Article 370",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/article-370-2024-hindi-720p-web-dl-esub/Article%20370%20%282024%29%20Hindi%20720p%20WEB-DL%20ESub.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (1154x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9390.958333,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_mission_raniganj_2023",
+      "title": "Mission Raniganj",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/lagaan.-once.-upon.-a.-time.-in.-india.-2001.1080p.-webrip.x-264.-aac-5.1-yts.-mx_202406/Mission%20Raniganj%20%282023%29%20%5B1080p%5D%20%5BWEBRip%5D%20%5Bx265%5D%20%5B10bit%5D%20%5B5.1%5D%20%5BYTS.MX%5D/Mission.Raniganj.2023.1080p.WEBRip.x265.10bit.AAC5.1-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x804)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 8108.96,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "disc_VoyagetothePlanetofPrehistoricWomen",
+      "title": "Voyage To The Planet Of Prehistoric Women",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/VoyagetothePlanetofPrehistoricWomen/VoyagetothePlanetofPrehistoricWomen.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p (SD)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "UNKNOWN",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 4775.111995,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_airlift_2016",
+      "title": "Airlift",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/lagaan.-once.-upon.-a.-time.-in.-india.-2001.1080p.-webrip.x-264.-aac-5.1-yts.-mx_202406/Airlift%20%282016%29%20%5B1080p%5D%20%5BBluRay%5D%20%5B5.1%5D%20%5BYTS.MX%5D/Airlift.2016.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1904x816)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 7597.916667,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_rockstar_2011",
+      "title": "Rockstar",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/rockstar-2011/Rockstar%20%282011%29.mkv",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "application/octet-stream",
+      "claimed_resolution": "720p HD (1280x544)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9543.802,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_baby_2015",
+      "title": "Baby",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/lagaan.-once.-upon.-a.-time.-in.-india.-2001.1080p.-webrip.x-264.-aac-5.1-yts.-mx_202406/Baby%20%282015%29%20%5B1080p%5D%20%5BBluRay%5D%20%5B5.1%5D%20%5BYTS.MX%5D/Baby.2015.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1904x816)",
+      "probed_resolution": "720p (HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 9582.751,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_sky_force_2025",
+      "title": "Sky Force",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/sky-force-2025-hindi-mkv-movies-point.-golf-480p-webrip/Sky%20Force%202025%20Hindi%20%5BMkvMoviesPoint.Golf%5D%20480p%20WEBRip.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (720x300)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 6807.464554,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_holiday_2014",
+      "title": "Holiday: A Soldier Is Never Off Duty",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/lagaan.-once.-upon.-a.-time.-in.-india.-2001.1080p.-webrip.x-264.-aac-5.1-yts.-mx_202406/Holiday%20A%20Soldier%20Is%20Never%20Off%20Duty%20%282014%29%20%5B1080p%5D%20%5BBluRay%5D%20%5B5.1%5D%20%5BYTS.MX%5D/Holiday.A.Soldier.Is.Never.Off.Duty.2014.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x816)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 9644.88525,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_znmd_2011",
+      "title": "Zindagi Na Milegi Dobara",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/zindagi-na-milegi-dobara-2011-webhd-720-p-hritik-roshan-abhay-deol/Zindagi%20Na%20Milegi%20Dobara%202011%20WEBHD%20720P%20HRITIK%20ROSHAN%2C%20ABHAY%20DEOL.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (1130x480)",
+      "probed_resolution": "480p (SD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 8879.84,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_kesari_2019",
+      "title": "Kesari",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/lagaan.-once.-upon.-a.-time.-in.-india.-2001.1080p.-webrip.x-264.-aac-5.1-yts.-mx_202406/Kesari%20%282019%29%20%5B1080p%5D%20%5BBluRay%5D%20%5B5.1%5D%20%5BYTS.MX%5D/Kesari.2019.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x816)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 9229.568,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_taare_zameen_par_2007",
+      "title": "Taare Zameen Par",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/taare-zameen-par-hindi-educational-movie/Taare%20Zameen%20Par%20Hindi%20Educational%20Movie.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x816)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9752.743,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_ghajini_2008",
+      "title": "Ghajini",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/lagaan.-once.-upon.-a.-time.-in.-india.-2001.1080p.-webrip.x-264.-aac-5.1-yts.-mx_202406/Ghajini%20%282008%29%20%5BBluRay%5D%20%5B1080p%5D%20%5BYTS.LT%5D/Ghajini.2008.1080p.BluRay.x264-%5BYTS.LT%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x816)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 11105.761333,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_rang_de_basanti_2006",
+      "title": "Rang De Basanti",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/rang-de-basanti-hindi-educational-movie/Rang%20De%20Basanti%20Hindi%20Educational%20Movie.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "480p SD (720x320)",
+      "probed_resolution": "360p",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 2ch",
+      "probed_duration_s": 9960.925771,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "<1080p"
+    },
+    {
+      "category": "MOVIE",
+      "id": "vod_lagaan_2001",
+      "title": "Lagaan: Once Upon a Time in India",
+      "parent_title": null,
+      "stream_url": "https://archive.org/download/lagaan.-once.-upon.-a.-time.-in.-india.-2001.1080p.-webrip.x-264.-aac-5.1-yts.-mx_202406/Lagaan%20Once%20Upon%20A%20Time%20In%20India%20%282001%29%20%5B1080p%5D%20%5BWEBRip%5D%20%5B5.1%5D%20%5BYTS.MX%5D/Lagaan.Once.Upon.A.Time.In.India.2001.1080p.WEBRip.x264.AAC5.1-%5BYTS.MX%5D.mp4",
+      "source_state": "DIRECT_STREAM_AVAILABLE",
+      "http_status": 206,
+      "content_type": "video/mp4",
+      "claimed_resolution": "1080p FHD (1920x816)",
+      "probed_resolution": "1080p (Full HD)",
+      "claimed_audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "probed_audio": "aac 6ch",
+      "probed_duration_s": 13414.304,
+      "status": "PASS",
+      "failure_reason": null,
+      "identity_status": "PASS",
+      "poster_status": "PASS",
+      "resolution_tier": "1080p Full HD"
+    }
+  ]
+}
