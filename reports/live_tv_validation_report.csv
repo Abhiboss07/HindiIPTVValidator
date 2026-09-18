@@ -1,0 +1,890 @@
+ChannelId,Name,Country,Language,Category,Status,FailureReason,HttpStatus,Resolution,Codecs,DetectedAudio,SegmentsVerified,ResponseTimeMs,SourceUrl
+colors-hd-hindi,Colors HD (Hindi),IN,Hindi,ENTERTAINMENT,PASS,,200,256x144,"mp4a.40.2,avc1.4D400C,mp4a.40.2,avc1.4D4015,mp4a.40.2,avc1.4D401E",HINDI,True,550,https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8
+super-hungama-hindi,Super Hungama (Hindi),IN,Hindi,CARTOONS,PASS,,200,1048x576,"avc1.64001e,mp4a.40.2",HINDI,True,773,http://103.185.24.134:3001/SUPER-HUNGAMA/index.m3u8
+hungama-tv-hindi,Hungama TV (Hindi),IN,Hindi,CARTOONS,PASS,,200,1048x576,"avc1.64001e,mp4a.40.2",HINDI,True,791,http://103.185.24.134:3001/HUNGAMA/index.m3u8
+etv-bal-bharat-hindi,ETV Bal Bharat (Hindi),IN,Hindi,CARTOONS,PASS,,200,1048x576,"avc1.64001e,mp4a.40.2",HINDI,True,754,http://103.185.24.134:3001/ETV-BAL-BHARAT/index.m3u8
+sonic-nickelodeon-hindi,Sonic Nickelodeon (Hindi),IN,Hindi,CARTOONS,PASS,,200,1048x576,"avc1.64001e,mp4a.40.2",HINDI,True,1764,http://103.185.24.134:3001/SONIC/index.m3u8
+discovery-channel-hindi-hd,Discovery Channel HD (Hindi),IN,Hindi,INFOTAINMENT,FAIL,EMPTY_SOURCE_URL,,,,UNKNOWN,False,0,
+natgeo-hindi-hd,National Geographic HD (Hindi & English),IN,Hindi,INFOTAINMENT,PASS,,200,256x144,"mp4a.40.2,avc1.4D400C,mp4a.40.2,avc1.4D4015,mp4a.40.2,avc1.4D401E",HINDI,True,666,https://d1g8wgjurz8via.cloudfront.net/bpk-tv/NGCHD/default/NGCHD.m3u8
+animal-planet-hindi-hd,Animal Planet HD (Hindi),IN,Hindi,INFOTAINMENT,FAIL,EMPTY_SOURCE_URL,,,,UNKNOWN,False,0,
+disney-channel-hindi-hd,Disney Channel HD (Hindi),IN,Hindi,ENTERTAINMENT,FAIL,EMPTY_SOURCE_URL,,,,UNKNOWN,False,0,
+cartoon-network-hindi-hd,Cartoon Network HD (Hindi Dubbed),IN,Hindi,CARTOONS,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2",HINDI_DUBBED,True,4585,https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8
+nickelodeon-hindi-hd,Nickelodeon (Hindi),IN,Hindi,ENTERTAINMENT,PASS,,200,1048x576,"avc1.64001e,mp4a.40.2",HINDI,True,788,http://103.185.24.134:3001/NICK/index.m3u8
+sony-bbc-earth-hindi-hd,Sony BBC Earth HD (Hindi),IN,Hindi,INFOTAINMENT,PASS,,200,640x360,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,773,https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8
+tlc-hindi-hd,TLC HD (Hindi Lifestyle),IN,Hindi,INFOTAINMENT,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.5,avc1.640028,mp4a.40.5,avc1.4d401f,mp4a.40.5",HINDI,True,1573,https://dltiqboxjw21d.cloudfront.net/index.m3u8
+9x-jalwa,9X Jalwa Classic Hits HD,IN,Hindi,MUSIC,FAIL,SERVER_ERROR_HTTP_503,503,,,HINDI,False,300,https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8
+9xm-hd,9XM Bollywood Music HD,IN,Hindi,MOVIES,PASS,,200,1280x720,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,5694,https://9xjio.wiseplayout.com/9XM/master.m3u8
+abp-news-hd,ABP News HD Live,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2,avc1.4d4029,mp4a.40.2",HINDI,True,1257,https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8
+disney-xd-hd,Disney XD HD (Action & Toons),IN,Hindi,CARTOONS,PASS,,200,1280x720,"avc1.640028,mp4a.40.2",HINDI,True,1845,http://23.237.104.106:8080/USA_DISNEY_XD/index.m3u8
+disney-junior-hd,Disney Junior HD (Family & Kids),IN,Hindi,KIDS,PASS,,200,1280x720,"avc1.640028,mp4a.40.2",HINDI,True,1810,http://23.237.104.106:8080/USA_DISNEY_JUNIOR/index.m3u8
+nickelodeon-hd,Nickelodeon Toons (Hindi),IN,Hindi,CARTOONS,PASS,,200,1048x576,"avc1.64001e,mp4a.40.2",HINDI,True,778,http://103.185.24.134:3001/NICK/index.m3u8
+nick-jr-hd,Nick Jr. (Hindi & English),IN,Hindi,KIDS,PASS,,200,1048x576,"avc1.64001e,mp4a.40.2",HINDI,True,771,http://103.185.24.134:3001/NICK-JR/index.m3u8
+spongebob-247,SpongeBob SquarePants 24/7,IN,Hindi,ENTERTAINMENT,FAIL,VARIANT_FETCH_FAILED_HTTP_404,404,,,HINDI,False,1863,https://jmp2.uk/plu-63f87d057533d80008ab9549.m3u8
+ninja-turtles-247,Teenage Mutant Ninja Turtles 24/7,IN,Hindi,ENTERTAINMENT,FAIL,VARIANT_FETCH_FAILED_HTTP_404,404,,,HINDI,False,3017,https://jmp2.uk/plu-62619405c733e8000732d1fe.m3u8
+tom-and-jerry-hd,Tom and Jerry Classic Toons HD,IN,Hindi,CARTOONS,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2",HINDI,True,4521,https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8
+pokemon-tv-247,Pokémon TV Live 24/7,IN,Hindi,ENTERTAINMENT,FAIL,VARIANT_FETCH_FAILED_HTTP_404,404,,,HINDI,False,2620,https://jmp2.uk/plu-6683cd71a1d7ad000866ec6a.m3u8
+transformers-tv-247,Transformers Animated 24/7,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,1019,https://jmp2.uk/plu-63da36dea995710008727d4d.m3u8
+happykids-hd,HappyKids Toons & Movies HD,IN,Hindi,CARTOONS,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.5,avc1.640028,mp4a.40.5,avc1.4d401f,mp4a.40.5",HINDI,True,1734,https://dil9xdvretp0f.cloudfront.net/index.m3u8
+moonbug-kids-hd,Moonbug Kids HD (CoComelon & Blippi),IN,Hindi,KIDS,PASS,,200,426x240,"avc1.64001f,mp4a.40.2,avc1.64001e,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1840,https://moonbug-rokuus.amagi.tv/playlist.m3u8
+kartoon-channel-hd,Kartoon Channel HD Live,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,765,https://lightning-fnf-samsungaus.amagi.tv/playlist.m3u8
+lego-channel-hd,The LEGO Channel HD,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.5,avc1.640028,mp4a.40.5,avc1.4d401f,mp4a.40.5",HINDI,True,1563,https://dltiqboxjw21d.cloudfront.net/index.m3u8
+aajtak-hd,Aaj Tak HD Live,IN,Hindi,NEWS,PASS,,200,320x180,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,710,https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8
+ndtv-india,NDTV India HD,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d4029,mp4a.40.2",HINDI,True,564,https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8
+nasa-tv-uhd,NASA TV HD (Space),US,Hindi,ENTERTAINMENT,FAIL,VARIANT_FETCH_FAILED_HTTP_404,404,,,HINDI,False,1018,https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8
+al-jazeera-en,Al Jazeera World News HD,QA,Hindi,NEWS,FAIL,DNS_FAILURE,,,,HINDI,False,1,https://live-hls-web-aje.getaj.net/AJE/03.m3u8
+dw-english,DW News HD (Germany),DE,Hindi,NEWS,PASS,,200,480x270,"avc1.4D4020,mp4a.40.2,avc1.64002A,mp4a.40.2,avc1.640029,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,860,https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8
+makkah-live-hd,Holy Makkah 24/7 Live HD,SA,Hindi,ENTERTAINMENT,FAIL,DNS_FAILURE,,,,HINDI,False,5019,https://win.holymakkah.gov.sa/live/smil:makkah.smil/playlist.m3u8
+madinah-live-hd,Holy Madinah 24/7 Live HD,SA,Hindi,ENTERTAINMENT,FAIL,DNS_FAILURE,,,,HINDI,False,5011,https://win.holymakkah.gov.sa/live/smil:madinah.smil/playlist.m3u8
+air-vividh-bharati,AIR Vividh Bharati 102.8 FM,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"mp4a.40.29,mp4a.40.5",HINDI,True,1010,https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudioragam/hlspbaudioragam_Auto.m3u8
+air-gold-fm,AIR FM Gold Delhi,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,351,https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudiofmgold/hlspbaudiofmgold_Auto.m3u8
+air-rainbow-fm,AIR FM Rainbow,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,298,https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudiofmrainbow/hlspbaudiofmrainbow_Auto.m3u8
+live_ch_1,Bollywood HD Russia,IN,Hindi,MOVIES,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,3883,https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8
+live_ch_2,9X Jalwa,IN,Hindi,MUSIC,FAIL,SERVER_ERROR_HTTP_503,503,,,HINDI,False,245,https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8
+live_ch_3,Aastha Prime 1,IN,Hindi,DEVOTIONAL,PASS,,200,256x144,"h264,aac",HINDI,True,943,https://aasthaott.akamaized.net/110923/smil:aasthaprime1.smil/master.m3u8
+live_ch_4,DD Kashir,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,585,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/8a59a828e80c49d0958925950cec0204/index.m3u8
+live_ch_5,DD Haryana,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,552,https://d2lk5u59tns74c.cloudfront.net/out/v1/950fc69666474351bde0a32b9600c804/index.m3u8
+live_ch_6,DD National HD,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,606,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/40492a64c1db4a1385ba1a397d357d3a/index.m3u8
+live_ch_7,DD Manipur,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,636,https://d2lk5u59tns74c.cloudfront.net/out/v1/8b75afc6576f450e8f554b6c877681d2/index.m3u8
+live_ch_8,DD Himachal Pradesh,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,674,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/afd2e335b0ba40eb9bdf1096118c6ede/index.m3u8
+live_ch_9,DD Jharkhand,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,624,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/e8c3741f8c154d3185831f4e31777fb2/index.m3u8
+live_ch_10,DD News HD,IN,Hindi,NEWS,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,555,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/0811cd8c37ca4c409d5385a6cd2fa18b/index.m3u8
+live_ch_11,DD Sports SD,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,502,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8
+live_ch_12,ABP Ganga,IN,Hindi,ENTERTAINMENT,PASS,,200,320x180,"avc1.42c00d,mp4a.40.2,avc1.4d4029,mp4a.40.2",HINDI,True,734,https://d2l4ar6y3mrs4k.cloudfront.net/live-streaming/ganga-livetv/master.m3u8
+live_ch_13,DD Arun Prabha,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,570,https://d2lk5u59tns74c.cloudfront.net/out/v1/308556d9fd1246adb479ef012a39bbfe/index.m3u8
+live_ch_14,CNBC Awaaz,IN,Hindi,ENTERTAINMENT,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,740,https://n18syndication.akamaized.net/bpk-tv/CNBC_Awaaz_NW18_MOB/output01/master.m3u8
+live_ch_15,Colors MENA HD,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,989,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:colorsme.smil/playlist.m3u8
+live_ch_16,ABP News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2,avc1.4d4029,mp4a.40.2",HINDI,True,1677,https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8
+live_ch_17,Dheeran TV,IN,Hindi,ENTERTAINMENT,PASS,,200,720x576,"avc1.4d001e,mp4a.40.2",HINDI,True,969,https://live.we2live.in/dheerantv/dheerantv/playlist.m3u8
+live_ch_18,Bollywood Classic Romania,IN,Hindi,MOVIES,FAIL,HTML_RESPONSE_NOT_M3U8,200,,,HINDI,False,2411,https://flash1.bogulus1.cfd/boly/usergenr9j8s2t.m3u8
+live_ch_19,&TV International,IN,Hindi,ENTERTAINMENT,FAIL,INVALID_MANIFEST_NO_EXTM3U,200,,,HINDI,False,413,https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8
+live_ch_20,Colors HD,IN,Hindi,ENTERTAINMENT,FAIL,TIMEOUT,,,,HINDI,False,5005,http://59.103.38.46:8000/play/a00b/index.m3u8
+live_ch_21,Colors Rishtey Americas,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"h264,aac",HINDI,True,2795,https://manatv.akamaized.net/090823/smil:ristheyamerica.smil/playlist.m3u8
+live_ch_22,Aastha,IN,Hindi,DEVOTIONAL,PASS,,200,256x144,"h264,aac",HINDI,True,616,https://aasthaott.akamaized.net/110923/smil:aasthaprime1.smil/master.m3u8
+live_ch_23,Channel Divya,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,903,https://vg-pitaaratvlive.akamaized.net/v1/vglive-sk-906482/playlist.m3u8
+live_ch_24,Epic Crimes,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,2153,https://cc-wsuyg2uxeak04.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-wsuyg2uxeak04/master.m3u8
+live_ch_25,Epic Music Digital,IN,Hindi,MUSIC,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,2249,https://cc-3cyxq80qusspd.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-3cyxq80qusspd/playlist.m3u8
+live_ch_26,Awaaz India TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,611,https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8
+live_ch_27,Good News Today,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,2006,https://aajtaklive.vgcdn.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/3196cced-ce29-4219-9809-f07ccdaa02b9/vglive-sk-848805/master.m3u8
+live_ch_28,India Voice,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,636,https://d1msejlow1t3l4.cloudfront.net/fta/indiavoice/playlist.m3u8
+live_ch_29,INH 24x7,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,569,https://d1msejlow1t3l4.cloudfront.net/fta/inh24x7/playlist.m3u8
+live_ch_30,Jan TV,IN,Hindi,ENTERTAINMENT,PASS,,200,854x480,"avc1.66.31,mp4a.40.2,avc1.77.40,mp4a.40.2",HINDI,True,590,https://anjan.vstream.online/anjanorg/ngrp:anjan_hdall/playlist.m3u8
+live_ch_31,India TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,559,https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8
+live_ch_32,India TV Speed News,IN,Hindi,NEWS,PASS,,200,480x270,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,1076,https://cc-lyf4c0hwzg5dd.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-lyf4c0hwzg5dd/v1/vglive-sk-479089/main.m3u8
+live_ch_33,Janta TV,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2187,https://live.jswk.online/IK_RTPM/live/index.m3u8
+live_ch_34,India TV Aap Ki Adalat [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,480x270,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,1193,https://amg01550-amg01550c6-samsung-in-4679.playouts.now.amagi.tv/playlist/amg01550-indiatvfast-indiatvakasamsung-samsungin/playlist.m3u8
+live_ch_35,Hare Krsna TV,IN,Hindi,ENTERTAINMENT,PASS,,206,Direct Media,Unknown,HINDI,True,1230,https://hktv.harekrsnatv.com/HKTV/HKWebApp/manifest.mpd
+live_ch_36,Lighting Lives Blessing Nations TV South Asia (LLBN),IN,Hindi,ENTERTAINMENT,PASS,,200,320x240,"avc1.4d401f,mp4a.40.2",HINDI,True,2149,https://brightstar-southasia-pull-secure.akamaized.net/brightstarsouthasia/stream.m3u8
+live_ch_37,MTV,IN,Hindi,ENTERTAINMENT,PASS,,200,512x288,"h264,aac",HINDI,True,909,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:mtvindia.smil/playlist.m3u8
+live_ch_38,Epic TV Digital,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,1023,https://cc-czbq30x55knit.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-czbq30x55knit/DIYC/PMSL/IN10/Epic_TV_IN_B/Epic_TV_IN_B.m3u8
+live_ch_39,Anjan TV,IN,Hindi,ENTERTAINMENT,PASS,,200,854x480,"avc1.66.31,mp4a.40.2,avc1.77.40,mp4a.40.2",HINDI,True,594,https://anjan.vstream.online/anjanorg/ngrp:anjan_hdall/playlist.m3u8
+live_ch_40,DD Kisan,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,136,https://cdn-6.pishow.tv/live/9/master.m3u8
+live_ch_41,DD Urdu,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,143,https://cdn-4.pishow.tv/live/8/master.m3u8
+live_ch_42,22Scope News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,677,https://thelegitpro.in/HDlive/22scope/index.fmp4.m3u8
+live_ch_43,Adhyatm TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.640020,mp4a.40.2",HINDI,True,747,https://mumbai-edge.smartplaytv.in/AdhyatmTV/index.m3u8
+live_ch_44,ANB News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,1005,https://server.livelegitpro.in:9899/anbnews/anbnews/index.m3u8
+live_ch_45,Aryan TV National,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1118,https://mumt04.tangotv.in/m18aqlK4ARYANTVNATIONAL/index.m3u8
+live_ch_46,Hindi Khabar,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1067,https://mumt04.tangotv.in/m18aqlK4HINDIKHABAR/index.m3u8
+live_ch_47,E 24,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,543,https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zee24kalak/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/497f7199-758d-495d-9d2f-a5489231c428/14b7c8ec-16da-47f2-8d7e-5bbaec67b3e2/3.m3u8
+live_ch_48,Argus News,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1293,https://mumt05.tangotv.in/87NeALx2ARGUSNEWS/index.m3u8
+live_ch_49,Khabar Fast,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1115,https://mumt04.tangotv.in/m18aqlK4KHABARFAST/index.m3u8
+live_ch_50,Anand TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640029,mp4a.40.2",HINDI,True,759,https://live.legitpro.co.in/anandtv/index.m3u8
+live_ch_51,Jantantra TV,IN,Hindi,ENTERTAINMENT,PASS,,200,982x720,"avc1.42001f,mp4a.40.2",HINDI,True,1077,https://mumt05.tangotv.in/87NeALx2JANTANTRA/index.m3u8
+live_ch_52,Andy Haryana,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1227,https://mumt03.tangotv.in/Dsly5z3HANDYHARYANA/index.m3u8
+live_ch_53,Epic Music,IN,Hindi,MUSIC,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1550,https://cc-3cyxq80qusspd.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-3cyxq80qusspd/playlist.m3u8
+live_ch_54,Khabrain Abhi Tak,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1151,https://mumt05.tangotv.in/87NeALx2KHABRAINABHITAK/index.m3u8
+live_ch_55,Aadinath TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1234,https://mumt01.tangotv.in/O5aw8Zn3AADINATHTV/index.m3u8
+live_ch_56,DD News,IN,Hindi,NEWS,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,510,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/0811cd8c37ca4c409d5385a6cd2fa18b/index.m3u8
+live_ch_57,APN,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,4012,https://plus.gigabitcdn.net/live-stream/apna-punjab-H3sE/playlist.m3u8
+live_ch_58,Darshan 24,IN,Hindi,DEVOTIONAL,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1072,https://mumt05.tangotv.in/87NeALx2DARSHAN24/index.m3u8
+live_ch_59,Bharat24,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,913,https://cdn.ottlive.co.in/bharat24/index.fmp4.m3u8
+live_ch_60,Bharat Samachar,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1115,https://mumt03.tangotv.in/Dsly5z3HBHARATSAMACHAR/index.m3u8
+live_ch_61,IBC 24,IN,Hindi,ENTERTAINMENT,PASS,,200,982x720,"avc1.42001f,mp4a.40.2",HINDI,True,1099,https://mumt05.tangotv.in/87NeALx2IBC24/index.m3u8
+live_ch_62,Awakening TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1164,https://mumt03.tangotv.in/Dsly5z3HAWAKENINGTV/index.m3u8
+live_ch_63,Manoranjan Grand,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,138,https://cdn-1.pishow.tv/live/1011/master.m3u8
+live_ch_64,DD National SD,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,143,https://cdn-1.pishow.tv/live/11/master.m3u8
+live_ch_65,DD Uttar Pradesh,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,141,https://cdn-1.pishow.tv/live/36/master.m3u8
+live_ch_66,DD Madhya Pradesh,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,143,https://cdn-1.pishow.tv/live/31/master.m3u8
+live_ch_67,Dharm Sandesh,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,139,https://cdn-2.pishow.tv/live/1455/master.m3u8
+live_ch_68,DD Chhattisgarh,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,139,https://cdn-1.pishow.tv/live/15/master.m3u8
+live_ch_69,Aradana TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,168,https://cdn-1.pishow.tv/live/961/master.m3u8
+live_ch_70,B4U Music,IN,Hindi,MUSIC,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,171,https://cdn-2.pishow.tv/live/415/master.m3u8
+live_ch_71,DD Rajasthan,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,166,https://cdn-1.pishow.tv/live/34/master.m3u8
+live_ch_72,News 11,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,570,https://d1msejlow1t3l4.cloudfront.net/fta/news11bharat/playlist.m3u8
+live_ch_73,News18 Rajasthan,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,777,https://n18syndication.akamaized.net/bpk-tv/News18_Rajasthan_NW18_MOB/output01/master.m3u8
+live_ch_74,Republic Bharat,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,897,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicBharat.m3u8
+live_ch_75,News18 Bihar Jharkhand,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,773,https://n18syndication.akamaized.net/bpk-tv/News18_Bihar_Jharkhand_NW18_MOB/output01/master.m3u8
+live_ch_76,News18 Delhi NCR JK,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,750,https://n18syndication.akamaized.net/bpk-tv/News18_JKLH_NW18_MOB/output01/master.m3u8
+live_ch_77,News18 India,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.640028",HINDI,True,739,https://n18syndication.akamaized.net/bpk-tv/News18_India_NW18_MOB/output01/master.m3u8
+live_ch_78,News18 Madhya Pradesh/Chhattisgarh,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,825,https://n18syndication.akamaized.net/bpk-tv/News18_MP_Chhattisgarh_NW18_MOB/output01/master.m3u8
+live_ch_79,News18 Punjab/Haryana/Himachal,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,780,https://n18syndication.akamaized.net/bpk-tv/News18_Punjab_Haryana_HP_NW18_MOB/output01/master.m3u8
+live_ch_80,News18 Uttar Pradesh Uttarakhand,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,744,https://n18syndication.akamaized.net/bpk-tv/News18_UP_Uttarakhand_NW18_MOB/output01/master.m3u8
+live_ch_81,News Nation,IN,Hindi,NEWS,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,583,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6cd2f649739a45ca9de1daf81cc7d0f2/index.m3u8
+live_ch_82,Epic Bharat Digital,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,1162,https://cc-p1izg43bk7sj5.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-p1izg43bk7sj5/DIYC/PMSL/IN10/Nazara_IN_B/Nazara_IN_B.m3u8
+live_ch_83,Peace of Mind TV,IN,Hindi,DEVOTIONAL,PASS,,200,704x396,"h264,aac",HINDI,True,1120,https://yuppnimrestreammum.akamaized.net/181224/smil:peaceofmind.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_84,Channel Y [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42c01f,mp4a.40.2",HINDI,True,1979,http://cdn19.live247stream.com/channely/tv/playlist.m3u8
+live_ch_85,Fateh TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42c02a,mp4a.40.2",HINDI,True,726,https://ott.livelegitpro.in/fatehtv/fatehtv/index.m3u8
+live_ch_86,Sansad TV 2,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,176,https://cdn-2.pishow.tv/live/39/master.m3u8
+live_ch_87,Sansad TV 1 HD,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,545,https://d2lk5u59tns74c.cloudfront.net/out/v1/fff8f20221d5456e8922e689d71dedc3/index.m3u8
+live_ch_88,Food Food,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1043,https://mumt03.tangotv.in/Dsly5z3HFOODFOOD/index.m3u8
+live_ch_89,Sanskar Web TV,IN,Hindi,DEVOTIONAL,PASS,,200,720x1080,"avc1.64001F,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,681,https://deatfcv3xdvi3.cloudfront.net/out/v1/7a43dd2f64e34ec28da1b4bd6923251a/index.m3u8
+live_ch_90,Epic Kids Digital,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,2239,https://cc-t8lqe1o99pszu.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-t8lqe1o99pszu/playlist.m3u8
+live_ch_91,First India News,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1134,https://mumt03.tangotv.in/Dsly5z3H1STINDIANEWS/index.m3u8
+live_ch_92,Satsang TV,IN,Hindi,ENTERTAINMENT,PASS,,200,896x504,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,672,https://d2vfwvjxwtwq1t.cloudfront.net/out/v1/6b24239d5517495b986e7705490c6e65/index.m3u8
+live_ch_93,NDTV Madhya Pradesh Chhattisgarh,IN,Hindi,NEWS,PASS,,200,424x240,"avc1.4d0003,mp4a.40.2,avc1.4d0020,mp4a.40.2,avc1.4d001f,mp4a.40.2,avc1.4d0002,mp4a.40.2",HINDI,True,1630,https://ndtvregional.akamaized.net/hls/live/2102726-b/ndtvmpcg/master_1.m3u8
+live_ch_94,Sanskar TV,IN,Hindi,DEVOTIONAL,PASS,,200,896x504,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,784,https://d26idhjf0y1p2g.cloudfront.net/out/v1/cd66dd25b9774cb29943bab54bbf3e2f/index.m3u8
+live_ch_95,Satsang Web TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.64001F,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,719,https://d1ji7e9jbzm5g8.cloudfront.net/out/v1/769f22f64d80442889306b9c4abea63c/index.m3u8
+live_ch_96,Sanskar UK,IN,Hindi,DEVOTIONAL,PASS,,200,1280x720,"avc1.64001F,mp4a.40.2",HINDI,True,655,https://d34z4embz0hjf6.cloudfront.net/out/v1/7ac2789ff9a544a49337d1ffc54ce61c/index.m3u8
+live_ch_97,Sanskar USA,IN,Hindi,DEVOTIONAL,PASS,,200,1280x720,"avc1.64001F,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,727,https://d2netiedy8cz3x.cloudfront.net/out/v1/9bf6fa4ac8d6432cb98da13b121ba3c2/index.m3u8
+live_ch_98,Gangaur TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4D401F,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.640029,mp4a.40.2",HINDI,True,1189,https://pbgangaur.wiseplayout.com/Gangaur/master.m3u8
+live_ch_99,NDTV Rajasthan,IN,Hindi,NEWS,PASS,,200,424x240,"avc1.4d0003,mp4a.40.2,avc1.4d0020,mp4a.40.2,avc1.4d001f,mp4a.40.2,avc1.4d0002,mp4a.40.2",HINDI,True,1213,https://ndtvregional.akamaized.net/hls/live/2102726-b/ndtvraj/master_1.m3u8
+live_ch_100,ABN TV India,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1680,https://mediaserver.abnvideos.com/streams/abntvindia.m3u8
+live_ch_101,Shubh Cinema TV,IN,Hindi,MOVIES,PASS,,200,1280x720,"avc1.64001F,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,621,https://d393sxaxig6bax.cloudfront.net/out/v1/589cf2cf44bf42bb941e817a2240d62e/index.m3u8
+live_ch_102,Shemaroo TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"h264,aac",HINDI,True,899,https://airtelapp.shemaroo.com/shemarootv/smil:shemarootvadp.smil/playlist.m3u8
+live_ch_103,Goldmines 2,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,143,https://cdn-2.pishow.tv/live/1460/master.m3u8
+live_ch_104,Shubh TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.64001E,mp4a.40.2",HINDI,True,585,https://d2g1vdc6ozl2o8.cloudfront.net/out/v1/0a0dc7d7911b4fddbb4dfc963fdd4b9e/index.m3u8
+live_ch_105,Shemaroo Umang,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"h264,aac",HINDI,True,834,https://airtelapp.shemaroo.com/shemarooumang/smil:shemarooumangadp.smil/playlist.m3u8
+live_ch_106,Diya TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,14294,https://stream.diyatvinc.com/diya.m3u8
+live_ch_107,Bansal News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,2832,https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8
+live_ch_108,DD Bihar,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,178,https://cdn-4.pishow.tv/live/35/master.m3u8
+live_ch_109,Cnews Bharat,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1046,https://legitpro.co.in/cnews/cnews/index.fmp4.m3u8
+live_ch_110,Bhakti Sagar,IN,Hindi,DEVOTIONAL,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1079,https://mumt05.tangotv.in/87NeALx2BHAKTISAGAR/index.m3u8
+live_ch_111,Sony Entertainment Television HD,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"hvc1.1.4.L120.90,mp4a.40.2",HINDI,True,1706,http://38.96.178.205/SONYHD/index.m3u8
+live_ch_112,Apna Punjab TV,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,4019,https://plus.gigabitcdn.net/live-stream/apna-punjab-H3sE/playlist.m3u8
+live_ch_113,South Station,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.641028,mp4a.40.2,avc1.64101e,mp4a.40.2,avc1.64101f,mp4a.40.2,avc1.4d501e,mp4a.40.2",HINDI,True,1191,https://cc-yw7ztecy8do3q.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-yw7ztecy8do3q/SS_IN.m3u8
+live_ch_114,DD Uttarakhand,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,185,https://cdn-1.pishow.tv/live/17/master.m3u8
+live_ch_115,God Stands TV Hindi,IN,Hindi,ENTERTAINMENT,FAIL,DNS_FAILURE,,,,HINDI,False,7083,https://online.godstands.tv:5443/WebRTCApp/streams/HindiStreaming.m3u8
+live_ch_116,Gyandarshan,IN,Hindi,DEVOTIONAL,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,167,https://cdn-6.pishow.tv/live/14/master.m3u8
+live_ch_117,StarPlus HD (1080i),IN,Hindi,ENTERTAINMENT,FAIL,TIMEOUT,,,,HINDI,False,5004,http://202.70.146.135:8000/play/a009/index.m3u8
+live_ch_118,Sony Max 1,IN,Hindi,ENTERTAINMENT,FAIL,CONNECTION_REFUSED,,,,HINDI,False,72,http://103.159.180.34:5001/live/3418.m3u8
+live_ch_119,Jinvani Channel,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,137,https://cdn-2.pishow.tv/live/989/master.m3u8
+live_ch_120,Kashish News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1125,https://server.thelegitpro.in/kashishnews/kashishnews/index.m3u8
+live_ch_121,NDTV Good Times,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.64001f,mp4a.40.2,avc1.640020,mp4a.40.2,avc1.640003,mp4a.40.2",HINDI,True,1532,https://amg01448-samsungin-ndtvgoodtimes-samsungin-ad-gp.amagi.tv/playlist/amg01448-samsungin-ndtvgoodtimes-samsungin/playlist.m3u8
+live_ch_122,Maha Movie,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,136,https://cdn-6.pishow.tv/live/10007/master.m3u8
+live_ch_123,HNN 24x7,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,385,https://ott.livelegitpro.in:9899/hnnnews/hnnnews/tracks-v1/index.fmp4.m3u8
+live_ch_124,Taaza TV,IN,Hindi,ENTERTAINMENT,PASS,,200,720x576,"avc1.64001e,mp4a.40.2",HINDI,True,997,https://live.we2live.in/taazatv/live/playlist.m3u8
+live_ch_125,Star Sports 2 HD,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,2959,http://tvsen5.aynascope.net/cXPB2LKkErN9/index.m3u8
+live_ch_126,Kanshi TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01e,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,3950,https://live.kanshitv.co.uk/mobile/kanshitvkey.m3u8
+live_ch_127,Times Now Navbharat,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,926,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/TimesNowNavbharat.m3u8
+live_ch_128,Hosanna TV Hindi,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,2816,https://asia.mslivestream.net/mslive/bfba54c5c96a6359e2da0ca35f4998af.sdp/playlist.m3u8
+live_ch_129,GurSikh Sabha TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1078,http://cdn12.henico.net:8080/live/gsctv/index.m3u8
+live_ch_130,Times Now [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,511,https://dztlhgid9me95.cloudfront.net/live-tv/Vidgyor/timesnow/timesnow_master.m3u8
+live_ch_131,Total Bhakti,IN,Hindi,DEVOTIONAL,PASS,,200,1280x720,"avc1.64001F,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,517,https://d34z4embz0hjf6.cloudfront.net/out/v1/d55b3323a9f142638f897378f0b526fe/index.m3u8
+live_ch_132,Travelxp HD [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1003,https://amg00416-amg00416c9-samsung-in-4882.playouts.now.amagi.tv/playlist/amg00416-travelxp-travelxphd-samsungin/playlist.m3u8
+live_ch_133,9XM,IN,Hindi,MUSIC,PASS,,200,1280x720,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,4707,https://9xjio.wiseplayout.com/9XM/master.m3u8
+live_ch_134,MBC Bollywood [Geo-blocked],IN,Hindi,MOVIES,PASS,,200,1920x1080,"avc1.640015,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.64001E,mp4a.40.2",HINDI,True,1893,https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-bollywood/546eb40d7dcf9a209255dd2496903764/index.m3u8
+live_ch_135,India Daily Live,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,1200,https://indiadaily.ottlive.co.in/indiadailylive/index.m3u8
+live_ch_136,Ind 24,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,491,https://mumt06.tangotv.in/qYyB8fXVIND24/index.m3u8
+live_ch_137,Travelxp 4K HDR [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,3840x2160,"hev1.1.6.L123.B0,hev1.1.6.L153.B0,hev1.1.6.L150.B0",MULTI_LANGUAGE,True,916,https://deltatesttatasky.akamaized.net/out/i/968284.m3u8
+live_ch_138,TV9 Bharatvarsh,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,652,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8
+live_ch_139,Utsav Plus,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,1243,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/UtsavPlus.m3u8
+live_ch_140,Utsav Bharat,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,945,https://d1taaads3ztvmu.cloudfront.net/120723/smil:lifeokuk.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_141,Ishwar Bhakti TV,IN,Hindi,DEVOTIONAL,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2428,https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8
+live_ch_142,Mercy TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.64002a,mp4a.40.2",HINDI,True,829,https://5dd3981940faa.streamlock.net/mercytv/mercytv/playlist.m3u8
+live_ch_143,Kaumudy TV,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,1437,https://oqgdrkxby4rm-hls-live.5centscdn.com/kaumudytv/live.stream/playlist.m3u8
+live_ch_144,Unite8 Sports 1,IN,Hindi,ENTERTAINMENT,FAIL,TIMEOUT,,,,HINDI,False,5006,http://59.103.38.46:8000/play/a125/index.m3u8
+live_ch_145,MH One Shraddha,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1076,https://mumt01.tangotv.in/O5aw8Zn3MHONESHRADDHA/index.m3u8
+live_ch_146,Hyder TV,IN,Hindi,ENTERTAINMENT,FAIL,NETWORK_ERROR_ConnectionResetError,,,,HINDI,False,550,https://cdn.live247stream.com/hyder/tv/playlist.m3u8
+live_ch_147,MTA2 Europe,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,2645,https://chlivemta1.akamaized.net/hls/live/2008145/mta2/playlist.m3u8
+live_ch_148,WOW Kidz,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"h264,aac",HINDI,True,2188,https://yuppparoriglin.akamaized.net/181224/smil:wowkidztam.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_149,Namdhari [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1370,https://namdhari.tv/live/sbs1.m3u8
+live_ch_150,Nagaland TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,352,https://mumt06.tangotv.in/qYyB8fXVNAGALANDTV/index.m3u8
+live_ch_151,Music India [Not 24/7],IN,Hindi,MUSIC,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,140,https://cdn-2.pishow.tv/live/226/master.m3u8
+live_ch_152,Zee Cinema,IN,Hindi,MOVIES,PASS,,206,Direct Media,Unknown,HINDI,True,936,https://ev-eu-hw-fast-mpd.starzplayarabia.com/Zee_Cinema/dash/drm/index.mpd
+live_ch_153,Zee Business,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,387,https://dwby15d04agvq.cloudfront.net/index_5.m3u8
+live_ch_154,Weatherspy,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d0029,mp4a.40.2",HINDI,True,1816,https://jukin-weatherspy-2-in.samsung.wurl.tv/playlist.m3u8
+live_ch_155,Zee Bharat,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.64001f,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,867,https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeehindustan/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/96bbab12-582e-4540-af70-510ab6824581/main.m3u8
+live_ch_156,Zee Cine Classic,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.641028,mp4a.40.2,avc1.4d5015,mp4a.40.2,avc1.64101e,mp4a.40.2,avc1.64101f,mp4a.40.2,avc1.4d501e,mp4a.40.2",HINDI,True,1395,https://amg00862-amg00862c8-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c8-amgplt0173/playlist.m3u8
+live_ch_157,Zee Comedy Nation,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.641028,mp4a.40.2,avc1.4d5015,mp4a.40.2,avc1.64101e,mp4a.40.2,avc1.64101f,mp4a.40.2,avc1.4d501e,mp4a.40.2",HINDI,True,1285,https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c5-amgplt0173/playlist.m3u8
+live_ch_158,Zee Dil Se,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.641028,mp4a.40.2,avc1.4d5015,mp4a.40.2,avc1.64101e,mp4a.40.2,avc1.64101f,mp4a.40.2,avc1.4d501e,mp4a.40.2",HINDI,True,1476,https://amg00862-amg00862c6-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c6-amgplt0173/playlist.m3u8
+live_ch_159,Zee Uttar Pradesh/Uttarakhand,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,429,https://duw35ict5q7th.cloudfront.net/index_3.m3u8
+live_ch_160,Zee News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,405,https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8
+live_ch_161,MTA7 Asia,IN,Hindi,ENTERTAINMENT,FAIL,VARIANT_FETCH_FAILED_HTTP_404,404,,,HINDI,False,1366,https://livemtaasia.akamaized.net/hls/live/2039224/mtaasia2/playlist.m3u8
+live_ch_162,Zee Delhi NCR Haryana,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.64001f,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,964,https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeedelhincr/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/cc483a15-1b39-4642-872d-5d08d362ed01/main.m3u8
+live_ch_163,Zee Horror Nights,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.641028,mp4a.40.2,avc1.4d5015,mp4a.40.2,avc1.64101e,mp4a.40.2,avc1.64101f,mp4a.40.2,avc1.4d501e,mp4a.40.2",HINDI,True,1273,https://amg00862-amg00862c7-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c7-amgplt0173/playlist.m3u8
+live_ch_164,Zee Madhya Pradesh Chhattisgarh,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.64001f,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,858,https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeemadhyachhattisgarh/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/2ab17056-6187-4f0e-a34d-f436ac479d6c/main.m3u8
+live_ch_165,YRF Music,IN,Hindi,MUSIC,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.640029,mp4a.40.2,avc1.42e01f,mp4a.40.2",HINDI,True,1650,https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-yrfmusic-xiaomi/playlist.m3u8
+live_ch_166,Zee Rajasthan,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.64001f,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1198,https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeerajashthannews/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/8e864b9a-1681-41a0-99a6-387490bc5b24/main.m3u8
+live_ch_167,9XM,IN,Hindi,MUSIC,PASS,,200,1280x720,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,4853,https://9xjio.wiseplayout.com/9XM/master.m3u8
+live_ch_168,Zoom,IN,Hindi,ENTERTAINMENT,PASS,,200,1024x576,"avc1.4d401e,mp4a.40.2",HINDI,True,2645,http://stream.mcquack.net/377/index.m3u8
+live_ch_169,9XM,IN,Hindi,MUSIC,PASS,,200,1280x720,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,5275,https://9xjio.wiseplayout.com/9XM/master.m3u8
+live_ch_170,Zee South Flix,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.641028,mp4a.40.2,avc1.4d5015,mp4a.40.2,avc1.64101e,mp4a.40.2,avc1.64101f,mp4a.40.2,avc1.4d501e,mp4a.40.2",HINDI,True,1196,https://amg00862-amg00862c9-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c9-amgplt0173/playlist.m3u8
+live_ch_171,Aaj Tak,IN,Hindi,NEWS,PASS,,200,320x180,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,584,https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8
+live_ch_172,Aamar Bangla,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.64001f,mp4a.40.2",HINDI,True,1344,https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/amarbanglatv.stream/playlist.m3u8
+live_ch_173,Aaj Tak,IN,Hindi,NEWS,PASS,,200,320x180,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,526,https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8
+live_ch_174,Aastha Telugu,IN,Hindi,DEVOTIONAL,PASS,,200,256x144,"h264,aac",HINDI,True,983,https://aasthaott.akamaized.net/110923/smil:aasthatelugu.smil/playlist.m3u8
+live_ch_175,Zee Cinema ME [Geo-blocked],IN,Hindi,MOVIES,PASS,,206,Direct Media,Unknown,HINDI,True,196,https://ev-eu-hw-fast-mpd.starzplayarabia.com/Zee_Cinema/dash/drm/index.mpd
+live_ch_176,ABP Ananda,IN,Hindi,ENTERTAINMENT,PASS,,200,320x180,"avc1.4d4015,mp4a.40.2,avc1.4d4028,mp4a.40.2,avc1.42c00d,mp4a.40.2",HINDI,True,639,https://d2l4ar6y3mrs4k.cloudfront.net/live-streaming/ananda-livetv/master.m3u8
+live_ch_177,Aastha Bhajan,IN,Hindi,DEVOTIONAL,PASS,,200,256x144,"h264,aac",HINDI,True,1281,https://aasthaott.akamaized.net/110923/smil:bhajan.smil/playlist.m3u8
+live_ch_178,Aastha Gujarati,IN,Hindi,DEVOTIONAL,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1114,https://mumt04.tangotv.in/m18aqlK4AASTHAGUJARATI/index.m3u8
+live_ch_179,Aastha Tamil,IN,Hindi,DEVOTIONAL,PASS,,200,256x144,"h264,aac",HINDI,True,1013,https://aasthaott.akamaized.net/110923/smil:aasthatamil.smil/playlist.m3u8
+live_ch_180,ABP Asmita,IN,Hindi,ENTERTAINMENT,PASS,,200,320x180,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d4029,mp4a.40.2",HINDI,True,622,https://d2l4ar6y3mrs4k.cloudfront.net/live-streaming/asmita-livetv/master.m3u8
+live_ch_181,ABP Majha,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1697,https://yupprestreamliveus.akamaized.net/vglive-sk-355289/majha/master.m3u8
+live_ch_182,ABP News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2,avc1.4d4029,mp4a.40.2",HINDI,True,1428,https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8
+live_ch_183,Amrita TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d400d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,723,https://ddash74r36xqp.cloudfront.net/master.m3u8
+live_ch_184,Angel TV Africa,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1541,https://janya-digimix.akamaized.net/vglive-sk-904559/africa/ngrp:angelafrica_all/playlist.m3u8
+live_ch_185,Angel TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1028,https://janya-digimix.akamaized.net/vglive-sk-394914/india/ngrp:angelindia_all/playlist.m3u8
+live_ch_186,Angel TV America,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2",HINDI,True,5481,https://janya-digimix.akamaized.net/vglive-sk-374850/america/ngrp:angelamerica_all/playlist.m3u8
+live_ch_187,Angel TV Arabia,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,3985,https://janya-digimix.akamaized.net/vglive-sk-213167/arabia/ngrp:angelarabia_all/playlist.m3u8
+live_ch_188,Angel TV Australia,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,3933,https://janya-digimix.akamaized.net/vglive-sk-310787/australia/ngrp:angelaustralia_all/playlist.m3u8
+live_ch_189,Angel TV Chinese,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,2175,https://janya-digimix.akamaized.net/vglive-sk-999451/chinese/ngrp:angelchinese_all/playlist.m3u8
+live_ch_190,Angel TV Europe,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,3630,https://janya-digimix.akamaized.net/vglive-sk-512011/europe/ngrp:angeleurope_all/playlist.m3u8
+live_ch_191,Angel TV Hebrew,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1146,https://janya-digimix.akamaized.net/vglive-sk-150533/hebrew/ngrp:angelhebrew_all/playlist.m3u8
+live_ch_192,Angel TV Nepal,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4016,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d4020,mp4a.40.2",HINDI,True,1409,https://janya-digimix.akamaized.net/vglive-sk-109639/nepali/ngrp:angelnepali_all/playlist.m3u8
+live_ch_193,Angel TV Indonesia,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1950,https://janya-digimix.akamaized.net/vglive-sk-234616/indonesia/ngrp:angelindonesia_all/playlist.m3u8
+live_ch_194,Angel TV Indo-China,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,2173,https://janya-digimix.akamaized.net/vglive-sk-703035/indochina/ngrp:angelindochina_all/playlist.m3u8
+live_ch_195,Angel TV FarEast,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,982,https://janya-digimix.akamaized.net/vglive-sk-438760/fareast/ngrp:angelfareast_all/playlist.m3u8
+live_ch_196,AmarUjala,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,1518,https://amarujala.ottlive.co.in/amarujala/index.m3u8
+live_ch_197,Angel TV Portuguese,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1300,https://janya-digimix.akamaized.net/vglive-sk-382409/portuese/ngrp:angelportuguese_all/playlist.m3u8
+live_ch_198,Angel TV Russian,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,4123,https://janya-digimix.akamaized.net/vglive-sk-955415/russia/ngrp:angelrussia_all/playlist.m3u8
+live_ch_199,Angel TV Spanish,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1593,https://janya-digimix.akamaized.net/vglive-sk-351398/spanish/ngrp:angelspanish_all/playlist.m3u8
+live_ch_200,Tehzeeb TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,137,https://cdn-4.pishow.tv/live/239/master.m3u8
+live_ch_201,News Daily 24,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,172,https://cdn-6.pishow.tv/live/10009/master.m3u8
+live_ch_202,News India 24x7,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,141,https://cdn-3.pishow.tv/live/273/master.m3u8
+live_ch_203,News 24 MP & Chhattisgarh,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1085,https://mumt04.tangotv.in/m18aqlK4NEWS24MPCG/index.m3u8
+live_ch_204,Network 10,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1101,https://mumt01.tangotv.in/O5aw8Zn3NETWORK10/index.m3u8
+live_ch_205,News 1 India,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1192,https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/index.m3u8
+live_ch_206,Paras Gold,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1106,https://mumt04.tangotv.in/m18aqlK4PARASGOLD/index.m3u8
+live_ch_207,Aastha Kannada,IN,Hindi,DEVOTIONAL,PASS,,200,256x144,"h264,aac",HINDI,True,1240,https://aasthaott.akamaized.net/110923/smil:aasthakannada.smil/playlist.m3u8
+live_ch_208,Raftaar Media,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1146,https://mumt04.tangotv.in/m18aqlK4RAFTAARMEDIA/index.m3u8
+live_ch_209,Sansad TV 1,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,555,https://d2lk5u59tns74c.cloudfront.net/out/v1/fff8f20221d5456e8922e689d71dedc3/index.m3u8
+live_ch_210,Saam TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,138,https://cdn-3.pishow.tv/live/437/master.m3u8
+live_ch_211,Sadhna News Madhya Pradesh/Chhattisgarh,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1136,https://mumt04.tangotv.in/m18aqlK4SADHNEWSPMRAJ/index.m3u8
+live_ch_212,Sadhna TV,IN,Hindi,DEVOTIONAL,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1124,https://mumt05.tangotv.in/87NeALx2SADHNATV/index.m3u8
+live_ch_213,Arputhar Yesu TV,IN,Hindi,ENTERTAINMENT,FAIL,TIMEOUT,,,,HINDI,False,5207,https://arputharyesutv.arputharyesutv.com/live/md/index.m3u8
+live_ch_214,Asianet Suvarna News [Not 24/7],IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,981,https://asianetnews.vgcdn.net/vglive-sk-335835/playlist.m3u8
+live_ch_215,Northeast Live,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1123,https://server.thelegitpro.in/northeastlive/northeastlive/index.fmp4.m3u8
+live_ch_216,Asianet News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1221,https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8
+live_ch_217,Samachar Plus 24x7,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1177,https://mumt05.tangotv.in/87NeALx2VERTENTSAMACHARPLUS/index.m3u8
+live_ch_218,Rongeen TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1163,https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8
+live_ch_219,Asianet News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1150,https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8
+live_ch_220,Bharat Samachar,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1022,https://mumt03.tangotv.in/Dsly5z3HBHARATSAMACHAR/index.m3u8
+live_ch_221,Sansad TV 2,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,615,https://d2lk5u59tns74c.cloudfront.net/out/v1/e4182054dce340da9e0ff38b6b3658a4/index.m3u8
+live_ch_222,Sharnam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1138,https://mumt06.tangotv.in/qYyB8fXVSHARNAMTV/index.m3u8
+live_ch_223,Santvani Channel,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,145,https://cdn-2.pishow.tv/live/475/master.m3u8
+live_ch_224,Bharat Samachar,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1083,https://mumt03.tangotv.in/Dsly5z3HBHARATSAMACHAR/index.m3u8
+live_ch_225,Bhojpuri Cinema,IN,Hindi,MOVIES,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,847,https://live-bhojpuri.akamaized.net/liveabr/playlist.m3u8
+live_ch_226,Bharat Express,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1094,https://mumt07.tangotv.in/zHjX9OFlBHARATEXPRESS/index.m3u8
+live_ch_227,Asianet News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1067,https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8
+live_ch_228,Big TV 24x7 (576i),IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,472,https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8
+live_ch_229,Big TV 24x7 (576i),IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,375,https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8
+live_ch_230,B4U Bhojpuri,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1409,https://cdnb4u.wiseplayout.com/B4U_Bhojpuri/master.m3u8
+live_ch_231,Ayush TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,379,http://d1msejlow1t3l4.cloudfront.net/fta/ayushtv/playlist.m3u8
+live_ch_232,Soham TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1086,https://mumt03.tangotv.in/Dsly5z3HSOHAMTV/index.m3u8
+live_ch_233,CNBC TV18,IN,Hindi,ENTERTAINMENT,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,663,https://n18syndication.akamaized.net/bpk-tv/CNBC_Tv18_Prime_HD_NW18_MOB/output01/index.m3u8
+live_ch_234,News 24,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1092,https://mumt04.tangotv.in/m18aqlK4NEWS24MPCG/index.m3u8
+live_ch_235,CNBC Bajar,IN,Hindi,ENTERTAINMENT,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,702,https://n18syndication.akamaized.net/bpk-tv/CNBC_Bazaar_NW18_MOB/output01/master.m3u8
+live_ch_236,CNBC TV18 Prime HD,IN,Hindi,ENTERTAINMENT,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,634,https://n18syndication.akamaized.net/bpk-tv/CNBC_Tv18_Prime_HD_NW18_MOB/output01/index.m3u8
+live_ch_237,Chardikla Gurbaani TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42001f,mp4a.40.2",HINDI,True,1433,https://chardikalatimestv.gigabitcdn.net/in-chardikala/chardikala-gurbani-tv/playlist.m3u8
+live_ch_238,Chardikla Time TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42001f,mp4a.40.2",HINDI,True,1280,https://chardikalanorthamerica.gigabitcdn.net/in-chardikala/chardikala-north-usa/playlist.m3u8
+live_ch_239,Chardikla Time TV North America,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42001f,mp4a.40.2",HINDI,True,1285,https://chardikalanorthamerica.gigabitcdn.net/in-chardikala/chardikala-north-usa/playlist.m3u8
+live_ch_240,Sudarshan News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,387,https://ott.livelegitpro.in/sudarshannews/sudarshannews/tracks-v1/index.fmp4.m3u8
+live_ch_241,Subharti TV,IN,Hindi,ENTERTAINMENT,FAIL,UNKNOWN_EXCEPTION_TimeoutError,,,,HINDI,False,5282,https://mumt04.tangotv.in/m18aqlK4SUBHARTITV/index.m3u8
+live_ch_242,Sadhna Plus News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,2891,https://6n3yow8pl9ok-hls-live.5centscdn.com/sadhananewstv/live.stream/playlist.m3u8
+live_ch_243,Star Sports 2 Hindi,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2",HINDI,True,1185,https://tvsen5.aynaott.com/cXPB2LKkErN9/index.m3u8
+live_ch_244,Sadhna,IN,Hindi,DEVOTIONAL,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1112,https://mumt04.tangotv.in/m18aqlK4SADHNEWSPMRAJ/index.m3u8
+live_ch_245,Dangal 2,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,805,https://live-dangal2.akamaized.net/liveabr/playlist.m3u8
+live_ch_246,Swaraj Express SMBC [Not 24/7],IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,136,https://cdn-2.pishow.tv/live/477/master.m3u8
+live_ch_247,Steelbird Music [Not 24/7],IN,Hindi,MUSIC,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,617,https://cdn2.in/SteelbirdMusicTVhls/live.m3u8
+live_ch_248,Dangal TV,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,601,https://live-dangal.akamaized.net/liveabr/playlist.m3u8
+live_ch_249,Shubhsandesh TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,586x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2889,https://6284rn2xr7xv-hls-live.wmncdn.net/shubhsandeshtv1/live123.stream/index.m3u8
+live_ch_250,Sony KAL Hindi,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.640029,mp4a.40.2,avc1.4d4029,mp4a.40.2",HINDI,True,2352,https://wurlsonypicturestv.global.transmit.live/hls/68deeb1c0238cda82df543dd/v1/spt_sonykal_1/lg_us/latest/main/hls/playlist.m3u8
+live_ch_251,DD India,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,596,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/ceda14583477426aa162a65392d8ea07/index.m3u8
+live_ch_252,9X Jhakaas,IN,Hindi,MUSIC,PASS,,200,640x360,"avc1.4d402a,mp4a.40.2",HINDI,True,1225,https://amg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjhakaas-samsungin/playlist.m3u8
+live_ch_253,9X Tashan,IN,Hindi,MUSIC,PASS,,200,640x360,"avc1.4d402a,mp4a.40.2",HINDI,True,1169,https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8
+live_ch_254,Sony Wah [Geo-blocked],IN,Hindi,ENTERTAINMENT,FAIL,INVALID_MANIFEST_NO_EXTM3U,200,,,HINDI,False,59872,https://sl.vodep39240327.workers.dev/channel/SONY+WAH.m3u8
+live_ch_255,Sony Pix HD [Geo-blocked],IN,Hindi,ENTERTAINMENT,FAIL,INVALID_MANIFEST_NO_EXTM3U,200,,,HINDI,False,81718,https://sl.vodep39240327.workers.dev/channel/SONY+PIX+HD.m3u8
+live_ch_256,SVBC 4,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,2929,https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8
+live_ch_257,Colors Tamil HD,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,886,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:colorstamilhd11.smil/playlist.m3u8
+live_ch_258,Dharsan TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d0028,mp4a.40.2",HINDI,True,1072,https://cable91tataplay.akamaized.net/live/dharshantv/index.m3u8
+live_ch_259,The Movie Club +2,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.64001f,mp4a.40.2,avc1.64001e,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,858,https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf
+live_ch_260,ET Now [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,416x234,"avc1.4d401f,mp4a.40.2,avc1.4d4014,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,502,https://dztlhgid9me95.cloudfront.net/live-tv/Vidgyor/etnow/etnow_master.m3u8
+live_ch_261,Swadesh News,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,174,https://cdn-2.pishow.tv/live/465/master.m3u8
+live_ch_262,The Movie Club,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.64001f,mp4a.40.2,avc1.64001e,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,726,https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf
+live_ch_263,TAG TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2",HINDI,True,1671,http://cdn11.live247stream.com/tag/tv/playlist.m3u8
+live_ch_264,ETV Cinema,IN,Hindi,MOVIES,PASS,,200,416x234,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,854,https://d27zlkxhgwrfgo.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_CINEMA_H264_cloud_in/index.m3u8
+live_ch_265,TNP News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1129,https://server.thelegitpro.in/tnpnews/tnpnews/index.m3u8
+live_ch_266,Total TV Haryana,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,173,https://cdn-2.pishow.tv/live/1522/master.m3u8
+live_ch_267,ETV Andhra Pradesh,IN,Hindi,ENTERTAINMENT,FAIL,NETWORK_ERROR_gaierror,,,,HINDI,False,87,https://d1g35elx8qnif3.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_AP_H264_cloud_in/index.m3u8
+live_ch_268,DocuBay TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,2468,https://cc-mgr91yrk4pehy.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-mgr91yrk4pehy/playlist.m3u8
+live_ch_269,ETV Abhiruchi,IN,Hindi,ENTERTAINMENT,FAIL,NETWORK_ERROR_gaierror,,,,HINDI,False,71,https://dg3721c3ez5m0.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_ABHIRUCHI_H264_cloud-in/index.m3u8
+live_ch_270,ETV Plus,IN,Hindi,ENTERTAINMENT,FAIL,NETWORK_ERROR_gaierror,,,,HINDI,False,97,https://d12ee3o8yfkkhd.cloudfront.net/c6a4b411295f47f48c908d2ac0605bad/index.m3u8
+live_ch_271,ETV Cinema HD,IN,Hindi,MOVIES,PASS,,200,416x234,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,590,https://d27zlkxhgwrfgo.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_CINEMA_H264_cloud_in/index.m3u8
+live_ch_272,ETV Telugu HD,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_NETWORK_ERROR_gaierror,,,,HINDI,False,556,https://d27zlkxhgwrfgo.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_HD_H264_cloud_in/index.m3u8
+live_ch_273,ETV Plus HD,IN,Hindi,ENTERTAINMENT,FAIL,NETWORK_ERROR_gaierror,,,,HINDI,False,37,https://d12ee3o8yfkkhd.cloudfront.net/c6a4b411295f47f48c908d2ac0605bad/index.m3u8
+live_ch_274,ETV Music,IN,Hindi,MUSIC,PASS,,200,640x360,"avc1.64001f,mp4a.40.2,avc1.64001e,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,839,https://cc-szivnms4rlah6.akamaized.net/WWBI/Amagi/ETV_Music_IN/playlist.m3u8
+live_ch_275,ETV Life,IN,Hindi,ENTERTAINMENT,FAIL,NETWORK_ERROR_gaierror,,,,HINDI,False,120,https://d2cj1h11htct8o.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_LIFE_H264_cloud_in/index.m3u8
+live_ch_276,ETV Telugu USA,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2",HINDI,True,880,https://livegeorouus.akamaized.net/100823/etvhd_2500/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_277,ETV Telangana,IN,Hindi,ENTERTAINMENT,FAIL,NETWORK_ERROR_gaierror,,,,HINDI,False,73,https://d37d7pfp7vjqhh.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_TS_H264_cloud_in/index.m3u8
+live_ch_278,Vedic,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1083,https://mumt05.tangotv.in/87NeALx2VEDIC/index.m3u8
+live_ch_279,TBN TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.64001f,mp4a.40.2",HINDI,True,6035,https://live.suricloud.com/hls/tbntv/index.m3u8
+live_ch_280,Good News Today,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1854,https://aajtaklive.vgcdn.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/3196cced-ce29-4219-9809-f07ccdaa02b9/vglive-sk-848805/master.m3u8
+live_ch_281,ETV Josh,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.64001f,mp4a.40.2,avc1.64001e,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,927,https://cc-uyh1ow5zouoio.akamaized.net/WWBI/Amagi/ETV_Josh_IN/playlist.m3u8
+live_ch_282,ET Now Swadesh,IN,Hindi,ENTERTAINMENT,FAIL,VARIANT_FETCH_FAILED_HTTP_404,404,,,HINDI,False,1059,https://d32gxr3r1ksq2p.cloudfront.net/master.m3u8
+live_ch_283,GTC News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d401f,mp4a.40.2",HINDI,True,1174,https://vglivessai.akamaized.net/sg/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/921cca59-daee-4f89-8c38-7ffe8de44f4c/index.m3u8
+live_ch_284,Hare Krsna TV,IN,Hindi,ENTERTAINMENT,PASS,,206,Direct Media,Unknown,HINDI,True,573,https://hktv.harekrsnatv.com/HKTV/HKWebApp/manifest.mpd
+live_ch_285,GTC Punjabi,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d401f,mp4a.40.2",HINDI,True,1415,https://gtc-yupp.vgcdn.net/vglive-sk-254807/index.m3u8
+live_ch_286,VTU,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.640020,mp4a.40.2",HINDI,True,2804,https://lbgo.bozztv.com/ssh101/ssh101/afghantheatretv/playlist.m3u8
+live_ch_287,9X Jhakaas,IN,Hindi,MUSIC,PASS,,200,640x360,"avc1.4d402a,mp4a.40.2",HINDI,True,1079,https://amg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjhakaas-samsungin/playlist.m3u8
+live_ch_288,9X Jalwa,IN,Hindi,MUSIC,FAIL,SERVER_ERROR_HTTP_503,503,,,HINDI,False,197,https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8
+live_ch_289,7S Music,IN,Hindi,MUSIC,PASS,,200,654x360,"avc1.420015,mp4a.40.2",HINDI,True,1125,https://mumt03.tangotv.in/Dsly5z3H7SMUSIC/index.m3u8
+live_ch_290,9X Tashan,IN,Hindi,MUSIC,PASS,,200,640x360,"avc1.4d402a,mp4a.40.2",HINDI,True,1035,https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8
+live_ch_291,9X Tashan,IN,Hindi,MUSIC,PASS,,200,640x360,"avc1.4d402a,mp4a.40.2",HINDI,True,1054,https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8
+live_ch_292,Hindi Khabar,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1143,https://mumt04.tangotv.in/m18aqlK4HINDIKHABAR/index.m3u8
+live_ch_293,24 News,IN,Hindi,NEWS,PASS,,200,654x360,"avc1.420015,mp4a.40.2",HINDI,True,1043,https://mumt07.tangotv.in/zHjX9OFlTWENTYFOURNEWS/index.m3u8
+live_ch_294,Aaj Tak,IN,Hindi,NEWS,PASS,,200,320x180,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,613,https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8
+live_ch_295,History TV18 HD,IN,Hindi,INFOTAINMENT,FAIL,VARIANT_FETCH_FAILED_HTTP_404,404,,,HINDI,False,5402,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/HistoryTV18HD.m3u8
+live_ch_296,Aaj Tak HD,IN,Hindi,NEWS,PASS,,200,320x180,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,547,https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8
+live_ch_297,Hebron TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,771,https://account20.livebox.co.in/charleshls/live.m3u8
+live_ch_298,10 TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.640020,mp4a.40.2",HINDI,True,590,https://mumbai-edge.smartplaytv.in/10TV/index.m3u8
+live_ch_299,24 News,IN,Hindi,NEWS,PASS,,200,654x360,"avc1.420015,mp4a.40.2",HINDI,True,1060,https://mumt07.tangotv.in/zHjX9OFlTWENTYFOURNEWS/index.m3u8
+live_ch_300,History TV18 HD Hindi [Geo-blocked],IN,Hindi,INFOTAINMENT,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,781,https://amg01448-amg01448c16-samsung-in-3495.playouts.now.amagi.tv/ts-ap-s1-n1/playlist/amg01448-samsungindia-historychannelhindi-samsungin/playlist.m3u8
+live_ch_301,Hornbill TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1075,https://mumt01.tangotv.in/O5aw8Zn3HORNBILLTV/index.m3u8
+live_ch_302,Aakaash Aath,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,4575,http://tvsen5.aynascope.net/Wm9Lv2RjZGT6/index.m3u8
+live_ch_303,Aaryaa TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42c01f,mp4a.40.2",HINDI,True,2635,https://stream.ottlive.co.in/aryatvtamil/index.m3u8
+live_ch_304,Aakaash Aath,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,12251,http://tvsen5.aynascope.net/Wm9Lv2RjZGT6/index.m3u8
+live_ch_305,Aastha Bhajan,IN,Hindi,DEVOTIONAL,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1093,https://mumt05.tangotv.in/87NeALx2AASTHABHAJAN/index.m3u8
+live_ch_306,Aaseervatham TV,IN,Hindi,ENTERTAINMENT,PASS,,200,480x360,"avc1.420015,mp4a.40.2",HINDI,True,1144,https://mumt04.tangotv.in/m18aqlK4AASEERVATHAMTV/index.m3u8
+live_ch_307,Aastha Gujarati,IN,Hindi,DEVOTIONAL,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1119,https://mumt04.tangotv.in/m18aqlK4AASTHAGUJARATI/index.m3u8
+live_ch_308,India Today [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,320x180,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,629,https://indiatodaylive.akamaized.net/hls/live/2014320/indiatoday/indiatodaylive/playlist.m3u8
+live_ch_309,History TV18 HD [Geo-blocked],IN,Hindi,INFOTAINMENT,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,1232,https://amg01448-amg01448c16-samsung-in-3495.playouts.now.amagi.tv/playlist/amg01448-samsungindia-historychannelenglish-samsungin/playlist.m3u8
+live_ch_310,Aastha Kannada,IN,Hindi,DEVOTIONAL,PASS,,200,256x144,"h264,aac",HINDI,True,598,https://aasthaott.akamaized.net/110923/smil:aasthakannada.smil/playlist.m3u8
+live_ch_311,Jaihind TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1121,https://mumt03.tangotv.in/Dsly5z3HJAIHIND/index.m3u8
+live_ch_312,Aastha,IN,Hindi,DEVOTIONAL,PASS,,200,384x216,"h264,aac",HINDI,True,1272,https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/index.m3u8
+live_ch_313,India Today,IN,Hindi,ENTERTAINMENT,PASS,,200,718x404,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1899,https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-293160/master.m3u8
+live_ch_314,ABN Andhra Jyoti,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,582,https://mumbai-edge.smartplaytv.in/ABNAJ/index.m3u8
+live_ch_315,India Today [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1831,https://amg00644-amg00644c1-ondemandkorea-amesia-10266.playouts.now.amagi.tv/playlist/amg00644-tvtodaynetworkltdfast-indiatoday-ondemandkoreaamesia/playlist.m3u8
+live_ch_316,Aastha Telugu,IN,Hindi,DEVOTIONAL,PASS,,200,256x144,"h264,aac",HINDI,True,1147,https://aasthaott.akamaized.net/110923/smil:aasthatelugu.smil/playlist.m3u8
+live_ch_317,Janam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1055,https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8
+live_ch_318,High News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1676,https://highmedia.livebox.co.in/HIGHNEWShls/LIVE.m3u8
+live_ch_319,AKD Calcutta News,IN,Hindi,NEWS,PASS,,200,1920x1080,"avc1.4d0029,mp4a.40.2",HINDI,True,1088,https://live.legitpro.co.in/cnnnews/index.m3u8
+live_ch_320,Kalaignar Murasu,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,1037,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/murasu_nim_https/050522/murasu/playlist.m3u8
+live_ch_321,Arputhar Yesu TV,IN,Hindi,ENTERTAINMENT,FAIL,TIMEOUT,,,,HINDI,False,5006,https://arputharyesutv.arputharyesutv.com/live/md/index.m3u8
+live_ch_322,Assam Talks,IN,Hindi,ENTERTAINMENT,PASS,,200,720x410,"avc1.4d401e,mp4a.40.2",HINDI,True,7401,http://tvsen7.aynascope.net/AssamTalks/index.m3u8
+live_ch_323,Asianet Middle East,IN,Hindi,ENTERTAINMENT,PASS,,200,654x360,"avc1.420015,mp4a.40.2",HINDI,True,1128,https://mumt03.tangotv.in/Dsly5z3HASIANETMIDDLEEAST/index.m3u8
+live_ch_324,Balle Balle,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d401f,mp4a.40.2",HINDI,True,2815,https://mcncdndigital.com/balleballetv/index.m3u8
+live_ch_325,B4U Kadak,IN,Hindi,MOVIES,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,150,https://cdn-2.pishow.tv/live/227/master.m3u8
+live_ch_326,B4U Movies,IN,Hindi,MOVIES,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,176,https://cdn-2.pishow.tv/live/419/master.m3u8
+live_ch_327,Khabrain Abhi Tak,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,1084,https://mumt05.tangotv.in/87NeALx2KHABRAINABHITAK/index.m3u8
+live_ch_328,BT TV,IN,Hindi,ENTERTAINMENT,PASS,,200,720x404,"avc1.77.30,mp4a.40.2,avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d4029,mp4a.40.2",HINDI,True,922,https://feeds.intoday.in/bttv/itgd.m3u8
+live_ch_329,Bhojpuri Cinema,IN,Hindi,MOVIES,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,171,https://cdn-4.pishow.tv/live/1033/master.m3u8
+live_ch_330,Bharat Express,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1141,https://mumt07.tangotv.in/zHjX9OFlBHARATEXPRESS/index.m3u8
+live_ch_331,Brio TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,389,https://mumt03.tangotv.in/Dsly5z3HBRIOTV/index.m3u8
+live_ch_332,JTBS Classic,IN,Hindi,ENTERTAINMENT,PASS,,200,854x480,"avc1.42c01f,mp4a.40.2",HINDI,True,2782,https://jtbsclassic.dpdns.org/live.m3u8
+live_ch_333,Chardikla Time TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42001f,mp4a.40.2",HINDI,True,1571,https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8
+live_ch_334,Madhimugam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1134,https://mumt01.tangotv.in/O5aw8Zn3MATHIMUGAMTV/index.m3u8
+live_ch_335,Gulistan News [Not 24/7],IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,778,https://live.gulistannews.in/hls/gul.m3u8
+live_ch_336,Life TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,637,https://lifetv.livebox.co.in/lifetvhls/lifetv.m3u8
+live_ch_337,Joy TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1562,https://ktismaservers.in:3412/live/joytvlive.m3u8
+live_ch_338,Mango Mobile TV,IN,Hindi,ENTERTAINMENT,PASS,,200,854x480,"avc1.4D4029,mp4a.40.2,avc1.640029,mp4a.40.2",HINDI,True,1706,https://amg01911-mangotv-amg01911c1-xiaomi-in-1270.playouts.now.amagi.tv/playlist/amg01911-mangomassmedia-mangotv-xiaomiin/playlist.m3u8
+live_ch_339,CTVN AKD Plus,IN,Hindi,ENTERTAINMENT,PASS,,200,428x240,"avc1.4d001f,mp4a.40.2",HINDI,True,1929,https://live.legitpro.co.in/ctvnakdplus/index.m3u8
+live_ch_340,Ayush TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,3772,https://95eryw39dwn4-hls-live.wmncdn.net/Ayushu/271ddf829afeece44d8732757fba1a66.sdp/index.m3u8
+live_ch_341,KCL TV,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,1765,https://kcltv.livebox.co.in/kclhls/live.m3u8
+live_ch_342,CCV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42c01f,mp4a.40.2",HINDI,True,3006,https://5a1178b42cc03.streamlock.net/8212/8212/playlist.m3u8
+live_ch_343,DD Arun Prabha,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,516,https://d2lk5u59tns74c.cloudfront.net/out/v1/308556d9fd1246adb479ef012a39bbfe/index.m3u8
+live_ch_344,DD Bangla,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,544,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/7ff57cc9046b4c188b51a0d506f36e7f/index.m3u8
+live_ch_345,DD Chandana,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,580,https://d2lk5u59tns74c.cloudfront.net/out/v1/0c980455d2fb4b69bcc6235745ee6039/index.m3u8
+live_ch_346,Mathrubhumi News [Not 24/7],IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,983,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/mathrubhuminews_nim_https/110322/mathrubhuminews/playlist.m3u8
+live_ch_347,DD Malayalam,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,544,https://d2lk5u59tns74c.cloudfront.net/out/v1/c313674ffced4c9a90f1bba436df2b9b/index.m3u8
+live_ch_348,Mazhavil Manorama,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1114,https://mumt03.tangotv.in/Dsly5z3HMAZHAVILMANORAMAINT/index.m3u8
+live_ch_349,DD Jharkhand,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,637,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/e8c3741f8c154d3185831f4e31777fb2/index.m3u8
+live_ch_350,Manorama News,IN,Hindi,NEWS,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,1165,https://mmtvnews1.akamaized.net/v1/master/673630b269b766886555eebfddd4f27f3de3ab50/mmtvNewsCampaign1/index.m3u8
+live_ch_351,DD National HD,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,571,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/40492a64c1db4a1385ba1a397d357d3a/index.m3u8
+live_ch_352,DD Sahyadri,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,604,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/66dcc3ebe182447ba42837e746cf0c7c/index.m3u8
+live_ch_353,DD Punjabi,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,570,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/da821c24a59d4e57960497aeaca8fb33/index.m3u8
+live_ch_354,Malai Murasu TV [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.2,avc1.640029,mp4a.40.2,avc1.640003,mp4a.40.2",HINDI,True,1141,https://amg17783-amg17783c1-amgplt0173.playout.now3.amagi.tv/playlist/amg17783-amg17783c1-amgplt0173/playlist.m3u8
+live_ch_355,DD News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.42001e,mp4a.40.2",HINDI,True,739,https://streams.tangotv.in/DDNEWS/ORIGIN/index.m3u8
+live_ch_356,Divyavani TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,603,https://mumbai-edge.smartplaytv.in/Divyavani/index.m3u8
+live_ch_357,DY 365,IN,Hindi,ENTERTAINMENT,PASS,,200,720x404,"avc1.64001e,mp4a.40.2",HINDI,True,859,https://cdn.smartstream.video/smartstream-us/dy365/dy365/playlist.m3u8
+live_ch_358,Mathrubhumi News,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,727,https://streams.tangotv.in/MATHRUBHUMINEWS/ORIGIN/index.m3u8
+live_ch_359,Mh 1 News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,815,https://livestream.jswk.online/mhonenews/live/index.m3u8
+live_ch_360,DD Tamil HD,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,569,https://d2lk5u59tns74c.cloudfront.net/out/v1/abf46b14847e45499f4a47f3a9afe93d/index.m3u8
+live_ch_361,NDTV 24x7,IN,Hindi,NEWS,PASS,,200,384x216,"avc1.4d400d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,994,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/NDTV24x7.m3u8
+live_ch_362,NDTV Good Times,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.64001f,mp4a.40.2,avc1.640020,mp4a.40.2,avc1.640003,mp4a.40.2",HINDI,True,1071,https://amg01448-samsungin-ndtvgoodtimes-samsungin-ad-gp.amagi.tv/playlist/amg01448-samsungin-ndtvgoodtimes-samsungin/playlist.m3u8
+live_ch_363,NDTV India,IN,Hindi,NEWS,FAIL,DEAD_SEGMENT_HTTP_416,416,,,HINDI,False,7103,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/NDTVIndia.m3u8
+live_ch_364,NDTV 24X7 [Not 24/7],IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d4029,mp4a.40.2",HINDI,True,971,https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8
+live_ch_365,Mirror Now,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d4029,mp4a.40.2",HINDI,True,1273,https://dai.google.com/linear/hls/event/ClPOullTQky5vGPf7fMZ8g/master.m3u8
+live_ch_366,Nepal 1,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1128,https://mumt05.tangotv.in/87NeALx2NEPAL1/index.m3u8
+live_ch_367,Ekamra Bharat Odia,IN,Hindi,ENTERTAINMENT,PASS,,200,720x400,"avc1.64001e,mp4a.40.2",HINDI,True,1059,https://live.ekamraott.com/bharat/bharat/index.m3u8
+live_ch_368,NDTV Profit,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,640,https://ndtvprofit.akamaized.net/hls/live/2107404/ndtvprofit/chunklist_5.m3u8
+live_ch_369,NDTV Profit,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,553,https://ndtvprofit.akamaized.net/hls/live/2107404/ndtvprofit/chunklist_5.m3u8
+live_ch_370,NDTV Marathi,IN,Hindi,NEWS,PASS,,200,424x240,"avc1.4d0003,mp4a.40.2,avc1.4d001f,mp4a.40.2,mp4a.40.2,avc1.4d0020,mp4a.40.2,avc1.4d0002,mp4a.40.2",HINDI,True,1027,https://web-ndtv-marathi.akamaized.net/hls/live/2110470/ndtvmarathi/master_1.m3u8
+live_ch_371,MNTV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,860,https://mntv.livebox.co.in/mntvhls/live.m3u8
+live_ch_372,Enterr 10 Bangla,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,796,https://live-bangla.akamaized.net/liveabr/playlist.m3u8
+live_ch_373,Mirror Now,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d4029,mp4a.40.2",HINDI,True,2634,https://dai.google.com/linear/hls/event/ClPOullTQky5vGPf7fMZ8g/master.m3u8
+live_ch_374,News 1 India,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1044,https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/index.m3u8
+live_ch_375,Epic Bhojpuri,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.42001e,mp4a.40.2",HINDI,True,1117,https://mumt01.tangotv.in/O5aw8Zn3EPICBHOJPURI/index.m3u8
+live_ch_376,News18 Kerala [Geo-blocked],IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,625,https://nw18live.cdn.jio.com/bpk-tv/News18_Kerala_NW18_MOB/output01/index.m3u8
+live_ch_377,News18 Kannada,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,691,https://n18syndication.akamaized.net/bpk-tv/News18_Kannada_NW18_MOB/output01/master.m3u8
+live_ch_378,News18 Gujarati,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,677,https://n18syndication.akamaized.net/bpk-tv/News18_Gujarati_NW18_MOB/output01/master.m3u8
+live_ch_379,News18 Assam North-East,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,740,https://n18syndication.akamaized.net/bpk-tv/News18_Assam_North_East_NW18_MOB/output01/master.m3u8
+live_ch_380,News18 Marathi,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,733,https://n18syndication.akamaized.net/bpk-tv/News18_Lokmat_NW18_MOB/output01/master.m3u8
+live_ch_381,News9Live,IN,Hindi,NEWS,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2,avc1.64001f,mp4a.40.2,avc1.64001e,mp4a.40.2,avc1.4d4015,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,829,https://amg01106-amg01106c3-amgplt0844.playout.now3.amagi.tv/ts-ap-s1-n1/playlist/amg01106-amg01106c3-amgplt0844/playlist.m3u8
+live_ch_382,VIP News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,3085,https://live.vipnews24x7.co.in/vipnews24x7/d0dbe915091d400bd8ee7f27f0791303.sdp/playlist.m3u8
+live_ch_383,News9Live,IN,Hindi,NEWS,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2,avc1.64001f,mp4a.40.2,avc1.64001e,mp4a.40.2,avc1.4d4015,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,760,https://amg01106-amg01106c3-amgplt0844.playout.now3.amagi.tv/ts-ap-s1-n1/playlist/amg01106-amg01106c3-amgplt0844/playlist.m3u8
+live_ch_384,News18 Bangla,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,680,https://n18syndication.akamaized.net/bpk-tv/News18_Bangla_NW18_MOB/output01/master.m3u8
+live_ch_385,News18 Kerala,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,753,https://n18syndication.akamaized.net/bpk-tv/News18_Kerala_NW18_MOB/output01/master.m3u8
+live_ch_386,Desi Channel,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,2454,https://livestream.unlimitedcdn.com/agm-dc/desi-channel/index.m3u8
+live_ch_387,News18 Odia,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,822,https://n18syndication.akamaized.net/bpk-tv/News18_Odia_NW18_MOB/output01/master.m3u8
+live_ch_388,ETV Comedy,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.64001f,mp4a.40.2,avc1.64001e,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,713,https://cc-wie8j8y69d2uy.akamaized.net/WWBI/Amagi/ETV_Comedy_IN/playlist.m3u8
+live_ch_389,News18 Urdu,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,749,https://n18syndication.akamaized.net/bpk-tv/News18_Urdu_NW18_MOB/output01/master.m3u8
+live_ch_390,News18 Tamil Nadu,IN,Hindi,NEWS,PASS,,200,320x180,"mp4a.40.2,avc1.42E00D,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.42E01E,mp4a.40.2,avc1.640028",HINDI,True,850,https://n18syndication.akamaized.net/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8
+live_ch_391,Global Punjab,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42c028,mp4a.40.2",HINDI,True,586,https://server.livelegitpro.in/globalpunjab/globalpunjab/index.m3u8
+live_ch_392,Goldmines Bollywood,IN,Hindi,MOVIES,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1134,https://mumt03.tangotv.in/Dsly5z3HGOLDMINESBOLLYWOOD/index.m3u8
+live_ch_393,Goldmines Bollywood,IN,Hindi,MOVIES,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,731,https://mumt03.tangotv.in/Dsly5z3HGOLDMINESBOLLYWOOD/tracks-v2a1/mono.m3u8
+live_ch_394,Gangaur TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4D401F,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.640029,mp4a.40.2",HINDI,True,747,https://pbgangaur.wiseplayout.com/Gangaur/master.m3u8
+live_ch_395,Nick HD+ (India),IN,Hindi,ENTERTAINMENT,PASS,,200,1048x576,"avc1.64001e,mp4a.40.2",HINDI,True,772,http://103.185.24.134:3001/NICK/index.m3u8
+live_ch_396,ETV News,IN,Hindi,NEWS,PASS,,200,1920x1080,"avc1.640029,mp4a.40.2,avc1.4d4029,mp4a.40.2",HINDI,True,753,https://cc-3448kp65yhc5w.akamaized.net/WWBI/Amagi/ETV_News_IN/playlist.m3u8
+live_ch_397,Gospel TV India,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d0029,mp4a.40.2",HINDI,True,1673,https://server.livelegitpro.in:9899/gospeltv/index.m3u8
+live_ch_398,GS TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,178,https://cdn-4.pishow.tv/live/1462/master.m3u8
+live_ch_399,Network 10,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1115,https://mumt01.tangotv.in/O5aw8Zn3NETWORK10/index.m3u8
+live_ch_400,Pasand TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,646,https://d1msejlow1t3l4.cloudfront.net/fta/pasand/playlist.m3u8
+live_ch_401,EET TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,2508,https://live.streamjo.com/eetlive/eettv.m3u8
+live_ch_402,NTV Telugu,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640020,mp4a.40.2",HINDI,True,606,https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8
+live_ch_403,Guarantee News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,429,https://guaranteenews.in:8443/live/gnews/index.m3u8
+live_ch_404,First India News [Not 24/7],IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.640020,mp4a.40.2",HINDI,True,2872,https://xlbor37ydvaj-hls-live.wmncdn.net/firstindianewstv1/live.stream/index.m3u8
+live_ch_405,Hi Dost!,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,167,https://cdn-1.pishow.tv/live/224/master.m3u8
+live_ch_406,Pitaara,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,3016,https://vg-pitaaratvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-583798/playlist.m3u8
+live_ch_407,India Today,IN,Hindi,ENTERTAINMENT,PASS,,200,718x404,"avc1.4d4015,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1286,https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-293160/master.m3u8
+live_ch_408,India TV Speed News,IN,Hindi,NEWS,PASS,,200,480x270,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,899,https://cc-lyf4c0hwzg5dd.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-lyf4c0hwzg5dd/v1/vglive-sk-479089/main.m3u8
+live_ch_409,India Ahead,IN,Hindi,ENTERTAINMENT,PASS,,200,480x360,"avc1.42001f,mp4a.40.2",HINDI,True,1096,https://mumt05.tangotv.in/87NeALx2INDIAAHEAD/index.m3u8
+live_ch_410,Isai Aruvi,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,751,http://ptuf.ridsys.in/riptv/live/KALAIGNAR_ISAI_ARUVI/index.m3u8
+live_ch_411,GoodNews TV,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,3577,https://bpgdlwwar3ze-hls-live.wmncdn.net/goodnews/live.stream/playlist.m3u8
+live_ch_412,India TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1007,https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8
+live_ch_413,Janam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1092,https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8
+live_ch_414,Janam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1158,https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8
+live_ch_415,Ishwar Bhakti TV,IN,Hindi,DEVOTIONAL,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2986,https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8
+live_ch_416,Isai Aruvi,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,751,http://ptuf.ridsys.in/riptv/live/KALAIGNAR_ISAI_ARUVI/index.m3u8
+live_ch_417,Jonack TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,720x576,"avc1.4d001e,mp4a.40.2",HINDI,True,904,https://cdn.smartstream.video/smartstream-us/jonakk/jonakk/playlist.m3u8
+live_ch_418,PTC Music,IN,Hindi,MUSIC,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,564,https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8
+live_ch_419,Jonack,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,176,https://cdn-6.pishow.tv/live/10006/master.m3u8
+live_ch_420,Harvest TV Keralam,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.64001f,mp4a.40.2",HINDI,True,3345,https://7mbd4ogkr3gx-hls-live.wmncdn.net/harvestenglish/d1796a22d24e8696c7d5d0b5c349fdd2.sdp/index.m3u8
+live_ch_421,Harvest TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.64001f,mp4a.40.2",HINDI,True,3989,https://7mbd4ogkr3gx-hls-live.wmncdn.net/harvestenglish/d1796a22d24e8696c7d5d0b5c349fdd2.sdp/index.m3u8
+live_ch_422,Prudent Media,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1062,https://prudentmcdn.rixcast.com/prudentm.m3u8
+live_ch_423,PTC Punjabi Gold,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,617,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8
+live_ch_424,Kalaignar Murasu [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,747,https://segment.yuppcdn.net/050522/murasu/playlist.m3u8
+live_ch_425,PTC Punjabi HD,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,524,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/3e22a9c278db4e3eb779afd42e41b0a6/index.m3u8
+live_ch_426,Kairali TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1109,https://mumt01.tangotv.in/O5aw8Zn3KAIRALI/index.m3u8
+live_ch_427,Harvest USA,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.64001f,mp4a.40.2",HINDI,True,3575,https://7mbd4ogkr3gx-hls-live.wmncdn.net/harvestusa/d57ffba6564caea2fee3f4085f19a098.sdp/playlist.m3u8
+live_ch_428,Mazhavil Manorama HD,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,188,https://cdn-7.pishow.tv/live/1129/master.m3u8
+live_ch_429,INH 24x7,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,541,https://d1msejlow1t3l4.cloudfront.net/fta/inh24x7/playlist.m3u8
+live_ch_430,Kalaignar TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,894,https://segment.yuppcdn.net/240122/kalaignartv/playlist.m3u8
+live_ch_431,Kalinga TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1071,https://mumt01.tangotv.in/O5aw8Zn3KALINGATV/index.m3u8
+live_ch_432,Kashish News,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,186,https://cdn-7.pishow.tv/live/1471/master.m3u8
+live_ch_433,Punjabi Shorts,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d401f,mp4a.40.2",HINDI,True,977,https://vglivessai.akamaized.net/ptnr-yupptv/title-Punjabi_Shorts/in/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/27c3fd7a-b01f-4b00-ac03-557ac77acd47/index.m3u8
+live_ch_434,Kaumudy TV,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2245,https://oqgdrkxby4rm-hls-live.5centscdn.com/kaumudytv/live.stream/playlist.m3u8
+live_ch_435,Living India News,IN,Hindi,NEWS,PASS,,200,428x240,"avc1.4d001f,mp4a.40.2",HINDI,True,865,https://stream.ottlive.co.in/livingindia/index.m3u8
+live_ch_436,Kolkata TV,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,996,https://cdn.ottlive.co.in/kolkatatv/index.m3u8
+live_ch_437,KTV Bangla,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.64001f,mp4a.40.2",HINDI,True,585,https://server.livelegitpro.in:9899/tribetv/tribetv/index.m3u8
+live_ch_438,Madha TV,IN,Hindi,ENTERTAINMENT,FAIL,UNKNOWN_EXCEPTION_TimeoutError,,,,HINDI,False,5264,https://mumt07.tangotv.in/zHjX9OFlMADHATV/index.m3u8
+live_ch_439,Maha Punjabi,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,173,https://cdn-4.pishow.tv/live/1521/master.m3u8
+live_ch_440,Madhimugam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1136,https://mumt01.tangotv.in/O5aw8Zn3MATHIMUGAMTV/index.m3u8
+live_ch_441,Mahaa Bhakti,IN,Hindi,DEVOTIONAL,PASS,,200,1920x1080,"avc1.42c01f,mp4a.40.2",HINDI,True,582,https://mumbai-edge.smartplaytv.in/MahaBhakthi/index.m3u8
+live_ch_442,KITE Victers (Kerala) [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42002a,mp4a.40.2",HINDI,True,1143,https://932y4x26ljv8-hls-live.5centscdn.com/victers/tv.stream/playlist.m3u8
+live_ch_443,Mahaa News,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1143,https://mumt07.tangotv.in/zHjX9OFlMAHAANEWS/index.m3u8
+live_ch_444,News Tamil 24x7,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,152,https://cdn-3.pishow.tv/live/1433/master.m3u8
+live_ch_445,Nambikkai TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,142,https://cdn-3.pishow.tv/live/1389/master.m3u8
+live_ch_446,News 7 Tamil,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,778,https://segment.yuppcdn.net/240122/news7/playlist.m3u8
+live_ch_447,Polimer News,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,805,https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
+live_ch_448,News Malayalam 24x7,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,137,https://cdn-3.pishow.tv/live/1629/master.m3u8
+live_ch_449,Puthiya Thalaimurai,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1087,https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8
+live_ch_450,PTC Music,IN,Hindi,MUSIC,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,504,https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8
+live_ch_451,Mazhavil Manorama,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1097,https://mumt03.tangotv.in/Dsly5z3HMAZHAVILMANORAMAINT/index.m3u8
+live_ch_452,Rengoni,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,631,https://d1msejlow1t3l4.cloudfront.net/fta/rengonitv/playlist.m3u8
+live_ch_453,Republic TV,IN,Hindi,NEWS,PASS,,200,1920x1080,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1083,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8
+live_ch_454,Republic TV [Geo-blocked],IN,Hindi,NEWS,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,528,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/2e31d831f08640ff92f65003bdc89991/index.m3u8
+live_ch_455,Republic Kannada,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,419,https://vg-republictvlive.akamaized.net/ptnr-republicweb/title-Republic_TV_Kannada/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/1acd1ce1-c6a7-4ae4-afa1-133ffb111ebb/main.m3u8
+live_ch_456,Republic Bharat [Geo-blocked],IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1037,https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-275673/main.m3u8
+live_ch_457,Republic Bangla,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1147,https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/main.m3u8
+live_ch_458,Manoranjan Prime,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1115,https://mumt06.tangotv.in/qYyB8fXVMANORANJANPRIME/index.m3u8
+live_ch_459,RT India,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640c1f,mp4a.40.2,avc1.640c29,mp4a.40.2",HINDI,True,10222,https://rt-india.rttv.com/dvr/rtindia/playlist.m3u8
+live_ch_460,Sakshi TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,816,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/sakshi_nim_https/240122/sakshi/playlist.m3u8
+live_ch_461,Makkal TV (576i),IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2731,https://5k8q87azdy4v-hls-live.wmncdn.net/MAKKAL/271ddf829afeece44d8732757fba1a66.sdp/playlist.m3u8
+live_ch_462,Salaam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,462,https://d2o3r1shda7xvv.cloudfront.net/index_5.m3u8
+live_ch_463,Metro TV,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,704,https://mercury.streambridge.link:8042/telugu/metrotv/index.m3u8
+live_ch_464,Salaam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,325,https://d2o3r1shda7xvv.cloudfront.net/index_5.m3u8
+live_ch_465,Moon TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,582,https://d1msejlow1t3l4.cloudfront.net/fta/moontv/playlist.m3u8
+live_ch_466,News 7 Tamil,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,688,https://segment.yuppcdn.net/240122/news7/playlist.m3u8
+live_ch_467,Nepal 1,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1095,https://mumt05.tangotv.in/87NeALx2NEPAL1/index.m3u8
+live_ch_468,Shalom,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,642,https://d2c4zqo2rb5uf1.cloudfront.net/master.m3u8
+live_ch_469,Shalom Global,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,680,https://d28xtgmk9tfk6b.cloudfront.net/master.m3u8
+live_ch_470,News 24,IN,Hindi,NEWS,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,3079,https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8
+live_ch_471,News 24,IN,Hindi,NEWS,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,3237,https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8
+live_ch_472,Shemaroo Josh,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"h264,aac",HINDI,True,534,https://airtelapp.shemaroo.com/shemarooChumbakTV/smil:shemarooChumbakTVadp.smil/playlist.m3u8
+live_ch_473,NK TV Bangla,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.2",HINDI,True,1077,https://nktv.smartstream.video/smartstream-us/nkbangla/nkbangla/playlist.m3u8
+live_ch_474,NK TV 24x7,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,838,https://nktv.smartstream.video/smartstream-us/nktvplus/nktvplus/chunks.m3u8
+live_ch_475,News 24,IN,Hindi,NEWS,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,2973,https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8
+live_ch_476,NKR TV Kannada,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,981,https://stream.ottlive.co.in/nkrtv/index.m3u8
+live_ch_477,NKR TV Kannada,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,923,https://stream.ottlive.co.in/nkrtv/index.m3u8
+live_ch_478,News Nation,IN,Hindi,NEWS,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,551,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6cd2f649739a45ca9de1daf81cc7d0f2/index.m3u8
+live_ch_479,Sana TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.420028,mp4a.40.2",HINDI,True,3256,https://vglivessai.akamaized.net/us/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/b6d9e864-ec16-410a-804d-ccf8f720bfaa/index.m3u8
+live_ch_480,NTV Telugu,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640020,mp4a.40.2",HINDI,True,593,https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8
+live_ch_481,Songdew TV,IN,Hindi,MUSIC,PASS,,200,1280x720,"h264,aac",HINDI,True,730,https://yuppnimrestreammum.akamaized.net/181224/smil:songdewtv.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_482,Odisha TV,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,625,https://livetv.tarangplus.in/otv-origin/live/playlist.m3u8
+live_ch_483,Oli TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,749,http://ptuf.ridsys.in/riptv/live/KALAIGNAR_SIRIPOLI/index.m3u8
+live_ch_484,One Paschima,IN,Hindi,ENTERTAINMENT,PASS,,200,720x400,"avc1.64001e,mp4a.40.2",HINDI,True,918,https://live.ekamraott.com/onepaschima/onepaschima/index.m3u8
+live_ch_485,NTV Telugu,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640020,mp4a.40.2",HINDI,True,568,https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8
+live_ch_486,Odisha TV,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,447,https://livetv.tarangplus.in/otv-origin/live/playlist.m3u8
+live_ch_487,Oscar Movies Bhojpuri,IN,Hindi,MOVIES,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,139,https://cdn-4.pishow.tv/live/233/master.m3u8
+live_ch_488,NTC TV,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,1156,https://galaxyott.live/hls/ntv.m3u8
+live_ch_489,Pear TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1078,https://mumt01.tangotv.in/O5aw8Zn3PEARTV/index.m3u8
+live_ch_490,Pasand TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1078,https://mumt01.tangotv.in/O5aw8Zn3PASANDTV/index.m3u8
+live_ch_491,Sudarshan News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,639,https://ott.livelegitpro.in/sudarshannews/sudarshannews/tracks-v1/index.fmp4.m3u8
+live_ch_492,Peques TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2",HINDI,True,3262,https://live-evg7.tv360.bitel.com.pe/bitel/pequestv/playlist.m3u8
+live_ch_493,Pitaara,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,2919,https://vg-pitaaratvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-583798/playlist.m3u8
+live_ch_494,Polimer News,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,680,https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
+live_ch_495,Prarthana TV,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,708,https://livetv.tarangplus.in/prarthana-origin/live/playlist.m3u8
+live_ch_496,Pratham Khabar 24x7,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42c01f,mp4a.40.2",HINDI,True,683,https://livelegitpro.in/hls2/newstime/index.m3u8
+live_ch_497,Power TV,IN,Hindi,ENTERTAINMENT,PASS,,200,720x576,"avc1.64001e,mp4a.40.2",HINDI,True,1031,https://powertvkannada.com/hls/stream.m3u8
+live_ch_498,Pratidin Time,IN,Hindi,ENTERTAINMENT,PASS,,200,768x576,"avc1.4d401e,mp4a.40.2",HINDI,True,1182,https://server.thelegitpro.in/pratidintime/pratidintime/index.fmp4.m3u8
+live_ch_499,Tabbar Hits,IN,Hindi,ENTERTAINMENT,PASS,,200,428x240,"avc1.4d001f,mp4a.40.2",HINDI,True,1729,https://vglivessai.akamaized.net/sg/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e11b0319-52e8-4190-ab03-3931cc68eac9/index.m3u8
+live_ch_500,PTC Punjabi,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,517,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8
+live_ch_501,PTC Punjabi Gold,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,496,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8
+live_ch_502,PTC Simran,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,137,https://cdn-6.pishow.tv/live/1503/master.m3u8
+live_ch_503,Pravasi Channel,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,1314,https://m6gdavepdn93-hls-live.5centscdn.com/pravasi/d0dbe915091d400bd8ee7f27f0791303.sdp/playlist.m3u8
+live_ch_504,Public Movies,IN,Hindi,MOVIES,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1054,https://mumt04.tangotv.in/m18aqlK4PUBLICMOVIES/index.m3u8
+live_ch_505,Times Now Navbharat [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,480,https://dztlhgid9me95.cloudfront.net/live-tv/Vidgyor/navbharat/navbharat_master.m3u8
+live_ch_506,Telugu One,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,666,https://teluguone-yupptv.vgcdn.net/v1/019be9e3f04d1ea55784338b5c3e89/019be9e4474415fc60e93459e1e808/teluguone_2500k.m3u8
+live_ch_507,Total TV Haryana,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,173,https://cdn-2.pishow.tv/live/1522/master.m3u8
+live_ch_508,Punjabi Hits,IN,Hindi,ENTERTAINMENT,PASS,,200,428x240,"avc1.4d001f,mp4a.40.2",HINDI,True,926,https://stream.ottlive.co.in/punjabihits/index.m3u8
+live_ch_509,PMC Telugu,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,602,https://mumbai-edge.smartplaytv.in/PMC/index.m3u8
+live_ch_510,Puthiya Thalaimurai,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1091,https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8
+live_ch_511,Puthiya Thalaimurai,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1102,https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8
+live_ch_512,Times Now [Geo-blocked],IN,Hindi,ENTERTAINMENT,FAIL,VARIANT_FETCH_FAILED_HTTP_404,404,,,HINDI,False,2163,https://pubads.g.doubleclick.net/ssai/event/1mR1QUQ3Tg-VuKfiyjwNuA/master.m3u8
+live_ch_513,Pulari TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1094,https://royalstarindia.co.in/pularitv_hls/pularitv.m3u8
+live_ch_514,TV9 Bangla,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,596,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8
+live_ch_515,TV5 News,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,982,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8
+live_ch_516,TV9 Gujarati,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,648,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9guj3ki8lu/liveabr/playlist.m3u8
+live_ch_517,Puthuyugam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1092,https://mumt04.tangotv.in/m18aqlK4PUTHUYUGAMTV/index.m3u8
+live_ch_518,TV9 Bharatvarsh,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,530,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8
+live_ch_519,TV9 Kannada [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,682,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9kanmo6oiq/liveabr/playlist.m3u8
+live_ch_520,TV9 Marathi,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,691,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9marlygv8h/liveabr/playlist.m3u8
+live_ch_521,TV9 Telugu,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,619,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9telcmjhcs/liveabr/playlist.m3u8
+live_ch_522,Unite8 Sports 2,IN,Hindi,ENTERTAINMENT,FAIL,TIMEOUT,,,,HINDI,False,5006,http://59.103.38.46:8000/play/a126/index.m3u8
+live_ch_523,R Plus,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1065,https://mumt05.tangotv.in/87NeALx2VERTENTSAMACHARPLUS/index.m3u8
+live_ch_524,V6 News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,961,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/v6news_nim_https/140622/v6news/playlist.m3u8
+live_ch_525,Raftaar Media,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1120,https://mumt04.tangotv.in/m18aqlK4RAFTAARMEDIA/index.m3u8
+live_ch_526,Raj Musix Tamil,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d0003,mp4a.40.2,avc1.4d0020,mp4a.40.2,avc1.4d001f,mp4a.40.2,avc1.4d0002,mp4a.40.2",HINDI,True,796,https://livestream.rajtv.tv/hlslive/Admin/px08241087/live/Raj_Musix/master_1.m3u8
+live_ch_527,Reporter TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,759,https://segment.yuppcdn.net/050522/reporter/playlist.m3u8
+live_ch_528,Ramdhenu,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,181,https://cdn-7.pishow.tv/live/10016/master.m3u8
+live_ch_529,Rang,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,171,https://cdn-4.pishow.tv/live/1499/master.m3u8
+live_ch_530,Raj TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d0003,mp4a.40.2,avc1.4d0020,mp4a.40.2,avc1.4d001f,mp4a.40.2,avc1.4d000d,mp4a.40.2",HINDI,True,780,https://livestream.rajtv.tv/hlslive/Admin/px08241087/live/RAJTV/master_1.m3u8
+live_ch_531,Raj Digital Plus,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d0003,mp4a.40.2,avc1.4d0020,mp4a.40.2,avc1.4d001f,mp4a.40.2,avc1.4d0002,mp4a.40.2",HINDI,True,744,https://livestream.rajtv.tv/hlslive/Admin/px08241087/live/RajTV_Digital_plus/master_1.m3u8
+live_ch_532,Republic Bangla,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,911,https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/main.m3u8
+live_ch_533,Republic TV,IN,Hindi,NEWS,PASS,,200,1920x1080,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1112,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8
+live_ch_534,Vision,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"hvc1.1.4.L120.90,mp4a.40.2",HINDI,True,1742,http://38.96.178.205/SONYHD/index.m3u8
+live_ch_535,TOI Global,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2,avc1.64001e,mp4a.40.2,avc1.64001f,mp4a.40.2",HINDI,True,4949,https://live.sli.ke/live/npnhm84gz9/master.m3u8
+live_ch_536,Rongeen TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1086,https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8
+live_ch_537,Republic Kannada,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,311,https://vg-republictvlive.akamaized.net/ptnr-republicweb/title-Republic_TV_Kannada/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/1acd1ce1-c6a7-4ae4-afa1-133ffb111ebb/main.m3u8
+live_ch_538,Reporter TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,752,https://segment.yuppcdn.net/050522/reporter/playlist.m3u8
+live_ch_539,Rongeen TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1180,https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8
+live_ch_540,Sony Marathi [Geo-blocked],IN,Hindi,ENTERTAINMENT,FAIL,INVALID_MANIFEST_NO_EXTM3U,200,,,HINDI,False,67363,https://sl.vodep39240327.workers.dev/channel/SONY+MARATHI.m3u8
+live_ch_541,Rozana Spokesman,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d0020,mp4a.40.2",HINDI,True,577,https://live1.ottlive.co.in/spokesman/spokesman/index.m3u8
+live_ch_542,Republic Bharat,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1120,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicBharat.m3u8
+live_ch_543,WION,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,511,https://d7x8z4yuq42qn.cloudfront.net/index_1.m3u8
+live_ch_544,WION,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,508,https://d7x8z4yuq42qn.cloudfront.net/index_4.m3u8
+live_ch_545,WION,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,387,https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
+live_ch_546,WION,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,354,https://d7x8z4yuq42qn.cloudfront.net/index_3.m3u8
+live_ch_547,WION,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,438,https://d7x8z4yuq42qn.cloudfront.net/index_5.m3u8
+live_ch_548,WION,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,366,https://d7x8z4yuq42qn.cloudfront.net/index_2.m3u8
+live_ch_549,Rupasi Bangla,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,169,https://cdn-4.pishow.tv/live/1039/master.m3u8
+live_ch_550,Safari TV,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,3022,https://j78dp346yq5r-hls-live.5centscdn.com/safari/live.stream/playlist.m3u8
+live_ch_551,Vedic,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1023,https://mumt05.tangotv.in/87NeALx2VEDIC/index.m3u8
+live_ch_552,Zee 24 Ghanta,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,429,https://d2dsoyvkr33m05.cloudfront.net/index_4.m3u8
+live_ch_553,Vijay Takkar APAC,IN,Hindi,ENTERTAINMENT,PASS,,200,Direct Media,Unknown,HINDI,True,519,https://tglmp01.akamaized.net/out/v1/c1071012b73f4f189b202e1529e8f802/manifest.mpd
+live_ch_554,Sai TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1053,https://mumt03.tangotv.in/Dsly5z3HSAITV/index.m3u8
+live_ch_555,Zee 24 Taas,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,478,https://dgrvlduwztkd4.cloudfront.net/index_5.m3u8
+live_ch_556,Zee Bangla Sonar,IN,Hindi,ENTERTAINMENT,PASS,,200,256x144,"mp4a.40.2,avc1.4D400C,mp4a.40.2,avc1.4D4015,mp4a.40.2,avc1.4D401E",HINDI,True,792,https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8
+live_ch_557,WION,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.64001f,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1042,http://vg-zeefta.akamaized.net/ptnr-yupptv/title-wion/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/20c3c0d9-0256-43fe-bca6-70fdd490b957/main.m3u8
+live_ch_558,Zainabia Channel,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,763,https://zainabia.livebox.co.in/ZainabiaChannelhls/channel.m3u8
+live_ch_559,WION (Adaptive),IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d0029,mp4a.40.2",HINDI,True,5560,https://raw.githubusercontent.com/Alstruit/adaptive-streams/alstruit-10_23_in/streams/in/WION.in.m3u8
+live_ch_560,Zee 24 Kalak,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,629,https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zee24kalak/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/497f7199-758d-495d-9d2f-a5489231c428/14b7c8ec-16da-47f2-8d7e-5bbaec67b3e2/3.m3u8
+live_ch_561,Sairam TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,138,https://cdn-3.pishow.tv/live/1611/master.m3u8
+live_ch_562,Sada TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1060,http://cdn12.henico.net:8080/live/sadatv/index.m3u8
+live_ch_563,Zee Business,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,348,https://dwby15d04agvq.cloudfront.net/index_5.m3u8
+live_ch_564,Sai TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1101,https://mumt03.tangotv.in/Dsly5z3HSAITV/index.m3u8
+live_ch_565,Zee Bihar Jharkhand,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4d400d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1236,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ZeeBiharJharkhand.m3u8
+live_ch_566,Zee Bangla HD,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,863,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ZeeBanglaHD.m3u8
+live_ch_567,Zee Kannada News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,444,https://d3vzwoqcbpfm8p.cloudfront.net/index_4.m3u8
+live_ch_568,Sakshi TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,938,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/sakshi_nim_https/240122/sakshi/playlist.m3u8
+live_ch_569,Zee Bihar Jharkhand,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4d400d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1027,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ZeeBiharJharkhand.m3u8
+live_ch_570,Real News Kerala [Not 24/7],IN,Hindi,NEWS,PASS,,200,1920x1080,"avc1.42c028,mp4a.40.2",HINDI,True,2778,https://bk7l298nyx53-hls-live.5centscdn.com/realnews/e7dee419f91aa9e65939d3677fb9c4f5.sdp/playlist.m3u8
+live_ch_571,Zee Cinema APAC,IN,Hindi,MOVIES,PASS,,200,640x360,"h264,aac",HINDI,True,5756,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ZeeCinemaAPAC.m3u8
+live_ch_572,Zee News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,324,https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8
+live_ch_573,RDX Goa [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,1024x576,"avc1.64001f,mp4a.40.2",HINDI,True,3024,https://g5nl6xoalpq6-hls-live.5centscdn.com/rdxgoa/d0dbe915091d400bd8ee7f27f0791303.sdp/playlist.m3u8
+live_ch_574,Zee Kannada HD,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,1014,https://yuppnimresmum.akamaized.net/28072023/smil:zeekannadahd.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_575,Samay Kolkata,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,968,https://server.livelegitpro.in/samaykolkata/samaykolkata/index.m3u8
+live_ch_576,Zee Marathi HD,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,5962,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ZeeMarathiHD.m3u8
+live_ch_577,Zee Telugu News,IN,Hindi,NEWS,PASS,,200,426x240,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,692,https://d116gfrn8orazi.cloudfront.net/index.m3u8?akes=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjcxOTc5NzJ9.O4qmdMPbHwKrCg6hFXvD70vjSPWKQd0a7NrjmFdeMB8
+live_ch_578,India Ahead,IN,Hindi,ENTERTAINMENT,PASS,,200,480x360,"avc1.42001f,mp4a.40.2",HINDI,True,1114,https://mumt05.tangotv.in/87NeALx2INDIAAHEAD/index.m3u8
+live_ch_579,Zee News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,271,https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8
+live_ch_580,Zee Tamil News,IN,Hindi,NEWS,FAIL,VARIANT_FETCH_FAILED_NETWORK_ERROR_gaierror,,,,HINDI,False,271,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/ZMCL/ZeeTamilNews.m3u8
+live_ch_581,Zee Punjab Haryana Himachal,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.64001f,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,914,https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeepunjabharyanahima/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/65eed269-2f3a-4dd0-ac89-d18959af28e3/main.m3u8
+live_ch_582,Zoom,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.640016,mp4a.40.2,avc1.640003,mp4a.40.2",HINDI,True,1347,https://dai.google.com/linear/hls/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8
+live_ch_583,Republic TV,IN,Hindi,NEWS,PASS,,200,1920x1080,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1180,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8
+live_ch_584,Safari TV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2394,https://j78dp346yq5r-hls-live.5centscdn.com/safari/live.stream/playlist.m3u8
+live_ch_585,Colors Gujarati,IN,Hindi,ENTERTAINMENT,PASS,,200,512x288,"h264,aac",HINDI,True,934,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ColorsGujarati.m3u8
+live_ch_586,Sana Plus,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,605,https://mumbai-edge.smartplaytv.in/SanaPlusHD/index.m3u8
+live_ch_587,Sirippoli TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,867,http://ptuf.ridsys.in/riptv/live/KALAIGNAR_SIRIPOLI/index.m3u8
+live_ch_588,9X Tashan,IN,Hindi,MUSIC,PASS,,200,640x360,"avc1.4d402a,mp4a.40.2",HINDI,True,1022,https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8
+live_ch_589,9X Jalwa,IN,Hindi,MUSIC,FAIL,SERVER_ERROR_HTTP_503,503,,,HINDI,False,256,https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8
+live_ch_590,9X Jhakaas,IN,Hindi,MUSIC,PASS,,200,640x360,"avc1.4d402a,mp4a.40.2",HINDI,True,1097,https://amg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjhakaas-samsungin/playlist.m3u8
+live_ch_591,9XM,IN,Hindi,MUSIC,PASS,,200,1280x720,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,4718,https://9xjio.wiseplayout.com/9XM/master.m3u8
+live_ch_592,Sansad TV 2,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,582,https://d2lk5u59tns74c.cloudfront.net/out/v1/e4182054dce340da9e0ff38b6b3658a4/index.m3u8
+live_ch_593,Sana Plus [Not 24/7],IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,1374,https://galaxyott.live/hls/sanaplus.m3u8
+live_ch_594,Shemaroo Filmi Gaane,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,725,https://prod-runn.cdn.runn.tv/shemaroo/stream/smrfgn/playlist.m3u8
+live_ch_595,Shekinah TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,1906,https://livetv.timeiptv.in/ShekinahNewsIndia/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8
+live_ch_596,Siri Kannada All Time,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1077,https://mumt07.tangotv.in/zHjX9OFlSIRIKANNADAALLTIME/index.m3u8
+live_ch_597,Siri Kannada,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1107,https://mumt07.tangotv.in/zHjX9OFlSIRIKANNADAALLTIME/index.m3u8
+live_ch_598,Salvation TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1479,https://ktismaservers.in:3902/live/salvationtvlive.m3u8
+live_ch_599,Shubhsandesh TV,IN,Hindi,ENTERTAINMENT,PASS,,200,586x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2927,https://6284rn2xr7xv-hls-live.wmncdn.net/shubhsandeshtv1/live123.stream/index.m3u8
+live_ch_600,Spondon,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.2",HINDI,True,874,https://nktv.smartstream.video/smartstream-us/spondon/spondon/playlist.m3u8
+live_ch_601,Sirippoli TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,737,http://ptuf.ridsys.in/riptv/live/KALAIGNAR_SIRIPOLI/index.m3u8
+live_ch_602,Spondon,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.2",HINDI,True,818,https://nktv.smartstream.video/smartstream-us/spondon/spondon/playlist.m3u8
+live_ch_603,Star Sports Select 2 HD,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2",HINDI,True,14747,http://tvsen7.aynascope.net/ssport2hd/index.m3u8
+live_ch_604,Star Sports 2 HD,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2",HINDI,True,29900,http://tvsen5.aynascope.net/cXPB2LKkErN9/index.m3u8
+live_ch_605,Studio Yuva,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1152,https://mumt01.tangotv.in/O5aw8Zn3STUDIOYUVA/index.m3u8
+live_ch_606,Star Family [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1152,http://c0.cdn.trinity-tv.net/stream/zfmjgma9zn46fa797ez9fgkw7msh9mj4tppspg23gey6mmx5fqiy7ky3jqx4uhgsfsrd8r76si8ykb2anw9442g4qkq5fzpdvwdqf5te24ixu9zrx3aesm9fzt59q5y2s8qwgbqhvf6d3z5bjy3qb2t4.m3u8
+live_ch_607,Subhavaartha TV,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2693,https://2mk9qae4rwyb-hls-live.wmncdn.net/shubhavartha/live.stream/playlist.m3u8
+live_ch_608,Suriya TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42c028,mp4a.40.34",HINDI,True,1892,https://stream.ottlive.co.in/suryatvtamil/index.m3u8
+live_ch_609,Sudarshan News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,385,https://ott.livelegitpro.in/sudarshannews/sudarshannews/tracks-v1/index.fmp4.m3u8
+live_ch_610,Subin TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42c028,mp4a.40.2",HINDI,True,1400,https://stream.galaxyott.live/live/subintv/index.m3u8
+live_ch_611,Starnet,IN,Hindi,ENTERTAINMENT,PASS,,200,854x480,"avc1.42c01f,mp4a.40.2",HINDI,True,3022,https://5a1178b42cc03.streamlock.net/8220/8220/playlist.m3u8
+live_ch_612,SVBC 4,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,2647,https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8
+live_ch_613,Subhavaartha TV,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2500,https://2mk9qae4rwyb-hls-live.wmncdn.net/shubhavartha/live.stream/playlist.m3u8
+live_ch_614,Swatantra TV,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,586,https://mumbai-edge.smartplaytv.in/SwatantraTV/index.m3u8
+live_ch_615,Tamil Janam,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1086,https://mumt01.tangotv.in/O5aw8Zn3JANAMTVTAMIL/index.m3u8
+live_ch_616,Tarang Music,IN,Hindi,MUSIC,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,634,https://livetv.tarangplus.in/tarangmusic-origin/live/playlist.m3u8
+live_ch_617,Tarang TV,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,713,https://livetv.tarangplus.in/tarangtv-origin/live/playlist.m3u8
+live_ch_618,SVBC 2,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2",HINDI,True,3005,https://player.mslivestream.net/tamil/ac206e74d75b285755ee4924df87d951.sdp/playlist.m3u8
+live_ch_619,Thanthi One,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1035,https://mumt07.tangotv.in/zHjX9OFlTHANTHIONE/index.m3u8
+live_ch_620,SVBC 3,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,2928,https://player.mslivestream.net/svbc/2e628d7e1b65d31254fd7705ff7ee64d.sdp/playlist.m3u8
+live_ch_621,SVBC Sri Venkateswara Bhakti Channel,IN,Hindi,DEVOTIONAL,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2",HINDI,True,2609,https://player.mslivestream.net/telugu/5d076e5c3d34cb8bb08e54a4bb7e223e.sdp/playlist.m3u8
+live_ch_622,TV5 News,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,1008,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8
+live_ch_623,Ultimate TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2",HINDI,True,2135,https://stream.ottlive.co.in/utvtamil/index.m3u8
+live_ch_624,Ultimate TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2",HINDI,True,1904,https://stream.ottlive.co.in/utvtamil/index.m3u8
+live_ch_625,Unique TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1116,https://mumt05.tangotv.in/87NeALx2UNIQUETV/index.m3u8
+live_ch_626,Vasanth TV,IN,Hindi,ENTERTAINMENT,PASS,,200,494x360,"avc1.420015,mp4a.40.2",HINDI,True,1087,https://mumt04.tangotv.in/m18aqlK4VASANTHTV/index.m3u8
+live_ch_627,Fateh TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42c02a,mp4a.40.2",HINDI,True,583,https://ott.livelegitpro.in/fatehtv/fatehtv/index.m3u8
+live_ch_628,Vyas NIC,IN,Hindi,ENTERTAINMENT,FAIL,TIMEOUT,,,,HINDI,False,5006,https://playhls.media.nic.in/hls/live/vyas/vyas.m3u8
+live_ch_629,Vaanavil TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1483,https://6n3yope4d9ok-hls-live.5centscdn.com/vaanavil/TV.stream/playlist.m3u8
+live_ch_630,Village TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2",HINDI,True,1103,https://live.villagetv.net/villagetv/hd/index.m3u8
+live_ch_631,TV Punjab [Geo-blocked],IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2",HINDI,True,2834,https://932y483pdjv8-hls-live.5centscdn.com/stream/deb10bae362f810630ec3abedcae5894.sdp/playlist.m3u8
+live_ch_632,ZB Music,IN,Hindi,MUSIC,PASS,,200,1280x720,"avc1.64001f,mp4a.40.2",HINDI,True,931,https://server.zillarbarta.com/zbmusic/index.m3u8
+live_ch_633,ZB Cartoon,IN,Hindi,CARTOONS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,361,https://server.zillarbarta.com/zbcatun/video.m3u8
+live_ch_634,ZB Bhakti,IN,Hindi,DEVOTIONAL,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,846,https://server.zillarbarta.com/zbbhakti/index.m3u8
+live_ch_635,UTV Palakkad,IN,Hindi,ENTERTAINMENT,PASS,,200,720x576,"avc1.64001e,mp4a.40.34",HINDI,True,3219,https://em4qj6nedyvg-hls-live.wmncdn.net/liveunit/89b1e919eed04e59383cf820d644c20e.sdp/playlist.m3u8
+live_ch_636,VCV [Not 24/7],IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.64001f,mp4a.40.2",HINDI,True,2999,https://5a1178b42cc03.streamlock.net/8210/8210/playlist.m3u8
+live_ch_637,Dangal 2,IN,Hindi,ENTERTAINMENT,PASS,,200,982x720,"avc1.42001e,mp4a.40.2",HINDI,True,710,https://streams.tangotv.in/DANGAL2/ORIGIN/index.m3u8
+live_ch_638,Shemaroo TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"h264,aac",HINDI,True,477,https://airtelapp.shemaroo.com/shemarootv/smil:shemarootvadp.smil/playlist.m3u8
+live_ch_639,Dangal TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,757,https://streams.tangotv.in/DANGAL/ORIGIN/index.m3u8
+live_ch_640,Shemaroo Umang,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"h264,aac",HINDI,True,558,https://airtelapp.shemaroo.com/shemarooumang/smil:shemarooumangadp.smil/playlist.m3u8
+live_ch_641,Manoranjan Grand,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,185,https://cdn-1.pishow.tv/live/1011/master.m3u8
+live_ch_642,Manoranjan TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,750,https://streams.tangotv.in/MANORANJANTV/ORIGIN/index.m3u8
+live_ch_643,DD National HD,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,647,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/40492a64c1db4a1385ba1a397d357d3a/index.m3u8
+live_ch_644,Epic Bharat,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,2123,https://cc-p1izg43bk7sj5.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-p1izg43bk7sj5/DIYC/PMSL/IN10/Nazara_IN_B/Nazara_IN_B.m3u8
+live_ch_645,Shemaroo Josh,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1135,https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8
+live_ch_646,Goldmines,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,142,https://cdn-2.pishow.tv/live/1460/master.m3u8
+live_ch_647,Anjan TV,IN,Hindi,ENTERTAINMENT,PASS,,200,854x480,"avc1.66.31,mp4a.40.2,avc1.77.40,mp4a.40.2",HINDI,True,587,https://anjan.vstream.online/anjanorg/ngrp:anjan_hdall/playlist.m3u8
+live_ch_648,Manoranjan Prime,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1195,https://mumt06.tangotv.in/qYyB8fXVMANORANJANPRIME/index.m3u8
+live_ch_649,Gangaur TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4D401F,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.640029,mp4a.40.2",HINDI,True,978,https://pbgangaur.wiseplayout.com/Gangaur/master.m3u8
+live_ch_650,Goldmines Bollywood,IN,Hindi,MOVIES,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,670,https://streams.tangotv.in/GOLDMINESBOLLYWOOD/ORIGIN/index.m3u8
+live_ch_651,Goldmines Movies,IN,Hindi,MOVIES,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,704,https://streams.tangotv.in/GOLDMINEMOVIES/ORIGIN/index.m3u8
+live_ch_652,ZillarBarta News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,739,https://server.zillarbarta.com/zillarbarta/index.m3u8
+live_ch_653,B4U Movies,IN,Hindi,MOVIES,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,701,https://streams.tangotv.in/B4UMOVIES/ORIGIN/index.m3u8
+live_ch_654,B4U Kadak,IN,Hindi,MOVIES,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,707,https://streams.tangotv.in/B4UKADAK/ORIGIN/index.m3u8
+live_ch_655,Manoranjan Movies,IN,Hindi,MOVIES,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1052,https://mumt04.tangotv.in/m18aqlK4MANORANJANMOVIES/index.m3u8
+live_ch_656,Music India,IN,Hindi,MUSIC,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,137,https://cdn-2.pishow.tv/live/226/master.m3u8
+live_ch_657,Epic Music,IN,Hindi,MUSIC,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1192,https://mumt04.tangotv.in/m18aqlK4EPICMUSIC/index.m3u8
+live_ch_658,9XM,IN,Hindi,MUSIC,PASS,,200,1280x720,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,5254,https://9xjio.wiseplayout.com/9XM/master.m3u8
+live_ch_659,B4U Music,IN,Hindi,MUSIC,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,138,https://cdn-2.pishow.tv/live/415/master.m3u8
+live_ch_660,Insync,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.420015,mp4a.40.2",HINDI,True,1101,https://mumt04.tangotv.in/m18aqlK4INSYNC/index.m3u8
+live_ch_661,Times Now Navbharat,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,897,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/TimesNowNavbharat.m3u8
+live_ch_662,TV9 Bharatvarsh,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,570,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8
+live_ch_663,News Nation,IN,Hindi,NEWS,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,591,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6cd2f649739a45ca9de1daf81cc7d0f2/index.m3u8
+live_ch_664,Republic Bharat,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,6160,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicBharat.m3u8
+live_ch_665,India TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,527,https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8
+live_ch_666,Bharat24,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,679,https://cdn.ottlive.co.in/bharat24/index.fmp4.m3u8
+live_ch_667,News 24,IN,Hindi,NEWS,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,3171,https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8
+live_ch_668,Sudarshan News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,381,https://ott.livelegitpro.in/sudarshannews/sudarshannews/tracks-v1/index.fmp4.m3u8
+live_ch_669,Swaraj Express SMBC,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,171,https://cdn-2.pishow.tv/live/477/master.m3u8
+live_ch_670,Bharat Express,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1125,https://mumt07.tangotv.in/zHjX9OFlBHARATEXPRESS/index.m3u8
+live_ch_671,ANB News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,1587,https://server.livelegitpro.in:9899/anbnews/anbnews/index.m3u8
+live_ch_672,Bansal News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,2982,https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8
+live_ch_673,IBC 24,IN,Hindi,ENTERTAINMENT,PASS,,200,982x720,"avc1.42001f,mp4a.40.2",HINDI,True,1126,https://mumt05.tangotv.in/87NeALx2IBC24/index.m3u8
+live_ch_674,Republic TV,IN,Hindi,NEWS,PASS,,200,1920x1080,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1063,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8
+live_ch_675,Public First,IN,Hindi,ENTERTAINMENT,FAIL,VARIANT_FETCH_FAILED_HTTP_404,404,,,HINDI,False,1754,https://mumt06.tangotv.in/qYyB8fXVPUBLICFIRST/index.m3u8
+live_ch_676,NewsX,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1097,https://mumt03.tangotv.in/Dsly5z3HNEWSXWORLD/index.m3u8
+live_ch_677,NewsX World,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1025,https://mumt03.tangotv.in/Dsly5z3HNEWSXWORLD/index.m3u8
+live_ch_678,Aastha SD,IN,Hindi,DEVOTIONAL,PASS,,200,480x360,"avc1.42001f,mp4a.40.2",HINDI,True,1059,https://mumt05.tangotv.in/87NeALx2AASTHA/index.m3u8
+live_ch_679,DD India,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,629,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/ceda14583477426aa162a65392d8ea07/index.m3u8
+live_ch_680,PTC Punjabi,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,551,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8
+live_ch_681,Channel Divya,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,822,https://vg-pitaaratvlive.akamaized.net/v1/vglive-sk-906482/playlist.m3u8
+live_ch_682,Ishwar Bhakti TV,IN,Hindi,DEVOTIONAL,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,3424,https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8
+live_ch_683,Hope Channel India,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1120,https://mumt01.tangotv.in/O5aw8Zn3HOPECHANNELINDIA/index.m3u8
+live_ch_684,Hare Krsna TV,IN,Hindi,ENTERTAINMENT,PASS,,206,Direct Media,Unknown,HINDI,True,479,https://hktv.harekrsnatv.com/HKTV/HKWebApp/manifest.mpd
+live_ch_685,PTC Punjabi Gold,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,502,https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8
+live_ch_686,Pitaara,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,2640,https://vg-pitaaratvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-583798/playlist.m3u8
+live_ch_687,PTC Music,IN,Hindi,MUSIC,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,559,https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8
+live_ch_688,9X Tashan,IN,Hindi,MUSIC,PASS,,200,640x360,"avc1.4d402a,mp4a.40.2",HINDI,True,1054,https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8
+live_ch_689,PTC Chakde,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,137,https://cdn-1.pishow.tv/live/449/master.m3u8
+live_ch_690,Balle Balle,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d401f,mp4a.40.2",HINDI,True,2724,https://mcncdndigital.com/balleballetv/index.m3u8
+live_ch_691,PTC News,IN,Hindi,NEWS,PASS,,200,786x576,"avc1.42001f,mp4a.40.2",HINDI,True,642,https://streams.tangotv.in/PTCNEWS/ORIGIN/index.m3u8
+live_ch_692,Tabbar Hits,IN,Hindi,ENTERTAINMENT,PASS,,200,428x240,"avc1.4d001f,mp4a.40.2",HINDI,True,1055,https://vglivessai.akamaized.net/sg/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e11b0319-52e8-4190-ab03-3931cc68eac9/index.m3u8
+live_ch_693,Living India News,IN,Hindi,NEWS,PASS,,200,428x240,"avc1.4d001f,mp4a.40.2",HINDI,True,1020,https://stream.ottlive.co.in/livingindia/index.m3u8
+live_ch_694,Chardikla Time TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42001f,mp4a.40.2",HINDI,True,1664,https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8
+live_ch_695,Chardikla Time TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.42001f,mp4a.40.2",HINDI,True,1560,https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8
+live_ch_696,TV9 Gujarati,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,600,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9guj3ki8lu/liveabr/playlist.m3u8
+live_ch_697,Gujarat First,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1046,https://mumt03.tangotv.in/Dsly5z3HGUJARATFIRST/index.m3u8
+live_ch_698,TV9 Marathi,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,568,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9marlygv8h/liveabr/playlist.m3u8
+live_ch_699,Sangeet Marathi,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,146,https://cdn-3.pishow.tv/live/1229/master.m3u8
+live_ch_700,Fakt Marathi,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,162,https://cdn-6.pishow.tv/live/10002/master.m3u8
+live_ch_701,B4U Bhojpuri,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1277,https://cdnb4u.wiseplayout.com/B4U_Bhojpuri/master.m3u8
+live_ch_702,Bhojpuri Cinema,IN,Hindi,MOVIES,PASS,,200,1280x720,"avc1.64001f,mp4a.40.2",HINDI,True,643,https://streams.tangotv.in/BHOJPURICINEMA/ORIGIN/index.m3u8
+live_ch_703,Sangeet Bhojpuri,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1140,https://mumt01.tangotv.in/O5aw8Zn3SANGEETBHOJPURI/index.m3u8
+live_ch_704,Peppers TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,174,https://cdn-2.pishow.tv/live/1383/master.m3u8
+live_ch_705,Pudhari News,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,743,https://streams.tangotv.in/PUDHARINEWS/ORIGIN/index.m3u8
+live_ch_706,Malai Murasu TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.2,avc1.640029,mp4a.40.2,avc1.640003,mp4a.40.2",HINDI,True,1035,https://amg17783-amg17783c1-amgplt0173.playout.now3.amagi.tv/playlist/amg17783-amg17783c1-amgplt0173/playlist.m3u8
+live_ch_707,Puthiya Thalaimurai,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1048,https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8
+live_ch_708,Polimer TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,175,https://cdn-2.pishow.tv/live/1241/master.m3u8
+live_ch_709,News 7 Tamil,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,824,https://segment.yuppcdn.net/240122/news7/playlist.m3u8
+live_ch_710,Thanthi TV,IN,Hindi,ENTERTAINMENT,PASS,,200,486x360,"avc1.420015,mp4a.40.2",HINDI,True,638,https://streams.tangotv.in/THANTHITV/ORIGIN/index.m3u8
+live_ch_711,News Tamil 24x7,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,142,https://cdn-3.pishow.tv/live/1433/master.m3u8
+live_ch_712,Polimer News,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,863,https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
+live_ch_713,OM TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1091,https://mumt01.tangotv.in/O5aw8Zn3OMTV/index.m3u8
+live_ch_714,Sai TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1126,https://mumt03.tangotv.in/Dsly5z3HSAITV/index.m3u8
+live_ch_715,Angel TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,1983,https://janya-digimix.akamaized.net/vglive-sk-394914/india/ngrp:angelindia_all/playlist.m3u8
+live_ch_716,Vissa TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1096,https://mumt07.tangotv.in/zHjX9OFlVISSATV/index.m3u8
+live_ch_717,Raj Musix Telugu,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,138,https://cdn-1.pishow.tv/live/1213/master.m3u8
+live_ch_718,Madha TV,IN,Hindi,ENTERTAINMENT,FAIL,UNKNOWN_EXCEPTION_TimeoutError,,,,HINDI,False,5275,https://mumt07.tangotv.in/zHjX9OFlMADHATV/index.m3u8
+live_ch_719,Mahaa Max,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1094,https://mumt03.tangotv.in/Dsly5z3HMAHAAMAX/index.m3u8
+live_ch_720,Prime9 News,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1106,https://mumt01.tangotv.in/O5aw8Zn3PRIME9NEWS/index.m3u8
+live_ch_721,Sakshi TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,913,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/sakshi_nim_https/240122/sakshi/playlist.m3u8
+live_ch_722,CVR English,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,170,https://cdn-2.pishow.tv/live/425/master.m3u8
+live_ch_723,APN,IN,Hindi,ENTERTAINMENT,FAIL,UNKNOWN_EXCEPTION_TimeoutError,,,,HINDI,False,5292,https://mumt01.tangotv.in/O5aw8Zn3APN/index.m3u8
+live_ch_724,Bansal News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,2344,https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8
+live_ch_725,Kashish News,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,621,https://d1msejlow1t3l4.cloudfront.net/fta/kashishnews/playlist.m3u8
+live_ch_726,Network 10,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1147,https://mumt01.tangotv.in/O5aw8Zn3NETWORK10/index.m3u8
+live_ch_727,TV9 Telugu,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,642,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9telcmjhcs/liveabr/playlist.m3u8
+live_ch_728,TV5 News,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,896,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8
+live_ch_729,V6 News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,917,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/v6news_nim_https/140622/v6news/playlist.m3u8
+live_ch_730,Jantantra TV,IN,Hindi,ENTERTAINMENT,PASS,,200,982x720,"avc1.42001f,mp4a.40.2",HINDI,True,1042,https://mumt05.tangotv.in/87NeALx2JANTANTRA/index.m3u8
+live_ch_731,Swaraj Express SMBC,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,171,https://cdn-2.pishow.tv/live/477/master.m3u8
+live_ch_732,Subharti TV,IN,Hindi,ENTERTAINMENT,FAIL,UNKNOWN_EXCEPTION_TimeoutError,,,,HINDI,False,5258,https://mumt04.tangotv.in/m18aqlK4SUBHARTITV/index.m3u8
+live_ch_733,Vanitha TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1099,https://mumt01.tangotv.in/O5aw8Zn3VANITHA/index.m3u8
+live_ch_734,Insync,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,556,https://d1msejlow1t3l4.cloudfront.net/fta/insync/playlist.m3u8
+live_ch_735,Moon TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,621,https://d1msejlow1t3l4.cloudfront.net/fta/moontv/playlist.m3u8
+live_ch_736,Jai Maharashtra,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,565,https://d1msejlow1t3l4.cloudfront.net/fta/jaimaharashtra/playlist.m3u8
+live_ch_737,Studio Yuva,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1078,https://mumt01.tangotv.in/O5aw8Zn3STUDIOYUVA/index.m3u8
+live_ch_738,6 TV Telugu,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"h264,aac",HINDI,True,1996,https://yuppparoriglin.akamaized.net/181224/smil:6tv.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_739,Ayush TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,447,http://d1msejlow1t3l4.cloudfront.net/fta/ayushtv/playlist.m3u8
+live_ch_740,CVR OM Spiritual,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"h264,aac",HINDI,True,773,https://yuppnimrestreammum.akamaized.net/181224/smil:cvrom1.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_741,Mahaa News,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1113,https://mumt07.tangotv.in/zHjX9OFlMAHAANEWS/index.m3u8
+live_ch_742,Hindu Dharmam,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1056,https://mumt01.tangotv.in/O5aw8Zn3HINDUDHARMAM/index.m3u8
+live_ch_743,Mahaa Max,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1159,https://mumt03.tangotv.in/Dsly5z3HMAHAAMAX/index.m3u8
+live_ch_744,Mahaa Bhakti,IN,Hindi,DEVOTIONAL,PASS,,200,1920x1080,"avc1.42c01f,mp4a.40.2",HINDI,True,573,https://mumbai-edge.smartplaytv.in/MahaBhakthi/index.m3u8
+live_ch_745,News 1st,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,540,https://d1msejlow1t3l4.cloudfront.net/fta/News1st/playlist.m3u8
+live_ch_746,Mantavya News,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d401f,mp4a.40.2",HINDI,True,547,https://d1msejlow1t3l4.cloudfront.net/fta/mantavya/playlist.m3u8
+live_ch_747,V6 News,IN,Hindi,NEWS,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,968,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/v6news_nim_https/140622/v6news/playlist.m3u8
+live_ch_748,T News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1356,https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8
+live_ch_749,TV5 News,IN,Hindi,NEWS,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,1136,https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8
+live_ch_750,INews,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,149,https://cdn-1.pishow.tv/live/411/master.m3u8
+live_ch_751,Darshana TV,IN,Hindi,DEVOTIONAL,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1085,https://mumt04.tangotv.in/m18aqlK4DARSHANATV/index.m3u8
+live_ch_752,Kappa TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1108,https://mumt03.tangotv.in/Dsly5z3HKAPPATV/index.m3u8
+live_ch_753,Kairali TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1031,https://mumt01.tangotv.in/O5aw8Zn3KAIRALI/index.m3u8
+live_ch_754,Kappa TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1099,https://mumt03.tangotv.in/Dsly5z3HKAPPATV/index.m3u8
+live_ch_755,Amrita TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d400d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,742,https://ddash74r36xqp.cloudfront.net/master.m3u8
+live_ch_756,Kairali We,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,744,https://streams.tangotv.in/WETV/ORIGIN/index.m3u8
+live_ch_757,Rupasi Bangla,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,171,https://cdn-4.pishow.tv/live/1039/master.m3u8
+live_ch_758,Manorama News,IN,Hindi,NEWS,PASS,,200,384x216,"avc1.4D401E,mp4a.40.2,avc1.4D401F,mp4a.40.2,avc1.4D400D,mp4a.40.2",HINDI,True,909,https://mmtvnews1.akamaized.net/v1/master/673630b269b766886555eebfddd4f27f3de3ab50/mmtvNewsCampaign1/index.m3u8
+live_ch_759,Mathrubhumi News,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,749,https://streams.tangotv.in/MATHRUBHUMINEWS/ORIGIN/index.m3u8
+live_ch_760,Mazhavil Manorama,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,187,https://cdn-7.pishow.tv/live/1129/master.m3u8
+live_ch_761,Kairali News,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,176,https://cdn-3.pishow.tv/live/1469/master.m3u8
+live_ch_762,Star Vijay,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,900,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:starvijayuk.smil/playlist.m3u8
+live_ch_763,Asianet Movies HD,IN,Hindi,MOVIES,PASS,,200,640x360,"h264,aac",HINDI,True,926,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:asianetmovies1.smil/playlist.m3u8
+live_ch_764,Zee Tamil HD,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,833,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:zeetamil1.smil/playlist.m3u8
+live_ch_765,WOW Kidz,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"h264,aac",HINDI,True,1011,https://yuppparoriglin.akamaized.net/181224/smil:wowkidzhindi.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_766,WOW Kidz Tamil,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"h264,aac",HINDI,True,1778,https://yuppparoriglin.akamaized.net/181224/smil:wowkidztam.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
+live_ch_767,Colors Kannada HD (1080i),IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,862,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:colorskannadahd1.smil/playlist.m3u8
+live_ch_768,Jaihind TV,IN,Hindi,ENTERTAINMENT,FAIL,DEAD_SEGMENT_HTTP_404,404,,,HINDI,False,1111,https://mumt03.tangotv.in/Dsly5z3HJAIHIND/index.m3u8
+live_ch_769,R Plus Gold,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,142,https://cdn-4.pishow.tv/live/1231/master.m3u8
+live_ch_770,Media One,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,139,https://cdn-3.pishow.tv/live/1481/master.m3u8
+live_ch_771,Darshana TV,IN,Hindi,DEVOTIONAL,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1144,https://mumt04.tangotv.in/m18aqlK4DARSHANATV/index.m3u8
+live_ch_772,Reporter TV,IN,Hindi,ENTERTAINMENT,PASS,,200,704x396,"avc1.4d001f,mp4a.40.2",HINDI,True,796,https://segment.yuppcdn.net/050522/reporter/playlist.m3u8
+live_ch_773,Epic Bharat Digital,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,1269,https://cc-p1izg43bk7sj5.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-p1izg43bk7sj5/DIYC/PMSL/IN10/Nazara_IN_B/Nazara_IN_B.m3u8
+live_ch_774,Public Music,IN,Hindi,MUSIC,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,141,https://cdn-3.pishow.tv/live/441/master.m3u8
+live_ch_775,Public TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,171,https://cdn-3.pishow.tv/live/439/master.m3u8
+live_ch_776,Republic Kannada,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,332,https://vg-republictvlive.akamaized.net/ptnr-republicweb/title-Republic_TV_Kannada/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/1acd1ce1-c6a7-4ae4-afa1-133ffb111ebb/main.m3u8
+live_ch_777,TV9 Kannada,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,586,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9kanmo6oiq/liveabr/playlist.m3u8
+live_ch_778,Guarantee News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,359,https://guaranteenews.in:8443/live/gnews/index.m3u8
+live_ch_779,TV5 Kannada,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1201,https://mumt07.tangotv.in/zHjX9OFlTV5KANNADA/index.m3u8
+live_ch_780,Power TV,IN,Hindi,ENTERTAINMENT,PASS,,200,720x576,"avc1.64001e,mp4a.40.2",HINDI,True,738,https://powertvkannada.com/hls/stream.m3u8
+live_ch_781,Raj News Kannada,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1087,https://mumt03.tangotv.in/Dsly5z3HRAJNEWSKANDA/index.m3u8
+live_ch_782,Sangeet Bangla,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,173,https://cdn-4.pishow.tv/live/1143/master.m3u8
+live_ch_783,Enterr 10 Bangla,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,664,https://live-bangla.akamaized.net/liveabr/playlist.m3u8
+live_ch_784,Khushboo Bangla,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,170,https://cdn-4.pishow.tv/live/1473/master.m3u8
+live_ch_785,Republic Bangla,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.640028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,976,https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/main.m3u8
+live_ch_786,Rongeen TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1078,https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8
+live_ch_787,Dhoom Music,IN,Hindi,MUSIC,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,178,https://cdn-1.pishow.tv/live/1456/master.m3u8
+live_ch_788,Hosanna TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1526,https://ktismaservers.in:3466/live/hosannattvhindhilive.m3u8
+live_ch_789,Star Maa HD,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,505,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:starmaa1.smil/chunklist_b2628000.m3u8
+live_ch_790,Asianet HD,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"h264,aac",HINDI,True,690,https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/AsianetHD.m3u8
+live_ch_791,Star Maa Movies HD,IN,Hindi,MOVIES,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,449,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:maamovies.smil/chunklist_b2628000.m3u8
+live_ch_792,Star Jalsha HD,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,333,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:starjalsha.smil/chunklist_b1928000.m3u8
+live_ch_793,TV9 Bangla,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,540,https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8
+live_ch_794,Kalinga TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1030,https://mumt01.tangotv.in/O5aw8Zn3KALINGATV/index.m3u8
+live_ch_795,Prameya News7,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1094,https://mumt03.tangotv.in/Dsly5z3HPRAMEYANEWS7/index.m3u8
+live_ch_796,Star Pravah HD,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,503,https://da86m1sqpm3o0.cloudfront.net/28072023/smil:starpravah.smil/chunklist_b1928000.m3u8
+live_ch_797,Odisha TV,IN,Hindi,ENTERTAINMENT,PASS,,200,426x240,"avc1.4d4015,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,567,https://livetv.tarangplus.in/otv-origin/live/playlist.m3u8
+live_ch_798,Rengoni,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,741,https://streams.tangotv.in/RENGONI/ORIGIN/index.m3u8
+live_ch_799,Spondon,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.64001f,mp4a.40.2",HINDI,True,842,https://nktv.smartstream.video/smartstream-us/spondon/spondon/playlist.m3u8
+live_ch_800,Rang,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,169,https://cdn-4.pishow.tv/live/1499/master.m3u8
+live_ch_801,Ramdhenu,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,231,https://cdn-7.pishow.tv/live/10016/master.m3u8
+live_ch_802,News Live,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1082,https://mumt06.tangotv.in/qYyB8fXVINDRADHANU/index.m3u8
+live_ch_803,Nandighosha TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1069,https://mumt05.tangotv.in/87NeALx2NANDIGHOSHATV/index.m3u8
+live_ch_804,Northeast Live,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1075,https://server.thelegitpro.in/northeastlive/northeastlive/index.fmp4.m3u8
+live_ch_805,Tehzeeb TV,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,175,https://cdn-4.pishow.tv/live/239/master.m3u8
+live_ch_806,Channel WIN,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,138,https://cdn-4.pishow.tv/live/229/master.m3u8
+live_ch_807,Pratidin Time,IN,Hindi,ENTERTAINMENT,PASS,,200,768x576,"avc1.4d401e,mp4a.40.2",HINDI,True,1150,https://server.thelegitpro.in/pratidintime/pratidintime/index.fmp4.m3u8
+live_ch_808,Prag News,IN,Hindi,NEWS,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,643,https://streams.tangotv.in/PRAGNEWS/ORIGIN/index.m3u8
+live_ch_809,Assam Talks,IN,Hindi,ENTERTAINMENT,PASS,,200,720x410,"avc1.4d401e,mp4a.40.2",HINDI,True,2675,http://tvsen7.aynascope.net/AssamTalks/index.m3u8
+live_ch_810,Nepal 1,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1129,https://mumt05.tangotv.in/87NeALx2NEPAL1/index.m3u8
+live_ch_811,Hornbill TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1173,https://mumt01.tangotv.in/O5aw8Zn3HORNBILLTV/index.m3u8
+live_ch_812,9X Jalwa,IN,Hindi,MUSIC,FAIL,SERVER_ERROR_HTTP_503,503,,,HINDI,False,222,https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8
+live_ch_813,Salaam TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,470,https://d2o3r1shda7xvv.cloudfront.net/index_5.m3u8
+live_ch_814,Rupasi Bangla,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,171,https://cdn-4.pishow.tv/live/1039/master.m3u8
+live_ch_815,Goldmines Bollywood,IN,Hindi,MOVIES,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,504,https://tvsen6.aynaott.com/55xNrLdf/index.m3u8
+live_ch_816,Network 10,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.4d0015,mp4a.40.2",HINDI,True,1089,https://mumt01.tangotv.in/O5aw8Zn3NETWORK10/index.m3u8
+live_ch_817,Zee 24 Ghanta,IN,Hindi,ENTERTAINMENT,PASS,,200,720x410,"avc1.4d401e,mp4a.40.2",HINDI,True,1847,https://tvsen6.aynaott.com/DpPnXP9r/index.m3u8
+live_ch_818,B4U Music,IN,Hindi,MUSIC,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,138,https://cdn-2.pishow.tv/live/415/master.m3u8
+live_ch_819,Village TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2",HINDI,True,880,https://live.villagetv.net/villagetv/hd/index.m3u8
+live_ch_820,Zee Bharat,IN,Hindi,ENTERTAINMENT,PASS,,200,384x216,"avc1.64001f,mp4a.40.2,avc1.42c00d,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.4d401e,mp4a.40.2",HINDI,True,941,https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeehindustan/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/96bbab12-582e-4540-af70-510ab6824581/main.m3u8
+live_ch_821,Zee 24 Taas,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,401,https://dgrvlduwztkd4.cloudfront.net/index_5.m3u8
+live_ch_822,Win TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,avc1.42001f,HINDI,True,1113,https://mumt06.tangotv.in/qYyB8fXVWINTV/index.m3u8
+live_ch_823,Zee News,IN,Hindi,NEWS,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,333,https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8
+live_ch_824,Zee Uttar Pradesh/Uttarakhand,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,323,https://duw35ict5q7th.cloudfront.net/index_3.m3u8
+live_ch_825,Kairali We,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,737,https://streams.tangotv.in/WETV/ORIGIN/index.m3u8
+live_ch_826,Vaanavil TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.4d001f,mp4a.40.2",HINDI,True,1385,https://6n3yope4d9ok-hls-live.5centscdn.com/vaanavil/TV.stream/playlist.m3u8
+live_ch_827,SVBC,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,2828,https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8
+live_ch_828,Velicham TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1134,https://mumt05.tangotv.in/87NeALx2VALICHAMPLUS/index.m3u8
+live_ch_829,T News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,1110,https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8
+live_ch_830,Vendhar TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1062,https://mumt04.tangotv.in/m18aqlK4VENDHARTV/index.m3u8
+live_ch_831,Thanthi TV,IN,Hindi,ENTERTAINMENT,PASS,,200,486x360,"avc1.420015,mp4a.40.2",HINDI,True,787,https://streams.tangotv.in/THANTHITV/ORIGIN/index.m3u8
+live_ch_832,Tamilan TV,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.420015,mp4a.40.2",HINDI,True,1122,https://mumt04.tangotv.in/m18aqlK4TAMILANTELEVISION/index.m3u8
+live_ch_833,Swadesh News,IN,Hindi,NEWS,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,139,https://cdn-2.pishow.tv/live/465/master.m3u8
+live_ch_834,Sankara TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42001f,mp4a.40.2",HINDI,True,1061,https://mumt05.tangotv.in/87NeALx2SRISANKARA/index.m3u8
+live_ch_835,SVBC 3,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,2457,https://player.mslivestream.net/svbc/2e628d7e1b65d31254fd7705ff7ee64d.sdp/playlist.m3u8
+live_ch_836,Subhavaartha TV,IN,Hindi,ENTERTAINMENT,PASS,,200,640x360,"avc1.4d001f,mp4a.40.2",HINDI,True,3003,https://2mk9qae4rwyb-hls-live.wmncdn.net/shubhavartha/live.stream/playlist.m3u8
+live_ch_837,Zodiak TV,IN,Hindi,ENTERTAINMENT,FAIL,UNKNOWN_EXCEPTION_TimeoutError,,,,HINDI,False,5656,https://ranacable.duckdns.org/ZodiakTv/index.m3u8
+live_ch_838,Suvarna News,IN,Hindi,NEWS,PASS,,200,640x360,"avc1.4D401E,mp4a.40.2,avc1.4D4028,mp4a.40.2,avc1.4D401F,mp4a.40.2",HINDI,True,787,https://asianetnews.vgcdn.net/vglive-sk-335835/playlist.m3u8
+live_ch_839,Studio One +,IN,Hindi,ENTERTAINMENT,FAIL,HTTP_404_NOT_FOUND,404,,,HINDI,False,167,https://cdn-1.pishow.tv/live/276/master.m3u8
+live_ch_840,SVBC 4,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,2805,https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8
+live_ch_841,SVBC 2,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2",HINDI,True,3049,https://player.mslivestream.net/tamil/ac206e74d75b285755ee4924df87d951.sdp/playlist.m3u8
+live_ch_842,Hosanna TV Global,IN,Hindi,ENTERTAINMENT,PASS,,200,1280x720,"avc1.42c01f,mp4a.40.2",HINDI,True,2897,https://asia.mslivestream.net/mslive/bfba54c5c96a6359e2da0ca35f4998af.sdp/playlist.m3u8
+live_ch_843,Shekinah TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2",HINDI,True,628,https://livetv.timeiptv.in/ShekinahNewsIndia/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8
+live_ch_844,Shubh TV,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.640028,mp4a.40.2,avc1.64001F,mp4a.40.2,avc1.64001E,mp4a.40.2",HINDI,True,593,https://d2g1vdc6ozl2o8.cloudfront.net/out/v1/0a0dc7d7911b4fddbb4dfc963fdd4b9e/index.m3u8
+live_ch_845,Shubh Cinema TV,IN,Hindi,MOVIES,PASS,,200,1280x720,"avc1.64001F,mp4a.40.2,avc1.4D4015,mp4a.40.2",HINDI,True,606,https://d393sxaxig6bax.cloudfront.net/out/v1/589cf2cf44bf42bb941e817a2240d62e/index.m3u8
+live_ch_846,YET Max,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1910,https://live.yettelevision.com:5443/LiveApp/streams/yettv2.m3u8
+live_ch_847,YET TV,IN,Hindi,ENTERTAINMENT,PASS,,200,Auto/Adaptive,"h264,aac",HINDI,True,1817,https://live.yettelevision.com:5443/LiveApp/streams/yettv.m3u8
+live_ch_848,Shubhsandesh TV,IN,Hindi,ENTERTAINMENT,PASS,,200,586x360,"avc1.4d001f,mp4a.40.2",HINDI,True,2314,https://6284rn2xr7xv-hls-live.wmncdn.net/shubhsandeshtv1/live123.stream/index.m3u8
+live_ch_849,Shalom,IN,Hindi,ENTERTAINMENT,PASS,,200,1920x1080,"avc1.4d4028,mp4a.40.2,avc1.4d401f,mp4a.40.2,avc1.77.30,mp4a.40.2",HINDI,True,620,https://d2c4zqo2rb5uf1.cloudfront.net/master.m3u8
+live_ch_850,Shemaroo Marathi Bana,IN,Hindi,ENTERTAINMENT,PASS,,200,488x360,"avc1.42001f,mp4a.40.2",HINDI,True,1052,https://mumt07.tangotv.in/zHjX9OFlSHEMAROOMARATHIBANA/index.m3u8
