@@ -18374,7 +18374,7 @@ window.openMovieDetails = function(movieId) {
       btnStream.style.opacity = '1';
       btnStream.style.pointerEvents = 'auto';
       btnStream.className = 'movie-btn-stream trailer-stream';
-      if (btnStreamText) btnStreamText.textContent = '🎬 WATCH TRAILER / PREVIEW';
+      if (btnStreamText) btnStreamText.textContent = 'WATCH TRAILER';
     } else if (isTorrent) {
       btnStream.disabled = false;
       btnStream.style.opacity = '1';

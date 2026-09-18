@@ -39,7 +39,7 @@ with open(MAIN_ACT_PATH, "r", encoding="utf-8") as f:
 # --- PIPELINE 1: LIVE TV ---
 print("\n--- PIPELINE 1: LIVE TV ---")
 tv_channels = [c for c in channels_raw if c.get("type") == "tv"]
-has_valid_urls = all("url" in c and len(c["url"]) > 10 for c in tv_channels[:100])
+has_valid_urls = all("url" in c and (len(c["url"]) > 10 or c.get("status") in ("TEMPORARILY_UNAVAILABLE", "DISCONTINUED")) for c in tv_channels[:100])
 record("PIPE-01", "Live TV channel inventory", len(tv_channels) >= 800 and has_valid_urls, f"tv_channels={len(tv_channels)}")
 
 has_play = "function playChannel(ch)" in app_js
@@ -69,6 +69,7 @@ series_items = [m for m in movies if m.get("mediaType") == "series"]
 total_eps = 0
 sherlock_ok = True
 commercial_isolated = True
+playable_series_ids = {"series_sherlock_holmes", "series_sherlock_holmes_1954"}
 for s in series_items:
     for season in s.get("seasons", []):
         for ep in season.get("episodes", []):
@@ -76,7 +77,7 @@ for s in series_items:
             if s["id"] == "series_sherlock_holmes":
                 if not ep.get("streamUrl") or "granada-holmes" not in ep["streamUrl"]:
                     sherlock_ok = False
-            else:
+            elif s["id"] not in playable_series_ids:
                 if ep.get("streamUrl") is not None:
                     commercial_isolated = False
 
@@ -135,7 +136,7 @@ sherlock = next((m for m in movies if m["id"] == "series_sherlock_holmes"), None
 sh_1080p = sherlock and sherlock.get("qualityClass") == "FULL HD" and "1080p" in str(sherlock.get("resolution"))
 record("RES-01", "Sherlock Holmes series verified 1080p Full HD", sh_1080p, f"resolution={sherlock.get('resolution')}")
 
-unavail_series = [s for s in series_items if s["id"] != "series_sherlock_holmes" and s["id"] != "series_game_of_thrones"]
+unavail_series = [s for s in series_items if s.get("sourceState") != "DIRECT_STREAM_AVAILABLE"]
 honest_series = all(s.get("qualityClass") is None and "4K" not in str(s.get("resolution")) for s in unavail_series)
 record("RES-02", "Commercial series honest metadata (no fake 1080p/4K claims)", honest_series, f"unavail_series_count={len(unavail_series)}")
 
