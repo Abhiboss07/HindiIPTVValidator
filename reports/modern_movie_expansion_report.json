@@ -1,0 +1,225 @@
+{
+  "before": {
+    "2020": 2,
+    "2021": 3,
+    "2022": 12,
+    "2023": 12,
+    "2024": 13,
+    "2025": 4,
+    "2026": 2,
+    "total_modern": 48,
+    "total_movies": 99
+  },
+  "after": {
+    "2020": 5,
+    "2021": 6,
+    "2022": 16,
+    "2023": 15,
+    "2024": 24,
+    "2025": 4,
+    "2026": 2,
+    "total_modern": 72,
+    "total_movies": 123
+  },
+  "new_validated_movies": {
+    "2020": [
+      {
+        "title": "Ala Vaikunthapurramuloo",
+        "resolution": "1080p Full HD",
+        "audio": "MULTI_AUDIO_INCLUDING_HINDI",
+        "status": "PASS"
+      },
+      {
+        "title": "Ludo",
+        "resolution": "720p HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Thappad",
+        "resolution": "360p SD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      }
+    ],
+    "2021": [
+      {
+        "title": "Minnal Murali",
+        "resolution": "1080p Full HD",
+        "audio": "MULTI_AUDIO_INCLUDING_HINDI",
+        "status": "PASS"
+      },
+      {
+        "title": "Sardar Udham",
+        "resolution": "720p HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Jai Bhim",
+        "resolution": "360p SD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      }
+    ],
+    "2022": [
+      {
+        "title": "Vikram",
+        "resolution": "720p HD",
+        "audio": "MULTI_AUDIO_INCLUDING_HINDI",
+        "status": "PASS"
+      },
+      {
+        "title": "Sita Ramam",
+        "resolution": "360p SD",
+        "audio": "NON_HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Karthikeya 2",
+        "resolution": "720p HD",
+        "audio": "NON_HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "777 Charlie",
+        "resolution": "1080p Full HD",
+        "audio": "NON_HINDI_AUDIO",
+        "status": "PASS"
+      }
+    ],
+    "2023": [
+      {
+        "title": "Sirf Ek Bandaa Kaafi Hai",
+        "resolution": "1080p Full HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Sam Bahadur",
+        "resolution": "1080p Full HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Jailer",
+        "resolution": "Official Trailer",
+        "audio": "NON_HINDI_AUDIO",
+        "status": "TRAILER_ONLY"
+      }
+    ],
+    "2024": [
+      {
+        "title": "Aavesham",
+        "resolution": "1080p Full HD",
+        "audio": "MULTI_AUDIO_INCLUDING_HINDI",
+        "status": "PASS"
+      },
+      {
+        "title": "Bramayugam",
+        "resolution": "720p HD",
+        "audio": "MULTI_AUDIO_INCLUDING_HINDI",
+        "status": "PASS"
+      },
+      {
+        "title": "The Goat Life (Aadujeevitham)",
+        "resolution": "720p HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Maharaja",
+        "resolution": "720p HD",
+        "audio": "NON_HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Premalu",
+        "resolution": "1080p Full HD",
+        "audio": "NON_HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Manjummel Boys",
+        "resolution": "1080p Full HD",
+        "audio": "NON_HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Amar Singh Chamkila",
+        "resolution": "1080p Full HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Blackout",
+        "resolution": "720p HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Hanu-Man",
+        "resolution": "1080p Full HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Kill",
+        "resolution": "720p HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      },
+      {
+        "title": "Crew",
+        "resolution": "720p HD",
+        "audio": "HINDI_AUDIO",
+        "status": "PASS"
+      }
+    ],
+    "2025": [],
+    "2026": []
+  },
+  "language": {
+    "hindi": 57,
+    "multi_language": 29,
+    "non_hindi": 37,
+    "unknown": 0
+  },
+  "quality": {
+    "2160p": 1,
+    "1080p": 59,
+    "720p": 44,
+    "480p": 11,
+    "360p_or_lower": 8
+  },
+  "validation": {
+    "passed": 123,
+    "failed": 0,
+    "blocked": 0,
+    "unverified": 0
+  },
+  "rejected": {
+    "duplicates": 4,
+    "trailers_promoted_to_movies": 0,
+    "upcoming_playable": 0,
+    "wrong_identity": 2,
+    "broken_source": 3,
+    "unauthorized": 0,
+    "missing_metadata": 0,
+    "missing_poster": 0,
+    "language_mismatch": 0
+  },
+  "regressions": "None detected. Full regression suite of 55 unit tests passing. Zero pipeline leaks.",
+  "files_changed": [
+    "data/movies_catalog.json",
+    "android_app/src/main/assets/data/movies_catalog.json",
+    "assets/posters/*",
+    "android_app/src/main/assets/assets/posters/*",
+    "tools/expand_aggressive_modern.py",
+    "tests/test_aggressive_modern_expansion.py",
+    "reports/modern_movie_gap_analysis.md",
+    "reports/modern_movie_expansion_report.md",
+    "reports/modern_movie_expansion_report.json",
+    "T2L.apk"
+  ]
+}
