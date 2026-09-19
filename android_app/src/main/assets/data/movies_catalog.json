@@ -1,6 +1,6 @@
 {
-  "version": 10,
-  "updated_at": "2026-09-18T16:12:54Z",
+  "version": 12,
+  "updated_at": "2026-09-19T16:30:00Z",
   "total_movies": 80,
   "total_series": 37,
   "default_language_filter": "Hindi",
@@ -689,20 +689,18 @@
       "resolution": "720p (1280x720)",
       "codec": "HEVC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "Hindi",
           "English"
         ]
       },
       "languages": [
-        "Hindi",
         "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "English",
       "container": "MP4",
       "fileSize": "22.5 GB",
       "bitrate": "5.5 Mbps",
@@ -907,11 +905,10 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p BluRay",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
-          "Hindi",
           "English"
         ],
         "countries": [
@@ -1175,7 +1172,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "backupUrls": []
     },
     {
       "id": "series_mirzapur",
@@ -1204,18 +1202,16 @@
       "resolution": "720p (1280x720)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -1334,7 +1330,7 @@
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/5vMWZhHPlaw",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/ZNeGF-PvVHY",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -1445,7 +1441,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityHonestBadge": "HD 720p",
       "qualityClass": "HD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -1481,24 +1477,18 @@
       "resolution": "1080p FHD (1920x780)",
       "codec": "MPEG-4 / H.264",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "English",
-          "Hindi",
-          "Tamil",
-          "Telugu"
+          "English"
         ]
       },
       "languages": [
-        "English",
-        "Hindi",
-        "Tamil",
-        "Telugu"
+        "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "English",
       "container": "MP4",
       "fileSize": "7.3 MB",
       "bitrate": "5.4 Mbps",
@@ -1520,14 +1510,11 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
       "qualityHonestBadge": "1080p FHD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
-          "English",
-          "Hindi",
-          "Tamil",
-          "Telugu"
+          "English"
         ],
         "countries": [
           "US"
@@ -1904,7 +1891,7 @@
       "description": "Srikant Tiwari, a middle-class man who also serves as a world-class spy for T.A.S.C, an undercover wing of the National Investigation Agency, must balance his family life with saving the nation from catastrophic terror attacks.",
       "posterUrl": "assets/posters/series_family_man.jpg",
       "backdropUrl": "assets/posters/series_family_man.jpg",
-      "resolution": "720p (1280x720)",
+      "resolution": "N/A",
       "codec": "HEVC",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -1935,7 +1922,7 @@
       "featured": true,
       "latest": false,
       "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/the-family-man-2019/The_Family_Man_%282019%29.mp4",
+      "streamUrl": null,
       "episodes": [
         {
           "id": "fm_s1e1",
@@ -1943,15 +1930,16 @@
           "season": 1,
           "title": "S01:E01 • Complete Series Feature Edition (720p)",
           "duration": "3h 30m",
-          "streamUrl": "https://archive.org/download/the-family-man-2019/The_Family_Man_%282019%29.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         }
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/XatRGut65VI",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/NGf_B88kU1A",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -1963,18 +1951,19 @@
               "season": 1,
               "title": "S01:E01 • Complete Series Feature Edition (720p)",
               "duration": "3h 30m",
-              "streamUrl": "https://archive.org/download/the-family-man-2019/The_Family_Man_%282019%29.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             }
           ]
         }
       ],
       "torrentUri": null,
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "HD 720p",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "qualityClass": null,
+      "qualityHonestBadge": "Trailer Only",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
         "originalLanguage": "hi",
@@ -1987,7 +1976,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "backupUrls": []
     },
     {
       "id": "series_money_heist",
@@ -2013,23 +2003,21 @@
       "description": "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain, masterminded by The Professor.",
       "posterUrl": "assets/posters/series_money_heist.jpg",
       "backdropUrl": "assets/posters/series_money_heist.jpg",
-      "resolution": "720p (1280x720)",
+      "resolution": "N/A",
       "codec": "H.264",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
         "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
+        "hasHindiSubtitles": true,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
           "Hindi",
-          "English",
-          "Spanish"
+          "English"
         ]
       },
       "languages": [
         "Hindi",
-        "English",
-        "Spanish"
+        "English"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -2042,7 +2030,7 @@
       "featured": true,
       "latest": false,
       "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E01.mp4",
+      "streamUrl": null,
       "episodes": [
         {
           "id": "mh_s1e1",
@@ -2050,10 +2038,11 @@
           "season": 1,
           "title": "S01:E01 • Episode 1",
           "duration": "47m",
-          "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E01.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "mh_s1e2",
@@ -2061,10 +2050,11 @@
           "season": 1,
           "title": "S01:E02 • Episode 2",
           "duration": "47m",
-          "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E02.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "mh_s1e3",
@@ -2072,10 +2062,11 @@
           "season": 1,
           "title": "S01:E03 • Episode 3",
           "duration": "47m",
-          "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E03.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "mh_s1e4",
@@ -2083,10 +2074,11 @@
           "season": 1,
           "title": "S01:E04 • Episode 4",
           "duration": "47m",
-          "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E04.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "mh_s1e5",
@@ -2094,10 +2086,11 @@
           "season": 1,
           "title": "S01:E05 • Episode 5",
           "duration": "47m",
-          "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E05.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "mh_s1e6",
@@ -2105,10 +2098,11 @@
           "season": 1,
           "title": "S01:E06 • Episode 6",
           "duration": "47m",
-          "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E06.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "mh_s1e7",
@@ -2116,10 +2110,11 @@
           "season": 1,
           "title": "S01:E07 • Episode 7",
           "duration": "47m",
-          "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E07.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "mh_s1e8",
@@ -2127,10 +2122,11 @@
           "season": 1,
           "title": "S01:E08 • Episode 8",
           "duration": "47m",
-          "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E08.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "mh_s1e9",
@@ -2138,10 +2134,11 @@
           "season": 1,
           "title": "S01:E09 • Episode 9",
           "duration": "47m",
-          "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E09.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         }
       ],
       "contentType": "SERIES",
@@ -2158,10 +2155,11 @@
               "season": 1,
               "title": "S01:E01 • Episode 1",
               "duration": "47m",
-              "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E01.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "mh_s1e2",
@@ -2169,10 +2167,11 @@
               "season": 1,
               "title": "S01:E02 • Episode 2",
               "duration": "47m",
-              "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E02.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "mh_s1e3",
@@ -2180,10 +2179,11 @@
               "season": 1,
               "title": "S01:E03 • Episode 3",
               "duration": "47m",
-              "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E03.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "mh_s1e4",
@@ -2191,10 +2191,11 @@
               "season": 1,
               "title": "S01:E04 • Episode 4",
               "duration": "47m",
-              "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E04.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "mh_s1e5",
@@ -2202,10 +2203,11 @@
               "season": 1,
               "title": "S01:E05 • Episode 5",
               "duration": "47m",
-              "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E05.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "mh_s1e6",
@@ -2213,10 +2215,11 @@
               "season": 1,
               "title": "S01:E06 • Episode 6",
               "duration": "47m",
-              "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E06.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "mh_s1e7",
@@ -2224,10 +2227,11 @@
               "season": 1,
               "title": "S01:E07 • Episode 7",
               "duration": "47m",
-              "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E07.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "mh_s1e8",
@@ -2235,10 +2239,11 @@
               "season": 1,
               "title": "S01:E08 • Episode 8",
               "duration": "47m",
-              "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E08.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "mh_s1e9",
@@ -2246,18 +2251,19 @@
               "season": 1,
               "title": "S01:E09 • Episode 9",
               "duration": "47m",
-              "streamUrl": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E09.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             }
           ]
         }
       ],
       "torrentUri": null,
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "HD 720p",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "qualityClass": null,
+      "qualityHonestBadge": "Trailer Only",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
         "originalLanguage": "hi",
@@ -2269,7 +2275,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "backupUrls": []
     },
     {
       "id": "series_scam_1992",
@@ -2297,18 +2304,16 @@
       "resolution": "720p (1280x720)",
       "codec": "H.264 / AVC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -2361,7 +2366,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "HD 720p",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -2396,21 +2401,19 @@
       "description": "A link in their pasts leads an honest Mumbai police officer Sartaj Singh to a fugitive gang boss Ganesh Gaitonde, whose cryptic warning spurs a quest to save Mumbai from cataclysm within 25 days.",
       "posterUrl": "assets/posters/series_sacred_games.jpg",
       "backdropUrl": "assets/posters/series_sacred_games.jpg",
-      "resolution": "720p (1280x720)",
+      "resolution": "N/A",
       "codec": "H.264 / AVC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -2423,7 +2426,7 @@
       "featured": true,
       "latest": false,
       "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E01.HEVC.mp4",
+      "streamUrl": null,
       "episodes": [
         {
           "id": "sg_s1e1",
@@ -2431,10 +2434,11 @@
           "season": 1,
           "title": "S01:E01 • Episode 1",
           "duration": "50m",
-          "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E01.HEVC.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "720p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "sg_s1e2",
@@ -2442,10 +2446,11 @@
           "season": 1,
           "title": "S01:E02 • Episode 2",
           "duration": "50m",
-          "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E02.HEVC.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "720p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "sg_s1e3",
@@ -2453,10 +2458,11 @@
           "season": 1,
           "title": "S01:E03 • Episode 3",
           "duration": "50m",
-          "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E03.HEVC.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "720p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "sg_s1e4",
@@ -2464,10 +2470,11 @@
           "season": 1,
           "title": "S01:E04 • Episode 4",
           "duration": "50m",
-          "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E04.HEVC.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "720p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "sg_s1e5",
@@ -2475,10 +2482,11 @@
           "season": 1,
           "title": "S01:E05 • Episode 5",
           "duration": "50m",
-          "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E05.HEVC.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "720p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "sg_s1e6",
@@ -2486,10 +2494,11 @@
           "season": 1,
           "title": "S01:E06 • Episode 6",
           "duration": "50m",
-          "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E06.HEVC.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "720p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "sg_s1e7",
@@ -2497,10 +2506,11 @@
           "season": 1,
           "title": "S01:E07 • Episode 7",
           "duration": "50m",
-          "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E07.HEVC.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "720p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "sg_s1e8",
@@ -2508,15 +2518,16 @@
           "season": 1,
           "title": "S01:E08 • Episode 8",
           "duration": "50m",
-          "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E08.HEVC.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "720p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         }
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/w-Xe8gLBc5I",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/28j8h0RRnq4",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -2528,10 +2539,11 @@
               "season": 1,
               "title": "S01:E01 • Episode 1",
               "duration": "50m",
-              "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E01.HEVC.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "sg_s1e2",
@@ -2539,10 +2551,11 @@
               "season": 1,
               "title": "S01:E02 • Episode 2",
               "duration": "50m",
-              "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E02.HEVC.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "sg_s1e3",
@@ -2550,10 +2563,11 @@
               "season": 1,
               "title": "S01:E03 • Episode 3",
               "duration": "50m",
-              "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E03.HEVC.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "sg_s1e4",
@@ -2561,10 +2575,11 @@
               "season": 1,
               "title": "S01:E04 • Episode 4",
               "duration": "50m",
-              "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E04.HEVC.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "sg_s1e5",
@@ -2572,10 +2587,11 @@
               "season": 1,
               "title": "S01:E05 • Episode 5",
               "duration": "50m",
-              "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E05.HEVC.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "sg_s1e6",
@@ -2583,10 +2599,11 @@
               "season": 1,
               "title": "S01:E06 • Episode 6",
               "duration": "50m",
-              "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E06.HEVC.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "sg_s1e7",
@@ -2594,10 +2611,11 @@
               "season": 1,
               "title": "S01:E07 • Episode 7",
               "duration": "50m",
-              "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E07.HEVC.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "sg_s1e8",
@@ -2605,19 +2623,20 @@
               "season": 1,
               "title": "S01:E08 • Episode 8",
               "duration": "50m",
-              "streamUrl": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E08.HEVC.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             }
           ]
         }
       ],
       "torrentUri": null,
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "720p HD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "qualityClass": null,
+      "qualityHonestBadge": "Trailer Only",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -2627,7 +2646,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "backupUrls": []
     },
     {
       "id": "vod_interstellar",
@@ -2720,20 +2740,18 @@
       "resolution": "1080p (1920x1080)",
       "codec": "HEVC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "Hindi",
           "English"
         ]
       },
       "languages": [
-        "Hindi",
         "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "English",
       "container": "MP4",
       "fileSize": "28.5 GB",
       "bitrate": "5.5 Mbps",
@@ -2916,7 +2934,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
       "qualityHonestBadge": "1080p Full HD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -3082,7 +3100,7 @@
       "description": "Dedicated to the students of Kota, the educational hub of India. Follows 16-year-old Vaibhav who moves to Kota from Itarsi, portraying the student life, coaching culture, and the mentorship of Jeetu Bhaiya.",
       "posterUrl": "assets/posters/series_kota_factory.jpg",
       "backdropUrl": "assets/posters/series_kota_factory.jpg",
-      "resolution": "1080p (1920x1080)",
+      "resolution": "720p (1280x720)",
       "codec": "H.264",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -3107,7 +3125,7 @@
       "featured": false,
       "latest": true,
       "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E01.Reasoning.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+      "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E01_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
       "episodes": [
         {
           "id": "kf_s1e1",
@@ -3115,9 +3133,9 @@
           "season": 1,
           "title": "S01:E01 • Reasoning",
           "duration": "45m",
-          "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E01.Reasoning.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+          "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E01_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
           "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p Full HD",
+          "qualityHonestBadge": "720p HD",
           "episodeType": "full_episode"
         },
         {
@@ -3126,9 +3144,9 @@
           "season": 1,
           "title": "S01:E02 • Control System",
           "duration": "45m",
-          "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E02.Control.System.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+          "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E02_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
           "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p Full HD",
+          "qualityHonestBadge": "720p HD",
           "episodeType": "full_episode"
         },
         {
@@ -3137,9 +3155,9 @@
           "season": 1,
           "title": "S01:E03 • Atmospheric Pressure",
           "duration": "45m",
-          "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E03.Atmospheric.Pressure.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+          "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E03_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
           "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p Full HD",
+          "qualityHonestBadge": "720p HD",
           "episodeType": "full_episode"
         },
         {
@@ -3148,9 +3166,9 @@
           "season": 1,
           "title": "S01:E04 • Repair and Maintenance",
           "duration": "45m",
-          "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E04.Repair.And.Maintenance.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+          "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E04_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
           "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p Full HD",
+          "qualityHonestBadge": "720p HD",
           "episodeType": "full_episode"
         },
         {
@@ -3159,15 +3177,15 @@
           "season": 1,
           "title": "S01:E05 • Packaging",
           "duration": "45m",
-          "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E05.Packaging.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+          "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E05_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
           "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p Full HD",
+          "qualityHonestBadge": "720p HD",
           "episodeType": "full_episode"
         }
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/pNZQ6msbOvM",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/JWbnEt3xuos",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -3179,9 +3197,9 @@
               "season": 1,
               "title": "S01:E01 • Reasoning",
               "duration": "45m",
-              "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E01.Reasoning.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+              "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E01_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p Full HD",
+              "qualityHonestBadge": "720p HD",
               "episodeType": "full_episode"
             },
             {
@@ -3190,9 +3208,9 @@
               "season": 1,
               "title": "S01:E02 • Control System",
               "duration": "45m",
-              "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E02.Control.System.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+              "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E02_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p Full HD",
+              "qualityHonestBadge": "720p HD",
               "episodeType": "full_episode"
             },
             {
@@ -3201,9 +3219,9 @@
               "season": 1,
               "title": "S01:E03 • Atmospheric Pressure",
               "duration": "45m",
-              "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E03.Atmospheric.Pressure.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+              "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E03_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p Full HD",
+              "qualityHonestBadge": "720p HD",
               "episodeType": "full_episode"
             },
             {
@@ -3212,9 +3230,9 @@
               "season": 1,
               "title": "S01:E04 • Repair and Maintenance",
               "duration": "45m",
-              "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E04.Repair.And.Maintenance.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+              "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E04_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p Full HD",
+              "qualityHonestBadge": "720p HD",
               "episodeType": "full_episode"
             },
             {
@@ -3223,9 +3241,9 @@
               "season": 1,
               "title": "S01:E05 • Packaging",
               "duration": "45m",
-              "streamUrl": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E05.Packaging.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+              "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E05_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p Full HD",
+              "qualityHonestBadge": "720p HD",
               "episodeType": "full_episode"
             }
           ]
@@ -3233,8 +3251,8 @@
       ],
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -3244,7 +3262,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "backupUrls": []
     },
     {
       "id": "vod_dune_part_two",
@@ -3875,25 +3894,19 @@
       "description": "Sunny, a brilliant small-time artist, designs the ultimate counterfeit currency note, pulling him and his best friend into the high-stakes world of global counterfeiting, pursued relentlessly by Michael, an unorthodox STF officer.",
       "posterUrl": "assets/posters/series_farzi.jpg",
       "backdropUrl": "assets/posters/series_farzi.jpg",
-      "resolution": "1080p (1920x1080)",
+      "resolution": "N/A",
       "codec": "HEVC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English",
-          "Tamil",
-          "Telugu"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English",
-        "Tamil",
-        "Telugu"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -3906,7 +3919,7 @@
       "featured": false,
       "latest": true,
       "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP1%20%28%20Hindi%202k%20%29.mp4",
+      "streamUrl": null,
       "episodes": [
         {
           "id": "farzi_s1e1",
@@ -3914,10 +3927,11 @@
           "season": 1,
           "title": "S01:E01 • Episode 1",
           "duration": "55m",
-          "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP1%20%28%20Hindi%202k%20%29.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "farzi_s1e2",
@@ -3925,10 +3939,11 @@
           "season": 1,
           "title": "S01:E02 • Episode 2",
           "duration": "55m",
-          "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP2%20%28%20Hindi%202k%20%29.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "farzi_s1e3",
@@ -3936,10 +3951,11 @@
           "season": 1,
           "title": "S01:E03 • Episode 3",
           "duration": "55m",
-          "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP3%20%28%20Hindi%202k%20%29.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "farzi_s1e4",
@@ -3947,10 +3963,11 @@
           "season": 1,
           "title": "S01:E04 • Episode 4",
           "duration": "55m",
-          "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP4%20%28%20Hindi%202k%20%29.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "farzi_s1e5",
@@ -3958,10 +3975,11 @@
           "season": 1,
           "title": "S01:E05 • Episode 5",
           "duration": "55m",
-          "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP5%20%28%20Hindi%202k%20%29.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "farzi_s1e6",
@@ -3969,10 +3987,11 @@
           "season": 1,
           "title": "S01:E06 • Episode 6",
           "duration": "55m",
-          "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP6%20%28%20Hindi%202k%20%29.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "farzi_s1e7",
@@ -3980,10 +3999,11 @@
           "season": 1,
           "title": "S01:E07 • Episode 7",
           "duration": "55m",
-          "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP7%20%28%20Hindi%202k%20%29.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         },
         {
           "id": "farzi_s1e8",
@@ -3991,15 +4011,16 @@
           "season": 1,
           "title": "S01:E08 • Episode 8",
           "duration": "55m",
-          "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP8%20%28%20Hindi%202k%20%29.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p HD",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         }
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/rcQ_xZdzPBc",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/4bT_k8yV_zU",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -4011,10 +4032,11 @@
               "season": 1,
               "title": "S01:E01 • Episode 1",
               "duration": "55m",
-              "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP1%20%28%20Hindi%202k%20%29.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "farzi_s1e2",
@@ -4022,10 +4044,11 @@
               "season": 1,
               "title": "S01:E02 • Episode 2",
               "duration": "55m",
-              "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP2%20%28%20Hindi%202k%20%29.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "farzi_s1e3",
@@ -4033,10 +4056,11 @@
               "season": 1,
               "title": "S01:E03 • Episode 3",
               "duration": "55m",
-              "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP3%20%28%20Hindi%202k%20%29.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "farzi_s1e4",
@@ -4044,10 +4068,11 @@
               "season": 1,
               "title": "S01:E04 • Episode 4",
               "duration": "55m",
-              "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP4%20%28%20Hindi%202k%20%29.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "farzi_s1e5",
@@ -4055,10 +4080,11 @@
               "season": 1,
               "title": "S01:E05 • Episode 5",
               "duration": "55m",
-              "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP5%20%28%20Hindi%202k%20%29.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "farzi_s1e6",
@@ -4066,10 +4092,11 @@
               "season": 1,
               "title": "S01:E06 • Episode 6",
               "duration": "55m",
-              "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP6%20%28%20Hindi%202k%20%29.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "farzi_s1e7",
@@ -4077,10 +4104,11 @@
               "season": 1,
               "title": "S01:E07 • Episode 7",
               "duration": "55m",
-              "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP7%20%28%20Hindi%202k%20%29.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             },
             {
               "id": "farzi_s1e8",
@@ -4088,19 +4116,20 @@
               "season": 1,
               "title": "S01:E08 • Episode 8",
               "duration": "55m",
-              "streamUrl": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP8%20%28%20Hindi%202k%20%29.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p HD",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             }
           ]
         }
       ],
       "torrentUri": null,
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p HD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "qualityClass": null,
+      "qualityHonestBadge": "Trailer Only",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -4112,7 +4141,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "backupUrls": []
     },
     {
       "id": "vod_john_wick_4",
@@ -5252,21 +5282,19 @@
       "description": "A cynical, down-and-out Delhi cop gets assigned to investigate a high-profile assassination attempt gone wrong, leading him down a dark rabbit hole into the murky underworld of crime and politics.",
       "posterUrl": "assets/posters/series_paatal_lok.jpg",
       "backdropUrl": "assets/posters/series_paatal_lok.jpg",
-      "resolution": "720p (1280x720)",
+      "resolution": "N/A",
       "codec": "H.264",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -5279,7 +5307,7 @@
       "featured": false,
       "latest": false,
       "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/paatal-lok-2025-amazon-prime-s-02-e-05-08-hindi-720p-web-dl-filmy-dhoom.com/Paatal_Lok_2025_Amazon_Prime_S02E01-04.mp4",
+      "streamUrl": null,
       "episodes": [
         {
           "id": "pl_s1e1",
@@ -5287,15 +5315,16 @@
           "season": 1,
           "title": "S01:E01 • Bridge of Shadows (Complete Feature Edition)",
           "duration": "2h 15m",
-          "streamUrl": "https://archive.org/download/paatal-lok-2025-amazon-prime-s-02-e-05-08-hindi-720p-web-dl-filmy-dhoom.com/Paatal_Lok_2025_Amazon_Prime_S02E01-04.mp4",
-          "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "HD 720p",
-          "episodeType": "full_episode"
+          "streamUrl": null,
+          "sourceState": "NO_AUTHORIZED_SOURCE",
+          "qualityHonestBadge": "Trailer Only",
+          "episodeType": "no_authorized_source",
+          "backupUrls": []
         }
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/cNwWMW4mxO8",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/cNw_Xv-wXQk",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -5307,19 +5336,20 @@
               "season": 1,
               "title": "S01:E01 • Bridge of Shadows (Complete Feature Edition)",
               "duration": "2h 15m",
-              "streamUrl": "https://archive.org/download/paatal-lok-2025-amazon-prime-s-02-e-05-08-hindi-720p-web-dl-filmy-dhoom.com/Paatal_Lok_2025_Amazon_Prime_S02E01-04.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "streamUrl": null,
+              "sourceState": "NO_AUTHORIZED_SOURCE",
+              "qualityHonestBadge": "Trailer Only",
+              "episodeType": "no_authorized_source",
+              "backupUrls": []
             }
           ]
         }
       ],
       "torrentUri": null,
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "HD 720p",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "qualityClass": null,
+      "qualityHonestBadge": "Trailer Only",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -5329,7 +5359,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "backupUrls": []
     },
     {
       "id": "vod_avengers_endgame",
@@ -5748,7 +5779,7 @@
         "action",
         "asian"
       ],
-      "durationFormatted": "1 Season • 1 Episodes",
+      "durationFormatted": "1 Season • 9 Episodes",
       "genres": [
         "Thriller",
         "Survival",
@@ -5757,22 +5788,20 @@
       ],
       "rating": 8.0,
       "description": "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits with deadly high stakes.",
-      "resolution": "1080p (1920x1080)",
+      "resolution": "720p HD",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
         "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
+        "hasHindiSubtitles": true,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
           "Hindi",
-          "Korean",
           "English"
         ]
       },
       "languages": [
         "Hindi",
-        "Korean",
         "English"
       ],
       "defaultLanguage": "Hindi",
@@ -5787,26 +5816,150 @@
           "episodes": [
             {
               "id": "squid_s1e1",
-              "episodeNumber": 1,
               "season": 1,
-              "title": "S01:E01 • Red Light, Green Light (2160p HDR Multi-Audio)",
-              "duration": "59m",
-              "streamUrl": "https://archive.org/download/squid-game-s-01-e-01-2160p-hdr-multi-audio.mkv/Squid%20Game%20S01E01%202160p%20HDR%20MultiAudio.mkv.mp4",
+              "episodeNumber": 1,
+              "title": "S01:E01 Red Light, Green Light (Dual Audio Hindi/Eng)",
+              "duration": "55m",
+              "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
+              "audioStreams": {
+                "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
+                "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E01.DUBBED.720p.mp4"
+              },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "1080p FHD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "qualityHonestBadge": "HD 480p"
+            },
+            {
+              "id": "squid_s1e2",
+              "season": 1,
+              "episodeNumber": 2,
+              "title": "S01:E02 Hell (Dual Audio Hindi/Eng)",
+              "duration": "55m",
+              "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-02/Squid_Game_[Hindi]_480P_S01_E02.mp4",
+              "audioStreams": {
+                "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-02/Squid_Game_[Hindi]_480P_S01_E02.mp4",
+                "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E02.DUBBED.720p.mp4"
+              },
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "episodeType": "full_episode",
+              "qualityHonestBadge": "HD 480p"
+            },
+            {
+              "id": "squid_s1e3",
+              "season": 1,
+              "episodeNumber": 3,
+              "title": "S01:E03 The Man with the Umbrella (Dual Audio Hindi/Eng)",
+              "duration": "55m",
+              "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-03/Squid_Game_[Hindi]_480P_S01_E03.mp4",
+              "audioStreams": {
+                "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-03/Squid_Game_[Hindi]_480P_S01_E03.mp4",
+                "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E03.DUBBED.720p.mp4"
+              },
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "episodeType": "full_episode",
+              "qualityHonestBadge": "HD 480p"
+            },
+            {
+              "id": "squid_s1e4",
+              "season": 1,
+              "episodeNumber": 4,
+              "title": "S01:E04 Stick to the Team (Dual Audio Hindi/Eng)",
+              "duration": "55m",
+              "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-04/Squid_Game_[Hindi]_480P_S01_E04.mp4",
+              "audioStreams": {
+                "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-04/Squid_Game_[Hindi]_480P_S01_E04.mp4",
+                "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E04.DUBBED.720p.mp4"
+              },
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "episodeType": "full_episode",
+              "qualityHonestBadge": "HD 480p"
+            },
+            {
+              "id": "squid_s1e5",
+              "season": 1,
+              "episodeNumber": 5,
+              "title": "S01:E05 A Fair World (Dual Audio Hindi/Eng)",
+              "duration": "55m",
+              "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-05/Squid_Game_[Hindi]_480P_S01_E05.mp4",
+              "audioStreams": {
+                "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-05/Squid_Game_[Hindi]_480P_S01_E05.mp4",
+                "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E05.DUBBED.720p.mp4"
+              },
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "episodeType": "full_episode",
+              "qualityHonestBadge": "HD 480p"
+            },
+            {
+              "id": "squid_s1e6",
+              "season": 1,
+              "episodeNumber": 6,
+              "title": "S01:E06 Gganbu (Dual Audio Hindi/Eng)",
+              "duration": "55m",
+              "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-06/Squid_Game_[Hindi]_480P_S01_E06.mp4",
+              "audioStreams": {
+                "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-06/Squid_Game_[Hindi]_480P_S01_E06.mp4",
+                "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E06.DUBBED.720p.mp4"
+              },
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "episodeType": "full_episode",
+              "qualityHonestBadge": "HD 480p"
+            },
+            {
+              "id": "squid_s1e7",
+              "season": 1,
+              "episodeNumber": 7,
+              "title": "S01:E07 V.I.P.S (Dual Audio Hindi/Eng)",
+              "duration": "55m",
+              "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-07/Squid_Game_[Hindi]_480P_S01_E07.mp4",
+              "audioStreams": {
+                "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-07/Squid_Game_[Hindi]_480P_S01_E07.mp4",
+                "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E07.DUBBED.720p.mp4"
+              },
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "episodeType": "full_episode",
+              "qualityHonestBadge": "HD 480p"
+            },
+            {
+              "id": "squid_s1e8",
+              "season": 1,
+              "episodeNumber": 8,
+              "title": "S01:E08 Front Man (Dual Audio Hindi/Eng)",
+              "duration": "55m",
+              "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-08/Squid_Game_[Hindi]_480P_S01_E08.mp4",
+              "audioStreams": {
+                "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-08/Squid_Game_[Hindi]_480P_S01_E08.mp4",
+                "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E08.DUBBED.720p.mp4"
+              },
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "episodeType": "full_episode",
+              "qualityHonestBadge": "HD 480p"
+            },
+            {
+              "id": "squid_s1e9",
+              "season": 1,
+              "episodeNumber": 9,
+              "title": "S01:E09 One Lucky Day (Dual Audio Hindi/Eng)",
+              "duration": "55m",
+              "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-09/Squid_Game_[Hindi]_480P_S01_E09.mp4",
+              "audioStreams": {
+                "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-09/Squid_Game_[Hindi]_480P_S01_E09.mp4",
+                "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E09.DUBBED.720p.mp4"
+              },
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "episodeType": "full_episode",
+              "qualityHonestBadge": "HD 480p"
             }
           ]
         }
       ],
       "posterUrl": "assets/posters/series_squid_game.jpg",
       "backdropUrl": "assets/posters/series_squid_game.jpg",
-      "streamUrl": "https://archive.org/download/squid-game-s-01-e-01-2160p-hdr-multi-audio.mkv/Squid%20Game%20S01E01%202160p%20HDR%20MultiAudio.mkv.mp4",
+      "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/oqxAJKy0ii4",
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p FHD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "HD 720p",
       "contentType": "SERIES",
       "region": "ASIAN",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -5824,16 +5977,144 @@
       "episodes": [
         {
           "id": "squid_s1e1",
-          "episodeNumber": 1,
           "season": 1,
-          "title": "S01:E01 • Red Light, Green Light (2160p HDR Multi-Audio)",
-          "duration": "59m",
-          "streamUrl": "https://archive.org/download/squid-game-s-01-e-01-2160p-hdr-multi-audio.mkv/Squid%20Game%20S01E01%202160p%20HDR%20MultiAudio.mkv.mp4",
+          "episodeNumber": 1,
+          "title": "S01:E01 Red Light, Green Light (Dual Audio Hindi/Eng)",
+          "duration": "55m",
+          "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
+            "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E01.DUBBED.720p.mp4"
+          },
           "sourceState": "DIRECT_STREAM_AVAILABLE",
-          "qualityHonestBadge": "1080p FHD",
-          "episodeType": "full_episode"
+          "episodeType": "full_episode",
+          "qualityHonestBadge": "HD 480p"
+        },
+        {
+          "id": "squid_s1e2",
+          "season": 1,
+          "episodeNumber": 2,
+          "title": "S01:E02 Hell (Dual Audio Hindi/Eng)",
+          "duration": "55m",
+          "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-02/Squid_Game_[Hindi]_480P_S01_E02.mp4",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-02/Squid_Game_[Hindi]_480P_S01_E02.mp4",
+            "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E02.DUBBED.720p.mp4"
+          },
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "episodeType": "full_episode",
+          "qualityHonestBadge": "HD 480p"
+        },
+        {
+          "id": "squid_s1e3",
+          "season": 1,
+          "episodeNumber": 3,
+          "title": "S01:E03 The Man with the Umbrella (Dual Audio Hindi/Eng)",
+          "duration": "55m",
+          "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-03/Squid_Game_[Hindi]_480P_S01_E03.mp4",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-03/Squid_Game_[Hindi]_480P_S01_E03.mp4",
+            "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E03.DUBBED.720p.mp4"
+          },
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "episodeType": "full_episode",
+          "qualityHonestBadge": "HD 480p"
+        },
+        {
+          "id": "squid_s1e4",
+          "season": 1,
+          "episodeNumber": 4,
+          "title": "S01:E04 Stick to the Team (Dual Audio Hindi/Eng)",
+          "duration": "55m",
+          "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-04/Squid_Game_[Hindi]_480P_S01_E04.mp4",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-04/Squid_Game_[Hindi]_480P_S01_E04.mp4",
+            "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E04.DUBBED.720p.mp4"
+          },
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "episodeType": "full_episode",
+          "qualityHonestBadge": "HD 480p"
+        },
+        {
+          "id": "squid_s1e5",
+          "season": 1,
+          "episodeNumber": 5,
+          "title": "S01:E05 A Fair World (Dual Audio Hindi/Eng)",
+          "duration": "55m",
+          "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-05/Squid_Game_[Hindi]_480P_S01_E05.mp4",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-05/Squid_Game_[Hindi]_480P_S01_E05.mp4",
+            "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E05.DUBBED.720p.mp4"
+          },
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "episodeType": "full_episode",
+          "qualityHonestBadge": "HD 480p"
+        },
+        {
+          "id": "squid_s1e6",
+          "season": 1,
+          "episodeNumber": 6,
+          "title": "S01:E06 Gganbu (Dual Audio Hindi/Eng)",
+          "duration": "55m",
+          "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-06/Squid_Game_[Hindi]_480P_S01_E06.mp4",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-06/Squid_Game_[Hindi]_480P_S01_E06.mp4",
+            "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E06.DUBBED.720p.mp4"
+          },
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "episodeType": "full_episode",
+          "qualityHonestBadge": "HD 480p"
+        },
+        {
+          "id": "squid_s1e7",
+          "season": 1,
+          "episodeNumber": 7,
+          "title": "S01:E07 V.I.P.S (Dual Audio Hindi/Eng)",
+          "duration": "55m",
+          "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-07/Squid_Game_[Hindi]_480P_S01_E07.mp4",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-07/Squid_Game_[Hindi]_480P_S01_E07.mp4",
+            "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E07.DUBBED.720p.mp4"
+          },
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "episodeType": "full_episode",
+          "qualityHonestBadge": "HD 480p"
+        },
+        {
+          "id": "squid_s1e8",
+          "season": 1,
+          "episodeNumber": 8,
+          "title": "S01:E08 Front Man (Dual Audio Hindi/Eng)",
+          "duration": "55m",
+          "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-08/Squid_Game_[Hindi]_480P_S01_E08.mp4",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-08/Squid_Game_[Hindi]_480P_S01_E08.mp4",
+            "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E08.DUBBED.720p.mp4"
+          },
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "episodeType": "full_episode",
+          "qualityHonestBadge": "HD 480p"
+        },
+        {
+          "id": "squid_s1e9",
+          "season": 1,
+          "episodeNumber": 9,
+          "title": "S01:E09 One Lucky Day (Dual Audio Hindi/Eng)",
+          "duration": "55m",
+          "streamUrl": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-09/Squid_Game_[Hindi]_480P_S01_E09.mp4",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-09/Squid_Game_[Hindi]_480P_S01_E09.mp4",
+            "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E09.DUBBED.720p.mp4"
+          },
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "episodeType": "full_episode",
+          "qualityHonestBadge": "HD 480p"
         }
-      ]
+      ],
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
+        "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E01.DUBBED.720p.mp4"
+      }
     },
     {
       "id": "series_crash_landing_on_you",
@@ -5859,22 +6140,20 @@
       "resolution": "720p (1280x720)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "Korean",
         "availableLanguages": [
-          "Hindi",
           "Korean"
         ]
       },
       "languages": [
-        "Hindi",
         "Korean"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "Korean",
       "container": "MP4",
-      "license": "Studio Dragon (Hindi Dubbed)",
+      "license": "Studio Dragon (Original Korean with Subtitles)",
       "director": "Lee Jeong-hyo",
       "cast": "Hyun Bin, Son Ye-jin, Seo Ji-hye, Kim Jung-hyun",
       "seasons": [
@@ -6071,11 +6350,10 @@
       "qualityHonestBadge": "HD 720p",
       "contentType": "SERIES",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "ko",
         "spokenLanguages": [
-          "Hindi",
           "Korean"
         ],
         "countries": [
@@ -6285,22 +6563,20 @@
       "resolution": "720p (1280x720)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "Korean",
         "availableLanguages": [
-          "Hindi",
           "Korean"
         ]
       },
       "languages": [
-        "Hindi",
         "Korean"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "Korean",
       "container": "MP4",
-      "license": "KBS2 (Hindi Dubbed)",
+      "license": "KBS2 (Original Korean with Subtitles)",
       "director": "Lee Eung-bok, Baek Sang-hoon",
       "cast": "Song Joong-ki, Song Hye-kyo, Jin Goo, Kim Ji-won",
       "seasons": [
@@ -6497,11 +6773,10 @@
       "qualityHonestBadge": "HD 720p",
       "contentType": "SERIES",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "ko",
         "spokenLanguages": [
-          "Hindi",
           "Korean"
         ],
         "countries": [
@@ -7239,7 +7514,7 @@
       ],
       "defaultLanguage": "Korean",
       "container": "MP4",
-      "license": "Kiwi Media Group (Hindi Dubbed)",
+      "license": "Kiwi Media Group (Korean with English Subtitles)",
       "director": "Kang Yoon-sung",
       "cast": "Ma Dong-seok, Yoon Kye-sang, Jo Jae-yoon, Choi Gwi-hwa",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -7352,24 +7627,20 @@
       "resolution": "1080p FHD (1920x1080)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "Hindi",
-          "Japanese",
           "English"
         ]
       },
       "languages": [
-        "Hindi",
-        "Japanese",
         "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "English",
       "container": "MP4",
-      "license": "Aniplex / Ufotable (Hindi Dubbed)",
+      "license": "Aniplex / Ufotable (English Dubbed)",
       "director": "Haruo Sotozaki",
       "cast": "Natsuki Hanae, Satoshi Hino, Akari Kito, Hiro Shimono",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -7382,12 +7653,10 @@
       "qualityHonestBadge": "1080p FHD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "ja",
         "spokenLanguages": [
-          "Hindi",
-          "Japanese",
           "English"
         ],
         "countries": [
@@ -7493,7 +7762,7 @@
       ],
       "defaultLanguage": "English",
       "container": "MP4",
-      "license": "CoMix Wave Films (Hindi Dubbed)",
+      "license": "CoMix Wave Films (English Dubbed)",
       "director": "Makoto Shinkai",
       "cast": "Nanoka Hara, Hokuto Matsumura, Eri Fukatsu",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -7609,24 +7878,20 @@
       "resolution": "720p (1280x720)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "Hindi",
-          "Japanese",
           "English"
         ]
       },
       "languages": [
-        "Hindi",
-        "Japanese",
         "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "English",
       "container": "MP4",
-      "license": "Madhouse (Hindi Dubbed)",
+      "license": "Madhouse (English Dubbed)",
       "director": "Tetsuro Araki",
       "cast": "Mamoru Miyano, Kappei Yamaguchi, Shido Nakamura",
       "seasons": [
@@ -7640,7 +7905,7 @@
               "season": 1,
               "title": "S01:E01 • Rebirth (Episodes 1-12 English Dubbed)",
               "duration": "4h 12m",
-              "streamUrl": "https://archive.org/download/a-world-without-light-death-note-completed-death-note-season-1-episode-1-12-engl/A%20World%20Without%20Light%20%EF%BD%9C%20Death%20note%20season%201%20episode%201-12%20english%20dub%20%5B8WoFDY-Tvxk%5D.mp4",
+              "streamUrl": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
               "episodeType": "full_episode"
@@ -7650,7 +7915,7 @@
       ],
       "posterUrl": "assets/posters/series_death_note.jpg",
       "backdropUrl": "assets/posters/series_death_note.jpg",
-      "streamUrl": "https://archive.org/download/a-world-without-light-death-note-completed-death-note-season-1-episode-1-12-engl/A%20World%20Without%20Light%20%EF%BD%9C%20Death%20note%20season%201%20episode%201-12%20english%20dub%20%5B8WoFDY-Tvxk%5D.mp4",
+      "streamUrl": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/gvxNaSIB_WI",
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -7658,12 +7923,10 @@
       "qualityHonestBadge": "HD 720p",
       "contentType": "SERIES",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
-          "Hindi",
-          "Japanese",
           "English"
         ],
         "countries": [
@@ -7677,7 +7940,7 @@
           "season": 1,
           "title": "S01:E01 • Rebirth (Episodes 1-12 English Dubbed)",
           "duration": "4h 12m",
-          "streamUrl": "https://archive.org/download/a-world-without-light-death-note-completed-death-note-season-1-episode-1-12-engl/A%20World%20Without%20Light%20%EF%BD%9C%20Death%20note%20season%201%20episode%201-12%20english%20dub%20%5B8WoFDY-Tvxk%5D.mp4",
+          "streamUrl": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4",
           "sourceState": "DIRECT_STREAM_AVAILABLE",
           "qualityHonestBadge": "HD 720p",
           "episodeType": "full_episode"
@@ -11221,7 +11484,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/L0yEMl8PXnw",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -11294,7 +11557,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/yW7t8224F5M",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -11364,7 +11627,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/q13d11b3wF8",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
@@ -11433,7 +11696,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/e18VfA481sA",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "NON_HINDI_AUDIO",
@@ -11498,7 +11761,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/rQxL9Hn4L4k",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "NON_HINDI_AUDIO",
@@ -11567,7 +11830,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/idQ_9A8e9Xk",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "NON_HINDI_AUDIO",
@@ -11615,11 +11878,14 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Punjabi"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -11635,7 +11901,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/g8l6p3zC3aM",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "HINDI_AUDIO",
@@ -11703,7 +11969,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/7n7Y_w-xO78",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
@@ -11774,7 +12040,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/OivkdWd9-z4",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "HINDI_AUDIO",
@@ -11841,7 +12107,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/da3b_H9b0_M",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
@@ -11906,7 +12172,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/1B1qg7tQ1Gg",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
@@ -12040,7 +12306,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/1bN_k-1a-1k",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "HINDI_AUDIO",
@@ -12115,7 +12381,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/OKBMCL-hrPU",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -12188,7 +12454,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/Fw0W64iZ8qg",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "SD",
       "qualityHonestBadge": "360p SD",
       "audioClassification": "NON_HINDI_AUDIO",
@@ -12257,7 +12523,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/K8qY7iM59pU",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "NON_HINDI_AUDIO",
@@ -12326,7 +12592,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/5c_Y6z8wLbg",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "NON_HINDI_AUDIO",
@@ -12409,7 +12675,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/zB4I68XVPzQ",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -12482,7 +12748,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/EDbW3k8J-3k",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
@@ -12551,7 +12817,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/Gc6dEDnL8JA",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "SD",
       "qualityHonestBadge": "360p SD",
       "audioClassification": "HINDI_AUDIO",
@@ -12623,7 +12889,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/2_YnCsm1z7M",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
@@ -12693,7 +12959,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/caY1L9G-6e8",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
@@ -12756,7 +13022,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/jBw_EROnOSo",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "SD",
       "qualityHonestBadge": "360p SD",
       "audioClassification": "HINDI_AUDIO",
@@ -12824,7 +13090,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/Pj1L5a05-x0",
       "contentType": "MOVIE",
       "region": "INDIA",
-      "sourceState": "ACTIVE_STREAM",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Full HD",
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "HINDI_AUDIO",
