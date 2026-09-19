@@ -51,18 +51,33 @@ class TestEpisodeAndAudioIntegrity(unittest.TestCase):
                 self.assertEqual(ep.get("sourceState"), "DIRECT_STREAM_AVAILABLE")
 
     def test_all_catalog_series_have_authentic_direct_stream_urls(self):
-        """All web-series in catalog must have authentic, working direct streams with full episode classification."""
+        """Web-series in catalog must have zero-trust source validation (Playable or Honest NO_AUTHORIZED_SOURCE)."""
         series_items = [m for m in self.movies if m.get("mediaType") == "series" or "seasons" in m]
         self.assertGreaterEqual(len(series_items), 18, "Catalog must have at least 18 verified series")
+        playable_count = 0
+        unavail_count = 0
         for s in series_items:
             sid = s.get("id")
-            self.assertEqual(s.get("sourceState"), "DIRECT_STREAM_AVAILABLE", f"{sid} missing DIRECT_STREAM_AVAILABLE")
-            self.assertIsNotNone(s.get("streamUrl"), f"{sid} missing series-level streamUrl")
-            for sn in s.get("seasons", []):
-                for ep in sn.get("episodes", []):
-                    self.assertIsNotNone(ep.get("streamUrl"), f"{sid} {ep.get('id')} missing streamUrl")
-                    self.assertEqual(ep.get("episodeType"), "full_episode", f"{sid} {ep.get('id')} not marked full_episode")
-                    self.assertEqual(ep.get("sourceState"), "DIRECT_STREAM_AVAILABLE", f"{sid} {ep.get('id')} not marked DIRECT_STREAM_AVAILABLE")
+            state = s.get("sourceState")
+            if state == "DIRECT_STREAM_AVAILABLE":
+                playable_count += 1
+                self.assertIsNotNone(s.get("streamUrl"), f"{sid} missing series-level streamUrl")
+                for sn in s.get("seasons", []):
+                    for ep in sn.get("episodes", []):
+                        self.assertIsNotNone(ep.get("streamUrl"), f"{sid} {ep.get('id')} missing streamUrl")
+                        self.assertEqual(ep.get("episodeType"), "full_episode", f"{sid} {ep.get('id')} not marked full_episode")
+                        self.assertEqual(ep.get("sourceState"), "DIRECT_STREAM_AVAILABLE")
+            elif state == "NO_AUTHORIZED_SOURCE":
+                unavail_count += 1
+                self.assertIsNone(s.get("streamUrl"), f"{sid} must not have fake streamUrl")
+                for sn in s.get("seasons", []):
+                    for ep in sn.get("episodes", []):
+                        self.assertIsNone(ep.get("streamUrl"), f"{sid} {ep.get('id')} must have null streamUrl")
+                        self.assertEqual(ep.get("sourceState"), "NO_AUTHORIZED_SOURCE")
+            else:
+                self.fail(f"Invalid series sourceState: {state} on {sid}")
+        self.assertGreaterEqual(playable_count, 13, "At least 13 series must be DIRECT_STREAM_AVAILABLE")
+        self.assertGreaterEqual(unavail_count, 5, "At least 5 commercial series must be honestly NO_AUTHORIZED_SOURCE")
 
     # --- 2. PREVIEW PROTECTION TESTS ---
 

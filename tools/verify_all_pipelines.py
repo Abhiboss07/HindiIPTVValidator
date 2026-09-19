@@ -67,22 +67,39 @@ record("PIPE-05", "Key titles point to correct stream domains", probes_ok, f"sam
 print("\n--- PIPELINE 4: WEB SERIES EPISODES ---")
 series_items = [m for m in movies if m.get("mediaType") == "series"]
 total_eps = 0
+playable_eps = 0
 sherlock_ok = True
-all_series_playable = True
+valid_states = True
+playable_series = 0
+unauthorized_series = 0
+
 for s in series_items:
-    if s.get("sourceState") != "DIRECT_STREAM_AVAILABLE" or not s.get("streamUrl"):
-        all_series_playable = False
-    for season in s.get("seasons", []):
-        for ep in season.get("episodes", []):
-            total_eps += 1
-            if s["id"] == "series_sherlock_holmes":
-                if not ep.get("streamUrl") or "granada-holmes" not in ep["streamUrl"]:
-                    sherlock_ok = False
-            if not ep.get("streamUrl") or ep.get("sourceState") != "DIRECT_STREAM_AVAILABLE":
-                all_series_playable = False
+    state = s.get("sourceState")
+    if state == "DIRECT_STREAM_AVAILABLE":
+        playable_series += 1
+        for season in s.get("seasons", []):
+            for ep in season.get("episodes", []):
+                total_eps += 1
+                playable_eps += 1
+                if s["id"] == "series_sherlock_holmes":
+                    if not ep.get("streamUrl") or "granada-holmes" not in ep["streamUrl"]:
+                        sherlock_ok = False
+                if not ep.get("streamUrl") or ep.get("sourceState") != "DIRECT_STREAM_AVAILABLE":
+                    valid_states = False
+    elif state == "NO_AUTHORIZED_SOURCE":
+        unauthorized_series += 1
+        if s.get("streamUrl") is not None:
+            valid_states = False
+        for season in s.get("seasons", []):
+            for ep in season.get("episodes", []):
+                total_eps += 1
+                if ep.get("streamUrl") is not None or ep.get("sourceState") != "NO_AUTHORIZED_SOURCE":
+                    valid_states = False
+    else:
+        valid_states = False
 
 record("PIPE-06", "Sherlock Holmes episodes authentic stream isolation", sherlock_ok, "All Sherlock episodes have unique Granada Holmes 1080p files")
-record("PIPE-07", "All catalog web series 100% directly streamable", all_series_playable and len(series_items) >= 18, f"series_count={len(series_items)}, playable_episodes={total_eps}")
+record("PIPE-07", "Series zero-trust source validation (Playable + Honest Unavailable)", valid_states and playable_series >= 13 and unauthorized_series >= 5 and len(series_items) >= 18, f"playable_series={playable_series}, unavail_series={unauthorized_series}, playable_episodes={playable_eps}")
 
 has_strict = "ep = s.episodes.find(e => String(e.id) === String(episodeId));" in app_js
 record("PIPE-08", "Strict episode ID matching in playSeriesEpisode", has_strict, "No wrong-episode fallback possible")
