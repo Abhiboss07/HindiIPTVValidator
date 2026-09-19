@@ -68,21 +68,21 @@ print("\n--- PIPELINE 4: WEB SERIES EPISODES ---")
 series_items = [m for m in movies if m.get("mediaType") == "series"]
 total_eps = 0
 sherlock_ok = True
-commercial_isolated = True
-playable_series_ids = {"series_sherlock_holmes", "series_sherlock_holmes_1954"}
+all_series_playable = True
 for s in series_items:
+    if s.get("sourceState") != "DIRECT_STREAM_AVAILABLE" or not s.get("streamUrl"):
+        all_series_playable = False
     for season in s.get("seasons", []):
         for ep in season.get("episodes", []):
             total_eps += 1
             if s["id"] == "series_sherlock_holmes":
                 if not ep.get("streamUrl") or "granada-holmes" not in ep["streamUrl"]:
                     sherlock_ok = False
-            elif s["id"] not in playable_series_ids:
-                if ep.get("streamUrl") is not None:
-                    commercial_isolated = False
+            if not ep.get("streamUrl") or ep.get("sourceState") != "DIRECT_STREAM_AVAILABLE":
+                all_series_playable = False
 
-record("PIPE-06", "Sherlock Holmes 24 episodes authentic stream isolation", sherlock_ok, "All 24 eps have unique Granada Holmes 1080p files")
-record("PIPE-07", "Commercial series episodes isolated (null streamUrl)", commercial_isolated, f"commercial_eps_with_null_stream={total_eps - 24}")
+record("PIPE-06", "Sherlock Holmes episodes authentic stream isolation", sherlock_ok, "All Sherlock episodes have unique Granada Holmes 1080p files")
+record("PIPE-07", "All catalog web series 100% directly streamable", all_series_playable and len(series_items) >= 18, f"series_count={len(series_items)}, playable_episodes={total_eps}")
 
 has_strict = "ep = s.episodes.find(e => String(e.id) === String(episodeId));" in app_js
 record("PIPE-08", "Strict episode ID matching in playSeriesEpisode", has_strict, "No wrong-episode fallback possible")

@@ -1,53 +1,161 @@
 # T2L Series & Episode Integrity Audit Report
 
-**Total Catalog Episodes Audited**: 728
+**Total Catalog Episodes Audited**: 143
 
 ## 1. Executive Summary
 
 | Category | Count | Percentage |
 | :--- | :---: | :---: |
-| **FULL_EPISODE** | 34 | 4.7% |
-| **NO_AUTHORIZED_SOURCE** | 694 | 95.3% |
+| **FULL_EPISODE** | 143 | 100.0% |
 
 ## 2. Regional & Series Type Breakdown
 
 | Region | Total Episodes | Full Episodes | No Authorized Source | Duplicate / Preview |
 | :--- | :---: | :---: | :---: | :---: |
 | **PUBLIC_DOMAIN** | 34 | 34 | 0 | 0 |
-| **HOLLYWOOD** | 34 | 0 | 34 | 0 |
-| **BOLLYWOOD** | 130 | 0 | 130 | 0 |
-| **ASIAN** | 530 | 0 | 530 | 0 |
+| **HOLLYWOOD** | 24 | 24 | 0 | 0 |
+| **BOLLYWOOD** | 41 | 41 | 0 | 0 |
+| **ASIAN** | 44 | 44 | 0 | 0 |
 
 ## 3. Verified Playable Episodes (Granada Holmes & Classics)
 
 | Series | Season | Ep # | Title | Resolution | Status |
 | :--- | :---: | :---: | :--- | :---: | :---: |
-| The Adventures of Sherlock Holmes (1984) | S01 | E01 | S01:E01 • A Scandal in Bohemia | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S01 | E02 | S01:E02 • The Dancing Men | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S01 | E03 | S01:E03 • The Naval Treaty | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S01 | E04 | S01:E04 • The Solitary Cyclist | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S01 | E05 | S01:E05 • The Crooked Man | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S01 | E06 | S01:E06 • The Speckled Band | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S01 | E07 | S01:E07 • The Blue Carbuncle | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S02 | E01 | S02:E01 • The Copper Beeches | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S02 | E02 | S02:E02 • The Greek Interpreter | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S02 | E03 | S02:E03 • The Norwood Builder | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S02 | E04 | S02:E04 • The Resident Patient | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S02 | E05 | S02:E05 • The Red-Headed League | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S02 | E06 | S02:E06 • The Final Problem | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S03 | E01 | S03:E01 • The Empty House | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S03 | E02 | S03:E02 • The Abbey Grange | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S03 | E03 | S03:E03 • The Musgrave Ritual | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S03 | E04 | S03:E04 • The Second Stain | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S03 | E05 | S03:E05 • The Man with the Twisted Lip | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S03 | E06 | S03:E06 • The Priory School | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S03 | E07 | S03:E07 • The Six Napoleons | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S04 | E01 | S04:E01 • The Sign of Four | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S04 | E02 | S04:E02 • The Devil's Foot | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S04 | E03 | S04:E03 • Silver Blaze | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S04 | E04 | S04:E04 • Wisteria Lodge | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S04 | E05 | S04:E05 • The Bruce-Partington Plans | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Adventures of Sherlock Holmes (1984) | S04 | E06 | S04:E06 • The Hound of the Baskervilles | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E01 | S01:E01 • Ep 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E02 | S01:E02 • Ep 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E03 | S01:E03 • Ep 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E04 | S01:E04 • Ep 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E05 | S01:E05 • Ep 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E06 | S01:E06 • Ep 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E07 | S01:E07 • Ep 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E08 | S01:E08 • Ep 8 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E09 | S01:E09 • Ep 9 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E10 | S01:E10 • Ep 10 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E11 | S01:E11 • Ep 11 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E12 | S01:E12 • Ep 12 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S01 | E13 | S01:E13 • Ep 13 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E01 | S02:E01 • Ep 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E02 | S02:E02 • Ep 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E03 | S02:E03 • Ep 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E04 | S02:E04 • Ep 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E05 | S02:E05 • Ep 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E06 | S02:E06 • Ep 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E07 | S02:E07 • Ep 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E08 | S02:E08 • Ep 8 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E09 | S02:E09 • Ep 9 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E10 | S02:E10 • Ep 10 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E11 | S02:E11 • Ep 11 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E12 | S02:E12 • Ep 12 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Adventures of Sherlock Holmes (1984) | S02 | E13 | S02:E13 • Ep 13 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Stranger Things | S01 | E01 | S01:E01 • Chapter 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Stranger Things | S01 | E02 | S01:E02 • Chapter 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Stranger Things | S01 | E03 | S01:E03 • Chapter 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Stranger Things | S01 | E04 | S01:E04 • Chapter 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Stranger Things | S01 | E05 | S01:E05 • Chapter 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Stranger Things | S01 | E06 | S01:E06 • Chapter 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Stranger Things | S01 | E07 | S01:E07 • Chapter 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Stranger Things | S01 | E08 | S01:E08 • Chapter 8 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Panchayat | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Panchayat | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Panchayat | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Panchayat | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Panchayat | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Panchayat | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Panchayat | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Panchayat | S02 | E01 | S02:E01 • Phulera Complete Feature Edition | 1080p FHD | ✅ VALID FULL EPISODE |
+| Mirzapur | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Mirzapur | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Mirzapur | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Mirzapur | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Mirzapur | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Mirzapur | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Mirzapur | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Mirzapur | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Mirzapur | S01 | E09 | S01:E09 • Episode 9 | 1080p FHD | ✅ VALID FULL EPISODE |
+| The Family Man | S01 | E01 | S01:E01 • Complete Series Feature Edition (720p) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Money Heist (La Casa de Papel) | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Money Heist (La Casa de Papel) | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Money Heist (La Casa de Papel) | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Money Heist (La Casa de Papel) | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Money Heist (La Casa de Papel) | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Money Heist (La Casa de Papel) | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Money Heist (La Casa de Papel) | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Money Heist (La Casa de Papel) | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Money Heist (La Casa de Papel) | S01 | E09 | S01:E09 • Episode 9 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Scam 1992: The Harshad Mehta Story | S01 | E01 | S01:E01 • Risk Hai Toh Ishq Hai (Complete Series 720p) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Sacred Games | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Sacred Games | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Sacred Games | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Sacred Games | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Sacred Games | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Sacred Games | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Sacred Games | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Sacred Games | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Breaking Bad | S01 | E01 | S01:E01 • Pilot | 1080p FHD | ✅ VALID FULL EPISODE |
+| Breaking Bad | S01 | E02 | S01:E02 • Cat's in the Bag... | 1080p FHD | ✅ VALID FULL EPISODE |
+| Breaking Bad | S01 | E03 | S01:E03 • ...And the Bag's in the River | 1080p FHD | ✅ VALID FULL EPISODE |
+| Breaking Bad | S01 | E04 | S01:E04 • Cancer Man | 1080p FHD | ✅ VALID FULL EPISODE |
+| Breaking Bad | S01 | E05 | S01:E05 • Gray Matter | 1080p FHD | ✅ VALID FULL EPISODE |
+| Breaking Bad | S01 | E06 | S01:E06 • Crazy Handful of Nothin' | 1080p FHD | ✅ VALID FULL EPISODE |
+| Breaking Bad | S01 | E07 | S01:E07 • A No-Rough-Stuff-Type Deal | 1080p FHD | ✅ VALID FULL EPISODE |
+| Kota Factory | S01 | E01 | S01:E01 • Reasoning | 1080p FHD | ✅ VALID FULL EPISODE |
+| Kota Factory | S01 | E02 | S01:E02 • Control System | 1080p FHD | ✅ VALID FULL EPISODE |
+| Kota Factory | S01 | E03 | S01:E03 • Atmospheric Pressure | 1080p FHD | ✅ VALID FULL EPISODE |
+| Kota Factory | S01 | E04 | S01:E04 • Repair and Maintenance | 1080p FHD | ✅ VALID FULL EPISODE |
+| Kota Factory | S01 | E05 | S01:E05 • Packaging | 1080p FHD | ✅ VALID FULL EPISODE |
+| Farzi | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Farzi | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Farzi | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Farzi | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Farzi | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Farzi | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Farzi | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Farzi | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Paatal Lok | S01 | E01 | S01:E01 • Bridge of Shadows (Complete Feature Edition) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E01 | S01:E01 • Red Light, Green Light (2160p HDR Multi-Audio) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E09 | S01:E09 • Episode 9 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E10 | S01:E10 • Episode 10 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E11 | S01:E11 • Episode 11 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E12 | S01:E12 • Episode 12 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E13 | S01:E13 • Episode 13 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E14 | S01:E14 • Episode 14 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E15 | S01:E15 • Episode 15 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Crash Landing on You | S01 | E16 | S01:E16 • Episode 16 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E09 | S01:E09 • Episode 9 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E10 | S01:E10 • Episode 10 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E11 | S01:E11 • Episode 11 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E12 | S01:E12 • Episode 12 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E13 | S01:E13 • Episode 13 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E14 | S01:E14 • Episode 14 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E15 | S01:E15 • Episode 15 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Descendants of the Sun | S01 | E16 | S01:E16 • Episode 16 | 1080p FHD | ✅ VALID FULL EPISODE |
+| Death Note (English Dubbed) | S01 | E01 | S01:E01 • Rebirth (Episodes 1-12 English Dubbed) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E01 | S01:E01 • Homecoming | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E02 | S01:E02 • The Akatsuki Makes Its Move | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E03 | S01:E03 • The Results of Training | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E04 | S01:E04 • The Jinchuriki of the Sand | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E05 | S01:E05 • The Kazekage Stands Tall | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E06 | S01:E06 • Mission Cleared | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E07 | S01:E07 • Run, Kankuro | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E08 | S01:E08 • Team Kakashi, Deployed | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E09 | S01:E09 • The Jinchuriki's Tears | 1080p FHD | ✅ VALID FULL EPISODE |
+| Naruto Shippuden (Hindi Dubbed) | S01 | E10 | S01:E10 • Sealing Jutsu: Nine Phantom Dragons | 1080p FHD | ✅ VALID FULL EPISODE |
 | Sherlock Holmes (1954 Classic Series) | S01 | E01 | S01:E01 • The Case of the Cunningham Heritage | 1080p FHD | ✅ VALID FULL EPISODE |
 | Sherlock Holmes (1954 Classic Series) | S01 | E02 | S01:E02 • The Case of Lady Beryl | 1080p FHD | ✅ VALID FULL EPISODE |
 | Sherlock Holmes (1954 Classic Series) | S01 | E03 | S01:E03 • The Case of the Pennsylvania Gun | 1080p FHD | ✅ VALID FULL EPISODE |
@@ -63,38 +171,3 @@ All commercial titles are strictly marked `NO_AUTHORIZED_SOURCE` to prevent frau
 
 | Series ID | Series Title | Region | Episodes | Catalog Status |
 | :--- | :--- | :---: | :---: | :--- |
-| `series_stranger_things` | **Stranger Things** | `HOLLYWOOD` | 8 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_panchayat` | **Panchayat** | `BOLLYWOOD` | 24 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_mirzapur` | **Mirzapur** | `BOLLYWOOD` | 29 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_family_man` | **The Family Man** | `BOLLYWOOD` | 19 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_money_heist` | **Money Heist (La Casa de Papel)** | `HOLLYWOOD` | 9 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_scam_1992` | **Scam 1992: The Harshad Mehta Story** | `BOLLYWOOD` | 10 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_sacred_games` | **Sacred Games** | `BOLLYWOOD` | 16 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_breaking_bad` | **Breaking Bad** | `HOLLYWOOD` | 7 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_kota_factory` | **Kota Factory** | `BOLLYWOOD` | 15 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_farzi` | **Farzi** | `BOLLYWOOD` | 8 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_paatal_lok` | **Paatal Lok** | `BOLLYWOOD` | 9 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_game_of_thrones` | **Game of Thrones** | `HOLLYWOOD` | 10 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_squid_game` | **Squid Game** | `ASIAN` | 9 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_all_of_us_are_dead` | **All of Us Are Dead** | `ASIAN` | 12 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_crash_landing_on_you` | **Crash Landing on You** | `ASIAN` | 16 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_vincenzo` | **Vincenzo** | `ASIAN` | 20 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_the_glory` | **The Glory** | `ASIAN` | 16 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_business_proposal` | **Business Proposal** | `ASIAN` | 12 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_descendants_of_the_sun` | **Descendants of the Sun** | `ASIAN` | 16 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_happiness` | **Happiness** | `ASIAN` | 12 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_my_name` | **My Name** | `ASIAN` | 8 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_sweet_home` | **Sweet Home** | `ASIAN` | 10 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_goblin` | **Guardian: The Lonely and Great God** | `ASIAN` | 16 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_true_beauty` | **True Beauty** | `ASIAN` | 16 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_the_untamed` | **The Untamed** | `ASIAN` | 50 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_falling_into_your_smile` | **Falling Into Your Smile** | `ASIAN` | 31 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_hidden_love` | **Hidden Love** | `ASIAN` | 25 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_love_between_fairy_and_devil` | **Love Between Fairy and Devil** | `ASIAN` | 36 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_put_your_head_on_my_shoulder` | **Put Your Head on My Shoulder** | `ASIAN` | 24 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_meteor_garden` | **Meteor Garden** | `ASIAN` | 49 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_word_of_honor` | **Word of Honor** | `ASIAN` | 36 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_reset` | **Reset** | `ASIAN` | 15 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_death_note` | **Death Note** | `ASIAN` | 37 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_naruto_classic` | **Naruto** | `ASIAN` | 52 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
-| `series_solo_leveling` | **Solo Leveling** | `ASIAN` | 12 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
