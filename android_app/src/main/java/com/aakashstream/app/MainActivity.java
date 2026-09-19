@@ -566,25 +566,34 @@ public class MainActivity extends Activity {
 
     private void applyDnsConfiguration(String provider) {
         try {
-            if ("google".equalsIgnoreCase(provider)) {
-                System.setProperty("dns.server", "8.8.8.8,8.8.4.4");
-                System.setProperty("sun.net.spi.nameservice.nameservers", "8.8.8.8,8.8.4.4");
-                System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
-            } else if ("cloudflare".equalsIgnoreCase(provider)) {
-                System.setProperty("dns.server", "1.1.1.1,1.0.0.1");
-                System.setProperty("sun.net.spi.nameservice.nameservers", "1.1.1.1,1.0.0.1");
-                System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
-            } else if ("quad9".equalsIgnoreCase(provider)) {
-                System.setProperty("dns.server", "9.9.9.9,149.112.112.112");
-                System.setProperty("sun.net.spi.nameservice.nameservers", "9.9.9.9,149.112.112.112");
-                System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
-            } else if ("adguard".equalsIgnoreCase(provider)) {
-                System.setProperty("dns.server", "94.140.14.14,94.140.15.15");
-                System.setProperty("sun.net.spi.nameservice.nameservers", "94.140.14.14,94.140.15.15");
-                System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
-            } else {
-                System.clearProperty("dns.server");
-                System.clearProperty("sun.net.spi.nameservice.nameservers");
+            // Keep native system DNS resolution by default to preserve carrier DNS64 / NAT64 synthesis on cellular
+            System.clearProperty("dns.server");
+            System.clearProperty("sun.net.spi.nameservice.nameservers");
+            if (provider != null && !provider.isEmpty() && !"default".equalsIgnoreCase(provider)) {
+                android.net.ConnectivityManager cm = (android.net.ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                android.net.Network activeNetwork = cm != null ? cm.getActiveNetwork() : null;
+                android.net.NetworkCapabilities caps = activeNetwork != null ? cm.getNetworkCapabilities(activeNetwork) : null;
+                boolean isCellular = caps != null && caps.hasTransport(android.net.NetworkCapabilities.TRANSPORT_CELLULAR);
+                // Do NOT override DNS on cellular connections as it breaks IPv6 DNS64/NAT64 translation
+                if (!isCellular) {
+                    if ("google".equalsIgnoreCase(provider)) {
+                        System.setProperty("dns.server", "8.8.8.8,8.8.4.4");
+                        System.setProperty("sun.net.spi.nameservice.nameservers", "8.8.8.8,8.8.4.4");
+                        System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
+                    } else if ("cloudflare".equalsIgnoreCase(provider)) {
+                        System.setProperty("dns.server", "1.1.1.1,1.0.0.1");
+                        System.setProperty("sun.net.spi.nameservice.nameservers", "1.1.1.1,1.0.0.1");
+                        System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
+                    } else if ("quad9".equalsIgnoreCase(provider)) {
+                        System.setProperty("dns.server", "9.9.9.9,149.112.112.112");
+                        System.setProperty("sun.net.spi.nameservice.nameservers", "9.9.9.9,149.112.112.112");
+                        System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
+                    } else if ("adguard".equalsIgnoreCase(provider)) {
+                        System.setProperty("dns.server", "94.140.14.14,94.140.15.15");
+                        System.setProperty("sun.net.spi.nameservice.nameservers", "94.140.14.14,94.140.15.15");
+                        System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
+                    }
+                }
             }
         } catch (Exception ignored) {}
     }
@@ -1341,6 +1350,19 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public void logInfo(String msg) {
             Log.i(TAG, "[JS INFO] " + msg);
+        }
+
+        @JavascriptInterface
+        public void recordTelemetry(String jsonTelemetry) {
+            Log.i(TAG, "[PLAYBACK TELEMETRY] " + jsonTelemetry);
+            try {
+                java.io.File dir = new java.io.File(getFilesDir(), "telemetry");
+                if (!dir.exists()) dir.mkdirs();
+                java.io.File file = new java.io.File(dir, "playback_startup.log");
+                java.io.FileWriter fw = new java.io.FileWriter(file, true);
+                fw.write(jsonTelemetry + "\n");
+                fw.close();
+            } catch (Exception ignored) {}
         }
 
         @JavascriptInterface
