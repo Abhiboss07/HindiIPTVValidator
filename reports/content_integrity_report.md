@@ -9,8 +9,8 @@
 
 ### Audio & Language Classifications
 - 🇮🇳 **HINDI_AUDIO**: 57
-- 🌐 **MULTI_AUDIO_INCLUDING_HINDI**: 29
-- 🌍 **NON_HINDI_AUDIO**: 37
+- 🌐 **MULTI_AUDIO_INCLUDING_HINDI**: 27
+- 🌍 **NON_HINDI_AUDIO**: 39
 - 💬 **HINDI_SUBTITLE_ONLY**: 0
 - ❓ **LANGUAGE_UNKNOWN**: 0
 
@@ -48,7 +48,7 @@
 | `vod_crew_2024` | **Crew** | `MOVIE` | `DIRECT_STREAM` | `HINDI_AUDIO` | `PASS` | OK |
 | `vod_dangal` | **Dangal** | `MOVIE` | `DIRECT_STREAM` | `HINDI_AUDIO` | `PASS` | OK |
 | `vod_deadpool_wolverine` | **Deadpool & Wolverine** | `MOVIE` | `DIRECT_STREAM` | `MULTI_AUDIO_INCLUDING_HINDI` | `PASS` | OK |
-| `vod_demon_slayer_mugen_train` | **Demon Slayer: Mugen Train** | `MOVIE` | `DIRECT_STREAM` | `MULTI_AUDIO_INCLUDING_HINDI` | `PASS` | OK |
+| `vod_demon_slayer_mugen_train` | **Demon Slayer: Mugen Train** | `MOVIE` | `DIRECT_STREAM` | `NON_HINDI_AUDIO` | `PASS` | OK |
 | `vod_do_bigha_zamin` | **Do Bigha Zamin** | `MOVIE` | `DIRECT_STREAM` | `HINDI_AUDIO` | `PASS` | OK |
 | `vod_dressed_to_kill` | **Dressed to Kill (Sherlock Holmes)** | `MOVIE` | `DIRECT_STREAM` | `NON_HINDI_AUDIO` | `PASS` | OK |
 | `vod_drishyam_2` | **Drishyam 2** | `MOVIE` | `DIRECT_STREAM` | `HINDI_AUDIO` | `PASS` | OK |
@@ -77,7 +77,7 @@
 | `vod_jailer_2023` | **Jailer** | `MOVIE` | `YOUTUBE_EMBED` | `NON_HINDI_AUDIO` | `PASS` | OK |
 | `vod_jawan` | **Jawan** | `MOVIE` | `DIRECT_STREAM` | `HINDI_AUDIO` | `PASS` | OK |
 | `vod_john_wick_4` | **John Wick: Chapter 4** | `MOVIE` | `DIRECT_STREAM` | `NON_HINDI_AUDIO` | `PASS` | OK |
-| `vod_jujutsu_kaisen_0` | **Jujutsu Kaisen 0** | `MOVIE` | `DIRECT_STREAM` | `MULTI_AUDIO_INCLUDING_HINDI` | `PASS` | OK |
+| `vod_jujutsu_kaisen_0` | **Jujutsu Kaisen 0** | `MOVIE` | `DIRECT_STREAM` | `NON_HINDI_AUDIO` | `PASS` | OK |
 | `vod_kgf_chapter_1` | **K.G.F: Chapter 1** | `MOVIE` | `DIRECT_STREAM` | `HINDI_AUDIO` | `PASS` | OK |
 | `vod_kgf_chapter_2` | **K.G.F: Chapter 2** | `MOVIE` | `DIRECT_STREAM` | `HINDI_AUDIO` | `PASS` | OK |
 | `vod_kalki_2898_ad` | **Kalki 2898 AD** | `MOVIE` | `DIRECT_STREAM` | `HINDI_AUDIO` | `PASS` | OK |

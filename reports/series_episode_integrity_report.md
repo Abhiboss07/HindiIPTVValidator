@@ -1,21 +1,22 @@
 # T2L Series & Episode Integrity Audit Report
 
-**Total Catalog Episodes Audited**: 143
+**Total Catalog Episodes Audited**: 151
 
 ## 1. Executive Summary
 
 | Category | Count | Percentage |
 | :--- | :---: | :---: |
-| **FULL_EPISODE** | 143 | 100.0% |
+| **FULL_EPISODE** | 124 | 82.1% |
+| **NO_AUTHORIZED_SOURCE** | 27 | 17.9% |
 
 ## 2. Regional & Series Type Breakdown
 
 | Region | Total Episodes | Full Episodes | No Authorized Source | Duplicate / Preview |
 | :--- | :---: | :---: | :---: | :---: |
 | **PUBLIC_DOMAIN** | 34 | 34 | 0 | 0 |
-| **HOLLYWOOD** | 24 | 24 | 0 | 0 |
-| **BOLLYWOOD** | 41 | 41 | 0 | 0 |
-| **ASIAN** | 44 | 44 | 0 | 0 |
+| **HOLLYWOOD** | 24 | 15 | 9 | 0 |
+| **BOLLYWOOD** | 41 | 23 | 18 | 0 |
+| **ASIAN** | 52 | 52 | 0 | 0 |
 
 ## 3. Verified Playable Episodes (Granada Holmes & Classics)
 
@@ -72,25 +73,7 @@
 | Mirzapur | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
 | Mirzapur | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
 | Mirzapur | S01 | E09 | S01:E09 • Episode 9 | 1080p FHD | ✅ VALID FULL EPISODE |
-| The Family Man | S01 | E01 | S01:E01 • Complete Series Feature Edition (720p) | 1080p FHD | ✅ VALID FULL EPISODE |
-| Money Heist (La Casa de Papel) | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Money Heist (La Casa de Papel) | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Money Heist (La Casa de Papel) | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Money Heist (La Casa de Papel) | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Money Heist (La Casa de Papel) | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Money Heist (La Casa de Papel) | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Money Heist (La Casa de Papel) | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Money Heist (La Casa de Papel) | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Money Heist (La Casa de Papel) | S01 | E09 | S01:E09 • Episode 9 | 1080p FHD | ✅ VALID FULL EPISODE |
 | Scam 1992: The Harshad Mehta Story | S01 | E01 | S01:E01 • Risk Hai Toh Ishq Hai (Complete Series 720p) | 1080p FHD | ✅ VALID FULL EPISODE |
-| Sacred Games | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Sacred Games | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Sacred Games | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Sacred Games | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Sacred Games | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Sacred Games | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Sacred Games | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Sacred Games | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
 | Breaking Bad | S01 | E01 | S01:E01 • Pilot | 1080p FHD | ✅ VALID FULL EPISODE |
 | Breaking Bad | S01 | E02 | S01:E02 • Cat's in the Bag... | 1080p FHD | ✅ VALID FULL EPISODE |
 | Breaking Bad | S01 | E03 | S01:E03 • ...And the Bag's in the River | 1080p FHD | ✅ VALID FULL EPISODE |
@@ -103,16 +86,15 @@
 | Kota Factory | S01 | E03 | S01:E03 • Atmospheric Pressure | 1080p FHD | ✅ VALID FULL EPISODE |
 | Kota Factory | S01 | E04 | S01:E04 • Repair and Maintenance | 1080p FHD | ✅ VALID FULL EPISODE |
 | Kota Factory | S01 | E05 | S01:E05 • Packaging | 1080p FHD | ✅ VALID FULL EPISODE |
-| Farzi | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Farzi | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Farzi | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Farzi | S01 | E04 | S01:E04 • Episode 4 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Farzi | S01 | E05 | S01:E05 • Episode 5 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Farzi | S01 | E06 | S01:E06 • Episode 6 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Farzi | S01 | E07 | S01:E07 • Episode 7 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Farzi | S01 | E08 | S01:E08 • Episode 8 | 1080p FHD | ✅ VALID FULL EPISODE |
-| Paatal Lok | S01 | E01 | S01:E01 • Bridge of Shadows (Complete Feature Edition) | 1080p FHD | ✅ VALID FULL EPISODE |
-| Squid Game | S01 | E01 | S01:E01 • Red Light, Green Light (2160p HDR Multi-Audio) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E01 | S01:E01 Red Light, Green Light (Dual Audio Hindi/Eng) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E02 | S01:E02 Hell (Dual Audio Hindi/Eng) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E03 | S01:E03 The Man with the Umbrella (Dual Audio Hindi/Eng) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E04 | S01:E04 Stick to the Team (Dual Audio Hindi/Eng) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E05 | S01:E05 A Fair World (Dual Audio Hindi/Eng) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E06 | S01:E06 Gganbu (Dual Audio Hindi/Eng) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E07 | S01:E07 V.I.P.S (Dual Audio Hindi/Eng) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E08 | S01:E08 Front Man (Dual Audio Hindi/Eng) | 1080p FHD | ✅ VALID FULL EPISODE |
+| Squid Game | S01 | E09 | S01:E09 One Lucky Day (Dual Audio Hindi/Eng) | 1080p FHD | ✅ VALID FULL EPISODE |
 | Crash Landing on You | S01 | E01 | S01:E01 • Episode 1 | 1080p FHD | ✅ VALID FULL EPISODE |
 | Crash Landing on You | S01 | E02 | S01:E02 • Episode 2 | 1080p FHD | ✅ VALID FULL EPISODE |
 | Crash Landing on You | S01 | E03 | S01:E03 • Episode 3 | 1080p FHD | ✅ VALID FULL EPISODE |
@@ -171,3 +153,8 @@ All commercial titles are strictly marked `NO_AUTHORIZED_SOURCE` to prevent frau
 
 | Series ID | Series Title | Region | Episodes | Catalog Status |
 | :--- | :--- | :---: | :---: | :--- |
+| `series_family_man` | **The Family Man** | `BOLLYWOOD` | 1 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
+| `series_money_heist` | **Money Heist (La Casa de Papel)** | `HOLLYWOOD` | 9 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
+| `series_sacred_games` | **Sacred Games** | `BOLLYWOOD` | 8 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
+| `series_farzi` | **Farzi** | `BOLLYWOOD` | 8 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |
+| `series_paatal_lok` | **Paatal Lok** | `BOLLYWOOD` | 1 | Honest `NO_AUTHORIZED_SOURCE` (No Deceptive Trailer Fallback) |

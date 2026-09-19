@@ -1,110 +1,71 @@
 {
-  "total_items_audited": 160,
+  "total_items_audited": 141,
   "summary": {
-    "pass": 93,
+    "pass": 106,
     "mismatches": 24,
     "source_metadata_invalid": 24,
-    "no_direct_source": 43
+    "no_direct_source": 11
   },
   "items": [
     {
       "id": "series_sherlock_holmes",
       "title": "The Adventures of Sherlock Holmes (1984)",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E01%20A%20Scandal%20In%20Bohemia.mp4",
       "claimed_languages": [
         "English"
       ],
       "claimed_classification": "NON_HINDI_AUDIO",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
+      ],
+      "actual_languages": [
+        "en"
+      ],
       "catalog_vs_runtime_mismatch": false,
       "hindi_track_available": false,
       "hindi_track_selectable": false,
       "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
+      "english_track_selectable": true,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "series_stranger_things",
       "title": "Stranger Things",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/stranger.-things.-s-01.720p.-blu-ray.x-264-galaxy-tv/Stranger.Things.S01.COMPLETE.720p.BluRay.x264-GalaxyTV%5BTGx%5D/Stranger.Things.S01E01.720p.BluRay.x264-GalaxyTV.mp4",
       "claimed_languages": [
-        "Hindi",
         "English"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
+      "claimed_classification": "NON_HINDI_AUDIO",
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
+      ],
+      "actual_languages": [
+        "en"
+      ],
       "catalog_vs_runtime_mismatch": false,
       "hindi_track_available": false,
       "hindi_track_selectable": false,
       "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
+      "english_track_selectable": true,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "series_panchayat",
       "title": "Panchayat",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/a2z-panchayat-season-1/E02.mp4",
       "claimed_languages": [
         "Hindi"
       ],
       "claimed_classification": "HINDI_AUDIO",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_mirzapur",
-      "title": "Mirzapur",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "English"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "vod_deadpool_wolverine",
-      "title": "Deadpool & Wolverine",
-      "media_type": "MOVIE",
-      "source_url": "https://archive.org/download/deadpool-wolverine_HD_DUBLADO_SINCRONIZADO/Deadpool%20%26%20Wolverine.mp4",
-      "claimed_languages": [
-        "English",
-        "Hindi",
-        "Tamil",
-        "Telugu"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
       "actual_audio_streams_count": 1,
       "actual_audio_codecs": [
         "aac"
@@ -112,14 +73,64 @@
       "actual_languages": [
         "hi"
       ],
-      "catalog_vs_runtime_mismatch": true,
+      "catalog_vs_runtime_mismatch": false,
       "hindi_track_available": true,
-      "hindi_track_selectable": true,
-      "hindi_track_actually_selected": true,
+      "hindi_track_selectable": false,
+      "hindi_track_actually_selected": false,
       "english_track_selectable": false,
       "english_track_actually_selected": false,
-      "result": "SOURCE_METADATA_INVALID",
-      "details": "Catalog claims 4 languages (English, Hindi, Tamil, Telugu), but progressive MP4 container contains only a single audio stream."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
+    },
+    {
+      "id": "series_mirzapur",
+      "title": "Mirzapur",
+      "media_type": "SERIES",
+      "source_url": "https://archive.org/download/s-2-m-1/s2%20m1.mp4",
+      "claimed_languages": [
+        "Hindi"
+      ],
+      "claimed_classification": "HINDI_AUDIO",
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
+      ],
+      "actual_languages": [
+        "hi"
+      ],
+      "catalog_vs_runtime_mismatch": false,
+      "hindi_track_available": true,
+      "hindi_track_selectable": false,
+      "hindi_track_actually_selected": false,
+      "english_track_selectable": false,
+      "english_track_actually_selected": false,
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
+    },
+    {
+      "id": "vod_deadpool_wolverine",
+      "title": "Deadpool & Wolverine",
+      "media_type": "MOVIE",
+      "source_url": "https://archive.org/download/deadpool-wolverine_HD_DUBLADO_SINCRONIZADO/Deadpool%20%26%20Wolverine.mp4",
+      "claimed_languages": [
+        "English"
+      ],
+      "claimed_classification": "NON_HINDI_AUDIO",
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
+      ],
+      "actual_languages": [
+        "en"
+      ],
+      "catalog_vs_runtime_mismatch": false,
+      "hindi_track_available": false,
+      "hindi_track_selectable": false,
+      "hindi_track_actually_selected": false,
+      "english_track_selectable": true,
+      "english_track_actually_selected": false,
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "vod_stree_2",
@@ -277,8 +288,7 @@
       "source_url": null,
       "claimed_languages": [
         "Hindi",
-        "English",
-        "Spanish"
+        "English"
       ],
       "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
       "actual_audio_streams_count": 0,
@@ -297,23 +307,26 @@
       "id": "series_scam_1992",
       "title": "Scam 1992: The Harshad Mehta Story",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/scam-1992-the-harshad-mehta-story-2020-hindi-season-1-720p/Scam_1992_the_Harshad_Mehta_Story_%282020%29_Hindi_Season_1_720p.mp4",
       "claimed_languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
+      "claimed_classification": "HINDI_AUDIO",
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
+      ],
+      "actual_languages": [
+        "hi"
+      ],
       "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
+      "hindi_track_available": true,
       "hindi_track_selectable": false,
       "hindi_track_actually_selected": false,
       "english_track_selectable": false,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "series_sacred_games",
@@ -321,10 +334,9 @@
       "media_type": "SERIES",
       "source_url": null,
       "claimed_languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "claimed_classification": "HINDI_AUDIO",
       "actual_audio_streams_count": 0,
       "actual_audio_codecs": [],
       "actual_languages": [],
@@ -366,23 +378,26 @@
       "id": "series_breaking_bad",
       "title": "Breaking Bad",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/BreakingBadSeason11080PHEVC/01%20Pilot%20%281080p%20HD%29.mp4",
       "claimed_languages": [
-        "Hindi",
         "English"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
+      "claimed_classification": "NON_HINDI_AUDIO",
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
+      ],
+      "actual_languages": [
+        "en"
+      ],
       "catalog_vs_runtime_mismatch": false,
       "hindi_track_available": false,
       "hindi_track_selectable": false,
       "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
+      "english_track_selectable": true,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "vod_dark_knight",
@@ -438,22 +453,26 @@
       "id": "series_kota_factory",
       "title": "Kota Factory",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E01_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
       "claimed_languages": [
         "Hindi"
       ],
       "claimed_classification": "HINDI_AUDIO",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
+      ],
+      "actual_languages": [
+        "hi"
+      ],
       "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
+      "hindi_track_available": true,
       "hindi_track_selectable": false,
       "hindi_track_actually_selected": false,
       "english_track_selectable": false,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "vod_dune_part_two",
@@ -687,12 +706,9 @@
       "media_type": "SERIES",
       "source_url": null,
       "claimed_languages": [
-        "Hindi",
-        "English",
-        "Tamil",
-        "Telugu"
+        "Hindi"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "claimed_classification": "HINDI_AUDIO",
       "actual_audio_streams_count": 0,
       "actual_audio_codecs": [],
       "actual_languages": [],
@@ -1117,32 +1133,9 @@
       "media_type": "SERIES",
       "source_url": null,
       "claimed_languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_game_of_thrones",
-      "title": "Game of Thrones",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "English"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "claimed_classification": "HINDI_AUDIO",
       "actual_audio_streams_count": 0,
       "actual_audio_codecs": [],
       "actual_languages": [],
@@ -1309,444 +1302,77 @@
       "id": "series_squid_game",
       "title": "Squid Game",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
       "claimed_languages": [
         "Hindi",
-        "Korean",
         "English"
       ],
       "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_all_of_us_are_dead",
-      "title": "All of Us Are Dead",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean",
-        "English"
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
+      "actual_languages": [
+        "hi"
+      ],
+      "catalog_vs_runtime_mismatch": true,
+      "hindi_track_available": true,
+      "hindi_track_selectable": true,
+      "hindi_track_actually_selected": true,
       "english_track_selectable": false,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "SOURCE_METADATA_INVALID",
+      "details": "Catalog claims 2 languages (Hindi, English), but progressive MP4 container contains only a single audio stream."
     },
     {
       "id": "series_crash_landing_on_you",
       "title": "Crash Landing on You",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/crash-landing-on-you-05/Crash%20Landing%20On%20You%2001.mp4",
       "claimed_languages": [
-        "Hindi",
         "Korean"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_vincenzo",
-      "title": "Vincenzo",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean",
-        "Italian"
+      "claimed_classification": "NON_HINDI_AUDIO",
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_the_glory",
-      "title": "The Glory",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean"
+      "actual_languages": [
+        "ko"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
       "catalog_vs_runtime_mismatch": false,
       "hindi_track_available": false,
       "hindi_track_selectable": false,
       "hindi_track_actually_selected": false,
       "english_track_selectable": false,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_business_proposal",
-      "title": "Business Proposal",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "series_descendants_of_the_sun",
       "title": "Descendants of the Sun",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E01.mp4",
       "claimed_languages": [
-        "Hindi",
         "Korean"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_happiness",
-      "title": "Happiness",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean"
+      "claimed_classification": "NON_HINDI_AUDIO",
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_my_name",
-      "title": "My Name",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean"
+      "actual_languages": [
+        "ko"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
       "catalog_vs_runtime_mismatch": false,
       "hindi_track_available": false,
       "hindi_track_selectable": false,
       "hindi_track_actually_selected": false,
       "english_track_selectable": false,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_sweet_home",
-      "title": "Sweet Home",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_goblin",
-      "title": "Guardian: The Lonely and Great God",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_true_beauty",
-      "title": "True Beauty",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_the_untamed",
-      "title": "The Untamed",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Mandarin"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_falling_into_your_smile",
-      "title": "Falling Into Your Smile",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Mandarin"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_hidden_love",
-      "title": "Hidden Love",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Mandarin"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_love_between_fairy_and_devil",
-      "title": "Love Between Fairy and Devil",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Mandarin"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_put_your_head_on_my_shoulder",
-      "title": "Put Your Head on My Shoulder",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Mandarin"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_meteor_garden",
-      "title": "Meteor Garden",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Mandarin"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_word_of_honor",
-      "title": "Word of Honor",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Mandarin"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_reset",
-      "title": "Reset",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Mandarin"
-      ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "vod_train_to_busan",
@@ -2015,26 +1641,24 @@
       "media_type": "MOVIE",
       "source_url": "https://archive.org/download/demon-slayer-mugen-train-animation/Demon%20Slayer%20-%20Mugen%20Train%20%28Animation%29.mp4",
       "claimed_languages": [
-        "Hindi",
-        "Japanese",
         "English"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "claimed_classification": "NON_HINDI_AUDIO",
       "actual_audio_streams_count": 1,
       "actual_audio_codecs": [
         "aac"
       ],
       "actual_languages": [
-        "hi"
+        "en"
       ],
-      "catalog_vs_runtime_mismatch": true,
-      "hindi_track_available": true,
-      "hindi_track_selectable": true,
-      "hindi_track_actually_selected": true,
-      "english_track_selectable": false,
+      "catalog_vs_runtime_mismatch": false,
+      "hindi_track_available": false,
+      "hindi_track_selectable": false,
+      "hindi_track_actually_selected": false,
+      "english_track_selectable": true,
       "english_track_actually_selected": false,
-      "result": "SOURCE_METADATA_INVALID",
-      "details": "Catalog claims 3 languages (Hindi, Japanese, English), but progressive MP4 container contains only a single audio stream."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "vod_jujutsu_kaisen_0",
@@ -2114,71 +1738,54 @@
     },
     {
       "id": "series_death_note",
-      "title": "Death Note",
+      "title": "Death Note (English Dubbed)",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4",
       "claimed_languages": [
-        "Hindi",
-        "Japanese",
         "English"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
+      "claimed_classification": "NON_HINDI_AUDIO",
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
+      ],
+      "actual_languages": [
+        "en"
+      ],
       "catalog_vs_runtime_mismatch": false,
       "hindi_track_available": false,
       "hindi_track_selectable": false,
       "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
+      "english_track_selectable": true,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "series_naruto_classic",
-      "title": "Naruto",
+      "title": "Naruto Shippuden (Hindi Dubbed)",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/%5BRAI%5D%20Naruto%20Shippuden%20S1E01%20in%20Hindi.mp4",
       "claimed_languages": [
         "Hindi",
         "Japanese"
       ],
       "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
-      "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
-    },
-    {
-      "id": "series_solo_leveling",
-      "title": "Solo Leveling",
-      "media_type": "SERIES",
-      "source_url": null,
-      "claimed_languages": [
-        "Hindi",
-        "Korean",
-        "Japanese"
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
       ],
-      "claimed_classification": "MULTI_AUDIO_INCLUDING_HINDI",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
-      "catalog_vs_runtime_mismatch": false,
-      "hindi_track_available": false,
-      "hindi_track_selectable": false,
-      "hindi_track_actually_selected": false,
+      "actual_languages": [
+        "hi"
+      ],
+      "catalog_vs_runtime_mismatch": true,
+      "hindi_track_available": true,
+      "hindi_track_selectable": true,
+      "hindi_track_actually_selected": true,
       "english_track_selectable": false,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "SOURCE_METADATA_INVALID",
+      "details": "Catalog claims 2 languages (Hindi, Japanese), but progressive MP4 container contains only a single audio stream."
     },
     {
       "id": "vod_one_piece_film_red",
@@ -2735,22 +2342,26 @@
       "id": "series_sherlock_holmes_1954",
       "title": "Sherlock Holmes (1954 Classic Series)",
       "media_type": "SERIES",
-      "source_url": null,
+      "source_url": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2001%20The%20Case%20of%20the%20Cunningham%20Heritage.mp4",
       "claimed_languages": [
         "English"
       ],
       "claimed_classification": "NON_HINDI_AUDIO",
-      "actual_audio_streams_count": 0,
-      "actual_audio_codecs": [],
-      "actual_languages": [],
+      "actual_audio_streams_count": 1,
+      "actual_audio_codecs": [
+        "aac"
+      ],
+      "actual_languages": [
+        "en"
+      ],
       "catalog_vs_runtime_mismatch": false,
       "hindi_track_available": false,
       "hindi_track_selectable": false,
       "hindi_track_actually_selected": false,
-      "english_track_selectable": false,
+      "english_track_selectable": true,
       "english_track_actually_selected": false,
-      "result": "NO_DIRECT_SOURCE",
-      "details": "Item has no direct media stream (trailer/licensed only)."
+      "result": "PASS",
+      "details": "Catalog metadata agrees with stream audio topology."
     },
     {
       "id": "disc_VoyagetothePlanetofPrehistoricWomen",
@@ -3480,8 +3091,7 @@
       "media_type": "MOVIE",
       "source_url": "https://archive.org/download/amar-singh-chamkila-1080p-2024/Amar%20Singh%20Chamkila%201080p%202024.ia.mp4",
       "claimed_languages": [
-        "Hindi",
-        "Punjabi"
+        "Hindi"
       ],
       "claimed_classification": "HINDI_AUDIO",
       "actual_audio_streams_count": 1,
@@ -3489,8 +3099,7 @@
         "aac"
       ],
       "actual_languages": [
-        "hi",
-        "punjabi"
+        "hi"
       ],
       "catalog_vs_runtime_mismatch": false,
       "hindi_track_available": true,

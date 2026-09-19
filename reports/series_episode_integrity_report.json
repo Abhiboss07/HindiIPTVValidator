@@ -1,8 +1,9 @@
 {
-  "total_episodes_audited": 143,
+  "total_episodes_audited": 151,
   "summary": {
     "classifications": {
-      "FULL_EPISODE": 143
+      "FULL_EPISODE": 124,
+      "NO_AUTHORIZED_SOURCE": 27
     },
     "regions": {
       "PUBLIC_DOMAIN": {
@@ -13,19 +14,19 @@
       },
       "HOLLYWOOD": {
         "total": 24,
-        "full": 24,
-        "no_source": 0,
+        "full": 15,
+        "no_source": 9,
         "preview_or_dup": 0
       },
       "BOLLYWOOD": {
         "total": 41,
-        "full": 41,
-        "no_source": 0,
+        "full": 23,
+        "no_source": 18,
         "preview_or_dup": 0
       },
       "ASIAN": {
-        "total": 44,
-        "full": 44,
+        "total": 52,
+        "full": 52,
         "no_source": 0,
         "preview_or_dup": 0
       }
@@ -1469,10 +1470,10 @@
       "episode_number": 1,
       "episode_id": "fm_s1e1",
       "episode_title": "S01:E01 \u2022 Complete Series Feature Edition (720p)",
-      "source_url": "https://archive.org/download/the-family-man-2019/The_Family_Man_%282019%29.mp4",
-      "resolved_url": "https://archive.org/download/the-family-man-2019/The_Family_Man_%282019%29.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 210,
@@ -1483,10 +1484,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_money_heist",
@@ -1497,10 +1500,10 @@
       "episode_number": 1,
       "episode_id": "mh_s1e1",
       "episode_title": "S01:E01 \u2022 Episode 1",
-      "source_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E01.mp4",
-      "resolved_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E01.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 47,
@@ -1511,10 +1514,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_money_heist",
@@ -1525,10 +1530,10 @@
       "episode_number": 2,
       "episode_id": "mh_s1e2",
       "episode_title": "S01:E02 \u2022 Episode 2",
-      "source_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E02.mp4",
-      "resolved_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E02.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 47,
@@ -1539,10 +1544,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_money_heist",
@@ -1553,10 +1560,10 @@
       "episode_number": 3,
       "episode_id": "mh_s1e3",
       "episode_title": "S01:E03 \u2022 Episode 3",
-      "source_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E03.mp4",
-      "resolved_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E03.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 47,
@@ -1567,10 +1574,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_money_heist",
@@ -1581,10 +1590,10 @@
       "episode_number": 4,
       "episode_id": "mh_s1e4",
       "episode_title": "S01:E04 \u2022 Episode 4",
-      "source_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E04.mp4",
-      "resolved_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E04.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 47,
@@ -1595,10 +1604,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_money_heist",
@@ -1609,10 +1620,10 @@
       "episode_number": 5,
       "episode_id": "mh_s1e5",
       "episode_title": "S01:E05 \u2022 Episode 5",
-      "source_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E05.mp4",
-      "resolved_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E05.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 47,
@@ -1623,10 +1634,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_money_heist",
@@ -1637,10 +1650,10 @@
       "episode_number": 6,
       "episode_id": "mh_s1e6",
       "episode_title": "S01:E06 \u2022 Episode 6",
-      "source_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E06.mp4",
-      "resolved_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E06.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 47,
@@ -1651,10 +1664,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_money_heist",
@@ -1665,10 +1680,10 @@
       "episode_number": 7,
       "episode_id": "mh_s1e7",
       "episode_title": "S01:E07 \u2022 Episode 7",
-      "source_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E07.mp4",
-      "resolved_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E07.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 47,
@@ -1679,10 +1694,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_money_heist",
@@ -1693,10 +1710,10 @@
       "episode_number": 8,
       "episode_id": "mh_s1e8",
       "episode_title": "S01:E08 \u2022 Episode 8",
-      "source_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E08.mp4",
-      "resolved_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E08.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 47,
@@ -1707,10 +1724,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_money_heist",
@@ -1721,10 +1740,10 @@
       "episode_number": 9,
       "episode_id": "mh_s1e9",
       "episode_title": "S01:E09 \u2022 Episode 9",
-      "source_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E09.mp4",
-      "resolved_url": "https://archive.org/download/money-heist-season-02/Money%20Heist%20S02%20E09.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 47,
@@ -1735,10 +1754,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_scam_1992",
@@ -1777,10 +1798,10 @@
       "episode_number": 1,
       "episode_id": "sg_s1e1",
       "episode_title": "S01:E01 \u2022 Episode 1",
-      "source_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E01.HEVC.mp4",
-      "resolved_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E01.HEVC.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 50,
@@ -1791,10 +1812,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_sacred_games",
@@ -1805,10 +1828,10 @@
       "episode_number": 2,
       "episode_id": "sg_s1e2",
       "episode_title": "S01:E02 \u2022 Episode 2",
-      "source_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E02.HEVC.mp4",
-      "resolved_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E02.HEVC.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 50,
@@ -1819,10 +1842,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_sacred_games",
@@ -1833,10 +1858,10 @@
       "episode_number": 3,
       "episode_id": "sg_s1e3",
       "episode_title": "S01:E03 \u2022 Episode 3",
-      "source_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E03.HEVC.mp4",
-      "resolved_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E03.HEVC.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 50,
@@ -1847,10 +1872,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_sacred_games",
@@ -1861,10 +1888,10 @@
       "episode_number": 4,
       "episode_id": "sg_s1e4",
       "episode_title": "S01:E04 \u2022 Episode 4",
-      "source_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E04.HEVC.mp4",
-      "resolved_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E04.HEVC.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 50,
@@ -1875,10 +1902,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_sacred_games",
@@ -1889,10 +1918,10 @@
       "episode_number": 5,
       "episode_id": "sg_s1e5",
       "episode_title": "S01:E05 \u2022 Episode 5",
-      "source_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E05.HEVC.mp4",
-      "resolved_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E05.HEVC.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 50,
@@ -1903,10 +1932,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_sacred_games",
@@ -1917,10 +1948,10 @@
       "episode_number": 6,
       "episode_id": "sg_s1e6",
       "episode_title": "S01:E06 \u2022 Episode 6",
-      "source_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E06.HEVC.mp4",
-      "resolved_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E06.HEVC.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 50,
@@ -1931,10 +1962,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_sacred_games",
@@ -1945,10 +1978,10 @@
       "episode_number": 7,
       "episode_id": "sg_s1e7",
       "episode_title": "S01:E07 \u2022 Episode 7",
-      "source_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E07.HEVC.mp4",
-      "resolved_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E07.HEVC.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 50,
@@ -1959,10 +1992,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_sacred_games",
@@ -1973,10 +2008,10 @@
       "episode_number": 8,
       "episode_id": "sg_s1e8",
       "episode_title": "S01:E08 \u2022 Episode 8",
-      "source_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E08.HEVC.mp4",
-      "resolved_url": "https://archive.org/download/sacred-games-s02.-hevc/World4ufree1.sbs_SacredGamesS02.E08.HEVC.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 50,
@@ -1987,10 +2022,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_breaking_bad",
@@ -2197,8 +2234,8 @@
       "episode_number": 1,
       "episode_id": "kf_s1e1",
       "episode_title": "S01:E01 \u2022 Reasoning",
-      "source_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E01.Reasoning.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
-      "resolved_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E01.Reasoning.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+      "source_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E01_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
+      "resolved_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E01_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
       "content_type": "EPISODE",
       "http_status": 200,
       "content_length": null,
@@ -2225,8 +2262,8 @@
       "episode_number": 2,
       "episode_id": "kf_s1e2",
       "episode_title": "S01:E02 \u2022 Control System",
-      "source_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E02.Control.System.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
-      "resolved_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E02.Control.System.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+      "source_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E02_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
+      "resolved_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E02_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
       "content_type": "EPISODE",
       "http_status": 200,
       "content_length": null,
@@ -2253,8 +2290,8 @@
       "episode_number": 3,
       "episode_id": "kf_s1e3",
       "episode_title": "S01:E03 \u2022 Atmospheric Pressure",
-      "source_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E03.Atmospheric.Pressure.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
-      "resolved_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E03.Atmospheric.Pressure.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+      "source_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E03_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
+      "resolved_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E03_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
       "content_type": "EPISODE",
       "http_status": 200,
       "content_length": null,
@@ -2281,8 +2318,8 @@
       "episode_number": 4,
       "episode_id": "kf_s1e4",
       "episode_title": "S01:E04 \u2022 Repair and Maintenance",
-      "source_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E04.Repair.And.Maintenance.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
-      "resolved_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E04.Repair.And.Maintenance.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+      "source_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E04_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
+      "resolved_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E04_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
       "content_type": "EPISODE",
       "http_status": 200,
       "content_length": null,
@@ -2309,8 +2346,8 @@
       "episode_number": 5,
       "episode_id": "kf_s1e5",
       "episode_title": "S01:E05 \u2022 Packaging",
-      "source_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E05.Packaging.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
-      "resolved_url": "https://archive.org/download/Kota-Factory-Season-2/Kota.Factory.S02E05.Packaging.1080p.NF.10bit.DDP.5.1.x265.%5BHashMiner%5D.mp4",
+      "source_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E05_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
+      "resolved_url": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E05_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
       "content_type": "EPISODE",
       "http_status": 200,
       "content_length": null,
@@ -2337,10 +2374,10 @@
       "episode_number": 1,
       "episode_id": "farzi_s1e1",
       "episode_title": "S01:E01 \u2022 Episode 1",
-      "source_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP1%20%28%20Hindi%202k%20%29.mp4",
-      "resolved_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP1%20%28%20Hindi%202k%20%29.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 55,
@@ -2351,10 +2388,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_farzi",
@@ -2365,10 +2404,10 @@
       "episode_number": 2,
       "episode_id": "farzi_s1e2",
       "episode_title": "S01:E02 \u2022 Episode 2",
-      "source_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP2%20%28%20Hindi%202k%20%29.mp4",
-      "resolved_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP2%20%28%20Hindi%202k%20%29.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 55,
@@ -2379,10 +2418,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_farzi",
@@ -2393,10 +2434,10 @@
       "episode_number": 3,
       "episode_id": "farzi_s1e3",
       "episode_title": "S01:E03 \u2022 Episode 3",
-      "source_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP3%20%28%20Hindi%202k%20%29.mp4",
-      "resolved_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP3%20%28%20Hindi%202k%20%29.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 55,
@@ -2407,10 +2448,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_farzi",
@@ -2421,10 +2464,10 @@
       "episode_number": 4,
       "episode_id": "farzi_s1e4",
       "episode_title": "S01:E04 \u2022 Episode 4",
-      "source_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP4%20%28%20Hindi%202k%20%29.mp4",
-      "resolved_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP4%20%28%20Hindi%202k%20%29.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 55,
@@ -2435,10 +2478,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_farzi",
@@ -2449,10 +2494,10 @@
       "episode_number": 5,
       "episode_id": "farzi_s1e5",
       "episode_title": "S01:E05 \u2022 Episode 5",
-      "source_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP5%20%28%20Hindi%202k%20%29.mp4",
-      "resolved_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP5%20%28%20Hindi%202k%20%29.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 55,
@@ -2463,10 +2508,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_farzi",
@@ -2477,10 +2524,10 @@
       "episode_number": 6,
       "episode_id": "farzi_s1e6",
       "episode_title": "S01:E06 \u2022 Episode 6",
-      "source_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP6%20%28%20Hindi%202k%20%29.mp4",
-      "resolved_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP6%20%28%20Hindi%202k%20%29.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 55,
@@ -2491,10 +2538,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_farzi",
@@ -2505,10 +2554,10 @@
       "episode_number": 7,
       "episode_id": "farzi_s1e7",
       "episode_title": "S01:E07 \u2022 Episode 7",
-      "source_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP7%20%28%20Hindi%202k%20%29.mp4",
-      "resolved_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP7%20%28%20Hindi%202k%20%29.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 55,
@@ -2519,10 +2568,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_farzi",
@@ -2533,10 +2584,10 @@
       "episode_number": 8,
       "episode_id": "farzi_s1e8",
       "episode_title": "S01:E08 \u2022 Episode 8",
-      "source_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP8%20%28%20Hindi%202k%20%29.mp4",
-      "resolved_url": "https://archive.org/download/farzi-s-1-ep-all-hindi-2k/Farzi%20S1%20EP8%20%28%20Hindi%202k%20%29.mp4",
+      "source_url": null,
+      "resolved_url": null,
       "content_type": "EPISODE",
-      "http_status": 200,
+      "http_status": null,
       "content_length": null,
       "duration_seconds": null,
       "expected_duration_min": 55,
@@ -2547,10 +2598,12 @@
       "audio_languages": [],
       "audio_codec": null,
       "subtitle_languages": [],
-      "classification": "FULL_EPISODE",
+      "classification": "NO_AUTHORIZED_SOURCE",
       "is_duplicate": false,
       "duplicate_of": null,
-      "notes": []
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
     },
     {
       "series_id": "series_paatal_lok",
@@ -2561,13 +2614,43 @@
       "episode_number": 1,
       "episode_id": "pl_s1e1",
       "episode_title": "S01:E01 \u2022 Bridge of Shadows (Complete Feature Edition)",
-      "source_url": "https://archive.org/download/paatal-lok-2025-amazon-prime-s-02-e-05-08-hindi-720p-web-dl-filmy-dhoom.com/Paatal_Lok_2025_Amazon_Prime_S02E01-04.mp4",
-      "resolved_url": "https://archive.org/download/paatal-lok-2025-amazon-prime-s-02-e-05-08-hindi-720p-web-dl-filmy-dhoom.com/Paatal_Lok_2025_Amazon_Prime_S02E01-04.mp4",
+      "source_url": null,
+      "resolved_url": null,
+      "content_type": "EPISODE",
+      "http_status": null,
+      "content_length": null,
+      "duration_seconds": null,
+      "expected_duration_min": 135,
+      "video_resolution": null,
+      "video_bitrate": null,
+      "video_codec": null,
+      "audio_streams_count": 0,
+      "audio_languages": [],
+      "audio_codec": null,
+      "subtitle_languages": [],
+      "classification": "NO_AUTHORIZED_SOURCE",
+      "is_duplicate": false,
+      "duplicate_of": null,
+      "notes": [
+        "No direct stream URL in catalog; commercial streaming rights apply."
+      ]
+    },
+    {
+      "series_id": "series_squid_game",
+      "series_title": "Squid Game",
+      "region": "ASIAN",
+      "series_type": "K-Drama",
+      "season_number": 1,
+      "episode_number": 1,
+      "episode_id": "squid_s1e1",
+      "episode_title": "S01:E01 Red Light, Green Light (Dual Audio Hindi/Eng)",
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
+      "resolved_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
       "content_type": "EPISODE",
       "http_status": 200,
       "content_length": null,
       "duration_seconds": null,
-      "expected_duration_min": 135,
+      "expected_duration_min": 55,
       "video_resolution": null,
       "video_bitrate": null,
       "video_codec": null,
@@ -2586,16 +2669,212 @@
       "region": "ASIAN",
       "series_type": "K-Drama",
       "season_number": 1,
-      "episode_number": 1,
-      "episode_id": "squid_s1e1",
-      "episode_title": "S01:E01 \u2022 Red Light, Green Light (2160p HDR Multi-Audio)",
-      "source_url": "https://archive.org/download/squid-game-s-01-e-01-2160p-hdr-multi-audio.mkv/Squid%20Game%20S01E01%202160p%20HDR%20MultiAudio.mkv.mp4",
-      "resolved_url": "https://archive.org/download/squid-game-s-01-e-01-2160p-hdr-multi-audio.mkv/Squid%20Game%20S01E01%202160p%20HDR%20MultiAudio.mkv.mp4",
+      "episode_number": 2,
+      "episode_id": "squid_s1e2",
+      "episode_title": "S01:E02 Hell (Dual Audio Hindi/Eng)",
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-02/Squid_Game_[Hindi]_480P_S01_E02.mp4",
+      "resolved_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-02/Squid_Game_[Hindi]_480P_S01_E02.mp4",
       "content_type": "EPISODE",
       "http_status": 200,
       "content_length": null,
       "duration_seconds": null,
-      "expected_duration_min": 59,
+      "expected_duration_min": 55,
+      "video_resolution": null,
+      "video_bitrate": null,
+      "video_codec": null,
+      "audio_streams_count": 0,
+      "audio_languages": [],
+      "audio_codec": null,
+      "subtitle_languages": [],
+      "classification": "FULL_EPISODE",
+      "is_duplicate": false,
+      "duplicate_of": null,
+      "notes": []
+    },
+    {
+      "series_id": "series_squid_game",
+      "series_title": "Squid Game",
+      "region": "ASIAN",
+      "series_type": "K-Drama",
+      "season_number": 1,
+      "episode_number": 3,
+      "episode_id": "squid_s1e3",
+      "episode_title": "S01:E03 The Man with the Umbrella (Dual Audio Hindi/Eng)",
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-03/Squid_Game_[Hindi]_480P_S01_E03.mp4",
+      "resolved_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-03/Squid_Game_[Hindi]_480P_S01_E03.mp4",
+      "content_type": "EPISODE",
+      "http_status": 200,
+      "content_length": null,
+      "duration_seconds": null,
+      "expected_duration_min": 55,
+      "video_resolution": null,
+      "video_bitrate": null,
+      "video_codec": null,
+      "audio_streams_count": 0,
+      "audio_languages": [],
+      "audio_codec": null,
+      "subtitle_languages": [],
+      "classification": "FULL_EPISODE",
+      "is_duplicate": false,
+      "duplicate_of": null,
+      "notes": []
+    },
+    {
+      "series_id": "series_squid_game",
+      "series_title": "Squid Game",
+      "region": "ASIAN",
+      "series_type": "K-Drama",
+      "season_number": 1,
+      "episode_number": 4,
+      "episode_id": "squid_s1e4",
+      "episode_title": "S01:E04 Stick to the Team (Dual Audio Hindi/Eng)",
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-04/Squid_Game_[Hindi]_480P_S01_E04.mp4",
+      "resolved_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-04/Squid_Game_[Hindi]_480P_S01_E04.mp4",
+      "content_type": "EPISODE",
+      "http_status": 200,
+      "content_length": null,
+      "duration_seconds": null,
+      "expected_duration_min": 55,
+      "video_resolution": null,
+      "video_bitrate": null,
+      "video_codec": null,
+      "audio_streams_count": 0,
+      "audio_languages": [],
+      "audio_codec": null,
+      "subtitle_languages": [],
+      "classification": "FULL_EPISODE",
+      "is_duplicate": false,
+      "duplicate_of": null,
+      "notes": []
+    },
+    {
+      "series_id": "series_squid_game",
+      "series_title": "Squid Game",
+      "region": "ASIAN",
+      "series_type": "K-Drama",
+      "season_number": 1,
+      "episode_number": 5,
+      "episode_id": "squid_s1e5",
+      "episode_title": "S01:E05 A Fair World (Dual Audio Hindi/Eng)",
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-05/Squid_Game_[Hindi]_480P_S01_E05.mp4",
+      "resolved_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-05/Squid_Game_[Hindi]_480P_S01_E05.mp4",
+      "content_type": "EPISODE",
+      "http_status": 200,
+      "content_length": null,
+      "duration_seconds": null,
+      "expected_duration_min": 55,
+      "video_resolution": null,
+      "video_bitrate": null,
+      "video_codec": null,
+      "audio_streams_count": 0,
+      "audio_languages": [],
+      "audio_codec": null,
+      "subtitle_languages": [],
+      "classification": "FULL_EPISODE",
+      "is_duplicate": false,
+      "duplicate_of": null,
+      "notes": []
+    },
+    {
+      "series_id": "series_squid_game",
+      "series_title": "Squid Game",
+      "region": "ASIAN",
+      "series_type": "K-Drama",
+      "season_number": 1,
+      "episode_number": 6,
+      "episode_id": "squid_s1e6",
+      "episode_title": "S01:E06 Gganbu (Dual Audio Hindi/Eng)",
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-06/Squid_Game_[Hindi]_480P_S01_E06.mp4",
+      "resolved_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-06/Squid_Game_[Hindi]_480P_S01_E06.mp4",
+      "content_type": "EPISODE",
+      "http_status": 200,
+      "content_length": null,
+      "duration_seconds": null,
+      "expected_duration_min": 55,
+      "video_resolution": null,
+      "video_bitrate": null,
+      "video_codec": null,
+      "audio_streams_count": 0,
+      "audio_languages": [],
+      "audio_codec": null,
+      "subtitle_languages": [],
+      "classification": "FULL_EPISODE",
+      "is_duplicate": false,
+      "duplicate_of": null,
+      "notes": []
+    },
+    {
+      "series_id": "series_squid_game",
+      "series_title": "Squid Game",
+      "region": "ASIAN",
+      "series_type": "K-Drama",
+      "season_number": 1,
+      "episode_number": 7,
+      "episode_id": "squid_s1e7",
+      "episode_title": "S01:E07 V.I.P.S (Dual Audio Hindi/Eng)",
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-07/Squid_Game_[Hindi]_480P_S01_E07.mp4",
+      "resolved_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-07/Squid_Game_[Hindi]_480P_S01_E07.mp4",
+      "content_type": "EPISODE",
+      "http_status": 200,
+      "content_length": null,
+      "duration_seconds": null,
+      "expected_duration_min": 55,
+      "video_resolution": null,
+      "video_bitrate": null,
+      "video_codec": null,
+      "audio_streams_count": 0,
+      "audio_languages": [],
+      "audio_codec": null,
+      "subtitle_languages": [],
+      "classification": "FULL_EPISODE",
+      "is_duplicate": false,
+      "duplicate_of": null,
+      "notes": []
+    },
+    {
+      "series_id": "series_squid_game",
+      "series_title": "Squid Game",
+      "region": "ASIAN",
+      "series_type": "K-Drama",
+      "season_number": 1,
+      "episode_number": 8,
+      "episode_id": "squid_s1e8",
+      "episode_title": "S01:E08 Front Man (Dual Audio Hindi/Eng)",
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-08/Squid_Game_[Hindi]_480P_S01_E08.mp4",
+      "resolved_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-08/Squid_Game_[Hindi]_480P_S01_E08.mp4",
+      "content_type": "EPISODE",
+      "http_status": 200,
+      "content_length": null,
+      "duration_seconds": null,
+      "expected_duration_min": 55,
+      "video_resolution": null,
+      "video_bitrate": null,
+      "video_codec": null,
+      "audio_streams_count": 0,
+      "audio_languages": [],
+      "audio_codec": null,
+      "subtitle_languages": [],
+      "classification": "FULL_EPISODE",
+      "is_duplicate": false,
+      "duplicate_of": null,
+      "notes": []
+    },
+    {
+      "series_id": "series_squid_game",
+      "series_title": "Squid Game",
+      "region": "ASIAN",
+      "series_type": "K-Drama",
+      "season_number": 1,
+      "episode_number": 9,
+      "episode_id": "squid_s1e9",
+      "episode_title": "S01:E09 One Lucky Day (Dual Audio Hindi/Eng)",
+      "source_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-09/Squid_Game_[Hindi]_480P_S01_E09.mp4",
+      "resolved_url": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-09/Squid_Game_[Hindi]_480P_S01_E09.mp4",
+      "content_type": "EPISODE",
+      "http_status": 200,
+      "content_length": null,
+      "duration_seconds": null,
+      "expected_duration_min": 55,
       "video_resolution": null,
       "video_bitrate": null,
       "video_codec": null,
@@ -3513,8 +3792,8 @@
       "episode_number": 1,
       "episode_id": "deathnote_s1e1",
       "episode_title": "S01:E01 \u2022 Rebirth (Episodes 1-12 English Dubbed)",
-      "source_url": "https://archive.org/download/a-world-without-light-death-note-completed-death-note-season-1-episode-1-12-engl/A%20World%20Without%20Light%20%EF%BD%9C%20Death%20note%20season%201%20episode%201-12%20english%20dub%20%5B8WoFDY-Tvxk%5D.mp4",
-      "resolved_url": "https://archive.org/download/a-world-without-light-death-note-completed-death-note-season-1-episode-1-12-engl/A%20World%20Without%20Light%20%EF%BD%9C%20Death%20note%20season%201%20episode%201-12%20english%20dub%20%5B8WoFDY-Tvxk%5D.mp4",
+      "source_url": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4",
+      "resolved_url": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4",
       "content_type": "EPISODE",
       "http_status": 200,
       "content_length": null,

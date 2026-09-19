@@ -1,0 +1,1600 @@
+[
+  {
+    "id": "series_sherlock_holmes",
+    "title": "The Adventures of Sherlock Holmes (1984)",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "series_stranger_things",
+    "title": "Stranger Things",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "series_panchayat",
+    "title": "Panchayat",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "series_mirzapur",
+    "title": "Mirzapur",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_deadpool_wolverine",
+    "title": "Deadpool & Wolverine",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_stree_2",
+    "title": "Stree 2: Sarkate Ka Aatank",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_kalki_2898_ad",
+    "title": "Kalki 2898 AD",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_gladiator_2",
+    "title": "Gladiator II",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_spider_verse",
+    "title": "Spider-Man: Into the Spider-Verse",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_pathaan",
+    "title": "Pathaan",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "English",
+      "Telugu",
+      "Tamil"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "series_family_man",
+    "title": "The Family Man",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "English",
+      "Tamil",
+      "Telugu"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "series_money_heist",
+    "title": "Money Heist (La Casa de Papel)",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "series_scam_1992",
+    "title": "Scam 1992: The Harshad Mehta Story",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "series_sacred_games",
+    "title": "Sacred Games",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_interstellar",
+    "title": "Interstellar",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "series_breaking_bad",
+    "title": "Breaking Bad",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_dark_knight",
+    "title": "Iron Man",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_chhavaa",
+    "title": "Chhaava",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "series_kota_factory",
+    "title": "Kota Factory",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_dune_part_two",
+    "title": "Dune: Part Two",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_furiosa",
+    "title": "Furiosa: A Mad Max Saga",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_shaitaan",
+    "title": "Shaitaan",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_alien_romulus",
+    "title": "Alien: Romulus",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_munjya",
+    "title": "Munjya",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_fighter",
+    "title": "Fighter",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_godzilla_x_kong",
+    "title": "Godzilla x Kong: The New Empire",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_12th_fail",
+    "title": "12th Fail",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_oppenheimer",
+    "title": "Oppenheimer",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "series_farzi",
+    "title": "Farzi",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_john_wick_4",
+    "title": "John Wick: Chapter 4",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_leo",
+    "title": "Leo: Bloody Sweet",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Tamil",
+      "Telugu",
+      "English"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_jawan",
+    "title": "Jawan",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_tiger_3",
+    "title": "Tiger 3",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_salaar",
+    "title": "Salaar: Part 1 - Ceasefire",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_dunki",
+    "title": "Dunki",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_animal",
+    "title": "Animal",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_gadar_2",
+    "title": "Gadar 2: The Katha Continues",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_kgf_chapter_2",
+    "title": "K.G.F: Chapter 2",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_top_gun_maverick",
+    "title": "Top Gun: Maverick",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_rrr",
+    "title": "RRR",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_the_batman",
+    "title": "The Batman",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_avatar_way_of_water",
+    "title": "Avatar: The Way of Water",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "English",
+      "Hindi",
+      "Tamil",
+      "Telugu"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_brahmastra",
+    "title": "Brahm\u0101stra: Part One \u2013 Shiva",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Telugu",
+      "Tamil",
+      "English"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_spider_man_nwh",
+    "title": "Spider-Man: No Way Home",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "English",
+      "Hindi",
+      "Tamil",
+      "Telugu"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_pushpa_the_rise",
+    "title": "Pushpa: The Rise",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "series_paatal_lok",
+    "title": "Paatal Lok",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_avengers_endgame",
+    "title": "Avengers: Endgame",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_dangal",
+    "title": "Dangal",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_inception",
+    "title": "Inception",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_sita_sings_blues",
+    "title": "Sita Sings the Blues",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_bbb_720p",
+    "title": "Big Buck Bunny",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_his_girl_friday",
+    "title": "His Girl Friday",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "series_squid_game",
+    "title": "Squid Game",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "series_crash_landing_on_you",
+    "title": "Crash Landing on You",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Korean",
+    "languages": [
+      "Korean"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "series_descendants_of_the_sun",
+    "title": "Descendants of the Sun",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Korean",
+    "languages": [
+      "Korean"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_train_to_busan",
+    "title": "Train to Busan",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Korean"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_parasite",
+    "title": "Parasite",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Korean"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_the_raid_redemption",
+    "title": "The Raid: Redemption",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Indonesian"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_ip_man",
+    "title": "Ip Man",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Cantonese"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_ip_man_4",
+    "title": "Ip Man 4: The Finale",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Cantonese"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_peninsula",
+    "title": "Peninsula",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Korean"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_kung_fu_hustle",
+    "title": "Kung Fu Hustle",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Cantonese"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_shaolin_soccer",
+    "title": "Shaolin Soccer",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Cantonese"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_the_outlaws",
+    "title": "The Outlaws",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Korean",
+    "languages": [
+      "Korean",
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_the_roundup",
+    "title": "The Roundup",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Korean"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_demon_slayer_mugen_train",
+    "title": "Demon Slayer: Mugen Train",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_jujutsu_kaisen_0",
+    "title": "Jujutsu Kaisen 0",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_suzume",
+    "title": "Suzume",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_your_name",
+    "title": "Your Name (Kimi no Na wa)",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Japanese"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "series_death_note",
+    "title": "Death Note (English Dubbed)",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "series_naruto_classic",
+    "title": "Naruto Shippuden (Hindi Dubbed)",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Japanese"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_one_piece_film_red",
+    "title": "One Piece Film: Red",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Japanese"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_stree",
+    "title": "Stree",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_drishyam_2",
+    "title": "Drishyam 2",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_kantara",
+    "title": "Kantara",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_kgf_chapter_1",
+    "title": "K.G.F: Chapter 1",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_baahubali_1",
+    "title": "Baahubali: The Beginning",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_baahubali_2",
+    "title": "Baahubali 2: The Conclusion",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_tumbbad",
+    "title": "Tumbbad",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_andhadhun",
+    "title": "Andhadhun",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_shershaah",
+    "title": "Uri: The Surgical Strike",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_3_idiots",
+    "title": "3 Idiots",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_gangs_of_wasseypur",
+    "title": "Gangs of Wasseypur",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_vikram_vedha",
+    "title": "Vikram Vedha",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_masoom_1983",
+    "title": "Masoom",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_jaane_bhi_do_yaaro",
+    "title": "Jaane Bhi Do Yaaro",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_chhoti_si_baat",
+    "title": "Chhoti Si Baat",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_do_bigha_zamin",
+    "title": "Do Bigha Zamin",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_night_of_the_living_dead",
+    "title": "Night of the Living Dead",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_charade_1963",
+    "title": "Charade",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_carnival_of_souls",
+    "title": "Carnival of Souls",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_house_on_haunted_hill",
+    "title": "House on Haunted Hill",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_dressed_to_kill",
+    "title": "Dressed to Kill (Sherlock Holmes)",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "series_sherlock_holmes_1954",
+    "title": "Sherlock Holmes (1954 Classic Series)",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "disc_VoyagetothePlanetofPrehistoricWomen",
+    "title": "Voyage To The Planet Of Prehistoric Women",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "disc_TheFastandtheFuriousJohnIreland1954goofyrip",
+    "title": "The Fast And The Furious",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "disc_charlie_chaplin_film_fest",
+    "title": "Charlie Chaplin Festival",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Music / silent",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "disc_Return_of_the_Kung_Fu_Dragon",
+    "title": "Return Of The Kung Fu Dragon",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_avengers_doomsday_2026",
+    "title": "Avengers: Doomsday",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_the_batman_part_ii_2026",
+    "title": "The Batman Part II",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
+    "languages": [
+      "English"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_fateh_2025",
+    "title": "Fateh",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_sky_force_2025",
+    "title": "Sky Force",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_game_changer_2025",
+    "title": "Game Changer",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Telugu",
+    "languages": [
+      "Telugu",
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_laapataa_ladies_2024",
+    "title": "Laapataa Ladies",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_article_370_2024",
+    "title": "Article 370",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_mission_raniganj_2023",
+    "title": "Mission Raniganj",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_badla_2019",
+    "title": "Badla",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_kesari_2019",
+    "title": "Kesari",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_airlift_2016",
+    "title": "Airlift",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_baby_2015",
+    "title": "Baby",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_holiday_2014",
+    "title": "Holiday: A Soldier Is Never Off Duty",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_rockstar_2011",
+    "title": "Rockstar",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_znmd_2011",
+    "title": "Zindagi Na Milegi Dobara",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_ghajini_2008",
+    "title": "Ghajini",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_taare_zameen_par_2007",
+    "title": "Taare Zameen Par",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_rang_de_basanti_2006",
+    "title": "Rang De Basanti",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_lagaan_2001",
+    "title": "Lagaan: Once Upon a Time in India",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_aavesham_2024",
+    "title": "Aavesham",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Malayalam"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_bramayugam_2024",
+    "title": "Bramayugam",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Malayalam"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_aadujeevitham_2024",
+    "title": "The Goat Life (Aadujeevitham)",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_maharaja_2024",
+    "title": "Maharaja",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Tamil",
+    "languages": [
+      "Tamil"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_premalu_2024",
+    "title": "Premalu",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Malayalam",
+    "languages": [
+      "Malayalam"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_manjummel_boys_2024",
+    "title": "Manjummel Boys",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Tamil",
+    "languages": [
+      "Tamil"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_amar_singh_chamkila_2024",
+    "title": "Amar Singh Chamkila",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_blackout_2024",
+    "title": "Blackout",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_hanuman_2024",
+    "title": "Hanu-Man",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_kill_2024",
+    "title": "Kill",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_crew_2024",
+    "title": "Crew",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_jailer_2023",
+    "title": "Jailer",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Tamil",
+    "languages": [
+      "Tamil"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_sam_bahadur_2023",
+    "title": "Sam Bahadur",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_vikram_2022",
+    "title": "Vikram",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Telugu",
+      "Tamil",
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_sita_ramam_2022",
+    "title": "Sita Ramam",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Malayalam",
+    "languages": [
+      "Malayalam"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_karthikeya_2_2022",
+    "title": "Karthikeya 2",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Telugu",
+    "languages": [
+      "Telugu"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_777_charlie_2022",
+    "title": "777 Charlie",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Tamil",
+    "languages": [
+      "Tamil"
+    ],
+    "hasHindiAudio": false,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_minnal_murali_2021",
+    "title": "Minnal Murali",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Telugu",
+      "Tamil",
+      "Malayalam",
+      "Hindi",
+      "Kannada"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_sardar_udham_2021",
+    "title": "Sardar Udham",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_jai_bhim_2021",
+    "title": "Jai Bhim",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_ala_vaikunthapurramuloo_2020",
+    "title": "Ala Vaikunthapurramuloo",
+    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi",
+      "Telugu"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_ludo_2020",
+    "title": "Ludo",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_thappad_2020",
+    "title": "Thappad",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_bandaa_2023",
+    "title": "Sirf Ek Bandaa Kaafi Hai",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  }
+]

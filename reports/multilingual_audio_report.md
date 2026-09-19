@@ -1,10 +1,10 @@
 # T2L Multilingual Audio Forensic Audit Report
 
-**Total Multilingual / Language-Annotated Titles Audited**: 160
+**Total Multilingual / Language-Annotated Titles Audited**: 141
 
 ## 1. Executive Summary
 
-- **Zero-Trust Audio Audited**: 160 titles
+- **Zero-Trust Audio Audited**: 141 titles
 - **Physical Stream-to-Catalog Mismatches Detected**: 24
 - **Jujutsu Kaisen 0 Status**: Catalog false Hindi claims corrected to single-track English master.
 - **Phantom Multi-Language Selectors Eliminated**: Single-track MP4s strictly bound to actual track without fake Hindi switches.
@@ -13,25 +13,25 @@
 
 | ID | Title | Claimed Langs | Claimed Class | Actual Streams | Actual Langs | Mismatch? | Result |
 | :--- | :--- | :--- | :--- | :---: | :--- | :---: | :---: |
-| `series_sherlock_holmes` | **The Adventures of Sherlock Holmes (1984)** | English | `NON_HINDI_AUDIO` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_stranger_things` | **Stranger Things** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_panchayat` | **Panchayat** | Hindi | `HINDI_AUDIO` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_mirzapur` | **Mirzapur** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `vod_deadpool_wolverine` | **Deadpool & Wolverine** | English, Hindi, Tamil, Telugu | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
+| `series_sherlock_holmes` | **The Adventures of Sherlock Holmes (1984)** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
+| `series_stranger_things` | **Stranger Things** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
+| `series_panchayat` | **Panchayat** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
+| `series_mirzapur` | **Mirzapur** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
+| `vod_deadpool_wolverine` | **Deadpool & Wolverine** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_stree_2` | **Stree 2: Sarkate Ka Aatank** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `vod_kalki_2898_ad` | **Kalki 2898 AD** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
 | `vod_gladiator_2` | **Gladiator II** | English | `NON_HINDI_AUDIO` | 0 |  | NO | **NO_DIRECT_SOURCE** |
 | `vod_spider_verse` | **Spider-Man: Into the Spider-Verse** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_pathaan` | **Pathaan** | Hindi, English, Telugu, Tamil | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `series_family_man` | **The Family Man** | Hindi, English, Tamil, Telugu | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_money_heist` | **Money Heist (La Casa de Papel)** | Hindi, English, Spanish | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_scam_1992` | **Scam 1992: The Harshad Mehta Story** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_sacred_games` | **Sacred Games** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
+| `series_money_heist` | **Money Heist (La Casa de Papel)** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
+| `series_scam_1992` | **Scam 1992: The Harshad Mehta Story** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
+| `series_sacred_games` | **Sacred Games** | Hindi | `HINDI_AUDIO` | 0 |  | NO | **NO_DIRECT_SOURCE** |
 | `vod_interstellar` | **Interstellar** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
-| `series_breaking_bad` | **Breaking Bad** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
+| `series_breaking_bad` | **Breaking Bad** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_dark_knight` | **Iron Man** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_chhavaa` | **Chhaava** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
-| `series_kota_factory` | **Kota Factory** | Hindi | `HINDI_AUDIO` | 0 |  | NO | **NO_DIRECT_SOURCE** |
+| `series_kota_factory` | **Kota Factory** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
 | `vod_dune_part_two` | **Dune: Part Two** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_furiosa` | **Furiosa: A Mad Max Saga** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_shaitaan` | **Shaitaan** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
@@ -41,7 +41,7 @@
 | `vod_godzilla_x_kong` | **Godzilla x Kong: The New Empire** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_12th_fail` | **12th Fail** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
 | `vod_oppenheimer` | **Oppenheimer** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
-| `series_farzi` | **Farzi** | Hindi, English, Tamil, Telugu | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
+| `series_farzi` | **Farzi** | Hindi | `HINDI_AUDIO` | 0 |  | NO | **NO_DIRECT_SOURCE** |
 | `vod_john_wick_4` | **John Wick: Chapter 4** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_leo` | **Leo: Bloody Sweet** | Hindi, Tamil, Telugu, English | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `vod_jawan` | **Jawan** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
@@ -58,34 +58,16 @@
 | `vod_brahmastra` | **Brahmāstra: Part One – Shiva** | Hindi, Telugu, Tamil, English | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `vod_spider_man_nwh` | **Spider-Man: No Way Home** | English, Hindi, Tamil, Telugu | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `vod_pushpa_the_rise` | **Pushpa: The Rise** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
-| `series_paatal_lok` | **Paatal Lok** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_game_of_thrones` | **Game of Thrones** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
+| `series_paatal_lok` | **Paatal Lok** | Hindi | `HINDI_AUDIO` | 0 |  | NO | **NO_DIRECT_SOURCE** |
 | `vod_avengers_endgame` | **Avengers: Endgame** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_dangal` | **Dangal** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
 | `vod_inception` | **Inception** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_sita_sings_blues` | **Sita Sings the Blues** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_bbb_720p` | **Big Buck Bunny** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_his_girl_friday` | **His Girl Friday** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
-| `series_squid_game` | **Squid Game** | Hindi, Korean, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_all_of_us_are_dead` | **All of Us Are Dead** | Hindi, Korean, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_crash_landing_on_you` | **Crash Landing on You** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_vincenzo` | **Vincenzo** | Hindi, Korean, Italian | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_the_glory` | **The Glory** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_business_proposal` | **Business Proposal** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_descendants_of_the_sun` | **Descendants of the Sun** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_happiness` | **Happiness** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_my_name` | **My Name** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_sweet_home` | **Sweet Home** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_goblin` | **Guardian: The Lonely and Great God** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_true_beauty` | **True Beauty** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_the_untamed` | **The Untamed** | Hindi, Mandarin | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_falling_into_your_smile` | **Falling Into Your Smile** | Hindi, Mandarin | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_hidden_love` | **Hidden Love** | Hindi, Mandarin | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_love_between_fairy_and_devil` | **Love Between Fairy and Devil** | Hindi, Mandarin | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_put_your_head_on_my_shoulder` | **Put Your Head on My Shoulder** | Hindi, Mandarin | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_meteor_garden` | **Meteor Garden** | Hindi, Mandarin | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_word_of_honor` | **Word of Honor** | Hindi, Mandarin | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_reset` | **Reset** | Hindi, Mandarin | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
+| `series_squid_game` | **Squid Game** | Hindi, English | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
+| `series_crash_landing_on_you` | **Crash Landing on You** | Korean | `NON_HINDI_AUDIO` | 1 | ko | NO | **PASS** |
+| `series_descendants_of_the_sun` | **Descendants of the Sun** | Korean | `NON_HINDI_AUDIO` | 1 | ko | NO | **PASS** |
 | `vod_train_to_busan` | **Train to Busan** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `vod_parasite` | **Parasite** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `vod_the_raid_redemption` | **The Raid: Redemption** | Hindi, Indonesian | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
@@ -96,13 +78,12 @@
 | `vod_shaolin_soccer` | **Shaolin Soccer** | Hindi, Cantonese | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `vod_the_outlaws` | **The Outlaws** | Korean, English | `NON_HINDI_AUDIO` | 1 | ko, en | NO | **PASS** |
 | `vod_the_roundup` | **The Roundup** | Hindi, Korean | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
-| `vod_demon_slayer_mugen_train` | **Demon Slayer: Mugen Train** | Hindi, Japanese, English | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
+| `vod_demon_slayer_mugen_train` | **Demon Slayer: Mugen Train** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_jujutsu_kaisen_0` | **Jujutsu Kaisen 0** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_suzume` | **Suzume** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_your_name` | **Your Name (Kimi no Na wa)** | Hindi, Japanese | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
-| `series_death_note` | **Death Note** | Hindi, Japanese, English | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_naruto_classic` | **Naruto** | Hindi, Japanese | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
-| `series_solo_leveling` | **Solo Leveling** | Hindi, Korean, Japanese | `MULTI_AUDIO_INCLUDING_HINDI` | 0 |  | NO | **NO_DIRECT_SOURCE** |
+| `series_death_note` | **Death Note (English Dubbed)** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
+| `series_naruto_classic` | **Naruto Shippuden (Hindi Dubbed)** | Hindi, Japanese | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `vod_one_piece_film_red` | **One Piece Film: Red** | Hindi, Japanese | `MULTI_AUDIO_INCLUDING_HINDI` | 1 | hi | ⚠️ YES | **SOURCE_METADATA_INVALID** |
 | `vod_stree` | **Stree** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
 | `vod_drishyam_2` | **Drishyam 2** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
@@ -125,7 +106,7 @@
 | `vod_carnival_of_souls` | **Carnival of Souls** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_house_on_haunted_hill` | **House on Haunted Hill** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `vod_dressed_to_kill` | **Dressed to Kill (Sherlock Holmes)** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
-| `series_sherlock_holmes_1954` | **Sherlock Holmes (1954 Classic Series)** | English | `NON_HINDI_AUDIO` | 0 |  | NO | **NO_DIRECT_SOURCE** |
+| `series_sherlock_holmes_1954` | **Sherlock Holmes (1954 Classic Series)** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `disc_VoyagetothePlanetofPrehistoricWomen` | **Voyage To The Planet Of Prehistoric Women** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `disc_TheFastandtheFuriousJohnIreland1954goofyrip` | **The Fast And The Furious** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
 | `disc_charlie_chaplin_film_fest` | **Charlie Chaplin Festival** | English | `NON_HINDI_AUDIO` | 1 | en | NO | **PASS** |
@@ -155,7 +136,7 @@
 | `vod_maharaja_2024` | **Maharaja** | Tamil | `NON_HINDI_AUDIO` | 1 | ta | NO | **PASS** |
 | `vod_premalu_2024` | **Premalu** | Malayalam | `NON_HINDI_AUDIO` | 1 | ml | NO | **PASS** |
 | `vod_manjummel_boys_2024` | **Manjummel Boys** | Tamil | `NON_HINDI_AUDIO` | 1 | ta | NO | **PASS** |
-| `vod_amar_singh_chamkila_2024` | **Amar Singh Chamkila** | Hindi, Punjabi | `HINDI_AUDIO` | 1 | hi, punjabi | NO | **PASS** |
+| `vod_amar_singh_chamkila_2024` | **Amar Singh Chamkila** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
 | `vod_blackout_2024` | **Blackout** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
 | `vod_hanuman_2024` | **Hanu-Man** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
 | `vod_kill_2024` | **Kill** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
@@ -175,11 +156,6 @@
 | `vod_bandaa_2023` | **Sirf Ek Bandaa Kaafi Hai** | Hindi | `HINDI_AUDIO` | 1 | hi | NO | **PASS** |
 
 ## 3. Discrepancy Forensic Details
-
-### Deadpool & Wolverine (`vod_deadpool_wolverine`)
-- **Claimed**: English, Hindi, Tamil, Telugu (MULTI_AUDIO_INCLUDING_HINDI)
-- **Actual**: 1 audio stream(s) (hi)
-- **Finding**: Catalog claims 4 languages (English, Hindi, Tamil, Telugu), but progressive MP4 container contains only a single audio stream.
 
 ### Stree 2: Sarkate Ka Aatank (`vod_stree_2`)
 - **Claimed**: Hindi, English (MULTI_AUDIO_INCLUDING_HINDI)
@@ -226,6 +202,11 @@
 - **Actual**: 1 audio stream(s) (hi)
 - **Finding**: Catalog claims 4 languages (English, Hindi, Tamil, Telugu), but progressive MP4 container contains only a single audio stream.
 
+### Squid Game (`series_squid_game`)
+- **Claimed**: Hindi, English (MULTI_AUDIO_INCLUDING_HINDI)
+- **Actual**: 1 audio stream(s) (hi)
+- **Finding**: Catalog claims 2 languages (Hindi, English), but progressive MP4 container contains only a single audio stream.
+
 ### Train to Busan (`vod_train_to_busan`)
 - **Claimed**: Hindi, Korean (MULTI_AUDIO_INCLUDING_HINDI)
 - **Actual**: 1 audio stream(s) (hi)
@@ -271,12 +252,12 @@
 - **Actual**: 1 audio stream(s) (hi)
 - **Finding**: Catalog claims 2 languages (Hindi, Korean), but progressive MP4 container contains only a single audio stream.
 
-### Demon Slayer: Mugen Train (`vod_demon_slayer_mugen_train`)
-- **Claimed**: Hindi, Japanese, English (MULTI_AUDIO_INCLUDING_HINDI)
-- **Actual**: 1 audio stream(s) (hi)
-- **Finding**: Catalog claims 3 languages (Hindi, Japanese, English), but progressive MP4 container contains only a single audio stream.
-
 ### Your Name (Kimi no Na wa) (`vod_your_name`)
+- **Claimed**: Hindi, Japanese (MULTI_AUDIO_INCLUDING_HINDI)
+- **Actual**: 1 audio stream(s) (hi)
+- **Finding**: Catalog claims 2 languages (Hindi, Japanese), but progressive MP4 container contains only a single audio stream.
+
+### Naruto Shippuden (Hindi Dubbed) (`series_naruto_classic`)
 - **Claimed**: Hindi, Japanese (MULTI_AUDIO_INCLUDING_HINDI)
 - **Actual**: 1 audio stream(s) (hi)
 - **Finding**: Catalog claims 2 languages (Hindi, Japanese), but progressive MP4 container contains only a single audio stream.
