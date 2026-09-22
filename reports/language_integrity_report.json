@@ -620,12 +620,12 @@
   {
     "id": "vod_parasite",
     "title": "Parasite",
-    "classification": "HINDI_AUDIO",
-    "primaryLanguage": "Hindi",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Korean",
     "languages": [
-      "Hindi"
+      "Korean"
     ],
-    "hasHindiAudio": true,
+    "hasHindiAudio": false,
     "integrityOk": true
   },
   {
