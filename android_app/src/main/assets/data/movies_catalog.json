@@ -1,5 +1,5 @@
 {
-  "version": 12,
+  "version": 13,
   "updated_at": "2026-09-19T16:30:00Z",
   "total_movies": 80,
   "total_series": 37,
@@ -77,7 +77,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E01%20A%20Scandal%20In%20Bohemia.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e2",
@@ -88,7 +89,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E02%20The%20Dancing%20Men.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e3",
@@ -99,7 +101,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E03%20The%20Naval%20Treaty.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e4",
@@ -110,7 +113,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E04%20The%20Solitary%20Cyclist.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e5",
@@ -121,7 +125,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E05%20The%20Crooked%20Man.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e6",
@@ -132,7 +137,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E06%20The%20Speckled%20Band.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e7",
@@ -143,7 +149,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%201/Sherlock%20Holmes%20S01E07%20The%20Blue%20Carbuncle.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e8",
@@ -154,7 +161,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E01%20The%20Copper%20Beeches.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e9",
@@ -165,7 +173,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E02%20The%20Greek%20Interpreter.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e10",
@@ -176,7 +185,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E03%20The%20Norwood%20Builder.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e11",
@@ -187,7 +197,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E04%20The%20Resident%20Patient.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e12",
@@ -198,7 +209,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E05%20The%20Red%20Headed%20League.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s1e13",
@@ -209,7 +221,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%202/Sherlock%20Holmes%20S02E06%20The%20Final%20Problem.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         },
@@ -226,7 +239,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E01%20The%20Empty%20House.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e2",
@@ -237,7 +251,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E02%20The%20Abbey%20Grange.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e3",
@@ -248,7 +263,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E03%20The%20Musgrave%20Ritual.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e4",
@@ -259,7 +275,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E04%20The%20Second%20Stain.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e5",
@@ -270,7 +287,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E05%20The%20Man%20With%20The%20Twisted%20Lip.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e6",
@@ -281,7 +299,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E06%20The%20Priory%20School.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e7",
@@ -292,7 +311,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%203/Sherlock%20Holmes%20S03E07%20The%20Six%20Napoleons.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e8",
@@ -303,7 +323,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E01%20The%20Sign%20Of%20Four.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e9",
@@ -314,7 +335,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E02%20The%20Devils%20Foot.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e10",
@@ -325,7 +347,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E03%20Silver%20Blaze.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e11",
@@ -336,7 +359,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E04%20Wisteria%20Lodge.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e12",
@@ -347,7 +371,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E05%20The%20Bruce%20Partington%20Plans.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sherlock_s2e13",
@@ -358,7 +383,8 @@
               "streamUrl": "https://archive.org/download/granada-holmes/The%20Adventures%20Of%20Sherlock%20Holmes%20Season%201%20to%207%20Mp4%201080p/Season%204/Sherlock%20Holmes%20S04E06%20The%20Hound%20Of%20The%20Baskervilles.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -661,7 +687,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_stranger_things",
@@ -819,7 +846,8 @@
               "streamUrl": "https://archive.org/download/stranger.-things.-s-01.720p.-blu-ray.x-264-galaxy-tv/Stranger.Things.S01.COMPLETE.720p.BluRay.x264-GalaxyTV%5BTGx%5D/Stranger.Things.S01E01.720p.BluRay.x264-GalaxyTV.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p BluRay",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "st_s1e2",
@@ -830,7 +858,8 @@
               "streamUrl": "https://archive.org/download/stranger.-things.-s-01.720p.-blu-ray.x-264-galaxy-tv/Stranger.Things.S01.COMPLETE.720p.BluRay.x264-GalaxyTV%5BTGx%5D/Stranger.Things.S01E02.720p.BluRay.x264-GalaxyTV.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p BluRay",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "st_s1e3",
@@ -841,7 +870,8 @@
               "streamUrl": "https://archive.org/download/stranger.-things.-s-01.720p.-blu-ray.x-264-galaxy-tv/Stranger.Things.S01.COMPLETE.720p.BluRay.x264-GalaxyTV%5BTGx%5D/Stranger.Things.S01E03.720p.BluRay.x264-GalaxyTV.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p BluRay",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "st_s1e4",
@@ -852,7 +882,8 @@
               "streamUrl": "https://archive.org/download/stranger.-things.-s-01.720p.-blu-ray.x-264-galaxy-tv/Stranger.Things.S01.COMPLETE.720p.BluRay.x264-GalaxyTV%5BTGx%5D/Stranger.Things.S01E04.720p.BluRay.x264-GalaxyTV.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p BluRay",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "st_s1e5",
@@ -863,7 +894,8 @@
               "streamUrl": "https://archive.org/download/stranger.-things.-s-01.720p.-blu-ray.x-264-galaxy-tv/Stranger.Things.S01.COMPLETE.720p.BluRay.x264-GalaxyTV%5BTGx%5D/Stranger.Things.S01E05.720p.BluRay.x264-GalaxyTV.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p BluRay",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "st_s1e6",
@@ -874,7 +906,8 @@
               "streamUrl": "https://archive.org/download/stranger.-things.-s-01.720p.-blu-ray.x-264-galaxy-tv/Stranger.Things.S01.COMPLETE.720p.BluRay.x264-GalaxyTV%5BTGx%5D/Stranger.Things.S01E06.720p.BluRay.x264-GalaxyTV.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p BluRay",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "st_s1e7",
@@ -885,7 +918,8 @@
               "streamUrl": "https://archive.org/download/stranger.-things.-s-01.720p.-blu-ray.x-264-galaxy-tv/Stranger.Things.S01.COMPLETE.720p.BluRay.x264-GalaxyTV%5BTGx%5D/Stranger.Things.S01E07.720p.BluRay.x264-GalaxyTV.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p BluRay",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "st_s1e8",
@@ -896,7 +930,8 @@
               "streamUrl": "https://archive.org/download/stranger.-things.-s-01.720p.-blu-ray.x-264-galaxy-tv/Stranger.Things.S01.COMPLETE.720p.BluRay.x264-GalaxyTV%5BTGx%5D/Stranger.Things.S01E08.720p.BluRay.x264-GalaxyTV.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p BluRay",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -914,7 +949,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_panchayat",
@@ -1071,7 +1107,8 @@
               "streamUrl": "https://archive.org/download/a2z-panchayat-season-1/E02.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "panchayat_s1e2",
@@ -1082,7 +1119,8 @@
               "streamUrl": "https://archive.org/download/a2z-panchayat-season-1/E03.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "panchayat_s1e3",
@@ -1093,7 +1131,8 @@
               "streamUrl": "https://archive.org/download/a2z-panchayat-season-1/E04.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "panchayat_s1e4",
@@ -1104,7 +1143,8 @@
               "streamUrl": "https://archive.org/download/a2z-panchayat-season-1/E05.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "panchayat_s1e5",
@@ -1115,7 +1155,8 @@
               "streamUrl": "https://archive.org/download/a2z-panchayat-season-1/E06.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "panchayat_s1e6",
@@ -1126,7 +1167,8 @@
               "streamUrl": "https://archive.org/download/a2z-panchayat-season-1/E07.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "panchayat_s1e7",
@@ -1137,7 +1179,8 @@
               "streamUrl": "https://archive.org/download/a2z-panchayat-season-1/E08.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         },
@@ -1154,7 +1197,8 @@
               "streamUrl": "https://archive.org/download/panchayat-s-03-e-1-8/Panchayat-S03E1-8.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p FHD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -1173,7 +1217,8 @@
           "US"
         ]
       },
-      "backupUrls": []
+      "backupUrls": [],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_mirzapur",
@@ -1345,7 +1390,8 @@
               "streamUrl": "https://archive.org/download/s-2-m-1/s2%20m1.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mirzapur_s1e2",
@@ -1356,7 +1402,8 @@
               "streamUrl": "https://archive.org/download/s-2-m-3/s2%20m3.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mirzapur_s1e3",
@@ -1367,7 +1414,8 @@
               "streamUrl": "https://archive.org/download/s-2-m-4_202412/s2%20m4.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mirzapur_s1e4",
@@ -1378,7 +1426,8 @@
               "streamUrl": "https://archive.org/download/s-2-m-5/s2%20m5.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mirzapur_s1e5",
@@ -1389,7 +1438,8 @@
               "streamUrl": "https://archive.org/download/s-2-m-6/s2%20m6.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mirzapur_s1e6",
@@ -1400,7 +1450,8 @@
               "streamUrl": "https://archive.org/download/s-2-m-7/s2%20m7.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mirzapur_s1e7",
@@ -1411,7 +1462,8 @@
               "streamUrl": "https://archive.org/download/s-2-m-8/s2%20m8.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mirzapur_s1e8",
@@ -1422,7 +1474,8 @@
               "streamUrl": "https://archive.org/download/s-2-m-9/s2%20m9.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mirzapur_s1e9",
@@ -1433,7 +1486,8 @@
               "streamUrl": "https://archive.org/download/s-2-m-10/s2%20m10.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -1451,7 +1505,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_deadpool_wolverine",
@@ -1519,7 +1574,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_stree_2",
@@ -1545,18 +1601,16 @@
       "resolution": "1080p FHD (1920x1080)",
       "codec": "H.264 / AVC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -1580,7 +1634,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
       "qualityHonestBadge": "1080p FHD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -1590,7 +1644,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_kalki_2898_ad",
@@ -1660,7 +1715,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_gladiator_2",
@@ -1725,7 +1781,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_spider_verse",
@@ -1790,7 +1847,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_pathaan",
@@ -1817,22 +1875,16 @@
       "resolution": "480p SD (854x480)",
       "codec": "H.264 / AVC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English",
-          "Telugu",
-          "Tamil"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English",
-        "Telugu",
-        "Tamil"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -1853,7 +1905,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": null,
       "qualityHonestBadge": "480p SD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -1865,7 +1917,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_family_man",
@@ -1894,22 +1947,16 @@
       "resolution": "N/A",
       "codec": "HEVC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English",
-          "Tamil",
-          "Telugu"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English",
-        "Tamil",
-        "Telugu"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -1955,7 +2002,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -1964,7 +2012,7 @@
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
       "qualityHonestBadge": "Trailer Only",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -1977,7 +2025,8 @@
           "US"
         ]
       },
-      "backupUrls": []
+      "backupUrls": [],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_money_heist",
@@ -2006,20 +2055,18 @@
       "resolution": "N/A",
       "codec": "H.264",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "Hindi",
           "English"
         ]
       },
       "languages": [
-        "Hindi",
         "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "English",
       "container": "MP4",
       "fileSize": "18.0 GB",
       "bitrate": "4.8 Mbps",
@@ -2159,7 +2206,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mh_s1e2",
@@ -2171,7 +2219,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mh_s1e3",
@@ -2183,7 +2232,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mh_s1e4",
@@ -2195,7 +2245,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mh_s1e5",
@@ -2207,7 +2258,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mh_s1e6",
@@ -2219,7 +2271,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mh_s1e7",
@@ -2231,7 +2284,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mh_s1e8",
@@ -2243,7 +2297,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "mh_s1e9",
@@ -2255,7 +2310,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -2264,9 +2320,9 @@
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
       "qualityHonestBadge": "Trailer Only",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Spanish",
         "spokenLanguages": [
           "Hindi",
           "English",
@@ -2276,7 +2332,8 @@
           "US"
         ]
       },
-      "backupUrls": []
+      "backupUrls": [],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_scam_1992",
@@ -2357,7 +2414,8 @@
               "streamUrl": "https://archive.org/download/scam-1992-the-harshad-mehta-story-2020-hindi-season-1-720p/Scam_1992_the_Harshad_Mehta_Story_%282020%29_Hindi_Season_1_720p.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -2376,7 +2434,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_sacred_games",
@@ -2543,7 +2602,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sg_s1e2",
@@ -2555,7 +2615,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sg_s1e3",
@@ -2567,7 +2628,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sg_s1e4",
@@ -2579,7 +2641,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sg_s1e5",
@@ -2591,7 +2654,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sg_s1e6",
@@ -2603,7 +2667,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sg_s1e7",
@@ -2615,7 +2680,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sg_s1e8",
@@ -2627,7 +2693,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -2647,7 +2714,8 @@
           "US"
         ]
       },
-      "backupUrls": []
+      "backupUrls": [],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_interstellar",
@@ -2713,7 +2781,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_breaking_bad",
@@ -2859,7 +2928,8 @@
               "streamUrl": "https://archive.org/download/BreakingBadSeason11080PHEVC/01%20Pilot%20%281080p%20HD%29.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "bb_s1e2",
@@ -2870,7 +2940,8 @@
               "streamUrl": "https://archive.org/download/BreakingBadSeason11080PHEVC/02%20Cat%27s%20in%20the%20Bag...%20%281080p%20HD%29.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "bb_s1e3",
@@ -2881,7 +2952,8 @@
               "streamUrl": "https://archive.org/download/BreakingBadSeason11080PHEVC/03%20...And%20the%20Bag%27s%20in%20the%20River%20%281080p%20HD%29.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "bb_s1e4",
@@ -2892,7 +2964,8 @@
               "streamUrl": "https://archive.org/download/BreakingBadSeason11080PHEVC/04%20Cancer%20Man%20%281080p%20HD%29.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "bb_s1e5",
@@ -2903,7 +2976,8 @@
               "streamUrl": "https://archive.org/download/BreakingBadSeason11080PHEVC/05%20Gray%20Matter%20%281080p%20HD%29.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "bb_s1e6",
@@ -2914,7 +2988,8 @@
               "streamUrl": "https://archive.org/download/BreakingBadSeason11080PHEVC/06%20Crazy%20Handful%20of%20Nothin%27%20%281080p%20HD%29.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "bb_s1e7",
@@ -2925,7 +3000,8 @@
               "streamUrl": "https://archive.org/download/BreakingBadSeason11080PHEVC/07%20A%20No-Rough-Stuff-Type%20Deal%20%281080p%20HD%29.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -2944,7 +3020,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_dark_knight",
@@ -3010,7 +3087,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_chhavaa",
@@ -3077,7 +3155,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_kota_factory",
@@ -3200,7 +3279,8 @@
               "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E01_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "kf_s1e2",
@@ -3211,7 +3291,8 @@
               "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E02_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "kf_s1e3",
@@ -3222,7 +3303,8 @@
               "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E03_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "kf_s1e4",
@@ -3233,7 +3315,8 @@
               "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E04_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "kf_s1e5",
@@ -3244,7 +3327,8 @@
               "streamUrl": "https://archive.org/download/kota-factory-hindi-aac-2-0-x-264-mkv-cinemas/Kota_Factory_S01_E05_WebRip_720p_Hindi_AAC_2_0_x264_mkvCinemas.mkv",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -3263,7 +3347,8 @@
           "US"
         ]
       },
-      "backupUrls": []
+      "backupUrls": [],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_dune_part_two",
@@ -3333,7 +3418,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_furiosa",
@@ -3401,7 +3487,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_shaitaan",
@@ -3466,7 +3553,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_alien_romulus",
@@ -3534,7 +3622,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_munjya",
@@ -3600,7 +3689,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_fighter",
@@ -3671,7 +3761,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
     },
     {
       "id": "vod_godzilla_x_kong",
@@ -3738,7 +3829,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_12th_fail",
@@ -3803,7 +3895,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_oppenheimer",
@@ -3870,7 +3963,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_farzi",
@@ -4036,7 +4130,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "farzi_s1e2",
@@ -4048,7 +4143,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "farzi_s1e3",
@@ -4060,7 +4156,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "farzi_s1e4",
@@ -4072,7 +4169,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "farzi_s1e5",
@@ -4084,7 +4182,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "farzi_s1e6",
@@ -4096,7 +4195,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "farzi_s1e7",
@@ -4108,7 +4208,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "farzi_s1e8",
@@ -4120,7 +4221,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -4142,7 +4244,8 @@
           "US"
         ]
       },
-      "backupUrls": []
+      "backupUrls": [],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_john_wick_4",
@@ -4210,7 +4313,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_leo",
@@ -4237,22 +4341,16 @@
       "resolution": "1080p FHD (1920x1080)",
       "codec": "H.264",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Tamil",
-          "Telugu",
-          "English"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Tamil",
-        "Telugu",
-        "English"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -4273,9 +4371,9 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
       "qualityHonestBadge": "1080p FHD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Tamil",
         "spokenLanguages": [
           "Hindi",
           "Tamil",
@@ -4285,7 +4383,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_jawan",
@@ -4355,7 +4454,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_tiger_3",
@@ -4382,18 +4482,16 @@
       "resolution": "1080p FHD (1920x1080)",
       "codec": "H.264",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -4414,7 +4512,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
       "qualityHonestBadge": "1080p FHD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -4424,7 +4522,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_salaar",
@@ -4490,7 +4589,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_dunki",
@@ -4515,18 +4615,16 @@
       "resolution": "720p HD (1280x720)",
       "codec": "H.264",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "English"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "English"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -4547,7 +4645,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -4557,7 +4655,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_animal",
@@ -4625,7 +4724,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_gadar_2",
@@ -4690,7 +4790,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_kgf_chapter_2",
@@ -4758,7 +4859,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_top_gun_maverick",
@@ -4824,7 +4926,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_rrr",
@@ -4891,7 +4994,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_the_batman",
@@ -4959,7 +5063,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_avatar_way_of_water",
@@ -4984,24 +5089,18 @@
       "resolution": "720p HD (1280x720)",
       "codec": "HEVC / H.265",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "English",
-          "Hindi",
-          "Tamil",
-          "Telugu"
+          "English"
         ]
       },
       "languages": [
-        "English",
-        "Hindi",
-        "Tamil",
-        "Telugu"
+        "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "English",
       "container": "MP4",
       "fileSize": "15.8 MB",
       "bitrate": "5.9 Mbps",
@@ -5023,7 +5122,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -5035,7 +5134,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_brahmastra",
@@ -5060,22 +5160,16 @@
       "resolution": "720p HD (1280x536)",
       "codec": "H.264 / AVC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Telugu",
-          "Tamil",
-          "English"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Telugu",
-        "Tamil",
-        "English"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -5099,7 +5193,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -5111,7 +5205,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_spider_man_nwh",
@@ -5136,24 +5231,18 @@
       "resolution": "1080p FHD (1920x1080)",
       "codec": "HEVC / H.265",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "English",
-          "Hindi",
-          "Tamil",
-          "Telugu"
+          "English"
         ]
       },
       "languages": [
-        "English",
-        "Hindi",
-        "Tamil",
-        "Telugu"
+        "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "English",
       "container": "MP4",
       "fileSize": "7.1 MB",
       "bitrate": "5.1 Mbps",
@@ -5175,7 +5264,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
       "qualityHonestBadge": "1080p FHD",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -5187,7 +5276,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_pushpa_the_rise",
@@ -5257,7 +5347,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_paatal_lok",
@@ -5340,7 +5431,8 @@
               "sourceState": "NO_AUTHORIZED_SOURCE",
               "qualityHonestBadge": "Trailer Only",
               "episodeType": "no_authorized_source",
-              "backupUrls": []
+              "backupUrls": [],
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -5360,7 +5452,8 @@
           "US"
         ]
       },
-      "backupUrls": []
+      "backupUrls": [],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_avengers_endgame",
@@ -5427,7 +5520,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_dangal",
@@ -5495,7 +5589,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_inception",
@@ -5561,7 +5656,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_sita_sings_blues",
@@ -5627,7 +5723,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_bbb_720p",
@@ -5694,7 +5791,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "HLS_TRACKS"
     },
     {
       "id": "vod_his_girl_friday",
@@ -5763,7 +5861,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_squid_game",
@@ -5827,7 +5926,8 @@
               },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "episodeType": "full_episode",
-              "qualityHonestBadge": "HD 480p"
+              "qualityHonestBadge": "HD 480p",
+              "audioSwitchingCapability": "URL_SWITCH"
             },
             {
               "id": "squid_s1e2",
@@ -5842,7 +5942,8 @@
               },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "episodeType": "full_episode",
-              "qualityHonestBadge": "HD 480p"
+              "qualityHonestBadge": "HD 480p",
+              "audioSwitchingCapability": "URL_SWITCH"
             },
             {
               "id": "squid_s1e3",
@@ -5857,7 +5958,8 @@
               },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "episodeType": "full_episode",
-              "qualityHonestBadge": "HD 480p"
+              "qualityHonestBadge": "HD 480p",
+              "audioSwitchingCapability": "URL_SWITCH"
             },
             {
               "id": "squid_s1e4",
@@ -5872,7 +5974,8 @@
               },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "episodeType": "full_episode",
-              "qualityHonestBadge": "HD 480p"
+              "qualityHonestBadge": "HD 480p",
+              "audioSwitchingCapability": "URL_SWITCH"
             },
             {
               "id": "squid_s1e5",
@@ -5887,7 +5990,8 @@
               },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "episodeType": "full_episode",
-              "qualityHonestBadge": "HD 480p"
+              "qualityHonestBadge": "HD 480p",
+              "audioSwitchingCapability": "URL_SWITCH"
             },
             {
               "id": "squid_s1e6",
@@ -5902,7 +6006,8 @@
               },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "episodeType": "full_episode",
-              "qualityHonestBadge": "HD 480p"
+              "qualityHonestBadge": "HD 480p",
+              "audioSwitchingCapability": "URL_SWITCH"
             },
             {
               "id": "squid_s1e7",
@@ -5917,7 +6022,8 @@
               },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "episodeType": "full_episode",
-              "qualityHonestBadge": "HD 480p"
+              "qualityHonestBadge": "HD 480p",
+              "audioSwitchingCapability": "URL_SWITCH"
             },
             {
               "id": "squid_s1e8",
@@ -5932,7 +6038,8 @@
               },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "episodeType": "full_episode",
-              "qualityHonestBadge": "HD 480p"
+              "qualityHonestBadge": "HD 480p",
+              "audioSwitchingCapability": "URL_SWITCH"
             },
             {
               "id": "squid_s1e9",
@@ -5947,7 +6054,8 @@
               },
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "episodeType": "full_episode",
-              "qualityHonestBadge": "HD 480p"
+              "qualityHonestBadge": "HD 480p",
+              "audioSwitchingCapability": "URL_SWITCH"
             }
           ]
         }
@@ -6114,7 +6222,8 @@
       "audioStreams": {
         "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
         "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E01.DUBBED.720p.mp4"
-      }
+      },
+      "audioSwitchingCapability": "URL_SWITCH"
     },
     {
       "id": "series_crash_landing_on_you",
@@ -6170,7 +6279,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-05/Crash%20Landing%20On%20You%2001.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e2",
@@ -6181,7 +6291,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-05/Crash%20Landing%20On%20You%2002.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e3",
@@ -6192,7 +6303,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-05/Crash%20Landing%20On%20You%2003.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e4",
@@ -6203,7 +6315,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-05/Crash%20Landing%20On%20You%2004.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e5",
@@ -6214,7 +6327,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-05/Crash%20Landing%20On%20You%2005.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e6",
@@ -6225,7 +6339,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-09/Crash%20Landing%20On%20You%2006.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e7",
@@ -6236,7 +6351,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-09/Crash%20Landing%20On%20You%2007.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e8",
@@ -6247,7 +6363,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-09/Crash%20Landing%20On%20You%2008.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e9",
@@ -6258,7 +6375,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-09/Crash%20Landing%20On%20You%2009.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e10",
@@ -6269,7 +6387,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-09/Crash%20Landing%20On%20You%2010.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e11",
@@ -6280,7 +6399,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-16/Crash%20Landing%20On%20You%2011.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e12",
@@ -6291,7 +6411,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-16/Crash%20Landing%20On%20You%2012.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e13",
@@ -6302,7 +6423,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-16/Crash%20Landing%20On%20You%2013.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e14",
@@ -6313,7 +6435,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-16/Crash%20Landing%20On%20You%2014.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e15",
@@ -6324,7 +6447,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-16/Crash%20Landing%20On%20You%2015.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "cloy_s1e16",
@@ -6335,7 +6459,8 @@
               "streamUrl": "https://archive.org/download/crash-landing-on-you-16/Crash%20Landing%20On%20You%2016.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -6537,7 +6662,8 @@
           "qualityHonestBadge": "HD 720p",
           "episodeType": "full_episode"
         }
-      ]
+      ],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_descendants_of_the_sun",
@@ -6593,7 +6719,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E01.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e2",
@@ -6604,7 +6731,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E02.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e3",
@@ -6615,7 +6743,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E03.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e4",
@@ -6626,7 +6755,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E04.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e5",
@@ -6637,7 +6767,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E05.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e6",
@@ -6648,7 +6779,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E06.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e7",
@@ -6659,7 +6791,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E07.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e8",
@@ -6670,7 +6803,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E08.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e9",
@@ -6681,7 +6815,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E09.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e10",
@@ -6692,7 +6827,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E10.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e11",
@@ -6703,7 +6839,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E11.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e12",
@@ -6714,7 +6851,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E12.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e13",
@@ -6725,7 +6863,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E13.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e14",
@@ -6736,7 +6875,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E14.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e15",
@@ -6747,7 +6887,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E15.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "dots_s1e16",
@@ -6758,7 +6899,8 @@
               "streamUrl": "https://archive.org/download/descendants-of-the-sun_202309/Descendants-of-the-Sun-E16.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -6960,7 +7102,8 @@
           "qualityHonestBadge": "HD 720p",
           "episodeType": "full_episode"
         }
-      ]
+      ],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_train_to_busan",
@@ -6987,18 +7130,16 @@
       "resolution": "720p HD (1280x696)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Korean"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Korean"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -7015,9 +7156,9 @@
       "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Korean",
         "spokenLanguages": [
           "Hindi",
           "Korean"
@@ -7025,7 +7166,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_parasite",
@@ -7050,18 +7192,16 @@
       "resolution": "4K UHD (3840x2160)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Korean"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Korean"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -7078,9 +7218,9 @@
       "qualityHonestBadge": "4K UHD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Korean",
         "spokenLanguages": [
           "Hindi",
           "Korean"
@@ -7088,7 +7228,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_the_raid_redemption",
@@ -7114,20 +7255,18 @@
       "resolution": "1080p FHD (1920x1080)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "Hindi",
-          "Indonesian"
+          "English"
         ]
       },
       "languages": [
-        "Hindi",
-        "Indonesian"
+        "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "English",
       "container": "MP4",
       "license": "PT Merantau Films (Hindi Dubbed)",
       "director": "Gareth Evans",
@@ -7142,9 +7281,9 @@
       "qualityHonestBadge": "1080p FHD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Indonesian",
         "spokenLanguages": [
           "Hindi",
           "Indonesian"
@@ -7152,7 +7291,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_ip_man",
@@ -7178,18 +7318,16 @@
       "resolution": "720p HD (1280x536)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Cantonese"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Cantonese"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -7206,9 +7344,9 @@
       "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Cantonese",
         "spokenLanguages": [
           "Hindi",
           "Cantonese"
@@ -7216,7 +7354,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_ip_man_4",
@@ -7241,18 +7380,16 @@
       "resolution": "720p HD (1280x528)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Cantonese"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Cantonese"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -7269,9 +7406,9 @@
       "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Cantonese",
         "spokenLanguages": [
           "Hindi",
           "Cantonese"
@@ -7279,7 +7416,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_peninsula",
@@ -7305,18 +7443,16 @@
       "resolution": "480p SD (854x480)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Korean"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Korean"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -7333,9 +7469,9 @@
       "qualityHonestBadge": "480p SD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Korean",
         "spokenLanguages": [
           "Hindi",
           "Korean"
@@ -7343,7 +7479,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_kung_fu_hustle",
@@ -7370,18 +7507,16 @@
       "resolution": "720p HD (1280x720)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Cantonese"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Cantonese"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -7398,9 +7533,9 @@
       "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Cantonese",
         "spokenLanguages": [
           "Hindi",
           "Cantonese"
@@ -7408,7 +7543,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_shaolin_soccer",
@@ -7435,18 +7571,16 @@
       "resolution": "1080p FHD (1920x1080)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Cantonese"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Cantonese"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -7463,9 +7597,9 @@
       "qualityHonestBadge": "1080p FHD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Cantonese",
         "spokenLanguages": [
           "Hindi",
           "Cantonese"
@@ -7473,7 +7607,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_the_outlaws",
@@ -7502,17 +7637,15 @@
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Korean",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "Korean",
           "English"
         ]
       },
       "languages": [
-        "Korean",
         "English"
       ],
-      "defaultLanguage": "Korean",
+      "defaultLanguage": "English",
       "container": "MP4",
       "license": "Kiwi Media Group (Korean with English Subtitles)",
       "director": "Kang Yoon-sung",
@@ -7529,7 +7662,7 @@
       "region": "ASIAN",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "en",
+        "originalLanguage": "Korean",
         "spokenLanguages": [
           "Korean",
           "English"
@@ -7537,7 +7670,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_the_roundup",
@@ -7563,18 +7697,16 @@
       "resolution": "1080p FHD (1920x806)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Korean"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Korean"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -7591,9 +7723,9 @@
       "qualityHonestBadge": "1080p FHD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Korean",
         "spokenLanguages": [
           "Hindi",
           "Korean"
@@ -7601,7 +7733,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_demon_slayer_mugen_train",
@@ -7662,7 +7795,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_jujutsu_kaisen_0",
@@ -7724,7 +7858,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_suzume",
@@ -7784,7 +7919,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_your_name",
@@ -7810,18 +7946,16 @@
       "resolution": "1080p FHD (1920x1080)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Japanese"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Japanese"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -7841,9 +7975,9 @@
       "backupUrls": [
         "https://archive.org/download/your-name-1080p/Your%20Name%201920x1080.mp4"
       ],
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Japanese",
         "spokenLanguages": [
           "Hindi",
           "Japanese"
@@ -7851,7 +7985,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_death_note",
@@ -7908,7 +8043,8 @@
               "streamUrl": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -7945,7 +8081,8 @@
           "qualityHonestBadge": "HD 720p",
           "episodeType": "full_episode"
         }
-      ]
+      ],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_naruto_classic",
@@ -7972,18 +8109,16 @@
       "resolution": "720p (1280x720)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Japanese"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Japanese"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -8004,7 +8139,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/%5BRAI%5D%20Naruto%20Shippuden%20S1E01%20in%20Hindi.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "naruto_s1e2",
@@ -8015,7 +8151,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/Episode-2-The-Akatsuki-Makes-Its-Move.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "naruto_s1e3",
@@ -8026,7 +8163,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/Episode-3-The-Results-of-Training.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "naruto_s1e4",
@@ -8037,7 +8175,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/Episode-4-The-Jinchuriki-of-the-Sand.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "naruto_s1e5",
@@ -8048,7 +8187,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/Episode-5-The-Kazekage-Stands-Tall.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "naruto_s1e6",
@@ -8059,7 +8199,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/Episode-6-Mission-Cleared.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "naruto_s1e7",
@@ -8070,7 +8211,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/Episode-7-Run,-Kankuro.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "naruto_s1e8",
@@ -8081,7 +8223,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/Episode-8-Team-Kakashi,-Deployed.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "naruto_s1e9",
@@ -8092,7 +8235,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/Episode-9-The-Jinchuriki%E2%80%99s-Tears.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "naruto_s1e10",
@@ -8103,7 +8247,8 @@
               "streamUrl": "https://archive.org/download/rai-naruto-shippuden-s-1-e-01-in-hindi/Episode-10-Sealing-Jutsu-Nine-Phantom-Dragons.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "HD 720p",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -8118,9 +8263,9 @@
       "qualityHonestBadge": "HD 720p",
       "contentType": "SERIES",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Japanese",
         "spokenLanguages": [
           "Hindi",
           "Japanese"
@@ -8240,7 +8385,8 @@
           "qualityHonestBadge": "HD 720p",
           "episodeType": "full_episode"
         }
-      ]
+      ],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_one_piece_film_red",
@@ -8267,18 +8413,16 @@
       "resolution": "1080p FHD (1920x1080)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+        "classification": "HINDI_AUDIO",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi",
-          "Japanese"
+          "Hindi"
         ]
       },
       "languages": [
-        "Hindi",
-        "Japanese"
+        "Hindi"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -8295,9 +8439,9 @@
       "qualityHonestBadge": "1080p FHD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
+      "audioClassification": "HINDI_AUDIO",
       "metadata": {
-        "originalLanguage": "hi",
+        "originalLanguage": "Japanese",
         "spokenLanguages": [
           "Hindi",
           "Japanese"
@@ -8305,7 +8449,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_stree",
@@ -8364,7 +8509,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_drishyam_2",
@@ -8424,7 +8570,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_kantara",
@@ -8485,7 +8632,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_kgf_chapter_1",
@@ -8545,7 +8693,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_baahubali_1",
@@ -8605,7 +8754,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_baahubali_2",
@@ -8665,7 +8815,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_tumbbad",
@@ -8726,7 +8877,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_andhadhun",
@@ -8787,7 +8939,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_shershaah",
@@ -8847,7 +9000,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_3_idiots",
@@ -8905,7 +9059,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_gangs_of_wasseypur",
@@ -8965,7 +9120,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_vikram_vedha",
@@ -9026,7 +9182,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_masoom_1983",
@@ -9094,7 +9251,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_jaane_bhi_do_yaaro",
@@ -9162,7 +9320,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_chhoti_si_baat",
@@ -9231,7 +9390,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_do_bigha_zamin",
@@ -9298,7 +9458,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_night_of_the_living_dead",
@@ -9366,7 +9527,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_charade_1963",
@@ -9438,7 +9600,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_carnival_of_souls",
@@ -9506,7 +9669,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_house_on_haunted_hill",
@@ -9575,7 +9739,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_dressed_to_kill",
@@ -9644,7 +9809,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "series_sherlock_holmes_1954",
@@ -9731,7 +9897,8 @@
               "streamUrl": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2001%20The%20Case%20of%20the%20Cunningham%20Heritage.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sh1954_s1e2",
@@ -9742,7 +9909,8 @@
               "streamUrl": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2002%20The%20Case%20Of%20Lady%20Beryl.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sh1954_s1e3",
@@ -9753,7 +9921,8 @@
               "streamUrl": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2003%20The%20Case%20of%20the%20Pennsylvania%20Gun.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sh1954_s1e4",
@@ -9764,7 +9933,8 @@
               "streamUrl": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2004%20The%20Case%20Of%20The%20Texas%20Cowgirl.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sh1954_s1e5",
@@ -9775,7 +9945,8 @@
               "streamUrl": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2005%20The%20Case%20Of%20The%20Belligerent%20Ghost.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sh1954_s1e6",
@@ -9786,7 +9957,8 @@
               "streamUrl": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2006%20The%20Case%20Of%20The%20Shy%20Ballerina.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sh1954_s1e7",
@@ -9797,7 +9969,8 @@
               "streamUrl": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2007%20The%20Case%20Of%20The%20Winthrop%20Legend.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             },
             {
               "id": "sh1954_s1e8",
@@ -9808,7 +9981,8 @@
               "streamUrl": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2008%20The%20Case%20Of%20The%20Blind%20Man's%20Bluff.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "1080p Full HD",
-              "episodeType": "full_episode"
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
             }
           ]
         }
@@ -9902,7 +10076,8 @@
           "qualityHonestBadge": "1080p Full HD",
           "episodeType": "full_episode"
         }
-      ]
+      ],
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "disc_VoyagetothePlanetofPrehistoricWomen",
@@ -9965,7 +10140,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "disc_TheFastandtheFuriousJohnIreland1954goofyrip",
@@ -10028,7 +10204,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "disc_charlie_chaplin_film_fest",
@@ -10056,9 +10233,9 @@
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Music / Silent",
+        "primaryLanguage": "English",
         "availableLanguages": [
-          "Silent"
+          "English"
         ]
       },
       "languages": [
@@ -10091,7 +10268,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "disc_Return_of_the_Kung_Fu_Dragon",
@@ -10154,7 +10332,8 @@
         "countries": [
           "US"
         ]
-      }
+      },
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_avengers_doomsday_2026",
@@ -10221,7 +10400,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_avengers_doomsday_2026.jpg",
-      "backdropUrl": "assets/posters/vod_avengers_doomsday_2026.jpg"
+      "backdropUrl": "assets/posters/vod_avengers_doomsday_2026.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_the_batman_part_ii_2026",
@@ -10288,7 +10468,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_the_batman_part_ii_2026.jpg",
-      "backdropUrl": "assets/posters/vod_the_batman_part_ii_2026.jpg"
+      "backdropUrl": "assets/posters/vod_the_batman_part_ii_2026.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_fateh_2025",
@@ -10354,7 +10535,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_fateh_2025.jpg",
-      "backdropUrl": "assets/posters/vod_fateh_2025.jpg"
+      "backdropUrl": "assets/posters/vod_fateh_2025.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_sky_force_2025",
@@ -10421,7 +10603,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_sky_force_2025.jpg",
-      "backdropUrl": "assets/posters/vod_sky_force_2025.jpg"
+      "backdropUrl": "assets/posters/vod_sky_force_2025.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_game_changer_2025",
@@ -10450,7 +10633,7 @@
         "classification": "MULTI_AUDIO_INCLUDING_HINDI",
         "hasHindiAudio": true,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Telugu",
+        "primaryLanguage": "Hindi",
         "availableLanguages": [
           "Telugu",
           "Hindi"
@@ -10481,7 +10664,7 @@
       "qualityHonestBadge": "1080p FHD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
-        "originalLanguage": "te",
+        "originalLanguage": "Telugu",
         "spokenLanguages": [
           "Telugu",
           "Hindi"
@@ -10491,7 +10674,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_game_changer_2025.jpg",
-      "backdropUrl": "assets/posters/vod_game_changer_2025.jpg"
+      "backdropUrl": "assets/posters/vod_game_changer_2025.jpg",
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
     },
     {
       "id": "vod_laapataa_ladies_2024",
@@ -10557,7 +10741,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_laapataa_ladies_2024.jpg",
-      "backdropUrl": "assets/posters/vod_laapataa_ladies_2024.jpg"
+      "backdropUrl": "assets/posters/vod_laapataa_ladies_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_article_370_2024",
@@ -10624,7 +10809,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_article_370_2024.jpg",
-      "backdropUrl": "assets/posters/vod_article_370_2024.jpg"
+      "backdropUrl": "assets/posters/vod_article_370_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_mission_raniganj_2023",
@@ -10691,7 +10877,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_mission_raniganj_2023.jpg",
-      "backdropUrl": "assets/posters/vod_mission_raniganj_2023.jpg"
+      "backdropUrl": "assets/posters/vod_mission_raniganj_2023.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_badla_2019",
@@ -10758,7 +10945,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_badla_2019.jpg",
-      "backdropUrl": "assets/posters/vod_badla_2019.jpg"
+      "backdropUrl": "assets/posters/vod_badla_2019.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_kesari_2019",
@@ -10825,7 +11013,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_kesari_2019.jpg",
-      "backdropUrl": "assets/posters/vod_kesari_2019.jpg"
+      "backdropUrl": "assets/posters/vod_kesari_2019.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_airlift_2016",
@@ -10892,7 +11081,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_airlift_2016.jpg",
-      "backdropUrl": "assets/posters/vod_airlift_2016.jpg"
+      "backdropUrl": "assets/posters/vod_airlift_2016.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_baby_2015",
@@ -10959,7 +11149,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_baby_2015.jpg",
-      "backdropUrl": "assets/posters/vod_baby_2015.jpg"
+      "backdropUrl": "assets/posters/vod_baby_2015.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_holiday_2014",
@@ -11025,7 +11216,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_holiday_2014.jpg",
-      "backdropUrl": "assets/posters/vod_holiday_2014.jpg"
+      "backdropUrl": "assets/posters/vod_holiday_2014.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_rockstar_2011",
@@ -11092,7 +11284,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_rockstar_2011.jpg",
-      "backdropUrl": "assets/posters/vod_rockstar_2011.jpg"
+      "backdropUrl": "assets/posters/vod_rockstar_2011.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_znmd_2011",
@@ -11159,7 +11352,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_znmd_2011.jpg",
-      "backdropUrl": "assets/posters/vod_znmd_2011.jpg"
+      "backdropUrl": "assets/posters/vod_znmd_2011.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_ghajini_2008",
@@ -11226,7 +11420,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_ghajini_2008.jpg",
-      "backdropUrl": "assets/posters/vod_ghajini_2008.jpg"
+      "backdropUrl": "assets/posters/vod_ghajini_2008.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_taare_zameen_par_2007",
@@ -11292,7 +11487,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_taare_zameen_par_2007.jpg",
-      "backdropUrl": "assets/posters/vod_taare_zameen_par_2007.jpg"
+      "backdropUrl": "assets/posters/vod_taare_zameen_par_2007.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_rang_de_basanti_2006",
@@ -11359,7 +11555,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_rang_de_basanti_2006.jpg",
-      "backdropUrl": "assets/posters/vod_rang_de_basanti_2006.jpg"
+      "backdropUrl": "assets/posters/vod_rang_de_basanti_2006.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_lagaan_2001",
@@ -11427,7 +11624,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_lagaan_2001.jpg",
-      "backdropUrl": "assets/posters/vod_lagaan_2001.jpg"
+      "backdropUrl": "assets/posters/vod_lagaan_2001.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_aavesham_2024",
@@ -11464,6 +11662,11 @@
         "detectedTracks": [
           "hin:aac",
           "mal:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Malayalam"
         ]
       },
       "languages": [
@@ -11489,7 +11692,7 @@
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
-        "originalLanguage": "ml",
+        "originalLanguage": "Malayalam",
         "spokenLanguages": [
           "Hindi",
           "Malayalam"
@@ -11499,7 +11702,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_aavesham_2024.jpg",
-      "backdropUrl": "assets/posters/vod_aavesham_2024.jpg"
+      "backdropUrl": "assets/posters/vod_aavesham_2024.jpg",
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
     },
     {
       "id": "vod_bramayugam_2024",
@@ -11537,6 +11741,11 @@
         "detectedTracks": [
           "hin:aac",
           "mal:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Malayalam"
         ]
       },
       "languages": [
@@ -11562,7 +11771,7 @@
       "qualityHonestBadge": "720p HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
-        "originalLanguage": "ml",
+        "originalLanguage": "Malayalam",
         "spokenLanguages": [
           "Hindi",
           "Malayalam"
@@ -11572,7 +11781,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_bramayugam_2024.jpg",
-      "backdropUrl": "assets/posters/vod_bramayugam_2024.jpg"
+      "backdropUrl": "assets/posters/vod_bramayugam_2024.jpg",
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
     },
     {
       "id": "vod_aadujeevitham_2024",
@@ -11608,6 +11818,10 @@
         ],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -11641,7 +11855,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_aadujeevitham_2024.jpg",
-      "backdropUrl": "assets/posters/vod_aadujeevitham_2024.jpg"
+      "backdropUrl": "assets/posters/vod_aadujeevitham_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_maharaja_2024",
@@ -11677,6 +11892,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "tam:aac"
+        ],
+        "primaryLanguage": "Tamil",
+        "availableLanguages": [
+          "Tamil"
         ]
       },
       "languages": [
@@ -11710,7 +11929,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_maharaja_2024.jpg",
-      "backdropUrl": "assets/posters/vod_maharaja_2024.jpg"
+      "backdropUrl": "assets/posters/vod_maharaja_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_premalu_2024",
@@ -11742,6 +11962,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "mal:eac3"
+        ],
+        "primaryLanguage": "Malayalam",
+        "availableLanguages": [
+          "Malayalam"
         ]
       },
       "languages": [
@@ -11775,7 +11999,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_premalu_2024.jpg",
-      "backdropUrl": "assets/posters/vod_premalu_2024.jpg"
+      "backdropUrl": "assets/posters/vod_premalu_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_manjummel_boys_2024",
@@ -11811,6 +12036,10 @@
         ],
         "detectedTracks": [
           "tam:eac3"
+        ],
+        "primaryLanguage": "Tamil",
+        "availableLanguages": [
+          "Tamil"
         ]
       },
       "languages": [
@@ -11844,7 +12073,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_manjummel_boys_2024.jpg",
-      "backdropUrl": "assets/posters/vod_manjummel_boys_2024.jpg"
+      "backdropUrl": "assets/posters/vod_manjummel_boys_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_amar_singh_chamkila_2024",
@@ -11916,7 +12146,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_amar_singh_chamkila_2024.jpg",
-      "backdropUrl": "assets/posters/vod_amar_singh_chamkila_2024.jpg"
+      "backdropUrl": "assets/posters/vod_amar_singh_chamkila_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_blackout_2024",
@@ -11950,6 +12181,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -11983,7 +12218,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_blackout_2024.jpg",
-      "backdropUrl": "assets/posters/vod_blackout_2024.jpg"
+      "backdropUrl": "assets/posters/vod_blackout_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_hanuman_2024",
@@ -12021,6 +12257,10 @@
         ],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -12054,7 +12294,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_hanuman_2024.jpg",
-      "backdropUrl": "assets/posters/vod_hanuman_2024.jpg"
+      "backdropUrl": "assets/posters/vod_hanuman_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_kill_2024",
@@ -12088,6 +12329,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -12121,7 +12366,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_kill_2024.jpg",
-      "backdropUrl": "assets/posters/vod_kill_2024.jpg"
+      "backdropUrl": "assets/posters/vod_kill_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_crew_2024",
@@ -12153,6 +12399,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -12186,7 +12436,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_crew_2024.jpg",
-      "backdropUrl": "assets/posters/vod_crew_2024.jpg"
+      "backdropUrl": "assets/posters/vod_crew_2024.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_jailer_2023",
@@ -12220,6 +12471,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "tam:eac3"
+        ],
+        "primaryLanguage": "Tamil",
+        "availableLanguages": [
+          "Tamil"
         ]
       },
       "languages": [
@@ -12253,7 +12508,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_jailer_2023.jpg",
-      "backdropUrl": "assets/posters/vod_jailer_2023.jpg"
+      "backdropUrl": "assets/posters/vod_jailer_2023.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_sam_bahadur_2023",
@@ -12287,6 +12543,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -12320,7 +12580,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_sam_bahadur_2023.jpg",
-      "backdropUrl": "assets/posters/vod_sam_bahadur_2023.jpg"
+      "backdropUrl": "assets/posters/vod_sam_bahadur_2023.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_vikram_2022",
@@ -12360,6 +12621,12 @@
           "tel:aac",
           "tam:aac",
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Telugu",
+          "Tamil",
+          "Hindi"
         ]
       },
       "languages": [
@@ -12386,7 +12653,7 @@
       "qualityHonestBadge": "720p HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
-        "originalLanguage": "ta",
+        "originalLanguage": "Tamil",
         "spokenLanguages": [
           "Telugu",
           "Tamil",
@@ -12397,7 +12664,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_vikram_2022.jpg",
-      "backdropUrl": "assets/posters/vod_vikram_2022.jpg"
+      "backdropUrl": "assets/posters/vod_vikram_2022.jpg",
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
     },
     {
       "id": "vod_sita_ramam_2022",
@@ -12435,6 +12703,10 @@
         ],
         "detectedTracks": [
           "mal:aac"
+        ],
+        "primaryLanguage": "Malayalam",
+        "availableLanguages": [
+          "Malayalam"
         ]
       },
       "languages": [
@@ -12468,7 +12740,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_sita_ramam_2022.jpg",
-      "backdropUrl": "assets/posters/vod_sita_ramam_2022.jpg"
+      "backdropUrl": "assets/posters/vod_sita_ramam_2022.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_karthikeya_2_2022",
@@ -12504,6 +12777,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "tel:eac3"
+        ],
+        "primaryLanguage": "Telugu",
+        "availableLanguages": [
+          "Telugu"
         ]
       },
       "languages": [
@@ -12537,7 +12814,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_karthikeya_2_2022.jpg",
-      "backdropUrl": "assets/posters/vod_karthikeya_2_2022.jpg"
+      "backdropUrl": "assets/posters/vod_karthikeya_2_2022.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_777_charlie_2022",
@@ -12573,6 +12851,10 @@
         ],
         "detectedTracks": [
           "tam:eac3"
+        ],
+        "primaryLanguage": "Tamil",
+        "availableLanguages": [
+          "Tamil"
         ]
       },
       "languages": [
@@ -12606,7 +12888,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_777_charlie_2022.jpg",
-      "backdropUrl": "assets/posters/vod_777_charlie_2022.jpg"
+      "backdropUrl": "assets/posters/vod_777_charlie_2022.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_minnal_murali_2021",
@@ -12652,6 +12935,14 @@
           "mal:aac",
           "hin:aac",
           "kan:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Telugu",
+          "Tamil",
+          "Malayalam",
+          "Hindi",
+          "Kannada"
         ]
       },
       "languages": [
@@ -12680,7 +12971,7 @@
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
-        "originalLanguage": "ml",
+        "originalLanguage": "Malayalam",
         "spokenLanguages": [
           "Telugu",
           "Tamil",
@@ -12693,7 +12984,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_minnal_murali_2021.jpg",
-      "backdropUrl": "assets/posters/vod_minnal_murali_2021.jpg"
+      "backdropUrl": "assets/posters/vod_minnal_murali_2021.jpg",
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
     },
     {
       "id": "vod_sardar_udham_2021",
@@ -12729,6 +13021,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "hin:eac3"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -12762,7 +13058,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_sardar_udham_2021.jpg",
-      "backdropUrl": "assets/posters/vod_sardar_udham_2021.jpg"
+      "backdropUrl": "assets/posters/vod_sardar_udham_2021.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_jai_bhim_2021",
@@ -12798,6 +13095,10 @@
         ],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -12831,7 +13132,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_jai_bhim_2021.jpg",
-      "backdropUrl": "assets/posters/vod_jai_bhim_2021.jpg"
+      "backdropUrl": "assets/posters/vod_jai_bhim_2021.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_ala_vaikunthapurramuloo_2020",
@@ -12869,6 +13171,11 @@
         "detectedTracks": [
           "hin:eac3",
           "tel:eac3"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "Telugu"
         ]
       },
       "languages": [
@@ -12894,7 +13201,7 @@
       "qualityHonestBadge": "1080p Full HD",
       "audioClassification": "MULTI_AUDIO_INCLUDING_HINDI",
       "metadata": {
-        "originalLanguage": "te",
+        "originalLanguage": "Telugu",
         "spokenLanguages": [
           "Hindi",
           "Telugu"
@@ -12904,7 +13211,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_ala_vaikunthapurramuloo_2020.jpg",
-      "backdropUrl": "assets/posters/vod_ala_vaikunthapurramuloo_2020.jpg"
+      "backdropUrl": "assets/posters/vod_ala_vaikunthapurramuloo_2020.jpg",
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
     },
     {
       "id": "vod_ludo_2020",
@@ -12940,6 +13248,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -12973,7 +13285,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_ludo_2020.jpg",
-      "backdropUrl": "assets/posters/vod_ludo_2020.jpg"
+      "backdropUrl": "assets/posters/vod_ludo_2020.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_thappad_2020",
@@ -13003,6 +13316,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -13036,7 +13353,8 @@
         ]
       },
       "posterUrl": "assets/posters/vod_thappad_2020.jpg",
-      "backdropUrl": "assets/posters/vod_thappad_2020.jpg"
+      "backdropUrl": "assets/posters/vod_thappad_2020.jpg",
+      "audioSwitchingCapability": "NONE"
     },
     {
       "id": "vod_bandaa_2023",
@@ -13071,6 +13389,10 @@
         "dubbedLanguages": [],
         "detectedTracks": [
           "hin:aac"
+        ],
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
         ]
       },
       "languages": [
@@ -13098,6 +13420,181 @@
         "originalLanguage": "hi",
         "spokenLanguages": [
           "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "audioSwitchingCapability": "NONE"
+    },
+    {
+      "id": "vod_ramayana_part_1_2026",
+      "title": "Ramayana: Part 1",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Action",
+        "Drama",
+        "Mythology"
+      ],
+      "rating": 9.6,
+      "duration": "N/A",
+      "synopsis": "Nitesh Tiwari's epic adaptation of the ancient Sanskrit epic Ramayana, starring Ranbir Kapoor as Lord Rama, Sai Pallavi as Sita, and Yash as Ravana.",
+      "posterUrl": "assets/posters/vod_ramayana_part_1_2026.jpg",
+      "backdropUrl": "assets/posters/vod_ramayana_part_1_2026.jpg",
+      "resolution": "Official Studio Teaser",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "Nitesh Tiwari",
+      "cast": "Ranbir Kapoor, Sai Pallavi, Yash, Sunny Deol",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/9GZ08h3vWps",
+      "sourceState": "UPCOMING_TRAILER",
+      "contentType": "MOVIE",
+      "qualityClass": "TRAILER",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "metadata": {
+        "originalLanguage": "Hindi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      }
+    },
+    {
+      "id": "vod_war_2_2025",
+      "title": "War 2",
+      "year": 2025,
+      "releaseYear": 2025,
+      "genre": [
+        "Action",
+        "Thriller"
+      ],
+      "rating": 9.2,
+      "duration": "N/A",
+      "synopsis": "Major Kabir Dhaliwal returns in the next explosive installment of the YRF Spy Universe, facing off against an elite operative.",
+      "posterUrl": "assets/posters/vod_war_2_2025.jpg",
+      "backdropUrl": "assets/posters/vod_war_2_2025.jpg",
+      "resolution": "Official Studio Teaser",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "YRF Spy Universe",
+      "director": "Ayan Mukerji",
+      "cast": "Hrithik Roshan, N.T. Rama Rao Jr., Kiara Advani",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/g8m3B_eJt7s",
+      "sourceState": "UPCOMING_TRAILER",
+      "contentType": "MOVIE",
+      "qualityClass": "TRAILER",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "metadata": {
+        "originalLanguage": "Hindi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      }
+    },
+    {
+      "id": "vod_toxic_2026",
+      "title": "Toxic: A Fairy Tale for Grown-ups",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "rating": 9.4,
+      "duration": "N/A",
+      "synopsis": "A dark, intense crime drama set in the 1950s-1970s drug cartel underworld directed by Geetu Mohandas.",
+      "posterUrl": "assets/posters/vod_toxic_2026.jpg",
+      "backdropUrl": "assets/posters/vod_toxic_2026.jpg",
+      "resolution": "Official Studio Teaser",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "KVN Productions",
+      "director": "Geetu Mohandas",
+      "cast": "Yash, Kiara Advani, Huma Qureshi, Nayanthara",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/mKk3lP_e_vM",
+      "sourceState": "UPCOMING_TRAILER",
+      "contentType": "MOVIE",
+      "qualityClass": "TRAILER",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "metadata": {
+        "originalLanguage": "Kannada",
+        "spokenLanguages": [
+          "Hindi",
+          "Kannada"
         ],
         "countries": [
           "IN"
