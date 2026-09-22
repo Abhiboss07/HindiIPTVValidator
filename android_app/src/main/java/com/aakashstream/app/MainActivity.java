@@ -1727,16 +1727,34 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public String getMoviesCatalogJson() {
+            try {
+                InputStream is = getAssets().open("data/movies_catalog.json");
+                byte[] buffer = new byte[is.available()];
+                is.read(buffer);
+                is.close();
+                return new String(buffer, java.nio.charset.StandardCharsets.UTF_8);
+            } catch (Exception e) {
+                Log.w(TAG, "getMoviesCatalogJson failed: " + e.getMessage());
+                return null;
+            }
+        }
+
+        @JavascriptInterface
         public void setBrightness(float value) {
             runOnUiThread(() -> {
                 try {
                     WindowManager.LayoutParams lp = getWindow().getAttributes();
+                    float target;
                     if (value < 0) {
-                        lp.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
+                        target = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
                     } else {
-                        lp.screenBrightness = Math.max(0.01f, Math.min(1.0f, value));
+                        target = Math.max(0.01f, Math.min(1.0f, value));
                     }
-                    getWindow().setAttributes(lp);
+                    if (Math.abs(lp.screenBrightness - target) > 0.005f) {
+                        lp.screenBrightness = target;
+                        getWindow().setAttributes(lp);
+                    }
                 } catch (Exception e) {
                     Log.e(TAG, "Error setting brightness: " + e.getMessage());
                 }
