@@ -140,3 +140,6 @@ vod_ala_vaikunthapurramuloo_2020,Ala Vaikunthapurramuloo,movie,DIRECT_STREAM_AVA
 vod_ludo_2020,Ludo,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_thappad_2020,Thappad,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_bandaa_2023,Sirf Ek Bandaa Kaafi Hai,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_ramayana_part_1_2026,Ramayana: Part 1,MOVIE,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_war_2_2025,War 2,MOVIE,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_toxic_2026,Toxic: A Fairy Tale for Grown-ups,MOVIE,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True

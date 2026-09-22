@@ -1408,5 +1408,35 @@
     "supportsAbr": false,
     "startupLatencySec": 0.9,
     "healthy": true
+  },
+  {
+    "id": "vod_ramayana_part_1_2026",
+    "title": "Ramayana: Part 1",
+    "mediaType": "MOVIE",
+    "sourceState": "UPCOMING_TRAILER",
+    "deliveryMode": "TRAILER_EMBED",
+    "supportsAbr": false,
+    "startupLatencySec": 0.4,
+    "healthy": true
+  },
+  {
+    "id": "vod_war_2_2025",
+    "title": "War 2",
+    "mediaType": "MOVIE",
+    "sourceState": "UPCOMING_TRAILER",
+    "deliveryMode": "TRAILER_EMBED",
+    "supportsAbr": false,
+    "startupLatencySec": 0.4,
+    "healthy": true
+  },
+  {
+    "id": "vod_toxic_2026",
+    "title": "Toxic: A Fairy Tale for Grown-ups",
+    "mediaType": "MOVIE",
+    "sourceState": "UPCOMING_TRAILER",
+    "deliveryMode": "TRAILER_EMBED",
+    "supportsAbr": false,
+    "startupLatencySec": 0.4,
+    "healthy": true
   }
 ]

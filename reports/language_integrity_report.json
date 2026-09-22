@@ -57,11 +57,10 @@
   {
     "id": "vod_stree_2",
     "title": "Stree 2: Sarkate Ka Aatank",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "English"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -102,13 +101,10 @@
   {
     "id": "vod_pathaan",
     "title": "Pathaan",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "English",
-      "Telugu",
-      "Tamil"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -116,13 +112,10 @@
   {
     "id": "series_family_man",
     "title": "The Family Man",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "English",
-      "Tamil",
-      "Telugu"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -130,13 +123,12 @@
   {
     "id": "series_money_heist",
     "title": "Money Heist (La Casa de Papel)",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-    "primaryLanguage": "Hindi",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
     "languages": [
-      "Hindi",
       "English"
     ],
-    "hasHindiAudio": true,
+    "hasHindiAudio": false,
     "integrityOk": true
   },
   {
@@ -341,13 +333,10 @@
   {
     "id": "vod_leo",
     "title": "Leo: Bloody Sweet",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Tamil",
-      "Telugu",
-      "English"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -366,11 +355,10 @@
   {
     "id": "vod_tiger_3",
     "title": "Tiger 3",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "English"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -389,11 +377,10 @@
   {
     "id": "vod_dunki",
     "title": "Dunki",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "English"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -467,27 +454,21 @@
   {
     "id": "vod_avatar_way_of_water",
     "title": "Avatar: The Way of Water",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-    "primaryLanguage": "Hindi",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
     "languages": [
-      "English",
-      "Hindi",
-      "Tamil",
-      "Telugu"
+      "English"
     ],
-    "hasHindiAudio": true,
+    "hasHindiAudio": false,
     "integrityOk": true
   },
   {
     "id": "vod_brahmastra",
     "title": "Brahm\u0101stra: Part One \u2013 Shiva",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Telugu",
-      "Tamil",
-      "English"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -495,15 +476,12 @@
   {
     "id": "vod_spider_man_nwh",
     "title": "Spider-Man: No Way Home",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-    "primaryLanguage": "Hindi",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
     "languages": [
-      "English",
-      "Hindi",
-      "Tamil",
-      "Telugu"
+      "English"
     ],
-    "hasHindiAudio": true,
+    "hasHindiAudio": false,
     "integrityOk": true
   },
   {
@@ -631,11 +609,10 @@
   {
     "id": "vod_train_to_busan",
     "title": "Train to Busan",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Korean"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -643,11 +620,10 @@
   {
     "id": "vod_parasite",
     "title": "Parasite",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Korean"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -655,23 +631,21 @@
   {
     "id": "vod_the_raid_redemption",
     "title": "The Raid: Redemption",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-    "primaryLanguage": "Hindi",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "English",
     "languages": [
-      "Hindi",
-      "Indonesian"
+      "English"
     ],
-    "hasHindiAudio": true,
+    "hasHindiAudio": false,
     "integrityOk": true
   },
   {
     "id": "vod_ip_man",
     "title": "Ip Man",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Cantonese"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -679,11 +653,10 @@
   {
     "id": "vod_ip_man_4",
     "title": "Ip Man 4: The Finale",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Cantonese"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -691,11 +664,10 @@
   {
     "id": "vod_peninsula",
     "title": "Peninsula",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Korean"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -703,11 +675,10 @@
   {
     "id": "vod_kung_fu_hustle",
     "title": "Kung Fu Hustle",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Cantonese"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -715,11 +686,10 @@
   {
     "id": "vod_shaolin_soccer",
     "title": "Shaolin Soccer",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Cantonese"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -728,9 +698,8 @@
     "id": "vod_the_outlaws",
     "title": "The Outlaws",
     "classification": "NON_HINDI_AUDIO",
-    "primaryLanguage": "Korean",
+    "primaryLanguage": "English",
     "languages": [
-      "Korean",
       "English"
     ],
     "hasHindiAudio": false,
@@ -739,11 +708,10 @@
   {
     "id": "vod_the_roundup",
     "title": "The Roundup",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Korean"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -784,11 +752,10 @@
   {
     "id": "vod_your_name",
     "title": "Your Name (Kimi no Na wa)",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Japanese"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -807,11 +774,10 @@
   {
     "id": "series_naruto_classic",
     "title": "Naruto Shippuden (Hindi Dubbed)",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Japanese"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -819,11 +785,10 @@
   {
     "id": "vod_one_piece_film_red",
     "title": "One Piece Film: Red",
-    "classification": "MULTI_AUDIO_INCLUDING_HINDI",
+    "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
-      "Hindi",
-      "Japanese"
+      "Hindi"
     ],
     "hasHindiAudio": true,
     "integrityOk": true
@@ -1096,7 +1061,7 @@
     "id": "disc_charlie_chaplin_film_fest",
     "title": "Charlie Chaplin Festival",
     "classification": "NON_HINDI_AUDIO",
-    "primaryLanguage": "Music / silent",
+    "primaryLanguage": "English",
     "languages": [
       "English"
     ],
@@ -1162,7 +1127,7 @@
     "id": "vod_game_changer_2025",
     "title": "Game Changer",
     "classification": "MULTI_AUDIO_INCLUDING_HINDI",
-    "primaryLanguage": "Telugu",
+    "primaryLanguage": "Hindi",
     "languages": [
       "Telugu",
       "Hindi"
@@ -1589,6 +1554,39 @@
   {
     "id": "vod_bandaa_2023",
     "title": "Sirf Ek Bandaa Kaafi Hai",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_ramayana_part_1_2026",
+    "title": "Ramayana: Part 1",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_war_2_2025",
+    "title": "War 2",
+    "classification": "HINDI_AUDIO",
+    "primaryLanguage": "Hindi",
+    "languages": [
+      "Hindi"
+    ],
+    "hasHindiAudio": true,
+    "integrityOk": true
+  },
+  {
+    "id": "vod_toxic_2026",
+    "title": "Toxic: A Fairy Tale for Grown-ups",
     "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [
