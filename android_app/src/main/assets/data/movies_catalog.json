@@ -1,5 +1,5 @@
 {
-  "version": 13,
+  "version": 14,
   "updated_at": "2026-09-19T16:30:00Z",
   "total_movies": 80,
   "total_series": 37,
@@ -7192,20 +7192,20 @@
       "resolution": "4K UHD (3840x2160)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "Korean",
         "availableLanguages": [
-          "Hindi"
+          "Korean"
         ]
       },
       "languages": [
-        "Hindi"
+        "Korean"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "Korean",
       "container": "MP4",
-      "license": "CJ Entertainment (Oscar Best Picture • Hindi Dubbed)",
+      "license": "CJ Entertainment (Korean Dialogue with English Subtitles)",
       "director": "Bong Joon-ho",
       "cast": "Song Kang-ho, Lee Sun-kyun, Cho Yeo-jeong, Choi Woo-shik",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -7218,11 +7218,10 @@
       "qualityHonestBadge": "4K UHD",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "HINDI_AUDIO",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "Korean",
         "spokenLanguages": [
-          "Hindi",
           "Korean"
         ],
         "countries": [
@@ -7268,7 +7267,7 @@
       ],
       "defaultLanguage": "English",
       "container": "MP4",
-      "license": "PT Merantau Films (Hindi Dubbed)",
+      "license": "PT Merantau Films (English Dubbed)",
       "director": "Gareth Evans",
       "cast": "Iko Uwais, Joe Taslim, Donny Alamsyah, Yayan Ruhian",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -7285,8 +7284,7 @@
       "metadata": {
         "originalLanguage": "Indonesian",
         "spokenLanguages": [
-          "Hindi",
-          "Indonesian"
+          "English"
         ],
         "countries": [
           "US"
@@ -13483,7 +13481,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "durationFormatted": "Official Teaser"
     },
     {
       "id": "vod_war_2_2025",
@@ -13540,7 +13539,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "durationFormatted": "Official Teaser"
     },
     {
       "id": "vod_toxic_2026",
@@ -13599,7 +13599,8 @@
         "countries": [
           "IN"
         ]
-      }
+      },
+      "durationFormatted": "Official Teaser"
     }
   ]
 }
