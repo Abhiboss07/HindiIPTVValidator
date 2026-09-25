@@ -751,9 +751,44 @@ public class MainActivity extends Activity {
                 return true;
             }
 
+            // Built-in AdBlocker Engine for Seamless Third-Party Streaming & Embeds
+            private final java.util.Set<String> AD_DOMAINS = new java.util.HashSet<>(java.util.Arrays.asList(
+                "doubleclick.net", "googlesyndication.com", "adservice.google.com",
+                "popads.net", "popcash.net", "adsterra.com", "propellerads.com",
+                "adpushup.com", "exoclick.com", "trafficjunky.com", "juicyads.com",
+                "adnxs.com", "criteo.com", "outbrain.com", "taboola.com",
+                "scorecardresearch.com", "moatads.com", "quantserve.com",
+                "bet365.com", "1xbet.com", "parimatch.com", "stake.com",
+                "ad-delivery.net", "adtrue.com", "bidvertiser.com", "hilltopads.com",
+                "adkeeper.com", "clickadu.com", "richpush.com", "monetag.com"
+            ));
+
+            private boolean isAdResource(Uri uri) {
+                if (uri == null) return false;
+                String host = uri.getHost();
+                if (host == null) return false;
+                host = host.toLowerCase();
+                for (String adDomain : AD_DOMAINS) {
+                    if (host.equals(adDomain) || host.endsWith("." + adDomain)) {
+                        return true;
+                    }
+                }
+                String path = uri.getPath();
+                if (path != null) {
+                    String lp = path.toLowerCase();
+                    if (lp.contains("/ads.js") || lp.contains("/popunder") || lp.contains("/banner_ad") || lp.contains("/ads/banner")) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 Uri uri = request.getUrl();
+                if (isAdResource(uri)) {
+                    return new WebResourceResponse("text/plain", "UTF-8", 204, "No Content", new HashMap<>(), new ByteArrayInputStream(new byte[0]));
+                }
                 if (uri != null && "appassets.androidplatform.net".equals(uri.getHost())) {
                     try {
                         String path = uri.getPath();
