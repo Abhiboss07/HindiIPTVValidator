@@ -11,3 +11,4 @@ node_modules
 android_app/build/
 *.bak
 *.bak.*
+.mcp.json
