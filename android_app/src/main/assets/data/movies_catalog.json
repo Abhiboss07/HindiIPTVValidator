@@ -1,5 +1,5 @@
 {
-  "version": 17,
+  "version": 18,
   "updated_at": "2026-09-25T15:06:57.362419+00:00",
   "total_movies": 147,
   "total_series": 23,
@@ -68,7 +68,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_744312",
+      "tmdbId": 744312,
+      "imdbId": "tt11083906",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_the_white_tiger_2021",
@@ -133,7 +137,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_628534",
+      "tmdbId": 628534,
+      "imdbId": "tt6571548",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_sooryavanshi_2021",
@@ -201,7 +209,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_583406",
+      "tmdbId": 583406,
+      "imdbId": "tt9838854",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_mimi_2021",
@@ -267,7 +279,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_694073",
+      "tmdbId": 694073,
+      "imdbId": "tt10895180",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_dhamaka_2021",
@@ -335,7 +351,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_765103",
+      "tmdbId": 765103,
+      "imdbId": "tt13444408",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_bhuj_2021",
@@ -402,7 +422,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_597890",
+      "tmdbId": 597890,
+      "imdbId": "tt9850384",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_bhoot_police_2021",
@@ -467,7 +491,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_760926",
+      "tmdbId": 760926,
+      "imdbId": "tt11756534",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_bellbottom_2021",
@@ -533,7 +561,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_648579",
+      "tmdbId": 648579,
+      "imdbId": "tt11271802",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_atrangi_re_2021",
@@ -601,7 +633,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_668203",
+      "tmdbId": 668203,
+      "imdbId": "tt11690088",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_83_2021",
@@ -669,7 +705,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_554585",
+      "tmdbId": 554585,
+      "imdbId": "tt7518786",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "series_squid_game_s2_2025",
@@ -701,9 +741,9 @@
       "posterUrl": "assets/posters/series_squid_game_s2_2025.jpg",
       "backdropUrl": "assets/posters/series_squid_game_s2_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "sourceState": "NO_AUTHORIZED_SOURCE",
-      "sourceStatus": "UPCOMING",
+      "sourceStatus": "UNAVAILABLE",
       "audioClassification": "NON_HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -759,7 +799,12 @@
             }
           ]
         }
-      ]
+      ],
+      "contentId": "series_tmdb_93405",
+      "tmdbId": 93405,
+      "imdbId": "tt10919420",
+      "metadataSource": "TMDB_VERIFIED",
+      "resolution": ""
     },
     {
       "id": "series_delhi_crime_s3_2025",
@@ -786,9 +831,9 @@
       "posterUrl": "assets/posters/series_delhi_crime_s3_2025.jpg",
       "backdropUrl": "assets/posters/series_delhi_crime_s3_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "sourceState": "NO_AUTHORIZED_SOURCE",
-      "sourceStatus": "UPCOMING",
+      "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -843,7 +888,12 @@
             }
           ]
         }
-      ]
+      ],
+      "contentId": "series_tmdb_87784",
+      "tmdbId": 87784,
+      "imdbId": "tt9397750",
+      "metadataSource": "TMDB_VERIFIED",
+      "resolution": ""
     },
     {
       "id": "series_paatal_lok_s2_2025",
@@ -872,9 +922,9 @@
       "posterUrl": "assets/posters/series_paatal_lok_s2_2025.jpg",
       "backdropUrl": "assets/posters/series_paatal_lok_s2_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "sourceState": "NO_AUTHORIZED_SOURCE",
-      "sourceStatus": "UPCOMING",
+      "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -929,7 +979,12 @@
             }
           ]
         }
-      ]
+      ],
+      "contentId": "series_tmdb_103222",
+      "tmdbId": 103222,
+      "imdbId": "tt9680440",
+      "metadataSource": "TMDB_VERIFIED",
+      "resolution": ""
     },
     {
       "id": "series_farzi_s2_2025",
@@ -958,9 +1013,9 @@
       "posterUrl": "assets/posters/series_farzi_s2_2025.jpg",
       "backdropUrl": "assets/posters/series_farzi_s2_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "sourceState": "NO_AUTHORIZED_SOURCE",
-      "sourceStatus": "UPCOMING",
+      "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -1015,7 +1070,12 @@
             }
           ]
         }
-      ]
+      ],
+      "contentId": "series_tmdb_205715",
+      "tmdbId": 205715,
+      "imdbId": "tt14050212",
+      "metadataSource": "TMDB_VERIFIED",
+      "resolution": ""
     },
     {
       "id": "series_family_man_s3_2025",
@@ -1045,9 +1105,9 @@
       "posterUrl": "assets/posters/series_family_man_s3_2025.jpg",
       "backdropUrl": "assets/posters/series_family_man_s3_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "sourceState": "NO_AUTHORIZED_SOURCE",
-      "sourceStatus": "UPCOMING",
+      "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -1103,7 +1163,12 @@
             }
           ]
         }
-      ]
+      ],
+      "contentId": "series_tmdb_92749",
+      "tmdbId": 92749,
+      "imdbId": "tt9544034",
+      "metadataSource": "TMDB_VERIFIED",
+      "resolution": ""
     },
     {
       "id": "vod_deva_2025",
@@ -1131,8 +1196,8 @@
       "backdropUrl": "assets/posters/vod_deva_2025.jpg",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "PLAYABLE",
+      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UPCOMING",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -1165,7 +1230,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_1195430",
+      "tmdbId": 1195430,
+      "imdbId": "tt29263750",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_sikandar_2025",
@@ -1193,8 +1262,8 @@
       "backdropUrl": "assets/posters/vod_sikandar_2025.jpg",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "PLAYABLE",
+      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UPCOMING",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -1227,7 +1296,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_1257960",
+      "tmdbId": 1257960,
+      "imdbId": "tt32074360",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_fantastic_four_2025",
@@ -1257,8 +1330,8 @@
       "backdropUrl": "assets/posters/vod_fantastic_four_2025.jpg",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "PLAYABLE",
+      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UPCOMING",
       "audioClassification": "NON_HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -1292,7 +1365,11 @@
         "availableLanguages": [
           "English"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_617126",
+      "tmdbId": 617126,
+      "imdbId": "tt10676052",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_thunderbolts_2025",
@@ -1320,8 +1397,8 @@
       "backdropUrl": "assets/posters/vod_thunderbolts_2025.jpg",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "PLAYABLE",
+      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UPCOMING",
       "audioClassification": "NON_HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -1355,7 +1432,11 @@
         "availableLanguages": [
           "English"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_986056",
+      "tmdbId": 986056,
+      "imdbId": "tt20969586",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_superman_2025",
@@ -1385,8 +1466,8 @@
       "backdropUrl": "assets/posters/vod_superman_2025.jpg",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "PLAYABLE",
+      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UPCOMING",
       "audioClassification": "NON_HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -1420,7 +1501,11 @@
         "availableLanguages": [
           "English"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_1061181",
+      "tmdbId": 1061181,
+      "imdbId": "tt5950044",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_mission_impossible_8_2025",
@@ -1448,8 +1533,8 @@
       "backdropUrl": "assets/posters/vod_mission_impossible_8_2025.jpg",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "PLAYABLE",
+      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UPCOMING",
       "audioClassification": "NON_HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -1483,7 +1568,11 @@
         "availableLanguages": [
           "English"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_575265",
+      "tmdbId": 575265,
+      "imdbId": "tt9603208",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_captain_america_bnw_2025",
@@ -1513,8 +1602,8 @@
       "backdropUrl": "assets/posters/vod_captain_america_bnw_2025.jpg",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "PLAYABLE",
+      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UPCOMING",
       "audioClassification": "NON_HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
       "languages": [
@@ -1548,7 +1637,11 @@
         "availableLanguages": [
           "English"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_822119",
+      "tmdbId": 822119,
+      "imdbId": "tt14513804",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_spirit_2026",
@@ -1613,7 +1706,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_889737",
+      "tmdbId": 889737,
+      "imdbId": "tt15582236",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_alpha_2026",
@@ -1675,7 +1772,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_1311550",
+      "tmdbId": 1311550,
+      "imdbId": "tt31835688",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_king_2026",
@@ -1737,7 +1838,11 @@
         "availableLanguages": [
           "Hindi"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_1289196",
+      "tmdbId": 1289196,
+      "imdbId": "tt30018898",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "vod_spiderman_4_2026",
@@ -1802,7 +1907,11 @@
         "availableLanguages": [
           "English"
         ]
-      }
+      },
+      "contentId": "movie_tmdb_1034541",
+      "tmdbId": 1034541,
+      "imdbId": "tt21361444",
+      "metadataSource": "TMDB_VERIFIED"
     },
     {
       "id": "series_sherlock_holmes",
@@ -2487,7 +2596,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_236",
+      "tmdbId": 236,
+      "imdbId": "tt0086661",
+      "releaseYear": 1984,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_stranger_things",
@@ -2749,7 +2864,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_66732",
+      "tmdbId": 66732,
+      "imdbId": "tt4574334",
+      "releaseYear": 2025,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_panchayat",
@@ -3017,7 +3138,13 @@
         ]
       },
       "backupUrls": [],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_100757",
+      "tmdbId": 100757,
+      "imdbId": "tt12004706",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_mirzapur",
@@ -3305,7 +3432,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_83631",
+      "tmdbId": 83631,
+      "imdbId": "tt6473300",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_deadpool_wolverine",
@@ -3374,7 +3507,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_533535",
+      "tmdbId": 533535,
+      "imdbId": "tt6263850",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_stree_2",
@@ -3444,7 +3583,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1112426",
+      "tmdbId": 1112426,
+      "imdbId": "tt28342490",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_kalki_2898_ad",
@@ -3515,7 +3660,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_801688",
+      "tmdbId": 801688,
+      "imdbId": "tt12735488",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_gladiator_2",
@@ -3569,7 +3720,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/4rgYUipGJNo",
       "torrentUri": null,
       "sourceState": "TRAILER_ONLY",
-      "qualityClass": null,
+      "qualityClass": "SD",
       "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
@@ -3581,7 +3732,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_558449",
+      "tmdbId": 558449,
+      "imdbId": "tt9614460",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "TRAILER_ONLY"
     },
     {
       "id": "vod_spider_verse",
@@ -3647,7 +3804,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_324857",
+      "tmdbId": 324857,
+      "imdbId": "tt4633694",
+      "releaseYear": 2018,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_family_man",
@@ -3673,7 +3836,7 @@
       "description": "Srikant Tiwari, a middle-class man who also serves as a world-class spy for T.A.S.C, an undercover wing of the National Investigation Agency, must balance his family life with saving the nation from catastrophic terror attacks.",
       "posterUrl": "assets/posters/series_family_man.jpg",
       "backdropUrl": "assets/posters/series_family_man.jpg",
-      "resolution": "N/A",
+      "resolution": "",
       "codec": "HEVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -3740,7 +3903,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -3755,7 +3918,13 @@
         ]
       },
       "backupUrls": [],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_92749",
+      "tmdbId": 92749,
+      "imdbId": "tt9544034",
+      "releaseYear": 2021,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UNAVAILABLE"
     },
     {
       "id": "series_money_heist",
@@ -3781,7 +3950,7 @@
       "description": "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain, masterminded by The Professor.",
       "posterUrl": "assets/posters/series_money_heist.jpg",
       "backdropUrl": "assets/posters/series_money_heist.jpg",
-      "resolution": "N/A",
+      "resolution": "",
       "codec": "H.264",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -4048,7 +4217,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "Spanish",
@@ -4062,7 +4231,13 @@
         ]
       },
       "backupUrls": [],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_71446",
+      "tmdbId": 71446,
+      "imdbId": "tt6468322",
+      "releaseYear": 2021,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UNAVAILABLE"
     },
     {
       "id": "series_scam_1992",
@@ -4164,7 +4339,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_111340",
+      "tmdbId": 111340,
+      "imdbId": "tt12392890",
+      "releaseYear": 2020,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_sacred_games",
@@ -4189,7 +4370,7 @@
       "description": "A link in their pasts leads an honest Mumbai police officer Sartaj Singh to a fugitive gang boss Ganesh Gaitonde, whose cryptic warning spurs a quest to save Mumbai from cataclysm within 25 days.",
       "posterUrl": "assets/posters/series_sacred_games.jpg",
       "backdropUrl": "assets/posters/series_sacred_games.jpg",
-      "resolution": "N/A",
+      "resolution": "",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -4431,7 +4612,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -4444,7 +4625,13 @@
         ]
       },
       "backupUrls": [],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_79352",
+      "tmdbId": 79352,
+      "imdbId": "tt6077448",
+      "releaseYear": 2019,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UNAVAILABLE"
     },
     {
       "id": "vod_interstellar",
@@ -4511,7 +4698,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_157336",
+      "tmdbId": 157336,
+      "imdbId": "tt0816692",
+      "releaseYear": 2014,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_breaking_bad",
@@ -4750,7 +4943,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_1396",
+      "tmdbId": 1396,
+      "imdbId": "tt0903747",
+      "releaseYear": 2013,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_dark_knight",
@@ -4817,7 +5016,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1726",
+      "tmdbId": 1726,
+      "imdbId": "tt0371746",
+      "releaseYear": 2008,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_chhavaa",
@@ -4885,7 +5090,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1215162",
+      "tmdbId": 1215162,
+      "imdbId": "tt28637775",
+      "releaseYear": 2025,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_kota_factory",
@@ -5077,7 +5288,13 @@
         ]
       },
       "backupUrls": [],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_88040",
+      "tmdbId": 88040,
+      "imdbId": "tt9432978",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_dune_part_two",
@@ -5148,7 +5365,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_693134",
+      "tmdbId": 693134,
+      "imdbId": "tt15239678",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_furiosa",
@@ -5217,7 +5440,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_786892",
+      "tmdbId": 786892,
+      "imdbId": "tt12037194",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_shaitaan",
@@ -5283,7 +5512,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1214484",
+      "tmdbId": 1214484,
+      "imdbId": "tt28015403",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_alien_romulus",
@@ -5352,7 +5587,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_945961",
+      "tmdbId": 945961,
+      "imdbId": "tt18412256",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_fighter",
@@ -5424,7 +5665,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER",
+      "contentId": "movie_tmdb_784651",
+      "tmdbId": 784651,
+      "imdbId": "tt13818368",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_godzilla_x_kong",
@@ -5492,7 +5739,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_823464",
+      "tmdbId": 823464,
+      "imdbId": "tt14539740",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_12th_fail",
@@ -5558,7 +5811,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1181548",
+      "tmdbId": 1181548,
+      "imdbId": "tt23849204",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_oppenheimer",
@@ -5626,7 +5885,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_872585",
+      "tmdbId": 872585,
+      "imdbId": "tt15398776",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_farzi",
@@ -5650,7 +5915,7 @@
       "description": "Sunny, a brilliant small-time artist, designs the ultimate counterfeit currency note, pulling him and his best friend into the high-stakes world of global counterfeiting, pursued relentlessly by Michael, an unorthodox STF officer.",
       "posterUrl": "assets/posters/series_farzi.jpg",
       "backdropUrl": "assets/posters/series_farzi.jpg",
-      "resolution": "N/A",
+      "resolution": "",
       "codec": "HEVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -5892,7 +6157,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -5907,7 +6172,13 @@
         ]
       },
       "backupUrls": [],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_205715",
+      "tmdbId": 205715,
+      "imdbId": "tt14050212",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UNAVAILABLE"
     },
     {
       "id": "vod_john_wick_4",
@@ -5976,7 +6247,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_603692",
+      "tmdbId": 603692,
+      "imdbId": "tt10366206",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_leo",
@@ -6046,7 +6323,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1072790",
+      "tmdbId": 1072790,
+      "imdbId": "tt15654328",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_jawan",
@@ -6117,7 +6400,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_872906",
+      "tmdbId": 872906,
+      "imdbId": "tt15354916",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_tiger_3",
@@ -6185,7 +6474,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_786638",
+      "tmdbId": 786638,
+      "imdbId": "tt18411490",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_salaar",
@@ -6212,18 +6507,18 @@
       "resolution": "720p HD (1280x544)",
       "codec": "HEVC",
       "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "Telugu",
         "availableLanguages": [
-          "Hindi"
+          "Telugu"
         ]
       },
       "languages": [
-        "Hindi"
+        "Telugu"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "Telugu",
       "container": "MP4",
       "fileSize": "3.6 GB",
       "bitrate": "5.4 Mbps",
@@ -6242,7 +6537,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
-      "audioClassification": "HINDI_AUDIO",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -6252,7 +6547,14 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_770906",
+      "tmdbId": 770906,
+      "imdbId": "tt13642340",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "hasHindiSubtitles": false,
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_dunki",
@@ -6318,7 +6620,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_969492",
+      "tmdbId": 969492,
+      "imdbId": "tt15428134",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_animal",
@@ -6387,7 +6695,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_781732",
+      "tmdbId": 781732,
+      "imdbId": "tt13751694",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_gadar_2",
@@ -6453,7 +6767,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_883838",
+      "tmdbId": 883838,
+      "imdbId": "tt15441110",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_kgf_chapter_2",
@@ -6522,7 +6842,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_585245",
+      "tmdbId": 585245,
+      "imdbId": "tt10698680",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_top_gun_maverick",
@@ -6577,7 +6903,7 @@
       "trailerUrl": "https://archive.org/download/top-gun-maverick-official-trailer-2-prores/TopGunMaverick_OfficialTrailer2_4K_51_prores.mp4",
       "mediaType": "movie",
       "sourceState": "TRAILER_ONLY",
-      "qualityClass": null,
+      "qualityClass": "SD",
       "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
@@ -6589,7 +6915,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_361743",
+      "tmdbId": 361743,
+      "imdbId": "tt1745960",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "TRAILER_ONLY"
     },
     {
       "id": "vod_rrr",
@@ -6657,7 +6989,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_579974",
+      "tmdbId": 579974,
+      "imdbId": "tt8178634",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_the_batman",
@@ -6714,7 +7052,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/mqqft2x_Aa4",
       "mediaType": "movie",
       "sourceState": "TRAILER_ONLY",
-      "qualityClass": null,
+      "qualityClass": "SD",
       "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
@@ -6726,7 +7064,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_414906",
+      "tmdbId": 414906,
+      "imdbId": "tt1877830",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "TRAILER_ONLY"
     },
     {
       "id": "vod_avatar_way_of_water",
@@ -6797,7 +7141,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_76600",
+      "tmdbId": 76600,
+      "imdbId": "tt1630029",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_brahmastra",
@@ -6868,7 +7218,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_496331",
+      "tmdbId": 496331,
+      "imdbId": "tt6277462",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_spider_man_nwh",
@@ -6939,7 +7295,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_634649",
+      "tmdbId": 634649,
+      "imdbId": "tt10872600",
+      "releaseYear": 2021,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_pushpa_the_rise",
@@ -7010,7 +7372,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_690957",
+      "tmdbId": 690957,
+      "imdbId": "tt9389998",
+      "releaseYear": 2021,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_paatal_lok",
@@ -7035,7 +7403,7 @@
       "description": "A cynical, down-and-out Delhi cop gets assigned to investigate a high-profile assassination attempt gone wrong, leading him down a dark rabbit hole into the murky underworld of crime and politics.",
       "posterUrl": "assets/posters/series_paatal_lok.jpg",
       "backdropUrl": "assets/posters/series_paatal_lok.jpg",
-      "resolution": "N/A",
+      "resolution": "",
       "codec": "H.264",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -7102,7 +7470,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Trailer Only",
+      "qualityHonestBadge": "Unavailable",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -7115,7 +7483,13 @@
         ]
       },
       "backupUrls": [],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_103222",
+      "tmdbId": 103222,
+      "imdbId": "tt9680440",
+      "releaseYear": 2020,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UNAVAILABLE"
     },
     {
       "id": "vod_avengers_endgame",
@@ -7183,7 +7557,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_299534",
+      "tmdbId": 299534,
+      "imdbId": "tt4154796",
+      "releaseYear": 2019,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_dangal",
@@ -7252,7 +7632,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_360814",
+      "tmdbId": 360814,
+      "imdbId": "tt5074352",
+      "releaseYear": 2016,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_sita_sings_blues",
@@ -7319,7 +7705,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_17295",
+      "tmdbId": 17295,
+      "imdbId": "tt1253013",
+      "releaseYear": 2008,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_bbb_720p",
@@ -7387,7 +7779,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "HLS_TRACKS"
+      "audioSwitchingCapability": "HLS_TRACKS",
+      "contentId": "movie_tmdb_10378",
+      "tmdbId": 10378,
+      "imdbId": "tt1254207",
+      "releaseYear": 2008,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_squid_game",
@@ -7748,7 +8146,13 @@
         "Hindi": "https://archive.org/download/squid-game-hindi-480-p-s-01-e-01/Squid_Game_[Hindi]_480P_S01_E01.mp4",
         "English": "https://archive.org/download/Octopusgamesdubbed/Squid.Game.S01E01.DUBBED.720p.mp4"
       },
-      "audioSwitchingCapability": "URL_SWITCH"
+      "audioSwitchingCapability": "URL_SWITCH",
+      "contentId": "series_tmdb_93405",
+      "tmdbId": 93405,
+      "imdbId": "tt10919420",
+      "releaseYear": 2021,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_train_to_busan",
@@ -7812,7 +8216,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_396535",
+      "tmdbId": 396535,
+      "imdbId": "tt5700672",
+      "releaseYear": 2016,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_the_raid_redemption",
@@ -7874,7 +8284,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_75656",
+      "tmdbId": 75656,
+      "imdbId": "tt1899353",
+      "releaseYear": 2011,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_ip_man",
@@ -7937,7 +8353,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_14756",
+      "tmdbId": 14756,
+      "imdbId": "tt1220719",
+      "releaseYear": 2008,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_ip_man_4",
@@ -7999,7 +8421,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_449924",
+      "tmdbId": 449924,
+      "imdbId": "tt7746496",
+      "releaseYear": 2019,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_kung_fu_hustle",
@@ -8063,7 +8491,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_9470",
+      "tmdbId": 9470,
+      "imdbId": "tt0373074",
+      "releaseYear": 2004,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_shaolin_soccer",
@@ -8127,7 +8561,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_9471",
+      "tmdbId": 9471,
+      "imdbId": "tt0286112",
+      "releaseYear": 2001,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_the_outlaws",
@@ -8190,7 +8630,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_479718",
+      "tmdbId": 479718,
+      "imdbId": "tt7468056",
+      "releaseYear": 2017,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_the_roundup",
@@ -8253,7 +8699,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_862551",
+      "tmdbId": 862551,
+      "imdbId": "tt15838850",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_demon_slayer_mugen_train",
@@ -8315,7 +8767,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_635302",
+      "tmdbId": 635302,
+      "imdbId": "tt11032374",
+      "releaseYear": 2020,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_jujutsu_kaisen_0",
@@ -8378,7 +8836,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_810693",
+      "tmdbId": 810693,
+      "imdbId": "tt14331144",
+      "releaseYear": 2021,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_suzume",
@@ -8439,7 +8903,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_916224",
+      "tmdbId": 916224,
+      "imdbId": "tt16428256",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_your_name",
@@ -8505,7 +8975,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_372058",
+      "tmdbId": 372058,
+      "imdbId": "tt5311514",
+      "releaseYear": 2016,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_death_note",
@@ -8601,7 +9077,13 @@
           "episodeType": "full_episode"
         }
       ],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_13916",
+      "tmdbId": 13916,
+      "imdbId": "tt0877057",
+      "releaseYear": 2006,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_naruto_classic",
@@ -8905,7 +9387,13 @@
           "episodeType": "full_episode"
         }
       ],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_46260",
+      "tmdbId": 46260,
+      "imdbId": "tt0409591",
+      "releaseYear": 2002,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_one_piece_film_red",
@@ -8969,7 +9457,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_900667",
+      "tmdbId": 900667,
+      "imdbId": "tt16183464",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_stree",
@@ -9029,7 +9523,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_526051",
+      "tmdbId": 526051,
+      "imdbId": "tt8108198",
+      "releaseYear": 2018,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_kantara",
@@ -9091,7 +9591,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1024546",
+      "tmdbId": 1024546,
+      "imdbId": "tt15327088",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_kgf_chapter_1",
@@ -9152,7 +9658,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_560057",
+      "tmdbId": 560057,
+      "imdbId": "tt7899824",
+      "releaseYear": 2018,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_baahubali_1",
@@ -9213,7 +9725,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_256040",
+      "tmdbId": 256040,
+      "imdbId": "tt2631186",
+      "releaseYear": 2015,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_baahubali_2",
@@ -9274,7 +9792,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_350312",
+      "tmdbId": 350312,
+      "imdbId": "tt4849438",
+      "releaseYear": 2017,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_tumbbad",
@@ -9300,18 +9824,18 @@
       "resolution": "720p HD (1280x544)",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Marathi",
         "availableLanguages": [
-          "Hindi"
+          "Marathi"
         ]
       },
       "languages": [
-        "Hindi"
+        "Marathi"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "Marathi",
       "container": "MP4",
       "license": "Sohum Shah Films (Hindi)",
       "director": "Rahi Anil Barve",
@@ -9326,7 +9850,7 @@
       "qualityHonestBadge": "720p HD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
-      "audioClassification": "HINDI_AUDIO",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
         "spokenLanguages": [
@@ -9336,7 +9860,14 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_538858",
+      "tmdbId": 538858,
+      "imdbId": "tt8829830",
+      "releaseYear": 2018,
+      "metadataSource": "TMDB_VERIFIED",
+      "hasHindiSubtitles": true,
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_andhadhun",
@@ -9398,12 +9929,18 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_534780",
+      "tmdbId": 534780,
+      "imdbId": "tt8108198",
+      "releaseYear": 2018,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_shershaah",
-      "title": "Uri: The Surgical Strike",
-      "year": 2019,
+      "title": "Shershaah",
+      "year": 2021,
       "mediaType": "movie",
       "type": "Bollywood",
       "categories": [
@@ -9420,7 +9957,7 @@
       ],
       "rating": 8.3,
       "description": "Indian army special forces execute a covert operation, avenging the killing of fellow soldiers at their base by a terrorist group.",
-      "resolution": "1080p FHD (1920x1080)",
+      "resolution": "1080p (1920x1080)",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -9442,7 +9979,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "posterUrl": "assets/posters/vod_shershaah.jpg",
       "backdropUrl": "assets/posters/vod_shershaah.jpg",
-      "streamUrl": "https://archive.org/download/uri-the-surgical-strike-1080p-2019/Uri%20The%20Surgical%20Strike%201080p%202019.mp4",
+      "streamUrl": "https://archive.org/download/83-2021-1080p-z-flix-co/17%20-%20Bollywood%20-%202021/Shershaah%20%282021%29%20Hindi%201080p_zFlix%20CO.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/Q0FTXnefVBA",
       "torrentUri": null,
       "qualityClass": "FULL HD",
@@ -9459,7 +9996,14 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_653567",
+      "tmdbId": 653567,
+      "imdbId": "tt10295212",
+      "releaseYear": 2021,
+      "metadataSource": "TMDB_VERIFIED",
+      "originalTitle": "Shershaah",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_gangs_of_wasseypur",
@@ -9520,7 +10064,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_118412",
+      "tmdbId": 118412,
+      "imdbId": "tt1954470",
+      "releaseYear": 2012,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_vikram_vedha",
@@ -9582,7 +10132,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_883096",
+      "tmdbId": 883096,
+      "imdbId": "tt13915194",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_masoom_1983",
@@ -9651,7 +10207,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_107567",
+      "tmdbId": 107567,
+      "imdbId": "tt0085913",
+      "releaseYear": 1983,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_jaane_bhi_do_yaaro",
@@ -9720,7 +10282,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_62927",
+      "tmdbId": 62927,
+      "imdbId": "tt0085743",
+      "releaseYear": 1983,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_chhoti_si_baat",
@@ -9790,7 +10358,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_52917",
+      "tmdbId": 52917,
+      "imdbId": "tt0072779",
+      "releaseYear": 1975,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_night_of_the_living_dead",
@@ -9859,7 +10433,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_10331",
+      "tmdbId": 10331,
+      "imdbId": "tt0063350",
+      "releaseYear": 1968,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_charade_1963",
@@ -9932,7 +10512,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_4808",
+      "tmdbId": 4808,
+      "imdbId": "tt0056923",
+      "releaseYear": 1963,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_carnival_of_souls",
@@ -10001,7 +10587,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_16075",
+      "tmdbId": 16075,
+      "imdbId": "tt0055830",
+      "releaseYear": 1962,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_house_on_haunted_hill",
@@ -10071,7 +10663,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_16860",
+      "tmdbId": 16860,
+      "imdbId": "tt0052902",
+      "releaseYear": 1959,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_dressed_to_kill",
@@ -10141,7 +10739,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_24908",
+      "tmdbId": 24908,
+      "imdbId": "tt0038499",
+      "releaseYear": 1946,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_sherlock_holmes_1954",
@@ -10408,7 +11012,13 @@
           "episodeType": "full_episode"
         }
       ],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_4028",
+      "tmdbId": 4028,
+      "imdbId": "tt0046644",
+      "releaseYear": 1954,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_avengers_doomsday_2026",
@@ -10476,7 +11086,12 @@
       },
       "posterUrl": "assets/posters/vod_avengers_doomsday_2026.jpg",
       "backdropUrl": "assets/posters/vod_avengers_doomsday_2026.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1003596",
+      "tmdbId": 1003596,
+      "imdbId": "tt20245442",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UPCOMING"
     },
     {
       "id": "vod_the_batman_part_ii_2026",
@@ -10544,7 +11159,12 @@
       },
       "posterUrl": "assets/posters/vod_the_batman_part_ii_2026.jpg",
       "backdropUrl": "assets/posters/vod_the_batman_part_ii_2026.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_969681",
+      "tmdbId": 969681,
+      "imdbId": "tt19851608",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UPCOMING"
     },
     {
       "id": "vod_fateh_2025",
@@ -10611,7 +11231,12 @@
       },
       "posterUrl": "assets/posters/vod_fateh_2025.jpg",
       "backdropUrl": "assets/posters/vod_fateh_2025.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1119744",
+      "tmdbId": 1119744,
+      "imdbId": "tt16544078",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_game_changer_2025",
@@ -10682,7 +11307,12 @@
       },
       "posterUrl": "assets/posters/vod_game_changer_2025.jpg",
       "backdropUrl": "assets/posters/vod_game_changer_2025.jpg",
-      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER",
+      "contentId": "movie_tmdb_870028",
+      "tmdbId": 870028,
+      "imdbId": "tt14032128",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_laapataa_ladies_2024",
@@ -10749,7 +11379,12 @@
       },
       "posterUrl": "assets/posters/vod_laapataa_ladies_2024.jpg",
       "backdropUrl": "assets/posters/vod_laapataa_ladies_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1041935",
+      "tmdbId": 1041935,
+      "imdbId": "tt22314896",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_article_370_2024",
@@ -10817,7 +11452,12 @@
       },
       "posterUrl": "assets/posters/vod_article_370_2024.jpg",
       "backdropUrl": "assets/posters/vod_article_370_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1238478",
+      "tmdbId": 1238478,
+      "imdbId": "tt31006540",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_mission_raniganj_2023",
@@ -10885,7 +11525,12 @@
       },
       "posterUrl": "assets/posters/vod_mission_raniganj_2023.jpg",
       "backdropUrl": "assets/posters/vod_mission_raniganj_2023.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1171804",
+      "tmdbId": 1171804,
+      "imdbId": "tt21867160",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_badla_2019",
@@ -10953,7 +11598,12 @@
       },
       "posterUrl": "assets/posters/vod_badla_2019.jpg",
       "backdropUrl": "assets/posters/vod_badla_2019.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_526052",
+      "tmdbId": 526052,
+      "imdbId": "tt8130968",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_kesari_2019",
@@ -11021,7 +11671,12 @@
       },
       "posterUrl": "assets/posters/vod_kesari_2019.jpg",
       "backdropUrl": "assets/posters/vod_kesari_2019.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_517430",
+      "tmdbId": 517430,
+      "imdbId": "tt7714910",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_airlift_2016",
@@ -11089,7 +11744,12 @@
       },
       "posterUrl": "assets/posters/vod_airlift_2016.jpg",
       "backdropUrl": "assets/posters/vod_airlift_2016.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_353595",
+      "tmdbId": 353595,
+      "imdbId": "tt4387040",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_baby_2015",
@@ -11157,7 +11817,12 @@
       },
       "posterUrl": "assets/posters/vod_baby_2015.jpg",
       "backdropUrl": "assets/posters/vod_baby_2015.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_317077",
+      "tmdbId": 317077,
+      "imdbId": "tt3848892",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_holiday_2014",
@@ -11224,7 +11889,12 @@
       },
       "posterUrl": "assets/posters/vod_holiday_2014.jpg",
       "backdropUrl": "assets/posters/vod_holiday_2014.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_268238",
+      "tmdbId": 268238,
+      "imdbId": "tt3397884",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_rockstar_2011",
@@ -11292,7 +11962,12 @@
       },
       "posterUrl": "assets/posters/vod_rockstar_2011.jpg",
       "backdropUrl": "assets/posters/vod_rockstar_2011.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_79844",
+      "tmdbId": 79844,
+      "imdbId": "tt1839596",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_znmd_2011",
@@ -11360,7 +12035,12 @@
       },
       "posterUrl": "assets/posters/vod_znmd_2011.jpg",
       "backdropUrl": "assets/posters/vod_znmd_2011.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_64018",
+      "tmdbId": 64018,
+      "imdbId": "tt1562872",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_ghajini_2008",
@@ -11428,7 +12108,12 @@
       },
       "posterUrl": "assets/posters/vod_ghajini_2008.jpg",
       "backdropUrl": "assets/posters/vod_ghajini_2008.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_14049",
+      "tmdbId": 14049,
+      "imdbId": "tt1176065",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_taare_zameen_par_2007",
@@ -11495,7 +12180,12 @@
       },
       "posterUrl": "assets/posters/vod_taare_zameen_par_2007.jpg",
       "backdropUrl": "assets/posters/vod_taare_zameen_par_2007.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_7579",
+      "tmdbId": 7579,
+      "imdbId": "tt0986264",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_lagaan_2001",
@@ -11564,7 +12254,12 @@
       },
       "posterUrl": "assets/posters/vod_lagaan_2001.jpg",
       "backdropUrl": "assets/posters/vod_lagaan_2001.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1966",
+      "tmdbId": 1966,
+      "imdbId": "tt0169102",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_aavesham_2024",
@@ -11642,7 +12337,12 @@
       },
       "posterUrl": "assets/posters/vod_aavesham_2024.jpg",
       "backdropUrl": "assets/posters/vod_aavesham_2024.jpg",
-      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER",
+      "contentId": "movie_tmdb_1199580",
+      "tmdbId": 1199580,
+      "imdbId": "tt26731420",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_bramayugam_2024",
@@ -11721,7 +12421,12 @@
       },
       "posterUrl": "assets/posters/vod_bramayugam_2024.jpg",
       "backdropUrl": "assets/posters/vod_bramayugam_2024.jpg",
-      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER",
+      "contentId": "movie_tmdb_1167448",
+      "tmdbId": 1167448,
+      "imdbId": "tt28708623",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_aadujeevitham_2024",
@@ -11795,7 +12500,12 @@
       },
       "posterUrl": "assets/posters/vod_aadujeevitham_2024.jpg",
       "backdropUrl": "assets/posters/vod_aadujeevitham_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_801684",
+      "tmdbId": 801684,
+      "imdbId": "tt4365518",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_maharaja_2024",
@@ -11869,7 +12579,12 @@
       },
       "posterUrl": "assets/posters/vod_maharaja_2024.jpg",
       "backdropUrl": "assets/posters/vod_maharaja_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1118224",
+      "tmdbId": 1118224,
+      "imdbId": "tt26548265",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_premalu_2024",
@@ -11939,7 +12654,12 @@
       },
       "posterUrl": "assets/posters/vod_premalu_2024.jpg",
       "backdropUrl": "assets/posters/vod_premalu_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1215160",
+      "tmdbId": 1215160,
+      "imdbId": "tt28328652",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_manjummel_boys_2024",
@@ -12013,7 +12733,12 @@
       },
       "posterUrl": "assets/posters/vod_manjummel_boys_2024.jpg",
       "backdropUrl": "assets/posters/vod_manjummel_boys_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1215161",
+      "tmdbId": 1215161,
+      "imdbId": "tt26456006",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_amar_singh_chamkila_2024",
@@ -12086,7 +12811,12 @@
       },
       "posterUrl": "assets/posters/vod_amar_singh_chamkila_2024.jpg",
       "backdropUrl": "assets/posters/vod_amar_singh_chamkila_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1136368",
+      "tmdbId": 1136368,
+      "imdbId": "tt21867160",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_blackout_2024",
@@ -12158,7 +12888,12 @@
       },
       "posterUrl": "assets/posters/vod_blackout_2024.jpg",
       "backdropUrl": "assets/posters/vod_blackout_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1290382",
+      "tmdbId": 1290382,
+      "imdbId": "tt32187766",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_hanuman_2024",
@@ -12234,7 +12969,12 @@
       },
       "posterUrl": "assets/posters/vod_hanuman_2024.jpg",
       "backdropUrl": "assets/posters/vod_hanuman_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_857598",
+      "tmdbId": 857598,
+      "imdbId": "tt15418778",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_kill_2024",
@@ -12306,7 +13046,12 @@
       },
       "posterUrl": "assets/posters/vod_kill_2024.jpg",
       "backdropUrl": "assets/posters/vod_kill_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1160018",
+      "tmdbId": 1160018,
+      "imdbId": "tt28259169",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_crew_2024",
@@ -12376,7 +13121,12 @@
       },
       "posterUrl": "assets/posters/vod_crew_2024.jpg",
       "backdropUrl": "assets/posters/vod_crew_2024.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1052671",
+      "tmdbId": 1052671,
+      "imdbId": "tt23730594",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_jailer_2023",
@@ -12448,7 +13198,12 @@
       },
       "posterUrl": "assets/posters/vod_jailer_2023.jpg",
       "backdropUrl": "assets/posters/vod_jailer_2023.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_980489",
+      "tmdbId": 980489,
+      "imdbId": "tt11663228",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "TRAILER_ONLY"
     },
     {
       "id": "vod_sam_bahadur_2023",
@@ -12520,7 +13275,12 @@
       },
       "posterUrl": "assets/posters/vod_sam_bahadur_2023.jpg",
       "backdropUrl": "assets/posters/vod_sam_bahadur_2023.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1053544",
+      "tmdbId": 1053544,
+      "imdbId": "tt14050212",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_vikram_2022",
@@ -12604,7 +13364,12 @@
       },
       "posterUrl": "assets/posters/vod_vikram_2022.jpg",
       "backdropUrl": "assets/posters/vod_vikram_2022.jpg",
-      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER",
+      "contentId": "movie_tmdb_763285",
+      "tmdbId": 763285,
+      "imdbId": "tt9179430",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_karthikeya_2_2022",
@@ -12678,7 +13443,12 @@
       },
       "posterUrl": "assets/posters/vod_karthikeya_2_2022.jpg",
       "backdropUrl": "assets/posters/vod_karthikeya_2_2022.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_792293",
+      "tmdbId": 792293,
+      "imdbId": "tt10899264",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_777_charlie_2022",
@@ -12752,7 +13522,12 @@
       },
       "posterUrl": "assets/posters/vod_777_charlie_2022.jpg",
       "backdropUrl": "assets/posters/vod_777_charlie_2022.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_744310",
+      "tmdbId": 744310,
+      "imdbId": "tt7466810",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_minnal_murali_2021",
@@ -12848,7 +13623,12 @@
       },
       "posterUrl": "assets/posters/vod_minnal_murali_2021.jpg",
       "backdropUrl": "assets/posters/vod_minnal_murali_2021.jpg",
-      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER",
+      "contentId": "movie_tmdb_639249",
+      "tmdbId": 639249,
+      "imdbId": "tt10909778",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_sardar_udham_2021",
@@ -12922,7 +13702,12 @@
       },
       "posterUrl": "assets/posters/vod_sardar_udham_2021.jpg",
       "backdropUrl": "assets/posters/vod_sardar_udham_2021.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_75780",
+      "tmdbId": 75780,
+      "imdbId": "tt10235060",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_ala_vaikunthapurramuloo_2020",
@@ -13001,7 +13786,12 @@
       },
       "posterUrl": "assets/posters/vod_ala_vaikunthapurramuloo_2020.jpg",
       "backdropUrl": "assets/posters/vod_ala_vaikunthapurramuloo_2020.jpg",
-      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER"
+      "audioSwitchingCapability": "MULTI_TRACK_CONTAINER",
+      "contentId": "movie_tmdb_605116",
+      "tmdbId": 605116,
+      "imdbId": "tt10344442",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_ludo_2020",
@@ -13075,7 +13865,12 @@
       },
       "posterUrl": "assets/posters/vod_ludo_2020.jpg",
       "backdropUrl": "assets/posters/vod_ludo_2020.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_639247",
+      "tmdbId": 639247,
+      "imdbId": "tt11151608",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_bandaa_2023",
@@ -13146,7 +13941,12 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1124619",
+      "tmdbId": 1124619,
+      "imdbId": "tt22797686",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_ramayana_part_1_2026",
@@ -13205,7 +14005,13 @@
           "IN"
         ]
       },
-      "durationFormatted": "Official Teaser"
+      "durationFormatted": "Official Teaser",
+      "contentId": "movie_tmdb_1070514",
+      "tmdbId": 1070514,
+      "imdbId": "tt30821034",
+      "mediaType": "movie",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UPCOMING"
     },
     {
       "id": "vod_war_2_2025",
@@ -13263,7 +14069,13 @@
           "IN"
         ]
       },
-      "durationFormatted": "Official Teaser"
+      "durationFormatted": "Official Teaser",
+      "contentId": "movie_tmdb_1110091",
+      "tmdbId": 1110091,
+      "imdbId": "tt27443106",
+      "mediaType": "movie",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UPCOMING"
     },
     {
       "id": "vod_toxic_2026",
@@ -13323,7 +14135,13 @@
           "IN"
         ]
       },
-      "durationFormatted": "Official Teaser"
+      "durationFormatted": "Official Teaser",
+      "contentId": "movie_tmdb_1215163",
+      "tmdbId": 1215163,
+      "imdbId": "tt30372332",
+      "mediaType": "movie",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UPCOMING"
     },
     {
       "id": "vod_pathaan",
@@ -13378,7 +14196,7 @@
       "region": "BOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/vqu4z34wENw",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": null,
+      "qualityClass": "SD",
       "qualityHonestBadge": "480p SD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
@@ -13393,7 +14211,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_864692",
+      "tmdbId": 864692,
+      "imdbId": "tt12844910",
+      "releaseYear": 2023,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_munjya",
@@ -13448,7 +14272,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/8X3uF80H5LU",
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": null,
+      "qualityClass": "SD",
       "qualityHonestBadge": "480p SD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
@@ -13460,7 +14284,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1290380",
+      "tmdbId": 1290380,
+      "imdbId": "tt32034988",
+      "releaseYear": 2024,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_inception",
@@ -13515,7 +14345,7 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/YoHD9XEInc0",
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": null,
+      "qualityClass": "SD",
       "qualityHonestBadge": "480p SD",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
@@ -13527,7 +14357,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_27205",
+      "tmdbId": 27205,
+      "imdbId": "tt1375666",
+      "releaseYear": 2010,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_his_girl_friday",
@@ -13597,7 +14433,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_3085",
+      "tmdbId": 3085,
+      "imdbId": "tt0032599",
+      "releaseYear": 1940,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_crash_landing_on_you",
@@ -14037,7 +14879,13 @@
           "episodeType": "full_episode"
         }
       ],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_94796",
+      "tmdbId": 94796,
+      "imdbId": "tt10850932",
+      "releaseYear": 2019,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "series_descendants_of_the_sun",
@@ -14477,7 +15325,13 @@
           "episodeType": "full_episode"
         }
       ],
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "series_tmdb_65249",
+      "tmdbId": 65249,
+      "imdbId": "tt4927092",
+      "releaseYear": 2016,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_parasite",
@@ -14538,7 +15392,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_496243",
+      "tmdbId": 496243,
+      "imdbId": "tt6751668",
+      "releaseYear": 2019,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_peninsula",
@@ -14586,7 +15446,7 @@
       "streamUrl": "https://archive.org/download/peninsula_202107/peninsula.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/yVucSRLLeIM",
       "torrentUri": null,
-      "qualityClass": null,
+      "qualityClass": "SD",
       "qualityHonestBadge": "480p SD",
       "contentType": "MOVIE",
       "region": "ASIAN",
@@ -14601,7 +15461,13 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_581392",
+      "tmdbId": 581392,
+      "imdbId": "tt8850222",
+      "releaseYear": 2020,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_drishyam_2",
@@ -14648,7 +15514,7 @@
       "streamUrl": "https://archive.org/download/drishyam-2-2021-new-sout-full-movie-hindi-fan-dubbed-hindi-fan-dubbed-and-malaya/Drishyam%202%20%282021%29%20New%20Sout%20Full%20Movie%20Hindi%20Fan%20Dubbed%20%5BHindi%20%28Fan%20Dubbed%29%20And%20Malayalam%5D%20Esub%20HD%20%5BNo%20Ads%5D%20400mb.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/cxA2y9Tgl7o",
       "torrentUri": null,
-      "qualityClass": null,
+      "qualityClass": "SD",
       "qualityHonestBadge": "480p SD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
@@ -14662,7 +15528,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_980489",
+      "tmdbId": 980489,
+      "imdbId": "tt15582236",
+      "releaseYear": 2022,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_3_idiots",
@@ -14707,7 +15579,7 @@
       "streamUrl": "https://archive.org/download/3-idiots_202108/3_Idiots.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/K0eDlFX9GMc",
       "torrentUri": null,
-      "qualityClass": null,
+      "qualityClass": "SD",
       "qualityHonestBadge": "480p SD",
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
@@ -14721,7 +15593,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_20453",
+      "tmdbId": 20453,
+      "imdbId": "tt1187043",
+      "releaseYear": 2009,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_do_bigha_zamin",
@@ -14789,7 +15667,13 @@
           "IN"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_79845",
+      "tmdbId": 79845,
+      "imdbId": "tt0045693",
+      "releaseYear": 1953,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "disc_VoyagetothePlanetofPrehistoricWomen",
@@ -14853,7 +15737,14 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_75782",
+      "tmdbId": 75782,
+      "imdbId": "tt0063790",
+      "releaseYear": 1968,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE",
+      "qualityClass": "SD"
     },
     {
       "id": "disc_TheFastandtheFuriousJohnIreland1954goofyrip",
@@ -14917,7 +15808,14 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_28540",
+      "tmdbId": 28540,
+      "imdbId": "tt0046969",
+      "releaseYear": 1955,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE",
+      "qualityClass": "SD"
     },
     {
       "id": "disc_charlie_chaplin_film_fest",
@@ -14981,7 +15879,14 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_118413",
+      "tmdbId": 118413,
+      "imdbId": "tt0030113",
+      "releaseYear": 1938,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE",
+      "qualityClass": "SD"
     },
     {
       "id": "disc_Return_of_the_Kung_Fu_Dragon",
@@ -15045,7 +15950,14 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_118414",
+      "tmdbId": 118414,
+      "imdbId": "tt0186501",
+      "releaseYear": 1976,
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE",
+      "qualityClass": "SD"
     },
     {
       "id": "vod_sky_force_2025",
@@ -15113,7 +16025,12 @@
       },
       "posterUrl": "assets/posters/vod_sky_force_2025.jpg",
       "backdropUrl": "assets/posters/vod_sky_force_2025.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_1187498",
+      "tmdbId": 1187498,
+      "imdbId": "tt29340050",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_rang_de_basanti_2006",
@@ -15136,7 +16053,7 @@
       ],
       "rating": 8.1,
       "description": "A British filmmaker casts five carefree Delhi university students in a film on Indian freedom fighters, awakening their political activism.",
-      "resolution": "480p SD (720x320)",
+      "resolution": "1080p (1920x1080)",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15161,14 +16078,14 @@
       "cast": "Aamir Khan, Siddharth, Sharman Joshi, Kunal Kapoor, Atul Kulkarni, Soha Ali Khan, Alice Patten, R. Madhavan",
       "featured": true,
       "latest": false,
-      "streamUrl": "https://archive.org/download/rang-de-basanti-hindi-educational-movie/Rang%20De%20Basanti%20Hindi%20Educational%20Movie.mp4",
+      "streamUrl": "https://archive.org/download/rang-de-basanti-1080p-2006/Rang%20De%20Basanti%201080p%202006.mp4",
       "trailerUrl": null,
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "480p SD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -15181,7 +16098,12 @@
       },
       "posterUrl": "assets/posters/vod_rang_de_basanti_2006.jpg",
       "backdropUrl": "assets/posters/vod_rang_de_basanti_2006.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_9673",
+      "tmdbId": 9673,
+      "imdbId": "tt0405508",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_sita_ramam_2022",
@@ -15208,7 +16130,7 @@
       ],
       "rating": 8.6,
       "description": "An orphaned Indian soldier stationed in Kashmir receives romantic letters from an unknown woman named Sita Mahalakshmi, triggering an unforgettable journey.",
-      "resolution": "360p",
+      "resolution": "720p (1280x720)",
       "codec": "H.264",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -15238,13 +16160,13 @@
       "cast": "Dulquer Salmaan, Mrunal Thakur, Rashmika Mandanna, Sumanth",
       "featured": true,
       "latest": false,
-      "streamUrl": "https://archive.org/download/mm-sita-ramam-2022-malayalam-hdrip/%5BMM%5D%20Sita%20Ramam%20%282022%29%20Malayalam%20HDRip.mp4",
+      "streamUrl": "https://archive.org/download/prmovies-sita-ramam-hindi-dubbed/Prmovies-Sita_Ramam_Hindi_Dubbed.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/Fw0W64iZ8qg",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "360p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "te",
@@ -15257,7 +16179,12 @@
       },
       "posterUrl": "assets/posters/vod_sita_ramam_2022.jpg",
       "backdropUrl": "assets/posters/vod_sita_ramam_2022.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_966220",
+      "tmdbId": 966220,
+      "imdbId": "tt20850406",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_jai_bhim_2021",
@@ -15282,7 +16209,7 @@
       ],
       "rating": 8.8,
       "description": "When an innocent tribal man is falsely arrested for theft and dies mysteriously in police custody, an unyielding human rights lawyer fights for justice.",
-      "resolution": "360p",
+      "resolution": "720p (1280x720)",
       "codec": "H.264",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -15312,13 +16239,13 @@
       "cast": "Suriya, Lijomol Jose, Manikandan, Rajisha Vijayan",
       "featured": true,
       "latest": false,
-      "streamUrl": "https://archive.org/download/jai-bhim-new-south-indian-hindi-dubbed-web-rip-full-hd-movie/Jai_Bhim_New_South_Indian_Hindi_Dubbed_WebRip_Full_HD_Movie.mkv",
+      "streamUrl": "https://archive.org/download/filmy-4wap.xyz-jai-bhim-2021-south-hindi-dubbed-full-movie-esub-hevc-720pkjhfcsk/Filmy4wap.xyz%20Jai%20Bhim%20%282021%29%20South%20Hindi%20Dubbed%20Full%20Movie%20ESub%20HEVC%20720p%20%281%29.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/Gc6dEDnL8JA",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "SD",
-      "qualityHonestBadge": "360p SD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "ta",
@@ -15331,7 +16258,12 @@
       },
       "posterUrl": "assets/posters/vod_jai_bhim_2021.jpg",
       "backdropUrl": "assets/posters/vod_jai_bhim_2021.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_877817",
+      "tmdbId": 877817,
+      "imdbId": "tt15097216",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_thappad_2020",
@@ -15399,7 +16331,12 @@
       },
       "posterUrl": "assets/posters/vod_thappad_2020.jpg",
       "backdropUrl": "assets/posters/vod_thappad_2020.jpg",
-      "audioSwitchingCapability": "NONE"
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_653569",
+      "tmdbId": 653569,
+      "imdbId": "tt11151608",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "PLAYABLE"
     }
   ]
 }
