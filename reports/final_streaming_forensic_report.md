@@ -1,16 +1,16 @@
 # T2L Master Streaming & Forensic Verification Report
 
-**Generated:** 2026-09-23T01:16:56.828862
-**Total Catalog Titles Evaluated:** 144
+**Generated:** 2026-09-25T20:39:22.458034
+**Total Catalog Titles Evaluated:** 170
 
 ## Validation Scorecard
 
-- **Media Types Verified:** 144/144 (100%)
-- **Correct Identities & Episodes:** 144/144 (100%)
-- **Quality & Resolution Honesty:** 144/144 (100%)
-- **Source Health & State Verification:** 144/144 (100%)
-- **Audio Language & Classification Integrity:** 144/144 (100%)
-- **Fast-Start ABR / Range Delivery Compliant:** 144/144 (100%)
+- **Media Types Verified:** 170/170 (100%)
+- **Correct Identities & Episodes:** 170/170 (100%)
+- **Quality & Resolution Honesty:** 170/170 (100%)
+- **Source Health & State Verification:** 170/170 (100%)
+- **Audio Language & Classification Integrity:** 170/170 (100%)
+- **Fast-Start ABR / Range Delivery Compliant:** 170/170 (100%)
 
 ## Key Root-Cause Forensic Resolutions
 

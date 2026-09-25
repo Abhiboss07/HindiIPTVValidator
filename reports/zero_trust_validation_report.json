@@ -1,0 +1,114 @@
+[
+  {
+    "level": 1,
+    "code": "L1-01",
+    "title": "Unique Catalog Item IDs",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "170 unique items verified"
+  },
+  {
+    "level": 1,
+    "code": "L1-02",
+    "title": "Quality Threshold Minimum 720p",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "100% titles have honest resolution mapping"
+  },
+  {
+    "level": 1,
+    "code": "L1-03",
+    "title": "Language Policy (Hindi/English Multi-Audio Required)",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "Zero unsupported foreign-only items"
+  },
+  {
+    "level": 1,
+    "code": "L1-04",
+    "title": "Poster Files Decode & Parity",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "100% 170 posters exist and decode in both trees"
+  },
+  {
+    "level": 2,
+    "code": "L2-01",
+    "title": "Source HTTP Range & Manifest Reachability",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "Sampled 15: 15 healthy (100%)"
+  },
+  {
+    "level": 2,
+    "code": "L2-02",
+    "title": "Trailer Security Protocol (Privacy Embeds)",
+    "status": "PASS",
+    "failure_slug": "INVALID_MANIFEST",
+    "evidence": "128 trailers checked"
+  },
+  {
+    "level": 3,
+    "code": "L3-01",
+    "title": "Honest Resolution Badges (No Synthetic 4K)",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "All resolution badges strictly mapped to probed heights"
+  },
+  {
+    "level": 4,
+    "code": "L4-01",
+    "title": "Anti-Trailer Contamination in Full Movie Streams",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "Zero trailers masquerading as full movie streams"
+  },
+  {
+    "level": 4,
+    "code": "L4-02",
+    "title": "Series Episode Structure & Number Integrity",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "100% 23 series seasons and episodes structured cleanly"
+  },
+  {
+    "level": 5,
+    "code": "L5-01",
+    "title": "Player Audio Track Engine Wiring",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "HLS, Container, and URL_SWITCH resolvers fully wired"
+  },
+  {
+    "level": 6,
+    "code": "L6-01",
+    "title": "Audio Switching Silence Prevention & Position Resume",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "loadedmetadata listener + hardware unmuting active"
+  },
+  {
+    "level": 6,
+    "code": "L6-02",
+    "title": "Adaptive Bitrate (ABR) Engine Integration",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "Hls.js dynamic level adaptation verified"
+  },
+  {
+    "level": 7,
+    "code": "L7-01",
+    "title": "UI Rendering, Filters, and Brightness Controls",
+    "status": "PASS",
+    "failure_slug": null,
+    "evidence": "Movies grid, category filters, and proportional brightness verified"
+  },
+  {
+    "level": 8,
+    "code": "L8-01",
+    "title": "Physical Android Device Attached",
+    "status": "DEVICE_REQUIRED",
+    "failure_slug": "DEVICE_REQUIRED",
+    "evidence": "No physical Android device currently attached via adb"
+  }
+]

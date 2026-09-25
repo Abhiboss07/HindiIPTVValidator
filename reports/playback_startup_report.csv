@@ -1,4 +1,30 @@
 id,title,mediaType,sourceState,deliveryMode,supportsAbr,startupLatencySec,healthy
+vod_tribhanga_2021,Tribhanga (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_the_white_tiger_2021,The White Tiger (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_sooryavanshi_2021,Sooryavanshi (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_mimi_2021,Mimi (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_dhamaka_2021,Dhamaka (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_bhuj_2021,Bhuj: The Pride of India (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_bhoot_police_2021,Bhoot Police (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_bellbottom_2021,Bellbottom (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_atrangi_re_2021,Atrangi Re (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_83_2021,83 (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+series_squid_game_s2_2025,Squid Game Season 2 (2025),series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
+series_delhi_crime_s3_2025,Delhi Crime Season 3 (2025),series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
+series_paatal_lok_s2_2025,Paatal Lok Season 2 (2025),series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
+series_farzi_s2_2025,Farzi Season 2 (2025),series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
+series_family_man_s3_2025,The Family Man Season 3 (2025),series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
+vod_deva_2025,Deva (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
+vod_sikandar_2025,Sikandar (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
+vod_fantastic_four_2025,The Fantastic Four: First Steps (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
+vod_thunderbolts_2025,Thunderbolts* (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
+vod_superman_2025,Superman (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
+vod_mission_impossible_8_2025,Mission: Impossible – The Final Reckoning (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
+vod_captain_america_bnw_2025,Captain America: Brave New World (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
+vod_spirit_2026,Spirit (2026),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_alpha_2026,Alpha (2026),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_king_2026,King (2026),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_spiderman_4_2026,Spider-Man 4 (2026),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
 series_sherlock_holmes,The Adventures of Sherlock Holmes (1984),series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 series_stranger_things,Stranger Things,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 series_panchayat,Panchayat,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -8,7 +34,6 @@ vod_stree_2,Stree 2: Sarkate Ka Aatank,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRE
 vod_kalki_2898_ad,Kalki 2898 AD,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_gladiator_2,Gladiator II,movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
 vod_spider_verse,Spider-Man: Into the Spider-Verse,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_pathaan,Pathaan,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 series_family_man,The Family Man,series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
 series_money_heist,Money Heist (La Casa de Papel),series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
 series_scam_1992,Scam 1992: The Harshad Mehta Story,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -22,7 +47,6 @@ vod_dune_part_two,Dune: Part Two,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_
 vod_furiosa,Furiosa: A Mad Max Saga,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_shaitaan,Shaitaan,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_alien_romulus,Alien: Romulus,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_munjya,Munjya,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_fighter,Fighter,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_godzilla_x_kong,Godzilla x Kong: The New Empire,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_12th_fail,12th Fail,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -47,19 +71,13 @@ vod_pushpa_the_rise,Pushpa: The Rise,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESS
 series_paatal_lok,Paatal Lok,series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
 vod_avengers_endgame,Avengers: Endgame,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_dangal,Dangal,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_inception,Inception,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_sita_sings_blues,Sita Sings the Blues,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_bbb_720p,Big Buck Bunny,movie,DIRECT_STREAM_AVAILABLE,HLS_ABR,True,0.5,True
-vod_his_girl_friday,His Girl Friday,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 series_squid_game,Squid Game,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-series_crash_landing_on_you,Crash Landing on You,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-series_descendants_of_the_sun,Descendants of the Sun,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_train_to_busan,Train to Busan,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_parasite,Parasite,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_the_raid_redemption,The Raid: Redemption,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_ip_man,Ip Man,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_ip_man_4,Ip Man 4: The Finale,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_peninsula,Peninsula,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_kung_fu_hustle,Kung Fu Hustle,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_shaolin_soccer,Shaolin Soccer,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_the_outlaws,The Outlaws,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -72,7 +90,6 @@ series_death_note,Death Note (English Dubbed),series,DIRECT_STREAM_AVAILABLE,HTT
 series_naruto_classic,Naruto Shippuden (Hindi Dubbed),series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_one_piece_film_red,One Piece Film: Red,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_stree,Stree,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_drishyam_2,Drishyam 2,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_kantara,Kantara,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_kgf_chapter_1,K.G.F: Chapter 1,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_baahubali_1,Baahubali: The Beginning,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -80,27 +97,20 @@ vod_baahubali_2,Baahubali 2: The Conclusion,movie,DIRECT_STREAM_AVAILABLE,HTTP_P
 vod_tumbbad,Tumbbad,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_andhadhun,Andhadhun,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_shershaah,Uri: The Surgical Strike,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_3_idiots,3 Idiots,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_gangs_of_wasseypur,Gangs of Wasseypur,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_vikram_vedha,Vikram Vedha,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_masoom_1983,Masoom,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_jaane_bhi_do_yaaro,Jaane Bhi Do Yaaro,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_chhoti_si_baat,Chhoti Si Baat,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_do_bigha_zamin,Do Bigha Zamin,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_night_of_the_living_dead,Night of the Living Dead,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_charade_1963,Charade,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_carnival_of_souls,Carnival of Souls,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_house_on_haunted_hill,House on Haunted Hill,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_dressed_to_kill,Dressed to Kill (Sherlock Holmes),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 series_sherlock_holmes_1954,Sherlock Holmes (1954 Classic Series),series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-disc_VoyagetothePlanetofPrehistoricWomen,Voyage To The Planet Of Prehistoric Women,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-disc_TheFastandtheFuriousJohnIreland1954goofyrip,The Fast And The Furious,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-disc_charlie_chaplin_film_fest,Charlie Chaplin Festival,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-disc_Return_of_the_Kung_Fu_Dragon,Return Of The Kung Fu Dragon,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_avengers_doomsday_2026,Avengers: Doomsday,movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
 vod_the_batman_part_ii_2026,The Batman Part II,movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
 vod_fateh_2025,Fateh,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_sky_force_2025,Sky Force,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_game_changer_2025,Game Changer,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_laapataa_ladies_2024,Laapataa Ladies,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_article_370_2024,Article 370,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -114,7 +124,6 @@ vod_rockstar_2011,Rockstar,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,
 vod_znmd_2011,Zindagi Na Milegi Dobara,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_ghajini_2008,Ghajini,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_taare_zameen_par_2007,Taare Zameen Par,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_rang_de_basanti_2006,Rang De Basanti,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_lagaan_2001,Lagaan: Once Upon a Time in India,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_aavesham_2024,Aavesham,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_bramayugam_2024,Bramayugam,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -130,16 +139,33 @@ vod_crew_2024,Crew,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.
 vod_jailer_2023,Jailer,movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
 vod_sam_bahadur_2023,Sam Bahadur,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_vikram_2022,Vikram,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_sita_ramam_2022,Sita Ramam,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_karthikeya_2_2022,Karthikeya 2,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_777_charlie_2022,777 Charlie,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_minnal_murali_2021,Minnal Murali,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_sardar_udham_2021,Sardar Udham,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_jai_bhim_2021,Jai Bhim,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_ala_vaikunthapurramuloo_2020,Ala Vaikunthapurramuloo,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_ludo_2020,Ludo,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_thappad_2020,Thappad,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_bandaa_2023,Sirf Ek Bandaa Kaafi Hai,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_ramayana_part_1_2026,Ramayana: Part 1,MOVIE,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
 vod_war_2_2025,War 2,MOVIE,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
 vod_toxic_2026,Toxic: A Fairy Tale for Grown-ups,MOVIE,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_pathaan,Pathaan,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_munjya,Munjya,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_inception,Inception,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_his_girl_friday,His Girl Friday,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+series_crash_landing_on_you,Crash Landing on You,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+series_descendants_of_the_sun,Descendants of the Sun,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_parasite,Parasite,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_peninsula,Peninsula,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_drishyam_2,Drishyam 2,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_3_idiots,3 Idiots,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_do_bigha_zamin,Do Bigha Zamin,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+disc_VoyagetothePlanetofPrehistoricWomen,Voyage To The Planet Of Prehistoric Women,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+disc_TheFastandtheFuriousJohnIreland1954goofyrip,The Fast And The Furious,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+disc_charlie_chaplin_film_fest,Charlie Chaplin Festival,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+disc_Return_of_the_Kung_Fu_Dragon,Return Of The Kung Fu Dragon,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_sky_force_2025,Sky Force,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_rang_de_basanti_2006,Rang De Basanti,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_sita_ramam_2022,Sita Ramam,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_jai_bhim_2021,Jai Bhim,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_thappad_2020,Thappad,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
