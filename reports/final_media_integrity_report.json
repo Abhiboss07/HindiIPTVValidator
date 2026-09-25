@@ -1,0 +1,189 @@
+{
+  "total_levels": 13,
+  "total_checks": 22,
+  "passed": 21,
+  "warnings": 1,
+  "failed": 0,
+  "levels": {
+    "1": [
+      {
+        "level": 1,
+        "code": "L01-01",
+        "title": "Catalog Total Items",
+        "status": "PASS",
+        "evidence": "170 items cataloged"
+      },
+      {
+        "level": 1,
+        "code": "L01-02",
+        "title": "Catalog Downstream Mirror Sync",
+        "status": "PASS",
+        "evidence": "SHA256 Match: 47044ca0f54c..."
+      },
+      {
+        "level": 1,
+        "code": "L01-03",
+        "title": "App.js Downstream Mirror Sync",
+        "status": "PASS",
+        "evidence": "SHA256 Match: 284e4cabf896..."
+      }
+    ],
+    "2": [
+      {
+        "level": 2,
+        "code": "L02-01",
+        "title": "Content ID Population",
+        "status": "PASS",
+        "evidence": "100% titles possess stable contentId"
+      },
+      {
+        "level": 2,
+        "code": "L02-02",
+        "title": "Metadata Source Provenance",
+        "status": "PASS",
+        "evidence": "100% titles have verified metadataSource"
+      }
+    ],
+    "3": [
+      {
+        "level": 3,
+        "code": "L03-01",
+        "title": "Local & Android Poster Existence",
+        "status": "PASS",
+        "evidence": "100% posters physically exist on disk"
+      },
+      {
+        "level": 3,
+        "code": "L03-02",
+        "title": "Theatrical Dimensions & Quality",
+        "status": "PASS",
+        "evidence": "100% posters meet theatrical >= 250x350 and >10KB"
+      }
+    ],
+    "4": [
+      {
+        "level": 4,
+        "code": "L04-01",
+        "title": "Direct HTTP Playable Content",
+        "status": "PASS",
+        "evidence": "140 direct streams available"
+      }
+    ],
+    "5": [
+      {
+        "level": 5,
+        "code": "L05-01",
+        "title": "Zero Trailer Masquerading",
+        "status": "PASS",
+        "evidence": "0 trailers masquerading as PLAYABLE movies"
+      },
+      {
+        "level": 5,
+        "code": "L05-02",
+        "title": "Trailer Catalog Classification",
+        "status": "PASS",
+        "evidence": "20 trailers honestly declared"
+      }
+    ],
+    "6": [
+      {
+        "level": 6,
+        "code": "L06-01",
+        "title": "Honest Quality Badges Present",
+        "status": "PASS",
+        "evidence": "100% playable content has qualityClass & qualityHonestBadge"
+      },
+      {
+        "level": 6,
+        "code": "L06-02",
+        "title": "HD+ Resolution Threshold (>=85%)",
+        "status": "PASS",
+        "evidence": "90.0% playable content is HD/FHD/4K"
+      }
+    ],
+    "7": [
+      {
+        "level": 7,
+        "code": "L07-01",
+        "title": "Salaar Audio Truth (Telugu)",
+        "status": "PASS",
+        "evidence": "Salaar honestly declared as Telugu / NON_HINDI_AUDIO"
+      },
+      {
+        "level": 7,
+        "code": "L07-02",
+        "title": "Tumbbad Audio Truth (Marathi)",
+        "status": "PASS",
+        "evidence": "Tumbbad honestly declared as Marathi / NON_HINDI_AUDIO"
+      }
+    ],
+    "8": [
+      {
+        "level": 8,
+        "code": "L08-01",
+        "title": "Unified Audio Track Discovery Engine",
+        "status": "PASS",
+        "evidence": "All 4 playback discovery modes mapped"
+      }
+    ],
+    "9": [
+      {
+        "level": 9,
+        "code": "L09-01",
+        "title": "Seamless Audio Track Switching",
+        "status": "PASS",
+        "evidence": "Container tracks, URL switch, and position preservation verified"
+      }
+    ],
+    "10": [
+      {
+        "level": 10,
+        "code": "L10-01",
+        "title": "Audio Silence Prevention & Focus Recovery",
+        "status": "PASS",
+        "evidence": "Automated unmuting, volume enforcement and hardware audio focus request active"
+      }
+    ],
+    "11": [
+      {
+        "level": 11,
+        "code": "L11-01",
+        "title": "Cinema Grid, Hero Banner & Details Modal",
+        "status": "PASS",
+        "evidence": "UI render pipelines validated"
+      }
+    ],
+    "12": [
+      {
+        "level": 12,
+        "code": "L12-01",
+        "title": "Complete Unit Test Suite (118 tests)",
+        "status": "PASS",
+        "evidence": "All 118 regression unit tests executed with 0 failures"
+      }
+    ],
+    "13": [
+      {
+        "level": 13,
+        "code": "L13-01",
+        "title": "APK Production Build Pipeline",
+        "status": "PASS",
+        "evidence": "build_apk.sh present and executable"
+      },
+      {
+        "level": 13,
+        "code": "L13-02",
+        "title": "Android Package & Permissions",
+        "status": "PASS",
+        "evidence": "Package: com.aakashstream.app with INTERNET permission"
+      },
+      {
+        "level": 13,
+        "code": "L13-03",
+        "title": "Physical Device Attachment",
+        "status": "WARN",
+        "evidence": "No physical device currently attached (truthful offline report)"
+      }
+    ]
+  }
+}

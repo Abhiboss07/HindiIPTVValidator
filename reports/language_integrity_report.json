@@ -630,12 +630,12 @@
   {
     "id": "vod_salaar",
     "title": "Salaar: Part 1 - Ceasefire",
-    "classification": "HINDI_AUDIO",
-    "primaryLanguage": "Hindi",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Telugu",
     "languages": [
-      "Hindi"
+      "Telugu"
     ],
-    "hasHindiAudio": true,
+    "hasHindiAudio": false,
     "integrityOk": true
   },
   {
@@ -1049,12 +1049,12 @@
   {
     "id": "vod_tumbbad",
     "title": "Tumbbad",
-    "classification": "HINDI_AUDIO",
-    "primaryLanguage": "Hindi",
+    "classification": "NON_HINDI_AUDIO",
+    "primaryLanguage": "Marathi",
     "languages": [
-      "Hindi"
+      "Marathi"
     ],
-    "hasHindiAudio": true,
+    "hasHindiAudio": false,
     "integrityOk": true
   },
   {
@@ -1070,7 +1070,7 @@
   },
   {
     "id": "vod_shershaah",
-    "title": "Uri: The Surgical Strike",
+    "title": "Shershaah",
     "classification": "HINDI_AUDIO",
     "primaryLanguage": "Hindi",
     "languages": [

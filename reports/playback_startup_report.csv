@@ -14,13 +14,13 @@ series_delhi_crime_s3_2025,Delhi Crime Season 3 (2025),series,NO_AUTHORIZED_SOUR
 series_paatal_lok_s2_2025,Paatal Lok Season 2 (2025),series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
 series_farzi_s2_2025,Farzi Season 2 (2025),series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
 series_family_man_s3_2025,The Family Man Season 3 (2025),series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
-vod_deva_2025,Deva (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
-vod_sikandar_2025,Sikandar (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
-vod_fantastic_four_2025,The Fantastic Four: First Steps (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
-vod_thunderbolts_2025,Thunderbolts* (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
-vod_superman_2025,Superman (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
-vod_mission_impossible_8_2025,Mission: Impossible – The Final Reckoning (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
-vod_captain_america_bnw_2025,Captain America: Brave New World (2025),movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
+vod_deva_2025,Deva (2025),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_sikandar_2025,Sikandar (2025),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_fantastic_four_2025,The Fantastic Four: First Steps (2025),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_thunderbolts_2025,Thunderbolts* (2025),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_superman_2025,Superman (2025),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_mission_impossible_8_2025,Mission: Impossible – The Final Reckoning (2025),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_captain_america_bnw_2025,Captain America: Brave New World (2025),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
 vod_spirit_2026,Spirit (2026),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
 vod_alpha_2026,Alpha (2026),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
 vod_king_2026,King (2026),movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
@@ -96,7 +96,7 @@ vod_baahubali_1,Baahubali: The Beginning,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROG
 vod_baahubali_2,Baahubali 2: The Conclusion,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_tumbbad,Tumbbad,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_andhadhun,Andhadhun,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_shershaah,Uri: The Surgical Strike,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_shershaah,Shershaah,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_gangs_of_wasseypur,Gangs of Wasseypur,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_vikram_vedha,Vikram Vedha,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_masoom_1983,Masoom,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -146,9 +146,9 @@ vod_sardar_udham_2021,Sardar Udham,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIV
 vod_ala_vaikunthapurramuloo_2020,Ala Vaikunthapurramuloo,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_ludo_2020,Ludo,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_bandaa_2023,Sirf Ek Bandaa Kaafi Hai,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_ramayana_part_1_2026,Ramayana: Part 1,MOVIE,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
-vod_war_2_2025,War 2,MOVIE,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
-vod_toxic_2026,Toxic: A Fairy Tale for Grown-ups,MOVIE,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_ramayana_part_1_2026,Ramayana: Part 1,movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_war_2_2025,War 2,movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
+vod_toxic_2026,Toxic: A Fairy Tale for Grown-ups,movie,UPCOMING_TRAILER,TRAILER_EMBED,False,0.4,True
 vod_pathaan,Pathaan,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_munjya,Munjya,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_inception,Inception,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True

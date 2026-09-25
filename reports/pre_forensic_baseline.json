@@ -1,0 +1,93 @@
+{
+  "timestamp": "2026-09-25T15:39:11.356712+00:00",
+  "catalog_version": 17,
+  "total_items": 170,
+  "total_movies": 147,
+  "total_series": 23,
+  "total_episodes": 156,
+  "years": {
+    "2026": {
+      "movies": 8,
+      "series": 0
+    },
+    "2025": {
+      "movies": 12,
+      "series": 6
+    },
+    "2024": {
+      "movies": 24,
+      "series": 3
+    }
+  },
+  "audio_breakdown": {
+    "Hindi audio": 103,
+    "English-only": 49,
+    "multilingual": 8,
+    "native-only": 10
+  },
+  "resolution_breakdown": {
+    "1080p": 72,
+    "other/unspecified": 28,
+    "720p": 51,
+    "480p": 14,
+    "2160p": 1,
+    "<480p": 4
+  },
+  "status_breakdown": {
+    "full movies": 127,
+    "unavailable": 10,
+    "trailers": 20,
+    "full episodes": 13
+  },
+  "identified_failures": [
+    {
+      "id": "vod_salaar",
+      "title": "Salaar: Part 1 - Ceasefire",
+      "failure_types": [
+        "WRONG_THUMBNAIL",
+        "FALSE_HINDI_CLAIM"
+      ],
+      "details": "Poster shows indie romance movie \"Love? With a question mark\". Underlying stream is Telugu HQ HDRip from 5MovieRulz, but catalog claims Hindi-only audio."
+    },
+    {
+      "id": "vod_tumbbad",
+      "title": "Tumbbad",
+      "failure_types": [
+        "LANGUAGE_DISCREPANCY"
+      ],
+      "details": "Catalog claims Hindi audio but probed stream has Marathi/native regional audio track with tag \"und\"."
+    },
+    {
+      "id": "vod_spirit_2026",
+      "title": "Spirit (2026)",
+      "failure_types": [
+        "SYNTHETIC_POSTER"
+      ],
+      "details": "Poster is a generated geometric star shape instead of official T-Series announcement / first look art."
+    },
+    {
+      "id": "vod_spiderman_4_2026",
+      "title": "Spider-Man 4 (2026)",
+      "failure_types": [
+        "SYNTHETIC_POSTER"
+      ],
+      "details": "Poster is a generated geometric spider shape instead of official Marvel Studios promotional visual."
+    },
+    {
+      "id": "vod_king_2026",
+      "title": "King (2026)",
+      "failure_types": [
+        "SYNTHETIC_POSTER"
+      ],
+      "details": "Poster is a generated geometric crown shape instead of official Red Chillies title visual."
+    },
+    {
+      "id": "vod_alpha_2026",
+      "title": "Alpha (2026)",
+      "failure_types": [
+        "SYNTHETIC_POSTER"
+      ],
+      "details": "Poster is a generated Greek alpha symbol instead of official YRF Spy Universe first look poster."
+    }
+  ]
+}
