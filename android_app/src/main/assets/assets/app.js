@@ -18141,18 +18141,52 @@ const CatalogProvider = {
         return m;
       });
       this.loaded = true;
+      this._buildIndices();
       return this.movies;
     }
 
     this.movies = DEFAULT_MOVIES_CATALOG;
     this.loaded = true;
+    this._buildIndices();
     return this.movies;
+  },
+  _byIdMap: null,
+  _searchIndex: null,
+  _buildIndices() {
+    this._byIdMap = new Map();
+    this._searchIndex = [];
+    const items = this.getAll();
+    for (let i = 0; i < items.length; i++) {
+      const m = items[i];
+      if (m && m.id) {
+        this._byIdMap.set(m.id, m);
+      }
+      const langStr = Array.isArray(m.languages) ? m.languages.join(' ') : '';
+      const genreStr = Array.isArray(m.genres) ? m.genres.join(' ') : '';
+      const catStr = Array.isArray(m.categories) ? m.categories.join(' ') : '';
+      const tokens = [
+        m.title || '',
+        m.description || '',
+        m.cast || '',
+        m.director || '',
+        m.year ? String(m.year) : '',
+        m.type || '',
+        m.region || '',
+        m.mediaType || '',
+        langStr,
+        genreStr,
+        catStr
+      ].join(' ').toLowerCase();
+      this._searchIndex.push({ item: m, text: tokens });
+    }
   },
   getAll() {
     return this.movies && this.movies.length > 0 ? this.movies : DEFAULT_MOVIES_CATALOG;
   },
   getById(id) {
-    return this.getAll().find(m => m.id === id);
+    if (!this._byIdMap) this._buildIndices();
+    const found = this._byIdMap ? this._byIdMap.get(id) : null;
+    return found || this.getAll().find(m => m.id === id);
   },
   filterByCategory(cat) {
     const list = this.getAll();
@@ -18182,18 +18216,24 @@ const CatalogProvider = {
     const list = this.getAll();
     if (!query) return list;
     const q = query.toLowerCase().trim();
-    return list.filter(m =>
-      (m.title && m.title.toLowerCase().includes(q)) ||
-      (m.description && m.description.toLowerCase().includes(q)) ||
-      (m.cast && m.cast.toLowerCase().includes(q)) ||
-      (m.director && m.director.toLowerCase().includes(q)) ||
-      (m.languages && m.languages.some(l => l.toLowerCase().includes(q))) ||
-      (m.genres && m.genres.some(g => g.toLowerCase().includes(q))) ||
-      (m.year && m.year.toString().includes(q)) ||
-      (m.type && m.type.toLowerCase().includes(q)) ||
-      (q === 'series' && m.mediaType === 'series') ||
-      (q === 'movie' && m.mediaType !== 'series')
-    );
+    if (!this._searchIndex || this._searchIndex.length !== list.length) {
+      this._buildIndices();
+    }
+    const terms = q.split(/\s+/).filter(Boolean);
+    if (terms.length === 0) return list;
+    return this._searchIndex.filter(entry => {
+      const text = entry.text;
+      for (let t = 0; t < terms.length; t++) {
+        const term = terms[t];
+        if (term === 'series') {
+          if (entry.item.mediaType === 'series') continue;
+        } else if (term === 'movie') {
+          if (entry.item.mediaType !== 'series') continue;
+        }
+        if (!text.includes(term)) return false;
+      }
+      return true;
+    }).map(entry => entry.item);
   }
 };
 
@@ -18507,6 +18547,7 @@ window.filterMovieCategory = function(cat, chipEl) {
   if (catalogGrid) catalogGrid.innerHTML = filtered.map(m => renderMovieCard(m)).join('');
 };
 
+let _movieSearchDebounceTimer = null;
 window.handleMovieSearch = function(query) {
   const rowsContainer = document.getElementById('moviesRowsContainer');
   const heroSection = document.getElementById('moviesHeroSection');
@@ -18515,6 +18556,10 @@ window.handleMovieSearch = function(query) {
   const catalogGrid = document.getElementById('moviesCatalogGrid');
 
   if (!query || !query.trim()) {
+    if (_movieSearchDebounceTimer) {
+      clearTimeout(_movieSearchDebounceTimer);
+      _movieSearchDebounceTimer = null;
+    }
     if (rowsContainer) rowsContainer.style.display = 'block';
     if (heroSection) heroSection.style.display = 'block';
     if (gridSection) {
@@ -18525,23 +18570,26 @@ window.handleMovieSearch = function(query) {
     return;
   }
 
-  const results = CatalogProvider.search(query);
-  if (rowsContainer) rowsContainer.style.display = 'none';
-  if (heroSection) heroSection.style.display = 'none';
-  if (gridSection) gridSection.style.display = 'block';
-  if (gridTitle) gridTitle.textContent = `Search Results: "${query}" (${results.length})`;
-  if (catalogGrid) {
-    if (results.length === 0) {
-      catalogGrid.innerHTML = `
-        <div style="grid-column: 1 / -1; padding: 32px 16px; text-align: center; color: #94a3b8;">
-          <p style="font-size: 16px; margin-bottom: 6px;">🔍 No movies found</p>
-          <p style="font-size: 12px; color: #64748b;">Try searching for "Bunny", "1080p", "Animation", or "Horror"</p>
-        </div>
-      `;
-    } else {
-      catalogGrid.innerHTML = results.map(m => renderMovieCard(m)).join('');
+  if (_movieSearchDebounceTimer) clearTimeout(_movieSearchDebounceTimer);
+  _movieSearchDebounceTimer = setTimeout(() => {
+    const results = CatalogProvider.search(query);
+    if (rowsContainer) rowsContainer.style.display = 'none';
+    if (heroSection) heroSection.style.display = 'none';
+    if (gridSection) gridSection.style.display = 'block';
+    if (gridTitle) gridTitle.textContent = `Search Results: "${query}" (${results.length})`;
+    if (catalogGrid) {
+      if (results.length === 0) {
+        catalogGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 32px 16px; text-align: center; color: #94a3b8;">
+            <p style="font-size: 16px; margin-bottom: 6px;">🔍 No movies found</p>
+            <p style="font-size: 12px; color: #64748b;">Try searching for "Bunny", "1080p", "Animation", or "Horror"</p>
+          </div>
+        `;
+      } else {
+        catalogGrid.innerHTML = results.map(m => renderMovieCard(m)).join('');
+      }
     }
-  }
+  }, 100);
 };
 
 function renderEpisodeItemMarkup(movie, ep) {
