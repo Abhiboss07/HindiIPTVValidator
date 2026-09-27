@@ -140,8 +140,8 @@
       "id": "series_squid_game_s2_2025",
       "title": "Squid Game Season 2 (2025)",
       "mediaType": "series",
-      "sourceStatus": "UPCOMING",
-      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "NON_HINDI_AUDIO",
       "languages": [
         "English"
@@ -153,8 +153,8 @@
       "id": "series_delhi_crime_s3_2025",
       "title": "Delhi Crime Season 3 (2025)",
       "mediaType": "series",
-      "sourceStatus": "UPCOMING",
-      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -166,8 +166,8 @@
       "id": "series_paatal_lok_s2_2025",
       "title": "Paatal Lok Season 2 (2025)",
       "mediaType": "series",
-      "sourceStatus": "UPCOMING",
-      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -179,8 +179,8 @@
       "id": "series_farzi_s2_2025",
       "title": "Farzi Season 2 (2025)",
       "mediaType": "series",
-      "sourceStatus": "UPCOMING",
-      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -192,8 +192,8 @@
       "id": "series_family_man_s3_2025",
       "title": "The Family Man Season 3 (2025)",
       "mediaType": "series",
-      "sourceStatus": "UPCOMING",
-      "sourceState": "UPCOMING_TRAILER",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -465,8 +465,8 @@
       "id": "series_family_man",
       "title": "The Family Man",
       "mediaType": "series",
-      "sourceStatus": "TRAILER_ONLY",
-      "sourceState": "TRAILER_ONLY",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -478,8 +478,8 @@
       "id": "series_money_heist",
       "title": "Money Heist (La Casa de Papel)",
       "mediaType": "series",
-      "sourceStatus": "TRAILER_ONLY",
-      "sourceState": "TRAILER_ONLY",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "NON_HINDI_AUDIO",
       "languages": [
         "English"
@@ -504,8 +504,8 @@
       "id": "series_sacred_games",
       "title": "Sacred Games",
       "mediaType": "series",
-      "sourceStatus": "TRAILER_ONLY",
-      "sourceState": "TRAILER_ONLY",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -687,8 +687,8 @@
       "id": "series_farzi",
       "title": "Farzi",
       "mediaType": "series",
-      "sourceStatus": "TRAILER_ONLY",
-      "sourceState": "TRAILER_ONLY",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -908,8 +908,8 @@
       "id": "series_paatal_lok",
       "title": "Paatal Lok",
       "mediaType": "series",
-      "sourceStatus": "TRAILER_ONLY",
-      "sourceState": "TRAILER_ONLY",
+      "sourceStatus": "UNAVAILABLE",
+      "sourceState": "NO_AUTHORIZED_SOURCE",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"

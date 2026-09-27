@@ -25,17 +25,17 @@
 | `series_paatal_lok_s2_2025` | Paatal Lok Season 2 (2025) | 600x888 | 175622 B | **PASS** | Theatrical High-Res |
 | `series_farzi_s2_2025` | Farzi Season 2 (2025) | 600x747 | 136965 B | **PASS** | Theatrical High-Res |
 | `series_family_man_s3_2025` | The Family Man Season 3 (2025) | 600x899 | 163968 B | **PASS** | Theatrical High-Res |
-| `vod_deva_2025` | Deva (2025) | 500x750 | 55251 B | **PASS** | Theatrical High-Res |
-| `vod_sikandar_2025` | Sikandar (2025) | 500x750 | 88404 B | **PASS** | Theatrical High-Res |
+| `vod_deva_2025` | Deva (2025) | 500x750 | 122888 B | **PASS** | Theatrical High-Res |
+| `vod_sikandar_2025` | Sikandar (2025) | 500x750 | 132485 B | **PASS** | Theatrical High-Res |
 | `vod_fantastic_four_2025` | The Fantastic Four: First Steps (2025) | 500x750 | 125287 B | **PASS** | Theatrical High-Res |
 | `vod_thunderbolts_2025` | Thunderbolts* (2025) | 500x750 | 100344 B | **PASS** | Theatrical High-Res |
-| `vod_superman_2025` | Superman (2025) | 500x750 | 99562 B | **PASS** | Theatrical High-Res |
+| `vod_superman_2025` | Superman (2025) | 500x750 | 121749 B | **PASS** | Theatrical High-Res |
 | `vod_mission_impossible_8_2025` | Mission: Impossible – The Final Reckoning (2025) | 500x750 | 95463 B | **PASS** | Theatrical High-Res |
 | `vod_captain_america_bnw_2025` | Captain America: Brave New World (2025) | 500x750 | 73925 B | **PASS** | Theatrical High-Res |
-| `vod_spirit_2026` | Spirit (2026) | 500x750 | 72436 B | **PASS** | Theatrical High-Res |
-| `vod_alpha_2026` | Alpha (2026) | 500x750 | 70209 B | **PASS** | Theatrical High-Res |
-| `vod_king_2026` | King (2026) | 500x707 | 113336 B | **PASS** | Theatrical High-Res |
-| `vod_spiderman_4_2026` | Spider-Man 4 (2026) | 500x750 | 99899 B | **PASS** | Theatrical High-Res |
+| `vod_spirit_2026` | Spirit (2026) | 500x750 | 156650 B | **PASS** | Theatrical High-Res |
+| `vod_alpha_2026` | Alpha (2026) | 500x750 | 115179 B | **PASS** | Theatrical High-Res |
+| `vod_king_2026` | King (2026) | 500x750 | 134894 B | **PASS** | Theatrical High-Res |
+| `vod_spiderman_4_2026` | Spider-Man 4 (2026) | 500x750 | 115759 B | **PASS** | Theatrical High-Res |
 | `series_sherlock_holmes` | The Adventures of Sherlock Holmes (1984) | 500x750 | 90247 B | **PASS** | Theatrical High-Res |
 | `series_stranger_things` | Stranger Things | 600x889 | 179412 B | **PASS** | Theatrical High-Res |
 | `series_panchayat` | Panchayat | 600x750 | 142208 B | **PASS** | Theatrical High-Res |
@@ -107,7 +107,7 @@
 | `vod_baahubali_2` | Baahubali 2: The Conclusion | 500x750 | 78669 B | **PASS** | Theatrical High-Res |
 | `vod_tumbbad` | Tumbbad | 500x750 | 77207 B | **PASS** | Theatrical High-Res |
 | `vod_andhadhun` | Andhadhun | 500x750 | 74398 B | **PASS** | Theatrical High-Res |
-| `vod_shershaah` | Uri: The Surgical Strike | 255x389 | 36155 B | **PASS** | Theatrical High-Res |
+| `vod_shershaah` | Shershaah | 255x389 | 36155 B | **PASS** | Theatrical High-Res |
 | `vod_gangs_of_wasseypur` | Gangs of Wasseypur | 500x750 | 187175 B | **PASS** | Theatrical High-Res |
 | `vod_vikram_vedha` | Vikram Vedha | 500x750 | 117724 B | **PASS** | Theatrical High-Res |
 | `vod_masoom_1983` | Masoom | 500x750 | 66948 B | **PASS** | Theatrical High-Res |
@@ -121,8 +121,8 @@
 | `series_sherlock_holmes_1954` | Sherlock Holmes (1954 Classic Series) | 500x750 | 61821 B | **PASS** | Theatrical High-Res |
 | `vod_avengers_doomsday_2026` | Avengers: Doomsday | 500x750 | 77476 B | **PASS** | Theatrical High-Res |
 | `vod_the_batman_part_ii_2026` | The Batman Part II | 500x750 | 28986 B | **PASS** | Theatrical High-Res |
-| `vod_fateh_2025` | Fateh | 500x750 | 45596 B | **PASS** | Theatrical High-Res |
-| `vod_game_changer_2025` | Game Changer | 500x750 | 71350 B | **PASS** | Theatrical High-Res |
+| `vod_fateh_2025` | Fateh | 500x750 | 125943 B | **PASS** | Theatrical High-Res |
+| `vod_game_changer_2025` | Game Changer | 500x750 | 131046 B | **PASS** | Theatrical High-Res |
 | `vod_laapataa_ladies_2024` | Laapataa Ladies | 500x750 | 97483 B | **PASS** | Theatrical High-Res |
 | `vod_article_370_2024` | Article 370 | 500x750 | 75966 B | **PASS** | Theatrical High-Res |
 | `vod_mission_raniganj_2023` | Mission Raniganj | 500x750 | 103114 B | **PASS** | Theatrical High-Res |
@@ -157,8 +157,8 @@
 | `vod_ala_vaikunthapurramuloo_2020` | Ala Vaikunthapurramuloo | 500x750 | 101577 B | **PASS** | Theatrical High-Res |
 | `vod_ludo_2020` | Ludo | 500x750 | 59890 B | **PASS** | Theatrical High-Res |
 | `vod_bandaa_2023` | Sirf Ek Bandaa Kaafi Hai | 500x750 | 79631 B | **PASS** | Theatrical High-Res |
-| `vod_ramayana_part_1_2026` | Ramayana: Part 1 | 500x750 | 166313 B | **PASS** | Theatrical High-Res |
-| `vod_war_2_2025` | War 2 | 500x750 | 78278 B | **PASS** | Theatrical High-Res |
+| `vod_ramayana_part_1_2026` | Ramayana: Part 1 | 500x750 | 115200 B | **PASS** | Theatrical High-Res |
+| `vod_war_2_2025` | War 2 | 500x750 | 137830 B | **PASS** | Theatrical High-Res |
 | `vod_toxic_2026` | Toxic: A Fairy Tale for Grown-ups | 500x750 | 86866 B | **PASS** | Theatrical High-Res |
 | `vod_pathaan` | Pathaan | 500x750 | 115257 B | **PASS** | Theatrical High-Res |
 | `vod_munjya` | Munjya | 500x750 | 129298 B | **PASS** | Theatrical High-Res |
@@ -175,7 +175,7 @@
 | `disc_TheFastandtheFuriousJohnIreland1954goofyrip` | The Fast And The Furious | 500x750 | 91276 B | **PASS** | Theatrical High-Res |
 | `disc_charlie_chaplin_film_fest` | Charlie Chaplin Festival | 500x744 | 140088 B | **PASS** | Theatrical High-Res |
 | `disc_Return_of_the_Kung_Fu_Dragon` | Return Of The Kung Fu Dragon | 500x705 | 155522 B | **PASS** | Theatrical High-Res |
-| `vod_sky_force_2025` | Sky Force | 500x750 | 122917 B | **PASS** | Theatrical High-Res |
+| `vod_sky_force_2025` | Sky Force | 500x750 | 130335 B | **PASS** | Theatrical High-Res |
 | `vod_rang_de_basanti_2006` | Rang De Basanti | 500x750 | 73951 B | **PASS** | Theatrical High-Res |
 | `vod_sita_ramam_2022` | Sita Ramam | 500x750 | 63241 B | **PASS** | Theatrical High-Res |
 | `vod_jai_bhim_2021` | Jai Bhim | 500x750 | 128579 B | **PASS** | Theatrical High-Res |

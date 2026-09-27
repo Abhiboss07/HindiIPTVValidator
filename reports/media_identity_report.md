@@ -27,11 +27,11 @@
 | `vod_bellbottom_2021` | Bellbottom (2021) | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
 | `vod_atrangi_re_2021` | Atrangi Re (2021) | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
 | `vod_83_2021` | 83 (2021) | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
-| `series_squid_game_s2_2025` | Squid Game Season 2 (2025) | **PASS** | UPCOMING | UPCOMING_TRAILER | NON_HINDI_AUDIO | Verified Clean |
-| `series_delhi_crime_s3_2025` | Delhi Crime Season 3 (2025) | **PASS** | UPCOMING | UPCOMING_TRAILER | HINDI_AUDIO | Verified Clean |
-| `series_paatal_lok_s2_2025` | Paatal Lok Season 2 (2025) | **PASS** | UPCOMING | UPCOMING_TRAILER | HINDI_AUDIO | Verified Clean |
-| `series_farzi_s2_2025` | Farzi Season 2 (2025) | **PASS** | UPCOMING | UPCOMING_TRAILER | HINDI_AUDIO | Verified Clean |
-| `series_family_man_s3_2025` | The Family Man Season 3 (2025) | **PASS** | UPCOMING | UPCOMING_TRAILER | HINDI_AUDIO | Verified Clean |
+| `series_squid_game_s2_2025` | Squid Game Season 2 (2025) | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | NON_HINDI_AUDIO | Verified Clean |
+| `series_delhi_crime_s3_2025` | Delhi Crime Season 3 (2025) | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | HINDI_AUDIO | Verified Clean |
+| `series_paatal_lok_s2_2025` | Paatal Lok Season 2 (2025) | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | HINDI_AUDIO | Verified Clean |
+| `series_farzi_s2_2025` | Farzi Season 2 (2025) | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | HINDI_AUDIO | Verified Clean |
+| `series_family_man_s3_2025` | The Family Man Season 3 (2025) | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | HINDI_AUDIO | Verified Clean |
 | `vod_deva_2025` | Deva (2025) | **PASS** | UPCOMING | UPCOMING_TRAILER | HINDI_AUDIO | Verified Clean |
 | `vod_sikandar_2025` | Sikandar (2025) | **PASS** | UPCOMING | UPCOMING_TRAILER | HINDI_AUDIO | Verified Clean |
 | `vod_fantastic_four_2025` | The Fantastic Four: First Steps (2025) | **PASS** | UPCOMING | UPCOMING_TRAILER | NON_HINDI_AUDIO | Verified Clean |
@@ -52,10 +52,10 @@
 | `vod_kalki_2898_ad` | Kalki 2898 AD | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
 | `vod_gladiator_2` | Gladiator II | **PASS** | TRAILER_ONLY | TRAILER_ONLY | NON_HINDI_AUDIO | Verified Clean |
 | `vod_spider_verse` | Spider-Man: Into the Spider-Verse | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |
-| `series_family_man` | The Family Man | **PASS** | TRAILER_ONLY | TRAILER_ONLY | HINDI_AUDIO | Verified Clean |
-| `series_money_heist` | Money Heist (La Casa de Papel) | **PASS** | TRAILER_ONLY | TRAILER_ONLY | NON_HINDI_AUDIO | Verified Clean |
+| `series_family_man` | The Family Man | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | HINDI_AUDIO | Verified Clean |
+| `series_money_heist` | Money Heist (La Casa de Papel) | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | NON_HINDI_AUDIO | Verified Clean |
 | `series_scam_1992` | Scam 1992: The Harshad Mehta Story | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
-| `series_sacred_games` | Sacred Games | **PASS** | TRAILER_ONLY | TRAILER_ONLY | HINDI_AUDIO | Verified Clean |
+| `series_sacred_games` | Sacred Games | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | HINDI_AUDIO | Verified Clean |
 | `vod_interstellar` | Interstellar | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |
 | `series_breaking_bad` | Breaking Bad | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |
 | `vod_dark_knight` | Iron Man | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |
@@ -69,7 +69,7 @@
 | `vod_godzilla_x_kong` | Godzilla x Kong: The New Empire | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |
 | `vod_12th_fail` | 12th Fail | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
 | `vod_oppenheimer` | Oppenheimer | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |
-| `series_farzi` | Farzi | **PASS** | TRAILER_ONLY | TRAILER_ONLY | HINDI_AUDIO | Verified Clean |
+| `series_farzi` | Farzi | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | HINDI_AUDIO | Verified Clean |
 | `vod_john_wick_4` | John Wick: Chapter 4 | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |
 | `vod_leo` | Leo: Bloody Sweet | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
 | `vod_jawan` | Jawan | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
@@ -86,7 +86,7 @@
 | `vod_brahmastra` | Brahmāstra: Part One – Shiva | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
 | `vod_spider_man_nwh` | Spider-Man: No Way Home | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |
 | `vod_pushpa_the_rise` | Pushpa: The Rise | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
-| `series_paatal_lok` | Paatal Lok | **PASS** | TRAILER_ONLY | TRAILER_ONLY | HINDI_AUDIO | Verified Clean |
+| `series_paatal_lok` | Paatal Lok | **PASS** | UNAVAILABLE | NO_AUTHORIZED_SOURCE | HINDI_AUDIO | Verified Clean |
 | `vod_avengers_endgame` | Avengers: Endgame | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |
 | `vod_dangal` | Dangal | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | HINDI_AUDIO | Verified Clean |
 | `vod_sita_sings_blues` | Sita Sings the Blues | **PASS** | PLAYABLE | DIRECT_STREAM_AVAILABLE | NON_HINDI_AUDIO | Verified Clean |

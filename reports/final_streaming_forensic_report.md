@@ -1,6 +1,6 @@
 # T2L Master Streaming & Forensic Verification Report
 
-**Generated:** 2026-09-26T01:46:55.930072
+**Generated:** 2026-09-27T22:52:25.539494
 **Total Catalog Titles Evaluated:** 170
 
 ## Validation Scorecard
