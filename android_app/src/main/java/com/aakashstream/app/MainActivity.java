@@ -674,6 +674,24 @@ public class MainActivity extends Activity {
         }
     }
 
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        if (webView != null) {
+            if (level >= TRIM_MEMORY_MODERATE) {
+                webView.freeMemory();
+            }
+        }
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        if (webView != null) {
+            webView.freeMemory();
+        }
+    }
+
     private void setupWebView() {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -688,6 +706,8 @@ public class MainActivity extends Activity {
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
+        webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+        settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
 
         mediaBridge = new AndroidMediaBridge();
         webView.addJavascriptInterface(mediaBridge, "AndroidMedia");
