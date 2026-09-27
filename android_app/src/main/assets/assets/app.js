@@ -14708,6 +14708,7 @@ function loadChannelMedia(ch, autoPlay) {
         startLevel: 0, // Instant-start at lowest bitrate in <1.5s
         maxBufferLength: 10, // Rapid buffer-safe playback
         maxMaxBufferLength: 20,
+        maxBufferSize: 30 * 1000 * 1000, // 30MB safety buffer cap to prevent Android low-memory crashes
         manifestLoadingTimeOut: 10000,
         fragLoadingTimeOut: 10000
       });
@@ -14911,6 +14912,7 @@ function loadChannelMedia(ch, autoPlay) {
 
   } else if (streamUrl) {
     if (videoElement) {
+      videoElement.preload = 'auto';
       videoElement.src = streamUrl;
       
       const onLoaded = function() {
