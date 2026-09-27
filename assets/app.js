@@ -14834,7 +14834,19 @@ function loadChannelMedia(ch, autoPlay) {
               break;
             case Hls.ErrorTypes.MEDIA_ERROR:
               try {
-                hlsInstance.recoverMediaError();
+                if (!hlsInstance._mediaErrorRecovered) {
+                  hlsInstance._mediaErrorRecovered = true;
+                  hlsInstance.recoverMediaError();
+                } else if (!hlsInstance._audioCodecSwapped) {
+                  hlsInstance._audioCodecSwapped = true;
+                  if (typeof hlsInstance.swapAudioCodec === 'function') {
+                    hlsInstance.swapAudioCodec();
+                  }
+                  hlsInstance.recoverMediaError();
+                } else {
+                  hideBufferingSpinner();
+                  showStreamErrorState('Media Decode Error', 'Audio/Video codec in stream could not be decoded.');
+                }
               } catch (eRec) {
                 hideBufferingSpinner();
                 showStreamErrorState('Media Decode Error', 'Audio/Video codec in stream could not be decoded.');
