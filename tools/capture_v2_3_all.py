@@ -39,6 +39,20 @@ SHOTS = [
 
     # 2. Redesigned Footers
     {
+        "filename": "footer_final.png",
+        "url": f"{BASE_URL}?noSplash=1#footer",
+        "width": 390,
+        "height": 844,
+        "desc": "Final mobile footer without Zero-Trust Architecture label"
+    },
+    {
+        "filename": "footer_final_desktop.png",
+        "url": f"{BASE_URL}?noSplash=1#footer",
+        "width": 1024,
+        "height": 768,
+        "desc": "Final desktop footer without Zero-Trust Architecture label"
+    },
+    {
         "filename": "footer_mobile.png",
         "url": f"{BASE_URL}?noSplash=1#footer",
         "width": 390,

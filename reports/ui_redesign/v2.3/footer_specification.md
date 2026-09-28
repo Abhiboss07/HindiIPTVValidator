@@ -19,7 +19,7 @@ The T2L footer is the final cinematic section of the application. It provides pu
 │                       • Local                                          │
 │                                                                        │
 ├────────────────────────────────────────────────────────────────────────┤
-│  T2L © 2026 · Built for Media                      Zero-Trust v2.3 ●   │
+│  T2L © 2026 · Built for Media · v2.3                                   │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -39,7 +39,7 @@ To prevent mobile users from having to scroll past an endless wall of desktop fo
 │  Tools                            ›  │
 │  Information                      ›  │
 │                                      │
-│  T2L © 2026 · Zero-Trust v2.3 ●      │
+│  T2L © 2026 · Built for media · v2.3 │
 └──────────────────────────────────────┘
 ```
 
@@ -59,4 +59,4 @@ To prevent mobile users from having to scroll past an endless wall of desktop fo
 | **Tools** | Streamer | Instant Magnet & Direct Streamer |
 | | Network | Network Diagnostics & Bandwidth Probe |
 | | Settings | System & Application Settings |
-| **Information**| About, Help, Privacy | Platform documentation & zero-trust audit |
+| **Information**| About, Help, Privacy | Platform documentation & privacy guidelines |
