@@ -1,10 +1,81 @@
 // ==========================================================
+// T2L (TELEVISION TO LIVE) - SENTRY & STREAM TELEMETRY ENGINE
+// ==========================================================
+const T2LSentryTelemetry = {
+  dsn: null,
+  breadcrumbs: [],
+  maxBreadcrumbs: 30,
+  init(dsn) {
+    if (dsn) this.dsn = dsn;
+    window.T2LSentryTelemetry = this;
+  },
+  addBreadcrumb(category, message, level = 'info', data = null) {
+    const entry = {
+      timestamp: new Date().toISOString(),
+      category: category,
+      message: message,
+      level: level,
+      data: data
+    };
+    this.breadcrumbs.push(entry);
+    if (this.breadcrumbs.length > this.maxBreadcrumbs) {
+      this.breadcrumbs.shift();
+    }
+  },
+  captureStreamError(streamUrl, content, errorType, httpStatus = null) {
+    const title = content ? (content.name || content.title || content.id || 'Unknown') : 'Unknown';
+    const errorMsg = `Stream playback failed for [${title}] (${errorType || 'UNKNOWN_ERROR'}, HTTP: ${httpStatus || 'N/A'}): ${streamUrl}`;
+    this.addBreadcrumb('playback', errorMsg, 'error', { streamUrl, errorType, httpStatus });
+    console.error('[T2LSentryTelemetry] ' + errorMsg);
+    if (window.AndroidMedia && window.AndroidMedia.logError) {
+      try { window.AndroidMedia.logError('[StreamError] ' + errorMsg); } catch (e) {}
+    }
+    if (this.dsn) {
+      this._dispatchToSentry('StreamPlaybackError', errorMsg, { streamUrl, contentId: content?.id, errorType, httpStatus });
+    }
+  },
+  captureException(err, context = {}) {
+    const message = err?.message || String(err);
+    const stack = err?.stack || '';
+    this.addBreadcrumb('exception', message, 'error', { stack, ...context });
+    if (window.AndroidMedia && window.AndroidMedia.logError) {
+      try { window.AndroidMedia.logError('JS Exception: ' + message + '\n' + stack); } catch (e) {}
+    }
+    if (this.dsn) {
+      this._dispatchToSentry('JavaScriptException', message, { stack, ...context });
+    }
+  },
+  _dispatchToSentry(type, message, extra = {}) {
+    if (!this.dsn) return;
+    try {
+      const payload = {
+        event_id: Math.random().toString(36).substring(2) + Date.now().toString(36),
+        timestamp: new Date().toISOString(),
+        platform: 'javascript',
+        level: 'error',
+        message: message,
+        tags: { app: 'T2L', type: type },
+        breadcrumbs: this.breadcrumbs,
+        extra: extra
+      };
+      if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
+        navigator.sendBeacon(this.dsn, JSON.stringify(payload));
+      } else if (typeof fetch === 'function') {
+        fetch(this.dsn, { method: 'POST', body: JSON.stringify(payload), headers: { 'Content-Type': 'application/json' } }).catch(() => {});
+      }
+    } catch (e) {}
+  }
+};
+window.T2LSentryTelemetry = T2LSentryTelemetry;
+
+// ==========================================================
 // T2L (TELEVISION TO LIVE) - GLOBAL ERROR HANDLER & BRIDGE
 // ==========================================================
 window.onerror = function(msg, src, line, col, err) {
   var detail = 'JS ERROR: ' + msg + ' at ' + (src || 'inline') + ':' + line + ':' + col;
   if (err && err.stack) detail += '\n' + err.stack;
   console.error(detail);
+  T2LSentryTelemetry.captureException(err || msg, { line, col, src });
   if (window.AndroidMedia && window.AndroidMedia.logError) {
     try { window.AndroidMedia.logError(detail); } catch (e) {}
   }
@@ -13,6 +84,7 @@ window.onerror = function(msg, src, line, col, err) {
 window.addEventListener('unhandledrejection', function(e) {
   var reason = e.reason ? (e.reason.stack || e.reason.message || e.reason) : 'unknown';
   console.error('Unhandled Promise rejection: ' + reason);
+  T2LSentryTelemetry.captureException(reason, { type: 'unhandledrejection' });
   if (window.AndroidMedia && window.AndroidMedia.logError) {
     try { window.AndroidMedia.logError('Unhandled Promise rejection: ' + reason); } catch (ex) {}
   }
@@ -14161,6 +14233,10 @@ function hideBufferingSpinner() {
 
 function showStreamErrorState(title, desc) {
   hideBufferingSpinner();
+  if (typeof T2LSentryTelemetry !== 'undefined') {
+    const url = currentPlayingChannel ? (currentPlayingChannel.url || currentPlayingChannel.streamUrl) : null;
+    T2LSentryTelemetry.captureStreamError(url, currentPlayingChannel, title, desc);
+  }
   const errorOverlay = document.getElementById('playerErrorOverlay');
   const errorTitle = document.getElementById('playerErrorTitle');
   const errorDesc = document.getElementById('playerErrorDesc');
