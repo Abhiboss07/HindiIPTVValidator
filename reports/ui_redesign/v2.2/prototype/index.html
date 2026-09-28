@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>T2L V2.2 — Brand & Cinema Redesign Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. RESTRAINED CINEMATIC OPENING / SPLASH SEQUENCE (1200ms)
+       ========================================================================== -->
+  <div id="t2lSplash" class="t2l-splash-screen" aria-label="T2L Opening Reveal" onclick="dismissSplash()">
+    <div class="splash-symbol-wrap">
+      <!-- The Nexus Ribbon Master Symbol (96x96) -->
+      <svg viewBox="0 0 48 48" fill="none" class="t2l-nexus-symbol" style="width: 96px; height: 96px;">
+        <defs>
+          <linearGradient id="splashAuroraGrad" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#8B5CF6"/>
+            <stop offset="50%" stop-color="#6366F1"/>
+            <stop offset="100%" stop-color="#22D3EE"/>
+          </linearGradient>
+        </defs>
+        <path d="M 9 12 H 39" stroke="url(#splashAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+        <path d="M 24 12 L 13 36" stroke="url(#splashAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+        <path d="M 13 36 H 37 V 26" stroke="url(#splashAuroraGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="splash-brand-text">T2L CINEMA</div>
+  </div>
+
+  <!-- Atmospheric Ambient Background Light -->
+  <div class="aurora-ambient-glow" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       2. TRANSPARENT ART-AWARE TOP BAR (Floating Over Hero Artwork)
+       ========================================================================== -->
+  <header id="t2lHeader" class="t2l-header">
+    <div class="t2l-brand-lockup" onclick="navigateTo('home')" title="T2L Home">
+      <!-- "The Nexus Ribbon" Logo Mark (28x28) -->
+      <svg viewBox="0 0 48 48" fill="none" class="t2l-nexus-symbol" style="width: 28px; height: 28px;">
+        <defs>
+          <linearGradient id="hdrAuroraGrad" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#8B5CF6"/>
+            <stop offset="50%" stop-color="#6366F1"/>
+            <stop offset="100%" stop-color="#22D3EE"/>
+          </linearGradient>
+        </defs>
+        <path d="M 9 12 H 39" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+        <path d="M 24 12 L 13 36" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+        <path d="M 13 36 H 37 V 26" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="t2l-brand-wordmark">T2L</span>
+    </div>
+
+    <!-- Header Actions (Notifications + Profile Only, No Search/Settings) -->
+    <div class="t2l-header-actions">
+      <!-- Brand Inspector Shortcut (For Design Review) -->
+      <button class="t2l-icon-btn" onclick="toggleBrandShowcase()" title="Inspect Logo System" aria-label="Brand Inspector">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="12 8 8 12 12 16 16 12 12 8"></polygon>
+        </svg>
+      </button>
+
+      <button class="t2l-icon-btn" onclick="openNotifications()" aria-label="Notifications">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <span class="notification-badge-dot"></span>
+      </button>
+
+      <button class="t2l-icon-btn" onclick="openProfile()" aria-label="Profile and Hub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       3. CONTENT VIEWS CONTAINER
+       ========================================================================== -->
+  <main class="t2l-content-container">
+
+    <!-- VIEW 1: HOME (FROZEN FROM V2.1) -->
+    <section id="view-home" class="t2l-view active">
+      <!-- Cinematic Hero Banner -->
+      <div class="hero-premiere">
+        <img class="hero-backdrop-img" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail Hero">
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-tag">★ Premiere Spotlight</div>
+          <h1 class="hero-title">12th Fail</h1>
+          <div class="hero-metadata">
+            <span>2023</span>
+            <span>•</span>
+            <span>2h 27m</span>
+            <span>•</span>
+            <span>Hindi Master</span>
+            <span class="hero-quality-badge">720p HD</span>
+          </div>
+          <p class="hero-synopsis">
+            Based on the inspiring real-life story of IPS officer Manoj Kumar Sharma who restarts his academic journey despite extreme poverty.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary-action" onclick="openPlayer('12th Fail', 'Hindi Master · 720p HD')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Watch Now
+            </button>
+            <button class="btn-secondary-action" onclick="openMovieDetails('12th Fail')">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue Watching Rail (Type D) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Continue Watching
+          </h2>
+          <span class="content-rail-see-all">History →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="continue-card" onclick="openPlayer('Panchayat S02 E04', 'Hindi · 1080p')">
+            <div class="continue-backdrop-wrap">
+              <img class="continue-backdrop-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
+              <div class="continue-play-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+              <div class="continue-progress-bar"><div class="continue-progress-fill" style="width: 72%;"></div></div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Panchayat · S02 E04</div>
+              <div class="continue-subtext">18m left (72%)</div>
+            </div>
+          </div>
+
+          <div class="continue-card" onclick="openPlayer('Jawan', 'Hindi · 1080p BluRay')">
+            <div class="continue-backdrop-wrap">
+              <img class="continue-backdrop-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
+              <div class="continue-play-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+              <div class="continue-progress-bar"><div class="continue-progress-fill" style="width: 45%;"></div></div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Jawan (2023)</div>
+              <div class="continue-subtext">1h 12m left (45%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trending Cinema Rail -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+            Trending in Cinema
+          </h2>
+          <span class="content-rail-see-all" onclick="navigateTo('cinema')">Explore Pavilion →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="theatrical-card" style="flex: 0 0 140px;" onclick="openMovieDetails('Kalki 2898 AD')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Kalki 2898 AD</div>
+              <div class="theatrical-meta"><span>2024</span><span class="theatrical-quality-pill">720p</span></div>
+            </div>
+          </div>
+
+          <div class="theatrical-card" style="flex: 0 0 140px;" onclick="openMovieDetails('Jawan')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Jawan</div>
+              <div class="theatrical-meta"><span>2023</span><span class="theatrical-quality-pill">1080p</span></div>
+            </div>
+          </div>
+
+          <div class="theatrical-card" style="flex: 0 0 140px;" onclick="openMovieDetails('Dangal')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Dangal</div>
+              <div class="theatrical-meta"><span>2016</span><span class="theatrical-quality-pill">1080p</span></div>
+            </div>
+          </div>
+
+          <div class="theatrical-card" style="flex: 0 0 140px;" onclick="openSeriesDetails('Mirzapur')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/series_mirzapur.jpg" alt="Mirzapur">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Mirzapur</div>
+              <div class="theatrical-meta"><span>S1-S3</span><span class="theatrical-quality-pill">HD</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editorial Footer -->
+      <footer class="t2l-footer">
+        <div class="footer-brand-lockup">
+          <svg viewBox="0 0 48 48" fill="none" class="t2l-nexus-symbol" style="width: 24px; height: 24px;">
+            <path d="M 9 12 H 39" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 24 12 L 13 36" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 13 36 H 37 V 26" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="t2l-brand-wordmark" style="font-size: 16px;">T2L</span>
+        </div>
+        <p class="footer-motto">
+          Your cinematic media space. Engineered for pristine bitrates, zero telemetry, and pure cinematic storytelling.
+        </p>
+        <div class="footer-links-row">
+          <span>Cinema</span>
+          <span>•</span>
+          <span>Broadcast</span>
+          <span>•</span>
+          <span>Hi-Fi Radio</span>
+          <span>•</span>
+          <span>Media Vault</span>
+        </div>
+        <div>
+          <span class="footer-badge-pill">● Zero-Trust Architecture</span>
+        </div>
+      </footer>
+    </section>
+
+    <!-- ==========================================================================
+         VIEW 2: CINEMA PAVILION (REDESIGNED V2.2 FLAGSHIP)
+         ========================================================================== -->
+    <section id="view-cinema" class="t2l-view">
+
+      <!-- 1. Atmospheric Premiere Showcase (Type A) -->
+      <div class="cinema-pavilion-hero">
+        <img class="cinema-hero-bg" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki 2898 AD Key Art">
+        <div class="cinema-hero-scrim"></div>
+        <div class="cinema-hero-content">
+          <div class="cinema-tag-premiere">★ CURATED CINEMA SHOWCASE</div>
+          <h1 class="cinema-hero-headline">Kalki 2898 AD</h1>
+          <div class="cinema-hero-submeta">
+            <span>2024</span>
+            <span>•</span>
+            <span>3h 01m</span>
+            <span>•</span>
+            <span>Sci-Fi Epic</span>
+            <span class="cinema-badge-scope">2.39:1 SCOPE</span>
+            <span class="theatrical-quality-pill">720p HD</span>
+          </div>
+          <p class="hero-synopsis">
+            In the dystopian future of Kasi, a modern avatar of Vishnu descends to shield a miraculous unborn child from total darkness.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary-action" onclick="openPlayer('Kalki 2898 AD', 'Hindi · 720p HD')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Watch Premiere
+            </button>
+            <button class="btn-secondary-action" onclick="openMovieDetails('Kalki 2898 AD')">
+              Explore Title
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Architectural Discovery Modes (Replacing Generic Segment Chips) -->
+      <nav class="cinema-mode-nav" aria-label="Cinema Discovery Modes">
+        <button class="cinema-mode-btn active" onclick="filterCinemaMode('premieres', this)">Premieres</button>
+        <button class="cinema-mode-btn" onclick="filterCinemaMode('theatrical', this)">Theatrical</button>
+        <button class="cinema-mode-btn" onclick="filterCinemaMode('sagas', this)">Sagas & Series</button>
+      </nav>
+
+      <!-- 3. Theatrical Horizons Rail (Scope Format 2.39:1) -->
+      <div class="content-rail-section" style="padding-top: 0;">
+        <div class="cinema-shelf-head">
+          <div class="cinema-shelf-title-wrap">
+            <span class="cinema-shelf-kicker">CINEMATIC HORIZONS</span>
+            <h2 class="cinema-shelf-heading">Trending in Theatres</h2>
+          </div>
+          <span class="cinema-shelf-action">All Theatres →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="theatrical-horizon-card" onclick="openMovieDetails('Jawan')">
+            <img class="theatrical-horizon-thumb" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
+            <div class="theatrical-horizon-scrim">
+              <div class="theatrical-horizon-title">Jawan</div>
+              <div class="theatrical-horizon-meta">2023 · Action · 1080p BluRay</div>
+            </div>
+          </div>
+
+          <div class="theatrical-horizon-card" onclick="openMovieDetails('Dangal')">
+            <img class="theatrical-horizon-thumb" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
+            <div class="theatrical-horizon-scrim">
+              <div class="theatrical-horizon-title">Dangal</div>
+              <div class="theatrical-horizon-meta">2016 · Biography · 1080p Full HD</div>
+            </div>
+          </div>
+
+          <div class="theatrical-horizon-card" onclick="openMovieDetails('12th Fail')">
+            <img class="theatrical-horizon-thumb" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail">
+            <div class="theatrical-horizon-scrim">
+              <div class="theatrical-horizon-title">12th Fail</div>
+              <div class="theatrical-horizon-meta">2023 · Drama · 720p Master</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Curated Shelf: Multi-Season Epics & Sagas (Type C Cards) -->
+      <div class="content-rail-section">
+        <div class="cinema-shelf-head">
+          <div class="cinema-shelf-title-wrap">
+            <span class="cinema-shelf-kicker">EPISODIC EXPEDITIONS</span>
+            <h2 class="cinema-shelf-heading">Cinematic Sagas & Epics</h2>
+          </div>
+          <span class="cinema-shelf-action">Browse Sagas →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="saga-card" onclick="openSeriesDetails('Game of Thrones')">
+            <div class="saga-poster-wrap">
+              <img class="saga-poster-img" src="/assets/posters/series_game_of_thrones.jpg" alt="Game of Thrones">
+              <span class="saga-badge-pill">8 SEASONS</span>
+            </div>
+            <div class="saga-info">
+              <div class="saga-title">Game of Thrones</div>
+              <div class="saga-meta">73 Episodes · Fantasy Drama</div>
+            </div>
+          </div>
+
+          <div class="saga-card" onclick="openSeriesDetails('Mirzapur')">
+            <div class="saga-poster-wrap">
+              <img class="saga-poster-img" src="/assets/posters/series_mirzapur.jpg" alt="Mirzapur">
+              <span class="saga-badge-pill">3 SEASONS</span>
+            </div>
+            <div class="saga-info">
+              <div class="saga-title">Mirzapur</div>
+              <div class="saga-meta">29 Episodes · Crime Action</div>
+            </div>
+          </div>
+
+          <div class="saga-card" onclick="openSeriesDetails('Panchayat')">
+            <div class="saga-poster-wrap">
+              <img class="saga-poster-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
+              <span class="saga-badge-pill">2 SEASONS</span>
+            </div>
+            <div class="saga-info">
+              <div class="saga-title">Panchayat</div>
+              <div class="saga-meta">16 Episodes · Heartfelt Comedy</div>
+            </div>
+          </div>
+
+          <div class="saga-card" onclick="openSeriesDetails('Stranger Things')">
+            <div class="saga-poster-wrap">
+              <img class="saga-poster-img" src="/assets/posters/series_stranger_things.jpg" alt="Stranger Things">
+              <span class="saga-badge-pill">4 SEASONS</span>
+            </div>
+            <div class="saga-info">
+              <div class="saga-title">Stranger Things</div>
+              <div class="saga-meta">34 Episodes · Sci-Fi Mystery</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Editorial Collection Banner (Type E) -->
+      <div class="editorial-shelf-banner" onclick="alert('Exploring Collection: Modern Masterpieces')">
+        <div>
+          <div class="editorial-banner-title">Modern Masterpieces (2024–2026)</div>
+          <div class="editorial-banner-desc">Award-winning cinema, groundbreaking visual effects, and iconic storytelling.</div>
+        </div>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </div>
+
+      <!-- 6. The Grand Theatrical Repertory Grid (Responsive 2/4/6 Columns) -->
+      <div style="padding: 16px 16px 8px 16px;">
+        <div class="cinema-shelf-head" style="padding: 0 0 12px 0;">
+          <div class="cinema-shelf-title-wrap">
+            <span class="cinema-shelf-kicker">THE REPERTORY ARCHIVE</span>
+            <h2 class="cinema-shelf-heading">Complete Theatrical Vault</h2>
+          </div>
+          <span class="cinema-shelf-action">Filters</span>
+        </div>
+
+        <div class="cinema-repertory-grid">
+          <!-- Film 1 -->
+          <div class="theatrical-card" onclick="openMovieDetails('12th Fail')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">12th Fail</div>
+              <div class="theatrical-meta"><span>2023 · Drama</span><span class="theatrical-quality-pill">720p</span></div>
+            </div>
+          </div>
+
+          <!-- Film 2 -->
+          <div class="theatrical-card" onclick="openMovieDetails('Kalki 2898 AD')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Kalki 2898 AD</div>
+              <div class="theatrical-meta"><span>2024 · Sci-Fi</span><span class="theatrical-quality-pill">720p</span></div>
+            </div>
+          </div>
+
+          <!-- Film 3 -->
+          <div class="theatrical-card" onclick="openMovieDetails('Jawan')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Jawan</div>
+              <div class="theatrical-meta"><span>2023 · Action</span><span class="theatrical-quality-pill">1080p</span></div>
+            </div>
+          </div>
+
+          <!-- Film 4 -->
+          <div class="theatrical-card" onclick="openMovieDetails('Dangal')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Dangal</div>
+              <div class="theatrical-meta"><span>2016 · Bio</span><span class="theatrical-quality-pill">1080p</span></div>
+            </div>
+          </div>
+
+          <!-- Film 5: Public Domain Gem -->
+          <div class="theatrical-card" onclick="openMovieDetails('Sita Sings the Blues')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_sita_sings_blues.jpg" alt="Sita Sings the Blues">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Sita Sings the Blues</div>
+              <div class="theatrical-meta"><span>2008 · Art</span><span class="theatrical-quality-pill">720p</span></div>
+            </div>
+          </div>
+
+          <!-- Film 6: Classic -->
+          <div class="theatrical-card" onclick="openMovieDetails('His Girl Friday')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_his_girl_friday.jpg" alt="His Girl Friday">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">His Girl Friday</div>
+              <div class="theatrical-meta"><span>1940 · Comedy</span><span class="theatrical-quality-pill">Classic</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: LIVE TV (FROZEN FROM V2.1) -->
+    <section id="view-live" class="t2l-view">
+      <div style="padding: 68px 16px 8px 16px;">
+        <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Broadcast Control</h1>
+        <p style="font-size: 13px; color: var(--t2l-text-muted);">886 Live Satellite & Terrestrial HD Transmissions</p>
+      </div>
+
+      <!-- LIVE NOW Flagship Broadcast Card -->
+      <div class="live-flagship-card">
+        <div class="live-flagship-thumb-wrap">
+          <img class="live-flagship-thumb" src="/assets/posters/vod_12th_fail.jpg" alt="Live Flagship">
+          <div style="position: absolute; top: 12px; left: 12px;" class="live-badge"><span class="live-badge-dot"></span> LIVE ON AIR</div>
+          <div style="position: absolute; top: 12px; right: 12px; background: rgba(5,6,8,0.75); padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 700; color: #FFFFFF;">18.4K Watching</div>
+        </div>
+        <div class="live-flagship-info">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div style="font-size: 16px; font-weight: 800;">Aaj Tak HD Live</div>
+            <span style="font-size: 11px; font-weight: 700; color: #34D399;">1080p 60FPS</span>
+          </div>
+          <div style="font-size: 13px; color: var(--t2l-text-muted); margin-bottom: 12px;">Special Report: National Assembly & Global Space Exploration</div>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn-primary-action" style="padding: 10px 20px; font-size: 13px;" onclick="openPlayer('Aaj Tak HD Live', 'Hindi News · 1080p FHD')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Watch Live
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive EPG Timeline Preview -->
+      <div class="epg-timeline-box">
+        <div class="epg-header">Schedule (EPG) • Top Channels</div>
+        <div class="epg-slots-row">
+          <div class="epg-slot-card">
+            <div class="epg-slot-time">NOW (14:30)</div>
+            <div class="epg-slot-prog">Aaj Tak: Prime News</div>
+          </div>
+          <div class="epg-slot-card">
+            <div class="epg-slot-time">15:00 (NEXT)</div>
+            <div class="epg-slot-prog">Special Investigation</div>
+          </div>
+          <div class="epg-slot-card">
+            <div class="epg-slot-time">16:00 (LATER)</div>
+            <div class="epg-slot-prog">Dangal The Debate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: RADIO (FROZEN FROM V2.1) -->
+    <section id="view-radio" class="t2l-view">
+      <div style="padding: 68px 16px 8px 16px;">
+        <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Acoustic Radio</h1>
+        <p style="font-size: 13px; color: var(--t2l-text-muted);">High-Definition Global Music & Terrestrial Transmissions</p>
+      </div>
+
+      <div class="radio-hi-fi-player">
+        <div class="radio-vinyl-disc">
+          <div class="radio-vinyl-center"></div>
+        </div>
+        <div style="font-size: 18px; font-weight: 800; margin-bottom: 2px;">Radio Mirchi 98.3 FM</div>
+        <div style="font-size: 12px; color: var(--t2l-aurora-cyan); margin-bottom: 12px;">102.8 FM · Live Frequency Transmission</div>
+        
+        <div class="equalizer-bars-row">
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+        </div>
+
+        <button class="btn-primary-action" style="padding: 10px 24px; font-size: 13px;" onclick="alert('Streaming Radio Mirchi Hi-Fi')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          Tune Live Station
+        </button>
+      </div>
+    </section>
+
+    <!-- VIEW 5: LOCAL MEDIA VAULT (FROZEN FROM V2.1) -->
+    <section id="view-local" class="t2l-view">
+      <div class="local-vault-header">
+        <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Local Vault</h1>
+        <p style="font-size: 13px; color: var(--t2l-text-muted);">Personal Offline Media & Instant Direct Streamer</p>
+      </div>
+
+      <div class="local-action-grid">
+        <div class="local-action-card" onclick="alert('Opening Instant Direct Streamer')">
+          <div class="local-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+            </svg>
+          </div>
+          <div style="font-size: 14px; font-weight: 800;">Direct Stream</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted);">Paste magnet or HTTP stream link</div>
+        </div>
+
+        <div class="local-action-card" onclick="alert('Opening Saved Offline Media')">
+          <div class="local-icon-wrap" style="background: rgba(139,92,246,0.14); color: #C4B5FD;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </div>
+          <div style="font-size: 14px; font-weight: 800;">Downloads</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted);">Offline high-definition files</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       4. FLOATING SIGNATURE CAPSULE DOCK (FROZEN FROM V2.1)
+       ========================================================================== -->
+  <div class="t2l-floating-dock-wrap">
+    <nav class="t2l-capsule-dock" aria-label="Main Navigation">
+      <button class="dock-item-btn active" onclick="navigateTo('home', this)" aria-label="Home">
+        <span class="dock-active-pill"></span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="dock-label">Home</span>
+      </button>
+
+      <button class="dock-item-btn" onclick="navigateTo('cinema', this)" aria-label="Cinema">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+          <line x1="7" y1="2" x2="7" y2="22"></line>
+          <line x1="17" y1="2" x2="17" y2="22"></line>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <line x1="2" y1="7" x2="7" y2="7"></line>
+          <line x1="2" y1="17" x2="7" y2="17"></line>
+          <line x1="17" y1="17" x2="22" y2="17"></line>
+          <line x1="17" y1="7" x2="22" y2="7"></line>
+        </svg>
+        <span class="dock-label">Cinema</span>
+      </button>
+
+      <button class="dock-item-btn" onclick="navigateTo('live', this)" aria-label="Live TV">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+          <polyline points="17 2 12 7 7 2"></polyline>
+        </svg>
+        <span class="dock-label">Live TV</span>
+      </button>
+
+      <button class="dock-item-btn" onclick="navigateTo('radio', this)" aria-label="Radio">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="2"></circle>
+          <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path>
+        </svg>
+        <span class="dock-label">Radio</span>
+      </button>
+
+      <button class="dock-item-btn" onclick="navigateTo('local', this)" aria-label="Local Media Vault">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <span class="dock-label">Vault</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- ==========================================================================
+       5. DETAILS MODAL (WITH CARD-TO-BACKDROP EXPAND TRANSITION)
+       ========================================================================== -->
+  <div id="detailsModal" class="t2l-details-modal">
+    <div class="details-modal-hero">
+      <img id="modalHeroImg" class="details-modal-backdrop" src="/assets/posters/vod_12th_fail.jpg" alt="Backdrop">
+      <div class="details-modal-scrim"></div>
+      <button class="details-modal-close-btn" onclick="closeMovieDetails()">✕</button>
+    </div>
+    <div class="details-modal-body">
+      <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan); margin-bottom: 4px; text-transform: uppercase;">CINEMA PRESENTATION</div>
+      <h2 id="modalTitle" style="font-size: 26px; font-weight: 900; margin-bottom: 8px;">Title</h2>
+      <div id="modalMeta" style="font-size: 13px; color: var(--t2l-text-muted); margin-bottom: 16px;">Metadata</div>
+      <p id="modalDesc" style="font-size: 14px; line-height: 1.6; color: var(--t2l-text-secondary); margin-bottom: 24px;">Synopsis</p>
+      
+      <div style="display: flex; gap: 12px;">
+        <button class="btn-primary-action" onclick="openPlayerFromModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          Start Playback
+        </button>
+        <button class="btn-secondary-action" onclick="closeMovieDetails()">Dismiss</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       6. PLAYER MODAL (WITH WATERMARK)
+       ========================================================================== -->
+  <div id="playerModal" class="t2l-player-modal">
+    <div class="player-header-bar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="t2l-icon-btn" onclick="closePlayer()">✕</button>
+        <div>
+          <div id="playerTitle" style="font-size: 14px; font-weight: 800;">Playback</div>
+          <div id="playerMeta" style="font-size: 11px; color: var(--t2l-text-muted);">1080p FHD</div>
+        </div>
+      </div>
+    </div>
+    <div class="player-video-viewport">
+      <div style="color: var(--t2l-text-muted); text-align: center;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+        <div style="margin-top: 10px; font-size: 13px;">High-Fidelity Cinema Stream Engine Active</div>
+      </div>
+      <!-- Brand Watermark in Player -->
+      <div class="player-brand-watermark">
+        <svg viewBox="0 0 48 48" fill="none" style="width: 32px; height: 32px;">
+          <path d="M 9 12 H 39" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round"/>
+          <path d="M 24 12 L 13 36" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round"/>
+          <path d="M 13 36 H 37 V 26" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       7. SLIDE-OVER HUBS (Notifications & Profile)
+       ========================================================================== -->
+  <div id="notificationsSheet" class="t2l-drawer-panel" onclick="closeNotifications(event)">
+    <div class="drawer-sheet-content">
+      <div class="drawer-header-row">
+        <div style="font-size: 17px; font-weight: 800;">Notifications</div>
+        <button class="t2l-icon-btn" onclick="closeNotifications()">✕</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: var(--t2l-surface-2); padding: 12px; border-radius: var(--t2l-radius-md); border: 1px solid var(--t2l-border-subtle);">
+          <div style="font-size: 12px; font-weight: 700; color: var(--t2l-aurora-cyan); margin-bottom: 2px;">NEW RELEASE</div>
+          <div style="font-size: 13px; font-weight: 600;">Kalki 2898 AD is now available in Hindi HD.</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted); margin-top: 4px;">2 hours ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="profileSheet" class="t2l-drawer-panel" onclick="closeProfile(event)">
+    <div class="drawer-sheet-content">
+      <div class="drawer-header-row">
+        <div style="font-size: 17px; font-weight: 800;">Account & Hub</div>
+        <button class="t2l-icon-btn" onclick="closeProfile()">✕</button>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <div class="t2l-icon-tile" style="width: 48px; height: 48px;">
+          <svg viewBox="0 0 48 48" fill="none" style="width: 26px; height: 26px;">
+            <path d="M 9 12 H 39" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 24 12 L 13 36" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 13 36 H 37 V 26" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-size: 15px; font-weight: 800;">Cinema Enthusiast</div>
+          <div style="font-size: 12px; color: var(--t2l-aurora-cyan);">Pro Subscriber · Zero-Trust Active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       8. BRAND SHOWCASE INSPECTOR MODAL (FOR VERIFICATION & SCREENSHOTS)
+       ========================================================================== -->
+  <div id="brandShowcase" class="brand-showcase-overlay">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 900px; margin: 0 auto 20px auto;">
+      <div style="font-size: 20px; font-weight: 900;">T2L Master Brand System</div>
+      <button class="t2l-icon-btn" onclick="toggleBrandShowcase()">✕</button>
+    </div>
+
+    <!-- Section A: 4 Explored Concepts Comparison (For logo_concepts.png) -->
+    <div id="sectionConcepts" class="brand-section-card">
+      <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan); text-transform: uppercase;">EXPLORATION & EVALUATION</div>
+      <h2 style="font-size: 22px; font-weight: 800; margin: 4px 0 16px 0;">Four Brand Identity Directions</h2>
+      
+      <div class="brand-grid-4">
+        <!-- Concept A -->
+        <div class="brand-concept-tile">
+          <svg viewBox="0 0 48 48" fill="none" style="width: 54px; height: 54px; margin-bottom: 12px;">
+            <path d="M 10 14 H 38 M 24 14 V 24 M 24 24 L 14 34 H 36 V 28" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div style="font-size: 14px; font-weight: 800;">Concept A</div>
+          <div style="font-size: 11px; color: var(--t2l-aurora-cyan); margin-top: 2px;">Typographic Monolith</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted); margin-top: 6px;">Continuous glyph of T-2-L. Score: 40/50.</div>
+        </div>
+
+        <!-- Concept B -->
+        <div class="brand-concept-tile">
+          <svg viewBox="0 0 48 48" fill="none" style="width: 54px; height: 54px; margin-bottom: 12px;">
+            <path d="M 14 12 Q 26 24 14 36" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M 34 12 Q 22 24 34 36" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="24" cy="24" r="3" fill="#22D3EE"/>
+          </svg>
+          <div style="font-size: 14px; font-weight: 800;">Concept B</div>
+          <div style="font-size: 11px; color: var(--t2l-aurora-cyan); margin-top: 2px;">Resonant Horizon</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted); margin-top: 6px;">Parabolic signal arcs. Score: 35/50.</div>
+        </div>
+
+        <!-- Concept C -->
+        <div class="brand-concept-tile">
+          <svg viewBox="0 0 48 48" fill="none" style="width: 54px; height: 54px; margin-bottom: 12px;">
+            <rect x="8" y="10" width="22" height="16" rx="3" stroke="#FFFFFF" stroke-width="2.5"/>
+            <rect x="18" y="22" width="22" height="16" rx="3" stroke="#22D3EE" stroke-width="2.5"/>
+          </svg>
+          <div style="font-size: 14px; font-weight: 800;">Concept C</div>
+          <div style="font-size: 11px; color: var(--t2l-aurora-cyan); margin-top: 2px;">The Aspect Gate</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted); margin-top: 6px;">Overlapping aspect gates. Score: 33/50.</div>
+        </div>
+
+        <!-- Concept D: SELECTED WINNER -->
+        <div class="brand-concept-tile is-winner">
+          <div style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 8px;">
+            <span style="background: var(--t2l-aurora-cyan); color: #000; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 4px;">SELECTED</span>
+            <span style="font-size: 10px; font-weight: 800; color: #34D399;">49/50</span>
+          </div>
+          <svg viewBox="0 0 48 48" fill="none" style="width: 54px; height: 54px; margin-bottom: 12px;">
+            <path d="M 9 12 H 39" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 24 12 L 13 36" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 13 36 H 37 V 26" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div style="font-size: 14px; font-weight: 800;">Concept D</div>
+          <div style="font-size: 11px; color: var(--t2l-aurora-cyan); margin-top: 2px;">The Nexus Ribbon</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted); margin-top: 6px;">Geometric T-2-L monogram.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section B: Selected Logo Specification & Lockup (For logo_selected.png) -->
+    <div id="sectionSelected" class="brand-section-card">
+      <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan); text-transform: uppercase;">MASTER BRAND IDENTITY</div>
+      <h2 style="font-size: 22px; font-weight: 800; margin: 4px 0 16px 0;">Selected Mark: "The Nexus Ribbon"</h2>
+      
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 36px 20px; background: #000000; border-radius: var(--t2l-radius-lg); border: 1px solid var(--t2l-border-subtle); margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <!-- 64x64 Symbol -->
+          <svg viewBox="0 0 48 48" fill="none" style="width: 64px; height: 64px;">
+            <path d="M 9 12 H 39" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 24 12 L 13 36" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 13 36 H 37 V 26" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span style="font-size: 42px; font-weight: 900; letter-spacing: 0.14em; color: #FFFFFF;">T2L</span>
+        </div>
+        <div style="font-size: 12px; color: var(--t2l-text-muted); margin-top: 14px; letter-spacing: 0.1em; text-transform: uppercase;">Cinematic Media Architecture</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; font-size: 12px; color: var(--t2l-text-secondary);">
+        <div style="background: var(--t2l-surface-2); padding: 12px; border-radius: 8px;">
+          <strong>Crown Stroke (T):</strong> Horizontal beam, represents widescreen projection horizon.
+        </div>
+        <div style="background: var(--t2l-surface-2); padding: 12px; border-radius: 8px;">
+          <strong>Diagonal Spine (2):</strong> 45° descent, represents transmission beam & kinetic motion.
+        </div>
+        <div style="background: var(--t2l-surface-2); padding: 12px; border-radius: 8px;">
+          <strong>Foundation (L):</strong> Grounded base with vertical upturn, represents high-fidelity playback.
+        </div>
+      </div>
+    </div>
+
+    <!-- Section C: Scalability Across Sizes & Color Modes (For logo_small_sizes.png) -->
+    <div id="sectionSizes" class="brand-section-card">
+      <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan); text-transform: uppercase;">SCALABILITY & COLOR MODES</div>
+      <h2 style="font-size: 22px; font-weight: 800; margin: 4px 0 16px 0;">Optical Sizes (16px, 24px, 32px, 48px)</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+        <!-- OLED Surface -->
+        <div style="background: #000000; border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 16px; text-align: center;">
+          <div style="font-size: 11px; font-weight: 800; color: #FFF; margin-bottom: 12px;">OLED Mode (#000000)</div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+            <svg viewBox="0 0 48 48" fill="none" style="width: 16px; height: 16px;"><path d="M 9 12 H 39" stroke="#FFF" stroke-width="4.8" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#FFF" stroke-width="4.8" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#FFF" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 24px; height: 24px;"><path d="M 9 12 H 39" stroke="#FFF" stroke-width="4.2" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#FFF" stroke-width="4.2" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#FFF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 32px; height: 32px;"><path d="M 9 12 H 39" stroke="#FFF" stroke-width="4.0" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#FFF" stroke-width="4.0" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#FFF" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 48px; height: 48px;"><path d="M 9 12 H 39" stroke="#FFF" stroke-width="4.2" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#FFF" stroke-width="4.2" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#FFF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <!-- Aurora Gradient Surface -->
+        <div style="background: #0A0C11; border: 1px solid rgba(139,92,246,0.3); border-radius: 12px; padding: 16px; text-align: center;">
+          <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan); margin-bottom: 12px;">Aurora Gradient</div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+            <svg viewBox="0 0 48 48" fill="none" style="width: 16px; height: 16px;"><path d="M 9 12 H 39" stroke="url(#hdrAuroraGrad)" stroke-width="4.8" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="url(#hdrAuroraGrad)" stroke-width="4.8" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="url(#hdrAuroraGrad)" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 24px; height: 24px;"><path d="M 9 12 H 39" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 32px; height: 32px;"><path d="M 9 12 H 39" stroke="url(#hdrAuroraGrad)" stroke-width="4.0" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="url(#hdrAuroraGrad)" stroke-width="4.0" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="url(#hdrAuroraGrad)" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 48px; height: 48px;"><path d="M 9 12 H 39" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="url(#hdrAuroraGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <!-- Monochrome White Surface -->
+        <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; text-align: center;">
+          <div style="font-size: 11px; font-weight: 800; color: #000; margin-bottom: 12px;">Monochrome Inverted</div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+            <svg viewBox="0 0 48 48" fill="none" style="width: 16px; height: 16px;"><path d="M 9 12 H 39" stroke="#000" stroke-width="4.8" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#000" stroke-width="4.8" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#000" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 24px; height: 24px;"><path d="M 9 12 H 39" stroke="#000" stroke-width="4.2" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#000" stroke-width="4.2" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#000" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 32px; height: 32px;"><path d="M 9 12 H 39" stroke="#000" stroke-width="4.0" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#000" stroke-width="4.0" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#000" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 48px; height: 48px;"><path d="M 9 12 H 39" stroke="#000" stroke-width="4.2" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#000" stroke-width="4.2" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#000" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <!-- Dark Neutral Surface -->
+        <div style="background: #161B22; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; text-align: center;">
+          <div style="font-size: 11px; font-weight: 800; color: #94A3B8; margin-bottom: 12px;">Dark Neutral (#71717A)</div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+            <svg viewBox="0 0 48 48" fill="none" style="width: 16px; height: 16px;"><path d="M 9 12 H 39" stroke="#71717A" stroke-width="4.8" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#71717A" stroke-width="4.8" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#71717A" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 24px; height: 24px;"><path d="M 9 12 H 39" stroke="#71717A" stroke-width="4.2" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#71717A" stroke-width="4.2" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#71717A" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 32px; height: 32px;"><path d="M 9 12 H 39" stroke="#71717A" stroke-width="4.0" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#71717A" stroke-width="4.0" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#71717A" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 48 48" fill="none" style="width: 48px; height: 48px;"><path d="M 9 12 H 39" stroke="#71717A" stroke-width="4.2" stroke-linecap="round"/><path d="M 24 12 L 13 36" stroke="#71717A" stroke-width="4.2" stroke-linecap="round"/><path d="M 13 36 H 37 V 26" stroke="#71717A" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="prototype.js"></script>
+</body>
+</html>
