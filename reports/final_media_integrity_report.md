@@ -12,7 +12,7 @@
 |---|---|---|---|---|
 | Level 1 | `L01-01` | Catalog Total Items | **PASS** | 170 items cataloged |
 | Level 1 | `L01-02` | Catalog Downstream Mirror Sync | **PASS** | SHA256 Match: 47044ca0f54c... |
-| Level 1 | `L01-03` | App.js Downstream Mirror Sync | **PASS** | SHA256 Match: 276d5d6f23cd... |
+| Level 1 | `L01-03` | App.js Downstream Mirror Sync | **PASS** | SHA256 Match: 9116c6e02ead... |
 | Level 2 | `L02-01` | Content ID Population | **PASS** | 100% titles possess stable contentId |
 | Level 2 | `L02-02` | Metadata Source Provenance | **PASS** | 100% titles have verified metadataSource |
 | Level 3 | `L03-01` | Local & Android Poster Existence | **PASS** | 100% posters physically exist on disk |
