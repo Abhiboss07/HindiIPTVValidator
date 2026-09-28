@@ -17,7 +17,9 @@
     <!-- HLS.js Video Engine -->
     <script src="assets/hls.min.js"></script>
 </head>
-<body class="obsidian-app-body">
+<body class="obsidian-app-body aurora-theme">
+    <!-- Aurora Atmospheric Ambient Glow Layer -->
+    <div class="aurora-ambient-glow" aria-hidden="true"></div>
 
     <!-- ==========================================================
          T2L (TELEVISION TO LIVE) CINEMATIC OPENING INTRO & SPLASH
@@ -107,35 +109,7 @@
                 </div>
             </section>
 
-            <!-- Quick Access 4-Item Row -->
-            <section style="margin-bottom: 24px;">
-                <div class="quick-access-row">
-                    <div class="qa-item-tile" onclick="switchPage('live')">
-                        <div class="qa-icon-wrap" style="color: #c9c6c5;">
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z"/></svg>
-                        </div>
-                        <span class="qa-label-text">Live TV</span>
-                    </div>
-                    <div class="qa-item-tile" onclick="switchPage('radio')">
-                        <div class="qa-icon-wrap" style="color: #c9c6c5;">
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM20 20H4V8h16v12zm-8-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
-                        </div>
-                        <span class="qa-label-text">Radio</span>
-                    </div>
-                    <div class="qa-item-tile" onclick="switchPage('local')">
-                        <div class="qa-icon-wrap" style="color: #c9c6c5;">
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
-                        </div>
-                        <span class="qa-label-text">Local</span>
-                    </div>
-                    <div class="qa-item-tile" onclick="switchPage('favs')">
-                        <div class="qa-icon-wrap" style="color: #c9c6c5;">
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
-                        </div>
-                        <span class="qa-label-text">My List</span>
-                    </div>
-                </div>
-            </section>
+
 
             <!-- Live Now Horizontal Carousel -->
             <section style="margin-bottom: 28px;">
@@ -375,17 +349,17 @@
 
             <!-- Action Cards: Auto-Scan & Import -->
             <section style="margin-bottom: 22px; display: flex; flex-direction: column; gap: 10px;">
-                <div class="obsidian-card" style="padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border-color: #E50914; background: rgba(229, 9, 20, 0.1);" onclick="autoScanDeviceMedia()">
+                <div class="obsidian-card aurora-scan-card" style="padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid rgba(139, 92, 246, 0.35); background: rgba(139, 92, 246, 0.08); border-radius: 16px;" onclick="autoScanDeviceMedia()">
                     <div style="display: flex; align-items: center; gap: 14px;">
-                        <div style="width: 46px; height: 46px; border-radius: 12px; background: #E50914; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 16px rgba(229,9,20,0.5);">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+                        <div style="width: 46px; height: 46px; border-radius: 12px; background: var(--aurora-gradient); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 16px rgba(139, 92, 246, 0.45);">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
                         </div>
                         <div>
-                            <span style="font-size: 16px; font-weight: 700; color: #fff; display: block;">Auto-Scan Phone Storage</span>
-                            <span style="font-size: 12px; color: #E50914;" id="autoScanStatusText">Auto-find all videos & music on your device</span>
+                            <span style="font-size: 15px; font-weight: 700; color: #fff; display: block;">Auto-Scan Phone Storage</span>
+                            <span style="font-size: 12px; color: var(--aurora-secondary);" id="autoScanStatusText">Auto-find all videos & music on your device</span>
                         </div>
                     </div>
-                    <span style="font-size: 13px; font-weight: 700; color: #E50914; background: rgba(229, 9, 20, 0.2); padding: 4px 10px; border-radius: 9999px;">SCAN</span>
+                    <span style="font-size: 12px; font-weight: 700; color: #DDD6FE; background: rgba(139, 92, 246, 0.22); border: 1px solid rgba(139, 92, 246, 0.4); padding: 5px 12px; border-radius: 9999px;">SCAN</span>
                 </div>
 
                 <div class="obsidian-card" style="padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.08);" onclick="openTorrentModal()">
@@ -1666,37 +1640,37 @@
                     <div class="spec-pill"><span class="spec-label">LICENSE</span> <span id="movieSpecLicense" class="spec-value">Public Domain</span></div>
                 </div>
 
-                <!-- Stream Quality & Source Selector -->
-                <div class="movie-details-section" id="movieQualitySelectorSection" style="margin-top: 14px; margin-bottom: 14px; background: rgba(56, 189, 248, 0.06); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.2);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span style="font-size: 13px; font-weight: 700; color: #f1f5f9; display: flex; align-items: center; gap: 6px;">
+                <!-- Stream Quality & Source Selector (Aurora Cinema) -->
+                <div class="movie-details-section aurora-details-card" id="movieQualitySelectorSection">
+                    <div class="aurora-section-header-row">
+                        <span class="aurora-section-title">
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg> Video Quality
                         </span>
-                        <span id="movieDetailsActiveQualityBadge" style="font-size: 11px; font-weight: 600; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.3);">Auto (Adaptive)</span>
+                        <span id="movieDetailsActiveQualityBadge" class="aurora-badge-cyan">Auto (Adaptive)</span>
                     </div>
-                    <div id="movieQualityPillsContainer" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+                    <div id="movieQualityPillsContainer" class="aurora-pills-wrap"></div>
                 </div>
 
-                <!-- Multi-Language Audio Tracks Selection -->
-                <div class="movie-details-section" id="movieLanguagesSection" style="margin-top: 14px; margin-bottom: 14px; background: rgba(255, 255, 255, 0.04); padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span style="font-size: 13px; font-weight: 700; color: #f1f5f9; display: flex; align-items: center; gap: 6px;">
+                <!-- Multi-Language Audio Tracks Selection (Aurora Cinema) -->
+                <div class="movie-details-section aurora-details-card" id="movieLanguagesSection">
+                    <div class="aurora-section-header-row">
+                        <span class="aurora-section-title">
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> Audio & Language
                         </span>
-                        <span id="movieDetailsActiveLangBadge" style="font-size: 11px; font-weight: 600; color: #00FF66; background: rgba(0, 255, 102, 0.12); padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(0, 255, 102, 0.25);">Hindi (Selected)</span>
+                        <span id="movieDetailsActiveLangBadge" class="aurora-badge-emerald">Hindi (Selected)</span>
                     </div>
-                    <div id="movieDetailsLanguagesList" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+                    <div id="movieDetailsLanguagesList" class="aurora-pills-wrap"></div>
                 </div>
 
                 <!-- Web-Series Episodes & Seasons Section (Shown only for Web-Series) -->
-                <div class="movie-details-section" id="seriesEpisodesSection" style="display: none; margin-top: 14px; margin-bottom: 14px; background: rgba(99, 102, 241, 0.08); padding: 14px; border-radius: 12px; border: 1px solid rgba(99, 102, 241, 0.25);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <span style="font-size: 13px; font-weight: 700; color: #ffffff; display: flex; align-items: center; gap: 6px;">
+                <div class="movie-details-section aurora-details-card" id="seriesEpisodesSection" style="display: none;">
+                    <div class="aurora-section-header-row">
+                        <span class="aurora-section-title">
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg> Episodes & Seasons
                         </span>
-                        <span id="seriesTotalEpisodesBadge" style="font-size: 11px; font-weight: 600; color: #818cf8; background: rgba(99, 102, 241, 0.2); padding: 2px 8px; border-radius: 6px;">--</span>
+                        <span id="seriesTotalEpisodesBadge" class="aurora-badge-violet">--</span>
                     </div>
-                    <div id="seriesEpisodesList" style="display: flex; flex-direction: column; gap: 8px; max-height: 240px; overflow-y: auto; padding-right: 4px;"></div>
+                    <div id="seriesEpisodesList" class="aurora-episodes-list"></div>
                 </div>
 
                 <!-- Synopsis -->

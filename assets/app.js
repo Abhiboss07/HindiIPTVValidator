@@ -18346,54 +18346,36 @@ function getSwarmBadgeMarkup(seeders) {
 function renderMovieCard(movie) {
   const poster = movie.posterUrl || 'assets/placeholder.png';
   const isSeries = movie.mediaType === 'series';
-  const typeBadge = isSeries ? '<span class="movie-type-mini-badge series"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>Series</span>' : '';
-  let langBadge = '';
-  const aClass = movie.audioClassification || (movie.audio && movie.audio.classification);
-  if (aClass === 'HINDI_AUDIO') {
-    langBadge = '<span class="movie-lang-mini-badge hindi" style="background: rgba(34, 197, 94, 0.25); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.4);"><svg viewBox="0 0 24 24"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>🇮🇳 Hindi</span>';
-  } else if (aClass === 'MULTI_AUDIO_INCLUDING_HINDI') {
-    langBadge = '<span class="movie-lang-mini-badge multi" style="background: rgba(59, 130, 246, 0.25); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.4);"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>🌐 Multi</span>';
-  } else if (aClass === 'HINDI_SUBTITLE_ONLY') {
-    langBadge = '<span class="movie-lang-mini-badge sub" style="background: rgba(234, 179, 8, 0.25); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.4);">💬 Hi-Sub</span>';
-  } else if (aClass === 'NON_HINDI_AUDIO') {
-    const primary = (movie.languages && movie.languages[0]) || movie.defaultLanguage || 'English';
-    langBadge = `<span class="movie-lang-mini-badge non-hindi" style="background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid rgba(203, 213, 225, 0.3);">🌐 ${primary}</span>`;
+  const sState = movie.sourceState || (movie.streamUrl ? 'DIRECT_STREAM_AVAILABLE' : (movie.trailerUrl ? 'TRAILER_ONLY' : (movie.torrentUri ? 'TORRENT_SOURCE_AVAILABLE' : 'NO_AUTHORIZED_SOURCE')));
+  
+  // Requirement 13 & 14: Thumbnails must remain clean artwork-first.
+  // Subtle top chip only for non-feature-film states (Series, Trailer, Instant)
+  let statusBadge = '';
+  if (isSeries) {
+    statusBadge = '<span class="aurora-card-badge series"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>Series</span>';
+  } else if (sState === 'TRAILER_ONLY' || sState === 'UPCOMING_TRAILER' || (movie.trailerUrl && !movie.streamUrl)) {
+    statusBadge = '<span class="aurora-card-badge trailer">Trailer</span>';
+  } else if (sState === 'TORRENT_SOURCE_AVAILABLE' && !movie.streamUrl) {
+    statusBadge = '<span class="aurora-card-badge torrent">Torrent</span>';
   }
 
-  const sState = movie.sourceState || (movie.streamUrl ? 'DIRECT_STREAM_AVAILABLE' : (movie.trailerUrl ? 'TRAILER_ONLY' : (movie.torrentUri ? 'TORRENT_SOURCE_AVAILABLE' : 'NO_AUTHORIZED_SOURCE')));
-  let sourceBadge = '';
+  // Quality representation placed cleanly in metadata row beneath poster
+  let qualityMeta = '';
   if (sState === 'DIRECT_STREAM_AVAILABLE' || sState === 'ACTIVE_STREAM') {
     const qb = (movie.qualityHonestBadge || '').toLowerCase();
     const qc = (movie.qualityClass || '').toUpperCase();
     const res = (movie.resolution || '').toLowerCase();
     const sUrl = (movie.streamUrl || '').toLowerCase();
-
-    if (qb.includes('4k') || qb.includes('2160') || qc === '4K' || qc === 'UHD' || res.includes('2160') || res.includes('4k') || sUrl.includes('2160p') || sUrl.includes('4k')) {
-      sourceBadge = '<span class="movie-source-mini-badge stream-direct" style="background: rgba(168, 85, 247, 0.25); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.4);">▶ 4K UHD</span>';
-    } else if (qb.includes('1440') || qb.includes('2k') || qc === '2K' || res.includes('1440') || res.includes('2k') || sUrl.includes('1440p') || sUrl.includes('2k')) {
-      sourceBadge = '<span class="movie-source-mini-badge stream-direct" style="background: rgba(168, 85, 247, 0.25); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.4);">▶ 2K 1440p</span>';
-    } else if (qb.includes('1080') || qc === 'FULL HD' || qc.includes('1080') || res.includes('1080') || res.includes('fhd') || sUrl.includes('1080p') || sUrl.includes('1080') || sUrl.includes('bluray')) {
-      sourceBadge = '<span class="movie-source-mini-badge stream-direct">▶ 1080p HD</span>';
-    } else if (qb.includes('720') || qc === 'HD' || qc.includes('720') || res.includes('720') || sUrl.includes('720p') || sUrl.includes('720')) {
-      sourceBadge = '<span class="movie-source-mini-badge stream-direct" style="background: rgba(6, 182, 212, 0.25); color: #22d3ee; border: 1px solid rgba(34, 211, 238, 0.4);">▶ 720p HD</span>';
-    } else if (qb.includes('360') || qc.includes('360') || res.includes('360') || sUrl.includes('360p')) {
-      sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 360p</span>';
-    } else if (qb.includes('240') || qc.includes('240') || res.includes('240') || sUrl.includes('240p')) {
-      sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 240p</span>';
-    } else {
-      sourceBadge = '<span class="movie-source-mini-badge stream-direct-sd">▶ SD 480p</span>';
+    if (qb.includes('4k') || qb.includes('2160') || qc === '4K' || qc === 'UHD' || res.includes('2160') || res.includes('4k') || sUrl.includes('2160p')) {
+      qualityMeta = '<span class="meta-dot">•</span><span class="aurora-quality-tag q-4k">4K</span>';
+    } else if (qb.includes('1080') || qc === 'FULL HD' || qc.includes('1080') || res.includes('1080') || res.includes('fhd') || sUrl.includes('1080p') || sUrl.includes('bluray')) {
+      qualityMeta = '<span class="meta-dot">•</span><span class="aurora-quality-tag q-1080">FHD</span>';
+    } else if (qb.includes('720') || qc === 'HD' || qc.includes('720') || res.includes('720') || sUrl.includes('720p')) {
+      qualityMeta = '<span class="meta-dot">•</span><span class="aurora-quality-tag q-720">HD</span>';
     }
-  } else if (sState === 'TRAILER_ONLY' || sState === 'UPCOMING_TRAILER') {
-    sourceBadge = '<span class="movie-source-mini-badge stream-trailer"><svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>Trailer</span>';
-  } else if (sState === 'TORRENT_SOURCE_AVAILABLE') {
-    sourceBadge = '<span class="movie-source-mini-badge stream-torrent"><svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.14 17.91 14.21 19 12 19z"/></svg>Instant</span>';
-  } else if (movie.trailerUrl) {
-    sourceBadge = '<span class="movie-source-mini-badge stream-trailer"><svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>Trailer</span>';
-  } else {
-    sourceBadge = '<span class="movie-source-mini-badge stream-unavail">Unavailable</span>';
   }
 
-  // Netflix-grade Watch Progress Bar
+  // Watch Progress Bar (Aurora gradient)
   let progressMarkup = '';
   let progressText = '';
   try {
@@ -18402,28 +18384,29 @@ function renderMovieCard(movie) {
       const r = JSON.parse(resumeRaw);
       if (r && r.pct >= 3 && r.pct <= 96) {
         progressMarkup = `<div class="movie-card-progress-bar"><div class="movie-card-progress-fill" style="width: ${r.pct}%;"></div></div>`;
-        progressText = `<span class="meta-dot">•</span><span style="color: #e50914; font-weight: 700;">${r.pct}%</span>`;
+        progressText = `<span class="meta-dot">•</span><span style="color: var(--aurora-secondary, #22D3EE); font-weight: 600;">${r.pct}%</span>`;
       }
     }
   } catch (e) {}
 
   return `
-    <div class="movie-card ${isSeries ? 'is-series' : ''} ${(sState === 'NO_AUTHORIZED_SOURCE' && !movie.trailerUrl) ? 'is-unavailable' : ''}" onclick="openMovieDetails('${movie.id}')">
+    <div class="movie-card aurora-card ${isSeries ? 'is-series' : ''} ${(sState === 'NO_AUTHORIZED_SOURCE' && !movie.trailerUrl) ? 'is-unavailable' : ''}" onclick="openMovieDetails('${movie.id}')">
       <div class="movie-card-thumb-wrap">
         <img class="movie-card-thumb" 
              src="${poster}" 
              alt="${movie.title}" 
+             loading="lazy"
              onerror="this.onerror=null; this.src='assets/placeholder.png';" />
-        ${sourceBadge}
-        ${typeBadge}
-        ${langBadge}
+        <div class="aurora-card-scrim"></div>
+        ${statusBadge}
         ${progressMarkup}
       </div>
       <div class="movie-card-info">
         <h4 class="movie-card-title" title="${movie.title}">${movie.title}</h4>
         <div class="movie-card-meta">
           <span>${movie.year}</span>
-          ${isSeries ? '<span class="meta-dot">•</span><span style="color: #a5b4fc; font-weight: 600;">Series</span>' : ''}
+          ${isSeries ? '<span class="meta-dot">•</span><span style="color: #A78BFA; font-weight: 500;">Series</span>' : ''}
+          ${qualityMeta}
           ${progressText}
         </div>
       </div>
