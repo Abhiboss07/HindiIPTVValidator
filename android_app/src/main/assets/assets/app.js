@@ -13214,15 +13214,26 @@ let hudHideTimeout = null;
 window.switchPage = function(pageId) {
   try {
     currentActivePage = pageId;
-    document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.dock-tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.page-view, .t2l-view').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.dock-tab-btn, .dock-item-btn').forEach(b => {
+      b.classList.remove('active');
+      const pill = b.querySelector('.dock-active-pill');
+      if (pill) pill.remove();
+    });
 
-    const targetPage = document.getElementById('page-' + pageId);
+    const targetPage = document.getElementById('page-' + pageId) || document.getElementById('view-' + pageId);
     const targetTab = document.getElementById('tab-' + pageId);
     if (targetPage) targetPage.classList.add('active');
-    if (targetTab) targetTab.classList.add('active');
+    if (targetTab) {
+      targetTab.classList.add('active');
+      if (!targetTab.querySelector('.dock-active-pill')) {
+        const pill = document.createElement('span');
+        pill.className = 'dock-active-pill';
+        targetTab.appendChild(pill);
+      }
+    }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
 
     if (pageId === 'home') {
       renderHomePage();
@@ -13230,7 +13241,7 @@ window.switchPage = function(pageId) {
       renderLiveTVPage();
     } else if (pageId === 'radio') {
       renderRadioPage();
-    } else if (pageId === 'movies') {
+    } else if (pageId === 'movies' || pageId === 'cinema') {
       if (typeof renderMoviesPage === 'function') renderMoviesPage();
     } else if (pageId === 'favs') {
       renderFavoritesPage();
@@ -13245,13 +13256,71 @@ window.switchPage = function(pageId) {
     console.error('Error in switchPage(' + pageId + '):', e);
   }
 };
+window.navigateTo = function(viewId, btnElement) {
+  window.switchPage(viewId);
+};
 
 window.toggleMenuDrawer = function() {
   try {
-    const drawer = document.getElementById('sideDrawerModal');
-    if (drawer) drawer.classList.toggle('active');
+    const drawer = document.getElementById('sideDrawerModal') || document.getElementById('hamburgerDrawer');
+    if (drawer) {
+      const isCurrentlyOpen = drawer.classList.contains('is-open') || drawer.classList.contains('active');
+      if (isCurrentlyOpen) {
+        drawer.classList.remove('is-open');
+        drawer.classList.remove('active');
+        drawer.setAttribute('aria-hidden', 'true');
+      } else {
+        drawer.classList.add('is-open');
+        drawer.classList.add('active');
+        drawer.setAttribute('aria-hidden', 'false');
+      }
+    }
   } catch (e) {}
 };
+window.openHamburger = window.toggleMenuDrawer;
+window.toggleSideDrawer = window.openHamburger;
+window.closeHamburger = function(e) {
+  try {
+    const drawer = document.getElementById('sideDrawerModal') || document.getElementById('hamburgerDrawer');
+    if (drawer) {
+      drawer.classList.remove('is-open');
+      drawer.classList.remove('active');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+  } catch (e) {}
+};
+
+window.openNotificationsSheet = function() {
+  document.getElementById('notificationsSheet')?.classList.add('is-open');
+};
+window.closeNotificationsSheet = function(e) {
+  if (!e || e.target === document.getElementById('notificationsSheet') || e.target.closest('.sheet-close-btn') || e.target.closest('.t2l-icon-btn')) {
+    document.getElementById('notificationsSheet')?.classList.remove('is-open');
+  }
+};
+window.openNotifications = window.openNotificationsSheet;
+window.closeNotifications = window.closeNotificationsSheet;
+
+window.openProfileSheet = function() {
+  document.getElementById('profileSheet')?.classList.add('is-open');
+};
+window.closeProfileSheet = function(e) {
+  if (!e || e.target === document.getElementById('profileSheet') || e.target.closest('.sheet-close-btn') || e.target.closest('.t2l-icon-btn')) {
+    document.getElementById('profileSheet')?.classList.remove('is-open');
+  }
+};
+window.openProfile = window.openProfileSheet;
+window.closeProfile = window.closeProfileSheet;
+
+// Pinned glass header scroll listener
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('t2lHeader');
+  if (window.scrollY > 40) {
+    header?.classList.add('is-scrolled');
+  } else {
+    header?.classList.remove('is-scrolled');
+  }
+}, { passive: true });
 
 window.openSettingsModal = function() {
   try {
@@ -13290,18 +13359,65 @@ function initApp() {
   try { loadSettingsUI(); } catch (e) {}
   try { startHeroRotator(); } catch (e) {}
 
+window.dismissSplash = function dismissSplash() {
+  try {
+    const splash = document.getElementById('t2lSplash') || document.getElementById('t2lSplashScreen');
+    if (splash && !splash.classList.contains('splash-hidden')) {
+      splash.classList.add('splash-hidden');
+      setTimeout(() => {
+        if (splash.parentNode) splash.parentNode.removeChild(splash);
+      }, 400);
+    }
+  } catch (e) {
+    console.warn('dismissSplash error:', e);
+  }
+};
+
   // Dismiss T2L (Television to Live) Cinematic Splash Screen smoothly
+  const urlParams = new URLSearchParams(window.location.search);
+  const skipSplash = urlParams.get('noSplash') === '1' || (window.location.hash && window.location.hash !== '#splash');
+  const splashDelay = skipSplash ? 0 : 900;
   setTimeout(() => {
     try {
-      const splash = document.getElementById('t2lSplashScreen');
-      if (splash && !splash.classList.contains('splash-hidden')) {
-        splash.classList.add('splash-hidden');
-        setTimeout(() => {
-          if (splash.parentNode) splash.parentNode.removeChild(splash);
-        }, 500);
-      }
+      window.dismissSplash();
     } catch (e) {}
-  }, 900);
+  }, splashDelay);
+
+  // Hash deep linking for navigation & verification
+  const handleHashNav = () => {
+    const hash = window.location.hash ? window.location.hash.substring(1) : '';
+    if (!hash) return;
+    if (hash === 'cinema' || hash === 'movies') {
+      switchPage('movies');
+    } else if (hash === 'cinema-scroll') {
+      switchPage('movies');
+      document.getElementById('page-movies')?.classList.add('focus-scroll');
+      document.getElementById('t2lHeader')?.classList.add('is-scrolled');
+    } else if (hash === 'live') {
+      switchPage('live');
+    } else if (hash === 'radio') {
+      switchPage('radio');
+    } else if (hash === 'local' || hash === 'vault') {
+      switchPage('local');
+    } else if (hash === 'hamburger') {
+      if (typeof openHamburger === 'function') openHamburger();
+      else if (typeof toggleMenuDrawer === 'function') toggleMenuDrawer();
+    } else if (hash === 'notifications') {
+      if (typeof openNotificationsSheet === 'function') openNotificationsSheet();
+    } else if (hash === 'profile') {
+      if (typeof openProfileSheet === 'function') openProfileSheet();
+    } else if (hash === 'footer') {
+      switchPage('home');
+      document.getElementById('page-home')?.classList.add('focus-footer');
+      document.getElementById('view-home')?.classList.add('focus-footer');
+    }
+  };
+  if (skipSplash) {
+    handleHashNav();
+  } else {
+    setTimeout(handleHashNav, 600);
+  }
+  window.addEventListener('hashchange', handleHashNav);
 }
 
 if (document.readyState === 'loading') {
@@ -13843,17 +13959,15 @@ window.filterRadioGenre = function(genre, btnEl) {
 
 function createRadioCard(st) {
   const card = document.createElement('div');
-  card.className = 'obsidian-bento-item';
-  card.style.height = '130px';
-  card.style.padding = '12px';
-  card.style.textAlign = 'center';
-
+  card.className = 'radio-compact-tile';
   card.innerHTML = `
-    <div style="width: 42px; height: 42px; border-radius: 50%; background: #232323; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 4px;">
-      📻
+    <div class="radio-tile-art-compact">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
     </div>
-    <div style="font-size: 13px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">${st.name}</div>
-    <div class="mono" style="font-size: 10px; color: #E50914; font-weight: 700;">${st.quality}</div>
+    <div class="radio-tile-text">
+      <div class="radio-tile-name-compact" title="${st.name}">${st.name}</div>
+      <div class="radio-tile-meta-compact">${st.description || st.quality || 'Live Transmission'}</div>
+    </div>
   `;
 
   card.onclick = () => playChannel(st);
@@ -13927,9 +14041,14 @@ function updateDynamicFolderCards() {
     folderMap[f] = (folderMap[f] || 0) + 1;
   });
 
+  const svgAll = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>';
+  const svgVideo = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>';
+  const svgMusic = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>';
+  const svgFolder = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>';
+
   let folderCardsHtml = `
     <div class="folder-card-item ${currentLocalFolder === 'all' ? 'active' : ''}" onclick="selectLocalFolder('all', this)">
-      <div class="folder-icon-circle" style="background: rgba(229, 9, 20, 0.15); color: #E50914;">📂</div>
+      <div class="folder-icon-circle" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;">${svgAll}</div>
       <div class="folder-card-meta">
         <h4 class="folder-name">All Media</h4>
         <p class="folder-count">${customLocalMedia.length} files</p>
@@ -13937,7 +14056,7 @@ function updateDynamicFolderCards() {
     </div>
 
     <div class="folder-card-item ${currentLocalFolder === 'movies' ? 'active' : ''}" onclick="selectLocalFolder('movies', this)">
-      <div class="folder-icon-circle" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">🎬</div>
+      <div class="folder-icon-circle" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">${svgVideo}</div>
       <div class="folder-card-meta">
         <h4 class="folder-name">All Videos</h4>
         <p class="folder-count">${vFiles.length} videos</p>
@@ -13945,7 +14064,7 @@ function updateDynamicFolderCards() {
     </div>
 
     <div class="folder-card-item ${currentLocalFolder === 'music' ? 'active' : ''}" onclick="selectLocalFolder('music', this)">
-      <div class="folder-icon-circle" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">🎵</div>
+      <div class="folder-icon-circle" style="background: rgba(139, 92, 246, 0.15); color: #A78BFA;">${svgMusic}</div>
       <div class="folder-card-meta">
         <h4 class="folder-name">All Music</h4>
         <p class="folder-count">${aFiles.length} songs</p>
@@ -13955,10 +14074,10 @@ function updateDynamicFolderCards() {
 
   // Add individual detected folders
   const colors = [
-    { bg: 'rgba(234, 179, 8, 0.15)', fg: '#facc15', icon: '📁' },
-    { bg: 'rgba(168, 85, 247, 0.15)', fg: '#c084fc', icon: '📸' },
-    { bg: 'rgba(236, 72, 153, 0.15)', fg: '#f472b6', icon: '💬' },
-    { bg: 'rgba(20, 184, 166, 0.15)', fg: '#2dd4bf', icon: '📥' }
+    { bg: 'rgba(234, 179, 8, 0.15)', fg: '#facc15' },
+    { bg: 'rgba(168, 85, 247, 0.15)', fg: '#c084fc' },
+    { bg: 'rgba(236, 72, 153, 0.15)', fg: '#f472b6' },
+    { bg: 'rgba(20, 184, 166, 0.15)', fg: '#2dd4bf' }
   ];
 
   let cIdx = 0;
@@ -13968,7 +14087,7 @@ function updateDynamicFolderCards() {
     cIdx++;
     folderCardsHtml += `
       <div class="folder-card-item ${currentLocalFolder === folderName ? 'active' : ''}" onclick="selectLocalFolder('${folderName.replace(/'/g, "\'")}', this)">
-        <div class="folder-icon-circle" style="background: ${color.bg}; color: ${color.fg};">${color.icon}</div>
+        <div class="folder-icon-circle" style="background: ${color.bg}; color: ${color.fg};">${svgFolder}</div>
         <div class="folder-card-meta">
           <h4 class="folder-name">${folderName}</h4>
           <p class="folder-count">${count} items</p>
@@ -18536,16 +18655,10 @@ window.renderMoviesPage = async function() {
   const rowsContainer = document.getElementById('moviesRowsContainer');
   const heroSection = document.getElementById('moviesHeroSection');
   const gridSection = document.getElementById('moviesGridSection');
-  const gridTitle = document.getElementById('moviesGridTitle');
-  const catalogGrid = document.getElementById('moviesCatalogGrid');
 
   if (rowsContainer) rowsContainer.style.display = 'block';
   if (heroSection) heroSection.style.display = 'block';
-  if (gridSection) {
-    gridSection.style.display = 'block';
-    if (gridTitle) gridTitle.textContent = 'Explore All Cinema & Series (Hindi First)';
-    if (catalogGrid) catalogGrid.innerHTML = allMovies.map(m => renderMovieCard(m)).join('');
-  }
+  if (gridSection) gridSection.style.display = 'none'; // NEVER 2x2 or vertical grid
 };
 
 function renderMovieWatchHistory() {
@@ -18568,57 +18681,31 @@ function renderMovieWatchHistory() {
 }
 
 window.filterMovieCategory = function(cat, chipEl) {
-  document.querySelectorAll('#moviesCategoryPills .lumina-chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('#moviesCategoryPills .lumina-chip, .cinema-chip').forEach(c => c.classList.remove('active'));
   if (chipEl) chipEl.classList.add('active');
 
   const rowsContainer = document.getElementById('moviesRowsContainer');
   const heroSection = document.getElementById('moviesHeroSection');
   const gridSection = document.getElementById('moviesGridSection');
-  const gridTitle = document.getElementById('moviesGridTitle');
-  const catalogGrid = document.getElementById('moviesCatalogGrid');
 
+  if (gridSection) gridSection.style.display = 'none'; // NEVER vertical grid
+  if (heroSection) heroSection.style.display = 'block';
+  if (rowsContainer) rowsContainer.style.display = 'block';
+
+  // Smooth horizontal rail navigation
   if (cat === 'all') {
-    if (rowsContainer) rowsContainer.style.display = 'block';
-    if (heroSection) heroSection.style.display = 'block';
-    if (gridSection) {
-      gridSection.style.display = 'block';
-      if (gridTitle) gridTitle.textContent = 'Explore All Cinema & Series (Hindi First)';
-      if (catalogGrid) catalogGrid.innerHTML = CatalogProvider.getAll().map(m => renderMovieCard(m)).join('');
-    }
-    return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else if (cat === 'Web-Series' || cat === 'sagas') {
+    document.getElementById('moviesWebSeriesRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else if (cat === 'Bollywood' || cat === 'theatrical') {
+    document.getElementById('moviesBollywoodRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else if (cat === 'Asian' || cat === 'K-Drama') {
+    document.getElementById('moviesAsianRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else if (cat === 'watchlist') {
+    document.getElementById('moviesContinueRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
-
-  if (cat === 'watchlist') {
-    let listIds = [];
-    try { listIds = JSON.parse(localStorage.getItem('t2l_vod_watchlist') || '[]'); } catch (e) {}
-    const watchlistItems = listIds.map(id => CatalogProvider.getById(id)).filter(Boolean);
-    if (rowsContainer) rowsContainer.style.display = 'none';
-    if (heroSection) heroSection.style.display = 'none';
-    if (gridSection) gridSection.style.display = 'block';
-    if (gridTitle) gridTitle.textContent = `❤️ My Watchlist (${watchlistItems.length})`;
-    if (catalogGrid) {
-      if (watchlistItems.length === 0) {
-        catalogGrid.innerHTML = `
-          <div style="grid-column: 1 / -1; padding: 48px 16px; text-align: center; color: #94a3b8;">
-            <p style="font-size: 36px; margin-bottom: 12px;">❤️</p>
-            <h3 style="font-size: 18px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px;">Your Watchlist is empty</h3>
-            <p style="font-size: 13px; color: #64748b; max-width: 320px; margin: 0 auto;">Tap the bookmark icon on any movie or web-series to save it to your personal list!</p>
-          </div>
-        `;
-      } else {
-        catalogGrid.innerHTML = watchlistItems.map(m => renderMovieCard(m)).join('');
-      }
-    }
-    return;
-  }
-
-  const filtered = CatalogProvider.filterByCategory(cat);
-  if (rowsContainer) rowsContainer.style.display = 'none';
-  if (heroSection) heroSection.style.display = 'none';
-  if (gridSection) gridSection.style.display = 'block';
-  if (gridTitle) gridTitle.textContent = `${cat} Titles (${filtered.length})`;
-  if (catalogGrid) catalogGrid.innerHTML = filtered.map(m => renderMovieCard(m)).join('');
 };
+window.filterCinemaMode = window.filterMovieCategory;
 
 let _movieSearchDebounceTimer = null;
 window.handleMovieSearch = function(query) {
