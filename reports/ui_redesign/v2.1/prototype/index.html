@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>T2L V2.1 — Aurora Cinema Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. RESTRAINED CINEMATIC OPENING / SPLASH SEQUENCE (1200ms)
+       ========================================================================== -->
+  <div id="t2lSplash" class="t2l-splash-screen" aria-label="T2L Opening Reveal">
+    <div class="splash-symbol-wrap">
+      <svg viewBox="0 0 40 40" fill="none" class="t2l-symbol-svg" style="width: 80px; height: 80px;">
+        <rect x="3" y="3" width="34" height="34" rx="10" stroke="url(#splashGrad)" stroke-width="2.2" />
+        <path d="M12 14H28M20 14V26M15 26H25" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="20" cy="14" r="2" fill="#22D3EE" />
+        <defs>
+          <linearGradient id="splashGrad" x1="0" y1="0" x2="40" y2="40">
+            <stop offset="0%" stop-color="#8B5CF6"/>
+            <stop offset="100%" stop-color="#22D3EE"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="splash-brand-text">T2L CINEMA</div>
+  </div>
+
+  <!-- Atmospheric Ambient Background Light -->
+  <div class="aurora-ambient-glow" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       2. TRANSPARENT ART-AWARE TOP BAR (Floating Over Hero Artwork)
+       ========================================================================== -->
+  <header id="t2lHeader" class="t2l-header">
+    <div class="t2l-brand" onclick="navigateTo('home')">
+      <!-- Redesigned T2L Kinetic Aperture SVG Mark -->
+      <svg viewBox="0 0 40 40" fill="none" class="t2l-symbol-svg">
+        <rect x="3" y="3" width="34" height="34" rx="10" stroke="url(#headerGrad)" stroke-width="2.2" />
+        <path d="M12 14H28M20 14V26M15 26H25" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="20" cy="14" r="2" fill="#22D3EE" />
+        <defs>
+          <linearGradient id="headerGrad" x1="0" y1="0" x2="40" y2="40">
+            <stop offset="0%" stop-color="#8B5CF6"/>
+            <stop offset="100%" stop-color="#22D3EE"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="t2l-brand-title">T2L</span>
+    </div>
+
+    <!-- Header Actions (Notifications + Profile Only, No Search/Settings) -->
+    <div class="t2l-header-actions">
+      <button class="t2l-icon-btn" onclick="openNotifications()" aria-label="Notifications">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <span class="notification-badge-dot"></span>
+      </button>
+
+      <button class="t2l-icon-btn" onclick="openProfile()" aria-label="Profile and Hub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       3. CONTENT VIEWS CONTAINER
+       ========================================================================== -->
+  <main class="t2l-content-container">
+
+    <!-- VIEW 1: HOME -->
+    <section id="view-home" class="t2l-view active">
+      <!-- Cinematic Hero Banner -->
+      <div class="hero-premiere">
+        <img class="hero-backdrop-img" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail Hero">
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-tag">★ Premiere Spotlight</div>
+          <h1 class="hero-title">12th Fail</h1>
+          <div class="hero-metadata">
+            <span>2023</span>
+            <span>•</span>
+            <span>2h 27m</span>
+            <span>•</span>
+            <span>Hindi Master</span>
+            <span class="hero-quality-badge">720p HD</span>
+          </div>
+          <p class="hero-synopsis">
+            Based on the inspiring real-life story of IPS officer Manoj Kumar Sharma who restarts his academic journey despite extreme poverty.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary-action" onclick="openPlayer('12th Fail', 'Hindi Master · 720p HD')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Watch Now
+            </button>
+            <button class="btn-secondary-action" onclick="openMovieDetails('12th Fail')">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue Watching Rail (16:9 Landscape) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Continue Watching
+          </h2>
+          <span class="content-rail-see-all">History →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="continue-card" onclick="openPlayer('Panchayat S02 E04', 'Hindi · 1080p')">
+            <div class="continue-backdrop-wrap">
+              <img class="continue-backdrop-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
+              <div class="continue-play-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+              <div class="continue-progress-bar"><div class="continue-progress-fill" style="width: 72%;"></div></div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Panchayat · S02 E04</div>
+              <div class="continue-subtext">18m left (72%)</div>
+            </div>
+          </div>
+
+          <div class="continue-card" onclick="openPlayer('Jawan', 'Hindi · 1080p BluRay')">
+            <div class="continue-backdrop-wrap">
+              <img class="continue-backdrop-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
+              <div class="continue-play-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+              <div class="continue-progress-bar"><div class="continue-progress-fill" style="width: 45%;"></div></div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Jawan (2023)</div>
+              <div class="continue-subtext">1h 12m left (45%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trending Cinema Rail (2:3 Theatrical Posters, 2.35 Peek) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+            Trending Cinema
+          </h2>
+          <span class="content-rail-see-all" onclick="navigateTo('cinema')">Explore All →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="theatrical-card" onclick="openMovieDetails('Kalki 2898 AD')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Kalki 2898 AD</div>
+              <div class="theatrical-meta">2024 · Sci-Fi · <span class="theatrical-quality-pill">720p</span></div>
+            </div>
+          </div>
+
+          <div class="theatrical-card" onclick="openMovieDetails('Dangal')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Dangal</div>
+              <div class="theatrical-meta">2016 · Drama · <span class="theatrical-quality-pill">1080p</span></div>
+            </div>
+          </div>
+
+          <div class="theatrical-card" onclick="openMovieDetails('Oppenheimer')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_oppenheimer.jpg" alt="Oppenheimer">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Oppenheimer</div>
+              <div class="theatrical-meta">2023 · Biography · <span class="theatrical-quality-pill">1080p</span></div>
+            </div>
+          </div>
+
+          <div class="theatrical-card" onclick="openMovieDetails('Chhaava')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_chhavaa.jpg" alt="Chhaava">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Chhaava</div>
+              <div class="theatrical-meta">2025 · History · <span class="theatrical-quality-pill">720p</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Broadcast Spotlight (16:9 Landscape) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
+            Live Broadcasts Now
+          </h2>
+          <span class="content-rail-see-all" onclick="navigateTo('live')">Live TV →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="continue-card" onclick="openPlayer('Aaj Tak HD Live', 'Hindi News · 1080p FHD')">
+            <div class="continue-backdrop-wrap">
+              <img class="continue-backdrop-img" src="/assets/posters/vod_12th_fail.jpg" alt="Aaj Tak">
+              <div style="position: absolute; top: 8px; left: 8px;" class="live-badge"><span class="live-badge-dot"></span> LIVE</div>
+              <div style="position: absolute; top: 8px; right: 8px; background: rgba(5,6,8,0.7); padding: 2px 6px; border-radius: 9999px; font-size: 10px; color: var(--t2l-text-muted);">18.4K</div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Aaj Tak HD Live</div>
+              <div class="continue-subtext">National Prime Time News</div>
+            </div>
+          </div>
+
+          <div class="continue-card" onclick="openPlayer('Colors HD Live', 'Entertainment · 1080p')">
+            <div class="continue-backdrop-wrap">
+              <img class="continue-backdrop-img" src="/assets/posters/vod_jawan.jpg" alt="Colors HD">
+              <div style="position: absolute; top: 8px; left: 8px;" class="live-badge"><span class="live-badge-dot"></span> LIVE</div>
+              <div style="position: absolute; top: 8px; right: 8px; background: rgba(5,6,8,0.7); padding: 2px 6px; border-radius: 9999px; font-size: 10px; color: var(--t2l-text-muted);">24.1K</div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Colors HD (Hindi)</div>
+              <div class="continue-subtext">Prime Entertainment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDITORIAL PRODUCT FOOTER -->
+      <footer class="t2l-v2-footer">
+        <div class="footer-brand-row">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg viewBox="0 0 40 40" fill="none" style="width: 24px; height: 24px;">
+              <rect x="3" y="3" width="34" height="34" rx="10" stroke="#22D3EE" stroke-width="2.2" />
+              <path d="M12 14H28M20 14V26M15 26H25" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+            </svg>
+            <span style="font-size: 15px; font-weight: 800; letter-spacing: 1px;">T2L</span>
+          </div>
+          <div class="footer-identity-stmt">Your cinematic media space.</div>
+        </div>
+
+        <div class="footer-nav-grid">
+          <div>
+            <div class="footer-nav-col-title">Navigation</div>
+            <span class="footer-nav-link" onclick="navigateTo('home')">Home</span>
+            <span class="footer-nav-link" onclick="navigateTo('cinema')">Cinema</span>
+            <span class="footer-nav-link" onclick="navigateTo('live')">Live TV</span>
+            <span class="footer-nav-link" onclick="navigateTo('radio')">Radio</span>
+            <span class="footer-nav-link" onclick="navigateTo('local')">Local Vault</span>
+          </div>
+          <div>
+            <div class="footer-nav-col-title">Product</div>
+            <span class="footer-nav-link" onclick="openSearchModal()">Search</span>
+            <span class="footer-nav-link" onclick="openProfile()">Downloads</span>
+            <span class="footer-nav-link" onclick="openProfile()">Instant Streamer</span>
+            <span class="footer-nav-link" onclick="openProfile()">My List</span>
+          </div>
+          <div>
+            <div class="footer-nav-col-title">Information</div>
+            <span class="footer-nav-link" onclick="openProfile()">About T2L</span>
+            <span class="footer-nav-link" onclick="openProfile()">Zero-Trust Engine</span>
+            <span class="footer-nav-link" onclick="openProfile()">Privacy & Safety</span>
+            <span class="footer-nav-link" onclick="replaySplash()">Replay Splash</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom-legal">
+          <span>© 2026 T2L Television to Live</span>
+          <span style="color: #34D399; font-weight: 600;">● Engine Verified</span>
+        </div>
+      </footer>
+    </section>
+
+    <!-- VIEW 2: CINEMA & WEB SERIES -->
+    <section id="view-cinema" class="t2l-view">
+      <div style="padding: 68px 16px 8px 16px;">
+        <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Cinema & Series</h1>
+        <p style="font-size: 13px; color: var(--t2l-text-muted);">Curated Full-Length Theatrical Movies & Episodic Series</p>
+      </div>
+
+      <!-- Segmented Format Switcher -->
+      <div class="segmented-control">
+        <button class="segment-btn active" onclick="setCinemaSegment(this)">All Cinema</button>
+        <button class="segment-btn" onclick="setCinemaSegment(this)">Feature Films</button>
+        <button class="segment-btn" onclick="setCinemaSegment(this)">Web Series</button>
+      </div>
+
+      <!-- Featured Cinema Showcase Banner -->
+      <div class="cinema-hero-showcase">
+        <img class="cinema-hero-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Featured Cinema">
+        <div class="cinema-hero-overlay">
+          <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--t2l-aurora-cyan); margin-bottom: 4px;">FEATURED SHOWCASE</div>
+          <div style="font-size: 20px; font-weight: 800; margin-bottom: 4px;">Kalki 2898 AD</div>
+          <div style="font-size: 12px; color: var(--t2l-text-muted); margin-bottom: 10px;">2024 • Sci-Fi Action • Amitabh Bachchan, Prabhas, Deepika Padukone</div>
+          <div>
+            <button class="btn-primary-action" style="padding: 8px 18px; font-size: 12px;" onclick="openMovieDetails('Kalki 2898 AD')">Explore Title</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editorial Genre Cards -->
+      <div class="genre-card-grid">
+        <div class="genre-card" onclick="alert('Category: Action')">
+          <span class="genre-card-title">Action & Thrillers</span>
+        </div>
+        <div class="genre-card" onclick="alert('Category: Crime')">
+          <span class="genre-card-title">Crime & Mystery</span>
+        </div>
+        <div class="genre-card" onclick="alert('Category: Sci-Fi')">
+          <span class="genre-card-title">Sci-Fi & Cyberpunk</span>
+        </div>
+        <div class="genre-card" onclick="alert('Category: Bollywood')">
+          <span class="genre-card-title">Bollywood Classics</span>
+        </div>
+      </div>
+
+      <!-- 2-Column Responsive Cinema Grid -->
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 0 16px;">
+        <div class="theatrical-card" onclick="openMovieDetails('12th Fail')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">12th Fail</div>
+            <div class="theatrical-meta">2023 · Drama · <span class="theatrical-quality-pill">720p</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openMovieDetails('Kalki 2898 AD')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Kalki 2898 AD</div>
+            <div class="theatrical-meta">2024 · Sci-Fi · <span class="theatrical-quality-pill">720p</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openMovieDetails('Jawan')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Jawan</div>
+            <div class="theatrical-meta">2023 · Action · <span class="theatrical-quality-pill">1080p</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openMovieDetails('Dangal')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Dangal</div>
+            <div class="theatrical-meta">2016 · Biography · <span class="theatrical-quality-pill">1080p</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openSeriesDetails('Panchayat')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Panchayat</div>
+            <div class="theatrical-meta">2 Seasons · Comedy · <span class="theatrical-quality-pill">HD</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openSeriesDetails('Mirzapur')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/series_mirzapur.jpg" alt="Mirzapur">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Mirzapur</div>
+            <div class="theatrical-meta">3 Seasons · Action · <span class="theatrical-quality-pill">HD</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: LIVE TV (Control Room & EPG) -->
+    <section id="view-live" class="t2l-view">
+      <div style="padding: 68px 16px 8px 16px;">
+        <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Broadcast Control</h1>
+        <p style="font-size: 13px; color: var(--t2l-text-muted);">886 Live Satellite & Terrestrial HD Transmissions</p>
+      </div>
+
+      <!-- LIVE NOW Flagship Broadcast Card -->
+      <div class="live-flagship-card">
+        <div class="live-flagship-thumb-wrap">
+          <img class="live-flagship-thumb" src="/assets/posters/vod_12th_fail.jpg" alt="Live Flagship">
+          <div style="position: absolute; top: 12px; left: 12px;" class="live-badge"><span class="live-badge-dot"></span> LIVE ON AIR</div>
+          <div style="position: absolute; top: 12px; right: 12px; background: rgba(5,6,8,0.75); padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 700; color: #FFFFFF;">18.4K Watching</div>
+        </div>
+        <div class="live-flagship-info">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div style="font-size: 16px; font-weight: 800;">Aaj Tak HD Live</div>
+            <span style="font-size: 11px; font-weight: 700; color: #34D399;">1080p 60FPS</span>
+          </div>
+          <div style="font-size: 13px; color: var(--t2l-text-muted); margin-bottom: 12px;">Special Report: National Assembly & Global Space Exploration</div>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn-primary-action" style="padding: 10px 20px; font-size: 13px;" onclick="openPlayer('Aaj Tak HD Live', 'Hindi News · 1080p FHD')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Watch Live
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive EPG Timeline Preview (NOW, NEXT, LATER) -->
+      <div class="epg-timeline-box">
+        <div class="epg-header">Schedule (EPG) • Top Channels</div>
+        <div class="epg-slots-row">
+          <div class="epg-slot-card">
+            <div class="epg-slot-time">NOW (13:30)</div>
+            <div class="epg-slot-prog">Aaj Tak: Prime News</div>
+          </div>
+          <div class="epg-slot-card">
+            <div class="epg-slot-time">14:00 (NEXT)</div>
+            <div class="epg-slot-prog">Special Investigation</div>
+          </div>
+          <div class="epg-slot-card">
+            <div class="epg-slot-time">15:00 (LATER)</div>
+            <div class="epg-slot-prog">Dangal The Debate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Broadcast Channel Tiles -->
+      <div style="padding: 0 16px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="continue-card" style="flex: auto; display: flex; align-items: center; justify-content: space-between; background: var(--t2l-surface-2); padding: 12px 14px; border-radius: var(--t2l-radius-md);" onclick="openPlayer('Colors HD (Hindi)', 'Entertainment · 1080p')">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(139,92,246,0.18); color: #C4B5FD; display: flex; align-items: center; justify-content: center; font-weight: 800;">CH</div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700;">Colors HD (Hindi)</div>
+              <div style="font-size: 11px; color: var(--t2l-text-muted);">Entertainment • 1080p FHD</div>
+            </div>
+          </div>
+          <span class="live-badge"><span class="live-badge-dot"></span> ON AIR</span>
+        </div>
+
+        <div class="continue-card" style="flex: auto; display: flex; align-items: center; justify-content: space-between; background: var(--t2l-surface-2); padding: 12px 14px; border-radius: var(--t2l-radius-md);" onclick="openPlayer('Super Hungama (Hindi)', 'Cartoons · 576p SD')">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(34,211,238,0.18); color: #22D3EE; display: flex; align-items: center; justify-content: center; font-weight: 800;">SH</div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700;">Super Hungama (Hindi)</div>
+              <div style="font-size: 11px; color: var(--t2l-text-muted);">Cartoons • 576p SD</div>
+            </div>
+          </div>
+          <span class="live-badge"><span class="live-badge-dot"></span> ON AIR</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: RADIO (Spotify-Inspired Acoustic Hi-Fi) -->
+    <section id="view-radio" class="t2l-view">
+      <div style="padding: 68px 16px 8px 16px;">
+        <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Acoustic Radio</h1>
+        <p style="font-size: 13px; color: var(--t2l-text-muted);">All India Radio, Vividh Bharati & High-Fidelity Stations</p>
+      </div>
+
+      <!-- Featured Radio Card (Vinyl & Visualizer) -->
+      <div class="radio-featured-hero">
+        <div class="radio-vinyl-wrap">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+        </div>
+        <div style="flex: 1;">
+          <div style="font-size: 10px; font-weight: 800; color: var(--t2l-aurora-cyan); text-transform: uppercase;">NOW PLAYING</div>
+          <div style="font-size: 18px; font-weight: 800;">Vividh Bharati</div>
+          <div style="font-size: 12px; color: var(--t2l-text-muted);">102.8 FM • Classic Melodies</div>
+          <div class="radio-visualizer-bars">
+            <span class="eq-bar eq-1"></span>
+            <span class="eq-bar eq-2"></span>
+            <span class="eq-bar eq-3"></span>
+            <span class="eq-bar eq-1"></span>
+            <span class="eq-bar eq-2"></span>
+          </div>
+        </div>
+        <button class="t2l-icon-btn" style="width: 48px; height: 48px; background: var(--t2l-aurora-gradient); color: #050608;" onclick="openPlayer('AIR Vividh Bharati', '102.8 FM · High Fidelity')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        </button>
+      </div>
+
+      <!-- Spotify-Inspired Rounded Music Tiles Grid -->
+      <div class="radio-tiles-grid">
+        <div class="radio-music-tile" onclick="openPlayer('AIR FM Gold', '106.4 FM · Delhi')">
+          <div class="radio-tile-art">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; margin-bottom: 2px;">AIR FM Gold</div>
+          <div style="font-size: 11px; color: var(--t2l-aurora-cyan);">106.4 FM • Golden Era</div>
+        </div>
+
+        <div class="radio-music-tile" onclick="openPlayer('AIR FM Rainbow', '107.1 FM · Stereo')">
+          <div class="radio-tile-art">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; margin-bottom: 2px;">AIR FM Rainbow</div>
+          <div style="font-size: 11px; color: var(--t2l-aurora-cyan);">107.1 FM • Youth & Pop</div>
+        </div>
+
+        <div class="radio-music-tile" onclick="openPlayer('Akashvani National', 'National Bulletins')">
+          <div class="radio-tile-art">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; margin-bottom: 2px;">Akashvani National</div>
+          <div style="font-size: 11px; color: var(--t2l-aurora-cyan);">Hourly Bulletins</div>
+        </div>
+
+        <div class="radio-music-tile" onclick="openPlayer('Raag Sarita', 'Classical Indian Music')">
+          <div class="radio-tile-art">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; margin-bottom: 2px;">Raag Sarita</div>
+          <div style="font-size: 11px; color: var(--t2l-aurora-cyan);">Classical Ragas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 5: LOCAL MEDIA VAULT (Zero Storage Telemetry) -->
+    <section id="view-local" class="t2l-view">
+      <div style="padding: 68px 16px 8px 16px;">
+        <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Local Vault</h1>
+        <p style="font-size: 13px; color: var(--t2l-text-muted);">Personal Media, Device Storage & Offline Downloads</p>
+      </div>
+
+      <!-- Segmented Category Filter (Zero Capacity Telemetry) -->
+      <div class="segmented-control">
+        <button class="segment-btn active">All Media</button>
+        <button class="segment-btn">Videos</button>
+        <button class="segment-btn">Audio</button>
+        <button class="segment-btn">Downloads</button>
+      </div>
+
+      <!-- Clean Vector Media Grid -->
+      <div class="local-media-grid">
+        <div class="local-media-tile" onclick="openPlayer('Big Buck Bunny 720p', 'Local Video • 246 MB')">
+          <div class="local-tile-icon-box">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+          </div>
+          <div class="local-tile-name">Big_Buck_Bunny.mp4</div>
+          <div class="local-tile-meta">246 MB • 720p H.264</div>
+        </div>
+
+        <div class="local-media-tile" onclick="openPlayer('Sita Sings the Blues', 'Downloaded Feature • 879 MB')">
+          <div class="local-tile-icon-box">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+          </div>
+          <div class="local-tile-name">Sita_Sings_Blues.mp4</div>
+          <div class="local-tile-meta">879 MB • Theatrical</div>
+        </div>
+
+        <div class="local-media-tile" onclick="openPlayer('His Girl Friday', 'Classic Feature • 740 MB')">
+          <div class="local-tile-icon-box">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          </div>
+          <div class="local-tile-name">His_Girl_Friday.mp4</div>
+          <div class="local-tile-meta">740 MB • Classic HD</div>
+        </div>
+
+        <div class="local-media-tile" onclick="openPlayer('All India Radio Bulletin', 'Local Audio • 18 MB')">
+          <div class="local-tile-icon-box">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+          </div>
+          <div class="local-tile-name">AIR_Daily_Bulletin.mp3</div>
+          <div class="local-tile-meta">18 MB • 320kbps Audio</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       4. REFINED FLOATING CAPSULE DOCK (Clean Vector SVG Icons, Zero Emojis)
+       ========================================================================== -->
+  <nav class="capsule-dock-wrap" aria-label="Main Navigation">
+    <div class="capsule-dock">
+      <button class="dock-tab active" id="tab-home" onclick="navigateTo('home')">
+        <svg class="dock-tab-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span class="dock-tab-label">Home</span>
+      </button>
+
+      <button class="dock-tab" id="tab-cinema" onclick="navigateTo('cinema')">
+        <svg class="dock-tab-svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+        <span class="dock-tab-label">Cinema</span>
+      </button>
+
+      <button class="dock-tab" id="tab-live" onclick="navigateTo('live')">
+        <svg class="dock-tab-svg" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
+        <span class="dock-tab-label">Live TV</span>
+      </button>
+
+      <button class="dock-tab" id="tab-radio" onclick="navigateTo('radio')">
+        <svg class="dock-tab-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+        <span class="dock-tab-label">Radio</span>
+      </button>
+
+      <button class="dock-tab" id="tab-local" onclick="navigateTo('local')">
+        <svg class="dock-tab-svg" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+        <span class="dock-tab-label">Local</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       5. SLIDE-OVER NOTIFICATIONS PANEL
+       ========================================================================== -->
+  <div id="notificationPanel" class="slide-sheet-backdrop" onclick="if(event.target===this) closeNotifications();">
+    <div class="slide-sheet-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <h2 style="font-size: 18px; font-weight: 800;">Notifications</h2>
+        <button class="t2l-icon-btn" onclick="closeNotifications()">✕</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: var(--t2l-surface-2); padding: 14px; border-radius: var(--t2l-radius-md); border: 1px solid var(--t2l-border-subtle);">
+          <div style="font-size: 10px; font-weight: 700; color: var(--t2l-aurora-cyan); text-transform: uppercase;">NEW PREMIERE</div>
+          <div style="font-size: 13px; font-weight: 700; margin: 2px 0;">12th Fail (2023) is now streaming</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted);">Direct streaming verified in 720p HD with Hindi Master Audio.</div>
+        </div>
+
+        <div style="background: var(--t2l-surface-2); padding: 14px; border-radius: var(--t2l-radius-md); border: 1px solid var(--t2l-border-subtle);">
+          <div style="font-size: 10px; font-weight: 700; color: #10B981; text-transform: uppercase;">DOWNLOAD COMPLETED</div>
+          <div style="font-size: 13px; font-weight: 700; margin: 2px 0;">Big Buck Bunny 720p</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted);">Saved to Local Vault (246 MB). Ready for offline playback.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       6. SLIDE-OVER PROFILE & CONTROL HUB
+       ========================================================================== -->
+  <div id="profilePanel" class="slide-sheet-backdrop" onclick="if(event.target===this) closeProfile();">
+    <div class="slide-sheet-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--t2l-aurora-gradient); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #050608;">T2L</div>
+          <div>
+            <div style="font-size: 15px; font-weight: 800;">Media Master</div>
+            <div style="font-size: 11px; color: var(--t2l-text-muted);">OLED Theater Pro</div>
+          </div>
+        </div>
+        <button class="t2l-icon-btn" onclick="closeProfile()">✕</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="background: var(--t2l-surface-2); padding: 14px; border-radius: var(--t2l-radius-md); cursor: pointer;" onclick="closeProfile(); openSearchModal();">
+          <div style="font-size: 13px; font-weight: 700;">Spotlight Search</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted);">Find movies, series, live TV and radio</div>
+        </div>
+        <div style="background: var(--t2l-surface-2); padding: 14px; border-radius: var(--t2l-radius-md); cursor: pointer;" onclick="alert('Downloads Manager: 3 offline items saved')">
+          <div style="font-size: 13px; font-weight: 700;">Downloads Manager</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted);">Manage offline storage and active files</div>
+        </div>
+        <div style="background: var(--t2l-surface-2); padding: 14px; border-radius: var(--t2l-radius-md); cursor: pointer;" onclick="alert('Instant Magnet Streamer: Ready')">
+          <div style="font-size: 13px; font-weight: 700;">Instant Magnet Streamer</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted);">Direct sequential P2P playback engine</div>
+        </div>
+        <div style="background: var(--t2l-surface-2); padding: 14px; border-radius: var(--t2l-radius-md); cursor: pointer;" onclick="alert('Network Diagnostics: 86.4 Mbps (4K Verified)')">
+          <div style="font-size: 13px; font-weight: 700;">Speed Diagnostics</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted);">Real-time bandwidth test</div>
+        </div>
+        <div style="background: var(--t2l-surface-2); padding: 14px; border-radius: var(--t2l-radius-md); cursor: pointer;" onclick="alert('T2L V2.1 Build 2026.09.28 - Zero-Trust Verified')">
+          <div style="font-size: 13px; font-weight: 700;">About & System Health</div>
+          <div style="font-size: 11px; color: var(--t2l-text-muted);">T2L Television to Live v2.1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       7. SPOTLIGHT SEARCH FULL-SCREEN OVERLAY
+       ========================================================================== -->
+  <div id="spotlightSearchModal" class="details-modal" style="display: none; padding: 16px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+      <button class="t2l-icon-btn" onclick="closeSearchModal()" aria-label="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div style="flex: 1; position: relative;">
+        <input type="text" id="spotlightInput" style="width: 100%; height: 48px; background: var(--t2l-surface-2); border: 1px solid var(--t2l-border-prominent); border-radius: var(--t2l-radius-pill); padding: 0 40px 0 16px; color: #FFFFFF; font-size: 15px; outline: none;" placeholder="Search cinema, series, broadcast TV..." autofocus>
+        <button style="position: absolute; right: 12px; top: 14px; background: none; border: none; color: var(--t2l-text-muted); cursor: pointer;" onclick="document.getElementById('spotlightInput').value=''">✕</button>
+      </div>
+    </div>
+
+    <div class="segmented-control" style="margin: 0 0 16px 0;">
+      <button class="segment-btn active">All</button>
+      <button class="segment-btn">Movies</button>
+      <button class="segment-btn">Series</button>
+      <button class="segment-btn">Live TV</button>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <div style="font-size: 11px; text-transform: uppercase; color: var(--t2l-text-subtle); font-weight: 700; margin-bottom: 8px;">Recent Searches</div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <span class="segment-btn" style="padding: 4px 12px; min-height: 32px; background: var(--t2l-surface-2);">12th Fail</span>
+        <span class="segment-btn" style="padding: 4px 12px; min-height: 32px; background: var(--t2l-surface-2);">Panchayat</span>
+        <span class="segment-btn" style="padding: 4px 12px; min-height: 32px; background: var(--t2l-surface-2);">Aaj Tak HD</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+      <div class="theatrical-card" onclick="closeSearchModal(); openMovieDetails('12th Fail');">
+        <div class="theatrical-poster-wrap">
+          <img class="theatrical-poster-img" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail">
+        </div>
+        <div class="theatrical-info">
+          <div class="theatrical-title">12th Fail</div>
+          <div class="theatrical-meta">2023 · Movie · 720p</div>
+        </div>
+      </div>
+
+      <div class="theatrical-card" onclick="closeSearchModal(); openSeriesDetails('Panchayat');">
+        <div class="theatrical-poster-wrap">
+          <img class="theatrical-poster-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
+        </div>
+        <div class="theatrical-info">
+          <div class="theatrical-title">Panchayat</div>
+          <div class="theatrical-meta">Series · 2 Seasons</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       8. MOVIE DETAILS MODAL
+       ========================================================================== -->
+  <div id="movieDetailsModal" class="details-modal" role="dialog" aria-modal="true" aria-label="Movie Details">
+    <div style="position: relative; width: 100%; height: clamp(260px, 42vh, 340px);">
+      <img id="detailsBackdropImg" style="width: 100%; height: 100%; object-fit: cover;" src="/assets/posters/vod_12th_fail.jpg" alt="Backdrop">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,6,8,0.2) 0%, rgba(5,6,8,0.7) 60%, var(--t2l-canvas) 100%);"></div>
+      <button style="position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; background: rgba(5,6,8,0.7); backdrop-filter: blur(8px); border: 1px solid var(--t2l-border-subtle); color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 5;" onclick="closeMovieDetails()">✕</button>
+    </div>
+
+    <div style="padding: 0 16px; position: relative; margin-top: -60px; z-index: 3;">
+      <div style="display: flex; gap: 16px; margin-bottom: 20px;">
+        <img id="detailsPosterImg" style="width: 110px; aspect-ratio: 2/3; border-radius: 12px; object-fit: cover; border: 2px solid var(--t2l-border-prominent); box-shadow: 0 8px 24px rgba(0,0,0,0.6);" src="/assets/posters/vod_12th_fail.jpg" alt="Poster">
+        <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+          <span style="color: var(--t2l-aurora-cyan); font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">BOLLYWOOD</span>
+          <h1 id="detailsTitleText" style="font-size: 22px; font-weight: 800; line-height: 1.2; margin-bottom: 6px;">12th Fail</h1>
+          <div style="font-size: 12px; color: var(--t2l-text-muted); display: flex; align-items: center; gap: 6px;">
+            <span>2023</span>
+            <span>•</span>
+            <span>2h 27m</span>
+            <span>•</span>
+            <span style="color: #34D399; font-weight: 700;">720p HD</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+        <button class="btn-primary-action" style="flex: 2; justify-content: center;" onclick="closeMovieDetails(); openPlayer('12th Fail', 'Hindi Master · 720p HD');">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          Stream Direct
+        </button>
+        <button class="btn-secondary-action" style="flex: 1; justify-content: center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download
+        </button>
+      </div>
+
+      <!-- Specs Bento Grid -->
+      <div style="background: var(--t2l-surface-1); border: 1px solid var(--t2l-border-subtle); border-radius: var(--t2l-radius-md); padding: 14px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; margin-bottom: 20px;">
+        <div>
+          <div style="font-size: 10px; color: var(--t2l-text-subtle); text-transform: uppercase; font-weight: 700; margin-bottom: 2px;">CODEC</div>
+          <div style="font-size: 12px; font-weight: 700;">H.264</div>
+        </div>
+        <div>
+          <div style="font-size: 10px; color: var(--t2l-text-subtle); text-transform: uppercase; font-weight: 700; margin-bottom: 2px;">AUDIO</div>
+          <div style="font-size: 12px; font-weight: 700;">Hindi Master</div>
+        </div>
+        <div>
+          <div style="font-size: 10px; color: var(--t2l-text-subtle); text-transform: uppercase; font-weight: 700; margin-bottom: 2px;">SIZE</div>
+          <div style="font-size: 12px; font-weight: 700;">879 MB</div>
+        </div>
+        <div>
+          <div style="font-size: 10px; color: var(--t2l-text-subtle); text-transform: uppercase; font-weight: 700; margin-bottom: 2px;">LICENSE</div>
+          <div style="font-size: 12px; font-weight: 700;">Theatrical</div>
+        </div>
+      </div>
+
+      <!-- Synopsis -->
+      <div style="margin-bottom: 20px;">
+        <h3 style="font-size: 13px; text-transform: uppercase; color: var(--t2l-text-subtle); margin-bottom: 6px;">Synopsis</h3>
+        <p style="font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.9);">
+          Based on the true story of Manoj Kumar Sharma, who rose from extreme poverty in the dacoit-infested Chambal valley to clear the world's toughest exam, the UPSC, and become an IPS Officer.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       9. SERIES DETAILS MODAL
+       ========================================================================== -->
+  <div id="seriesDetailsModal" class="details-modal" role="dialog" aria-modal="true" aria-label="Series Details">
+    <div style="position: relative; width: 100%; height: clamp(260px, 42vh, 340px);">
+      <img style="width: 100%; height: 100%; object-fit: cover;" src="/assets/posters/series_panchayat.jpg" alt="Series Backdrop">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,6,8,0.2) 0%, rgba(5,6,8,0.7) 60%, var(--t2l-canvas) 100%);"></div>
+      <button style="position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; background: rgba(5,6,8,0.7); backdrop-filter: blur(8px); border: 1px solid var(--t2l-border-subtle); color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 5;" onclick="closeSeriesDetails()">✕</button>
+    </div>
+
+    <div style="padding: 0 16px; position: relative; margin-top: -60px; z-index: 3;">
+      <div style="display: flex; gap: 16px; margin-bottom: 20px;">
+        <img style="width: 110px; aspect-ratio: 2/3; border-radius: 12px; object-fit: cover; border: 2px solid var(--t2l-border-prominent); box-shadow: 0 8px 24px rgba(0,0,0,0.6);" src="/assets/posters/series_panchayat.jpg" alt="Panchayat Poster">
+        <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+          <span style="color: var(--t2l-aurora-cyan); font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">WEB-SERIES</span>
+          <h1 style="font-size: 22px; font-weight: 800; line-height: 1.2; margin-bottom: 6px;">Panchayat</h1>
+          <div style="font-size: 12px; color: var(--t2l-text-muted); display: flex; align-items: center; gap: 6px;">
+            <span>2024</span>
+            <span>•</span>
+            <span>2 Seasons • 8 Episodes</span>
+            <span>•</span>
+            <span style="color: #34D399; font-weight: 700;">HD 720p</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="segmented-control" style="margin: 0 0 16px 0;">
+        <button class="segment-btn active">Season 1</button>
+        <button class="segment-btn">Season 2</button>
+      </div>
+
+      <!-- Episode List -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="continue-card" style="flex: auto; display: flex; align-items: center; justify-content: space-between; background: var(--t2l-surface-2); padding: 12px 14px; border-radius: var(--t2l-radius-md);" onclick="closeSeriesDetails(); openPlayer('Panchayat S01 E01', 'Gram Panchayat Phulera · 36m');">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(139,92,246,0.2); color: #C4B5FD; display: flex; align-items: center; justify-content: center; font-weight: 800;">E01</div>
+            <div>
+              <div style="font-size: 13px; font-weight: 700;">Gram Panchayat Phulera</div>
+              <div style="font-size: 11px; color: var(--t2l-text-muted);">Episode 1 • 36m • Hindi Master</div>
+            </div>
+          </div>
+          <span style="color: var(--t2l-aurora-cyan); font-size: 14px;">▶</span>
+        </div>
+
+        <div class="continue-card" style="flex: auto; display: flex; align-items: center; justify-content: space-between; background: var(--t2l-surface-2); padding: 12px 14px; border-radius: var(--t2l-radius-md);" onclick="closeSeriesDetails(); openPlayer('Panchayat S01 E02', 'Bhoora Khargosh · 34m');">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(139,92,246,0.2); color: #C4B5FD; display: flex; align-items: center; justify-content: center; font-weight: 800;">E02</div>
+            <div>
+              <div style="font-size: 13px; font-weight: 700;">Bhoora Khargosh</div>
+              <div style="font-size: 11px; color: var(--t2l-text-muted);">Episode 2 • 34m • Hindi Master</div>
+            </div>
+          </div>
+          <span style="color: var(--t2l-aurora-cyan); font-size: 14px;">▶</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       10. OLED THEATER PLAYER MODAL
+       ========================================================================== -->
+  <div id="theaterPlayerModal" class="theater-player-modal" role="dialog" aria-modal="true" aria-label="Media Player">
+    <div style="padding: 16px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%);">
+      <button class="t2l-icon-btn" onclick="closePlayer()" aria-label="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+
+      <div style="text-align: center;">
+        <div id="playerTitleText" style="font-size: 15px; font-weight: 700;">12th Fail</div>
+        <div id="playerSubtitleText" style="font-size: 11px; color: var(--t2l-text-muted);">Hindi Master • 720p HD</div>
+      </div>
+
+      <span style="background: rgba(255,255,255,0.1); border-radius: 4px; padding: 4px 8px; font-size: 11px; font-weight: 700;">AUTO</span>
+    </div>
+
+    <!-- Center Play Controls -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 36px;">
+      <button style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: none; color: #FFFFFF; font-size: 15px; cursor: pointer;">↺ 10</button>
+      <button style="width: 64px; height: 64px; border-radius: 50%; background: var(--t2l-aurora-gradient); border: none; color: #050608; font-size: 24px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 24px rgba(34,211,238,0.4); cursor: pointer;" id="playerPlayToggle" onclick="togglePlayState()">▶</button>
+      <button style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: none; color: #FFFFFF; font-size: 15px; cursor: pointer;">10 ↻</button>
+    </div>
+
+    <!-- Bottom Seekbar -->
+    <div style="padding: 16px; background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);">
+      <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.2); border-radius: 3px; position: relative; margin-bottom: 8px;">
+        <div style="width: 35%; height: 100%; background: var(--t2l-aurora-gradient); border-radius: 3px;"></div>
+        <div style="position: absolute; left: 35%; top: 50%; transform: translate(-50%, -50%); width: 14px; height: 14px; background: var(--t2l-aurora-cyan); border-radius: 50%; box-shadow: 0 0 10px var(--t2l-aurora-cyan);"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--t2l-text-muted);">
+        <span>01:14:20</span>
+        <span>02:27:00</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="prototype.js"></script>
+</body>
+</html>
