@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>T2L V2 — Aurora Cinema Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Atmospheric Ambient Background Light -->
+  <div class="aurora-ambient-glow" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       TOP APP BAR (Non-Intrusive, No Permanent Search Field)
+       ========================================================================== -->
+  <header class="t2l-header">
+    <div class="t2l-brand" onclick="navigateTo('home')">
+      <span class="t2l-brand-badge">T2L</span>
+      <span class="t2l-brand-title">CINEMA</span>
+    </div>
+
+    <div class="t2l-header-actions">
+      <button class="t2l-icon-btn" id="btnOpenSearch" onclick="openSearchModal()" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
+      <button class="t2l-icon-btn" id="btnOpenHub" onclick="openHubDrawer()" aria-label="Settings and Hub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       CONTENT VIEWS CONTAINER (Zero Dock Overlap)
+       ========================================================================== -->
+  <main class="t2l-content-container">
+
+    <!-- VIEW 1: HOME PREMIERE -->
+    <section id="view-home" class="t2l-view active">
+      <!-- Cinematic Hero Banner -->
+      <div class="hero-premiere">
+        <img class="hero-backdrop-img" src="/assets/posters/vod_12th_fail.jpg" alt="Hero Backdrop">
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-tag">★ Premiere Spotlight</div>
+          <h1 class="hero-title">12th Fail</h1>
+          <div class="hero-metadata">
+            <span>2023</span>
+            <span class="hero-meta-dot">•</span>
+            <span>2h 27m</span>
+            <span class="hero-meta-dot">•</span>
+            <span>Hindi Master</span>
+            <span class="hero-quality-badge">720p HD</span>
+          </div>
+          <p class="hero-synopsis">
+            Based on the inspiring real-life story of IPS officer Manoj Kumar Sharma who restarts his academic journey despite extreme poverty.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary-action" onclick="openPlayer('12th Fail', 'Hindi Master · 720p HD')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Watch Now
+            </button>
+            <button class="btn-secondary-action" onclick="openMovieDetails('12th Fail')">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue Watching Rail (16:9 Landscape) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">🕒 Continue Watching</h2>
+          <span class="content-rail-see-all">History →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="continue-card" onclick="openPlayer('Panchayat S02 E04', 'Hindi · 1080p')">
+            <div class="continue-backdrop-wrap">
+              <img class="continue-backdrop-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
+              <div class="continue-play-glyph">▶</div>
+              <div class="continue-progress-bar"><div class="continue-progress-fill" style="width: 72%;"></div></div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Panchayat · S02 E04</div>
+              <div class="continue-subtext">18m left (72%)</div>
+            </div>
+          </div>
+
+          <div class="continue-card" onclick="openPlayer('Jawan', 'Hindi · 1080p BluRay')">
+            <div class="continue-backdrop-wrap">
+              <img class="continue-backdrop-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
+              <div class="continue-play-glyph">▶</div>
+              <div class="continue-progress-bar"><div class="continue-progress-fill" style="width: 45%;"></div></div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Jawan (2023)</div>
+              <div class="continue-subtext">1h 12m left (45%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trending Cinema Rail (2:3 Theatrical Posters, 2.35 Peek) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">🔥 Trending Cinema</h2>
+          <span class="content-rail-see-all" onclick="navigateTo('cinema')">See All →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="theatrical-card" onclick="openMovieDetails('Kalki 2898 AD')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki 2898 AD">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Kalki 2898 AD</div>
+              <div class="theatrical-meta">2024 · Sci-Fi · <span class="theatrical-quality-pill">720p</span></div>
+            </div>
+          </div>
+
+          <div class="theatrical-card" onclick="openMovieDetails('Dangal')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Dangal</div>
+              <div class="theatrical-meta">2016 · Drama · <span class="theatrical-quality-pill">1080p</span></div>
+            </div>
+          </div>
+
+          <div class="theatrical-card" onclick="openMovieDetails('Oppenheimer')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_oppenheimer.jpg" alt="Oppenheimer">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Oppenheimer</div>
+              <div class="theatrical-meta">2023 · Biography · <span class="theatrical-quality-pill">1080p</span></div>
+            </div>
+          </div>
+
+          <div class="theatrical-card" onclick="openMovieDetails('Chhaava')">
+            <div class="theatrical-poster-wrap">
+              <img class="theatrical-poster-img" src="/assets/posters/vod_chhavaa.jpg" alt="Chhaava">
+            </div>
+            <div class="theatrical-info">
+              <div class="theatrical-title">Chhaava</div>
+              <div class="theatrical-meta">2025 · History · <span class="theatrical-quality-pill">720p</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Broadcast Spotlight Rail (16:9 Landscape) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">📺 Live Broadcasts Now</h2>
+          <span class="content-rail-see-all" onclick="navigateTo('live')">Live TV →</span>
+        </div>
+        <div class="content-rail-scroll">
+          <div class="live-broadcast-card" onclick="openPlayer('Aaj Tak HD Live', 'Hindi News · 1080p FHD')">
+            <div class="live-card-thumb-wrap">
+              <img class="live-card-thumb" src="/assets/posters/live_news.jpg" onerror="this.src='/assets/posters/vod_12th_fail.jpg'" alt="Aaj Tak">
+              <div class="live-badge-overlay"><span class="live-badge-dot"></span> LIVE</div>
+              <div class="live-viewers-pill">18.4K</div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Aaj Tak HD Live</div>
+              <div class="continue-subtext">National Prime Time News</div>
+            </div>
+          </div>
+
+          <div class="live-broadcast-card" onclick="openPlayer('Colors HD Live', 'Hindi Entertainment · 1080p')">
+            <div class="live-card-thumb-wrap">
+              <img class="live-card-thumb" src="/assets/posters/live_entertainment.jpg" onerror="this.src='/assets/posters/vod_jawan.jpg'" alt="Colors HD">
+              <div class="live-badge-overlay"><span class="live-badge-dot"></span> LIVE</div>
+              <div class="live-viewers-pill">24.1K</div>
+            </div>
+            <div class="continue-info">
+              <div class="continue-title">Colors HD (Hindi)</div>
+              <div class="continue-subtext">Prime Entertainment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: CINEMA & WEB SERIES -->
+    <section id="view-cinema" class="t2l-view">
+      <div style="padding: 16px 16px 8px 16px;">
+        <h1 style="font-size: 24px; font-weight: 800; margin-bottom: 4px;">Cinema & Series</h1>
+        <p style="font-size: 12px; color: var(--v2-text-muted);">Curated Full-Length Theatrical Movies & Episodic Series</p>
+      </div>
+
+      <!-- Scope Filter Chips -->
+      <div class="chip-filter-strip">
+        <button class="filter-chip active">All Cinema</button>
+        <button class="filter-chip" onclick="openSeriesDetails('Panchayat')">Web-Series</button>
+        <button class="filter-chip">Action & Thrillers</button>
+        <button class="filter-chip">Bollywood Hits</button>
+        <button class="filter-chip">Hollywood Cinema</button>
+        <button class="filter-chip">Documentaries</button>
+      </div>
+
+      <!-- 2-Column Responsive Cinema Grid -->
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 0 16px;">
+        <div class="theatrical-card" onclick="openMovieDetails('12th Fail')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">12th Fail</div>
+            <div class="theatrical-meta">2023 · Drama · <span class="theatrical-quality-pill">720p</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openMovieDetails('Kalki 2898 AD')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Kalki 2898 AD</div>
+            <div class="theatrical-meta">2024 · Sci-Fi · <span class="theatrical-quality-pill">720p</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openMovieDetails('Jawan')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Jawan</div>
+            <div class="theatrical-meta">2023 · Action · <span class="theatrical-quality-pill">1080p</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openMovieDetails('Dangal')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Dangal</div>
+            <div class="theatrical-meta">2016 · Biography · <span class="theatrical-quality-pill">1080p</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openSeriesDetails('Panchayat')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Panchayat</div>
+            <div class="theatrical-meta">2 Seasons · Comedy · <span class="theatrical-quality-pill">HD</span></div>
+          </div>
+        </div>
+
+        <div class="theatrical-card" onclick="openSeriesDetails('Mirzapur')">
+          <div class="theatrical-poster-wrap">
+            <img class="theatrical-poster-img" src="/assets/posters/series_mirzapur.jpg" alt="Mirzapur">
+          </div>
+          <div class="theatrical-info">
+            <div class="theatrical-title">Mirzapur</div>
+            <div class="theatrical-meta">3 Seasons · Action · <span class="theatrical-quality-pill">HD</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: LIVE TV (Control Room & EPG) -->
+    <section id="view-live" class="t2l-view">
+      <div style="padding: 16px 16px 8px 16px;">
+        <h1 style="font-size: 24px; font-weight: 800; margin-bottom: 4px;">Live Television</h1>
+        <p style="font-size: 12px; color: var(--v2-text-muted);">886 High-Definition Live Satellite & Terrestrial Channels</p>
+      </div>
+
+      <div class="chip-filter-strip">
+        <button class="filter-chip active">All Channels</button>
+        <button class="filter-chip">🇮🇳 Hindi News</button>
+        <button class="filter-chip">🍿 Entertainment</button>
+        <button class="filter-chip">🏏 Sports Live</button>
+        <button class="filter-chip">👶 Cartoons & Kids</button>
+      </div>
+
+      <div style="padding: 0 16px; display: flex; flex-direction: column; gap: 12px;">
+        <div class="local-file-tile" onclick="openPlayer('Aaj Tak HD Live', 'Hindi News · 1080p FHD')">
+          <div class="local-file-left">
+            <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(244,63,94,0.15); display: flex; align-items: center; justify-content: center; color: #F43F5E; font-weight: 800;">
+              AT
+            </div>
+            <div>
+              <div class="local-file-name">Aaj Tak HD Live</div>
+              <div class="local-file-size">India • News • 1080p FHD</div>
+            </div>
+          </div>
+          <span style="color: #F43F5E; font-size: 11px; font-weight: 700;">● ON AIR</span>
+        </div>
+
+        <div class="local-file-tile" onclick="openPlayer('Colors HD', 'Hindi Entertainment · 1080p')">
+          <div class="local-file-left">
+            <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(139,92,246,0.15); display: flex; align-items: center; justify-content: center; color: #8B5CF6; font-weight: 800;">
+              CH
+            </div>
+            <div>
+              <div class="local-file-name">Colors HD (Hindi)</div>
+              <div class="local-file-size">India • Entertainment • 1080p</div>
+            </div>
+          </div>
+          <span style="color: #F43F5E; font-size: 11px; font-weight: 700;">● ON AIR</span>
+        </div>
+
+        <div class="local-file-tile" onclick="openPlayer('Super Hungama (Hindi)', 'Cartoons · 576p')">
+          <div class="local-file-left">
+            <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(34,211,238,0.15); display: flex; align-items: center; justify-content: center; color: #22D3EE; font-weight: 800;">
+              SH
+            </div>
+            <div>
+              <div class="local-file-name">Super Hungama (Hindi)</div>
+              <div class="local-file-size">India • Cartoons • 576p SD</div>
+            </div>
+          </div>
+          <span style="color: #F43F5E; font-size: 11px; font-weight: 700;">● ON AIR</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: RADIO (Acoustic Hi-Fi Vinyl Layout) -->
+    <section id="view-radio" class="t2l-view">
+      <div style="padding: 16px 16px 8px 16px;">
+        <h1 style="font-size: 24px; font-weight: 800; margin-bottom: 4px;">Radio & Acoustic</h1>
+        <p style="font-size: 12px; color: var(--v2-text-muted);">All India Radio, Vividh Bharati & High-Fidelity Stations</p>
+      </div>
+
+      <div class="chip-filter-strip">
+        <button class="filter-chip active">All Stations</button>
+        <button class="filter-chip">FM Radio</button>
+        <button class="filter-chip">Akashvani National</button>
+        <button class="filter-chip">Classical & Melodies</button>
+      </div>
+
+      <div class="radio-bento-grid">
+        <div class="radio-station-tile" onclick="openPlayer('AIR Vividh Bharati', '102.8 FM · High Quality')">
+          <div class="radio-vinyl-disc">
+            <div class="radio-disc-label">📻</div>
+          </div>
+          <div class="radio-station-name">Vividh Bharati</div>
+          <div class="radio-station-freq">102.8 FM • Classic Melodies</div>
+        </div>
+
+        <div class="radio-station-tile" onclick="openPlayer('AIR FM Gold', '106.4 FM · Delhi')">
+          <div class="radio-vinyl-disc">
+            <div class="radio-disc-label">📻</div>
+          </div>
+          <div class="radio-station-name">AIR FM Gold</div>
+          <div class="radio-station-freq">106.4 FM • Golden Classics</div>
+        </div>
+
+        <div class="radio-station-tile" onclick="openPlayer('AIR FM Rainbow', '107.1 FM · Stereo')">
+          <div class="radio-vinyl-disc">
+            <div class="radio-disc-label">📻</div>
+          </div>
+          <div class="radio-station-name">AIR FM Rainbow</div>
+          <div class="radio-station-freq">107.1 FM • Youth & Pop</div>
+        </div>
+
+        <div class="radio-station-tile" onclick="openPlayer('Akashvani National', 'National Hourly Bulletins')">
+          <div class="radio-vinyl-disc">
+            <div class="radio-disc-label">📻</div>
+          </div>
+          <div class="radio-station-name">Akashvani National</div>
+          <div class="radio-station-freq">National • News & Culture</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 5: LOCAL MEDIA VAULT -->
+    <section id="view-local" class="t2l-view">
+      <div style="padding: 16px 16px 8px 16px;">
+        <h1 style="font-size: 24px; font-weight: 800; margin-bottom: 4px;">Local Vault</h1>
+        <p style="font-size: 12px; color: var(--v2-text-muted);">Personal Media, Device Storage & Offline Downloads</p>
+      </div>
+
+      <!-- Storage Telemetry Gauge -->
+      <div class="local-storage-card">
+        <div class="storage-gauge-header">
+          <span>Device Storage</span>
+          <span>42.8 GB / 128 GB</span>
+        </div>
+        <div class="storage-bar-track">
+          <div class="storage-bar-fill"></div>
+        </div>
+      </div>
+
+      <div class="chip-filter-strip">
+        <button class="filter-chip active">All Media</button>
+        <button class="filter-chip">Videos (12)</button>
+        <button class="filter-chip">Audio (4)</button>
+        <button class="filter-chip">Downloads (3)</button>
+      </div>
+
+      <div class="local-file-list">
+        <div class="local-file-tile" onclick="openPlayer('Big Buck Bunny 720p', 'Local MP4 · 246 MB')">
+          <div class="local-file-left">
+            <div class="local-file-icon">🎥</div>
+            <div>
+              <div class="local-file-name">Big_Buck_Bunny_720p.mp4</div>
+              <div class="local-file-size">246 MB • 720p AVC</div>
+            </div>
+          </div>
+          <span>▶</span>
+        </div>
+
+        <div class="local-file-tile" onclick="openPlayer('Sita Sings the Blues', 'Downloaded Feature · 879 MB')">
+          <div class="local-file-left">
+            <div class="local-file-icon">🎥</div>
+            <div>
+              <div class="local-file-name">Sita_Sings_the_Blues.mp4</div>
+              <div class="local-file-size">879 MB • Theatrical</div>
+            </div>
+          </div>
+          <span>▶</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       SIGNATURE FLOATING CAPSULE DOCK
+       ========================================================================== -->
+  <nav class="capsule-dock-wrap" aria-label="Main Navigation">
+    <div class="capsule-dock">
+      <button class="dock-tab active" id="tab-home" onclick="navigateTo('home')">
+        <span class="dock-tab-icon">🏠</span>
+        <span class="dock-tab-label">Home</span>
+      </button>
+
+      <button class="dock-tab" id="tab-live" onclick="navigateTo('live')">
+        <span class="dock-tab-icon">📺</span>
+        <span class="dock-tab-label">Live TV</span>
+      </button>
+
+      <button class="dock-tab" id="tab-radio" onclick="navigateTo('radio')">
+        <span class="dock-tab-icon">📻</span>
+        <span class="dock-tab-label">Radio</span>
+      </button>
+
+      <button class="dock-tab" id="tab-cinema" onclick="navigateTo('cinema')">
+        <span class="dock-tab-icon">🎬</span>
+        <span class="dock-tab-label">Cinema</span>
+      </button>
+
+      <button class="dock-tab" id="tab-local" onclick="navigateTo('local')">
+        <span class="dock-tab-icon">📁</span>
+        <span class="dock-tab-label">Local</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       SPOTLIGHT SEARCH FULL-SCREEN OVERLAY
+       ========================================================================== -->
+  <div id="spotlightSearchModal" class="spotlight-search-modal" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="spotlight-top-bar">
+      <button class="t2l-icon-btn" onclick="closeSearchModal()" aria-label="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="spotlight-input-wrap">
+        <input type="text" id="spotlightInput" class="spotlight-input" placeholder="Search movies, series, live TV..." autofocus>
+        <button class="spotlight-clear-btn" onclick="document.getElementById('spotlightInput').value=''">✕</button>
+      </div>
+    </div>
+
+    <div class="chip-filter-strip" style="padding-left: 0; padding-right: 0;">
+      <button class="filter-chip active">All</button>
+      <button class="filter-chip">Movies</button>
+      <button class="filter-chip">Web Series</button>
+      <button class="filter-chip">Live TV</button>
+      <button class="filter-chip">Radio</button>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <div style="font-size: 11px; text-transform: uppercase; color: var(--v2-text-subtle); font-weight: 700; margin-bottom: 8px;">Recent Searches</div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <span class="filter-chip" style="min-height: 32px; padding: 4px 12px;">12th Fail</span>
+        <span class="filter-chip" style="min-height: 32px; padding: 4px 12px;">Panchayat</span>
+        <span class="filter-chip" style="min-height: 32px; padding: 4px 12px;">Aaj Tak HD</span>
+      </div>
+    </div>
+
+    <div class="search-results-grid">
+      <div class="theatrical-card" onclick="closeSearchModal(); openMovieDetails('12th Fail');">
+        <div class="theatrical-poster-wrap">
+          <img class="theatrical-poster-img" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail">
+        </div>
+        <div class="theatrical-info">
+          <div class="theatrical-title">12th Fail</div>
+          <div class="theatrical-meta">2023 · Movie · 720p</div>
+        </div>
+      </div>
+
+      <div class="theatrical-card" onclick="closeSearchModal(); openSeriesDetails('Panchayat');">
+        <div class="theatrical-poster-wrap">
+          <img class="theatrical-poster-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
+        </div>
+        <div class="theatrical-info">
+          <div class="theatrical-title">Panchayat</div>
+          <div class="theatrical-meta">Series · 2 Seasons</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MOVIE DETAILS MODAL (Theatrical Backdrop, Bento Specs, Verified Audio)
+       ========================================================================== -->
+  <div id="movieDetailsModal" class="details-modal" role="dialog" aria-modal="true" aria-label="Movie Details">
+    <div class="details-backdrop-header">
+      <img id="detailsBackdropImg" class="details-backdrop-img" src="/assets/posters/vod_12th_fail.jpg" alt="Backdrop">
+      <div class="details-backdrop-scrim"></div>
+      <button class="details-close-btn" onclick="closeMovieDetails()" aria-label="Close">✕</button>
+    </div>
+
+    <div class="details-body">
+      <div class="details-identity-row">
+        <img id="detailsPosterImg" class="details-poster-thumb" src="/assets/posters/vod_12th_fail.jpg" alt="Poster">
+        <div class="details-title-block">
+          <span id="detailsCategoryTag" class="details-category-tag">BOLLYWOOD</span>
+          <h1 id="detailsTitleText" class="details-title-text">12th Fail</h1>
+          <div class="details-sub-meta">
+            <span>2023</span>
+            <span>•</span>
+            <span>2h 27m</span>
+            <span>•</span>
+            <span style="color: #34D399; font-weight: 700;">720p HD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons Row -->
+      <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+        <button class="btn-primary-action" style="flex: 2; justify-content: center;" onclick="closeMovieDetails(); openPlayer('12th Fail', 'Hindi Master · 720p HD');">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          Stream Direct
+        </button>
+        <button class="btn-secondary-action" style="flex: 1; justify-content: center;">
+          📥 Download
+        </button>
+      </div>
+
+      <!-- Technical Specifications Bento Grid -->
+      <div class="specs-bento-card">
+        <div>
+          <div class="spec-cell-label">CODEC</div>
+          <div class="spec-cell-value">H.264 / AVC</div>
+        </div>
+        <div>
+          <div class="spec-cell-label">AUDIO</div>
+          <div class="spec-cell-value">Hindi Master</div>
+        </div>
+        <div>
+          <div class="spec-cell-label">SIZE</div>
+          <div class="spec-cell-value">879 MB</div>
+        </div>
+        <div>
+          <div class="spec-cell-label">LICENSE</div>
+          <div class="spec-cell-value">Theatrical</div>
+        </div>
+      </div>
+
+      <!-- Storyline -->
+      <div style="margin-bottom: 20px;">
+        <h3 style="font-size: 13px; text-transform: uppercase; color: var(--v2-text-subtle); margin-bottom: 6px;">Synopsis</h3>
+        <p id="detailsSynopsisText" style="font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.9);">
+          Based on the true story of Manoj Kumar Sharma, who rose from extreme poverty in the dacoit-infested Chambal valley to clear the world's toughest exam, the UPSC, and become an IPS Officer.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SERIES DETAILS MODAL (Season Tabs & Episode Rows)
+       ========================================================================== -->
+  <div id="seriesDetailsModal" class="details-modal" role="dialog" aria-modal="true" aria-label="Series Details">
+    <div class="details-backdrop-header">
+      <img class="details-backdrop-img" src="/assets/posters/series_panchayat.jpg" alt="Series Backdrop">
+      <div class="details-backdrop-scrim"></div>
+      <button class="details-close-btn" onclick="closeSeriesDetails()" aria-label="Close">✕</button>
+    </div>
+
+    <div class="details-body">
+      <div class="details-identity-row">
+        <img class="details-poster-thumb" src="/assets/posters/series_panchayat.jpg" alt="Panchayat Poster">
+        <div class="details-title-block">
+          <span class="details-category-tag">WEB-SERIES</span>
+          <h1 class="details-title-text">Panchayat</h1>
+          <div class="details-sub-meta">
+            <span>2024</span>
+            <span>•</span>
+            <span>2 Seasons • 8 Episodes</span>
+            <span>•</span>
+            <span style="color: #34D399; font-weight: 700;">HD 720p</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Season Tabs -->
+      <div class="chip-filter-strip" style="padding-left: 0; padding-right: 0; margin-bottom: 12px;">
+        <button class="filter-chip active">Season 1</button>
+        <button class="filter-chip">Season 2</button>
+      </div>
+
+      <!-- Episode List -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="local-file-tile" onclick="closeSeriesDetails(); openPlayer('Panchayat S01 E01', 'Gram Panchayat Phulera · 36m');">
+          <div class="local-file-left">
+            <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(139,92,246,0.2); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #C4B5FD;">E01</div>
+            <div>
+              <div class="local-file-name">Gram Panchayat Phulera</div>
+              <div class="local-file-size">Episode 1 • 36m • Hindi Master</div>
+            </div>
+          </div>
+          <span>▶</span>
+        </div>
+
+        <div class="local-file-tile" onclick="closeSeriesDetails(); openPlayer('Panchayat S01 E02', 'Bhoora Khargosh · 34m');">
+          <div class="local-file-left">
+            <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(139,92,246,0.2); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #C4B5FD;">E02</div>
+            <div>
+              <div class="local-file-name">Bhoora Khargosh</div>
+              <div class="local-file-size">Episode 2 • 34m • Hindi Master</div>
+            </div>
+          </div>
+          <span>▶</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       OLED THEATER PLAYER MODAL
+       ========================================================================== -->
+  <div id="theaterPlayerModal" class="theater-player-modal" role="dialog" aria-modal="true" aria-label="Media Player">
+    <!-- Top HUD -->
+    <div class="player-top-hud">
+      <button class="player-back-btn" onclick="closePlayer()" aria-label="Back">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+
+      <div class="player-title-info">
+        <div id="playerTitleText" class="player-title-text">12th Fail</div>
+        <div id="playerSubtitleText" class="player-subtitle-text">Hindi Master • 720p HD</div>
+      </div>
+
+      <div style="display: flex; gap: 8px;">
+        <span style="background: rgba(255,255,255,0.1); border-radius: 4px; padding: 4px 8px; font-size: 11px; font-weight: 700;">AUTO</span>
+      </div>
+    </div>
+
+    <!-- Center Playback Action -->
+    <div class="player-center-controls">
+      <button class="player-skip-btn" aria-label="Rewind 10 seconds">↺ 10</button>
+      <button class="player-play-btn" id="playerPlayToggle" onclick="togglePlayState()" aria-label="Play or Pause">▶</button>
+      <button class="player-skip-btn" aria-label="Forward 10 seconds">10 ↻</button>
+    </div>
+
+    <!-- Bottom HUD -->
+    <div class="player-bottom-hud">
+      <div class="player-seekbar-track">
+        <div class="player-seekbar-fill"></div>
+        <div class="player-seekbar-thumb"></div>
+      </div>
+      <div class="player-time-row">
+        <span>01:14:20</span>
+        <span>02:27:00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SECONDARY CONTROL HUB (Settings / Downloads / Diagnostics)
+       ========================================================================== -->
+  <div id="hubDrawerModal" class="hub-drawer-modal" role="dialog" aria-modal="true" aria-label="Control Hub" onclick="if(event.target===this) closeHubDrawer();">
+    <div class="hub-drawer-sheet">
+      <div class="hub-sheet-header">
+        <h2 class="hub-sheet-title">Control Hub</h2>
+        <button class="t2l-icon-btn" onclick="closeHubDrawer()">✕</button>
+      </div>
+
+      <div class="hub-menu-list">
+        <div class="hub-menu-item" onclick="closeHubDrawer(); alert('Downloads Manager: 3 active downloads');">
+          <span>📥</span>
+          <span>Downloads Manager</span>
+        </div>
+        <div class="hub-menu-item" onclick="closeHubDrawer(); alert('Instant Streamer: Torrent & Magnet Engine Ready');">
+          <span>⚡</span>
+          <span>Instant Magnet Streamer</span>
+        </div>
+        <div class="hub-menu-item" onclick="closeHubDrawer(); alert('Network Speed: 84.2 Mbps - 4K Capable');">
+          <span>📶</span>
+          <span>Network Speed Diagnostics</span>
+        </div>
+        <div class="hub-menu-item" onclick="closeHubDrawer(); alert('Audio Preference: Hindi Master Default');">
+          <span>🎧</span>
+          <span>Audio & Language Defaults</span>
+        </div>
+        <div class="hub-menu-item" onclick="closeHubDrawer(); alert('T2L V2.0 (Build 2026.09.28) - Zero-Trust Verified');">
+          <span>ℹ️</span>
+          <span>About T2L & Zero-Trust Engine</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="prototype.js"></script>
+</body>
+</html>
