@@ -1718,6 +1718,8 @@ html, body {
 .dock-tab-btn {
   flex: 1;
   height: 100%;
+  min-width: 48px;
+  min-height: 48px;
   background: transparent;
   border: none;
   display: flex;
@@ -1729,6 +1731,13 @@ html, body {
   cursor: pointer;
   transition: all 0.15s ease;
   padding: 2px 0;
+  outline: none;
+}
+
+.dock-tab-btn:focus-visible {
+  outline: 2px solid var(--accent-red);
+  outline-offset: -2px;
+  border-radius: 12px;
 }
 
 .dock-tab-btn svg {

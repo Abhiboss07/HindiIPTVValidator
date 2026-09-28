@@ -668,7 +668,7 @@
     <!-- ==========================================================
          CINEMATIC MEDIA PLAYER MODAL (100% CLEAN VIEWPORT)
          ========================================================== -->
-    <div id="playerModal" class="obsidian-player-modal">
+    <div id="playerModal" class="obsidian-player-modal" role="dialog" aria-modal="true" aria-label="Media Player">
         <!-- Ambient Glowing Backdrop (Replaces blank/gray start screen) -->
         <div id="playerAmbientBackdrop" class="player-ambient-backdrop">
             <div id="playerBackdropImg" class="player-backdrop-img"></div>
@@ -1467,25 +1467,25 @@
     <!-- ==========================================================
          FLOATING TRANSPARENT GLASS DOCK (5 TABS)
          ========================================================== -->
-    <nav class="obsidian-dock-nav">
-        <button id="tab-home" class="dock-tab-btn active" onclick="switchPage('home')">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    <nav class="obsidian-dock-nav" aria-label="Main Navigation">
+        <button id="tab-home" class="dock-tab-btn active" onclick="switchPage('home')" aria-label="Home">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
             <span>Home</span>
         </button>
-        <button id="tab-live" class="dock-tab-btn" onclick="switchPage('live')">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z"/></svg>
+        <button id="tab-live" class="dock-tab-btn" onclick="switchPage('live')" aria-label="Live TV">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z"/></svg>
             <span>Live TV</span>
         </button>
-        <button id="tab-radio" class="dock-tab-btn" onclick="switchPage('radio')">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM20 20H4V8h16v12zm-8-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
+        <button id="tab-radio" class="dock-tab-btn" onclick="switchPage('radio')" aria-label="Radio">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM20 20H4V8h16v12zm-8-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
             <span>Radio</span>
         </button>
-        <button id="tab-movies" class="dock-tab-btn" onclick="switchPage('movies')">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+        <button id="tab-movies" class="dock-tab-btn" onclick="switchPage('movies')" aria-label="Movies">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
             <span>Movies</span>
         </button>
-        <button id="tab-local" class="dock-tab-btn" onclick="switchPage('local')">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+        <button id="tab-local" class="dock-tab-btn" onclick="switchPage('local')" aria-label="Local Media">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
             <span>Local</span>
         </button>
     </nav>
@@ -1602,13 +1602,13 @@
     <!-- ==========================================================
          MOVIE DETAILS BOTTOM SHEET / MODAL
          ========================================================== -->
-    <div id="movieDetailsModal" class="side-drawer-backdrop" onclick="closeMovieDetails()" style="display: none;">
+    <div id="movieDetailsModal" class="side-drawer-backdrop" onclick="closeMovieDetails()" style="display: none;" role="dialog" aria-modal="true" aria-label="Movie Details">
         <div class="movie-details-sheet" onclick="event.stopPropagation()">
             <!-- Backdrop Image with Gradient Header -->
             <div class="movie-details-backdrop-wrap">
                 <div id="movieDetailsBackdrop" class="movie-details-backdrop"></div>
                 <div class="movie-details-backdrop-grad"></div>
-                <button class="movie-details-close-btn" onclick="closeMovieDetails()">
+                <button class="movie-details-close-btn" onclick="closeMovieDetails()" aria-label="Close Movie Details">
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
                 </button>
             </div>
