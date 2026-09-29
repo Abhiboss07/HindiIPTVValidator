@@ -1,4 +1,5 @@
 id,title,mediaType,sourceState,deliveryMode,supportsAbr,startupLatencySec,healthy
+vod_4k_uhd_reference_showcase,4K UHD & Dolby Atmos Reference Showcase,movie,DIRECT_STREAM_AVAILABLE,HLS_ABR,True,0.5,True
 vod_tribhanga_2021,Tribhanga (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_the_white_tiger_2021,The White Tiger (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_sooryavanshi_2021,Sooryavanshi (2021),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -30,7 +31,7 @@ series_stranger_things,Stranger Things,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGR
 series_panchayat,Panchayat,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 series_mirzapur,Mirzapur,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_deadpool_wolverine,Deadpool & Wolverine,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_stree_2,Stree 2: Sarkate Ka Aatank,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_stree_2,Stree 2: Sarkate Ka Aatank,movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
 vod_kalki_2898_ad,Kalki 2898 AD,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_gladiator_2,Gladiator II,movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
 vod_spider_verse,Spider-Man: Into the Spider-Verse,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -40,7 +41,7 @@ series_scam_1992,Scam 1992: The Harshad Mehta Story,series,DIRECT_STREAM_AVAILAB
 series_sacred_games,Sacred Games,series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
 vod_interstellar,Interstellar,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 series_breaking_bad,Breaking Bad,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_dark_knight,Iron Man,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_dark_knight,The Dark Knight,movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
 vod_chhavaa,Chhaava,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 series_kota_factory,Kota Factory,series,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_dune_part_two,Dune: Part Two,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -50,7 +51,7 @@ vod_alien_romulus,Alien: Romulus,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_
 vod_fighter,Fighter,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_godzilla_x_kong,Godzilla x Kong: The New Empire,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_12th_fail,12th Fail,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_oppenheimer,Oppenheimer,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_oppenheimer,Oppenheimer,movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
 series_farzi,Farzi,series,NO_AUTHORIZED_SOURCE,TRAILER_PREVIEW_ONLY,False,0.4,True
 vod_john_wick_4,John Wick: Chapter 4,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_leo,Leo: Bloody Sweet,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
@@ -81,8 +82,8 @@ vod_ip_man_4,Ip Man 4: The Finale,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE
 vod_kung_fu_hustle,Kung Fu Hustle,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_shaolin_soccer,Shaolin Soccer,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_the_outlaws,The Outlaws,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_the_roundup,The Roundup,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
-vod_demon_slayer_mugen_train,Demon Slayer: Mugen Train,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
+vod_the_roundup,The Roundup,movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
+vod_demon_slayer_mugen_train,Demon Slayer: Mugen Train,movie,TRAILER_ONLY,TRAILER_EMBED,False,0.4,True
 vod_jujutsu_kaisen_0,Jujutsu Kaisen 0,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_suzume,Suzume,movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True
 vod_your_name,Your Name (Kimi no Na wa),movie,DIRECT_STREAM_AVAILABLE,HTTP_PROGRESSIVE_RANGE,False,0.9,True

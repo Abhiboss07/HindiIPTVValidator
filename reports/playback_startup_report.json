@@ -1,5 +1,15 @@
 [
   {
+    "id": "vod_4k_uhd_reference_showcase",
+    "title": "4K UHD & Dolby Atmos Reference Showcase",
+    "mediaType": "movie",
+    "sourceState": "DIRECT_STREAM_AVAILABLE",
+    "deliveryMode": "HLS_ABR",
+    "supportsAbr": true,
+    "startupLatencySec": 0.5,
+    "healthy": true
+  },
+  {
     "id": "vod_tribhanga_2021",
     "title": "Tribhanga (2021)",
     "mediaType": "movie",
@@ -313,10 +323,10 @@
     "id": "vod_stree_2",
     "title": "Stree 2: Sarkate Ka Aatank",
     "mediaType": "movie",
-    "sourceState": "DIRECT_STREAM_AVAILABLE",
-    "deliveryMode": "HTTP_PROGRESSIVE_RANGE",
+    "sourceState": "TRAILER_ONLY",
+    "deliveryMode": "TRAILER_EMBED",
     "supportsAbr": false,
-    "startupLatencySec": 0.9,
+    "startupLatencySec": 0.4,
     "healthy": true
   },
   {
@@ -411,12 +421,12 @@
   },
   {
     "id": "vod_dark_knight",
-    "title": "Iron Man",
+    "title": "The Dark Knight",
     "mediaType": "movie",
-    "sourceState": "DIRECT_STREAM_AVAILABLE",
-    "deliveryMode": "HTTP_PROGRESSIVE_RANGE",
+    "sourceState": "TRAILER_ONLY",
+    "deliveryMode": "TRAILER_EMBED",
     "supportsAbr": false,
-    "startupLatencySec": 0.9,
+    "startupLatencySec": 0.4,
     "healthy": true
   },
   {
@@ -513,10 +523,10 @@
     "id": "vod_oppenheimer",
     "title": "Oppenheimer",
     "mediaType": "movie",
-    "sourceState": "DIRECT_STREAM_AVAILABLE",
-    "deliveryMode": "HTTP_PROGRESSIVE_RANGE",
+    "sourceState": "TRAILER_ONLY",
+    "deliveryMode": "TRAILER_EMBED",
     "supportsAbr": false,
-    "startupLatencySec": 0.9,
+    "startupLatencySec": 0.4,
     "healthy": true
   },
   {
@@ -823,20 +833,20 @@
     "id": "vod_the_roundup",
     "title": "The Roundup",
     "mediaType": "movie",
-    "sourceState": "DIRECT_STREAM_AVAILABLE",
-    "deliveryMode": "HTTP_PROGRESSIVE_RANGE",
+    "sourceState": "TRAILER_ONLY",
+    "deliveryMode": "TRAILER_EMBED",
     "supportsAbr": false,
-    "startupLatencySec": 0.9,
+    "startupLatencySec": 0.4,
     "healthy": true
   },
   {
     "id": "vod_demon_slayer_mugen_train",
     "title": "Demon Slayer: Mugen Train",
     "mediaType": "movie",
-    "sourceState": "DIRECT_STREAM_AVAILABLE",
-    "deliveryMode": "HTTP_PROGRESSIVE_RANGE",
+    "sourceState": "TRAILER_ONLY",
+    "deliveryMode": "TRAILER_EMBED",
     "supportsAbr": false,
-    "startupLatencySec": 0.9,
+    "startupLatencySec": 0.4,
     "healthy": true
   },
   {

@@ -1,8 +1,8 @@
 {
   "total_levels": 13,
   "total_checks": 22,
-  "passed": 21,
-  "warnings": 1,
+  "passed": 22,
+  "warnings": 0,
   "failed": 0,
   "levels": {
     "1": [
@@ -11,21 +11,21 @@
         "code": "L01-01",
         "title": "Catalog Total Items",
         "status": "PASS",
-        "evidence": "170 items cataloged"
+        "evidence": "171 items cataloged"
       },
       {
         "level": 1,
         "code": "L01-02",
         "title": "Catalog Downstream Mirror Sync",
         "status": "PASS",
-        "evidence": "SHA256 Match: 47044ca0f54c..."
+        "evidence": "SHA256 Match: 121d2fa94224..."
       },
       {
         "level": 1,
         "code": "L01-03",
         "title": "App.js Downstream Mirror Sync",
         "status": "PASS",
-        "evidence": "SHA256 Match: 53a1664874ce..."
+        "evidence": "SHA256 Match: 8ab2073b0521..."
       }
     ],
     "2": [
@@ -66,7 +66,7 @@
         "code": "L04-01",
         "title": "Direct HTTP Playable Content",
         "status": "PASS",
-        "evidence": "140 direct streams available"
+        "evidence": "136 direct streams available"
       }
     ],
     "5": [
@@ -82,7 +82,7 @@
         "code": "L05-02",
         "title": "Trailer Catalog Classification",
         "status": "PASS",
-        "evidence": "20 trailers honestly declared"
+        "evidence": "25 trailers honestly declared"
       }
     ],
     "6": [
@@ -98,7 +98,7 @@
         "code": "L06-02",
         "title": "HD+ Resolution Threshold (>=85%)",
         "status": "PASS",
-        "evidence": "90.0% playable content is HD/FHD/4K"
+        "evidence": "89.0% playable content is HD/FHD/4K"
       }
     ],
     "7": [
@@ -157,9 +157,9 @@
       {
         "level": 12,
         "code": "L12-01",
-        "title": "Complete Unit Test Suite (118 tests)",
+        "title": "Complete Unit Test Suite (123 tests)",
         "status": "PASS",
-        "evidence": "All 118 regression unit tests executed with 0 failures"
+        "evidence": "All 123 regression unit tests executed with 0 failures"
       }
     ],
     "13": [
@@ -181,8 +181,8 @@
         "level": 13,
         "code": "L13-03",
         "title": "Physical Device Attachment",
-        "status": "WARN",
-        "evidence": "No physical device currently attached (truthful offline report)"
+        "status": "PASS",
+        "evidence": "Connected devices: ['00015364U000110']"
       }
     ]
   }
