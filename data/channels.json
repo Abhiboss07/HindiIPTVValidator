@@ -116,9 +116,9 @@
     "description": "World-famous documentaries, wildlife expeditions, and survival science in Hindi.",
     "url": "",
     "backupUrls": [],
-    "isFeatured": true,
+    "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "TEMPORARILY_UNAVAILABLE",
+    "status": "OFFLINE",
     "failureReason": "TEMPORARILY_UNAVAILABLE: Official Indian feed undergoing provider realignment",
     "lastChecked": "2026-09-18T17:17:55Z",
     "consecutiveFailures": 0
@@ -155,9 +155,9 @@
     "description": "Immersive wildlife documentaries, jungle safaris, and animal rescues in Hindi.",
     "url": "",
     "backupUrls": [],
-    "isFeatured": true,
+    "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "TEMPORARILY_UNAVAILABLE",
+    "status": "OFFLINE",
     "failureReason": "TEMPORARILY_UNAVAILABLE: Official Indian feed undergoing provider realignment",
     "lastChecked": "2026-09-18T17:17:55Z",
     "consecutiveFailures": 0
@@ -174,9 +174,9 @@
     "description": "Classic Disney cartoons, animated feature films, and teen sitcoms dubbed in Hindi.",
     "url": "",
     "backupUrls": [],
-    "isFeatured": true,
+    "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "TEMPORARILY_UNAVAILABLE",
+    "status": "OFFLINE",
     "failureReason": "TEMPORARILY_UNAVAILABLE: Official Indian feed undergoing provider realignment",
     "lastChecked": "2026-09-18T17:17:55Z",
     "consecutiveFailures": 0
@@ -347,9 +347,9 @@
     "description": "Disney magical animated stories, Mickey Mouse, and family adventures.",
     "url": "http://23.237.104.106:8080/USA_DISNEY_JUNIOR/index.m3u8",
     "backupUrls": [],
-    "isFeatured": true,
+    "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -481,9 +481,9 @@
     "description": "Autobots vs Decepticons legendary battles with Optimus Prime and Bumblebee.",
     "url": "https://jmp2.uk/plu-63da36dea995710008727d4d.m3u8",
     "backupUrls": [],
-    "isFeatured": true,
+    "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -633,9 +633,9 @@
     "backupUrls": [
       "https://live-hls-web-aje.getaj.net/AJE/index.m3u8"
     ],
-    "isFeatured": true,
+    "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -669,9 +669,9 @@
     "description": "Continuous 24/7 live HD broadcast from the Grand Mosque in Holy Makkah.",
     "url": "https://win.holymakkah.gov.sa/live/smil:makkah.smil/playlist.m3u8",
     "backupUrls": [],
-    "isFeatured": true,
+    "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -687,9 +687,9 @@
     "description": "Continuous 24/7 live HD broadcast from the Prophet's Mosque in Holy Madinah.",
     "url": "https://win.holymakkah.gov.sa/live/smil:madinah.smil/playlist.m3u8",
     "backupUrls": [],
-    "isFeatured": true,
+    "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -703,11 +703,13 @@
     "category": "ENTERTAINMENT",
     "quality": "HD Audio",
     "description": "Evergreen Bollywood golden melodies and classic All India Radio broadcasts.",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudioragam/hlspbaudioragam_Auto.m3u8",
-    "backupUrls": [],
+    "url": "https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8",
+    "backupUrls": [
+      "https://air.pc.cdn.bitgravity.com/air/live/pbaudio034/playlist.m3u8"
+    ],
     "isFeatured": true,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "PASS",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -721,11 +723,11 @@
     "category": "ENTERTAINMENT",
     "quality": "HD Audio",
     "description": "Retro Hindi classics, ghazals, and national news bulletin updates.",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudiofmgold/hlspbaudiofmgold_Auto.m3u8",
+    "url": "https://audio-edge-fvq45.ams.d.radiomast.io/3ccc1156-fcf8-4ba7-9a0c-28e3a465e1ae",
     "backupUrls": [],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "PASS",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -739,11 +741,11 @@
     "category": "ENTERTAINMENT",
     "quality": "HD Audio",
     "description": "Youth music, contemporary Bollywood hits, and infotainment.",
-    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudiofmrainbow/hlspbaudiofmrainbow_Auto.m3u8",
+    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio004/hlspbaudio004_Auto.m3u8",
     "backupUrls": [],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "PASS",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -1981,7 +1983,7 @@
     "backupUrls": [],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -4397,7 +4399,7 @@
     "backupUrls": [],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -4803,7 +4805,7 @@
     "backupUrls": [],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -5143,7 +5145,7 @@
     "backupUrls": [],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -8197,7 +8199,7 @@
     ],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -13149,7 +13151,7 @@
     ],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -14353,7 +14355,7 @@
     ],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -14373,7 +14375,7 @@
     ],
     "isFeatured": false,
     "sourceType": "LIVE_HLS",
-    "status": "UNVERIFIED",
+    "status": "OFFLINE",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
   },
@@ -16640,5 +16642,23 @@
     "status": "UNVERIFIED",
     "consecutiveFailures": 0,
     "lastChecked": "2026-09-18T17:12:33Z"
+  },
+  {
+    "id": "air-live-news",
+    "name": "AIR Live News 24x7",
+    "type": "radio",
+    "country": "IN",
+    "countryName": "India",
+    "flag": "📻",
+    "category": "NEWS",
+    "quality": "HD Audio",
+    "description": "Continuous 24x7 national news bulletins, discussions, and updates in Hindi & English.",
+    "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio002/hlspbaudio002_Auto.m3u8",
+    "backupUrls": [],
+    "isFeatured": true,
+    "sourceType": "LIVE_HLS",
+    "status": "PASS",
+    "consecutiveFailures": 0,
+    "lastChecked": "2026-09-28T21:00:00Z"
   }
 ]
