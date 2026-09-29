@@ -8,10 +8,14 @@ PLATFORM="$SDK_DIR/platforms/android-35/android.jar"
 echo "🚀 Building T2L (Television to Live) APK..."
 
 echo "0️⃣ Syncing Web Assets to android_app/src/main/assets..."
+rm -rf android_app/src/main/assets
 mkdir -p android_app/src/main/assets
 cp -f index.html android_app/src/main/assets/index.html
 cp -rf assets android_app/src/main/assets/
 cp -rf data android_app/src/main/assets/
+[ -f sw.js ] && cp -f sw.js android_app/src/main/assets/
+[ -f manifest.json ] && cp -f manifest.json android_app/src/main/assets/
+[ -f playlist.m3u ] && cp -f playlist.m3u android_app/src/main/assets/
 
 rm -rf android_app/build
 mkdir -p android_app/build/obj android_app/build/apk android_app/build/dex
