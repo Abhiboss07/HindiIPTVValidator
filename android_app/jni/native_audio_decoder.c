@@ -250,6 +250,7 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeRea
     if (!buf) return -1;
 
     int total_bytes = 0;
+    int is_eof = 0;
     uint8_t *out_ptr = (uint8_t *)buf;
 
     while (total_bytes < buf_len) {
@@ -286,6 +287,7 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeRea
         if (ret == AVERROR(EAGAIN) || ret == 0) {
             int read_ret = av_read_frame(dec->fmt_ctx, dec->pkt);
             if (read_ret < 0) {
+                is_eof = 1;
                 break;
             }
 
@@ -293,16 +295,21 @@ Java_com_aakashstream_app_MainActivity_00024NativeHardwareAudioDecoder_nativeRea
                 int send_ret = avcodec_send_packet(dec->codec_ctx, dec->pkt);
                 if (send_ret < 0 && send_ret != AVERROR(EAGAIN)) {
                     av_packet_unref(dec->pkt);
+                    is_eof = 1;
                     break; // Fatal decoder error (corrupt packet)
                 }
             }
             av_packet_unref(dec->pkt);
         } else {
+            if (ret == AVERROR_EOF) is_eof = 1;
             break;
         }
     }
 
     (*env)->ReleaseByteArrayElements(env, buffer_jarr, buf, 0);
+    if (total_bytes == 0 && is_eof) {
+        return -1;
+    }
     return total_bytes;
 }
 

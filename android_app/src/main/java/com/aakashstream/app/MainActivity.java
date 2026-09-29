@@ -355,7 +355,7 @@ public class MainActivity extends Activity {
 
             // High performance video range chunking (Max 4MB per HTTP 206 chunk)
             // This enables fast startup for large files (100GB+) by limiting initial response size
-            if (!isExplicitEnd && totalLength > 0) {
+            if (isRange && !isExplicitEnd && totalLength > 0) {
                 long maxChunk = 4 * 1024 * 1024;
                 end = Math.min(start + maxChunk - 1, totalLength - 1);
             }
@@ -765,9 +765,14 @@ public class MainActivity extends Activity {
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (url.startsWith("file://") || url.startsWith("http://") || url.startsWith("https://")) {
+                if (url == null) return true;
+                if (url.startsWith("file:///android_asset/") || url.startsWith("http://127.0.0.1") || url.startsWith("http://localhost")) {
                     return false;
                 }
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                } catch (Exception ignored) {}
                 return true;
             }
 
@@ -1050,6 +1055,30 @@ public class MainActivity extends Activity {
             } catch (Exception e) {
                 Log.e(TAG, "fetchRemoteUrl error: " + e.getMessage());
                 return null;
+            }
+        }
+
+        @JavascriptInterface
+        public String resolveRedirectUrl(String urlString) {
+            if (urlString == null || urlString.trim().isEmpty()) return urlString;
+            try {
+                java.net.URL url = new java.net.URL(urlString);
+                java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+                conn.setInstanceFollowRedirects(false);
+                conn.setRequestMethod("HEAD");
+                conn.setConnectTimeout(5000);
+                conn.setReadTimeout(5000);
+                conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android 14; Pixel 6a) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36 T2L/2.5");
+                int respCode = conn.getResponseCode();
+                if (respCode >= 300 && respCode < 400) {
+                    String loc = conn.getHeaderField("Location");
+                    if (loc != null && !loc.isEmpty()) {
+                        return loc;
+                    }
+                }
+                return urlString;
+            } catch (Exception e) {
+                return urlString;
             }
         }
 
@@ -1827,6 +1856,24 @@ public class MainActivity extends Activity {
                     Log.e(TAG, "Error resetting brightness: " + e.getMessage());
                 }
             });
+        }
+
+        @JavascriptInterface
+        public float getBrightness() {
+            try {
+                WindowManager.LayoutParams lp = getWindow().getAttributes();
+                if (lp.screenBrightness >= 0) {
+                    return lp.screenBrightness;
+                }
+                int sysBrightness = android.provider.Settings.System.getInt(
+                    getContentResolver(),
+                    android.provider.Settings.System.SCREEN_BRIGHTNESS,
+                    128
+                );
+                return sysBrightness / 255.0f;
+            } catch (Exception e) {
+                return 0.5f;
+            }
         }
 
         // ==========================================================
