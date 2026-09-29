@@ -34,9 +34,9 @@ class TestQualityGate(unittest.TestCase):
         deceptions = []
         for m in self.playable:
             mid = m["id"]
-            qc = m.get("qualityClass", "").upper()
-            badge = m.get("qualityHonestBadge", "").lower()
-            res = m.get("resolution", "").lower()
+            qc = (m.get("qualityClass") or "").upper()
+            badge = (m.get("qualityHonestBadge") or "").lower()
+            res = (m.get("resolution") or "").lower()
 
             if "480" in res or "360" in res:
                 if qc in ("FULL HD", "1080P", "4K") or "1080" in badge or "4k" in badge:

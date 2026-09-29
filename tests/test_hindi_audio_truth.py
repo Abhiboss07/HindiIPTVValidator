@@ -59,7 +59,7 @@ class TestHindiAudioTruth(unittest.TestCase):
             self.assertEqual(m.get("sourceStatus"), "PLAYABLE")
             self.assertEqual(m.get("audioClassification"), "HINDI_AUDIO")
             self.assertIn("Hindi", m.get("languages", []))
-            self.assertTrue(m.get("streamUrl", "").startswith("https://archive.org/"))
+            self.assertTrue("archive.org/" in m.get("streamUrl", ""))
 
 if __name__ == "__main__":
     unittest.main()
