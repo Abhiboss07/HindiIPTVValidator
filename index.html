@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>T2L — Television to Live</title>
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=2.5.1">
 
 </head>
 <body>
@@ -56,10 +56,18 @@
       </svg>
     </div>
 
-    <!-- Header Actions (Notifications + Profile + Hamburger) -->
+    <!-- Header Actions (Search [non-home] + Notifications + Profile + Hamburger) -->
     <div class="t2l-header-actions">
+      <!-- 0. Header Search (Visible on non-Home pages) -->
+      <button id="hdrSearchBtn" class="t2l-icon-btn" onclick="openSearch()" aria-label="Search Catalog" title="Search" style="display: none;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
       <!-- 1. Notifications -->
-      <button class="t2l-icon-btn" onclick="openNotifications()" aria-label="Notifications" title="Notifications">
+      <button class="t2l-icon-btn hdr-home-action" onclick="openNotifications()" aria-label="Notifications" title="Notifications">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
           <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
@@ -68,7 +76,7 @@
       </button>
 
       <!-- 2. Profile -->
-      <button class="t2l-icon-btn" onclick="openProfile()" aria-label="Profile and Hub" title="Profile">
+      <button class="t2l-icon-btn hdr-home-action" onclick="openProfile()" aria-label="Profile and Hub" title="Profile">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
@@ -76,7 +84,7 @@
       </button>
 
       <!-- 3. Hamburger Secondary Control Hub -->
-      <button id="btnHamburger" class="t2l-icon-btn" onclick="openHamburger()" aria-label="Secondary Utilities" title="Utilities & Hub">
+      <button id="btnHamburger" class="t2l-icon-btn hdr-home-action" onclick="openHamburger()" aria-label="Secondary Utilities" title="Utilities & Hub">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -106,7 +114,7 @@
       <!-- Section 1: Main / Personal -->
       <div class="drawer-group-label">Personal Media</div>
       <div class="drawer-menu-list">
-        <div class="drawer-menu-item" onclick="closeHamburger(); alert('Navigating to My List');">
+        <div class="drawer-menu-item" onclick="closeHamburger(); switchPage('movies'); filterCinemaMode('Bollywood', null);">
           <div class="drawer-item-left">
             <div class="drawer-item-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -126,7 +134,7 @@
           <span class="drawer-item-chevron">›</span>
         </div>
 
-        <div class="drawer-menu-item t2l-tooltip-wrap" data-tooltip="Offline Downloads" onclick="closeHamburger(); navigateTo('local');">
+        <div class="drawer-menu-item t2l-tooltip-wrap" data-tooltip="Offline Downloads" onclick="closeHamburger(); openDownloadsManagerModal();">
           <div class="drawer-item-left">
             <div class="drawer-item-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -140,7 +148,7 @@
       <!-- Section 2: Tools -->
       <div class="drawer-group-label">Tools</div>
       <div class="drawer-menu-list">
-        <div class="drawer-menu-item t2l-tooltip-wrap" data-tooltip="Instant Streamer" onclick="closeHamburger(); alert('Launching Instant Streamer');">
+        <div class="drawer-menu-item t2l-tooltip-wrap" data-tooltip="Instant Streamer" onclick="closeHamburger(); openInstantStreamerModal();">
           <div class="drawer-item-left">
             <div class="drawer-item-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
@@ -150,7 +158,7 @@
           <span class="drawer-item-chevron">›</span>
         </div>
 
-        <div class="drawer-menu-item t2l-tooltip-wrap" data-tooltip="Network Diagnostics" onclick="closeHamburger(); alert('Running Network Diagnostics');">
+        <div class="drawer-menu-item t2l-tooltip-wrap" data-tooltip="Network Diagnostics" onclick="closeHamburger(); openSpeedTestModal();">
           <div class="drawer-item-left">
             <div class="drawer-item-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"></rect><rect x="2" y="14" width="20" height="8" rx="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
@@ -160,7 +168,7 @@
           <span class="drawer-item-chevron">›</span>
         </div>
 
-        <div class="drawer-menu-item t2l-tooltip-wrap" data-tooltip="Settings" onclick="closeHamburger(); alert('Opening Settings');">
+        <div class="drawer-menu-item t2l-tooltip-wrap" data-tooltip="Settings" onclick="closeHamburger(); openSettingsModal();">
           <div class="drawer-item-left">
             <div class="drawer-item-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
@@ -174,7 +182,7 @@
       <!-- Section 3: Information -->
       <div class="drawer-group-label">Information</div>
       <div class="drawer-menu-list">
-        <div class="drawer-menu-item" onclick="closeHamburger(); alert('T2L Cinema Platform v2.3');">
+        <div class="drawer-menu-item" onclick="closeHamburger(); showToast('T2L Cinema Platform v2.4 (Unified Production)');">
           <div class="drawer-item-left">
             <div class="drawer-item-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
@@ -184,7 +192,7 @@
           <span class="drawer-item-chevron">›</span>
         </div>
 
-        <div class="drawer-menu-item" onclick="closeHamburger(); alert('Help & Support Center');">
+        <div class="drawer-menu-item" onclick="closeHamburger(); openVlcTipsModal();">
           <div class="drawer-item-left">
             <div class="drawer-item-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
@@ -194,7 +202,7 @@
           <span class="drawer-item-chevron">›</span>
         </div>
 
-        <div class="drawer-menu-item" onclick="closeHamburger(); alert('Privacy Policy');">
+        <div class="drawer-menu-item" onclick="closeHamburger(); showToast('T2L Privacy: Zero third-party telemetry, local-first storage.');">
           <div class="drawer-item-left">
             <div class="drawer-item-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
@@ -254,20 +262,47 @@
   </div>
 
   <!-- ==========================================================================
+       SPOTLIGHT SEARCH MODAL (AURORA DEDICATED SEARCH EXPERIENCE)
+       ========================================================================== -->
+  <div id="spotlightSearchModal" class="spotlight-search-modal" onclick="closeSpotlightSearch(event)" style="display: none;" role="dialog" aria-modal="true" aria-label="Catalog Search">
+    <div class="spotlight-search-container" onclick="event.stopPropagation()">
+      <div class="spotlight-input-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spotlight-search-icon">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input id="spotlightInput" type="text" placeholder="Search movies, sagas, actors, live TV channels..." oninput="handleSpotlightSearch(this.value)" autocomplete="off">
+        <button class="t2l-icon-btn spotlight-close-btn" onclick="closeSpotlightSearch()" aria-label="Close search">✕</button>
+      </div>
+
+      <!-- Quick Suggestion Filter Tags -->
+      <div class="spotlight-tags-row">
+        <button class="spotlight-tag-pill active" onclick="setSpotlightFilter('all', this)">All</button>
+        <button class="spotlight-tag-pill" onclick="setSpotlightFilter('movies', this)">Cinema</button>
+        <button class="spotlight-tag-pill" onclick="setSpotlightFilter('series', this)">Series</button>
+        <button class="spotlight-tag-pill" onclick="setSpotlightFilter('live', this)">Live TV</button>
+      </div>
+
+      <!-- Spotlight Live Search Results -->
+      <div id="spotlightSearchResults" class="spotlight-results-scroll"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
        4. CONTENT VIEWS CONTAINER
        ========================================================================== -->
   <main class="t2l-content-container">
 
-    <!-- VIEW 1: HOME (FROZEN FROM APPROVED BASELINE) -->
+    <!-- VIEW 1: HOME (DYNAMIC INTEGRATION WITH APPROVED AURORA UI) -->
     <section id="page-home" class="t2l-view page-view active">
-      <!-- Cinematic Hero Banner -->
-      <div class="hero-premiere">
-        <img class="hero-backdrop-img" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail Hero">
+      <!-- Dynamic Atmospheric Hero Carousel -->
+      <div id="homeHeroSection" class="hero-premiere">
+        <img id="homeHeroBackdrop" class="hero-backdrop-img" src="/assets/posters/vod_12th_fail.jpg" alt="Hero Spotlight">
         <div class="hero-gradient-overlay"></div>
         <div class="hero-content">
-          <div class="hero-tag">★ Premiere Spotlight</div>
-          <h1 class="hero-title">12th Fail</h1>
-          <div class="hero-metadata">
+          <div id="homeHeroTag" class="hero-tag">★ Premiere Spotlight</div>
+          <h1 id="homeHeroTitle" class="hero-title">12th Fail</h1>
+          <div id="homeHeroMeta" class="hero-metadata">
             <span>2023</span>
             <span>•</span>
             <span>2h 27m</span>
@@ -275,107 +310,104 @@
             <span>Hindi Master</span>
             <span class="hero-quality-badge">720p HD</span>
           </div>
-          <p class="hero-synopsis">
+          <p id="homeHeroSynopsis" class="hero-synopsis">
             Based on the inspiring real-life story of IPS officer Manoj Kumar Sharma who restarts his academic journey despite extreme poverty.
           </p>
           <div class="hero-actions">
-            <button class="btn-primary-action" onclick="openPlayer('12th Fail', 'Hindi Master · 720p HD')">
+            <button id="homeHeroWatchBtn" class="btn-primary-action" onclick="playCurrentHero('home')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               Watch Now
             </button>
-            <button class="btn-secondary-action" onclick="openMovieDetails('12th Fail')">
+            <button id="homeHeroDetailsBtn" class="btn-secondary-action" onclick="openCurrentHeroDetails('home')">
               Details
             </button>
           </div>
+          <div id="homeHeroIndicators" class="hero-indicators-row"></div>
         </div>
       </div>
 
-      <!-- Continue Watching Rail (Type D) -->
-      <div class="content-rail-section">
+      <!-- Continue Watching Rail (Dynamic) -->
+      <div id="homeMovieContinueSection" class="content-rail-section" style="display: none;">
         <div class="content-rail-header">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             Continue Watching
           </h2>
-          <span class="content-rail-see-all">History →</span>
+          <span class="content-rail-see-all" onclick="navigateTo('home')">History →</span>
         </div>
-        <div class="content-rail-scroll">
-          <div class="continue-card" onclick="openPlayer('Panchayat S02 E04', 'Hindi · 1080p')">
-            <div class="continue-backdrop-wrap">
-              <img class="continue-backdrop-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
-              <div class="continue-play-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
-              <div class="continue-progress-bar"><div class="continue-progress-fill" style="width: 72%;"></div></div>
-            </div>
-            <div class="continue-info">
-              <div class="continue-title">Panchayat · S02 E04</div>
-              <div class="continue-subtext">18m left (72%)</div>
-            </div>
-          </div>
-
-          <div class="continue-card" onclick="openPlayer('Jawan', 'Hindi · 1080p BluRay')">
-            <div class="continue-backdrop-wrap">
-              <img class="continue-backdrop-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
-              <div class="continue-play-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
-              <div class="continue-progress-bar"><div class="continue-progress-fill" style="width: 45%;"></div></div>
-            </div>
-            <div class="continue-info">
-              <div class="continue-title">Jawan (2023)</div>
-              <div class="continue-subtext">1h 12m left (45%)</div>
-            </div>
-          </div>
-        </div>
+        <div id="homeMovieContinueRow" class="content-rail-scroll"></div>
       </div>
 
-      <!-- Trending Cinema Rail -->
+      <!-- Trending Hindi Blockbusters Rail (Dynamic) -->
       <div class="content-rail-section">
         <div class="content-rail-header">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
-            Trending in Cinema
+            Trending Hindi Blockbusters
           </h2>
           <span class="content-rail-see-all" onclick="navigateTo('cinema')">Explore Pavilion →</span>
         </div>
-        <div class="content-rail-scroll">
-          <div class="theatrical-card" onclick="openMovieDetails('Kalki 2898 AD')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">Kalki 2898 AD</div>
-              <div class="theatrical-meta"><span>2024</span><span class="theatrical-quality-pill">720p</span></div>
-            </div>
-          </div>
+        <div id="homeBollywoodRow" class="content-rail-scroll"></div>
+      </div>
 
-          <div class="theatrical-card" onclick="openMovieDetails('Jawan')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">Jawan</div>
-              <div class="theatrical-meta"><span>2023</span><span class="theatrical-quality-pill">1080p</span></div>
-            </div>
-          </div>
-
-          <div class="theatrical-card" onclick="openMovieDetails('Dangal')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">Dangal</div>
-              <div class="theatrical-meta"><span>2016</span><span class="theatrical-quality-pill">1080p</span></div>
-            </div>
-          </div>
-
-          <div class="theatrical-card" onclick="openSeriesDetails('Mirzapur')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/series_mirzapur.jpg" alt="Mirzapur">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">Mirzapur</div>
-              <div class="theatrical-meta"><span>S1-S3</span><span class="theatrical-quality-pill">HD</span></div>
-            </div>
-          </div>
+      <!-- Acclaimed Web-Series Rail (Dynamic) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
+            Acclaimed Web-Series
+          </h2>
+          <span class="content-rail-see-all" onclick="navigateTo('cinema')">All Series →</span>
         </div>
+        <div id="homeWebSeriesRow" class="content-rail-scroll"></div>
+      </div>
+
+      <!-- K-Drama & Asian Series (Hindi Dubbed) Rail (Dynamic) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            K-Drama & Asian Sagas (Hindi Dubbed)
+          </h2>
+          <span class="content-rail-see-all" onclick="navigateTo('cinema')">Explore Asian →</span>
+        </div>
+        <div id="homeAsianRow" class="content-rail-scroll"></div>
+      </div>
+
+      <!-- Hollywood & Global Cinema Rail (Dynamic) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Hollywood & Global Cinema
+          </h2>
+          <span class="content-rail-see-all" onclick="navigateTo('cinema')">Explore Global →</span>
+        </div>
+        <div id="homeHollywoodRow" class="content-rail-scroll"></div>
+      </div>
+
+      <!-- Live Broadcasts on Air Rail (Dynamic) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path></svg>
+            Live Broadcasts on Air
+          </h2>
+          <span class="content-rail-see-all" onclick="navigateTo('live')">Broadcast Feed →</span>
+        </div>
+        <div id="homeLiveNowList" class="content-rail-scroll"></div>
+      </div>
+
+      <!-- Acoustic Radio Transmissions Rail (Dynamic) -->
+      <div class="content-rail-section">
+        <div class="content-rail-header">
+          <h2 class="content-rail-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><circle cx="12" cy="12" r="2"></circle><path d="M4.93 19.07a10 10 0 0 1 0-14.14m14.14 0a10 10 0 0 1 0 14.14m-3.53-3.53a5 5 0 0 0 0-7.08m-7.08 0a5 5 0 0 0 0 7.08"></path></svg>
+            Acoustic Radio Transmissions
+          </h2>
+          <span class="content-rail-see-all" onclick="navigateTo('radio')">All Frequencies →</span>
+        </div>
+        <div id="homeRadioList" class="content-rail-scroll"></div>
       </div>
 
       <!-- ==========================================================================
@@ -417,9 +449,9 @@
             <div>
               <div class="footer-col-title">Discover</div>
               <div class="footer-link-stack">
-                <span class="footer-link-item" onclick="alert('Search');">Search</span>
-                <span class="footer-link-item" onclick="alert('My List');">My List</span>
-                <span class="footer-link-item" onclick="navigateTo('local');">Downloads</span>
+                <span class="footer-link-item" onclick="openSearch();">Search</span>
+                <span class="footer-link-item" onclick="switchPage('movies'); filterCinemaMode('Bollywood', null);">My List</span>
+                <span class="footer-link-item" onclick="openDownloadsManagerModal();">Downloads</span>
                 <span class="footer-link-item" onclick="navigateTo('home');">Continue</span>
               </div>
             </div>
@@ -428,9 +460,9 @@
             <div>
               <div class="footer-col-title">Tools</div>
               <div class="footer-link-stack">
-                <span class="footer-link-item t2l-tooltip-wrap" data-tooltip="Instant Streamer" onclick="alert('Instant Streamer');">Streamer</span>
-                <span class="footer-link-item t2l-tooltip-wrap" data-tooltip="Network Diagnostics" onclick="alert('Network Diagnostics');">Network</span>
-                <span class="footer-link-item" onclick="alert('Settings');">Settings</span>
+                <span class="footer-link-item t2l-tooltip-wrap" data-tooltip="Instant Streamer" onclick="openInstantStreamerModal();">Streamer</span>
+                <span class="footer-link-item t2l-tooltip-wrap" data-tooltip="Network Diagnostics" onclick="openSpeedTestModal();">Network</span>
+                <span class="footer-link-item" onclick="openSettingsModal();">Settings</span>
               </div>
             </div>
 
@@ -438,9 +470,9 @@
             <div>
               <div class="footer-col-title">Information</div>
               <div class="footer-link-stack">
-                <span class="footer-link-item" onclick="alert('About T2L');">About</span>
-                <span class="footer-link-item" onclick="alert('Help Center');">Help</span>
-                <span class="footer-link-item" onclick="alert('Privacy Architecture');">Privacy</span>
+                <span class="footer-link-item" onclick="showToast('T2L Cinema Platform v2.4 (Unified Production)');">About</span>
+                <span class="footer-link-item" onclick="openVlcTipsModal();">Help</span>
+                <span class="footer-link-item" onclick="showToast('T2L Privacy: Zero third-party telemetry, local-first storage.');">Privacy</span>
               </div>
             </div>
           </div>
@@ -461,22 +493,22 @@
               </p>
             </div>
 
-            <div class="footer-mobile-row" onclick="alert('Navigation: Home, Live, Radio, Cinema, Local');">
+            <div class="footer-mobile-row" onclick="navigateTo('cinema');">
               <span class="footer-mobile-row-title">Navigation</span>
               <span class="footer-mobile-row-chevron">›</span>
             </div>
 
-            <div class="footer-mobile-row" onclick="alert('Discover: Search, My List, Downloads, Continue');">
+            <div class="footer-mobile-row" onclick="openSearch();">
               <span class="footer-mobile-row-title">Discover</span>
               <span class="footer-mobile-row-chevron">›</span>
             </div>
 
-            <div class="footer-mobile-row" onclick="alert('Tools: Streamer, Network, Settings');">
+            <div class="footer-mobile-row" onclick="openInstantStreamerModal();">
               <span class="footer-mobile-row-title">Tools</span>
               <span class="footer-mobile-row-chevron">›</span>
             </div>
 
-            <div class="footer-mobile-row" onclick="alert('Information: About, Help, Privacy');">
+            <div class="footer-mobile-row" onclick="openVlcTipsModal();">
               <span class="footer-mobile-row-title">Information</span>
               <span class="footer-mobile-row-chevron">›</span>
             </div>
@@ -494,261 +526,244 @@
          VIEW 2: CINEMA PAVILION — 100% HORIZONTAL DISCOVERY RAILS
          (Complete Removal of 2x2 Grid)
          ========================================================================== -->
+    <!-- VIEW 2: CINEMA PAVILION — 100% DYNAMIC HORIZONTAL DISCOVERY RAILS -->
     <section id="page-movies" class="t2l-view page-view">
 
-      <!-- 1. Atmospheric Premiere Showcase (Type A) -->
-      <div class="cinema-pavilion-hero">
-        <img class="cinema-hero-bg" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki 2898 AD Key Art">
-        <div class="cinema-hero-scrim"></div>
-        <div class="cinema-hero-content">
-          <div class="cinema-tag-premiere">★ CURATED CINEMA SHOWCASE</div>
-          <h1 class="cinema-hero-headline">Kalki 2898 AD</h1>
-          <div class="cinema-hero-submeta">
+      <!-- 1. Atmospheric Premiere Showcase (Dynamic Hero Carousel) -->
+      <div id="cinemaHeroSection" class="hero-premiere">
+        <img id="cinemaHeroBackdrop" class="hero-backdrop-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Cinema Showcase">
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-content">
+          <div id="cinemaHeroTag" class="hero-tag">★ Premiere Spotlight</div>
+          <h1 id="cinemaHeroTitle" class="hero-title">Kalki 2898 AD</h1>
+          <div id="cinemaHeroMeta" class="hero-metadata">
             <span>2024</span>
             <span>•</span>
             <span>3h 01m</span>
             <span>•</span>
             <span>Sci-Fi Epic</span>
-            <span class="cinema-badge-scope">2.39:1 SCOPE</span>
-            <span class="theatrical-quality-pill">720p HD</span>
+            <span class="hero-quality-badge">720p HD</span>
           </div>
-          <p class="hero-synopsis">
+          <p id="cinemaHeroSynopsis" class="hero-synopsis">
             In the dystopian future of Kasi, a modern avatar of Vishnu descends to shield a miraculous unborn child from total darkness.
           </p>
           <div class="hero-actions">
-            <button class="btn-primary-action" onclick="openPlayer('Kalki 2898 AD', 'Hindi · 720p HD')">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              Watch Premiere
+            <button id="cinemaHeroWatchBtn" class="btn-primary-action" onclick="playCurrentHero('cinema')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Watch Now
             </button>
-            <button class="btn-secondary-action" onclick="openMovieDetails('Kalki 2898 AD')">
-              Explore Title
+            <button id="cinemaHeroDetailsBtn" class="btn-secondary-action" onclick="openCurrentHeroDetails('cinema')">
+              Details
             </button>
           </div>
+          <div id="cinemaHeroIndicators" class="hero-indicators-row"></div>
         </div>
       </div>
 
       <!-- 2. Architectural Discovery Modes -->
       <nav class="cinema-mode-nav" aria-label="Cinema Discovery Modes">
-        <button class="cinema-mode-btn active" onclick="filterCinemaMode('premieres', this)">Premieres</button>
-        <button class="cinema-mode-btn" onclick="filterCinemaMode('theatrical', this)">Theatrical</button>
-        <button class="cinema-mode-btn" onclick="filterCinemaMode('sagas', this)">Sagas & Series</button>
+        <button class="cinema-mode-btn active" onclick="filterCinemaMode('all', this)">All</button>
+        <button class="cinema-mode-btn" onclick="filterCinemaMode('premieres', this)">Premieres</button>
+        <button class="cinema-mode-btn" onclick="filterCinemaMode('Bollywood', this)">Bollywood</button>
+        <button class="cinema-mode-btn" onclick="filterCinemaMode('Web-Series', this)">Sagas & Series</button>
+        <button class="cinema-mode-btn" onclick="filterCinemaMode('Asian', this)">Asian Cinema</button>
+        <button class="cinema-mode-btn" onclick="filterCinemaMode('Hollywood', this)">Hollywood</button>
       </nav>
 
-      <!-- 3. Rail 1: Trending in Theatres (Horizontal Scope 2.39:1) -->
-      <div class="content-rail-section" style="padding-top: 0;">
-        <div class="cinema-shelf-head">
-          <div class="cinema-shelf-title-wrap">
-            <span class="cinema-shelf-kicker">CINEMATIC HORIZONS</span>
-            <h2 class="cinema-shelf-heading">Trending in Theatres</h2>
+      <!-- 3. Dynamic Rails Container -->
+      <div id="moviesRowsContainer">
+        <!-- Rail 0: Continue Watching / Resume Streaming -->
+        <div id="moviesContinueSection" class="content-rail-section" style="display: none; padding-top: 0;">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">RESUME STREAMING</span>
+              <h2 class="cinema-shelf-heading">Continue Watching</h2>
+            </div>
           </div>
-          <span class="cinema-shelf-action">All Theatres →</span>
+          <div id="moviesContinueRow" class="content-rail-scroll"></div>
         </div>
-        <div class="content-rail-scroll">
-          <div class="theatrical-horizon-card" onclick="openMovieDetails('Jawan')">
-            <img class="theatrical-horizon-thumb" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
-            <div class="theatrical-horizon-scrim">
-              <div class="theatrical-horizon-title">Jawan</div>
-              <div class="theatrical-horizon-meta">2023 · Action · 1080p BluRay</div>
-            </div>
-          </div>
 
-          <div class="theatrical-horizon-card" onclick="openMovieDetails('Dangal')">
-            <img class="theatrical-horizon-thumb" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
-            <div class="theatrical-horizon-scrim">
-              <div class="theatrical-horizon-title">Dangal</div>
-              <div class="theatrical-horizon-meta">2016 · Biography · 1080p Full HD</div>
+        <!-- Rail 1: Trending in Theatres (Horizontal Scope 2.39:1) -->
+        <div class="content-rail-section" style="padding-top: 0;">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">CINEMATIC HORIZONS</span>
+              <h2 class="cinema-shelf-heading">Trending in Theatres</h2>
             </div>
+            <span class="cinema-shelf-action" onclick="filterCinemaMode('premieres')">All Theatres →</span>
           </div>
-
-          <div class="theatrical-horizon-card" onclick="openMovieDetails('12th Fail')">
-            <img class="theatrical-horizon-thumb" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail">
-            <div class="theatrical-horizon-scrim">
-              <div class="theatrical-horizon-title">12th Fail</div>
-              <div class="theatrical-horizon-meta">2023 · Drama · 720p Master</div>
-            </div>
-          </div>
+          <div id="moviesScopeRow" class="content-rail-scroll"></div>
         </div>
-      </div>
 
-      <!-- 4. Rail 2: New Theatrical Releases (Type B Vertical Posters) -->
-      <div class="content-rail-section">
-        <div class="cinema-shelf-head">
-          <div class="cinema-shelf-title-wrap">
-            <span class="cinema-shelf-kicker">NEW ARRIVALS</span>
-            <h2 class="cinema-shelf-heading">New to Cinema</h2>
+        <!-- Rail 2: Bollywood Blockbusters -->
+        <div class="content-rail-section">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">HINDI FIRST</span>
+              <h2 class="cinema-shelf-heading">Bollywood Blockbusters</h2>
+            </div>
+            <span class="cinema-shelf-action" onclick="filterCinemaMode('Bollywood')">See All →</span>
           </div>
-          <span class="cinema-shelf-action">See All →</span>
+          <div id="moviesBollywoodRow" class="content-rail-scroll"></div>
         </div>
-        <div class="content-rail-scroll">
-          <div class="theatrical-card" onclick="openMovieDetails('12th Fail')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_12th_fail.jpg" alt="12th Fail">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">12th Fail</div>
-              <div class="theatrical-meta"><span>2023</span><span class="theatrical-quality-pill">720p</span></div>
-            </div>
-          </div>
 
-          <div class="theatrical-card" onclick="openMovieDetails('Kalki 2898 AD')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_kalki_2898_ad.jpg" alt="Kalki">
+        <!-- Rail 3: Multi-Season Epics & Sagas -->
+        <div class="content-rail-section">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">EPISODIC EXPEDITIONS</span>
+              <h2 class="cinema-shelf-heading">Cinematic Sagas & Epics</h2>
             </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">Kalki 2898 AD</div>
-              <div class="theatrical-meta"><span>2024</span><span class="theatrical-quality-pill">720p</span></div>
-            </div>
+            <span class="cinema-shelf-action" onclick="filterCinemaMode('Web-Series')">Browse Sagas →</span>
           </div>
-
-          <div class="theatrical-card" onclick="openMovieDetails('Jawan')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_jawan.jpg" alt="Jawan">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">Jawan</div>
-              <div class="theatrical-meta"><span>2023</span><span class="theatrical-quality-pill">1080p</span></div>
-            </div>
-          </div>
-
-          <div class="theatrical-card" onclick="openMovieDetails('Dangal')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_dangal.jpg" alt="Dangal">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">Dangal</div>
-              <div class="theatrical-meta"><span>2016</span><span class="theatrical-quality-pill">1080p</span></div>
-            </div>
-          </div>
+          <div id="moviesWebSeriesRow" class="content-rail-scroll"></div>
         </div>
-      </div>
 
-      <!-- 5. Rail 3: Multi-Season Epics & Sagas (Type C Cards) -->
-      <div class="content-rail-section">
-        <div class="cinema-shelf-head">
-          <div class="cinema-shelf-title-wrap">
-            <span class="cinema-shelf-kicker">EPISODIC EXPEDITIONS</span>
-            <h2 class="cinema-shelf-heading">Cinematic Sagas & Epics</h2>
+        <!-- Rail 4: K-Drama & Asian Sagas (Hindi Dubbed) -->
+        <div class="content-rail-section">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">ASIAN PHENOMENON</span>
+              <h2 class="cinema-shelf-heading">K-Drama & Asian Sagas (Hindi Dubbed)</h2>
+            </div>
+            <span class="cinema-shelf-action" onclick="filterCinemaMode('Asian')">Explore All →</span>
           </div>
-          <span class="cinema-shelf-action">Browse Sagas →</span>
+          <div id="moviesAsianRow" class="content-rail-scroll"></div>
         </div>
-        <div class="content-rail-scroll">
-          <div class="saga-card" onclick="openSeriesDetails('Game of Thrones')">
-            <div class="saga-poster-wrap">
-              <img class="saga-poster-img" src="/assets/posters/series_game_of_thrones.jpg" alt="Game of Thrones">
-              <span class="saga-badge-pill">8 SEASONS</span>
-            </div>
-            <div class="saga-info">
-              <div class="saga-title">Game of Thrones</div>
-              <div class="saga-meta">73 Episodes · Fantasy Drama</div>
-            </div>
-          </div>
 
-          <div class="saga-card" onclick="openSeriesDetails('Mirzapur')">
-            <div class="saga-poster-wrap">
-              <img class="saga-poster-img" src="/assets/posters/series_mirzapur.jpg" alt="Mirzapur">
-              <span class="saga-badge-pill">3 SEASONS</span>
+        <!-- Rail 5: Hollywood & Worldwide Hits -->
+        <div class="content-rail-section">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">GLOBAL MASTERPIECES</span>
+              <h2 class="cinema-shelf-heading">Hollywood & Worldwide Hits</h2>
             </div>
-            <div class="saga-info">
-              <div class="saga-title">Mirzapur</div>
-              <div class="saga-meta">29 Episodes · Crime Action</div>
-            </div>
+            <span class="cinema-shelf-action" onclick="filterCinemaMode('Hollywood')">See All →</span>
           </div>
+          <div id="moviesHollywoodRow" class="content-rail-scroll"></div>
+        </div>
 
-          <div class="saga-card" onclick="openSeriesDetails('Panchayat')">
-            <div class="saga-poster-wrap">
-              <img class="saga-poster-img" src="/assets/posters/series_panchayat.jpg" alt="Panchayat">
-              <span class="saga-badge-pill">2 SEASONS</span>
+        <!-- Rail 6: Anime & Animation -->
+        <div class="content-rail-section">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">ANIMATED WORLDS</span>
+              <h2 class="cinema-shelf-heading">Anime & Animation</h2>
             </div>
-            <div class="saga-info">
-              <div class="saga-title">Panchayat</div>
-              <div class="saga-meta">16 Episodes · Heartfelt Comedy</div>
-            </div>
+            <span class="cinema-shelf-action" onclick="filterCinemaMode('Anime')">Explore Anime →</span>
           </div>
+          <div id="moviesAnimeRow" class="content-rail-scroll"></div>
+        </div>
 
-          <div class="saga-card" onclick="openSeriesDetails('Stranger Things')">
-            <div class="saga-poster-wrap">
-              <img class="saga-poster-img" src="/assets/posters/series_stranger_things.jpg" alt="Stranger Things">
-              <span class="saga-badge-pill">4 SEASONS</span>
+        <!-- Rail 7: High-Stakes Thrillers & Mystery -->
+        <div class="content-rail-section">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">PULSE-POUNDING</span>
+              <h2 class="cinema-shelf-heading">Thrillers & Mystery</h2>
             </div>
-            <div class="saga-info">
-              <div class="saga-title">Stranger Things</div>
-              <div class="saga-meta">34 Episodes · Sci-Fi Mystery</div>
-            </div>
+            <span class="cinema-shelf-action" onclick="filterCinemaMode('Thrillers')">Explore Thrillers →</span>
           </div>
+          <div id="moviesThrillersRow" class="content-rail-scroll"></div>
+        </div>
+
+        <!-- Rail 8: High-Octane Action -->
+        <div class="content-rail-section">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">ADRENALINE</span>
+              <h2 class="cinema-shelf-heading">High-Octane Action</h2>
+            </div>
+            <span class="cinema-shelf-action" onclick="filterCinemaMode('Action')">See All →</span>
+          </div>
+          <div id="moviesActionRow" class="content-rail-scroll"></div>
+        </div>
+
+        <!-- Rail 9: Public Domain & Heritage Classics -->
+        <div class="content-rail-section">
+          <div class="cinema-shelf-head">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">HERITAGE ARCHIVE</span>
+              <h2 class="cinema-shelf-heading">Public Domain & Classics</h2>
+            </div>
+            <span class="cinema-shelf-action">Vault Archive →</span>
+          </div>
+          <div id="moviesClassicsRow" class="content-rail-scroll"></div>
         </div>
       </div>
 
-      <!-- 6. Rail 4: The Heritage Vault & Public Domain Treasures -->
-      <div class="content-rail-section">
-        <div class="cinema-shelf-head">
-          <div class="cinema-shelf-title-wrap">
-            <span class="cinema-shelf-kicker">HERITAGE ARCHIVE</span>
-            <h2 class="cinema-shelf-heading">Public Domain & Classics</h2>
-          </div>
-          <span class="cinema-shelf-action">Vault Archive →</span>
-        </div>
-        <div class="content-rail-scroll">
-          <div class="theatrical-card" onclick="openMovieDetails('Sita Sings the Blues')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_sita_sings_blues.jpg" alt="Sita Sings the Blues">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">Sita Sings the Blues</div>
-              <div class="theatrical-meta"><span>2008</span><span class="theatrical-quality-pill">720p</span></div>
-            </div>
-          </div>
-
-          <div class="theatrical-card" onclick="openMovieDetails('His Girl Friday')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_his_girl_friday.jpg" alt="His Girl Friday">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">His Girl Friday</div>
-              <div class="theatrical-meta"><span>1940</span><span class="theatrical-quality-pill">Classic</span></div>
-            </div>
-          </div>
-
-          <div class="theatrical-card" onclick="openPlayer('Big Buck Bunny 720p', 'Creative Commons')">
-            <div class="theatrical-poster-wrap">
-              <img class="theatrical-poster-img" src="/assets/posters/vod_bbb_720p.jpg" alt="Big Buck Bunny">
-            </div>
-            <div class="theatrical-info">
-              <div class="theatrical-title">Big Buck Bunny</div>
-              <div class="theatrical-meta"><span>2008</span><span class="theatrical-quality-pill">HLS</span></div>
-            </div>
-          </div>
-        </div>
+      <!-- Grid Section (Displayed during Search or Category Filter) -->
+      <div id="moviesGridSection" style="display: none; padding: 16px 16px 28px 16px;">
+        <h3 id="moviesGridTitle" style="font-size: 17px; font-weight: 800; margin-bottom: 14px; color: #fff;">Catalog</h3>
+        <div id="moviesCatalogGrid" class="movies-catalog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px;"></div>
       </div>
     </section>
 
-    <!-- VIEW 3: LIVE TV (FROZEN FROM APPROVED BASELINE) -->
+    <!-- VIEW 3: LIVE TV (DYNAMIC FEED & BROADCAST CONTROLS) -->
     <section id="page-live" class="t2l-view page-view">
       <div style="padding: 68px 16px 8px 16px;">
         <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Broadcast Control</h1>
-        <p style="font-size: 13px; color: var(--t2l-text-muted);">886 Live Satellite & Terrestrial HD Transmissions</p>
+        <p id="liveChannelsCountTitle" style="font-size: 13px; color: var(--t2l-text-muted);">All Live Satellite & Terrestrial Channels</p>
       </div>
 
-      <!-- LIVE NOW Flagship Broadcast Card -->
-      <div class="live-flagship-card">
-        <div class="live-flagship-thumb-wrap">
-          <img class="live-flagship-thumb" src="/assets/posters/vod_12th_fail.jpg" alt="Live Flagship">
+      <!-- Live Search Bar -->
+      <div style="padding: 0 16px 12px 16px;">
+        <div style="position: relative; display: flex; align-items: center;">
+          <svg style="position: absolute; left: 14px; color: var(--t2l-text-muted); pointer-events: none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input id="liveSearchInput" type="text" placeholder="Search live channels, news, music, sports..." oninput="handleLiveSearch(this.value)" style="width: 100%; height: 42px; padding: 0 14px 0 42px; border-radius: var(--t2l-radius-md); border: 1px solid var(--t2l-border-subtle); background: var(--t2l-surface-2); color: #fff; font-size: 13px; font-weight: 500; outline: none;">
+        </div>
+      </div>
+
+      <!-- Country Filter Chips -->
+      <div id="liveCountryChips" class="content-rail-scroll" style="padding: 0 16px 10px 16px; gap: 8px;">
+        <button class="lumina-chip active" onclick="filterLiveCountry('ALL', this)">All Broadcasts</button>
+        <button class="lumina-chip" onclick="filterLiveCountry('IN', this)">🇮🇳 India</button>
+        <button class="lumina-chip" onclick="filterLiveCountry('US', this)">🇺🇸 United States</button>
+        <button class="lumina-chip" onclick="filterLiveCountry('GB', this)">🇬🇧 United Kingdom</button>
+        <button class="lumina-chip" onclick="filterLiveCountry('GL', this)">🌐 Global News</button>
+      </div>
+
+      <!-- Category Filter Chips -->
+      <div id="liveCategoryChips" class="content-rail-scroll" style="padding: 0 16px 14px 16px; gap: 8px;">
+        <button class="lumina-chip active" onclick="filterLiveCategory('ALL', this)">All Categories</button>
+        <button class="lumina-chip" onclick="filterLiveCategory('NEWS', this)">News</button>
+        <button class="lumina-chip" onclick="filterLiveCategory('ENTERTAINMENT', this)">Entertainment</button>
+        <button class="lumina-chip" onclick="filterLiveCategory('DEVOTIONAL', this)">Devotional</button>
+        <button class="lumina-chip" onclick="filterLiveCategory('MUSIC', this)">Music</button>
+        <button class="lumina-chip" onclick="filterLiveCategory('BUSINESS', this)">Business</button>
+        <button class="lumina-chip" onclick="filterLiveCategory('SCIENCE', this)">Science</button>
+      </div>
+
+      <!-- LIVE NOW Flagship Broadcast Card (Dynamic Daily Rotation) -->
+      <div id="liveFlagshipCard" class="live-flagship-card">
+        <div id="liveFlagshipThumbWrap" class="live-flagship-thumb-wrap">
+          <div class="live-flagship-fallback-graphic">
+            <div class="live-broadcast-wave"></div>
+            <div class="live-flagship-center">
+              <span id="liveFlagshipIcon" class="live-flagship-flag">📡</span>
+              <span id="liveFlagshipBadgeLive" class="live-flagship-brand">LIVE BROADCAST</span>
+            </div>
+          </div>
           <div style="position: absolute; top: 12px; left: 12px;" class="live-badge"><span class="live-badge-dot"></span> LIVE ON AIR</div>
           <div style="position: absolute; top: 12px; right: 12px; background: rgba(5,6,8,0.75); padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 700; color: #FFFFFF;">18.4K Watching</div>
         </div>
         <div class="live-flagship-info">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <div style="font-size: 16px; font-weight: 800;">Aaj Tak HD Live</div>
-            <span style="font-size: 11px; font-weight: 700; color: #34D399;">1080p 60FPS</span>
+            <div id="liveFlagshipTitle" style="font-size: 16px; font-weight: 800;">Featured Live Channel</div>
+            <span id="liveFlagshipQuality" style="font-size: 11px; font-weight: 700; color: #34D399;">1080p 60FPS</span>
           </div>
-          <div style="font-size: 13px; color: var(--t2l-text-muted); margin-bottom: 12px;">Special Report: National Assembly & Global Space Exploration</div>
+          <div id="liveFlagshipDesc" style="font-size: 13px; color: var(--t2l-text-muted); margin-bottom: 12px;">Live High-Definition Broadcast</div>
           <div style="display: flex; gap: 10px;">
-            <button class="btn-primary-action" style="padding: 10px 20px; font-size: 13px;" onclick="openPlayer('Aaj Tak HD Live', 'Hindi News · 1080p FHD')">
+            <button id="liveFlagshipWatchBtn" class="btn-primary-action" style="padding: 10px 20px; font-size: 13px;" onclick="playDailyHighlightChannel()">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               Watch Live
             </button>
           </div>
         </div>
       </div>
+
+      <!-- Live Channels Feed Container -->
+      <div id="liveChannelsFeed" class="live-channels-list-wrap" style="padding: 0 16px 20px 16px;"></div>
 
       <!-- Interactive EPG Timeline Preview -->
       <div class="epg-timeline-box">
@@ -770,19 +785,37 @@
       </div>
     </section>
 
-    <!-- VIEW 4: RADIO ACOUSTIC HUB (COMPACT, REFINED STATION CARDS) -->
+    <!-- VIEW 4: RADIO ACOUSTIC HUB (DYNAMIC STREAMING & COMPACT TILES) -->
     <section id="page-radio" class="t2l-view page-view">
       <div style="padding: 68px 16px 8px 16px;">
         <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Acoustic Radio</h1>
         <p style="font-size: 13px; color: var(--t2l-text-muted);">High-Definition Global Music & Terrestrial Transmissions</p>
       </div>
 
+      <!-- Radio Search Bar -->
+      <div style="padding: 0 16px 12px 16px;">
+        <div style="position: relative; display: flex; align-items: center;">
+          <svg style="position: absolute; left: 14px; color: var(--t2l-text-muted); pointer-events: none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input id="radioSearchInput" type="text" placeholder="Search radio stations, frequencies, genres..." oninput="handleRadioSearch(this.value)" style="width: 100%; height: 42px; padding: 0 14px 0 42px; border-radius: var(--t2l-radius-md); border: 1px solid var(--t2l-border-subtle); background: var(--t2l-surface-2); color: #fff; font-size: 13px; font-weight: 500; outline: none;">
+        </div>
+      </div>
+
+      <!-- Radio Filter Chips -->
+      <div id="radioFilterChips" class="content-rail-scroll" style="padding: 0 16px 14px 16px; gap: 8px;">
+        <button class="lumina-chip active" onclick="filterRadioGenre('all', this)">All Frequencies</button>
+        <button class="lumina-chip" onclick="filterRadioGenre('fm', this)">FM Stations</button>
+        <button class="lumina-chip" onclick="filterRadioGenre('national', this)">Akashvani & National</button>
+        <button class="lumina-chip" onclick="filterRadioGenre('classical', this)">Classical Ragas</button>
+        <button class="lumina-chip" onclick="filterRadioGenre('bhakti', this)">Bhakti & Spiritual</button>
+      </div>
+
+      <!-- Radio Hi-Fi Turntable Player -->
       <div class="radio-hi-fi-player">
         <div class="radio-vinyl-disc">
           <div class="radio-vinyl-center"></div>
         </div>
-        <div style="font-size: 18px; font-weight: 800; margin-bottom: 2px;">Radio Mirchi 98.3 FM</div>
-        <div style="font-size: 12px; color: var(--t2l-aurora-cyan); margin-bottom: 12px;">102.8 FM · Live Frequency Transmission</div>
+        <div id="radioNowPlayingTitle" style="font-size: 18px; font-weight: 800; margin-bottom: 2px;">Radio Mirchi 98.3 FM</div>
+        <div id="radioNowPlayingMeta" style="font-size: 12px; color: var(--t2l-aurora-cyan); margin-bottom: 12px;">102.8 FM · Live Frequency Transmission</div>
         
         <div class="equalizer-bars-row">
           <div class="eq-bar"></div>
@@ -792,105 +825,50 @@
           <div class="eq-bar"></div>
         </div>
 
-        <button class="btn-primary-action" style="padding: 10px 24px; font-size: 13px;" onclick="alert('Streaming Radio Mirchi Hi-Fi')">
+        <button class="btn-primary-action" style="padding: 10px 24px; font-size: 13px;" onclick="playStationDirect('radio-mirchi')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
           Tune Live Station
         </button>
       </div>
 
-      <!-- Compact Refined Station Grid -->
-      <div class="radio-tiles-grid">
-        <div class="radio-compact-tile" onclick="openPlayer('AIR FM Gold', '106.4 FM · Delhi')">
-          <div class="radio-tile-art-compact">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
-          </div>
-          <div class="radio-tile-text">
-            <div class="radio-tile-name-compact">AIR FM Gold</div>
-            <div class="radio-tile-meta-compact">106.4 FM • Golden Era</div>
-          </div>
-        </div>
-
-        <div class="radio-compact-tile" onclick="openPlayer('AIR FM Rainbow', '107.1 FM · Stereo')">
-          <div class="radio-tile-art-compact" style="background: rgba(139,92,246,0.14); color: #C4B5FD;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
-          </div>
-          <div class="radio-tile-text">
-            <div class="radio-tile-name-compact">AIR FM Rainbow</div>
-            <div class="radio-tile-meta-compact">107.1 FM • Stereo Hits</div>
-          </div>
-        </div>
-
-        <div class="radio-compact-tile" onclick="openPlayer('Akashvani National', 'National Bulletins')">
-          <div class="radio-tile-art-compact" style="background: rgba(16,185,129,0.14); color: #34D399;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
-          </div>
-          <div class="radio-tile-text">
-            <div class="radio-tile-name-compact">Akashvani National</div>
-            <div class="radio-tile-meta-compact">Hourly Bulletins</div>
-          </div>
-        </div>
-
-        <div class="radio-compact-tile" onclick="openPlayer('Raag Sarita', 'Classical Ragas')">
-          <div class="radio-tile-art-compact" style="background: rgba(244,63,94,0.14); color: #FB7185;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
-          </div>
-          <div class="radio-tile-text">
-            <div class="radio-tile-name-compact">Raag Sarita</div>
-            <div class="radio-tile-meta-compact">Classical Melodies</div>
-          </div>
-        </div>
-      </div>
+      <!-- Compact Refined Station Grid Feed -->
+      <div id="radioStationsFeed" class="radio-tiles-grid" style="padding: 0 16px 24px 16px;"></div>
     </section>
 
-    <!-- VIEW 5: LOCAL MEDIA VAULT — 100% V2.1 BASELINE RESTORATION -->
+    <!-- VIEW 5: LOCAL MEDIA VAULT (DYNAMIC DISCOVERY & VECTOR TILES) -->
     <section id="page-local" class="t2l-view page-view">
       <div class="local-vault-header">
         <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 4px;">Local Vault</h1>
         <p style="font-size: 13px; color: var(--t2l-text-muted);">Personal Media, Device Storage & Offline Downloads</p>
       </div>
 
-      <!-- Segmented Category Filter (Zero Capacity Telemetry) -->
-      <div class="segmented-control">
-        <button class="segment-btn active" onclick="setLocalSegment(this)">All Media</button>
-        <button class="segment-btn" onclick="setLocalSegment(this)">Videos</button>
-        <button class="segment-btn" onclick="setLocalSegment(this)">Audio</button>
-        <button class="segment-btn" onclick="setLocalSegment(this)">Downloads</button>
-      </div>
-
-      <!-- Clean Vector Media Grid -->
-      <div class="local-media-grid">
-        <div class="local-media-tile" onclick="openPlayer('Big Buck Bunny 720p', 'Local Video • 246 MB')">
-          <div class="local-tile-icon-box">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+      <!-- Auto Scan Action Card -->
+      <div style="padding: 0 16px 14px 16px;">
+        <div style="background: var(--t2l-surface-1); border: 1px solid var(--t2l-border-subtle); border-radius: var(--t2l-radius-md); padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #fff;">Device Storage Scanner</div>
+            <div id="autoScanStatusText" style="font-size: 12px; color: var(--t2l-text-muted); margin-top: 2px;">Tap scan to detect offline videos & audio files</div>
           </div>
-          <div class="local-tile-name">Big_Buck_Bunny.mp4</div>
-          <div class="local-tile-meta">246 MB • 720p H.264</div>
-        </div>
-
-        <div class="local-media-tile" onclick="openPlayer('Sita Sings the Blues', 'Downloaded Feature • 879 MB')">
-          <div class="local-tile-icon-box">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
-          </div>
-          <div class="local-tile-name">Sita_Sings_Blues.mp4</div>
-          <div class="local-tile-meta">879 MB • Theatrical</div>
-        </div>
-
-        <div class="local-media-tile" onclick="openPlayer('His Girl Friday', 'Classic Feature • 740 MB')">
-          <div class="local-tile-icon-box">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-          </div>
-          <div class="local-tile-name">His_Girl_Friday.mp4</div>
-          <div class="local-tile-meta">740 MB • Classic HD</div>
-        </div>
-
-        <div class="local-media-tile" onclick="openPlayer('All India Radio Bulletin', 'Local Audio • 18 MB')">
-          <div class="local-tile-icon-box">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
-          </div>
-          <div class="local-tile-name">AIR_Daily_Bulletin.mp3</div>
-          <div class="local-tile-meta">18 MB • 320kbps Audio</div>
+          <button class="btn-secondary-action" style="padding: 8px 14px; font-size: 12px; display: inline-flex; align-items: center; gap: 6px;" onclick="autoScanDeviceMedia()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            Scan Device
+          </button>
         </div>
       </div>
+
+      <!-- Folder Categories Grid -->
+      <div id="localFoldersGrid" class="content-rail-scroll" style="padding: 0 16px 14px 16px; gap: 10px;"></div>
+
+      <!-- Section Title Row -->
+      <div style="padding: 0 16px 10px 16px; display: flex; align-items: center; justify-content: space-between;">
+        <h3 id="activeFolderNameTitle" style="font-size: 16px; font-weight: 800; color: #fff;">All Media Files</h3>
+        <button class="btn-secondary-action" style="padding: 6px 12px; font-size: 11px;" onclick="document.getElementById('localFileInput')?.click()">
+          + Select Files
+        </button>
+      </div>
+
+      <!-- Clean Vector Media Grid Feed -->
+      <div id="localMediaFolderFeed" class="local-media-grid" style="padding: 0 16px 24px 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px;"></div>
     </section>
 
   </main>
@@ -909,7 +887,7 @@
         <span class="dock-label">Home</span>
       </button>
 
-      <button class="dock-item-btn" id="tab-movies" onclick="switchPage('movies')" aria-label="Cinema">
+      <button class="dock-item-btn" id="tab-movies" onclick="switchPage('movies')" aria-label="Movies">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
           <line x1="7" y1="2" x2="7" y2="22"></line>
@@ -949,30 +927,6 @@
       </button>
     </nav>
   </div>
-
-  <!-- ==========================================================================
-       6. DETAILS MODAL (WITH CARD-TO-BACKDROP EXPAND TRANSITION)
-       ========================================================================= -->
-  <div id="detailsModal" class="t2l-details-modal">
-    <div class="details-modal-hero">
-      <img id="modalHeroImg" class="details-modal-backdrop" src="/assets/posters/vod_12th_fail.jpg" alt="Backdrop">
-      <div class="details-modal-scrim"></div>
-      <button class="details-modal-close-btn" onclick="closeMovieDetails()">✕</button>
-    </div>
-    <div class="details-modal-body">
-      <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan); margin-bottom: 4px; text-transform: uppercase;">CINEMA PRESENTATION</div>
-      <h2 id="modalTitle" style="font-size: 26px; font-weight: 900; margin-bottom: 8px;">Title</h2>
-      <div id="modalMeta" style="font-size: 13px; color: var(--t2l-text-muted); margin-bottom: 16px;">Metadata</div>
-      <p id="modalDesc" style="font-size: 14px; line-height: 1.6; color: var(--t2l-text-secondary); margin-bottom: 24px;">Synopsis</p>
-      
-      <div style="display: flex; gap: 12px;">
-        <button class="btn-primary-action" onclick="openPlayerFromModal()">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-          Start Playback
-        </button>
-        <button class="btn-secondary-action" onclick="closeMovieDetails()">Dismiss</button>
-      </div>
-    </div>
 
     <!-- Hidden Local File Input -->
     <input type="file" id="localFileInput" multiple accept="video/*,audio/*" style="display: none;" onchange="handleLocalFileSelected(event)">
@@ -1089,7 +1043,7 @@
         <div id="playerCcBox" class="player-cc-container" style="display: none;">
             <div id="playerCcBadge" class="player-cc-badge">
                 <span class="player-cc-badge-dot"></span>
-                <span id="playerCcBadgeText">AI Live CC (Hindi)</span>
+                <span id="playerCcBadgeText">Subtitles [CC]</span>
             </div>
             <p id="playerCcText" class="player-cc-text">...</p>
         </div>
@@ -1166,8 +1120,8 @@
 
                 <!-- 3. VLC Action Toolbar with Previous & Next Channel Navigation -->
                 <div class="vlc-transport-toolbar">
-                    <!-- 1. Subtitles & Translations (Left) -->
-                    <button id="btnVlcSubtitles" class="vlc-tool-btn" onclick="openVlcSubtitlesModal(event)" title="Subtitles & Translations [CC]">
+                    <!-- 1. Subtitles & Closed Captions (Left) -->
+                    <button id="btnVlcSubtitles" class="vlc-tool-btn" onclick="openVlcSubtitlesModal(event)" title="Subtitles & Closed Captions [CC]">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8z"/></svg>
                     </button>
 
@@ -1359,35 +1313,26 @@
         <!-- ==========================================================
              VLC FEATURE DIALOGS & MODAL SHEETS
              ========================================================== -->
-        <!-- 1. Dedicated Subtitles & Live Translation Dialog -->
+        <!-- 1. Dedicated Subtitles & Closed Captions Dialog -->
         <div id="vlcSubtitlesModal" class="vlc-dialog-backdrop" onclick="closeVlcSubtitlesModal()" style="display: none;">
             <div class="vlc-dialog-card" onclick="event.stopPropagation()">
-                <div class="vlc-dialog-title">Subtitles & Live Translation</div>
+                <div class="vlc-dialog-title">Subtitles & Captions</div>
                 
                 <!-- Subtitles Section -->
                 <div class="vlc-dialog-section">
-                    <label class="vlc-dialog-label">💬 Subtitles & Captions (On-Device AI Processor)</label>
+                    <label class="vlc-dialog-label">💬 Subtitle Tracks</label>
                     <div id="vlcSubtitleTracksList" class="vlc-chips-row" style="max-height: 140px; overflow-y: auto;">
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('off', this)">Off</button>
-                        <button class="vlc-chip-btn active" onclick="setVlcSubtitleTrack('hindi', this)">[CC] Hindi (हिंदी)</button>
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('english', this)">[CC] English</button>
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('punjabi', this)">[CC] Punjabi (ਪੰਜਾਬੀ)</button>
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('bengali', this)">[CC] Bengali (বাংলা)</button>
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('marathi', this)">[CC] Marathi (मराठी)</button>
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('tamil', this)">[CC] Tamil (தமிழ்)</button>
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('telugu', this)">[CC] Telugu (తెలుగు)</button>
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('gujarati', this)">[CC] Gujarati (ગુજરાતી)</button>
-                        <button class="vlc-chip-btn" onclick="setVlcSubtitleTrack('ai_live', this)">🎙️ Live Speech AI Recognition</button>
+                        <button class="vlc-chip-btn active" onclick="setVlcSubtitleTrack('off', this)">Off</button>
                     </div>
                 </div>
 
-                <!-- Subtitle / Audio Sync Offset -->
+                <!-- Subtitle Sync Offset -->
                 <div class="vlc-dialog-section">
                     <label class="vlc-dialog-label">⏱️ Subtitle Sync Delay</label>
                     <div class="vlc-dialog-options" style="align-items: center; justify-content: space-between;">
                         <button class="vlc-chip-btn" onclick="adjustTrackDelay(-0.5)">- 0.5s</button>
                         <button class="vlc-chip-btn" onclick="adjustTrackDelay(-0.1)">- 0.1s</button>
-                        <span id="vlcTrackDelayText" style="font-family: var(--font-mono); color: #E50914; font-size: 13px; font-weight: 700; min-width: 50px; text-align: center;">0.0s</span>
+                        <span id="vlcTrackDelayText" style="font-family: var(--font-mono); color: #10B981; font-size: 13px; font-weight: 700; min-width: 50px; text-align: center;">0.0s</span>
                         <button class="vlc-chip-btn" onclick="adjustTrackDelay(0.1)">+ 0.1s</button>
                         <button class="vlc-chip-btn" onclick="adjustTrackDelay(0.5)">+ 0.5s</button>
                     </div>
@@ -1404,25 +1349,10 @@
                 
                 <!-- Audio Tracks Section -->
                 <div class="vlc-dialog-section">
-                    <label class="vlc-dialog-label">🎧 Audio Languages & Channels (Processor DSP)</label>
+                    <label class="vlc-dialog-label">🎧 Audio Languages & Streams</label>
                     <div id="vlcAudioTracksList" class="vlc-list-options" style="max-height: 220px; overflow-y: auto;">
-                        <div class="vlc-radio-row active" onclick="setVlcAudioTrack('hindi', this)">
-                            <span>🇮🇳 Hindi (Main Dialogue Enhanced) [Stereo Vocal DSP]</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('english', this)">
-                            <span>🌐 English (Broadcast Audio Feed) [AAC 2.0]</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('dual_left', this)">
-                            <span>📻 Dual-Track Left Channel (Hindi Audio Track)</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('dual_right', this)">
-                            <span>📻 Dual-Track Right Channel (English Audio Track)</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('speech_boost', this)">
-                            <span>⚡ Clear Voice Speech AI Boost (Vocal Clarity)</span>
-                        </div>
-                        <div class="vlc-radio-row" onclick="setVlcAudioTrack('passthrough', this)">
-                            <span>🔊 Original Dolby / Direct Stream Passthrough (All 4K Audios)</span>
+                        <div class="vlc-radio-row active" onclick="setVlcAudioTrack('master', this)">
+                            <span>🔊 Master Audio Track (Direct Stream)</span>
                         </div>
                     </div>
                 </div>
@@ -1840,125 +1770,171 @@
     </div>
 
     <!-- ==========================================================
-         MOVIE DETAILS BOTTOM SHEET / MODAL
+         MOVIE DETAILS REDESIGNED (AURORA CINEMA GLASS PAVILION)
          ========================================================== -->
-    <div id="movieDetailsModal" class="side-drawer-backdrop" onclick="closeMovieDetails()" style="display: none;" role="dialog" aria-modal="true" aria-label="Movie Details">
-        <div class="movie-details-sheet" onclick="event.stopPropagation()">
-            <!-- Backdrop Image with Gradient Header -->
-            <div class="movie-details-backdrop-wrap">
-                <div id="movieDetailsBackdrop" class="movie-details-backdrop"></div>
-                <div class="movie-details-backdrop-grad"></div>
-                <button class="movie-details-close-btn" onclick="closeMovieDetails()" aria-label="Close Movie Details">
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    <div id="movieDetailsModal" class="movie-detail-overlay" onclick="closeMovieDetails()" style="display: none;" role="dialog" aria-modal="true" aria-label="Movie Details">
+        <div class="movie-detail-container" onclick="event.stopPropagation()">
+            <!-- Floating Top Navigation Bar -->
+            <div class="movie-detail-topbar">
+                <div class="movie-detail-tag-pill">
+                    <span class="tag-sparkle">★</span>
+                    <span id="movieDetailsCategoryChip">CINEMA PAVILION</span>
+                </div>
+                <button class="movie-detail-close-btn" onclick="closeMovieDetails()" aria-label="Close Movie Details">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
 
-            <!-- Content Container -->
-            <div class="movie-details-content">
-                <div class="movie-details-top-row">
-                    <div id="movieDetailsPoster" class="movie-details-poster">
-                        <img id="movieDetailsPosterImg" class="movie-details-poster-img" src="assets/placeholder.png" alt="Movie Poster" onerror="this.onerror=null; this.src='assets/placeholder.png';" />
-                    </div>
-                    <div class="movie-details-header-meta">
-                        <div id="movieDetailsCategoryChip" class="movie-tag-pill">Feature Film</div>
-                        <h2 id="movieDetailsTitle" class="movie-details-title">Title</h2>
-                        <div class="movie-details-sub-meta">
-                            <span id="movieDetailsYear">1968</span>
-                            <span class="meta-dot">•</span>
-                            <span id="movieDetailsDuration">1h 36m</span>
-                            <span class="meta-dot">•</span>
-                            <span id="movieDetailsResolution" class="movie-spec-tag">1080p</span>
-                        </div>
-                        <div id="movieDetailsSwarmBadge" class="movie-swarm-badge swarm-good">
+            <!-- Ambient Cinematic Backdrop Stage -->
+            <div class="movie-detail-backdrop-stage">
+                <div id="movieDetailsBackdrop" class="movie-detail-backdrop-canvas"></div>
+                <div class="movie-detail-stage-gradient"></div>
+            </div>
+
+            <!-- Scrollable Content Body -->
+            <div class="movie-detail-scroll-body">
+                <!-- Master Header Lockup: Poster + Theatrical Meta -->
+                <div class="movie-detail-hero-lockup">
+                    <!-- Floating Theatrical Poster -->
+                    <div id="movieDetailsPoster" class="movie-detail-poster-frame">
+                        <img id="movieDetailsPosterImg" class="movie-detail-poster-graphic" src="assets/placeholder.png" alt="Movie Poster" onerror="this.onerror=null; this.src='assets/placeholder.png';" />
+                        <div id="movieDetailsSwarmBadge" class="movie-swarm-badge swarm-good" style="display: none;">
                             <span class="swarm-dot">●</span>
-                            <span id="movieDetailsSwarmText">Swarm: 🟡 Good (40+ Seeders)</span>
+                            <span id="movieDetailsSwarmText">Swarm: 🟡 Good</span>
+                        </div>
+                    </div>
+
+                    <!-- Theatrical Meta Stack -->
+                    <div class="movie-detail-meta-stack">
+                        <div class="movie-detail-pills-strip">
+                            <span id="movieDetailsResolution" class="aurora-pill-quality">1080p FHD</span>
+                            <span id="movieDetailsYear" class="aurora-pill-meta">2024</span>
+                            <span id="movieDetailsDuration" class="aurora-pill-meta">2h 15m</span>
+                        </div>
+
+                        <h1 id="movieDetailsTitle" class="movie-detail-master-title">Movie Title</h1>
+
+                        <div id="movieDetailsGenres" class="movie-detail-genres-line">Action, Drama, Thriller</div>
+                    </div>
+                </div>
+
+                <!-- Aurora Action Command Hub -->
+                <div class="movie-detail-action-hub">
+                    <button id="btnMovieStream" class="movie-detail-master-cta movie-btn-stream" onclick="handleStreamMovieClick()">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        <span id="btnMovieStreamText">WATCH NOW</span>
+                    </button>
+
+                    <div class="movie-detail-quick-dock">
+                        <button id="btnMovieWatchlist" class="aurora-dock-pill" onclick="toggleMovieWatchlist()" title="Add to My List">
+                            <svg id="movieWatchlistSvg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>
+                            <span id="movieWatchlistText">Add to List</span>
+                        </button>
+
+                        <button id="btnMovieTrailer" class="aurora-dock-pill trailer-accent" onclick="handleWatchTrailerClick()" style="display: none;">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/></svg>
+                            <span>Trailer</span>
+                        </button>
+
+                        <button id="btnMovieDownload" class="aurora-dock-pill" onclick="handleDownloadMovieClick()" style="display: none;">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            <span>Download</span>
+                        </button>
+
+                        <button id="btnMovieMagnetCopy" class="aurora-dock-pill" onclick="copyMovieMagnet()" title="Copy Magnet URI" style="display: none;">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            <span>Magnet</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bento Module 1: Synopsis & Storyline -->
+                <div class="aurora-bento-card">
+                    <div class="bento-header">
+                        <span class="bento-glow-dot cyan"></span>
+                        <span class="bento-title-text">STORYLINE & OVERVIEW</span>
+                    </div>
+                    <p id="movieDetailsDesc" class="bento-synopsis-body"></p>
+                </div>
+
+                <!-- Bento Module 2: Cast & Direction (Dual Bento) -->
+                <div class="aurora-bento-card bento-dual-split">
+                    <div class="bento-subtile">
+                        <span class="bento-sublabel">DIRECTOR</span>
+                        <span id="movieDetailsDirector" class="bento-subvalue">--</span>
+                    </div>
+                    <div class="bento-subtile">
+                        <span class="bento-sublabel">STARRING</span>
+                        <span id="movieDetailsCast" class="bento-subvalue">--</span>
+                    </div>
+                </div>
+
+                <!-- Bento Module 3: Media Calibration (Video Quality & Audio Tracks) -->
+                <div class="movie-detail-selectors-grid">
+                    <!-- Video Quality Card -->
+                    <div class="aurora-bento-card selector-card" id="movieQualitySelectorSection">
+                        <div class="selector-head">
+                            <span class="selector-head-label">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+                                Stream Quality
+                            </span>
+                            <span id="movieDetailsActiveQualityBadge" class="aurora-badge-cyan">Auto</span>
+                        </div>
+                        <div id="movieQualityPillsContainer" class="selector-pills-row"></div>
+                    </div>
+
+                    <!-- Audio & Language Card -->
+                    <div class="aurora-bento-card selector-card" id="movieLanguagesSection">
+                        <div class="selector-head">
+                            <span class="selector-head-label">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+                                Audio Language
+                            </span>
+                            <span id="movieDetailsActiveLangBadge" class="aurora-badge-emerald">Hindi</span>
+                        </div>
+                        <div id="movieDetailsLanguagesList" class="selector-pills-row"></div>
+                    </div>
+                </div>
+
+                <!-- Bento Module 4: Technical Specifications Grid -->
+                <div id="movieTechSpecsSection" class="aurora-bento-card">
+                    <div class="bento-header">
+                        <span class="bento-glow-dot violet"></span>
+                        <span class="bento-title-text">MEDIA SPECIFICATIONS</span>
+                    </div>
+                    <div class="bento-specs-matrix">
+                        <div id="specPillCodec" class="bento-spec-cell">
+                            <span class="spec-cell-tag">CODEC</span>
+                            <span id="movieSpecCodec" class="spec-cell-data">H.264 / AVC</span>
+                        </div>
+                        <div id="specPillAudio" class="bento-spec-cell">
+                            <span class="spec-cell-tag">AUDIO CHANNELS</span>
+                            <span id="movieSpecAudio" class="spec-cell-data">Stereo 2.0</span>
+                        </div>
+                        <div id="specPillRes" class="bento-spec-cell">
+                            <span class="spec-cell-tag">RESOLUTION</span>
+                            <span id="movieSpecResVal" class="spec-cell-data">1920x1080</span>
+                        </div>
+                        <div id="specPillSize" class="bento-spec-cell">
+                            <span class="spec-cell-tag">FILE SIZE</span>
+                            <span id="movieSpecSize" class="spec-cell-data">1.4 GB</span>
+                        </div>
+                        <div id="specPillLicense" class="bento-spec-cell">
+                            <span class="spec-cell-tag">SOURCE</span>
+                            <span id="movieSpecLicense" class="spec-cell-data">Public Domain</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Primary Action Buttons Row -->
-                <div class="movie-details-actions-row">
-                    <button id="btnMovieStream" class="movie-action-btn-primary" onclick="handleStreamMovieClick()">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        <span id="btnMovieStreamText">STREAM NOW</span>
-                    </button>
-                    <button id="btnMovieTrailer" class="movie-action-btn-secondary" onclick="handleWatchTrailerClick()" style="display: none; background: rgba(229, 9, 20, 0.18); border: 1px solid rgba(229, 9, 20, 0.4); color: #ff5252;">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/></svg>
-                        <span>WATCH TRAILER</span>
-                    </button>
-                    <button id="btnMovieDownload" class="movie-action-btn-secondary" onclick="handleDownloadMovieClick()">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                        <span>DOWNLOAD</span>
-                    </button>
-                    <button id="btnMovieWatchlist" class="movie-action-btn-icon" onclick="toggleMovieWatchlist()" title="Add to Watchlist">
-                        <svg id="movieWatchlistSvg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>
-                    </button>
-                    <button id="btnMovieMagnetCopy" class="movie-action-btn-icon" onclick="copyMovieMagnet()" title="Copy Magnet URI">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-                    </button>
-                </div>
-
-                <!-- Tech Specs Bento Bar -->
-                <div class="movie-tech-specs-bar">
-                    <div class="spec-pill"><span class="spec-label">CODEC</span> <span id="movieSpecCodec" class="spec-value">H.264 / AVC</span></div>
-                    <div class="spec-pill"><span class="spec-label">AUDIO</span> <span id="movieSpecAudio" class="spec-value">AAC Stereo</span></div>
-                    <div class="spec-pill"><span class="spec-label">SIZE</span> <span id="movieSpecSize" class="spec-value">1.4 GB</span></div>
-                    <div class="spec-pill"><span class="spec-label">LICENSE</span> <span id="movieSpecLicense" class="spec-value">Public Domain</span></div>
-                </div>
-
-                <!-- Stream Quality & Source Selector (Aurora Cinema) -->
-                <div class="movie-details-section aurora-details-card" id="movieQualitySelectorSection">
-                    <div class="aurora-section-header-row">
-                        <span class="aurora-section-title">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg> Video Quality
-                        </span>
-                        <span id="movieDetailsActiveQualityBadge" class="aurora-badge-cyan">Auto (Adaptive)</span>
-                    </div>
-                    <div id="movieQualityPillsContainer" class="aurora-pills-wrap"></div>
-                </div>
-
-                <!-- Multi-Language Audio Tracks Selection (Aurora Cinema) -->
-                <div class="movie-details-section aurora-details-card" id="movieLanguagesSection">
-                    <div class="aurora-section-header-row">
-                        <span class="aurora-section-title">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg> Audio & Language
-                        </span>
-                        <span id="movieDetailsActiveLangBadge" class="aurora-badge-emerald">Hindi (Selected)</span>
-                    </div>
-                    <div id="movieDetailsLanguagesList" class="aurora-pills-wrap"></div>
-                </div>
-
-                <!-- Web-Series Episodes & Seasons Section (Shown only for Web-Series) -->
-                <div class="movie-details-section aurora-details-card" id="seriesEpisodesSection" style="display: none;">
+                <!-- Series Episodes Section (Shown only for Web-Series) -->
+                <div class="movie-details-section aurora-details-card" id="seriesEpisodesSection" style="display: none; margin-top: 18px;">
                     <div class="aurora-section-header-row">
                         <span class="aurora-section-title">
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg> Episodes & Seasons
                         </span>
                         <span id="seriesTotalEpisodesBadge" class="aurora-badge-violet">--</span>
                     </div>
-                    <div id="seriesEpisodesList" class="aurora-episodes-list"></div>
-                </div>
-
-                <!-- Synopsis -->
-                <div class="movie-details-section">
-                    <h3 class="movie-section-heading">Synopsis</h3>
-                    <p id="movieDetailsDesc" class="movie-synopsis-text"></p>
-                </div>
-
-                <!-- Info Grid: Director, Cast, Genres -->
-                <div class="movie-info-grid">
-                    <div>
-                        <span class="info-label">Director</span>
-                        <p id="movieDetailsDirector" class="info-value">--</p>
-                    </div>
-                    <div>
-                        <span class="info-label">Genres</span>
-                        <p id="movieDetailsGenres" class="info-value">--</p>
-                    </div>
-                    <div style="grid-column: span 2;">
-                        <span class="info-label">Starring</span>
-                        <p id="movieDetailsCast" class="info-value">--</p>
-                    </div>
+                    <div id="seriesEpisodesList" class="series-episodes-list"></div>
                 </div>
             </div>
         </div>
@@ -2126,7 +2102,7 @@
         <div class="settings-modal-card" onclick="event.stopPropagation()">
             <div class="settings-header">
                 <h3 style="font-size: 18px; font-weight: 700; color: #fff;">App Settings</h3>
-                <button class="icon-btn-plain" onclick="closeSettingsModal()">
+                <button class="icon-btn-plain" onclick="closeSettingsModal()" aria-label="Close Settings" style="background: transparent !important; background-color: transparent !important; border: none !important; outline: none !important; box-shadow: none !important; cursor: pointer; padding: 6px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%;">
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="#a3a3a3"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
                 </button>
             </div>
@@ -2264,7 +2240,8 @@
     <div id="toast" class="lumina-toast"></div>
 
     <!-- App JavaScript -->
-    <script src="assets/app.js"></script>
+    <script src="assets/hls.min.js"></script>
+    <script src="assets/app.js?v=2.5.1"></script>
 </body>
 </html>
 

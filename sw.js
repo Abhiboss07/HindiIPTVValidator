@@ -1,10 +1,12 @@
-const CACHE_NAME = 'aakashstream-v1';
+const CACHE_NAME = 't2l-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/assets/styles.css',
+  '/assets/hls.min.js',
   '/assets/app.js',
   '/data/channels.json',
+  '/data/movies_catalog.json',
   '/data/countries.json',
   '/manifest.json',
   '/assets/icons/icon-192.svg',
