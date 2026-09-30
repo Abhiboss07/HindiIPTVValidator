@@ -1,0 +1,6472 @@
+{
+  "timestamp": "2026-09-30T12:18:38Z",
+  "initial_count": 890,
+  "removed_language_count": 456,
+  "removed_dead_count": 124,
+  "verified_tv_count": 306,
+  "verified_radio_count": 13,
+  "final_total_count": 319,
+  "language_removal_breakdown": {
+    "Assamese/NE": 28,
+    "Arabic": 5,
+    "Russian": 2,
+    "Urdu/Kashmiri": 14,
+    "Tamil": 75,
+    "Romanian": 1,
+    "Punjabi": 53,
+    "Odia": 15,
+    "Malayalam": 53,
+    "Telugu": 81,
+    "Bengali": 41,
+    "Gujarati": 12,
+    "Marathi": 19,
+    "Chinese": 1,
+    "Hebrew": 1,
+    "Nepali": 4,
+    "East/SE Asian": 3,
+    "Portuguese": 1,
+    "Spanish": 2,
+    "Kannada": 34,
+    "Bhojpuri": 8,
+    "Afghan/Pashto": 1,
+    "Konkani": 2
+  },
+  "dead_streams_breakdown": {
+    "EMPTY_URL": 3,
+    "HTTP_404": 45,
+    "DEAD_SEGMENT_HTTP_404": 51,
+    "INVALID_MANIFEST_NO_EXTM3U": 3,
+    "VARIANT_FETCH_FAILED_HTTP_404": 10,
+    "TIMEOUT": 1,
+    "CONNECTION_REFUSED": 1,
+    "NETWORK_ERROR_ConnectionResetError": 1,
+    "DEAD_SEGMENT_NETWORK_ERROR_gaierror": 4,
+    "EXCEPTION_TimeoutError": 2,
+    "DEAD_SEGMENT_HTTP_416": 1,
+    "VARIANT_FETCH_FAILED_HTTP_504": 1,
+    "NETWORK_ERROR_gaierror": 1
+  },
+  "removed_language_channels": [
+    {
+      "id": "abp-news-hd",
+      "name": "ABP News HD Live",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8"
+    },
+    {
+      "id": "makkah-live-hd",
+      "name": "Holy Makkah 24/7 Live HD",
+      "detected_language": "Arabic",
+      "reason": "Arabic language stream",
+      "url": "https://win.holymakkah.gov.sa/live/smil:makkah.smil/playlist.m3u8"
+    },
+    {
+      "id": "madinah-live-hd",
+      "name": "Holy Madinah 24/7 Live HD",
+      "detected_language": "Arabic",
+      "reason": "Arabic language stream",
+      "url": "https://win.holymakkah.gov.sa/live/smil:madinah.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_1",
+      "name": "Bollywood HD Russia",
+      "detected_language": "Russian",
+      "reason": "Russian language channel ('Bollywood HD Russia' / RU)",
+      "url": "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8"
+    },
+    {
+      "id": "live_ch_4",
+      "name": "DD Kashir",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/8a59a828e80c49d0958925950cec0204/index.m3u8"
+    },
+    {
+      "id": "live_ch_7",
+      "name": "DD Manipur",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/8b75afc6576f450e8f554b6c877681d2/index.m3u8"
+    },
+    {
+      "id": "live_ch_13",
+      "name": "DD Arun Prabha",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/308556d9fd1246adb479ef012a39bbfe/index.m3u8"
+    },
+    {
+      "id": "live_ch_17",
+      "name": "Dheeran TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://live.we2live.in/dheerantv/dheerantv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_18",
+      "name": "Bollywood Classic Romania",
+      "detected_language": "Romanian",
+      "reason": "Romanian language channel ('Bollywood Classic Romania')",
+      "url": "https://flash1.bogulus1.cfd/boly/usergenr9j8s2t.m3u8"
+    },
+    {
+      "id": "live_ch_23",
+      "name": "Channel Divya",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://vg-pitaaratvlive.akamaized.net/v1/vglive-sk-906482/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_41",
+      "name": "DD Urdu",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://cdn-4.pishow.tv/live/8/master.m3u8"
+    },
+    {
+      "id": "live_ch_48",
+      "name": "Argus News",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://mumt05.tangotv.in/87NeALx2ARGUSNEWS/index.m3u8"
+    },
+    {
+      "id": "live_ch_50",
+      "name": "Anand TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://live.legitpro.co.in/anandtv/index.m3u8"
+    },
+    {
+      "id": "live_ch_69",
+      "name": "Aradana TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://cdn-1.pishow.tv/live/961/master.m3u8"
+    },
+    {
+      "id": "live_ch_79",
+      "name": "News18 Punjab/Haryana/Himachal",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Punjab_Haryana_HP_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_85",
+      "name": "Fateh TV [Not 24/7]",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://ott.livelegitpro.in/fatehtv/fatehtv/index.m3u8"
+    },
+    {
+      "id": "live_ch_112",
+      "name": "Apna Punjab TV",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://plus.gigabitcdn.net/live-stream/apna-punjab-H3sE/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_126",
+      "name": "Kanshi TV [Not 24/7]",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://live.kanshitv.co.uk/mobile/kanshitvkey.m3u8"
+    },
+    {
+      "id": "live_ch_129",
+      "name": "GurSikh Sabha TV [Not 24/7]",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "http://cdn12.henico.net:8080/live/gsctv/index.m3u8"
+    },
+    {
+      "id": "live_ch_142",
+      "name": "Mercy TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://5dd3981940faa.streamlock.net/mercytv/mercytv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_143",
+      "name": "Kaumudy TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://oqgdrkxby4rm-hls-live.5centscdn.com/kaumudytv/live.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_145",
+      "name": "MH One Shraddha",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3MHONESHRADDHA/index.m3u8"
+    },
+    {
+      "id": "live_ch_147",
+      "name": "MTA2 Europe",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://chlivemta1.akamaized.net/hls/live/2008145/mta2/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_149",
+      "name": "Namdhari [Not 24/7]",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://namdhari.tv/live/sbs1.m3u8"
+    },
+    {
+      "id": "live_ch_150",
+      "name": "Nagaland TV",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://mumt06.tangotv.in/qYyB8fXVNAGALANDTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_152",
+      "name": "Zee Cinema",
+      "detected_language": "Arabic",
+      "reason": "Arabic language stream",
+      "url": "https://ev-eu-hw-fast-mpd.starzplayarabia.com/Zee_Cinema/dash/drm/index.mpd"
+    },
+    {
+      "id": "live_ch_161",
+      "name": "MTA7 Asia",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://livemtaasia.akamaized.net/hls/live/2039224/mtaasia2/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_172",
+      "name": "Aamar Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/amarbanglatv.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_174",
+      "name": "Aastha Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://aasthaott.akamaized.net/110923/smil:aasthatelugu.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_175",
+      "name": "Zee Cinema ME [Geo-blocked]",
+      "detected_language": "Arabic",
+      "reason": "Arabic language stream",
+      "url": "https://ev-eu-hw-fast-mpd.starzplayarabia.com/Zee_Cinema/dash/drm/index.mpd"
+    },
+    {
+      "id": "live_ch_176",
+      "name": "ABP Ananda",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://d2l4ar6y3mrs4k.cloudfront.net/live-streaming/ananda-livetv/master.m3u8"
+    },
+    {
+      "id": "live_ch_178",
+      "name": "Aastha Gujarati",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4AASTHAGUJARATI/index.m3u8"
+    },
+    {
+      "id": "live_ch_179",
+      "name": "Aastha Tamil",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://aasthaott.akamaized.net/110923/smil:aasthatamil.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_180",
+      "name": "ABP Asmita",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://d2l4ar6y3mrs4k.cloudfront.net/live-streaming/asmita-livetv/master.m3u8"
+    },
+    {
+      "id": "live_ch_181",
+      "name": "ABP Majha",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://yupprestreamliveus.akamaized.net/vglive-sk-355289/majha/master.m3u8"
+    },
+    {
+      "id": "live_ch_183",
+      "name": "Amrita TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://ddash74r36xqp.cloudfront.net/master.m3u8"
+    },
+    {
+      "id": "live_ch_184",
+      "name": "Angel TV Africa",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-904559/africa/ngrp:angelafrica_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_185",
+      "name": "Angel TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-394914/india/ngrp:angelindia_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_186",
+      "name": "Angel TV America",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-374850/america/ngrp:angelamerica_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_187",
+      "name": "Angel TV Arabia",
+      "detected_language": "Arabic",
+      "reason": "Arabic language stream",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-213167/arabia/ngrp:angelarabia_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_188",
+      "name": "Angel TV Australia",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-310787/australia/ngrp:angelaustralia_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_189",
+      "name": "Angel TV Chinese",
+      "detected_language": "Chinese",
+      "reason": "Chinese language channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-999451/chinese/ngrp:angelchinese_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_190",
+      "name": "Angel TV Europe",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-512011/europe/ngrp:angeleurope_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_191",
+      "name": "Angel TV Hebrew",
+      "detected_language": "Hebrew",
+      "reason": "Hebrew language channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-150533/hebrew/ngrp:angelhebrew_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_192",
+      "name": "Angel TV Nepal",
+      "detected_language": "Nepali",
+      "reason": "Nepali language channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-109639/nepali/ngrp:angelnepali_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_193",
+      "name": "Angel TV Indonesia",
+      "detected_language": "East/SE Asian",
+      "reason": "East/Southeast Asian language channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-234616/indonesia/ngrp:angelindonesia_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_194",
+      "name": "Angel TV Indo-China",
+      "detected_language": "East/SE Asian",
+      "reason": "East/Southeast Asian language channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-703035/indochina/ngrp:angelindochina_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_195",
+      "name": "Angel TV FarEast",
+      "detected_language": "East/SE Asian",
+      "reason": "East/Southeast Asian language channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-438760/fareast/ngrp:angelfareast_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_197",
+      "name": "Angel TV Portuguese",
+      "detected_language": "Portuguese",
+      "reason": "Portuguese language channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-382409/portuese/ngrp:angelportuguese_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_198",
+      "name": "Angel TV Russian",
+      "detected_language": "Russian",
+      "reason": "Russian language channel ('Bollywood HD Russia' / RU)",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-955415/russia/ngrp:angelrussia_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_199",
+      "name": "Angel TV Spanish",
+      "detected_language": "Spanish",
+      "reason": "Spanish language channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-351398/spanish/ngrp:angelspanish_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_200",
+      "name": "Tehzeeb TV",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://cdn-4.pishow.tv/live/239/master.m3u8"
+    },
+    {
+      "id": "live_ch_207",
+      "name": "Aastha Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://aasthaott.akamaized.net/110923/smil:aasthakannada.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_210",
+      "name": "Saam TV",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://cdn-3.pishow.tv/live/437/master.m3u8"
+    },
+    {
+      "id": "live_ch_213",
+      "name": "Arputhar Yesu TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://arputharyesutv.arputharyesutv.com/live/md/index.m3u8"
+    },
+    {
+      "id": "live_ch_214",
+      "name": "Asianet Suvarna News [Not 24/7]",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://asianetnews.vgcdn.net/vglive-sk-335835/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_215",
+      "name": "Northeast Live",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://server.thelegitpro.in/northeastlive/northeastlive/index.fmp4.m3u8"
+    },
+    {
+      "id": "live_ch_216",
+      "name": "Asianet News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_217",
+      "name": "Samachar Plus 24x7",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://mumt05.tangotv.in/87NeALx2VERTENTSAMACHARPLUS/index.m3u8"
+    },
+    {
+      "id": "live_ch_218",
+      "name": "Rongeen TV",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8"
+    },
+    {
+      "id": "live_ch_219",
+      "name": "Asianet News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_225",
+      "name": "Bhojpuri Cinema",
+      "detected_language": "Bhojpuri",
+      "reason": "Bhojpuri regional channel",
+      "url": "https://live-bhojpuri.akamaized.net/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_227",
+      "name": "Asianet News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_228",
+      "name": "Big TV 24x7 (576i)",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8"
+    },
+    {
+      "id": "live_ch_229",
+      "name": "Big TV 24x7 (576i)",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8"
+    },
+    {
+      "id": "live_ch_230",
+      "name": "B4U Bhojpuri",
+      "detected_language": "Bhojpuri",
+      "reason": "Bhojpuri regional channel",
+      "url": "https://cdnb4u.wiseplayout.com/B4U_Bhojpuri/master.m3u8"
+    },
+    {
+      "id": "live_ch_231",
+      "name": "Ayush TV",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "http://d1msejlow1t3l4.cloudfront.net/fta/ayushtv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_235",
+      "name": "CNBC Bajar",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/CNBC_Bazaar_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_237",
+      "name": "Chardikla Gurbaani TV",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://chardikalatimestv.gigabitcdn.net/in-chardikala/chardikala-gurbani-tv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_238",
+      "name": "Chardikla Time TV",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://chardikalanorthamerica.gigabitcdn.net/in-chardikala/chardikala-north-usa/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_239",
+      "name": "Chardikla Time TV North America",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://chardikalanorthamerica.gigabitcdn.net/in-chardikala/chardikala-north-usa/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_252",
+      "name": "9X Jhakaas",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://amg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjhakaas-samsungin/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_253",
+      "name": "9X Tashan",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_256",
+      "name": "SVBC 4",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_257",
+      "name": "Colors Tamil HD",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:colorstamilhd11.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_258",
+      "name": "Dharsan TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://cable91tataplay.akamaized.net/live/dharshantv/index.m3u8"
+    },
+    {
+      "id": "live_ch_264",
+      "name": "ETV Cinema",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d27zlkxhgwrfgo.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_CINEMA_H264_cloud_in/index.m3u8"
+    },
+    {
+      "id": "live_ch_267",
+      "name": "ETV Andhra Pradesh",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d1g35elx8qnif3.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_AP_H264_cloud_in/index.m3u8"
+    },
+    {
+      "id": "live_ch_269",
+      "name": "ETV Abhiruchi",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://dg3721c3ez5m0.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_ABHIRUCHI_H264_cloud-in/index.m3u8"
+    },
+    {
+      "id": "live_ch_270",
+      "name": "ETV Plus",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d12ee3o8yfkkhd.cloudfront.net/c6a4b411295f47f48c908d2ac0605bad/index.m3u8"
+    },
+    {
+      "id": "live_ch_271",
+      "name": "ETV Cinema HD",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d27zlkxhgwrfgo.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_CINEMA_H264_cloud_in/index.m3u8"
+    },
+    {
+      "id": "live_ch_272",
+      "name": "ETV Telugu HD",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d27zlkxhgwrfgo.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_HD_H264_cloud_in/index.m3u8"
+    },
+    {
+      "id": "live_ch_273",
+      "name": "ETV Plus HD",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d12ee3o8yfkkhd.cloudfront.net/c6a4b411295f47f48c908d2ac0605bad/index.m3u8"
+    },
+    {
+      "id": "live_ch_274",
+      "name": "ETV Music",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://cc-szivnms4rlah6.akamaized.net/WWBI/Amagi/ETV_Music_IN/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_275",
+      "name": "ETV Life",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d2cj1h11htct8o.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_LIFE_H264_cloud_in/index.m3u8"
+    },
+    {
+      "id": "live_ch_276",
+      "name": "ETV Telugu USA",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://livegeorouus.akamaized.net/100823/etvhd_2500/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    },
+    {
+      "id": "live_ch_277",
+      "name": "ETV Telangana",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d37d7pfp7vjqhh.cloudfront.net/v1/master/9d43eacaed199f8d5883927e7aef514a8a08e108/ETV_TS_H264_cloud_in/index.m3u8"
+    },
+    {
+      "id": "live_ch_281",
+      "name": "ETV Josh",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://cc-uyh1ow5zouoio.akamaized.net/WWBI/Amagi/ETV_Josh_IN/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_285",
+      "name": "GTC Punjabi",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://gtc-yupp.vgcdn.net/vglive-sk-254807/index.m3u8"
+    },
+    {
+      "id": "live_ch_286",
+      "name": "VTU",
+      "detected_language": "Afghan/Pashto",
+      "reason": "Afghan / Pashto channel",
+      "url": "https://lbgo.bozztv.com/ssh101/ssh101/afghantheatretv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_287",
+      "name": "9X Jhakaas",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://amg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjhakaas-samsungin/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_290",
+      "name": "9X Tashan",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_291",
+      "name": "9X Tashan",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_293",
+      "name": "24 News",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlTWENTYFOURNEWS/index.m3u8"
+    },
+    {
+      "id": "live_ch_298",
+      "name": "10 TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumbai-edge.smartplaytv.in/10TV/index.m3u8"
+    },
+    {
+      "id": "live_ch_299",
+      "name": "24 News",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlTWENTYFOURNEWS/index.m3u8"
+    },
+    {
+      "id": "live_ch_301",
+      "name": "Hornbill TV",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3HORNBILLTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_302",
+      "name": "Aakaash Aath",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "http://tvsen5.aynascope.net/Wm9Lv2RjZGT6/index.m3u8"
+    },
+    {
+      "id": "live_ch_303",
+      "name": "Aaryaa TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://stream.ottlive.co.in/aryatvtamil/index.m3u8"
+    },
+    {
+      "id": "live_ch_304",
+      "name": "Aakaash Aath",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "http://tvsen5.aynascope.net/Wm9Lv2RjZGT6/index.m3u8"
+    },
+    {
+      "id": "live_ch_306",
+      "name": "Aaseervatham TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4AASEERVATHAMTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_307",
+      "name": "Aastha Gujarati",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4AASTHAGUJARATI/index.m3u8"
+    },
+    {
+      "id": "live_ch_310",
+      "name": "Aastha Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://aasthaott.akamaized.net/110923/smil:aasthakannada.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_311",
+      "name": "Jaihind TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HJAIHIND/index.m3u8"
+    },
+    {
+      "id": "live_ch_314",
+      "name": "ABN Andhra Jyoti",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumbai-edge.smartplaytv.in/ABNAJ/index.m3u8"
+    },
+    {
+      "id": "live_ch_316",
+      "name": "Aastha Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://aasthaott.akamaized.net/110923/smil:aasthatelugu.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_317",
+      "name": "Janam TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_319",
+      "name": "AKD Calcutta News",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://live.legitpro.co.in/cnnnews/index.m3u8"
+    },
+    {
+      "id": "live_ch_320",
+      "name": "Kalaignar Murasu",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/murasu_nim_https/050522/murasu/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_321",
+      "name": "Arputhar Yesu TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://arputharyesutv.arputharyesutv.com/live/md/index.m3u8"
+    },
+    {
+      "id": "live_ch_322",
+      "name": "Assam Talks",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "http://tvsen7.aynascope.net/AssamTalks/index.m3u8"
+    },
+    {
+      "id": "live_ch_323",
+      "name": "Asianet Middle East",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HASIANETMIDDLEEAST/index.m3u8"
+    },
+    {
+      "id": "live_ch_324",
+      "name": "Balle Balle",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://mcncdndigital.com/balleballetv/index.m3u8"
+    },
+    {
+      "id": "live_ch_329",
+      "name": "Bhojpuri Cinema",
+      "detected_language": "Bhojpuri",
+      "reason": "Bhojpuri regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1033/master.m3u8"
+    },
+    {
+      "id": "live_ch_333",
+      "name": "Chardikla Time TV",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_334",
+      "name": "Madhimugam TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3MATHIMUGAMTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_335",
+      "name": "Gulistan News [Not 24/7]",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://live.gulistannews.in/hls/gul.m3u8"
+    },
+    {
+      "id": "live_ch_338",
+      "name": "Mango Mobile TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://amg01911-mangotv-amg01911c1-xiaomi-in-1270.playouts.now.amagi.tv/playlist/amg01911-mangomassmedia-mangotv-xiaomiin/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_339",
+      "name": "CTVN AKD Plus",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://live.legitpro.co.in/ctvnakdplus/index.m3u8"
+    },
+    {
+      "id": "live_ch_340",
+      "name": "Ayush TV [Not 24/7]",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://95eryw39dwn4-hls-live.wmncdn.net/Ayushu/271ddf829afeece44d8732757fba1a66.sdp/index.m3u8"
+    },
+    {
+      "id": "live_ch_341",
+      "name": "KCL TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://kcltv.livebox.co.in/kclhls/live.m3u8"
+    },
+    {
+      "id": "live_ch_343",
+      "name": "DD Arun Prabha",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/308556d9fd1246adb479ef012a39bbfe/index.m3u8"
+    },
+    {
+      "id": "live_ch_344",
+      "name": "DD Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/7ff57cc9046b4c188b51a0d506f36e7f/index.m3u8"
+    },
+    {
+      "id": "live_ch_345",
+      "name": "DD Chandana",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/0c980455d2fb4b69bcc6235745ee6039/index.m3u8"
+    },
+    {
+      "id": "live_ch_346",
+      "name": "Mathrubhumi News [Not 24/7]",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/mathrubhuminews_nim_https/110322/mathrubhuminews/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_347",
+      "name": "DD Malayalam",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/c313674ffced4c9a90f1bba436df2b9b/index.m3u8"
+    },
+    {
+      "id": "live_ch_348",
+      "name": "Mazhavil Manorama",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HMAZHAVILMANORAMAINT/index.m3u8"
+    },
+    {
+      "id": "live_ch_350",
+      "name": "Manorama News",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mmtvnews1.akamaized.net/v1/master/673630b269b766886555eebfddd4f27f3de3ab50/mmtvNewsCampaign1/index.m3u8"
+    },
+    {
+      "id": "live_ch_352",
+      "name": "DD Sahyadri",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/66dcc3ebe182447ba42837e746cf0c7c/index.m3u8"
+    },
+    {
+      "id": "live_ch_353",
+      "name": "DD Punjabi",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/da821c24a59d4e57960497aeaca8fb33/index.m3u8"
+    },
+    {
+      "id": "live_ch_354",
+      "name": "Malai Murasu TV [Geo-blocked]",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://amg17783-amg17783c1-amgplt0173.playout.now3.amagi.tv/playlist/amg17783-amg17783c1-amgplt0173/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_356",
+      "name": "Divyavani TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumbai-edge.smartplaytv.in/Divyavani/index.m3u8"
+    },
+    {
+      "id": "live_ch_357",
+      "name": "DY 365",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://cdn.smartstream.video/smartstream-us/dy365/dy365/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_358",
+      "name": "Mathrubhumi News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://streams.tangotv.in/MATHRUBHUMINEWS/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_359",
+      "name": "Mh 1 News",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://livestream.jswk.online/mhonenews/live/index.m3u8"
+    },
+    {
+      "id": "live_ch_360",
+      "name": "DD Tamil HD",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/abf46b14847e45499f4a47f3a9afe93d/index.m3u8"
+    },
+    {
+      "id": "live_ch_366",
+      "name": "Nepal 1",
+      "detected_language": "Nepali",
+      "reason": "Nepali language channel",
+      "url": "https://mumt05.tangotv.in/87NeALx2NEPAL1/index.m3u8"
+    },
+    {
+      "id": "live_ch_367",
+      "name": "Ekamra Bharat Odia",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://live.ekamraott.com/bharat/bharat/index.m3u8"
+    },
+    {
+      "id": "live_ch_370",
+      "name": "NDTV Marathi",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://web-ndtv-marathi.akamaized.net/hls/live/2110470/ndtvmarathi/master_1.m3u8"
+    },
+    {
+      "id": "live_ch_371",
+      "name": "MNTV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mntv.livebox.co.in/mntvhls/live.m3u8"
+    },
+    {
+      "id": "live_ch_372",
+      "name": "Enterr 10 Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://live-bangla.akamaized.net/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_375",
+      "name": "Epic Bhojpuri",
+      "detected_language": "Bhojpuri",
+      "reason": "Bhojpuri regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3EPICBHOJPURI/index.m3u8"
+    },
+    {
+      "id": "live_ch_376",
+      "name": "News18 Kerala [Geo-blocked]",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://nw18live.cdn.jio.com/bpk-tv/News18_Kerala_NW18_MOB/output01/index.m3u8"
+    },
+    {
+      "id": "live_ch_377",
+      "name": "News18 Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Kannada_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_378",
+      "name": "News18 Gujarati",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Gujarati_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_379",
+      "name": "News18 Assam North-East",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Assam_North_East_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_380",
+      "name": "News18 Marathi",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Lokmat_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_384",
+      "name": "News18 Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Bangla_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_385",
+      "name": "News18 Kerala",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Kerala_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_386",
+      "name": "Desi Channel",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://livestream.unlimitedcdn.com/agm-dc/desi-channel/index.m3u8"
+    },
+    {
+      "id": "live_ch_387",
+      "name": "News18 Odia",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Odia_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_388",
+      "name": "ETV Comedy",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://cc-wie8j8y69d2uy.akamaized.net/WWBI/Amagi/ETV_Comedy_IN/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_389",
+      "name": "News18 Urdu",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Urdu_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_390",
+      "name": "News18 Tamil Nadu",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8"
+    },
+    {
+      "id": "live_ch_391",
+      "name": "Global Punjab",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://server.livelegitpro.in/globalpunjab/globalpunjab/index.m3u8"
+    },
+    {
+      "id": "live_ch_396",
+      "name": "ETV News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://cc-3448kp65yhc5w.akamaized.net/WWBI/Amagi/ETV_News_IN/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_398",
+      "name": "GS TV",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1462/master.m3u8"
+    },
+    {
+      "id": "live_ch_402",
+      "name": "NTV Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8"
+    },
+    {
+      "id": "live_ch_406",
+      "name": "Pitaara",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://vg-pitaaratvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-583798/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_410",
+      "name": "Isai Aruvi",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "http://ptuf.ridsys.in/riptv/live/KALAIGNAR_ISAI_ARUVI/index.m3u8"
+    },
+    {
+      "id": "live_ch_413",
+      "name": "Janam TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_414",
+      "name": "Janam TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_416",
+      "name": "Isai Aruvi",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "http://ptuf.ridsys.in/riptv/live/KALAIGNAR_ISAI_ARUVI/index.m3u8"
+    },
+    {
+      "id": "live_ch_417",
+      "name": "Jonack TV [Not 24/7]",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://cdn.smartstream.video/smartstream-us/jonakk/jonakk/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_418",
+      "name": "PTC Music",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8"
+    },
+    {
+      "id": "live_ch_419",
+      "name": "Jonack",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://cdn-6.pishow.tv/live/10006/master.m3u8"
+    },
+    {
+      "id": "live_ch_420",
+      "name": "Harvest TV Keralam",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://7mbd4ogkr3gx-hls-live.wmncdn.net/harvestenglish/d1796a22d24e8696c7d5d0b5c349fdd2.sdp/index.m3u8"
+    },
+    {
+      "id": "live_ch_422",
+      "name": "Prudent Media",
+      "detected_language": "Konkani",
+      "reason": "Konkani regional channel",
+      "url": "https://prudentmcdn.rixcast.com/prudentm.m3u8"
+    },
+    {
+      "id": "live_ch_423",
+      "name": "PTC Punjabi Gold",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8"
+    },
+    {
+      "id": "live_ch_424",
+      "name": "Kalaignar Murasu [Not 24/7]",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://segment.yuppcdn.net/050522/murasu/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_425",
+      "name": "PTC Punjabi HD",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/3e22a9c278db4e3eb779afd42e41b0a6/index.m3u8"
+    },
+    {
+      "id": "live_ch_426",
+      "name": "Kairali TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3KAIRALI/index.m3u8"
+    },
+    {
+      "id": "live_ch_428",
+      "name": "Mazhavil Manorama HD",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://cdn-7.pishow.tv/live/1129/master.m3u8"
+    },
+    {
+      "id": "live_ch_430",
+      "name": "Kalaignar TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://segment.yuppcdn.net/240122/kalaignartv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_431",
+      "name": "Kalinga TV",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3KALINGATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_433",
+      "name": "Punjabi Shorts",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://vglivessai.akamaized.net/ptnr-yupptv/title-Punjabi_Shorts/in/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/27c3fd7a-b01f-4b00-ac03-557ac77acd47/index.m3u8"
+    },
+    {
+      "id": "live_ch_434",
+      "name": "Kaumudy TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://oqgdrkxby4rm-hls-live.5centscdn.com/kaumudytv/live.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_435",
+      "name": "Living India News",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://stream.ottlive.co.in/livingindia/index.m3u8"
+    },
+    {
+      "id": "live_ch_436",
+      "name": "Kolkata TV",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://cdn.ottlive.co.in/kolkatatv/index.m3u8"
+    },
+    {
+      "id": "live_ch_437",
+      "name": "KTV Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.livelegitpro.in:9899/tribetv/tribetv/index.m3u8"
+    },
+    {
+      "id": "live_ch_438",
+      "name": "Madha TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlMADHATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_439",
+      "name": "Maha Punjabi",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1521/master.m3u8"
+    },
+    {
+      "id": "live_ch_440",
+      "name": "Madhimugam TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3MATHIMUGAMTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_441",
+      "name": "Mahaa Bhakti",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumbai-edge.smartplaytv.in/MahaBhakthi/index.m3u8"
+    },
+    {
+      "id": "live_ch_442",
+      "name": "KITE Victers (Kerala) [Not 24/7]",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://932y4x26ljv8-hls-live.5centscdn.com/victers/tv.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_443",
+      "name": "Mahaa News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlMAHAANEWS/index.m3u8"
+    },
+    {
+      "id": "live_ch_444",
+      "name": "News Tamil 24x7",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://cdn-3.pishow.tv/live/1433/master.m3u8"
+    },
+    {
+      "id": "live_ch_445",
+      "name": "Nambikkai TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://cdn-3.pishow.tv/live/1389/master.m3u8"
+    },
+    {
+      "id": "live_ch_446",
+      "name": "News 7 Tamil",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://segment.yuppcdn.net/240122/news7/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_447",
+      "name": "Polimer News",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_448",
+      "name": "News Malayalam 24x7",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://cdn-3.pishow.tv/live/1629/master.m3u8"
+    },
+    {
+      "id": "live_ch_449",
+      "name": "Puthiya Thalaimurai",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8"
+    },
+    {
+      "id": "live_ch_450",
+      "name": "PTC Music",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8"
+    },
+    {
+      "id": "live_ch_451",
+      "name": "Mazhavil Manorama",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HMAZHAVILMANORAMAINT/index.m3u8"
+    },
+    {
+      "id": "live_ch_452",
+      "name": "Rengoni",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://d1msejlow1t3l4.cloudfront.net/fta/rengonitv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_453",
+      "name": "Republic TV",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8"
+    },
+    {
+      "id": "live_ch_454",
+      "name": "Republic TV [Geo-blocked]",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/2e31d831f08640ff92f65003bdc89991/index.m3u8"
+    },
+    {
+      "id": "live_ch_455",
+      "name": "Republic Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://vg-republictvlive.akamaized.net/ptnr-republicweb/title-Republic_TV_Kannada/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/1acd1ce1-c6a7-4ae4-afa1-133ffb111ebb/main.m3u8"
+    },
+    {
+      "id": "live_ch_457",
+      "name": "Republic Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/main.m3u8"
+    },
+    {
+      "id": "live_ch_460",
+      "name": "Sakshi TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/sakshi_nim_https/240122/sakshi/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_461",
+      "name": "Makkal TV (576i)",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://5k8q87azdy4v-hls-live.wmncdn.net/MAKKAL/271ddf829afeece44d8732757fba1a66.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_462",
+      "name": "Salaam TV",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://d2o3r1shda7xvv.cloudfront.net/index_5.m3u8"
+    },
+    {
+      "id": "live_ch_463",
+      "name": "Metro TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mercury.streambridge.link:8042/telugu/metrotv/index.m3u8"
+    },
+    {
+      "id": "live_ch_464",
+      "name": "Salaam TV",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://d2o3r1shda7xvv.cloudfront.net/index_5.m3u8"
+    },
+    {
+      "id": "live_ch_465",
+      "name": "Moon TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://d1msejlow1t3l4.cloudfront.net/fta/moontv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_466",
+      "name": "News 7 Tamil",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://segment.yuppcdn.net/240122/news7/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_467",
+      "name": "Nepal 1",
+      "detected_language": "Nepali",
+      "reason": "Nepali language channel",
+      "url": "https://mumt05.tangotv.in/87NeALx2NEPAL1/index.m3u8"
+    },
+    {
+      "id": "live_ch_468",
+      "name": "Shalom",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://d2c4zqo2rb5uf1.cloudfront.net/master.m3u8"
+    },
+    {
+      "id": "live_ch_469",
+      "name": "Shalom Global",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://d28xtgmk9tfk6b.cloudfront.net/master.m3u8"
+    },
+    {
+      "id": "live_ch_473",
+      "name": "NK TV Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://nktv.smartstream.video/smartstream-us/nkbangla/nkbangla/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_476",
+      "name": "NKR TV Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://stream.ottlive.co.in/nkrtv/index.m3u8"
+    },
+    {
+      "id": "live_ch_477",
+      "name": "NKR TV Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://stream.ottlive.co.in/nkrtv/index.m3u8"
+    },
+    {
+      "id": "live_ch_480",
+      "name": "NTV Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8"
+    },
+    {
+      "id": "live_ch_482",
+      "name": "Odisha TV",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://livetv.tarangplus.in/otv-origin/live/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_483",
+      "name": "Oli TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "http://ptuf.ridsys.in/riptv/live/KALAIGNAR_SIRIPOLI/index.m3u8"
+    },
+    {
+      "id": "live_ch_484",
+      "name": "One Paschima",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://live.ekamraott.com/onepaschima/onepaschima/index.m3u8"
+    },
+    {
+      "id": "live_ch_485",
+      "name": "NTV Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8"
+    },
+    {
+      "id": "live_ch_486",
+      "name": "Odisha TV",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://livetv.tarangplus.in/otv-origin/live/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_487",
+      "name": "Oscar Movies Bhojpuri",
+      "detected_language": "Bhojpuri",
+      "reason": "Bhojpuri regional channel",
+      "url": "https://cdn-4.pishow.tv/live/233/master.m3u8"
+    },
+    {
+      "id": "live_ch_492",
+      "name": "Peques TV",
+      "detected_language": "Spanish",
+      "reason": "Spanish language channel",
+      "url": "https://live-evg7.tv360.bitel.com.pe/bitel/pequestv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_493",
+      "name": "Pitaara",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://vg-pitaaratvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-583798/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_494",
+      "name": "Polimer News",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_495",
+      "name": "Prarthana TV",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://livetv.tarangplus.in/prarthana-origin/live/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_497",
+      "name": "Power TV",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://powertvkannada.com/hls/stream.m3u8"
+    },
+    {
+      "id": "live_ch_498",
+      "name": "Pratidin Time",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://server.thelegitpro.in/pratidintime/pratidintime/index.fmp4.m3u8"
+    },
+    {
+      "id": "live_ch_499",
+      "name": "Tabbar Hits",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://vglivessai.akamaized.net/sg/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e11b0319-52e8-4190-ab03-3931cc68eac9/index.m3u8"
+    },
+    {
+      "id": "live_ch_500",
+      "name": "PTC Punjabi",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8"
+    },
+    {
+      "id": "live_ch_501",
+      "name": "PTC Punjabi Gold",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8"
+    },
+    {
+      "id": "live_ch_502",
+      "name": "PTC Simran",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://cdn-6.pishow.tv/live/1503/master.m3u8"
+    },
+    {
+      "id": "live_ch_503",
+      "name": "Pravasi Channel",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://m6gdavepdn93-hls-live.5centscdn.com/pravasi/d0dbe915091d400bd8ee7f27f0791303.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_504",
+      "name": "Public Movies",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4PUBLICMOVIES/index.m3u8"
+    },
+    {
+      "id": "live_ch_506",
+      "name": "Telugu One",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://teluguone-yupptv.vgcdn.net/v1/019be9e3f04d1ea55784338b5c3e89/019be9e4474415fc60e93459e1e808/teluguone_2500k.m3u8"
+    },
+    {
+      "id": "live_ch_508",
+      "name": "Punjabi Hits",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://stream.ottlive.co.in/punjabihits/index.m3u8"
+    },
+    {
+      "id": "live_ch_509",
+      "name": "PMC Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumbai-edge.smartplaytv.in/PMC/index.m3u8"
+    },
+    {
+      "id": "live_ch_510",
+      "name": "Puthiya Thalaimurai",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8"
+    },
+    {
+      "id": "live_ch_511",
+      "name": "Puthiya Thalaimurai",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8"
+    },
+    {
+      "id": "live_ch_513",
+      "name": "Pulari TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://royalstarindia.co.in/pularitv_hls/pularitv.m3u8"
+    },
+    {
+      "id": "live_ch_514",
+      "name": "TV9 Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_515",
+      "name": "TV5 News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_516",
+      "name": "TV9 Gujarati",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9guj3ki8lu/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_517",
+      "name": "Puthuyugam TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4PUTHUYUGAMTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_519",
+      "name": "TV9 Kannada [Not 24/7]",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9kanmo6oiq/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_520",
+      "name": "TV9 Marathi",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9marlygv8h/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_521",
+      "name": "TV9 Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9telcmjhcs/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_523",
+      "name": "R Plus",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://mumt05.tangotv.in/87NeALx2VERTENTSAMACHARPLUS/index.m3u8"
+    },
+    {
+      "id": "live_ch_524",
+      "name": "V6 News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/v6news_nim_https/140622/v6news/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_526",
+      "name": "Raj Musix Tamil",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://livestream.rajtv.tv/hlslive/Admin/px08241087/live/Raj_Musix/master_1.m3u8"
+    },
+    {
+      "id": "live_ch_527",
+      "name": "Reporter TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://segment.yuppcdn.net/050522/reporter/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_528",
+      "name": "Ramdhenu",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://cdn-7.pishow.tv/live/10016/master.m3u8"
+    },
+    {
+      "id": "live_ch_529",
+      "name": "Rang",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1499/master.m3u8"
+    },
+    {
+      "id": "live_ch_530",
+      "name": "Raj TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://livestream.rajtv.tv/hlslive/Admin/px08241087/live/RAJTV/master_1.m3u8"
+    },
+    {
+      "id": "live_ch_531",
+      "name": "Raj Digital Plus",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://livestream.rajtv.tv/hlslive/Admin/px08241087/live/RajTV_Digital_plus/master_1.m3u8"
+    },
+    {
+      "id": "live_ch_532",
+      "name": "Republic Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/main.m3u8"
+    },
+    {
+      "id": "live_ch_533",
+      "name": "Republic TV",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8"
+    },
+    {
+      "id": "live_ch_536",
+      "name": "Rongeen TV",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8"
+    },
+    {
+      "id": "live_ch_537",
+      "name": "Republic Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://vg-republictvlive.akamaized.net/ptnr-republicweb/title-Republic_TV_Kannada/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/1acd1ce1-c6a7-4ae4-afa1-133ffb111ebb/main.m3u8"
+    },
+    {
+      "id": "live_ch_538",
+      "name": "Reporter TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://segment.yuppcdn.net/050522/reporter/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_539",
+      "name": "Rongeen TV",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8"
+    },
+    {
+      "id": "live_ch_540",
+      "name": "Sony Marathi [Geo-blocked]",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://sl.vodep39240327.workers.dev/channel/SONY+MARATHI.m3u8"
+    },
+    {
+      "id": "live_ch_541",
+      "name": "Rozana Spokesman",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://live1.ottlive.co.in/spokesman/spokesman/index.m3u8"
+    },
+    {
+      "id": "live_ch_549",
+      "name": "Rupasi Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1039/master.m3u8"
+    },
+    {
+      "id": "live_ch_550",
+      "name": "Safari TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://j78dp346yq5r-hls-live.5centscdn.com/safari/live.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_552",
+      "name": "Zee 24 Ghanta",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://d2dsoyvkr33m05.cloudfront.net/index_4.m3u8"
+    },
+    {
+      "id": "live_ch_555",
+      "name": "Zee 24 Taas",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://dgrvlduwztkd4.cloudfront.net/index_5.m3u8"
+    },
+    {
+      "id": "live_ch_556",
+      "name": "Zee Bangla Sonar",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8"
+    },
+    {
+      "id": "live_ch_558",
+      "name": "Zainabia Channel",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://zainabia.livebox.co.in/ZainabiaChannelhls/channel.m3u8"
+    },
+    {
+      "id": "live_ch_560",
+      "name": "Zee 24 Kalak",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zee24kalak/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/497f7199-758d-495d-9d2f-a5489231c428/14b7c8ec-16da-47f2-8d7e-5bbaec67b3e2/3.m3u8"
+    },
+    {
+      "id": "live_ch_562",
+      "name": "Sada TV [Not 24/7]",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "http://cdn12.henico.net:8080/live/sadatv/index.m3u8"
+    },
+    {
+      "id": "live_ch_566",
+      "name": "Zee Bangla HD",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ZeeBanglaHD.m3u8"
+    },
+    {
+      "id": "live_ch_567",
+      "name": "Zee Kannada News",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://d3vzwoqcbpfm8p.cloudfront.net/index_4.m3u8"
+    },
+    {
+      "id": "live_ch_568",
+      "name": "Sakshi TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/sakshi_nim_https/240122/sakshi/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_570",
+      "name": "Real News Kerala [Not 24/7]",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://bk7l298nyx53-hls-live.5centscdn.com/realnews/e7dee419f91aa9e65939d3677fb9c4f5.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_573",
+      "name": "RDX Goa [Geo-blocked]",
+      "detected_language": "Konkani",
+      "reason": "Konkani regional channel",
+      "url": "https://g5nl6xoalpq6-hls-live.5centscdn.com/rdxgoa/d0dbe915091d400bd8ee7f27f0791303.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_574",
+      "name": "Zee Kannada HD",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://yuppnimresmum.akamaized.net/28072023/smil:zeekannadahd.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    },
+    {
+      "id": "live_ch_575",
+      "name": "Samay Kolkata",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.livelegitpro.in/samaykolkata/samaykolkata/index.m3u8"
+    },
+    {
+      "id": "live_ch_576",
+      "name": "Zee Marathi HD",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ZeeMarathiHD.m3u8"
+    },
+    {
+      "id": "live_ch_577",
+      "name": "Zee Telugu News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://d116gfrn8orazi.cloudfront.net/index.m3u8?akes=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjcxOTc5NzJ9.O4qmdMPbHwKrCg6hFXvD70vjSPWKQd0a7NrjmFdeMB8"
+    },
+    {
+      "id": "live_ch_580",
+      "name": "Zee Tamil News",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/ZMCL/ZeeTamilNews.m3u8"
+    },
+    {
+      "id": "live_ch_581",
+      "name": "Zee Punjab Haryana Himachal",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeepunjabharyanahima/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/65eed269-2f3a-4dd0-ac89-d18959af28e3/main.m3u8"
+    },
+    {
+      "id": "live_ch_583",
+      "name": "Republic TV",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8"
+    },
+    {
+      "id": "live_ch_584",
+      "name": "Safari TV [Not 24/7]",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://j78dp346yq5r-hls-live.5centscdn.com/safari/live.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_585",
+      "name": "Colors Gujarati",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ColorsGujarati.m3u8"
+    },
+    {
+      "id": "live_ch_587",
+      "name": "Sirippoli TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "http://ptuf.ridsys.in/riptv/live/KALAIGNAR_SIRIPOLI/index.m3u8"
+    },
+    {
+      "id": "live_ch_588",
+      "name": "9X Tashan",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_590",
+      "name": "9X Jhakaas",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://amg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjhakaas-samsungin/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_595",
+      "name": "Shekinah TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://livetv.timeiptv.in/ShekinahNewsIndia/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_596",
+      "name": "Siri Kannada All Time",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlSIRIKANNADAALLTIME/index.m3u8"
+    },
+    {
+      "id": "live_ch_597",
+      "name": "Siri Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlSIRIKANNADAALLTIME/index.m3u8"
+    },
+    {
+      "id": "live_ch_600",
+      "name": "Spondon",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://nktv.smartstream.video/smartstream-us/spondon/spondon/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_601",
+      "name": "Sirippoli TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "http://ptuf.ridsys.in/riptv/live/KALAIGNAR_SIRIPOLI/index.m3u8"
+    },
+    {
+      "id": "live_ch_602",
+      "name": "Spondon",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://nktv.smartstream.video/smartstream-us/spondon/spondon/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_605",
+      "name": "Studio Yuva",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3STUDIOYUVA/index.m3u8"
+    },
+    {
+      "id": "live_ch_607",
+      "name": "Subhavaartha TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://2mk9qae4rwyb-hls-live.wmncdn.net/shubhavartha/live.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_608",
+      "name": "Suriya TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://stream.ottlive.co.in/suryatvtamil/index.m3u8"
+    },
+    {
+      "id": "live_ch_612",
+      "name": "SVBC 4",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_613",
+      "name": "Subhavaartha TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://2mk9qae4rwyb-hls-live.wmncdn.net/shubhavartha/live.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_615",
+      "name": "Tamil Janam",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3JANAMTVTAMIL/index.m3u8"
+    },
+    {
+      "id": "live_ch_616",
+      "name": "Tarang Music",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://livetv.tarangplus.in/tarangmusic-origin/live/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_617",
+      "name": "Tarang TV",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://livetv.tarangplus.in/tarangtv-origin/live/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_618",
+      "name": "SVBC 2",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://player.mslivestream.net/tamil/ac206e74d75b285755ee4924df87d951.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_619",
+      "name": "Thanthi One",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlTHANTHIONE/index.m3u8"
+    },
+    {
+      "id": "live_ch_620",
+      "name": "SVBC 3",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://player.mslivestream.net/svbc/2e628d7e1b65d31254fd7705ff7ee64d.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_621",
+      "name": "SVBC Sri Venkateswara Bhakti Channel",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://player.mslivestream.net/telugu/5d076e5c3d34cb8bb08e54a4bb7e223e.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_622",
+      "name": "TV5 News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_623",
+      "name": "Ultimate TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://stream.ottlive.co.in/utvtamil/index.m3u8"
+    },
+    {
+      "id": "live_ch_624",
+      "name": "Ultimate TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://stream.ottlive.co.in/utvtamil/index.m3u8"
+    },
+    {
+      "id": "live_ch_626",
+      "name": "Vasanth TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4VASANTHTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_627",
+      "name": "Fateh TV",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://ott.livelegitpro.in/fatehtv/fatehtv/index.m3u8"
+    },
+    {
+      "id": "live_ch_629",
+      "name": "Vaanavil TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://6n3yope4d9ok-hls-live.5centscdn.com/vaanavil/TV.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_631",
+      "name": "TV Punjab [Geo-blocked]",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://932y483pdjv8-hls-live.5centscdn.com/stream/deb10bae362f810630ec3abedcae5894.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_632",
+      "name": "ZB Music",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.zillarbarta.com/zbmusic/index.m3u8"
+    },
+    {
+      "id": "live_ch_633",
+      "name": "ZB Cartoon",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.zillarbarta.com/zbcatun/video.m3u8"
+    },
+    {
+      "id": "live_ch_634",
+      "name": "ZB Bhakti",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.zillarbarta.com/zbbhakti/index.m3u8"
+    },
+    {
+      "id": "live_ch_635",
+      "name": "UTV Palakkad",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://em4qj6nedyvg-hls-live.wmncdn.net/liveunit/89b1e919eed04e59383cf820d644c20e.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_652",
+      "name": "ZillarBarta News",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.zillarbarta.com/zillarbarta/index.m3u8"
+    },
+    {
+      "id": "live_ch_674",
+      "name": "Republic TV",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicTV.m3u8"
+    },
+    {
+      "id": "live_ch_680",
+      "name": "PTC Punjabi",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8"
+    },
+    {
+      "id": "live_ch_681",
+      "name": "Channel Divya",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://vg-pitaaratvlive.akamaized.net/v1/vglive-sk-906482/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_685",
+      "name": "PTC Punjabi Gold",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6e14bac6d0384e129521a4d005188bfb/index.m3u8"
+    },
+    {
+      "id": "live_ch_686",
+      "name": "Pitaara",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://vg-pitaaratvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-583798/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_687",
+      "name": "PTC Music",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://d2lk5u59tns74c.cloudfront.net/out/v1/f913cf893c594f73b114216e74a2efbc/index.m3u8"
+    },
+    {
+      "id": "live_ch_688",
+      "name": "9X Tashan",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_689",
+      "name": "PTC Chakde",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://cdn-1.pishow.tv/live/449/master.m3u8"
+    },
+    {
+      "id": "live_ch_690",
+      "name": "Balle Balle",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://mcncdndigital.com/balleballetv/index.m3u8"
+    },
+    {
+      "id": "live_ch_691",
+      "name": "PTC News",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://streams.tangotv.in/PTCNEWS/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_692",
+      "name": "Tabbar Hits",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://vglivessai.akamaized.net/sg/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e11b0319-52e8-4190-ab03-3931cc68eac9/index.m3u8"
+    },
+    {
+      "id": "live_ch_693",
+      "name": "Living India News",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://stream.ottlive.co.in/livingindia/index.m3u8"
+    },
+    {
+      "id": "live_ch_694",
+      "name": "Chardikla Time TV",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_695",
+      "name": "Chardikla Time TV",
+      "detected_language": "Punjabi",
+      "reason": "Punjabi regional channel",
+      "url": "https://chardikalagurbanitv.gigabitcdn.net/in-chardikala/chardikala-timetv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_696",
+      "name": "TV9 Gujarati",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9guj3ki8lu/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_697",
+      "name": "Gujarat First",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HGUJARATFIRST/index.m3u8"
+    },
+    {
+      "id": "live_ch_698",
+      "name": "TV9 Marathi",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9marlygv8h/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_699",
+      "name": "Sangeet Marathi",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://cdn-3.pishow.tv/live/1229/master.m3u8"
+    },
+    {
+      "id": "live_ch_700",
+      "name": "Fakt Marathi",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://cdn-6.pishow.tv/live/10002/master.m3u8"
+    },
+    {
+      "id": "live_ch_701",
+      "name": "B4U Bhojpuri",
+      "detected_language": "Bhojpuri",
+      "reason": "Bhojpuri regional channel",
+      "url": "https://cdnb4u.wiseplayout.com/B4U_Bhojpuri/master.m3u8"
+    },
+    {
+      "id": "live_ch_702",
+      "name": "Bhojpuri Cinema",
+      "detected_language": "Bhojpuri",
+      "reason": "Bhojpuri regional channel",
+      "url": "https://streams.tangotv.in/BHOJPURICINEMA/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_703",
+      "name": "Sangeet Bhojpuri",
+      "detected_language": "Bhojpuri",
+      "reason": "Bhojpuri regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3SANGEETBHOJPURI/index.m3u8"
+    },
+    {
+      "id": "live_ch_704",
+      "name": "Peppers TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://cdn-2.pishow.tv/live/1383/master.m3u8"
+    },
+    {
+      "id": "live_ch_705",
+      "name": "Pudhari News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://streams.tangotv.in/PUDHARINEWS/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_706",
+      "name": "Malai Murasu TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://amg17783-amg17783c1-amgplt0173.playout.now3.amagi.tv/playlist/amg17783-amg17783c1-amgplt0173/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_707",
+      "name": "Puthiya Thalaimurai",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8"
+    },
+    {
+      "id": "live_ch_708",
+      "name": "Polimer TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://cdn-2.pishow.tv/live/1241/master.m3u8"
+    },
+    {
+      "id": "live_ch_709",
+      "name": "News 7 Tamil",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://segment.yuppcdn.net/240122/news7/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_710",
+      "name": "Thanthi TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://streams.tangotv.in/THANTHITV/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_711",
+      "name": "News Tamil 24x7",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://cdn-3.pishow.tv/live/1433/master.m3u8"
+    },
+    {
+      "id": "live_ch_712",
+      "name": "Polimer News",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_715",
+      "name": "Angel TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-394914/india/ngrp:angelindia_all/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_716",
+      "name": "Vissa TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlVISSATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_717",
+      "name": "Raj Musix Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://cdn-1.pishow.tv/live/1213/master.m3u8"
+    },
+    {
+      "id": "live_ch_718",
+      "name": "Madha TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlMADHATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_719",
+      "name": "Mahaa Max",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HMAHAAMAX/index.m3u8"
+    },
+    {
+      "id": "live_ch_720",
+      "name": "Prime9 News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3PRIME9NEWS/index.m3u8"
+    },
+    {
+      "id": "live_ch_721",
+      "name": "Sakshi TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/sakshi_nim_https/240122/sakshi/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_722",
+      "name": "CVR English",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://cdn-2.pishow.tv/live/425/master.m3u8"
+    },
+    {
+      "id": "live_ch_727",
+      "name": "TV9 Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9telcmjhcs/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_728",
+      "name": "TV5 News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_729",
+      "name": "V6 News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/v6news_nim_https/140622/v6news/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_733",
+      "name": "Vanitha TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3VANITHA/index.m3u8"
+    },
+    {
+      "id": "live_ch_735",
+      "name": "Moon TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://d1msejlow1t3l4.cloudfront.net/fta/moontv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_736",
+      "name": "Jai Maharashtra",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://d1msejlow1t3l4.cloudfront.net/fta/jaimaharashtra/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_737",
+      "name": "Studio Yuva",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3STUDIOYUVA/index.m3u8"
+    },
+    {
+      "id": "live_ch_738",
+      "name": "6 TV Telugu",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppparoriglin.akamaized.net/181224/smil:6tv.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    },
+    {
+      "id": "live_ch_739",
+      "name": "Ayush TV",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "http://d1msejlow1t3l4.cloudfront.net/fta/ayushtv/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_740",
+      "name": "CVR OM Spiritual",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppnimrestreammum.akamaized.net/181224/smil:cvrom1.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    },
+    {
+      "id": "live_ch_741",
+      "name": "Mahaa News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlMAHAANEWS/index.m3u8"
+    },
+    {
+      "id": "live_ch_742",
+      "name": "Hindu Dharmam",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3HINDUDHARMAM/index.m3u8"
+    },
+    {
+      "id": "live_ch_743",
+      "name": "Mahaa Max",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HMAHAAMAX/index.m3u8"
+    },
+    {
+      "id": "live_ch_744",
+      "name": "Mahaa Bhakti",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://mumbai-edge.smartplaytv.in/MahaBhakthi/index.m3u8"
+    },
+    {
+      "id": "live_ch_745",
+      "name": "News 1st",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://d1msejlow1t3l4.cloudfront.net/fta/News1st/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_746",
+      "name": "Mantavya News",
+      "detected_language": "Gujarati",
+      "reason": "Gujarati regional channel",
+      "url": "https://d1msejlow1t3l4.cloudfront.net/fta/mantavya/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_747",
+      "name": "V6 News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/v6news_nim_https/140622/v6news/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_748",
+      "name": "T News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_749",
+      "name": "TV5 News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/tv5_nim_https/110322/tv5/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_750",
+      "name": "INews",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://cdn-1.pishow.tv/live/411/master.m3u8"
+    },
+    {
+      "id": "live_ch_751",
+      "name": "Darshana TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4DARSHANATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_752",
+      "name": "Kappa TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HKAPPATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_753",
+      "name": "Kairali TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3KAIRALI/index.m3u8"
+    },
+    {
+      "id": "live_ch_754",
+      "name": "Kappa TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HKAPPATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_755",
+      "name": "Amrita TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://ddash74r36xqp.cloudfront.net/master.m3u8"
+    },
+    {
+      "id": "live_ch_756",
+      "name": "Kairali We",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://streams.tangotv.in/WETV/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_757",
+      "name": "Rupasi Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1039/master.m3u8"
+    },
+    {
+      "id": "live_ch_758",
+      "name": "Manorama News",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mmtvnews1.akamaized.net/v1/master/673630b269b766886555eebfddd4f27f3de3ab50/mmtvNewsCampaign1/index.m3u8"
+    },
+    {
+      "id": "live_ch_759",
+      "name": "Mathrubhumi News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://streams.tangotv.in/MATHRUBHUMINEWS/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_760",
+      "name": "Mazhavil Manorama",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://cdn-7.pishow.tv/live/1129/master.m3u8"
+    },
+    {
+      "id": "live_ch_761",
+      "name": "Kairali News",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://cdn-3.pishow.tv/live/1469/master.m3u8"
+    },
+    {
+      "id": "live_ch_762",
+      "name": "Star Vijay",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:starvijayuk.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_763",
+      "name": "Asianet Movies HD",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:asianetmovies1.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_764",
+      "name": "Zee Tamil HD",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:zeetamil1.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_766",
+      "name": "WOW Kidz Tamil",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://yuppparoriglin.akamaized.net/181224/smil:wowkidztam.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+    },
+    {
+      "id": "live_ch_767",
+      "name": "Colors Kannada HD (1080i)",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:colorskannadahd1.smil/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_768",
+      "name": "Jaihind TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HJAIHIND/index.m3u8"
+    },
+    {
+      "id": "live_ch_769",
+      "name": "R Plus Gold",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1231/master.m3u8"
+    },
+    {
+      "id": "live_ch_770",
+      "name": "Media One",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://cdn-3.pishow.tv/live/1481/master.m3u8"
+    },
+    {
+      "id": "live_ch_771",
+      "name": "Darshana TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4DARSHANATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_772",
+      "name": "Reporter TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://segment.yuppcdn.net/050522/reporter/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_774",
+      "name": "Public Music",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://cdn-3.pishow.tv/live/441/master.m3u8"
+    },
+    {
+      "id": "live_ch_775",
+      "name": "Public TV",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://cdn-3.pishow.tv/live/439/master.m3u8"
+    },
+    {
+      "id": "live_ch_776",
+      "name": "Republic Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://vg-republictvlive.akamaized.net/ptnr-republicweb/title-Republic_TV_Kannada/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/1acd1ce1-c6a7-4ae4-afa1-133ffb111ebb/main.m3u8"
+    },
+    {
+      "id": "live_ch_777",
+      "name": "TV9 Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9kanmo6oiq/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_779",
+      "name": "TV5 Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlTV5KANNADA/index.m3u8"
+    },
+    {
+      "id": "live_ch_780",
+      "name": "Power TV",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://powertvkannada.com/hls/stream.m3u8"
+    },
+    {
+      "id": "live_ch_781",
+      "name": "Raj News Kannada",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HRAJNEWSKANDA/index.m3u8"
+    },
+    {
+      "id": "live_ch_782",
+      "name": "Sangeet Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1143/master.m3u8"
+    },
+    {
+      "id": "live_ch_783",
+      "name": "Enterr 10 Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://live-bangla.akamaized.net/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_784",
+      "name": "Khushboo Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1473/master.m3u8"
+    },
+    {
+      "id": "live_ch_785",
+      "name": "Republic Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/main.m3u8"
+    },
+    {
+      "id": "live_ch_786",
+      "name": "Rongeen TV",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8"
+    },
+    {
+      "id": "live_ch_787",
+      "name": "Dhoom Music",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://cdn-1.pishow.tv/live/1456/master.m3u8"
+    },
+    {
+      "id": "live_ch_789",
+      "name": "Star Maa HD",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:starmaa1.smil/chunklist_b2628000.m3u8"
+    },
+    {
+      "id": "live_ch_790",
+      "name": "Asianet HD",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/AsianetHD.m3u8"
+    },
+    {
+      "id": "live_ch_791",
+      "name": "Star Maa Movies HD",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:maamovies.smil/chunklist_b2628000.m3u8"
+    },
+    {
+      "id": "live_ch_792",
+      "name": "Star Jalsha HD",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:starjalsha.smil/chunklist_b1928000.m3u8"
+    },
+    {
+      "id": "live_ch_793",
+      "name": "TV9 Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_794",
+      "name": "Kalinga TV",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3KALINGATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_795",
+      "name": "Prameya News7",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HPRAMEYANEWS7/index.m3u8"
+    },
+    {
+      "id": "live_ch_796",
+      "name": "Star Pravah HD",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:starpravah.smil/chunklist_b1928000.m3u8"
+    },
+    {
+      "id": "live_ch_797",
+      "name": "Odisha TV",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://livetv.tarangplus.in/otv-origin/live/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_798",
+      "name": "Rengoni",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://streams.tangotv.in/RENGONI/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_799",
+      "name": "Spondon",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://nktv.smartstream.video/smartstream-us/spondon/spondon/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_800",
+      "name": "Rang",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1499/master.m3u8"
+    },
+    {
+      "id": "live_ch_801",
+      "name": "Ramdhenu",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://cdn-7.pishow.tv/live/10016/master.m3u8"
+    },
+    {
+      "id": "live_ch_802",
+      "name": "News Live",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://mumt06.tangotv.in/qYyB8fXVINDRADHANU/index.m3u8"
+    },
+    {
+      "id": "live_ch_803",
+      "name": "Nandighosha TV",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://mumt05.tangotv.in/87NeALx2NANDIGHOSHATV/index.m3u8"
+    },
+    {
+      "id": "live_ch_804",
+      "name": "Northeast Live",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://server.thelegitpro.in/northeastlive/northeastlive/index.fmp4.m3u8"
+    },
+    {
+      "id": "live_ch_805",
+      "name": "Tehzeeb TV",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://cdn-4.pishow.tv/live/239/master.m3u8"
+    },
+    {
+      "id": "live_ch_806",
+      "name": "Channel WIN",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://cdn-4.pishow.tv/live/229/master.m3u8"
+    },
+    {
+      "id": "live_ch_807",
+      "name": "Pratidin Time",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://server.thelegitpro.in/pratidintime/pratidintime/index.fmp4.m3u8"
+    },
+    {
+      "id": "live_ch_808",
+      "name": "Prag News",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://streams.tangotv.in/PRAGNEWS/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_809",
+      "name": "Assam Talks",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "http://tvsen7.aynascope.net/AssamTalks/index.m3u8"
+    },
+    {
+      "id": "live_ch_810",
+      "name": "Nepal 1",
+      "detected_language": "Nepali",
+      "reason": "Nepali language channel",
+      "url": "https://mumt05.tangotv.in/87NeALx2NEPAL1/index.m3u8"
+    },
+    {
+      "id": "live_ch_811",
+      "name": "Hornbill TV",
+      "detected_language": "Assamese/NE",
+      "reason": "North-East regional channel",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3HORNBILLTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_813",
+      "name": "Salaam TV",
+      "detected_language": "Urdu/Kashmiri",
+      "reason": "Urdu / Kashmiri channel",
+      "url": "https://d2o3r1shda7xvv.cloudfront.net/index_5.m3u8"
+    },
+    {
+      "id": "live_ch_814",
+      "name": "Rupasi Bangla",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://cdn-4.pishow.tv/live/1039/master.m3u8"
+    },
+    {
+      "id": "live_ch_817",
+      "name": "Zee 24 Ghanta",
+      "detected_language": "Bengali",
+      "reason": "Bengali regional channel",
+      "url": "https://tvsen6.aynaott.com/DpPnXP9r/index.m3u8"
+    },
+    {
+      "id": "live_ch_821",
+      "name": "Zee 24 Taas",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://dgrvlduwztkd4.cloudfront.net/index_5.m3u8"
+    },
+    {
+      "id": "live_ch_822",
+      "name": "Win TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt06.tangotv.in/qYyB8fXVWINTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_825",
+      "name": "Kairali We",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://streams.tangotv.in/WETV/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_826",
+      "name": "Vaanavil TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://6n3yope4d9ok-hls-live.5centscdn.com/vaanavil/TV.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_827",
+      "name": "SVBC",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_828",
+      "name": "Velicham TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt05.tangotv.in/87NeALx2VALICHAMPLUS/index.m3u8"
+    },
+    {
+      "id": "live_ch_829",
+      "name": "T News",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://amg13737-amg13737c1-amgplt0016.playout.now3.amagi.tv/playlist/amg13737-amg13737c1-amgplt0016/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_830",
+      "name": "Vendhar TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4VENDHARTV/index.m3u8"
+    },
+    {
+      "id": "live_ch_831",
+      "name": "Thanthi TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://streams.tangotv.in/THANTHITV/ORIGIN/index.m3u8"
+    },
+    {
+      "id": "live_ch_832",
+      "name": "Tamilan TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt04.tangotv.in/m18aqlK4TAMILANTELEVISION/index.m3u8"
+    },
+    {
+      "id": "live_ch_834",
+      "name": "Sankara TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://mumt05.tangotv.in/87NeALx2SRISANKARA/index.m3u8"
+    },
+    {
+      "id": "live_ch_835",
+      "name": "SVBC 3",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://player.mslivestream.net/svbc/2e628d7e1b65d31254fd7705ff7ee64d.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_836",
+      "name": "Subhavaartha TV",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://2mk9qae4rwyb-hls-live.wmncdn.net/shubhavartha/live.stream/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_837",
+      "name": "Zodiak TV",
+      "detected_language": "Odia",
+      "reason": "Odia regional channel",
+      "url": "https://ranacable.duckdns.org/ZodiakTv/index.m3u8"
+    },
+    {
+      "id": "live_ch_838",
+      "name": "Suvarna News",
+      "detected_language": "Kannada",
+      "reason": "Kannada regional channel",
+      "url": "https://asianetnews.vgcdn.net/vglive-sk-335835/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_840",
+      "name": "SVBC 4",
+      "detected_language": "Telugu",
+      "reason": "Telugu regional channel",
+      "url": "https://player.mslivestream.net/mslive/13a2927187b9700ae7ea82d7841d5b68.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_841",
+      "name": "SVBC 2",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://player.mslivestream.net/tamil/ac206e74d75b285755ee4924df87d951.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_843",
+      "name": "Shekinah TV",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://livetv.timeiptv.in/ShekinahNewsIndia/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8"
+    },
+    {
+      "id": "live_ch_846",
+      "name": "YET Max",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://live.yettelevision.com:5443/LiveApp/streams/yettv2.m3u8"
+    },
+    {
+      "id": "live_ch_847",
+      "name": "YET TV",
+      "detected_language": "Tamil",
+      "reason": "Tamil regional channel",
+      "url": "https://live.yettelevision.com:5443/LiveApp/streams/yettv.m3u8"
+    },
+    {
+      "id": "live_ch_849",
+      "name": "Shalom",
+      "detected_language": "Malayalam",
+      "reason": "Malayalam regional channel",
+      "url": "https://d2c4zqo2rb5uf1.cloudfront.net/master.m3u8"
+    },
+    {
+      "id": "live_ch_850",
+      "name": "Shemaroo Marathi Bana",
+      "detected_language": "Marathi",
+      "reason": "Marathi regional channel",
+      "url": "https://mumt07.tangotv.in/zHjX9OFlSHEMAROOMARATHIBANA/index.m3u8"
+    }
+  ],
+  "removed_dead_channels": [
+    {
+      "id": "disney-channel-hindi-hd",
+      "name": "Disney Channel HD (Hindi)",
+      "language": "Hindi",
+      "url": "",
+      "failure_reason": "EMPTY_URL",
+      "http_status": 0
+    },
+    {
+      "id": "animal-planet-hindi-hd",
+      "name": "Animal Planet HD (Hindi)",
+      "language": "Hindi",
+      "url": "",
+      "failure_reason": "EMPTY_URL",
+      "http_status": 0
+    },
+    {
+      "id": "discovery-channel-hindi-hd",
+      "name": "Discovery Channel HD (Hindi)",
+      "language": "Hindi",
+      "url": "",
+      "failure_reason": "EMPTY_URL",
+      "http_status": 0
+    },
+    {
+      "id": "disney-junior-hd",
+      "name": "Disney Junior HD (Family & Kids)",
+      "language": "Hindi",
+      "url": "http://23.237.104.106:8080/USA_DISNEY_JUNIOR/index.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "super-hungama-hindi",
+      "name": "Super Hungama (Hindi)",
+      "language": "Hindi",
+      "url": "http://103.185.24.134:3001/SUPER-HUNGAMA/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "transformers-tv-247",
+      "name": "Transformers Animated 24/7",
+      "language": "Hindi",
+      "url": "https://jmp2.uk/plu-63da36dea995710008727d4d.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_19",
+      "name": "&TV International",
+      "language": "Hindi",
+      "url": "https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8",
+      "failure_reason": "INVALID_MANIFEST_NO_EXTM3U",
+      "http_status": 200
+    },
+    {
+      "id": "live_ch_20",
+      "name": "Colors HD",
+      "language": "Hindi",
+      "url": "http://59.103.38.46:8000/play/a00b/index.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "nasa-tv-uhd",
+      "name": "NASA TV HD (Space)",
+      "language": "English",
+      "url": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "pokemon-tv-247",
+      "name": "Pok\u00e9mon TV Live 24/7",
+      "language": "Hindi",
+      "url": "https://jmp2.uk/plu-6683cd71a1d7ad000866ec6a.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_40",
+      "name": "DD Kisan",
+      "language": "Hindi",
+      "url": "https://cdn-6.pishow.tv/live/9/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_45",
+      "name": "Aryan TV National",
+      "language": "Hindi",
+      "url": "https://mumt04.tangotv.in/m18aqlK4ARYANTVNATIONAL/index.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_39",
+      "name": "Anjan TV",
+      "language": "Hindi",
+      "url": "https://anjan.vstream.online/anjanorg/ngrp:anjan_hdall/playlist.m3u8",
+      "failure_reason": "TIMEOUT",
+      "http_status": 0
+    },
+    {
+      "id": "spongebob-247",
+      "name": "SpongeBob SquarePants 24/7",
+      "language": "Hindi",
+      "url": "https://jmp2.uk/plu-63f87d057533d80008ab9549.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "ninja-turtles-247",
+      "name": "Teenage Mutant Ninja Turtles 24/7",
+      "language": "Hindi",
+      "url": "https://jmp2.uk/plu-62619405c733e8000732d1fe.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_63",
+      "name": "Manoranjan Grand",
+      "language": "Hindi",
+      "url": "https://cdn-1.pishow.tv/live/1011/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_64",
+      "name": "DD National SD",
+      "language": "Hindi",
+      "url": "https://cdn-1.pishow.tv/live/11/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_65",
+      "name": "DD Uttar Pradesh",
+      "language": "Hindi",
+      "url": "https://cdn-1.pishow.tv/live/36/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_43",
+      "name": "Adhyatm TV",
+      "language": "Hindi",
+      "url": "https://mumbai-edge.smartplaytv.in/AdhyatmTV/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_42",
+      "name": "22Scope News",
+      "language": "Hindi",
+      "url": "https://thelegitpro.in/HDlive/22scope/index.fmp4.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_49",
+      "name": "Khabar Fast",
+      "language": "Hindi",
+      "url": "https://mumt04.tangotv.in/m18aqlK4KHABARFAST/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_74",
+      "name": "Republic Bharat",
+      "language": "Hindi",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicBharat.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_51",
+      "name": "Jantantra TV",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2JANTANTRA/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_44",
+      "name": "ANB News",
+      "language": "Hindi",
+      "url": "https://server.livelegitpro.in:9899/anbnews/anbnews/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_52",
+      "name": "Andy Haryana",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HANDYHARYANA/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_54",
+      "name": "Khabrain Abhi Tak",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2KHABRAINABHITAK/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_55",
+      "name": "Aadinath TV",
+      "language": "Hindi",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3AADINATHTV/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_66",
+      "name": "DD Madhya Pradesh",
+      "language": "Hindi",
+      "url": "https://cdn-1.pishow.tv/live/31/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_67",
+      "name": "Dharm Sandesh",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/1455/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_68",
+      "name": "DD Chhattisgarh",
+      "language": "Hindi",
+      "url": "https://cdn-1.pishow.tv/live/15/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_71",
+      "name": "DD Rajasthan",
+      "language": "Hindi",
+      "url": "https://cdn-1.pishow.tv/live/34/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_70",
+      "name": "B4U Music",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/415/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_58",
+      "name": "Darshan 24",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2DARSHAN24/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_59",
+      "name": "Bharat24",
+      "language": "Hindi",
+      "url": "https://cdn.ottlive.co.in/bharat24/index.fmp4.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_117",
+      "name": "StarPlus HD (1080i)",
+      "language": "Hindi",
+      "url": "http://202.70.146.135:8000/play/a009/index.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_118",
+      "name": "Sony Max 1",
+      "language": "Hindi",
+      "url": "http://103.159.180.34:5001/live/3418.m3u8",
+      "failure_reason": "CONNECTION_REFUSED",
+      "http_status": 0
+    },
+    {
+      "id": "live_ch_61",
+      "name": "IBC 24",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2IBC24/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_60",
+      "name": "Bharat Samachar",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HBHARATSAMACHAR/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_62",
+      "name": "Awakening TV",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HAWAKENINGTV/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_103",
+      "name": "Goldmines 2",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/1460/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_108",
+      "name": "DD Bihar",
+      "language": "Hindi",
+      "url": "https://cdn-4.pishow.tv/live/35/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_114",
+      "name": "DD Uttarakhand",
+      "language": "Hindi",
+      "url": "https://cdn-1.pishow.tv/live/17/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_116",
+      "name": "Gyandarshan",
+      "language": "Hindi",
+      "url": "https://cdn-6.pishow.tv/live/14/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_119",
+      "name": "Jinvani Channel",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/989/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_122",
+      "name": "Maha Movie",
+      "language": "Hindi",
+      "url": "https://cdn-6.pishow.tv/live/10007/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_144",
+      "name": "Unite8 Sports 1",
+      "language": "Hindi",
+      "url": "http://59.103.38.46:8000/play/a125/index.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_91",
+      "name": "First India News",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3H1STINDIANEWS/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_136",
+      "name": "Ind 24",
+      "language": "Hindi",
+      "url": "https://mumt06.tangotv.in/qYyB8fXVIND24/index.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_115",
+      "name": "God Stands TV Hindi",
+      "language": "Hindi",
+      "url": "https://online.godstands.tv:5443/WebRTCApp/streams/HindiStreaming.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_123",
+      "name": "HNN 24x7",
+      "language": "Hindi",
+      "url": "https://ott.livelegitpro.in:9899/hnnnews/hnnnews/tracks-v1/index.fmp4.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_109",
+      "name": "Cnews Bharat",
+      "language": "Hindi",
+      "url": "https://legitpro.co.in/cnews/cnews/index.fmp4.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_110",
+      "name": "Bhakti Sagar",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2BHAKTISAGAR/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_146",
+      "name": "Hyder TV",
+      "language": "Hindi",
+      "url": "https://cdn.live247stream.com/hyder/tv/playlist.m3u8",
+      "failure_reason": "NETWORK_ERROR_ConnectionResetError",
+      "http_status": 0
+    },
+    {
+      "id": "live_ch_151",
+      "name": "Music India [Not 24/7]",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/226/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "9x-jalwa",
+      "name": "9X Jalwa Classic Hits HD",
+      "language": "Hindi",
+      "url": "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8",
+      "failure_reason": "DEAD_SEGMENT_NETWORK_ERROR_gaierror",
+      "http_status": 0
+    },
+    {
+      "id": "live_ch_2",
+      "name": "9X Jalwa",
+      "language": "Hindi",
+      "url": "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8",
+      "failure_reason": "DEAD_SEGMENT_NETWORK_ERROR_gaierror",
+      "http_status": 0
+    },
+    {
+      "id": "live_ch_120",
+      "name": "Kashish News",
+      "language": "Hindi",
+      "url": "https://server.thelegitpro.in/kashishnews/kashishnews/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_125",
+      "name": "Star Sports 2 HD",
+      "language": "Hindi",
+      "url": "http://tvsen5.aynascope.net/cXPB2LKkErN9/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_201",
+      "name": "News Daily 24",
+      "language": "Hindi",
+      "url": "https://cdn-6.pishow.tv/live/10009/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_202",
+      "name": "News India 24x7",
+      "language": "Hindi",
+      "url": "https://cdn-3.pishow.tv/live/273/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_223",
+      "name": "Santvani Channel",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/475/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_241",
+      "name": "Subharti TV",
+      "language": "Hindi",
+      "url": "https://mumt04.tangotv.in/m18aqlK4SUBHARTITV/index.m3u8",
+      "failure_reason": "EXCEPTION_TimeoutError",
+      "http_status": 0
+    },
+    {
+      "id": "live_ch_246",
+      "name": "Swaraj Express SMBC [Not 24/7]",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/477/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_240",
+      "name": "Sudarshan News",
+      "language": "Hindi",
+      "url": "https://ott.livelegitpro.in/sudarshannews/sudarshannews/tracks-v1/index.fmp4.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_212",
+      "name": "Sadhna TV",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2SADHNATV/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_282",
+      "name": "ET Now Swadesh",
+      "language": "Hindi",
+      "url": "https://d32gxr3r1ksq2p.cloudfront.net/master.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_232",
+      "name": "Soham TV",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HSOHAMTV/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_295",
+      "name": "History TV18 HD",
+      "language": "Hindi",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/HistoryTV18HD.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_261",
+      "name": "Swadesh News",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/465/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_266",
+      "name": "Total TV Haryana",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/1522/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_255",
+      "name": "Sony Pix HD [Geo-blocked]",
+      "language": "Hindi",
+      "url": "https://sl.vodep39240327.workers.dev/channel/SONY+PIX+HD.m3u8",
+      "failure_reason": "INVALID_MANIFEST_NO_EXTM3U",
+      "http_status": 200
+    },
+    {
+      "id": "live_ch_254",
+      "name": "Sony Wah [Geo-blocked]",
+      "language": "Hindi",
+      "url": "https://sl.vodep39240327.workers.dev/channel/SONY+WAH.m3u8",
+      "failure_reason": "INVALID_MANIFEST_NO_EXTM3U",
+      "http_status": 200
+    },
+    {
+      "id": "live_ch_361",
+      "name": "NDTV 24x7",
+      "language": "English",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/NDTV24x7.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_416",
+      "http_status": 416
+    },
+    {
+      "id": "live_ch_325",
+      "name": "B4U Kadak",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/227/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_326",
+      "name": "B4U Movies",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/419/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_196",
+      "name": "AmarUjala",
+      "language": "Hindi",
+      "url": "https://amarujala.ottlive.co.in/amarujala/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_278",
+      "name": "Vedic",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2VEDIC/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_279",
+      "name": "TBN TV [Not 24/7]",
+      "language": "Hindi",
+      "url": "https://live.suricloud.com/hls/tbntv/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_289",
+      "name": "7S Music",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3H7SMUSIC/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_305",
+      "name": "Aastha Bhajan",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2AASTHABHAJAN/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_401",
+      "name": "EET TV [Not 24/7]",
+      "language": "Hindi",
+      "url": "https://live.streamjo.com/eetlive/eettv.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_456",
+      "name": "Republic Bharat [Geo-blocked]",
+      "language": "Hindi",
+      "url": "https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-275673/main.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_504",
+      "http_status": 504
+    },
+    {
+      "id": "live_ch_331",
+      "name": "Brio TV",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HBRIOTV/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_393",
+      "name": "Goldmines Bollywood",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESBOLLYWOOD/tracks-v2a1/mono.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_397",
+      "name": "Gospel TV India",
+      "language": "Hindi",
+      "url": "https://server.livelegitpro.in:9899/gospeltv/index.m3u8",
+      "failure_reason": "EXCEPTION_TimeoutError",
+      "http_status": 0
+    },
+    {
+      "id": "live_ch_432",
+      "name": "Kashish News",
+      "language": "Hindi",
+      "url": "https://cdn-7.pishow.tv/live/1471/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_512",
+      "name": "Times Now [Geo-blocked]",
+      "language": "Hindi",
+      "url": "https://pubads.g.doubleclick.net/ssai/event/1mR1QUQ3Tg-VuKfiyjwNuA/master.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_392",
+      "name": "Goldmines Bollywood",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESBOLLYWOOD/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_522",
+      "name": "Unite8 Sports 2",
+      "language": "Hindi",
+      "url": "http://59.103.38.46:8000/play/a126/index.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_409",
+      "name": "India Ahead",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2INDIAAHEAD/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_488",
+      "name": "NTC TV",
+      "language": "Hindi",
+      "url": "https://galaxyott.live/hls/ntv.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_542",
+      "name": "Republic Bharat",
+      "language": "Hindi",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/RepublicBharat.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_571",
+      "name": "Zee Cinema APAC",
+      "language": "Hindi",
+      "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ZeeCinemaAPAC.m3u8",
+      "failure_reason": "VARIANT_FETCH_FAILED_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_405",
+      "name": "Hi Dost!",
+      "language": "Hindi",
+      "url": "https://cdn-1.pishow.tv/live/224/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_561",
+      "name": "Sairam TV",
+      "language": "Hindi",
+      "url": "https://cdn-3.pishow.tv/live/1611/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_496",
+      "name": "Pratham Khabar 24x7",
+      "language": "Hindi",
+      "url": "https://livelegitpro.in/hls2/newstime/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_458",
+      "name": "Manoranjan Prime",
+      "language": "Hindi",
+      "url": "https://mumt06.tangotv.in/qYyB8fXVMANORANJANPRIME/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_471",
+      "name": "News 24",
+      "language": "Hindi",
+      "url": "https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_475",
+      "name": "News 24",
+      "language": "Hindi",
+      "url": "https://vidcdn.vidgyor.com/news24-origin/liveabr/playlist.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_593",
+      "name": "Sana Plus [Not 24/7]",
+      "language": "Hindi",
+      "url": "https://galaxyott.live/hls/sanaplus.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_614",
+      "name": "Swatantra TV",
+      "language": "Hindi",
+      "url": "https://mumbai-edge.smartplaytv.in/SwatantraTV/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_554",
+      "name": "Sai TV",
+      "language": "Hindi",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HSAITV/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_609",
+      "name": "Sudarshan News",
+      "language": "Hindi",
+      "url": "https://ott.livelegitpro.in/sudarshannews/sudarshannews/tracks-v1/index.fmp4.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_610",
+      "name": "Subin TV",
+      "language": "Hindi",
+      "url": "https://stream.galaxyott.live/live/subintv/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_578",
+      "name": "India Ahead",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2INDIAAHEAD/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_625",
+      "name": "Unique TV",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2UNIQUETV/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_648",
+      "name": "Manoranjan Prime",
+      "language": "Hindi",
+      "url": "https://mumt06.tangotv.in/qYyB8fXVMANORANJANPRIME/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "al-jazeera-en",
+      "name": "Al Jazeera World News HD",
+      "language": "English",
+      "url": "https://live-hls-web-aje.getaj.net/AJE/03.m3u8",
+      "failure_reason": "NETWORK_ERROR_gaierror",
+      "http_status": 0
+    },
+    {
+      "id": "live_ch_655",
+      "name": "Manoranjan Movies",
+      "language": "Hindi",
+      "url": "https://mumt04.tangotv.in/m18aqlK4MANORANJANMOVIES/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_675",
+      "name": "Public First",
+      "language": "Hindi",
+      "url": "https://mumt06.tangotv.in/qYyB8fXVPUBLICFIRST/index.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_630",
+      "name": "Village TV",
+      "language": "Hindi",
+      "url": "https://live.villagetv.net/villagetv/hd/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_656",
+      "name": "Music India",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/226/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_659",
+      "name": "B4U Music",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/415/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_669",
+      "name": "Swaraj Express SMBC",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/477/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_677",
+      "name": "NewsX World",
+      "language": "English",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HNEWSXWORLD/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_678",
+      "name": "Aastha SD",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2AASTHA/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_815",
+      "name": "Goldmines Bollywood",
+      "language": "Hindi",
+      "url": "https://tvsen6.aynaott.com/55xNrLdf/index.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_671",
+      "name": "ANB News",
+      "language": "Hindi",
+      "url": "https://server.livelegitpro.in:9899/anbnews/anbnews/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_673",
+      "name": "IBC 24",
+      "language": "Hindi",
+      "url": "https://mumt05.tangotv.in/87NeALx2IBC24/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_819",
+      "name": "Village TV",
+      "language": "Hindi",
+      "url": "https://live.villagetv.net/villagetv/hd/index.m3u8",
+      "failure_reason": "DEAD_SEGMENT_HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_818",
+      "name": "B4U Music",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/415/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_833",
+      "name": "Swadesh News",
+      "language": "Hindi",
+      "url": "https://cdn-2.pishow.tv/live/465/master.m3u8",
+      "failure_reason": "HTTP_404",
+      "http_status": 404
+    },
+    {
+      "id": "live_ch_812",
+      "name": "9X Jalwa",
+      "language": "Hindi",
+      "url": "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8",
+      "failure_reason": "DEAD_SEGMENT_NETWORK_ERROR_gaierror",
+      "http_status": 0
+    },
+    {
+      "id": "live_ch_288",
+      "name": "9X Jalwa",
+      "language": "Hindi",
+      "url": "https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8",
+      "failure_reason": "DEAD_SEGMENT_NETWORK_ERROR_gaierror",
+      "http_status": 0
+    }
+  ],
+  "final_catalog_summary": [
+    {
+      "id": "colors-hd-hindi",
+      "name": "Colors HD (Hindi)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "kartoon-channel-hd",
+      "name": "Kartoon Channel HD Live",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "nickelodeon-hindi-hd",
+      "name": "Nickelodeon (Hindi)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "lego-channel-hd",
+      "name": "The LEGO Channel HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "9xm-hd",
+      "name": "9XM Bollywood Music HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MOVIES"
+    },
+    {
+      "id": "cartoon-network-hindi-hd",
+      "name": "Cartoon Network HD (Hindi Dubbed)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "CARTOONS"
+    },
+    {
+      "id": "disney-xd-hd",
+      "name": "Disney XD HD (Action & Toons)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "CARTOONS"
+    },
+    {
+      "id": "etv-bal-bharat-hindi",
+      "name": "ETV Bal Bharat (Hindi)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "CARTOONS"
+    },
+    {
+      "id": "happykids-hd",
+      "name": "HappyKids Toons & Movies HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "CARTOONS"
+    },
+    {
+      "id": "hungama-tv-hindi",
+      "name": "Hungama TV (Hindi)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "CARTOONS"
+    },
+    {
+      "id": "nickelodeon-hd",
+      "name": "Nickelodeon Toons (Hindi)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "CARTOONS"
+    },
+    {
+      "id": "sonic-nickelodeon-hindi",
+      "name": "Sonic Nickelodeon (Hindi)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "CARTOONS"
+    },
+    {
+      "id": "tom-and-jerry-hd",
+      "name": "Tom and Jerry Classic Toons HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "CARTOONS"
+    },
+    {
+      "id": "moonbug-kids-hd",
+      "name": "Moonbug Kids HD (CoComelon & Blippi)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "KIDS"
+    },
+    {
+      "id": "nick-jr-hd",
+      "name": "Nick Jr. (Hindi & English)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "KIDS"
+    },
+    {
+      "id": "aajtak-hd",
+      "name": "Aaj Tak HD Live",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "dw-english",
+      "name": "DW News HD (Germany)",
+      "type": "tv",
+      "language": "English",
+      "category": "NEWS"
+    },
+    {
+      "id": "ndtv-india",
+      "name": "NDTV India HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "natgeo-hindi-hd",
+      "name": "National Geographic HD (Hindi & English)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "INFOTAINMENT"
+    },
+    {
+      "id": "sony-bbc-earth-hindi-hd",
+      "name": "Sony BBC Earth HD (Hindi)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "INFOTAINMENT"
+    },
+    {
+      "id": "tlc-hindi-hd",
+      "name": "TLC HD (Hindi Lifestyle)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "INFOTAINMENT"
+    },
+    {
+      "id": "live_ch_100",
+      "name": "ABN TV India",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_12",
+      "name": "ABP Ganga",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_57",
+      "name": "APN",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_723",
+      "name": "APN",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_647",
+      "name": "Anjan TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_26",
+      "name": "Awaaz India TV [Not 24/7]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_328",
+      "name": "BT TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_666",
+      "name": "Bharat24",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_342",
+      "name": "CCV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_14",
+      "name": "CNBC Awaaz",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_233",
+      "name": "CNBC TV18",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_236",
+      "name": "CNBC TV18 Prime HD",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_84",
+      "name": "Channel Y [Not 24/7]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_15",
+      "name": "Colors MENA HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_21",
+      "name": "Colors Rishtey Americas",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_5",
+      "name": "DD Haryana",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_8",
+      "name": "DD Himachal Pradesh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_251",
+      "name": "DD India",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_679",
+      "name": "DD India",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_9",
+      "name": "DD Jharkhand",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_349",
+      "name": "DD Jharkhand",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_6",
+      "name": "DD National HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_351",
+      "name": "DD National HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_643",
+      "name": "DD National HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_11",
+      "name": "DD Sports SD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_245",
+      "name": "Dangal 2",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_637",
+      "name": "Dangal 2",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_248",
+      "name": "Dangal TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_639",
+      "name": "Dangal TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_106",
+      "name": "Diya TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_268",
+      "name": "DocuBay TV",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_47",
+      "name": "E 24",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_260",
+      "name": "ET Now [Geo-blocked]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_644",
+      "name": "Epic Bharat",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_82",
+      "name": "Epic Bharat Digital",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_773",
+      "name": "Epic Bharat Digital",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_24",
+      "name": "Epic Crimes",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_90",
+      "name": "Epic Kids Digital",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_38",
+      "name": "Epic TV Digital",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_88",
+      "name": "Food Food",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_98",
+      "name": "Gangaur TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_394",
+      "name": "Gangaur TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_649",
+      "name": "Gangaur TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_646",
+      "name": "Goldmines",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_35",
+      "name": "Hare Krsna TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_284",
+      "name": "Hare Krsna TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_684",
+      "name": "Hare Krsna TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_421",
+      "name": "Harvest TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_427",
+      "name": "Harvest USA",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_297",
+      "name": "Hebron TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_46",
+      "name": "Hindi Khabar",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_292",
+      "name": "Hindi Khabar",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_683",
+      "name": "Hope Channel India",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_788",
+      "name": "Hosanna TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_842",
+      "name": "Hosanna TV Global",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_128",
+      "name": "Hosanna TV Hindi",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_29",
+      "name": "INH 24x7",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_429",
+      "name": "INH 24x7",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_135",
+      "name": "India Daily Live",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_31",
+      "name": "India TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_412",
+      "name": "India TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_665",
+      "name": "India TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_34",
+      "name": "India TV Aap Ki Adalat [Geo-blocked]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_313",
+      "name": "India Today",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_407",
+      "name": "India Today",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_315",
+      "name": "India Today [Geo-blocked]",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_308",
+      "name": "India Today [Not 24/7]",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_28",
+      "name": "India Voice",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_660",
+      "name": "Insync",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_734",
+      "name": "Insync",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_332",
+      "name": "JTBS Classic",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_30",
+      "name": "Jan TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_33",
+      "name": "Janta TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_730",
+      "name": "Jantantra TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_337",
+      "name": "Joy TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_327",
+      "name": "Khabrain Abhi Tak",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_336",
+      "name": "Life TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_36",
+      "name": "Lighting Lives Blessing Nations TV South Asia (LLBN)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_37",
+      "name": "MTV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_641",
+      "name": "Manoranjan Grand",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_642",
+      "name": "Manoranjan TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_365",
+      "name": "Mirror Now",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_373",
+      "name": "Mirror Now",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_474",
+      "name": "NK TV 24x7",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_204",
+      "name": "Network 10",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_399",
+      "name": "Network 10",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_726",
+      "name": "Network 10",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_816",
+      "name": "Network 10",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_395",
+      "name": "Nick HD+ (India)",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_713",
+      "name": "OM TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_206",
+      "name": "Paras Gold",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_400",
+      "name": "Pasand TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_490",
+      "name": "Pasand TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_489",
+      "name": "Pear TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_459",
+      "name": "RT India",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_208",
+      "name": "Raftaar Media",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_525",
+      "name": "Raftaar Media",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_564",
+      "name": "Sai TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_714",
+      "name": "Sai TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_598",
+      "name": "Salvation TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_586",
+      "name": "Sana Plus",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_479",
+      "name": "Sana TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_209",
+      "name": "Sansad TV 1",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_87",
+      "name": "Sansad TV 1 HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_86",
+      "name": "Sansad TV 2",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_221",
+      "name": "Sansad TV 2",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_592",
+      "name": "Sansad TV 2",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_92",
+      "name": "Satsang TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_95",
+      "name": "Satsang Web TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_222",
+      "name": "Sharnam TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_594",
+      "name": "Shemaroo Filmi Gaane",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_472",
+      "name": "Shemaroo Josh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_645",
+      "name": "Shemaroo Josh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_102",
+      "name": "Shemaroo TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_638",
+      "name": "Shemaroo TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_105",
+      "name": "Shemaroo Umang",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_640",
+      "name": "Shemaroo Umang",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_104",
+      "name": "Shubh TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_844",
+      "name": "Shubh TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_599",
+      "name": "Shubhsandesh TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_848",
+      "name": "Shubhsandesh TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_249",
+      "name": "Shubhsandesh TV [Not 24/7]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_111",
+      "name": "Sony Entertainment Television HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_250",
+      "name": "Sony KAL Hindi",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_113",
+      "name": "South Station",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_606",
+      "name": "Star Family [Not 24/7]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_604",
+      "name": "Star Sports 2 HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_243",
+      "name": "Star Sports 2 Hindi",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_603",
+      "name": "Star Sports Select 2 HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_611",
+      "name": "Starnet",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_839",
+      "name": "Studio One +",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_732",
+      "name": "Subharti TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_263",
+      "name": "TAG TV [Not 24/7]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_535",
+      "name": "TOI Global",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_138",
+      "name": "TV9 Bharatvarsh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_518",
+      "name": "TV9 Bharatvarsh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_662",
+      "name": "TV9 Bharatvarsh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_124",
+      "name": "Taaza TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_262",
+      "name": "The Movie Club",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_259",
+      "name": "The Movie Club +2",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_127",
+      "name": "Times Now Navbharat",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_661",
+      "name": "Times Now Navbharat",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_505",
+      "name": "Times Now Navbharat [Geo-blocked]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_130",
+      "name": "Times Now [Geo-blocked]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_507",
+      "name": "Total TV Haryana",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_137",
+      "name": "Travelxp 4K HDR [Geo-blocked]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_132",
+      "name": "Travelxp HD [Geo-blocked]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_140",
+      "name": "Utsav Bharat",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_139",
+      "name": "Utsav Plus",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_636",
+      "name": "VCV [Not 24/7]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_551",
+      "name": "Vedic",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_553",
+      "name": "Vijay Takkar APAC",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_534",
+      "name": "Vision",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_628",
+      "name": "Vyas NIC",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_543",
+      "name": "WION",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_544",
+      "name": "WION",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_545",
+      "name": "WION",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_546",
+      "name": "WION",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_547",
+      "name": "WION",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_548",
+      "name": "WION",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_557",
+      "name": "WION",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_559",
+      "name": "WION (Adaptive)",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_148",
+      "name": "WOW Kidz",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_765",
+      "name": "WOW Kidz",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_154",
+      "name": "Weatherspy",
+      "type": "tv",
+      "language": "English",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_155",
+      "name": "Zee Bharat",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_820",
+      "name": "Zee Bharat",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_569",
+      "name": "Zee Bihar Jharkhand",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_565",
+      "name": "Zee Bihar Jharkhand",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_153",
+      "name": "Zee Business",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_563",
+      "name": "Zee Business",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_156",
+      "name": "Zee Cine Classic",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_157",
+      "name": "Zee Comedy Nation",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_162",
+      "name": "Zee Delhi NCR Haryana",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_158",
+      "name": "Zee Dil Se",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_163",
+      "name": "Zee Horror Nights",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_164",
+      "name": "Zee Madhya Pradesh Chhattisgarh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_166",
+      "name": "Zee Rajasthan",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_170",
+      "name": "Zee South Flix",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_159",
+      "name": "Zee Uttar Pradesh/Uttarakhand",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_824",
+      "name": "Zee Uttar Pradesh/Uttarakhand",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_168",
+      "name": "Zoom",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_582",
+      "name": "Zoom",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": "live_ch_654",
+      "name": "B4U Kadak",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MOVIES"
+    },
+    {
+      "id": "live_ch_653",
+      "name": "B4U Movies",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MOVIES"
+    },
+    {
+      "id": "live_ch_650",
+      "name": "Goldmines Bollywood",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MOVIES"
+    },
+    {
+      "id": "live_ch_651",
+      "name": "Goldmines Movies",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MOVIES"
+    },
+    {
+      "id": "live_ch_134",
+      "name": "MBC Bollywood [Geo-blocked]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MOVIES"
+    },
+    {
+      "id": "live_ch_101",
+      "name": "Shubh Cinema TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MOVIES"
+    },
+    {
+      "id": "live_ch_845",
+      "name": "Shubh Cinema TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MOVIES"
+    },
+    {
+      "id": "live_ch_16",
+      "name": "ABP News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_182",
+      "name": "ABP News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_171",
+      "name": "Aaj Tak",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_173",
+      "name": "Aaj Tak",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_294",
+      "name": "Aaj Tak",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_296",
+      "name": "Aaj Tak HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_107",
+      "name": "Bansal News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_672",
+      "name": "Bansal News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_724",
+      "name": "Bansal News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_226",
+      "name": "Bharat Express",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_330",
+      "name": "Bharat Express",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_670",
+      "name": "Bharat Express",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_220",
+      "name": "Bharat Samachar",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_224",
+      "name": "Bharat Samachar",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_56",
+      "name": "DD News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_355",
+      "name": "DD News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_10",
+      "name": "DD News HD",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_404",
+      "name": "First India News [Not 24/7]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_283",
+      "name": "GTC News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_27",
+      "name": "Good News Today",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_280",
+      "name": "Good News Today",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_411",
+      "name": "GoodNews TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_403",
+      "name": "Guarantee News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_778",
+      "name": "Guarantee News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_318",
+      "name": "High News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_32",
+      "name": "India TV Speed News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_408",
+      "name": "India TV Speed News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_725",
+      "name": "Kashish News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_364",
+      "name": "NDTV 24X7 [Not 24/7]",
+      "type": "tv",
+      "language": "English",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_121",
+      "name": "NDTV Good Times",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_362",
+      "name": "NDTV Good Times",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_363",
+      "name": "NDTV India",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_93",
+      "name": "NDTV Madhya Pradesh Chhattisgarh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_369",
+      "name": "NDTV Profit",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_368",
+      "name": "NDTV Profit",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_99",
+      "name": "NDTV Rajasthan",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_205",
+      "name": "News 1 India",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_374",
+      "name": "News 1 India",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_72",
+      "name": "News 11",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_234",
+      "name": "News 24",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_470",
+      "name": "News 24",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_667",
+      "name": "News 24",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_203",
+      "name": "News 24 MP & Chhattisgarh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_81",
+      "name": "News Nation",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_478",
+      "name": "News Nation",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_663",
+      "name": "News Nation",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_75",
+      "name": "News18 Bihar Jharkhand",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_76",
+      "name": "News18 Delhi NCR JK",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_77",
+      "name": "News18 India",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_78",
+      "name": "News18 Madhya Pradesh/Chhattisgarh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_73",
+      "name": "News18 Rajasthan",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_80",
+      "name": "News18 Uttar Pradesh Uttarakhand",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_381",
+      "name": "News9Live",
+      "type": "tv",
+      "language": "English",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_383",
+      "name": "News9Live",
+      "type": "tv",
+      "language": "English",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_676",
+      "name": "NewsX",
+      "type": "tv",
+      "language": "English",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_664",
+      "name": "Republic Bharat",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_211",
+      "name": "Sadhna News Madhya Pradesh/Chhattisgarh",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_242",
+      "name": "Sadhna Plus News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_491",
+      "name": "Sudarshan News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_668",
+      "name": "Sudarshan News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_731",
+      "name": "Swaraj Express SMBC",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_265",
+      "name": "TNP News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_382",
+      "name": "VIP News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_160",
+      "name": "Zee News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_572",
+      "name": "Zee News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_579",
+      "name": "Zee News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_823",
+      "name": "Zee News",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "live_ch_300",
+      "name": "History TV18 HD Hindi [Geo-blocked]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "INFOTAINMENT"
+    },
+    {
+      "id": "live_ch_309",
+      "name": "History TV18 HD [Geo-blocked]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "INFOTAINMENT"
+    },
+    {
+      "id": "live_ch_589",
+      "name": "9X Jalwa",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_133",
+      "name": "9XM",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_167",
+      "name": "9XM",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_169",
+      "name": "9XM",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_591",
+      "name": "9XM",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_658",
+      "name": "9XM",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_53",
+      "name": "Epic Music",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_657",
+      "name": "Epic Music",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_25",
+      "name": "Epic Music Digital",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_481",
+      "name": "Songdew TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_247",
+      "name": "Steelbird Music [Not 24/7]",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_165",
+      "name": "YRF Music",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "live_ch_22",
+      "name": "Aastha",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_312",
+      "name": "Aastha",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_177",
+      "name": "Aastha Bhajan",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_3",
+      "name": "Aastha Prime 1",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_141",
+      "name": "Ishwar Bhakti TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_415",
+      "name": "Ishwar Bhakti TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_682",
+      "name": "Ishwar Bhakti TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_83",
+      "name": "Peace of Mind TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_244",
+      "name": "Sadhna",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_94",
+      "name": "Sanskar TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_96",
+      "name": "Sanskar UK",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_97",
+      "name": "Sanskar USA",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_89",
+      "name": "Sanskar Web TV",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "live_ch_131",
+      "name": "Total Bhakti",
+      "type": "tv",
+      "language": "Hindi",
+      "category": "DEVOTIONAL"
+    },
+    {
+      "id": "air-live-news",
+      "name": "AIR Live News 24x7",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "NEWS"
+    },
+    {
+      "id": "bbc-world-service-en",
+      "name": "BBC World Service News (English)",
+      "type": "radio",
+      "language": "English",
+      "category": "NEWS"
+    },
+    {
+      "id": "air-gold-fm",
+      "name": "AIR FM Gold Delhi 106.4 FM",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "air-rainbow-fm",
+      "name": "AIR FM Rainbow Delhi 102.6 FM",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "air-vividh-bharati",
+      "name": "AIR Vividh Bharati 102.8 FM",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "mirchi-club-bollywood",
+      "name": "Radio Mirchi Club Bollywood",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "radio-mirchi-love",
+      "name": "Radio Mirchi Love Bollywood",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "radio-mirchi-meethi",
+      "name": "Radio Mirchi Meethi Mirchi",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "mirchi-retro-classics",
+      "name": "Radio Mirchi Retro Classics",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "bollywood-2000s-hits",
+      "name": "Bollywood 2000s Superhits Radio",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "dance-wave-radio",
+      "name": "Dance Wave English Hits",
+      "type": "radio",
+      "language": "English",
+      "category": "MUSIC"
+    },
+    {
+      "id": "fnf-hindi-radio",
+      "name": "FNF Hindi Radio Hits",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    },
+    {
+      "id": "radio-bollyfm-hd",
+      "name": "Radio BollyFM HD",
+      "type": "radio",
+      "language": "Hindi",
+      "category": "MUSIC"
+    }
+  ]
+}
