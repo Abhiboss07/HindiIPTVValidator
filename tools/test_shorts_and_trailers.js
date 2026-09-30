@@ -68,19 +68,45 @@ function startStaticServer(port = 8089) {
   await page.goto('http://127.0.0.1:8089/index.html', { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(1000);
 
-  // 1. Switch to Movies Page
-  console.log('Switching to Movies Page...');
+  // 1. Verify Home Page 4K Short Cinema Rail
+  console.log('Verifying Home Page 4K Short Cinema Rail...');
+  const homeShortsCount = await page.evaluate(() => {
+    const row = document.getElementById('homeShortsRow');
+    return row ? row.querySelectorAll('.theatrical-card').length : 0;
+  });
+  console.log(`✅ homeShortsRow populated with: ${homeShortsCount} titles`);
+  if (homeShortsCount === 0) throw new Error('homeShortsRow is empty!');
+  await page.screenshot({ path: '/home/abhiboss/.gemini/antigravity/brain/e8e871f2-e695-492a-ac55-e9c04e592021/playwright_home_shorts_row.png' });
+
+  // 2. Switch to Movies Page
+  console.log('Switching to Movies Page (Cinema Pavilion)...');
   await page.evaluate(() => window.switchPage('movies'));
   await page.waitForTimeout(1000);
 
-  // 2. Verify Shorts Row and Trailers Row
-  const shortsCount = await page.evaluate(() => {
-    const row = document.getElementById('moviesShortsRow');
-    return row ? row.querySelectorAll('.theatrical-card').length : 0;
+  // Verify dedicated Short Cinema Section on Cinema Page
+  const cinemaShortSection = await page.evaluate(() => {
+    const sec = document.getElementById('moviesShortCinemaSection');
+    const kicker = sec?.querySelector('.cinema-shelf-kicker')?.textContent;
+    const heading = sec?.querySelector('.cinema-shelf-heading')?.textContent;
+    const count = sec?.querySelectorAll('.theatrical-card').length || 0;
+    return {
+      exists: sec !== null,
+      kicker,
+      heading,
+      count
+    };
   });
-  console.log(`✅ moviesShortsRow populated with: ${shortsCount} titles`);
-  if (shortsCount === 0) throw new Error('moviesShortsRow is empty!');
+  console.log('Cinema Page Short Movies Section:', cinemaShortSection);
+  if (!cinemaShortSection.exists) throw new Error('moviesShortCinemaSection does not exist on Cinema page!');
+  if (cinemaShortSection.count === 0) throw new Error('moviesShortsRow inside moviesShortCinemaSection is empty!');
 
+  // Filter Cinema Mode by 'Shorts'
+  await page.evaluate(() => window.filterCinemaMode('Shorts'));
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: '/home/abhiboss/.gemini/antigravity/brain/e8e871f2-e695-492a-ac55-e9c04e592021/playwright_cinema_shorts_section.png' });
+  console.log('Captured screenshot: playwright_cinema_shorts_section.png');
+
+  // Verify Trailers Row
   const trailersCount = await page.evaluate(() => {
     const row = document.getElementById('moviesTrailersRow');
     return row ? row.querySelectorAll('.theatrical-card').length : 0;

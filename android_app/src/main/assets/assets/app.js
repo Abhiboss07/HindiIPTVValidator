@@ -14474,6 +14474,14 @@ async function renderHomeCinemaRows() {
       hollywoodRow.innerHTML = (hollywoodMovies && hollywoodMovies.length > 0 ? hollywoodMovies : allMovies.slice(10, 20))
         .map(m => renderMovieCard(m)).join('');
     }
+
+    // 6. 4K Open Short Movies (Blender Foundation Showcase)
+    const homeShortsRow = document.getElementById('homeShortsRow');
+    if (homeShortsRow) {
+      const shorts = allMovies.filter(m => m.isShortFilm || (m.categories && (m.categories.includes('short') || m.categories.includes('open_movie'))));
+      homeShortsRow.innerHTML = (shorts.length > 0 ? shorts : allMovies.slice(0, 7))
+        .map(m => renderMovieCard(m)).join('');
+    }
   } catch (e) {
     console.error('Error rendering home cinema rows:', e);
   }
@@ -19749,6 +19757,10 @@ window.filterMovieCategory = function(cat, chipEl) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } else if (cat === 'premieres' || cat === 'theatrical') {
     document.getElementById('moviesScopeRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else if (cat === 'Shorts' || cat === 'shorts') {
+    document.getElementById('moviesShortCinemaSection')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else if (cat === 'Trailers' || cat === 'trailers') {
+    document.getElementById('moviesTrailersRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   } else if (cat === 'Bollywood') {
     document.getElementById('moviesBollywoodRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   } else if (cat === 'Web-Series' || cat === 'sagas') {
