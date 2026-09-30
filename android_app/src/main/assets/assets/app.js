@@ -7176,7 +7176,8 @@ window.switchPage = function(pageId) {
     });
 
     const targetPage = document.getElementById('page-' + pageId) || document.getElementById('view-' + pageId);
-    const targetTab = document.getElementById('tab-' + pageId);
+    const activeDockId = (pageId === 'collection' || pageId === 'history') ? (window.lastBrowsePage || 'home') : pageId;
+    const targetTab = document.getElementById('tab-' + activeDockId);
     if (targetPage) targetPage.classList.add('active');
     if (targetTab) {
       targetTab.classList.add('active');
@@ -7209,6 +7210,8 @@ window.switchPage = function(pageId) {
       renderRadioPage();
     } else if (pageId === 'movies' || pageId === 'cinema') {
       if (typeof renderMoviesPage === 'function') renderMoviesPage();
+    } else if (pageId === 'history') {
+      if (typeof renderWatchHistoryPageUI === 'function') renderWatchHistoryPageUI();
     } else if (pageId === 'favs') {
       renderFavoritesPage();
     } else if (pageId === 'local') {
@@ -7272,27 +7275,11 @@ window.closeHamburger = function(e) {
 // ==========================================================
 window.openContinueWatching = function() {
   closeHamburger();
-  if (typeof window.navigateTo === 'function') {
-    window.navigateTo('home');
-  } else if (typeof window.switchPage === 'function') {
-    window.switchPage('home');
+  if (typeof window.openWatchHistoryPage === 'function') {
+    window.openWatchHistoryPage('home');
+  } else {
+    window.switchPage('history');
   }
-  setTimeout(() => {
-    const section = document.getElementById('homeMovieContinueSection');
-    if (section) {
-      try {
-        const historyIds = JSON.parse(localStorage.getItem('t2l_vod_history') || '[]');
-        if (historyIds && historyIds.length > 0) {
-          section.style.display = 'block';
-          section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          showToast('No watched titles yet. Stream a movie to begin your history!');
-        }
-      } catch (e) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-  }, 150);
 };
 
 // ==========================================================
@@ -13818,40 +13805,287 @@ function renderMovieWatchHistory() {
   section.style.display = 'none';
 }
 
+// ==========================================================
+// DEDICATED WATCH HISTORY & CONTINUE WATCHING HUB
+// ==========================================================
+function renderHistoryItemCard(movie) {
+  let progressPct = 42;
+  let resumeTime = 0;
+  try {
+    const resumeRaw = localStorage.getItem('t2l_resume_' + movie.id);
+    if (resumeRaw) {
+      const r = JSON.parse(resumeRaw);
+      if (r && r.pct) progressPct = Math.round(r.pct);
+      if (r && r.time) resumeTime = Math.round(r.time);
+    }
+  } catch (e) {}
+  if (progressPct < 5) progressPct = 5;
+  if (progressPct > 98) progressPct = 95;
+
+  const thumb = movie.backdropUrl || movie.posterUrl || 'assets/placeholder.png';
+  const duration = movie.durationFormatted || (movie.isWebSeries ? 'Episodic' : 'Feature');
+  const minutesLeft = resumeTime > 0 ? `${Math.round(resumeTime / 60)} min watched` : `${progressPct}% completed`;
+
+  return `
+    <div class="history-item-card" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.2s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.35);">
+      <div style="position: relative; aspect-ratio: 16/9; background: #000; overflow: hidden; cursor: pointer;" onclick="openMovieDetails('${movie.id}')">
+        <img src="${thumb}" alt="${movie.title}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='assets/placeholder.png';" loading="lazy">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);"></div>
+        <div style="position: absolute; top: 8px; right: 8px; z-index: 2;">
+          <button onclick="event.stopPropagation(); removeHistoryItem('${movie.id}')" title="Remove from History" style="background: rgba(0,0,0,0.65); border: 1px solid rgba(255,255,255,0.2); color: #e2e8f0; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;">
+            ✕
+          </button>
+        </div>
+        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(16, 185, 129, 0.9); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(16,185,129,0.4);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" style="margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </div>
+        </div>
+        <!-- Progress bar container -->
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: rgba(255,255,255,0.2);">
+          <div style="width: ${progressPct}%; height: 100%; background: #10B981; border-radius: 0 2px 2px 0;"></div>
+        </div>
+      </div>
+      <div style="padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+          <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${movie.title}</h4>
+          <span style="font-size: 11px; font-weight: 700; color: #10B981; background: rgba(16,185,129,0.12); padding: 2px 6px; border-radius: 4px; white-space: nowrap;">${progressPct}%</span>
+        </div>
+        <div style="font-size: 12px; color: #94a3b8; display: flex; align-items: center; gap: 6px;">
+          <span>${movie.year || '2024'}</span>
+          <span>•</span>
+          <span>${duration}</span>
+          <span>•</span>
+          <span style="color: #cbd5e1;">${minutesLeft}</span>
+        </div>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <button onclick="openMovieDetails('${movie.id}')" style="flex: 1; background: #10B981; color: #fff; border: none; padding: 7px 12px; border-radius: 8px; font-size: 12.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Resume
+          </button>
+          <button onclick="openMovieDetails('${movie.id}')" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #cbd5e1; padding: 7px 12px; border-radius: 8px; font-size: 12.5px; font-weight: 600; cursor: pointer;">
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+window.openWatchHistoryPage = async function(fromPage) {
+  window.lastBrowsePage = fromPage || currentActivePage || 'home';
+  await CatalogProvider.load();
+  renderWatchHistoryPageUI();
+  switchPage('history');
+};
+
+window.renderWatchHistoryPageUI = function() {
+  const grid = document.getElementById('historyCardsGrid');
+  const empty = document.getElementById('historyEmptyState');
+  const clearBtn = document.getElementById('btnClearWatchHistory');
+  if (!grid) return;
+
+  let historyIds = [];
+  try {
+    historyIds = JSON.parse(localStorage.getItem('t2l_vod_history') || '[]');
+  } catch (e) {}
+
+  let historyMovies = historyIds.map(id => CatalogProvider.getById(id)).filter(Boolean);
+
+  if (historyMovies.length === 0) {
+    // Show starter bookmark recommendations if history is empty
+    const defaultIds = ['series_panchayat', 'vod_jawan', 'vod_kalki_2898_ad', 'series_mirzapur'];
+    const defaults = defaultIds.map(id => CatalogProvider.getById(id)).filter(Boolean);
+    if (defaults.length > 0) {
+      grid.innerHTML = defaults.map(m => renderHistoryItemCard(m)).join('');
+      if (empty) empty.style.display = 'none';
+      if (clearBtn) clearBtn.style.display = 'inline-flex';
+    } else {
+      grid.innerHTML = '';
+      if (empty) empty.style.display = 'block';
+      if (clearBtn) clearBtn.style.display = 'none';
+    }
+  } else {
+    grid.innerHTML = historyMovies.map(m => renderHistoryItemCard(m)).join('');
+    if (empty) empty.style.display = 'none';
+    if (clearBtn) clearBtn.style.display = 'inline-flex';
+  }
+};
+
+window.removeHistoryItem = function(movieId) {
+  try {
+    let historyIds = JSON.parse(localStorage.getItem('t2l_vod_history') || '[]');
+    historyIds = historyIds.filter(id => id !== movieId);
+    localStorage.setItem('t2l_vod_history', JSON.stringify(historyIds));
+    localStorage.removeItem('t2l_resume_' + movieId);
+  } catch (e) {}
+  renderWatchHistoryPageUI();
+  renderMovieWatchHistory();
+  const homeContinueRow = document.getElementById('homeMovieContinueRow');
+  if (homeContinueRow && typeof renderHomeCinemaRows === 'function') {
+    renderHomeCinemaRows();
+  }
+  showToast('Removed from continue watching');
+};
+
+window.clearAllWatchHistory = function() {
+  if (confirm('Clear all playback history and progress bookmarks?')) {
+    try {
+      localStorage.removeItem('t2l_vod_history');
+      Object.keys(localStorage).forEach(k => {
+        if (k.startsWith('t2l_resume_')) localStorage.removeItem(k);
+      });
+    } catch (e) {}
+    renderWatchHistoryPageUI();
+    renderMovieWatchHistory();
+    const section = document.getElementById('homeMovieContinueSection');
+    if (section) section.style.display = 'none';
+    showToast('Watch history cleared');
+  }
+};
+
+// ==========================================================
+// DEDICATED CATEGORY & COLLECTION PAGE ROUTER
+// ==========================================================
+window.currentCollectionKey = 'all';
+window.currentCollectionItems = [];
+window.currentCollectionOriginalItems = [];
+
+window.openCategoryPage = async function(catKey, title, kicker, fromPage) {
+  window.lastBrowsePage = fromPage || currentActivePage || 'home';
+  window.currentCollectionKey = catKey;
+
+  await CatalogProvider.load();
+  const allMovies = CatalogProvider.getAll();
+
+  let filtered = [];
+  if (catKey === 'Shorts' || catKey === 'shorts') {
+    filtered = allMovies.filter(m => m.isShortFilm || (m.categories && (m.categories.includes('short') || m.categories.includes('open_movie'))));
+  } else if (catKey === 'Trailers' || catKey === 'trailers') {
+    filtered = allMovies.filter(m => m.isTrailerOnly || m.sourceState === 'TRAILER_ONLY' || m.sourceState === 'UPCOMING_TRAILER' || m.contentType === 'TRAILER' || (m.categories && m.categories.includes('trailers')) || (!m.streamUrl && (!m.episodes || !m.episodes.some(ep => ep.streamUrl)) && m.trailerUrl));
+  } else if (catKey === 'premieres' || catKey === 'theatrical') {
+    filtered = allMovies.filter(m => m.featured || m.isTheatrical || (m.badge && m.badge.includes('Premiere')) || m.year >= 2024);
+  } else if (catKey === 'Action' || catKey === 'action') {
+    filtered = allMovies.filter(m => (m.categories && m.categories.includes('action')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('action'))));
+  } else if (catKey === 'Thrillers' || catKey === 'thrillers') {
+    filtered = allMovies.filter(m => (m.categories && m.categories.includes('thriller')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('thriller'))));
+  } else if (catKey === 'Classics' || catKey === 'classics') {
+    filtered = allMovies.filter(m => (m.categories && (m.categories.includes('classics') || m.categories.includes('heritage'))) || m.year < 2000);
+  } else {
+    filtered = CatalogProvider.filterByCategory(catKey);
+  }
+
+  window.currentCollectionOriginalItems = filtered;
+  window.currentCollectionItems = [...filtered];
+
+  const titleEl = document.getElementById('collectionPageTitle');
+  const kickerEl = document.getElementById('collectionPageKicker');
+  const countEl = document.getElementById('collectionPageCount');
+  const searchInput = document.getElementById('collectionSearchInput');
+  const sortSelect = document.getElementById('collectionSortSelect');
+
+  if (titleEl) titleEl.textContent = title || catKey;
+  if (kickerEl) kickerEl.textContent = kicker || 'CURATED COLLECTION';
+  if (countEl) countEl.textContent = `${filtered.length} Titles`;
+  if (searchInput) searchInput.value = '';
+  if (sortSelect) sortSelect.value = 'featured';
+
+  renderCollectionCatalogGrid();
+  switchPage('collection');
+};
+
+window.renderCollectionCatalogGrid = function() {
+  const grid = document.getElementById('collectionCatalogGrid');
+  const empty = document.getElementById('collectionEmptyState');
+  if (!grid) return;
+
+  const items = window.currentCollectionItems || [];
+  if (items.length === 0) {
+    grid.innerHTML = '';
+    if (empty) empty.style.display = 'block';
+  } else {
+    if (empty) empty.style.display = 'none';
+    grid.innerHTML = items.map(m => renderMovieCard(m)).join('');
+  }
+};
+
+window.handleCollectionSearch = function(query) {
+  const orig = window.currentCollectionOriginalItems || [];
+  if (!query || !query.trim()) {
+    window.currentCollectionItems = [...orig];
+  } else {
+    const q = query.toLowerCase().trim();
+    window.currentCollectionItems = orig.filter(m => {
+      const matchTitle = m.title && m.title.toLowerCase().includes(q);
+      const castStr = Array.isArray(m.cast) ? m.cast.join(' ').toLowerCase() : String(m.cast || '').toLowerCase();
+      const matchCast = castStr.includes(q);
+      const genreStr = Array.isArray(m.genres) ? m.genres.join(' ').toLowerCase() : String(m.genre || '').toLowerCase();
+      const matchGenre = genreStr.includes(q);
+      return matchTitle || matchCast || matchGenre;
+    });
+  }
+  const countEl = document.getElementById('collectionPageCount');
+  if (countEl) countEl.textContent = `${window.currentCollectionItems.length} Titles`;
+  renderCollectionCatalogGrid();
+};
+
+window.handleCollectionSort = function(sortBy) {
+  const items = window.currentCollectionItems || [];
+  if (sortBy === 'newest') {
+    items.sort((a, b) => (b.year || 0) - (a.year || 0));
+  } else if (sortBy === 'rating') {
+    items.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+  } else if (sortBy === 'title') {
+    items.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+  } else {
+    // featured: restore original order
+    const orig = window.currentCollectionOriginalItems || [];
+    const origMap = new Map(orig.map((item, idx) => [item.id, idx]));
+    items.sort((a, b) => (origMap.get(a.id) ?? 0) - (origMap.get(b.id) ?? 0));
+  }
+  renderCollectionCatalogGrid();
+};
+
+window.returnFromCollectionOrHistory = function() {
+  const returnTo = window.lastBrowsePage || 'home';
+  window.switchPage(returnTo);
+};
+
 window.filterMovieCategory = function(cat, chipEl) {
   document.querySelectorAll('.cinema-mode-btn').forEach(c => c.classList.remove('active'));
   if (chipEl) chipEl.classList.add('active');
 
-  const rowsContainer = document.getElementById('moviesRowsContainer');
-  const heroSection = document.getElementById('cinemaHeroSection') || document.getElementById('moviesHeroSection');
-  const gridSection = document.getElementById('moviesGridSection');
-
-  if (gridSection) gridSection.style.display = 'none';
-  if (heroSection) heroSection.style.display = 'flex';
-  if (rowsContainer) rowsContainer.style.display = 'block';
-
-  // Smooth horizontal rail navigation
   if (cat === 'all') {
+    const rowsContainer = document.getElementById('moviesRowsContainer');
+    const heroSection = document.getElementById('cinemaHeroSection') || document.getElementById('moviesHeroSection');
+    const gridSection = document.getElementById('moviesGridSection');
+    if (gridSection) gridSection.style.display = 'none';
+    if (heroSection) heroSection.style.display = 'flex';
+    if (rowsContainer) rowsContainer.style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  } else if (cat === 'premieres' || cat === 'theatrical') {
-    document.getElementById('moviesScopeRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  } else if (cat === 'Shorts' || cat === 'shorts') {
-    document.getElementById('moviesShortCinemaSection')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  } else if (cat === 'Trailers' || cat === 'trailers') {
-    document.getElementById('moviesTrailersRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  } else if (cat === 'Bollywood') {
-    document.getElementById('moviesBollywoodRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  } else if (cat === 'Web-Series' || cat === 'sagas') {
-    document.getElementById('moviesWebSeriesRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  } else if (cat === 'Asian' || cat === 'K-Drama') {
-    document.getElementById('moviesAsianRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  } else if (cat === 'Hollywood') {
-    document.getElementById('moviesHollywoodRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  } else if (cat === 'Anime') {
-    document.getElementById('moviesAnimeRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  } else if (cat === 'watchlist') {
-    document.getElementById('moviesContinueRow')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return;
   }
+
+  const catTitles = {
+    'Shorts': { title: 'Short Movies (4K Ultra HD)', kicker: '4K ULTRA HD • CURATED SHORTS' },
+    'shorts': { title: 'Short Movies (4K Ultra HD)', kicker: '4K ULTRA HD • CURATED SHORTS' },
+    'Bollywood': { title: 'Bollywood Blockbusters', kicker: 'HINDI FIRST • BLOCKBUSTERS' },
+    'Web-Series': { title: 'Acclaimed Web-Series & Sagas', kicker: 'FULL EPISODES • BINGE WORTHY' },
+    'sagas': { title: 'Acclaimed Web-Series & Sagas', kicker: 'FULL EPISODES • BINGE WORTHY' },
+    'Asian': { title: 'K-Drama & Asian Sagas (Hindi Dubbed)', kicker: 'HINDI DUBBED • ASIAN SAGAS' },
+    'Hollywood': { title: 'Hollywood & Worldwide Hits', kicker: 'WORLDWIDE HITS • DUAL AUDIO' },
+    'Trailers': { title: 'Official Theatrical Trailers', kicker: '4K PREVIEWS • THEATRICAL TEASERS' },
+    'trailers': { title: 'Official Theatrical Trailers', kicker: '4K PREVIEWS • THEATRICAL TEASERS' },
+    'premieres': { title: 'Theatrical Premieres & Spotlight', kicker: 'CINEMATIC HORIZONS' },
+    'theatrical': { title: 'Theatrical Premieres & Spotlight', kicker: 'CINEMATIC HORIZONS' },
+    'Anime': { title: 'Anime & Animation Legends', kicker: 'ANIMATED WORLDS' },
+    'Thrillers': { title: 'High-Stakes Thrillers & Mystery', kicker: 'PULSE-POUNDING' },
+    'Action': { title: 'High-Octane Action Blockbusters', kicker: 'ADRENALINE & ACTION' },
+    'watchlist': { title: 'Continue Watching', kicker: 'PLAYBACK PROGRESS' }
+  };
+
+  const meta = catTitles[cat] || { title: cat + ' Collection', kicker: 'CURATED COLLECTION' };
+  openCategoryPage(cat, meta.title, meta.kicker, 'movies');
 };
 window.filterCinemaMode = window.filterMovieCategory;
 
@@ -15412,6 +15646,16 @@ window.handleAndroidBackPressed = function() {
   // 8. If Video Player is open, close/minimize video and stay in app
   if (playerModal && playerModal.classList.contains('active')) {
     closePlayerModalCompletely(null);
+    return true;
+  }
+
+  // 8.5. If on Collection or History sub-page, return cleanly to previous page
+  if (currentActivePage === 'collection' || currentActivePage === 'history') {
+    if (typeof returnFromCollectionOrHistory === 'function') {
+      returnFromCollectionOrHistory();
+    } else {
+      switchPage('home');
+    }
     return true;
   }
 

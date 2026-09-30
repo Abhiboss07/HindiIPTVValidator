@@ -328,108 +328,108 @@
 
       <!-- Continue Watching Rail (Dynamic) -->
       <div id="homeMovieContinueSection" class="content-rail-section" style="display: none;">
-        <div class="content-rail-header">
+        <div class="content-rail-header" onclick="openWatchHistoryPage('home')" style="cursor: pointer;">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             Continue Watching
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('home')">History →</span>
+          <span class="content-rail-see-all" onclick="event.stopPropagation(); openWatchHistoryPage('home')">History →</span>
         </div>
         <div id="homeMovieContinueRow" class="content-rail-scroll"></div>
       </div>
 
       <!-- Trending Hindi Blockbusters Rail (Dynamic) -->
       <div class="content-rail-section">
-        <div class="content-rail-header">
+        <div class="content-rail-header" onclick="openCategoryPage('Bollywood', 'Trending Hindi Blockbusters', 'HINDI FIRST • BLOCKBUSTERS', 'home')" style="cursor: pointer;">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
             Trending Hindi Blockbusters
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('cinema')">Explore Pavilion →</span>
+          <span class="content-rail-see-all" onclick="event.stopPropagation(); openCategoryPage('Bollywood', 'Trending Hindi Blockbusters', 'HINDI FIRST • BLOCKBUSTERS', 'home')">Explore Pavilion →</span>
         </div>
         <div id="homeBollywoodRow" class="content-rail-scroll"></div>
       </div>
 
       <!-- Acclaimed Web-Series Rail (Dynamic) -->
       <div class="content-rail-section">
-        <div class="content-rail-header">
+        <div class="content-rail-header" onclick="openCategoryPage('Web-Series', 'Acclaimed Web-Series', 'FULL EPISODES • BINGE WORTHY', 'home')" style="cursor: pointer;">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
             Acclaimed Web-Series
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('cinema')">All Series →</span>
+          <span class="content-rail-see-all" onclick="event.stopPropagation(); openCategoryPage('Web-Series', 'Acclaimed Web-Series', 'FULL EPISODES • BINGE WORTHY', 'home')">All Series →</span>
         </div>
         <div id="homeWebSeriesRow" class="content-rail-scroll"></div>
       </div>
 
       <!-- K-Drama & Asian Series (Hindi Dubbed) Rail (Dynamic) -->
       <div class="content-rail-section">
-        <div class="content-rail-header">
+        <div class="content-rail-header" onclick="openCategoryPage('Asian', 'K-Drama & Asian Sagas (Hindi Dubbed)', 'HINDI DUBBED • ASIAN SAGAS', 'home')" style="cursor: pointer;">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
             K-Drama & Asian Sagas (Hindi Dubbed)
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('cinema')">Explore Asian →</span>
+          <span class="content-rail-see-all" onclick="event.stopPropagation(); openCategoryPage('Asian', 'K-Drama & Asian Sagas (Hindi Dubbed)', 'HINDI DUBBED • ASIAN SAGAS', 'home')">Explore Asian →</span>
         </div>
         <div id="homeAsianRow" class="content-rail-scroll"></div>
       </div>
 
       <!-- Hollywood & Global Cinema Rail (Dynamic) -->
       <div class="content-rail-section">
-        <div class="content-rail-header">
+        <div class="content-rail-header" onclick="openCategoryPage('Hollywood', 'Hollywood & Global Cinema', 'WORLDWIDE HITS • DUAL AUDIO', 'home')" style="cursor: pointer;">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             Hollywood & Global Cinema
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('cinema')">Explore Global →</span>
+          <span class="content-rail-see-all" onclick="event.stopPropagation(); openCategoryPage('Hollywood', 'Hollywood & Global Cinema', 'WORLDWIDE HITS • DUAL AUDIO', 'home')">Explore Global →</span>
         </div>
         <div id="homeHollywoodRow" class="content-rail-scroll"></div>
       </div>
 
       <!-- Short Movies Rail (Dynamic) -->
       <div class="content-rail-section">
-        <div class="content-rail-header">
+        <div class="content-rail-header" onclick="openCategoryPage('Shorts', 'Short Movies (4K Ultra HD)', '4K ULTRA HD • CURATED SHORTS', 'home')" style="cursor: pointer;">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             Short Movies
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('cinema')">See All →</span>
+          <span class="content-rail-see-all" onclick="event.stopPropagation(); openCategoryPage('Shorts', 'Short Movies (4K Ultra HD)', '4K ULTRA HD • CURATED SHORTS', 'home')">See All →</span>
         </div>
         <div id="homeShortsRow" class="content-rail-scroll"></div>
       </div>
 
       <!-- Official Trailers & Teasers Rail (Dynamic) -->
       <div class="content-rail-section">
-        <div class="content-rail-header">
+        <div class="content-rail-header" onclick="openCategoryPage('Trailers', 'Official Theatrical Trailers', '4K OFFICIAL PREVIEWS • TEASERS', 'home')" style="cursor: pointer;">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#F59E0B"></polygon></svg>
             Official Trailers &amp; Teasers
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('cinema'); setTimeout(() => filterCinemaMode('Trailers'), 100);">Trailers Pavilion →</span>
+          <span class="content-rail-see-all" onclick="event.stopPropagation(); openCategoryPage('Trailers', 'Official Theatrical Trailers', '4K OFFICIAL PREVIEWS • TEASERS', 'home')">Trailers Pavilion →</span>
         </div>
         <div id="homeTrailersRow" class="content-rail-scroll"></div>
       </div>
 
       <!-- Live Broadcasts on Air Rail (Dynamic) -->
       <div class="content-rail-section">
-        <div class="content-rail-header">
+        <div class="content-rail-header" onclick="navigateTo('live')" style="cursor: pointer;">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path></svg>
             Live Broadcasts on Air
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('live')">Broadcast Feed →</span>
+          <span class="content-rail-see-all" onclick="event.stopPropagation(); navigateTo('live')">Broadcast Feed →</span>
         </div>
         <div id="homeLiveNowList" class="content-rail-scroll"></div>
       </div>
 
       <!-- Acoustic Radio Transmissions Rail (Dynamic) -->
       <div class="content-rail-section">
-        <div class="content-rail-header">
+        <div class="content-rail-header" onclick="navigateTo('radio')" style="cursor: pointer;">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><circle cx="12" cy="12" r="2"></circle><path d="M4.93 19.07a10 10 0 0 1 0-14.14m14.14 0a10 10 0 0 1 0 14.14m-3.53-3.53a5 5 0 0 0 0-7.08m-7.08 0a5 5 0 0 0 0 7.08"></path></svg>
             Acoustic Radio Transmissions
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('radio')">All Frequencies →</span>
+          <span class="content-rail-see-all" onclick="event.stopPropagation(); navigateTo('radio')">All Frequencies →</span>
         </div>
         <div id="homeRadioList" class="content-rail-scroll"></div>
       </div>
@@ -491,137 +491,139 @@
       <div id="moviesRowsContainer">
         <!-- Rail 0: Continue Watching / Resume Streaming -->
         <div id="moviesContinueSection" class="content-rail-section" style="display: none; padding-top: 0;">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openWatchHistoryPage('movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">RESUME STREAMING</span>
               <h2 class="cinema-shelf-heading">Continue Watching</h2>
             </div>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openWatchHistoryPage('movies')">History →</span>
           </div>
           <div id="moviesContinueRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 1: Trending in Theatres (Horizontal Scope 2.39:1) -->
         <div class="content-rail-section" style="padding-top: 0;">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('premieres', 'Theatrical Premieres & Spotlight', 'CINEMATIC HORIZONS', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">CINEMATIC HORIZONS</span>
               <h2 class="cinema-shelf-heading">Trending in Theatres</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('premieres')">All Theatres →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('premieres', 'Theatrical Premieres & Spotlight', 'CINEMATIC HORIZONS', 'movies')">All Theatres →</span>
           </div>
           <div id="moviesScopeRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 2: Short Movies Section -->
         <div class="content-rail-section" id="moviesShortCinemaSection">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Shorts', 'Short Movies (4K Ultra HD)', '4K ULTRA HD • CURATED SHORTS', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">4K ULTRA HD</span>
               <h2 class="cinema-shelf-heading">Short Movies</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('Shorts')">See All →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Shorts', 'Short Movies (4K Ultra HD)', '4K ULTRA HD • CURATED SHORTS', 'movies')">See All →</span>
           </div>
           <div id="moviesShortsRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 2: Bollywood Blockbusters -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Bollywood', 'Bollywood Blockbusters', 'HINDI FIRST • BLOCKBUSTERS', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">HINDI FIRST</span>
               <h2 class="cinema-shelf-heading">Bollywood Blockbusters</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('Bollywood')">See All →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Bollywood', 'Bollywood Blockbusters', 'HINDI FIRST • BLOCKBUSTERS', 'movies')">See All →</span>
           </div>
           <div id="moviesBollywoodRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 3: Multi-Season Epics & Sagas -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Web-Series', 'Acclaimed Web-Series & Sagas', 'FULL EPISODES • SAGAS', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">EPISODIC EXPEDITIONS</span>
               <h2 class="cinema-shelf-heading">Cinematic Sagas & Epics</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('Web-Series')">Browse Sagas →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Web-Series', 'Acclaimed Web-Series & Sagas', 'FULL EPISODES • SAGAS', 'movies')">Browse Sagas →</span>
           </div>
           <div id="moviesWebSeriesRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 4: K-Drama & Asian Sagas (Hindi Dubbed) -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Asian', 'K-Drama & Asian Sagas (Hindi Dubbed)', 'HINDI DUBBED • ASIAN SAGAS', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">ASIAN PHENOMENON</span>
               <h2 class="cinema-shelf-heading">K-Drama & Asian Sagas (Hindi Dubbed)</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('Asian')">Explore All →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Asian', 'K-Drama & Asian Sagas (Hindi Dubbed)', 'HINDI DUBBED • ASIAN SAGAS', 'movies')">Explore All →</span>
           </div>
           <div id="moviesAsianRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 5: Hollywood & Worldwide Hits -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Hollywood', 'Hollywood & Worldwide Hits', 'WORLDWIDE HITS • DUAL AUDIO', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">GLOBAL MASTERPIECES</span>
               <h2 class="cinema-shelf-heading">Hollywood & Worldwide Hits</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('Hollywood')">See All →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Hollywood', 'Hollywood & Worldwide Hits', 'WORLDWIDE HITS • DUAL AUDIO', 'movies')">See All →</span>
           </div>
           <div id="moviesHollywoodRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 6: Anime & Animation -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Anime', 'Anime & Animation Legends', 'ANIMATED WORLDS', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">ANIMATED WORLDS</span>
               <h2 class="cinema-shelf-heading">Anime & Animation</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('Anime')">Explore Anime →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Anime', 'Anime & Animation Legends', 'ANIMATED WORLDS', 'movies')">Explore Anime →</span>
           </div>
           <div id="moviesAnimeRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 7: High-Stakes Thrillers & Mystery -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Thrillers', 'High-Stakes Thrillers & Mystery', 'PULSE-POUNDING', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">PULSE-POUNDING</span>
               <h2 class="cinema-shelf-heading">Thrillers & Mystery</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('Thrillers')">Explore Thrillers →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Thrillers', 'High-Stakes Thrillers & Mystery', 'PULSE-POUNDING', 'movies')">Explore Thrillers →</span>
           </div>
           <div id="moviesThrillersRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 8: High-Octane Action -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Action', 'High-Octane Action Blockbusters', 'ADRENALINE & ACTION', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">ADRENALINE</span>
               <h2 class="cinema-shelf-heading">High-Octane Action</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('Action')">See All →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Action', 'High-Octane Action Blockbusters', 'ADRENALINE & ACTION', 'movies')">See All →</span>
           </div>
           <div id="moviesActionRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 9: Public Domain & Heritage Classics -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Classics', 'Public Domain & Heritage Classics', 'HERITAGE ARCHIVE', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker">HERITAGE ARCHIVE</span>
               <h2 class="cinema-shelf-heading">Public Domain & Classics</h2>
             </div>
-            <span class="cinema-shelf-action">Vault Archive →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Classics', 'Public Domain & Heritage Classics', 'HERITAGE ARCHIVE', 'movies')">Vault Archive →</span>
           </div>
           <div id="moviesClassicsRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 11: Upcoming Theatrical Trailers (Previews Only) -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Trailers', 'Upcoming Theatrical Trailers', 'OFFICIAL PREVIEWS • TEASERS', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
               <span class="cinema-shelf-kicker" style="color: #F59E0B; font-weight: 800;">OFFICIAL PREVIEWS • THEATRICAL TEASERS</span>
               <h2 class="cinema-shelf-heading">Upcoming Theatrical Trailers</h2>
@@ -629,7 +631,7 @@
                 High-definition official previews for upcoming theatrical Bollywood, South Indian &amp; Hollywood releases.
               </p>
             </div>
-            <span class="cinema-shelf-action" onclick="filterCinemaMode('Trailers')">Trailers →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Trailers', 'Upcoming Theatrical Trailers', 'OFFICIAL PREVIEWS • TEASERS', 'movies')">Trailers →</span>
           </div>
           <div id="moviesTrailersRow" class="content-rail-scroll"></div>
         </div>
@@ -812,6 +814,83 @@
 
       <!-- Clean Vector Media Grid Feed -->
       <div id="localMediaFolderFeed" class="local-media-grid" style="padding: 0 16px 24px 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px;"></div>
+    </section>
+
+    <!-- VIEW 6: COLLECTION / CATEGORY BROWSE VIEW -->
+    <section id="page-collection" class="t2l-view page-view" style="min-height: 100vh; padding: 68px 16px 100px 16px;">
+      <!-- Sticky / Header Bar -->
+      <div class="collection-page-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; gap: 12px;">
+        <button class="collection-back-btn" onclick="returnFromCollectionOrHistory()" aria-label="Go Back" style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #fff; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.2s ease;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Back</span>
+        </button>
+        <div style="flex: 1; min-width: 0;">
+          <div id="collectionPageKicker" style="font-size: 10.5px; font-weight: 800; letter-spacing: 0.1em; color: #10B981; text-transform: uppercase;">CATEGORY</div>
+          <h1 id="collectionPageTitle" style="font-size: 20px; font-weight: 800; color: #fff; margin: 2px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Collection</h1>
+        </div>
+        <span id="collectionPageCount" style="font-size: 12px; font-weight: 700; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); white-space: nowrap;">0 Titles</span>
+      </div>
+
+      <!-- In-Collection Search and Filter Bar -->
+      <div style="display: flex; gap: 8px; margin-bottom: 18px; align-items: center;">
+        <div style="flex: 1; position: relative; display: flex; align-items: center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 12px; pointer-events: none;">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input id="collectionSearchInput" type="text" placeholder="Filter in this collection..." oninput="handleCollectionSearch(this.value)" style="width: 100%; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 9px 12px 9px 36px; color: #fff; font-size: 13px; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='rgba(16,185,129,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+        </div>
+        <select id="collectionSortSelect" onchange="handleCollectionSort(this.value)" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 9px 12px; color: #cbd5e1; font-size: 12.5px; font-weight: 600; outline: none; cursor: pointer;">
+          <option value="featured">Featured</option>
+          <option value="newest">Newest</option>
+          <option value="rating">Top Rated</option>
+          <option value="title">A-Z</option>
+        </select>
+      </div>
+
+      <!-- Catalog Grid -->
+      <div id="collectionCatalogGrid" class="movies-catalog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px;"></div>
+
+      <!-- Empty State -->
+      <div id="collectionEmptyState" style="display: none; padding: 48px 16px; text-align: center; color: #94a3b8;">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.5" style="margin-bottom: 12px;"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+        <p style="font-size: 16px; font-weight: 700; color: #e2e8f0; margin-bottom: 6px;">No titles found</p>
+        <p style="font-size: 12.5px; color: #64748b;">Try adjusting your filter or search keywords.</p>
+      </div>
+    </section>
+
+    <!-- VIEW 7: WATCH HISTORY & CONTINUE WATCHING VIEW -->
+    <section id="page-history" class="t2l-view page-view" style="min-height: 100vh; padding: 68px 16px 100px 16px;">
+      <!-- Header Bar -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; gap: 12px;">
+        <button class="collection-back-btn" onclick="returnFromCollectionOrHistory()" aria-label="Go Back" style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #fff; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.2s ease;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Back</span>
+        </button>
+        <div style="flex: 1; min-width: 0;">
+          <div style="font-size: 10.5px; font-weight: 800; letter-spacing: 0.1em; color: #38bdf8; text-transform: uppercase;">PLAYBACK PROGRESS</div>
+          <h1 style="font-size: 20px; font-weight: 800; color: #fff; margin: 2px 0 0 0;">Continue Watching</h1>
+        </div>
+        <button id="btnClearWatchHistory" onclick="clearAllWatchHistory()" style="display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; color: #f87171; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.25); padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          Clear
+        </button>
+      </div>
+
+      <!-- History Items List / Grid -->
+      <div id="historyCardsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px;"></div>
+
+      <!-- Empty State -->
+      <div id="historyEmptyState" style="display: none; padding: 64px 20px; text-align: center; color: #94a3b8;">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 800; color: #f8fafc; margin-bottom: 8px;">No Watch History</h3>
+        <p style="font-size: 13px; color: #64748b; max-width: 320px; margin: 0 auto 20px auto; line-height: 1.5;">Titles you watch will automatically save here so you can pick up exactly where you left off.</p>
+        <button onclick="navigateTo('cinema')" style="background: linear-gradient(135deg, #10B981, #059669); color: #fff; border: none; font-size: 13.5px; font-weight: 700; padding: 10px 22px; border-radius: 999px; cursor: pointer; box-shadow: 0 4px 14px rgba(16,185,129,0.3);">
+          Explore Cinema Catalog
+        </button>
+      </div>
     </section>
 
   <!-- ==========================================================================
