@@ -16812,10 +16812,12 @@ window.openVlcQualityModal = function(e) {
       const isAuto = (currentVlcQuality === 'auto' || hlsInstance.currentLevel === -1);
       optionsHtml += `
         <div class="vlc-radio-row ${isAuto ? 'active' : ''}" onclick="setVlcStreamQuality('auto', this, -1)">
-          <div class="vlc-radio-circle"></div>
-          <div class="vlc-radio-text">
-            <h4>⚡ Auto (Dynamic Adaptive Bitrate) [Recommended]</h4>
-            <p>Dynamically matches bandwidth and buffer health (Zero Buffering)</p>
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+              <span>⚡ Auto (Adaptive Bitrate)</span>
+              <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~Dynamic speed required</span>
+            </h4>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Dynamically matches bandwidth and buffer health (Zero Buffering)</p>
           </div>
         </div>
       `;
@@ -16827,85 +16829,158 @@ window.openVlcQualityModal = function(e) {
       sortedLevels.forEach(item => {
         const h = item.lvl.height || 720;
         const w = item.lvl.width || 0;
-        const bitrateMbps = item.lvl.bitrate ? (item.lvl.bitrate / 1000000).toFixed(1) : 'Variable';
+        const bitrateMbps = item.lvl.bitrate ? (item.lvl.bitrate / 1000000).toFixed(1) : null;
         let qKey = `${h}p`;
         let name = `${h}p HD`;
+        let speedReq = '~4 Mbps speed required';
         if (h >= 2160 || w >= 3840) {
           qKey = '4k';
-          name = '🌟 4K Ultra HD (2160p UHD)';
+          name = '4K UHD (2160p)';
+          speedReq = bitrateMbps ? `~${bitrateMbps} Mbps speed required` : '~25 Mbps speed required';
         } else if (h >= 1440 || w >= 2560) {
           qKey = '1440p';
-          name = '💎 2K / 1440p Quad HD';
+          name = '2K QHD (1440p)';
+          speedReq = bitrateMbps ? `~${bitrateMbps} Mbps speed required` : '~15 Mbps speed required';
         } else if (h >= 1080 || w >= 1920) {
           qKey = '1080p';
-          name = '📺 Full HD (1080p Crystal Clear)';
+          name = '1080p FHD (1080p)';
+          speedReq = bitrateMbps ? `~${bitrateMbps} Mbps speed required` : '~8 Mbps speed required';
         } else if (h >= 720 || w >= 1280) {
           qKey = '720p';
-          name = '📱 HD (720p Balanced)';
+          name = '720p HD (720p)';
+          speedReq = bitrateMbps ? `~${bitrateMbps} Mbps speed required` : '~4 Mbps speed required';
         } else if (h >= 480) {
           qKey = '480p';
-          name = '📉 SD (480p Standard)';
+          name = '480p SD (480p)';
+          speedReq = bitrateMbps ? `~${bitrateMbps} Mbps speed required` : '~1.5 Mbps speed required';
         } else if (h >= 360) {
           qKey = '360p';
-          name = '🔋 Data Saver (360p)';
+          name = '360p Data Saver (360p)';
+          speedReq = bitrateMbps ? `~${bitrateMbps} Mbps speed required` : '~800 Kbps speed required';
         } else {
           qKey = '144p';
-          name = '📶 Ultra Low (144p)';
+          name = '144p Ultra Low (144p)';
+          speedReq = bitrateMbps ? `~${bitrateMbps} Mbps speed required` : '~300 Kbps speed required';
         }
 
         const isActive = !isAuto && (hlsInstance.currentLevel === item.origIdx);
 
         optionsHtml += `
           <div class="vlc-radio-row ${isActive ? 'active' : ''}" onclick="setVlcStreamQuality('${qKey}', this, ${item.origIdx})">
-            <div class="vlc-radio-circle"></div>
-            <div class="vlc-radio-text">
-              <h4>${name}</h4>
-              <p>${h}p (${w}x${h}) • ~${bitrateMbps} Mbps • Source Representation</p>
+            <div style="display: flex; flex-direction: column; width: 100%;">
+              <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+                <span>${name}</span>
+                <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">${speedReq}</span>
+              </h4>
+              <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">${w && h ? `${w}x${h} • ` : ''}${bitrateMbps ? `${bitrateMbps} Mbps stream` : 'Source stream'}</p>
             </div>
           </div>
         `;
       });
     } else {
-      // Progressive MP4 / Direct Movie or Series Source (Single Genuine Rendition)
+      // Direct progressive stream or standard channels
       const vid = document.getElementById('luminaVideo');
       const curW = (vid && vid.videoWidth) ? vid.videoWidth : 0;
       const curH = (vid && vid.videoHeight) ? vid.videoHeight : 0;
       const curSrc = (vid && vid.src) ? vid.src : '';
-      const isArchive = curSrc.includes('archive.org');
       const isDataSaverActive = curSrc.includes('_512kb.mp4');
 
-      let nativeBadge = 'HD';
-      if (curH >= 2160 || curW >= 3840) { nativeBadge = '4K UHD (2160p)'; }
-      else if (curH >= 1440 || curW >= 2560) { nativeBadge = '2K Quad HD (1440p)'; }
-      else if (curH >= 1080 || curW >= 1920) { nativeBadge = 'Full HD (1080p)'; }
-      else if (curH >= 720 || curW >= 1280) { nativeBadge = 'HD (720p)'; }
-      else if (curH > 0) { nativeBadge = `SD (${curH}p)`; }
-      else if (currentPlayingChannel && currentPlayingChannel.quality) { nativeBadge = currentPlayingChannel.quality; }
+      let detectedQuality = '1080p';
+      if (curH >= 2160 || curW >= 3840) {
+        detectedQuality = '4k';
+      } else if (curH >= 1440 || curW >= 2560) {
+        detectedQuality = '1440p';
+      } else if (curH >= 1080 || curW >= 1920) {
+        detectedQuality = '1080p';
+      } else if (curH >= 720 || curW >= 1280) {
+        detectedQuality = '720p';
+      } else if (curH > 0) {
+        detectedQuality = '480p';
+      } else if (currentPlayingChannel && currentPlayingChannel.quality) {
+        const q = String(currentPlayingChannel.quality).toLowerCase();
+        if (q.includes('4k') || q.includes('2160')) {
+          detectedQuality = '4k';
+        } else if (q.includes('1080')) {
+          detectedQuality = '1080p';
+        } else if (q.includes('720')) {
+          detectedQuality = '720p';
+        }
+      }
 
-      const resText = (curW && curH) ? `${curW}x${curH}` : nativeBadge;
+      const activeQ = currentVlcQuality || 'auto';
+      const isAuto = activeQ === 'auto';
+      const is4k = activeQ === '4k' || (!isAuto && detectedQuality === '4k');
+      const is1080 = activeQ === '1080p' || (!isAuto && detectedQuality === '1080p');
+      const is720 = activeQ === '720p' || (!isAuto && detectedQuality === '720p');
+      const is480 = activeQ === '480p' || (!isAuto && detectedQuality === '480p');
+      const is360 = activeQ === '360p' || isDataSaverActive;
+      const is144 = activeQ === '144p';
 
-      const isNativeActive = !isDataSaverActive;
-      optionsHtml += `
-        <div class="vlc-radio-row ${isNativeActive ? 'active' : ''}" onclick="setVlcStreamQuality('auto', this)">
-          <div class="vlc-radio-circle"></div>
-          <div class="vlc-radio-text">
-            <h4>⚡ Native Master Stream: ${nativeBadge} [Active]</h4>
-            <p>${resText} • Unaltered Native Source Bitrate • Hardware Passthrough</p>
+      optionsHtml = `
+        <div class="vlc-radio-row ${isAuto ? 'active' : ''}" onclick="setVlcStreamQuality('auto', this)">
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+              <span>⚡ Auto (Adaptive Bitrate)</span>
+              <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~Dynamic speed required</span>
+            </h4>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Automatically adjusts according to data speed (Zero Buffering)</p>
+          </div>
+        </div>
+        <div class="vlc-radio-row ${is4k ? 'active' : ''}" onclick="setVlcStreamQuality('4k', this)">
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+              <span>4K UHD (2160p)</span>
+              <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~25 Mbps speed required</span>
+            </h4>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Ultra High Definition • 3840x2160</p>
+          </div>
+        </div>
+        <div class="vlc-radio-row ${is1080 ? 'active' : ''}" onclick="setVlcStreamQuality('1080p', this)">
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+              <span>1080p FHD (1080p)</span>
+              <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~8 Mbps speed required</span>
+            </h4>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Full High Definition • Crystal Clear</p>
+          </div>
+        </div>
+        <div class="vlc-radio-row ${is720 ? 'active' : ''}" onclick="setVlcStreamQuality('720p', this)">
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+              <span>720p HD (720p)</span>
+              <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~4 Mbps speed required</span>
+            </h4>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">High Definition • Balanced Mobile Data</p>
+          </div>
+        </div>
+        <div class="vlc-radio-row ${is480 ? 'active' : ''}" onclick="setVlcStreamQuality('480p', this)">
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+              <span>480p SD (480p)</span>
+              <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~1.5 Mbps speed required</span>
+            </h4>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Standard Definition • Low Data Usage</p>
+          </div>
+        </div>
+        <div class="vlc-radio-row ${is360 ? 'active' : ''}" onclick="setVlcStreamQuality('360p', this)">
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+              <span>360p Data Saver (360p)</span>
+              <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~800 Kbps speed required</span>
+            </h4>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Saves up to 75% mobile data</p>
+          </div>
+        </div>
+        <div class="vlc-radio-row ${is144 ? 'active' : ''}" onclick="setVlcStreamQuality('144p', this)">
+          <div style="display: flex; flex-direction: column; width: 100%;">
+            <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+              <span>144p Ultra Low (144p)</span>
+              <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~300 Kbps speed required</span>
+            </h4>
+            <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Minimum data consumption for weak connections</p>
           </div>
         </div>
       `;
-
-      if (isArchive) {
-        optionsHtml += `
-          <div class="vlc-radio-row ${isDataSaverActive ? 'active' : ''}" onclick="setVlcStreamQuality('360p', this)">
-            <div class="vlc-radio-circle"></div>
-            <div class="vlc-radio-text">
-              <h4>🔋 Data Saver Rendition (360p Low Bandwidth)</h4>
-              <p>512 kbps Web Stream • Saves up to 75% mobile data</p>
-            </div>
-          </div>
-        `;
-      }
     }
 
     optionsList.innerHTML = optionsHtml;
@@ -16997,15 +17072,15 @@ window.setVlcStreamQuality = function(qualityKey, elem, explicitLevelIdx) {
 
   const labelMap = {
     'auto': 'Auto (Adaptive Speed)',
-    '4k': '4K Ultra HD (2160p)',
-    '2160p': '4K Ultra HD (2160p)',
-    '1440p': '2K Quad HD (1440p)',
-    '2k': '2K Quad HD (1440p)',
-    '1080p': 'Full HD (1080p)',
-    '720p': 'HD (720p)',
-    '480p': 'SD (480p)',
-    '360p': 'Data Saver (360p)',
-    '144p': 'Ultra Low (144p)',
+    '4k': '4K UHD (2160p)',
+    '2160p': '4K UHD (2160p)',
+    '1440p': '2K QHD (1440p)',
+    '2k': '2K QHD (1440p)',
+    '1080p': '1080p FHD (1080p)',
+    '720p': '720p HD (720p)',
+    '480p': '480p SD (480p)',
+    '360p': '360p Data Saver (360p)',
+    '144p': '144p Ultra Low (144p)',
     'native': 'Native Master Quality'
   };
 

@@ -1411,48 +1411,69 @@
 
                 <!-- Quality Options List -->
                 <div class="vlc-dialog-section">
-                    <label class="vlc-dialog-label">Resolution & Data Usage</label>
+                    <label class="vlc-dialog-label">Resolution</label>
                     <div id="vlcQualityOptionsList" class="vlc-list-options">
                         <div class="vlc-radio-row active" onclick="setVlcStreamQuality('auto', this)">
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="font-weight: 700;">⚡ Auto (Adaptive Bitrate) [Recommended]</span>
-                                <small style="color: #a3a3a3; font-size: 11px;">Automatically adjusts according to data speed (Zero Buffering)</small>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+                                    <span>⚡ Auto (Adaptive Bitrate)</span>
+                                    <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~Dynamic speed required</span>
+                                </h4>
+                                <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Automatically adjusts according to data speed (Zero Buffering)</p>
                             </div>
                         </div>
                         <div class="vlc-radio-row" onclick="setVlcStreamQuality('4k', this)">
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="font-weight: 700;">🌟 4K Ultra HD (2160p 60fps)</span>
-                                <small style="color: #a3a3a3; font-size: 11px;">Requires 25+ Mbps High Speed WiFi / 5G</small>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+                                    <span>4K UHD (2160p)</span>
+                                    <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~25 Mbps speed required</span>
+                                </h4>
+                                <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Ultra High Definition • 3840x2160</p>
                             </div>
                         </div>
                         <div class="vlc-radio-row" onclick="setVlcStreamQuality('1080p', this)">
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="font-weight: 700;">📺 Full HD (1080p Crystal Clear)</span>
-                                <small style="color: #a3a3a3; font-size: 11px;">Requires 5-10 Mbps High Speed 4G/WiFi</small>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+                                    <span>1080p FHD (1080p)</span>
+                                    <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~8 Mbps speed required</span>
+                                </h4>
+                                <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Full High Definition • Crystal Clear</p>
                             </div>
                         </div>
                         <div class="vlc-radio-row" onclick="setVlcStreamQuality('720p', this)">
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="font-weight: 700;">📱 HD (720p Balanced)</span>
-                                <small style="color: #a3a3a3; font-size: 11px;">Requires 2.5 Mbps Standard Mobile Data</small>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+                                    <span>720p HD (720p)</span>
+                                    <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~4 Mbps speed required</span>
+                                </h4>
+                                <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">High Definition • Balanced Mobile Data</p>
                             </div>
                         </div>
                         <div class="vlc-radio-row" onclick="setVlcStreamQuality('480p', this)">
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="font-weight: 700;">📉 SD (480p Standard Definition)</span>
-                                <small style="color: #a3a3a3; font-size: 11px;">Requires 1.2 Mbps Low Data Usage</small>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+                                    <span>480p SD (480p)</span>
+                                    <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~1.5 Mbps speed required</span>
+                                </h4>
+                                <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Standard Definition • Low Data Usage</p>
                             </div>
                         </div>
                         <div class="vlc-radio-row" onclick="setVlcStreamQuality('360p', this)">
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="font-weight: 700;">🔋 Data Saver (360p Ultra Low)</span>
-                                <small style="color: #a3a3a3; font-size: 11px;">Saves up to 80% mobile data on 2G/3G/4G</small>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+                                    <span>360p Data Saver (360p)</span>
+                                    <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~800 Kbps speed required</span>
+                                </h4>
+                                <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Saves up to 75% mobile data</p>
                             </div>
                         </div>
                         <div class="vlc-radio-row" onclick="setVlcStreamQuality('144p', this)">
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="font-weight: 700;">📶 Ultra Data Saver (144p Minimum Data)</span>
-                                <small style="color: #a3a3a3; font-size: 11px;">Minimal data consumption for weak connections</small>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <h4 style="margin: 0; font-size: 13.5px; font-weight: 700; color: #FFFFFF; display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
+                                    <span>144p Ultra Low (144p)</span>
+                                    <span style="font-family: var(--font-mono); color: #10B981; font-size: 12px; font-weight: 600; margin-left: 8px; white-space: nowrap;">~300 Kbps speed required</span>
+                                </h4>
+                                <p style="margin: 2px 0 0 0; color: #94a3b8; font-size: 11px;">Minimum data consumption for weak connections</p>
                             </div>
                         </div>
                     </div>
