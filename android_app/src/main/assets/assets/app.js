@@ -13225,6 +13225,7 @@ let hudHideTimeout = null;
 // ==========================================================
 window.switchPage = function(pageId) {
   try {
+    if (pageId === 'cinema') pageId = 'movies';
     currentActivePage = pageId;
     document.querySelectorAll('.page-view, .t2l-view').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.dock-tab-btn, .dock-item-btn').forEach(b => {
@@ -19588,7 +19589,7 @@ const CatalogProvider = {
   filterByCategory(cat) {
     const list = this.getAll();
     if (!cat || cat === 'all' || cat === 'HindiFirst') return list;
-    if (cat === 'Web-Series') return list.filter(m => (m.mediaType === 'series' || (m.categories && m.categories.includes('web_series'))) && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && (m.streamUrl || (m.episodes && m.episodes.some(ep => ep.streamUrl))));
+    if (cat === 'Web-Series') return list.filter(m => (m.mediaType === 'series' || (m.categories && (m.categories.includes('web_series') || m.categories.includes('web-series')))) && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && (m.streamUrl || (m.episodes && m.episodes.some(ep => ep.streamUrl)))).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
     if (cat === 'Movies') return list.filter(m => m.mediaType !== 'series' && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY');
     if (cat === 'K-Drama') return list.filter(m => m.type === 'K-Drama' || (m.categories && m.categories.includes('korean')));
     if (cat === 'C-Drama') return list.filter(m => m.type === 'C-Drama' || (m.categories && m.categories.includes('chinese')));
@@ -19596,8 +19597,8 @@ const CatalogProvider = {
     if (cat === 'Asian') return list.filter(m => m.region === 'ASIAN' || m.type === 'Asian Cinema' || (m.categories && (m.categories.includes('asian') || m.categories.includes('korean') || m.categories.includes('chinese'))));
     if (cat === 'Hindi') return list.filter(m => (m.languages && m.languages.some(l => l.toLowerCase().includes('hindi'))) || m.type === 'Bollywood' || m.region === 'BOLLYWOOD');
     if (cat === 'English') return list.filter(m => (m.languages && m.languages.some(l => l.toLowerCase().includes('english'))));
-    if (cat === 'Bollywood') return list.filter(m => m.region === 'BOLLYWOOD' || m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood')));
-    if (cat === 'Hollywood') return list.filter(m => m.region === 'HOLLYWOOD' || m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood')));
+    if (cat === 'Bollywood') return list.filter(m => (m.region === 'BOLLYWOOD' || m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood'))) && m.mediaType !== 'series' && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && m.contentType !== 'TRAILER').sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
+    if (cat === 'Hollywood') return list.filter(m => (m.region === 'HOLLYWOOD' || m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood'))) && m.mediaType !== 'series' && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && m.contentType !== 'TRAILER');
     if (cat === 'Trailers') return list.filter(m => m.isTrailerOnly || m.sourceState === 'TRAILER_ONLY' || m.sourceState === 'UPCOMING_TRAILER' || m.contentType === 'TRAILER' || (m.categories && m.categories.includes('trailers')) || (!m.streamUrl && (!m.episodes || !m.episodes.some(ep => ep.streamUrl)) && m.trailerUrl));
     if (cat === 'Featured') return list.filter(m => m.featured);
     const catLower = cat.toLowerCase();
@@ -19781,14 +19782,14 @@ window.renderMoviesPage = async function() {
   // 3. Rail 2: Bollywood Blockbusters
   const bollywoodRow = document.getElementById('moviesBollywoodRow');
   if (bollywoodRow) {
-    const list = allMovies.filter(m => (m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood')) || (m.languages && m.languages.includes('Hindi'))) && m.mediaType !== 'series');
+    const list = allMovies.filter(m => (m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood')) || (m.languages && m.languages.includes('Hindi'))) && m.mediaType !== 'series' && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && m.contentType !== 'TRAILER').sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
     bollywoodRow.innerHTML = (list.length > 0 ? list : allMovies.slice(0, 10)).map(m => renderMovieCard(m)).join('');
   }
 
   // 4. Rail 3: Multi-Season Epics & Sagas (Playable Series Only)
   const webSeriesRow = document.getElementById('moviesWebSeriesRow');
   if (webSeriesRow) {
-    const list = allMovies.filter(m => (m.mediaType === 'series' || (m.categories && m.categories.includes('web_series'))) && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && (m.streamUrl || (m.episodes && m.episodes.some(ep => ep.streamUrl))));
+    const list = allMovies.filter(m => (m.mediaType === 'series' || (m.categories && (m.categories.includes('web_series') || m.categories.includes('web-series')))) && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && (m.streamUrl || (m.episodes && m.episodes.some(ep => ep.streamUrl)))).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
     webSeriesRow.innerHTML = (list.length > 0 ? list : allMovies.filter(m => m.mediaType === 'series' && !m.isTrailerOnly && (m.streamUrl || (m.episodes && m.episodes.some(ep => ep.streamUrl))))).map(m => renderMovieCard(m)).join('');
   }
 
@@ -19802,7 +19803,7 @@ window.renderMoviesPage = async function() {
   // 6. Rail 5: Hollywood & Worldwide Hits
   const hollywoodRow = document.getElementById('moviesHollywoodRow');
   if (hollywoodRow) {
-    const list = allMovies.filter(m => (m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood'))) && m.mediaType !== 'series');
+    const list = allMovies.filter(m => (m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood'))) && m.mediaType !== 'series' && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && m.contentType !== 'TRAILER');
     hollywoodRow.innerHTML = (list.length > 0 ? list : allMovies.slice(10, 20)).map(m => renderMovieCard(m)).join('');
   }
 
