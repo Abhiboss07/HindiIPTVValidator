@@ -93,7 +93,13 @@ function startStaticServer(port = 8091) {
   await page.screenshot({ path: '/home/abhiboss/.gemini/antigravity/brain/e8e871f2-e695-492a-ac55-e9c04e592021/playwright_player_subtitle_modal.png' });
   console.log('Captured screenshot: playwright_player_subtitle_modal.png');
 
-  // Verify Hindi CC selection
+  // Verify that redundant movie-provided subs section was completely removed
+  const redundantSubsSection = await page.evaluate(() => {
+    return document.getElementById('vlcMovieProvidedSubsSection') !== null;
+  });
+  console.log('Redundant Movie Provided Subtitles Section exists:', redundantSubsSection);
+  if (redundantSubsSection) throw new Error('vlcMovieProvidedSubsSection should be removed from Subtitles modal!');
+
   const ccTestResult = await page.evaluate(() => {
     window.setVlcSubtitleTrack('cc:hi');
     const ccBox = document.getElementById('playerCcBox');
@@ -175,8 +181,9 @@ function startStaticServer(port = 8091) {
       found: true,
       text: list.innerText,
       hasFixedWord: list.innerText.includes('(Fixed)'),
-      hasStudioMaster: list.innerText.includes('Studio Master Audio') || list.innerText.includes('Audio Track'),
-      hasPassthrough: list.innerText.includes('Dolby & Multi-Channel Hardware Passthrough')
+      hasStudioMaster: list.innerText.includes('Studio Master Audio'),
+      hasPassthrough: list.innerText.includes('Dolby & Multi-Channel Hardware Passthrough'),
+      hasSimpleLanguage: list.innerText.includes('English') || list.innerText.includes('Hindi')
     };
   });
 
@@ -184,16 +191,22 @@ function startStaticServer(port = 8091) {
   if (audioModalContent.hasFixedWord) {
     throw new Error('Audio track modal STILL contains the confusing "(Fixed)" string!');
   }
-  if (!audioModalContent.hasPassthrough) {
-    throw new Error('Audio track modal missing "Dolby & Multi-Channel Hardware Passthrough" option!');
+  if (audioModalContent.hasStudioMaster) {
+    throw new Error('Audio track modal should NOT contain "Studio Master Audio" jargon!');
+  }
+  if (audioModalContent.hasPassthrough) {
+    throw new Error('Audio track modal should NOT contain "Dolby & Multi-Channel Hardware Passthrough"!');
+  }
+  if (!audioModalContent.hasSimpleLanguage) {
+    throw new Error('Audio track modal must show simple language provided by movie (e.g. English, Hindi)!');
   }
 
   await page.screenshot({ path: '/home/abhiboss/.gemini/antigravity/brain/e8e871f2-e695-492a-ac55-e9c04e592021/playwright_player_audio_modal.png' });
   console.log('Captured screenshot: playwright_player_audio_modal.png');
 
-  // Test switching audio track
+  // Test selecting simple master track
   await page.evaluate(() => {
-    window.setVlcAudioTrack('passthrough');
+    window.setVlcAudioTrack('master');
   });
   await page.waitForTimeout(300);
 

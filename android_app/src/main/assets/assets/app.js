@@ -17747,20 +17747,21 @@ window.openVlcAudioModal = function(e) {
 
     if (audioData.type === 'HLS') {
       audioData.tracks.forEach(track => {
-        const badgeStr = track.formatBadge ? ` • ${track.formatBadge}` : '';
-        const chStr = track.channels ? ` [${track.channels}]` : '';
+        const langName = track.name || track.lang || 'English';
+        const isHi = langName.toLowerCase().includes('hindi') || track.lang === 'hi';
+        const icon = isHi ? '🇮🇳' : '🌐';
         html += `
           <div class="vlc-radio-row ${track.isCurrent ? 'active' : ''}" onclick="setVlcHlsAudioTrack(${track.index}, this)">
-            <span>📻 ${track.name} (${track.lang ? track.lang.toUpperCase() : 'Master'}${chStr}${badgeStr})</span>
+            <span>${icon} ${escapeHtml(langName)}</span>
           </div>
         `;
       });
     } else if (audioData.type === 'URL_SWITCH') {
       audioData.tracks.forEach(track => {
-        const icon = track.lang === 'Hindi' ? '🇮🇳' : (track.lang === 'English' ? '🌐' : (track.lang === 'Korean' ? '🎧' : '🎵'));
+        const icon = track.lang === 'Hindi' ? '🇮🇳' : (track.lang === 'English' ? '🌐' : '🎧');
         html += `
           <div class="vlc-radio-row ${track.isCurrent ? 'active' : ''}" onclick="switchMovieAudioStream('${track.lang}', this)">
-            <span>${icon} ${track.lang} Audio Track (Stream Switch)</span>
+            <span>${icon} ${escapeHtml(track.lang)}</span>
           </div>
         `;
       });
@@ -17769,32 +17770,20 @@ window.openVlcAudioModal = function(e) {
         const icon = track.lang === 'Hindi' ? '🇮🇳' : (track.lang === 'English' ? '🌐' : '🎧');
         html += `
           <div class="vlc-radio-row ${track.isCurrent ? 'active' : ''}" onclick="setVlcContainerAudioTrack('${track.lang}', ${track.index}, this)">
-            <span>${icon} ${track.lang} (Dialogue Track)</span>
+            <span>${icon} ${escapeHtml(track.lang)}</span>
           </div>
         `;
       });
     } else {
-      const primaryLang = audioData.tracks[0].name;
-      const icon = primaryLang === 'Hindi' ? '🇮🇳' : (primaryLang === 'English' ? '🌐' : '🎧');
-      const isMasterActive = currentAudioTrack !== 'passthrough';
+      let primaryLang = audioData.tracks[0]?.name || (movie && movie.defaultLanguage) || 'English';
+      if (primaryLang === 'Master Dialogue' || primaryLang.includes('Master')) {
+        primaryLang = (movie && movie.defaultLanguage) || 'English';
+      }
+      const icon = (primaryLang.toLowerCase().includes('hindi')) ? '🇮🇳' : '🌐';
       html += `
-        <div class="vlc-radio-row ${isMasterActive ? 'active' : ''}" onclick="setVlcAudioTrack('master', this)">
-          <span>${icon} ${primaryLang} (Studio Master Audio)</span>
+        <div class="vlc-radio-row active" onclick="setVlcAudioTrack('master', this)">
+          <span>${icon} ${escapeHtml(primaryLang)}</span>
         </div>
-      `;
-    }
-
-    html += `
-      <div class="vlc-radio-row ${currentAudioTrack === 'passthrough' ? 'active' : ''}" onclick="setVlcAudioTrack('passthrough', this)">
-        <span>🔊 Dolby & Multi-Channel Hardware Passthrough</span>
-      </div>
-    `;
-
-    if (audioData.type === 'SINGLE') {
-      html += `
-        <p style="font-size: 11px; color: #64748b; margin-top: 10px; text-align: center; line-height: 1.4;">
-          ℹ️ Single Studio Master Audio Track • Alternate dubbed streams are not provided for this cinema feed.
-        </p>
       `;
     }
 
@@ -21936,81 +21925,34 @@ window.loadAndParseVttFile = async function(url) {
 
 window.populateVlcSubtitleTracks = function() {
   const ccContainer = document.getElementById('vlcSubtitleTracksList');
-  const movieContainer = document.getElementById('vlcMovieSubtitleTracksList');
   if (!ccContainer) return;
   
   const videoElement = document.getElementById('luminaVideo');
   const currentMovie = currentPlayingChannel?.movieData || (typeof currentSelectedMovie !== 'undefined' ? currentSelectedMovie : null);
 
-  // 1. Universal CC chips
+  // Universal CC chips
   const isHiActive = (isCCEnabled && window.activeCCLanguage === 'hi');
   const isEnActive = (isCCEnabled && window.activeCCLanguage === 'en');
   const isOffActive = (!isCCEnabled || window.activeCCLanguage === 'off');
 
-  ccContainer.innerHTML = `
+  let html = `
     <button class="vlc-chip-btn ${isOffActive ? 'active' : ''}" onclick="setVlcSubtitleTrack('off', this)">Off</button>
     <button class="vlc-chip-btn ${isHiActive ? 'active' : ''}" onclick="setVlcSubtitleTrack('cc:hi', this)">🇮🇳 Hindi (CC)</button>
     <button class="vlc-chip-btn ${isEnActive ? 'active' : ''}" onclick="setVlcSubtitleTrack('cc:en', this)">🌐 English (CC)</button>
   `;
 
-  // 2. Discover Movie-Provided Subtitles & Embedded Stream Tracks
-  if (movieContainer) {
-    const movieSubs = (currentMovie && Array.isArray(currentMovie.subtitles)) ? currentMovie.subtitles : [];
-    const streamTracks = [];
-
-    // Check Hls.js subtitle tracks
-    if (typeof hlsInstance !== 'undefined' && hlsInstance && hlsInstance.subtitleTracks && hlsInstance.subtitleTracks.length > 0) {
-      hlsInstance.subtitleTracks.forEach((t, idx) => {
-        streamTracks.push({
-          source: 'hls',
-          index: idx,
-          label: t.name || t.lang || `HLS Subtitle ${idx + 1}`,
-          lang: t.lang || '',
-          active: (typeof hlsInstance.subtitleTrack !== 'undefined' && hlsInstance.subtitleTrack === idx)
-        });
-      });
+  // Check if current movie has extra distinct language tracks (e.g. Spanish, French, etc.)
+  const movieSubs = (currentMovie && Array.isArray(currentMovie.subtitles)) ? currentMovie.subtitles : [];
+  movieSubs.forEach((sub, idx) => {
+    const langLower = (sub.lang || sub.label || '').toLowerCase();
+    if (!langLower.includes('en') && !langLower.includes('hi') && !langLower.includes('hindi')) {
+      const isThisActive = (isCCEnabled && currentSubtitleTrackId === `movie:${idx}`);
+      const label = sub.label || sub.lang || `Track ${idx + 1}`;
+      html += `<button class="vlc-chip-btn ${isThisActive ? 'active' : ''}" onclick="setVlcSubtitleTrack('movie:${idx}', this)">💬 ${escapeHtml(label)}</button>`;
     }
+  });
 
-    // Check native video textTracks
-    if (videoElement && videoElement.textTracks && videoElement.textTracks.length > 0) {
-      for (let i = 0; i < videoElement.textTracks.length; i++) {
-        const t = videoElement.textTracks[i];
-        if (t.kind === 'subtitles' || t.kind === 'captions') {
-          streamTracks.push({
-            source: 'native',
-            index: i,
-            label: t.label || t.language || `Stream Track ${i + 1}`,
-            lang: t.language || '',
-            active: (t.mode === 'showing')
-          });
-        }
-      }
-    }
-
-    let html = '';
-    if (movieSubs.length > 0) {
-      movieSubs.forEach((sub, idx) => {
-        const isThisActive = (isCCEnabled && currentSubtitleTrackId === `movie:${idx}`);
-        const label = sub.label || sub.lang || `Track ${idx + 1}`;
-        const icon = (label.toLowerCase().includes('hindi') || label.includes('हिन्दी')) ? '🇮🇳 ' : '💬 ';
-        html += `<button class="vlc-chip-btn ${isThisActive ? 'active' : ''}" onclick="setVlcSubtitleTrack('movie:${idx}', this)">${icon}${escapeHtml(label)}</button>`;
-      });
-    }
-
-    if (streamTracks.length > 0) {
-      streamTracks.forEach(st => {
-        const isThisActive = (isCCEnabled && currentSubtitleTrackId === `${st.source}:${st.index}`);
-        const icon = (st.lang.toLowerCase() === 'hi' || st.lang.toLowerCase() === 'hin') ? '🇮🇳 ' : '🌐 ';
-        html += `<button class="vlc-chip-btn ${isThisActive ? 'active' : ''}" onclick="setVlcSubtitleTrack('${st.source}:${st.index}', this)">${icon}${escapeHtml(st.label)}</button>`;
-      });
-    }
-
-    if (html) {
-      movieContainer.innerHTML = html;
-    } else {
-      movieContainer.innerHTML = `<div class="vlc-empty-tracks-msg">No extra movie-provided tracks. Use Hindi or English CC above.</div>`;
-    }
-  }
+  ccContainer.innerHTML = html;
 };
 
 window.setVlcSubtitleTrack = function(trackSpec, elem) {
