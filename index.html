@@ -227,7 +227,7 @@
     <div class="drawer-sheet-content">
       <div class="drawer-header-row">
         <div style="font-size: 17px; font-weight: 800;">Notifications</div>
-        <button class="t2l-icon-btn sheet-close-btn" onclick="closeNotificationsSheet()">✕</button>
+        <button class="t2l-icon-btn sheet-close-btn" onclick="closeNotificationsSheet()" aria-label="Close notifications">✕</button>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
         <span style="font-size: 12px; color: var(--t2l-text-muted);">Recent Releases & System Highlights</span>
@@ -243,7 +243,7 @@
     <div class="drawer-sheet-content">
       <div class="drawer-header-row">
         <div style="font-size: 17px; font-weight: 800;">Account & Hub</div>
-        <button class="t2l-icon-btn sheet-close-btn" onclick="closeProfileSheet()">✕</button>
+        <button class="t2l-icon-btn sheet-close-btn" onclick="closeProfileSheet()" aria-label="Close account and hub">✕</button>
       </div>
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
         <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(139,92,246,0.18); display: flex; align-items: center; justify-content: center;">
@@ -267,11 +267,11 @@
   <div id="spotlightSearchModal" class="spotlight-search-modal" onclick="closeSpotlightSearch(event)" style="display: none;" role="dialog" aria-modal="true" aria-label="Catalog Search">
     <div class="spotlight-search-container" onclick="event.stopPropagation()">
       <div class="spotlight-input-bar">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spotlight-search-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spotlight-search-icon" aria-hidden="true">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input id="spotlightInput" type="text" placeholder="Search movies, sagas, actors, live TV channels..." oninput="handleSpotlightSearch(this.value)" autocomplete="off">
+        <input id="spotlightInput" type="text" placeholder="Search movies, sagas, actors, live TV channels..." oninput="handleSpotlightSearch(this.value)" autocomplete="off" aria-label="Search movies, series, actors, and channels">
         <button class="t2l-icon-btn spotlight-close-btn" onclick="closeSpotlightSearch()" aria-label="Close search">✕</button>
       </div>
 
@@ -654,8 +654,8 @@
       <!-- Live Search Bar -->
       <div style="padding: 0 16px 12px 16px;">
         <div style="position: relative; display: flex; align-items: center;">
-          <svg style="position: absolute; left: 14px; color: var(--t2l-text-muted); pointer-events: none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input id="liveSearchInput" type="text" placeholder="Search live channels, news, music, sports..." oninput="handleLiveSearch(this.value)" style="width: 100%; height: 42px; padding: 0 14px 0 42px; border-radius: var(--t2l-radius-md); border: 1px solid var(--t2l-border-subtle); background: var(--t2l-surface-2); color: #fff; font-size: 13px; font-weight: 500; outline: none;">
+          <svg style="position: absolute; left: 14px; color: var(--t2l-text-muted); pointer-events: none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input id="liveSearchInput" type="text" placeholder="Search live channels, news, music, sports..." oninput="handleLiveSearch(this.value)" aria-label="Search live channels, news, music, sports" style="width: 100%; height: 42px; padding: 0 14px 0 42px; border-radius: var(--t2l-radius-md); border: 1px solid var(--t2l-border-subtle); background: var(--t2l-surface-2); color: #fff; font-size: 13px; font-weight: 500; outline: none;">
         </div>
       </div>
 
@@ -740,8 +740,8 @@
       <!-- Radio Search Bar -->
       <div style="padding: 0 16px 12px 16px;">
         <div style="position: relative; display: flex; align-items: center;">
-          <svg style="position: absolute; left: 14px; color: var(--t2l-text-muted); pointer-events: none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input id="radioSearchInput" type="text" placeholder="Search radio stations, frequencies, genres..." oninput="handleRadioSearch(this.value)" style="width: 100%; height: 42px; padding: 0 14px 0 42px; border-radius: var(--t2l-radius-md); border: 1px solid var(--t2l-border-subtle); background: var(--t2l-surface-2); color: #fff; font-size: 13px; font-weight: 500; outline: none;">
+          <svg style="position: absolute; left: 14px; color: var(--t2l-text-muted); pointer-events: none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input id="radioSearchInput" type="text" placeholder="Search radio stations, frequencies, genres..." oninput="handleRadioSearch(this.value)" aria-label="Search radio stations, frequencies, genres" style="width: 100%; height: 42px; padding: 0 14px 0 42px; border-radius: var(--t2l-radius-md); border: 1px solid var(--t2l-border-subtle); background: var(--t2l-surface-2); color: #fff; font-size: 13px; font-weight: 500; outline: none;">
         </div>
       </div>
 

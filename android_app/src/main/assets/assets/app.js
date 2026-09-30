@@ -7563,6 +7563,8 @@ window.closeSettingsModal = function() {
       modal.classList.remove('active');
       modal.style.display = 'none';
     }
+    document.body.classList.remove('modal-open-locked');
+    document.documentElement.classList.remove('modal-open-locked');
   } catch (e) {}
 };
 
@@ -7570,7 +7572,6 @@ window.closeSettingsModal = function() {
 // APPLICATION INITIALIZATION
 // ==========================================================
 async function initApp() {
-  try { initParticles(); } catch (e) { console.warn('initParticles note:', e); }
   try { initPlayerOverlayEvents(); } catch (e) { console.warn('initPlayerOverlayEvents note:', e); }
   try { initPlayerSwipeGestures(); } catch (e) { console.warn('initPlayerSwipeGestures note:', e); }
   try { initMiniPlayerSwipe(); } catch (e) { console.warn('initMiniPlayerSwipe note:', e); }
@@ -10598,27 +10599,6 @@ function showSeekRipple(seconds) {
   }, 600);
 }
 
-window.skipTime = function(seconds) {
-  const videoElement = document.getElementById('luminaVideo');
-  if (!videoElement) return;
-  videoElement.currentTime = Math.max(0, videoElement.currentTime + seconds);
-  showSeekRipple(seconds);
-  showToast((seconds > 0 ? '+' : '') + seconds + 's');
-  resetPlayerHideTimer();
-};
-
-window.handleSeekbarClick = function(e) {
-  const videoElement = document.getElementById('luminaVideo');
-  if (!videoElement || !videoElement.duration || isNaN(videoElement.duration)) return;
-  const rect = e.currentTarget.getBoundingClientRect();
-  const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : null);
-  if (clientX === null) return;
-  const pos = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-  videoElement.currentTime = pos * videoElement.duration;
-  showToast('Seek: ' + formatSeekTime(videoElement.currentTime));
-  resetPlayerHideTimer();
-};
-
 let orientationModes = ['auto', 'landscape', 'portrait'];
 let orientationLabels = ['🔄 Auto-Rotate', '🔄 Landscape', '🔄 Portrait'];
 let currentOrientIdx = 0;
@@ -12731,52 +12711,6 @@ window.closeSpeedTestModal = function() {
   }
 };
 
-window.runLiveSpeedTest = function(isManual = true) {
-  const meterVal = document.getElementById('speedMeterVal');
-  const pingVal = document.getElementById('speedPingVal');
-  const typeVal = document.getElementById('speedTypeVal');
-  const jitterVal = document.getElementById('speedJitterVal');
-  const badgeVal = document.getElementById('speedMatchedQualityBadge');
-  const btn = document.getElementById('btnRunSpeedTest');
-
-  if (btn && isManual) {
-    btn.disabled = true;
-    btn.innerHTML = '<span>⏳</span> Testing Bandwidth...';
-  }
-
-  let downMbps = 35.0;
-  let netType = 'Wi-Fi / 5G';
-  if (window.AndroidMedia && window.AndroidMedia.getNetworkSpeedInfo) {
-    try {
-      const info = JSON.parse(window.AndroidMedia.getNetworkSpeedInfo());
-      if (info && info.downstreamMbps) {
-        downMbps = Math.max(2.5, info.downstreamMbps);
-        netType = info.type ? info.type.toUpperCase() : 'Wi-Fi / Cellular';
-      }
-    } catch (e) {}
-  }
-
-  setTimeout(() => {
-    if (meterVal) meterVal.textContent = downMbps.toFixed(1);
-    if (pingVal) pingVal.textContent = Math.floor(Math.random() * 15 + 12) + ' ms';
-    if (typeVal) typeVal.textContent = netType;
-    if (jitterVal) jitterVal.textContent = (Math.random() * 0.8 + 0.2).toFixed(1) + ' ms';
-
-    let recQuality = '1080p FHD';
-    if (downMbps < 5.0) recQuality = '480p SD';
-    else if (downMbps < 12.0) recQuality = '720p HD';
-    else recQuality = '1080p FHD';
-
-    if (badgeVal) badgeVal.textContent = recQuality;
-
-    if (btn && isManual) {
-      btn.disabled = false;
-      btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg><span>Test Internet & Match Quality</span>';
-      showToast('⚡ Matched stream quality to ' + recQuality);
-    }
-  }, isManual ? 600 : 50);
-};
-
 // Settings System
 function loadSettingsUI() {
   const qSelect = document.getElementById('settingQuality');
@@ -13054,9 +12988,6 @@ window.clearAppData = function() {
   showToast('Cache & Recents Cleared!');
   closeSettingsModal();
 };
-
-// Canvas Particles (Disabled for optimal 60fps GPU performance on mobile)
-function initParticles() {}
 
 // ==========================================================
 // SEQUENTIAL TORRENT STREAMING SUBSYSTEM
@@ -15790,9 +15721,6 @@ window.closeInstantStreamerModal = function() {
   const statusEl = document.getElementById('torrentModalStatus');
   if (statusEl) statusEl.style.display = 'none';
 };
-
-window.openTorrentModal = window.openInstantStreamerModal;
-window.closeTorrentModal = window.closeInstantStreamerModal;
 
 window.submitInstantStreamerMagnet = function() {
   const input = document.getElementById('torrentMagnetInput');

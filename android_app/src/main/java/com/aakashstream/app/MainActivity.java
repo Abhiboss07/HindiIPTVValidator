@@ -13,14 +13,9 @@ import android.media.AudioAttributes;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
-import android.media.MediaCodec;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import com.aakashstream.app.torrent.*;
-import java.nio.ByteBuffer;
 import java.io.File;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -318,105 +313,102 @@ public class MainActivity extends Activity {
                     : ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
 
             String mime = isVideo ? "video/mp4" : "audio/mpeg";
-            AssetFileDescriptor afd = getContentResolver().openAssetFileDescriptor(contentUri, "r");
-            if (afd == null) {
-                String resp = "HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\n\r\n";
-                out.write(resp.getBytes("UTF-8"));
-                out.flush();
-                socket.close();
-                return;
-            }
-
-            long totalLength = afd.getLength();
-            if (totalLength < 0) {
-                ParcelFileDescriptor pfd = afd.getParcelFileDescriptor();
-                if (pfd != null) totalLength = pfd.getStatSize();
-            }
-
-            long start = 0;
-            long end = totalLength > 0 ? (totalLength - 1) : 0;
-            boolean isRange = false;
-            boolean isExplicitEnd = false;
-
-            if (rangeHeader != null && rangeHeader.startsWith("bytes=")) {
-                isRange = true;
-                String rangeSpec = rangeHeader.substring(6).trim();
-                String[] parts = rangeSpec.split("-");
-                try {
-                    if (parts.length > 0 && !parts[0].isEmpty()) {
-                        start = Long.parseLong(parts[0]);
-                    }
-                    if (parts.length > 1 && !parts[1].isEmpty()) {
-                        end = Long.parseLong(parts[1]);
-                        isExplicitEnd = true;
-                    }
-                } catch (NumberFormatException ignored) {}
-            }
-
-            // High performance video range chunking (Max 4MB per HTTP 206 chunk)
-            // This enables fast startup for large files (100GB+) by limiting initial response size
-            if (isRange && !isExplicitEnd && totalLength > 0) {
-                long maxChunk = 4 * 1024 * 1024;
-                end = Math.min(start + maxChunk - 1, totalLength - 1);
-            }
-
-            if (totalLength > 0 && end >= totalLength) {
-                end = totalLength - 1;
-            }
-            if (start > end && totalLength > 0) {
-                start = 0;
-                end = totalLength - 1;
-            }
-
-            long contentLength = totalLength > 0 ? (end - start + 1) : 0;
-            FileInputStream fis = afd.createInputStream();
-            if (start > 0) {
-                fis.getChannel().position(start);
-            }
-            BufferedInputStream bis = new BufferedInputStream(fis, 64 * 1024);
-
-            StringBuilder headers = new StringBuilder();
-            if (isRange && totalLength > 0) {
-                headers.append("HTTP/1.1 206 Partial Content\r\n");
-                headers.append("Content-Range: bytes ").append(start).append("-").append(end).append("/").append(totalLength).append("\r\n");
-            } else {
-                headers.append("HTTP/1.1 200 OK\r\n");
-            }
-            headers.append("Content-Type: ").append(mime).append("\r\n");
-            headers.append("Accept-Ranges: bytes\r\n");
-            headers.append("Access-Control-Allow-Origin: *\r\n");
-            headers.append("Access-Control-Allow-Methods: GET, HEAD, OPTIONS\r\n");
-            headers.append("Access-Control-Allow-Headers: *\r\n");
-            headers.append("Access-Control-Expose-Headers: Content-Range, Content-Length, Accept-Ranges\r\n");
-            headers.append("Cache-Control: no-cache, no-store\r\n");
-            if (contentLength > 0) {
-                headers.append("Content-Length: ").append(contentLength).append("\r\n");
-            }
-            headers.append("\r\n");
-
-            BufferedOutputStream bos = new BufferedOutputStream(out, 64 * 1024);
-            bos.write(headers.toString().getBytes("UTF-8"));
-
-            if (!"HEAD".equalsIgnoreCase(method)) {
-                byte[] buffer = new byte[64 * 1024];
-                long bytesToRead = (totalLength > 0) ? contentLength : Long.MAX_VALUE;
-                while (bytesToRead > 0) {
-                    int toRead = (int) Math.min(buffer.length, bytesToRead);
-                    int read = bis.read(buffer, 0, toRead);
-                    if (read <= 0) break;
-                    bos.write(buffer, 0, read);
-                    bytesToRead -= read;
+            try (AssetFileDescriptor afd = getContentResolver().openAssetFileDescriptor(contentUri, "r")) {
+                if (afd == null) {
+                    String resp = "HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\n\r\n";
+                    out.write(resp.getBytes("UTF-8"));
+                    out.flush();
+                    return;
                 }
-                bos.flush();
-            }
 
-            bis.close();
-            fis.close();
-            afd.close();
-            socket.close();
+                long totalLength = afd.getLength();
+                if (totalLength < 0) {
+                    ParcelFileDescriptor pfd = afd.getParcelFileDescriptor();
+                    if (pfd != null) totalLength = pfd.getStatSize();
+                }
+
+                long start = 0;
+                long end = totalLength > 0 ? (totalLength - 1) : 0;
+                boolean isRange = false;
+                boolean isExplicitEnd = false;
+
+                if (rangeHeader != null && rangeHeader.startsWith("bytes=")) {
+                    isRange = true;
+                    String rangeSpec = rangeHeader.substring(6).trim();
+                    String[] parts = rangeSpec.split("-");
+                    try {
+                        if (parts.length > 0 && !parts[0].isEmpty()) {
+                            start = Long.parseLong(parts[0]);
+                        }
+                        if (parts.length > 1 && !parts[1].isEmpty()) {
+                            end = Long.parseLong(parts[1]);
+                            isExplicitEnd = true;
+                        }
+                    } catch (NumberFormatException ignored) {}
+                }
+
+                // High performance video range chunking (Max 4MB per HTTP 206 chunk)
+                // This enables fast startup for large files (100GB+) by limiting initial response size
+                if (isRange && !isExplicitEnd && totalLength > 0) {
+                    long maxChunk = 4 * 1024 * 1024;
+                    end = Math.min(start + maxChunk - 1, totalLength - 1);
+                }
+
+                if (totalLength > 0 && end >= totalLength) {
+                    end = totalLength - 1;
+                }
+                if (start > end && totalLength > 0) {
+                    start = 0;
+                    end = totalLength - 1;
+                }
+
+                long contentLength = totalLength > 0 ? (end - start + 1) : 0;
+                try (FileInputStream fis = afd.createInputStream();
+                     BufferedInputStream bis = new BufferedInputStream(fis, 64 * 1024)) {
+                    if (start > 0) {
+                        fis.getChannel().position(start);
+                    }
+
+                    StringBuilder headers = new StringBuilder();
+                    if (isRange && totalLength > 0) {
+                        headers.append("HTTP/1.1 206 Partial Content\r\n");
+                        headers.append("Content-Range: bytes ").append(start).append("-").append(end).append("/").append(totalLength).append("\r\n");
+                    } else {
+                        headers.append("HTTP/1.1 200 OK\r\n");
+                    }
+                    headers.append("Content-Type: ").append(mime).append("\r\n");
+                    headers.append("Accept-Ranges: bytes\r\n");
+                    headers.append("Access-Control-Allow-Origin: *\r\n");
+                    headers.append("Access-Control-Allow-Methods: GET, HEAD, OPTIONS\r\n");
+                    headers.append("Access-Control-Allow-Headers: *\r\n");
+                    headers.append("Access-Control-Expose-Headers: Content-Range, Content-Length, Accept-Ranges\r\n");
+                    headers.append("Cache-Control: no-cache, no-store\r\n");
+                    if (contentLength > 0) {
+                        headers.append("Content-Length: ").append(contentLength).append("\r\n");
+                    }
+                    headers.append("\r\n");
+
+                    BufferedOutputStream bos = new BufferedOutputStream(out, 64 * 1024);
+                    bos.write(headers.toString().getBytes("UTF-8"));
+
+                    if (!"HEAD".equalsIgnoreCase(method)) {
+                        byte[] buffer = new byte[64 * 1024];
+                        long bytesToRead = (totalLength > 0) ? contentLength : Long.MAX_VALUE;
+                        while (bytesToRead > 0) {
+                            int toRead = (int) Math.min(buffer.length, bytesToRead);
+                            int read = bis.read(buffer, 0, toRead);
+                            if (read <= 0) break;
+                            bos.write(buffer, 0, read);
+                            bytesToRead -= read;
+                        }
+                        bos.flush();
+                    }
+                }
+            }
         } catch (Exception e) {
             Log.w(TAG, "Error handling HTTP client: " + e.getMessage());
-            try { socket.close(); } catch (Exception e2) {}
+        } finally {
+            try { socket.close(); } catch (Exception ignored) {}
         }
     }
 
@@ -517,7 +509,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        WebView.setWebContentsDebuggingEnabled(true);
+        if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
+            WebView.setWebContentsDebuggingEnabled(true);
+        }
         startLocalServer();
         torrentEngine = new TorrentEngine(this);
 
@@ -677,37 +671,27 @@ public class MainActivity extends Activity {
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
-        if (webView != null) {
-            if (level >= TRIM_MEMORY_MODERATE) {
-                webView.freeMemory();
-            }
-        }
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        if (webView != null) {
-            webView.freeMemory();
-        }
     }
 
     private void setupWebView() {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
-        settings.setDatabaseEnabled(true);
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(true);
-        settings.setAllowFileAccessFromFileURLs(true);
-        settings.setAllowUniversalAccessFromFileURLs(true);
+        settings.setAllowFileAccessFromFileURLs(false);
+        settings.setAllowUniversalAccessFromFileURLs(false);
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-        settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
 
         mediaBridge = new AndroidMediaBridge();
         webView.addJavascriptInterface(mediaBridge, "AndroidMedia");
@@ -764,9 +748,22 @@ public class MainActivity extends Activity {
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                if (request == null || request.getUrl() == null) return true;
+                return handleUrlNavigation(request.getUrl().toString());
+            }
+
+            @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return handleUrlNavigation(url);
+            }
+
+            private boolean handleUrlNavigation(String url) {
                 if (url == null) return true;
-                if (url.startsWith("file:///android_asset/") || url.startsWith("http://127.0.0.1") || url.startsWith("http://localhost")) {
+                if (url.startsWith("https://appassets.androidplatform.net") ||
+                    url.startsWith("file:///android_asset/") ||
+                    url.startsWith("http://127.0.0.1") ||
+                    url.startsWith("http://localhost")) {
                     return false;
                 }
                 try {
@@ -1031,6 +1028,12 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public String fetchRemoteUrl(String urlString) {
+            if (urlString == null) return null;
+            String lower = urlString.trim().toLowerCase();
+            if (!lower.startsWith("http://") && !lower.startsWith("https://")) {
+                Log.w(TAG, "fetchRemoteUrl rejected non-http(s) URL: " + urlString);
+                return null;
+            }
             try {
                 java.net.URL url = new java.net.URL(urlString);
                 java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
@@ -1061,6 +1064,10 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public String resolveRedirectUrl(String urlString) {
             if (urlString == null || urlString.trim().isEmpty()) return urlString;
+            String lower = urlString.trim().toLowerCase();
+            if (!lower.startsWith("http://") && !lower.startsWith("https://")) {
+                return urlString;
+            }
             try {
                 java.net.URL url = new java.net.URL(urlString);
                 java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
@@ -1341,8 +1348,8 @@ public class MainActivity extends Activity {
                         q.setFilterById(task.downloadId);
                         try (android.database.Cursor c = dm.query(q)) {
                             if (c != null && c.moveToFirst()) {
-                                int bytesSoFar = c.getInt(c.getColumnIndexOrThrow(android.app.DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                                int totalBytes = c.getInt(c.getColumnIndexOrThrow(android.app.DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+                                long bytesSoFar = c.getLong(c.getColumnIndexOrThrow(android.app.DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                                long totalBytes = c.getLong(c.getColumnIndexOrThrow(android.app.DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
                                 int status = c.getInt(c.getColumnIndexOrThrow(android.app.DownloadManager.COLUMN_STATUS));
                                 task.downloadedBytes = bytesSoFar;
                                 task.totalBytes = totalBytes;
@@ -1494,50 +1501,50 @@ public class MainActivity extends Activity {
                         MediaStore.Video.Media.SIZE,
                         MediaStore.Video.Media.BUCKET_DISPLAY_NAME
                 };
-                Cursor vCursor = getContentResolver().query(
+                try (Cursor vCursor = getContentResolver().query(
                         MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
                         videoProjection,
                         null, null,
                         MediaStore.Video.Media.DATE_ADDED + " DESC"
-                );
-                if (vCursor != null) {
-                    int idCol = vCursor.getColumnIndex(MediaStore.Video.Media._ID);
-                    int nameCol = vCursor.getColumnIndex(MediaStore.Video.Media.DISPLAY_NAME);
-                    int durCol = vCursor.getColumnIndex(MediaStore.Video.Media.DURATION);
-                    int sizeCol = vCursor.getColumnIndex(MediaStore.Video.Media.SIZE);
-                    int bucketCol = vCursor.getColumnIndex(MediaStore.Video.Media.BUCKET_DISPLAY_NAME);
+                )) {
+                    if (vCursor != null) {
+                        int idCol = vCursor.getColumnIndex(MediaStore.Video.Media._ID);
+                        int nameCol = vCursor.getColumnIndex(MediaStore.Video.Media.DISPLAY_NAME);
+                        int durCol = vCursor.getColumnIndex(MediaStore.Video.Media.DURATION);
+                        int sizeCol = vCursor.getColumnIndex(MediaStore.Video.Media.SIZE);
+                        int bucketCol = vCursor.getColumnIndex(MediaStore.Video.Media.BUCKET_DISPLAY_NAME);
 
-                    while (vCursor.moveToNext()) {
-                        long id = idCol >= 0 ? vCursor.getLong(idCol) : 0;
-                        String name = nameCol >= 0 ? vCursor.getString(nameCol) : "Local Video";
-                        long durMs = durCol >= 0 ? vCursor.getLong(durCol) : 0;
-                        long sizeBytes = sizeCol >= 0 ? vCursor.getLong(sizeCol) : 0;
-                        String folder = bucketCol >= 0 ? vCursor.getString(bucketCol) : "Videos";
-                        if (folder == null || folder.isEmpty()) folder = "Videos";
+                        while (vCursor.moveToNext()) {
+                            long id = idCol >= 0 ? vCursor.getLong(idCol) : 0;
+                            String name = nameCol >= 0 ? vCursor.getString(nameCol) : "Local Video";
+                            long durMs = durCol >= 0 ? vCursor.getLong(durCol) : 0;
+                            long sizeBytes = sizeCol >= 0 ? vCursor.getLong(sizeCol) : 0;
+                            String folder = bucketCol >= 0 ? vCursor.getString(bucketCol) : "Videos";
+                            if (folder == null || folder.isEmpty()) folder = "Videos";
 
-                        int mins = (int) (durMs / 1000 / 60);
-                        int secs = (int) ((durMs / 1000) % 60);
-                        String durFormatted = durMs > 0 ? (mins + ":" + (secs < 10 ? "0" : "") + secs) : "VIDEO";
-                        String sizeMb = String.format("%.1f MB", (double) sizeBytes / (1024 * 1024));
+                            int mins = (int) (durMs / 1000 / 60);
+                            int secs = (int) ((durMs / 1000) % 60);
+                            String durFormatted = durMs > 0 ? (mins + ":" + (secs < 10 ? "0" : "") + secs) : "VIDEO";
+                            String sizeMb = String.format("%.1f MB", (double) sizeBytes / (1024 * 1024));
 
-                        JSONObject obj = new JSONObject();
-                        obj.put("id", "dev_video_" + id);
-                        obj.put("name", name != null ? name : "Local Video");
-                        obj.put("type", "tv");
-                        obj.put("country", "Local");
-                        obj.put("countryName", folder);
-                        obj.put("flag", "🎬");
-                        obj.put("category", "Local Video");
-                        obj.put("quality", sizeMb);
-                        obj.put("description", "Device Storage: " + folder);
-                        obj.put("url", "http://127.0.0.1:" + localServerPort + "/video?id=" + id);
-                        obj.put("thumbUrl", "http://127.0.0.1:" + localServerPort + "/thumb?id=" + id + "&type=video");
-                        obj.put("duration", durFormatted);
-                        obj.put("folder", folder);
-                        obj.put("isLocal", true);
-                        arr.put(obj);
+                            JSONObject obj = new JSONObject();
+                            obj.put("id", "dev_video_" + id);
+                            obj.put("name", name != null ? name : "Local Video");
+                            obj.put("type", "tv");
+                            obj.put("country", "Local");
+                            obj.put("countryName", folder);
+                            obj.put("flag", "🎬");
+                            obj.put("category", "Local Video");
+                            obj.put("quality", sizeMb);
+                            obj.put("description", "Device Storage: " + folder);
+                            obj.put("url", "http://127.0.0.1:" + localServerPort + "/video?id=" + id);
+                            obj.put("thumbUrl", "http://127.0.0.1:" + localServerPort + "/thumb?id=" + id + "&type=video");
+                            obj.put("duration", durFormatted);
+                            obj.put("folder", folder);
+                            obj.put("isLocal", true);
+                            arr.put(obj);
+                        }
                     }
-                    vCursor.close();
                 }
 
                 // 2. Scan Audio
@@ -1549,52 +1556,52 @@ public class MainActivity extends Activity {
                         MediaStore.Audio.Media.ARTIST,
                         MediaStore.Audio.Media.BUCKET_DISPLAY_NAME
                 };
-                Cursor aCursor = getContentResolver().query(
+                try (Cursor aCursor = getContentResolver().query(
                         MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
                         audioProjection,
                         MediaStore.Audio.Media.IS_MUSIC + "!= 0", null,
                         MediaStore.Audio.Media.DATE_ADDED + " DESC"
-                );
-                if (aCursor != null) {
-                    int idCol = aCursor.getColumnIndex(MediaStore.Audio.Media._ID);
-                    int nameCol = aCursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME);
-                    int durCol = aCursor.getColumnIndex(MediaStore.Audio.Media.DURATION);
-                    int sizeCol = aCursor.getColumnIndex(MediaStore.Audio.Media.SIZE);
-                    int artistCol = aCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
-                    int bucketCol = aCursor.getColumnIndex(MediaStore.Audio.Media.BUCKET_DISPLAY_NAME);
+                )) {
+                    if (aCursor != null) {
+                        int idCol = aCursor.getColumnIndex(MediaStore.Audio.Media._ID);
+                        int nameCol = aCursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME);
+                        int durCol = aCursor.getColumnIndex(MediaStore.Audio.Media.DURATION);
+                        int sizeCol = aCursor.getColumnIndex(MediaStore.Audio.Media.SIZE);
+                        int artistCol = aCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
+                        int bucketCol = aCursor.getColumnIndex(MediaStore.Audio.Media.BUCKET_DISPLAY_NAME);
 
-                    while (aCursor.moveToNext()) {
-                        long id = idCol >= 0 ? aCursor.getLong(idCol) : 0;
-                        String name = nameCol >= 0 ? aCursor.getString(nameCol) : "Local Audio";
-                        long durMs = durCol >= 0 ? aCursor.getLong(durCol) : 0;
-                        long sizeBytes = sizeCol >= 0 ? aCursor.getLong(sizeCol) : 0;
-                        String artist = artistCol >= 0 ? aCursor.getString(artistCol) : "Music Audio";
-                        String folder = bucketCol >= 0 ? aCursor.getString(bucketCol) : "Music";
-                        if (folder == null || folder.isEmpty()) folder = "Music";
+                        while (aCursor.moveToNext()) {
+                            long id = idCol >= 0 ? aCursor.getLong(idCol) : 0;
+                            String name = nameCol >= 0 ? aCursor.getString(nameCol) : "Local Audio";
+                            long durMs = durCol >= 0 ? aCursor.getLong(durCol) : 0;
+                            long sizeBytes = sizeCol >= 0 ? aCursor.getLong(sizeCol) : 0;
+                            String artist = artistCol >= 0 ? aCursor.getString(artistCol) : "Music Audio";
+                            String folder = bucketCol >= 0 ? aCursor.getString(bucketCol) : "Music";
+                            if (folder == null || folder.isEmpty()) folder = "Music";
 
-                        int mins = (int) (durMs / 1000 / 60);
-                        int secs = (int) ((durMs / 1000) % 60);
-                        String durFormatted = durMs > 0 ? (mins + ":" + (secs < 10 ? "0" : "") + secs) : "AUDIO";
-                        String sizeMb = String.format("%.1f MB", (double) sizeBytes / (1024 * 1024));
+                            int mins = (int) (durMs / 1000 / 60);
+                            int secs = (int) ((durMs / 1000) % 60);
+                            String durFormatted = durMs > 0 ? (mins + ":" + (secs < 10 ? "0" : "") + secs) : "AUDIO";
+                            String sizeMb = String.format("%.1f MB", (double) sizeBytes / (1024 * 1024));
 
-                        JSONObject obj = new JSONObject();
-                        obj.put("id", "dev_audio_" + id);
-                        obj.put("name", name != null ? name : "Local Audio");
-                        obj.put("type", "radio");
-                        obj.put("country", "Local");
-                        obj.put("countryName", folder);
-                        obj.put("flag", "🎵");
-                        obj.put("category", (artist != null && !artist.contains("unknown")) ? artist : "Music Audio");
-                        obj.put("quality", sizeMb);
-                        obj.put("description", "Device Storage: " + folder);
-                        obj.put("url", "http://127.0.0.1:" + localServerPort + "/audio?id=" + id);
-                        obj.put("thumbUrl", "http://127.0.0.1:" + localServerPort + "/thumb?id=" + id + "&type=audio");
-                        obj.put("duration", durFormatted);
-                        obj.put("folder", folder);
-                        obj.put("isLocal", true);
-                        arr.put(obj);
+                            JSONObject obj = new JSONObject();
+                            obj.put("id", "dev_audio_" + id);
+                            obj.put("name", name != null ? name : "Local Audio");
+                            obj.put("type", "radio");
+                            obj.put("country", "Local");
+                            obj.put("countryName", folder);
+                            obj.put("flag", "🎵");
+                            obj.put("category", (artist != null && !artist.contains("unknown")) ? artist : "Music Audio");
+                            obj.put("quality", sizeMb);
+                            obj.put("description", "Device Storage: " + folder);
+                            obj.put("url", "http://127.0.0.1:" + localServerPort + "/audio?id=" + id);
+                            obj.put("thumbUrl", "http://127.0.0.1:" + localServerPort + "/thumb?id=" + id + "&type=audio");
+                            obj.put("duration", durFormatted);
+                            obj.put("folder", folder);
+                            obj.put("isLocal", true);
+                            arr.put(obj);
+                        }
                     }
-                    aCursor.close();
                 }
             } catch (Exception e) {
                 Log.e(TAG, "Error scanning device media: " + e.getMessage());
@@ -1814,12 +1821,14 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public String getMoviesCatalogJson() {
-            try {
-                InputStream is = getAssets().open("data/movies_catalog.json");
-                byte[] buffer = new byte[is.available()];
-                is.read(buffer);
-                is.close();
-                return new String(buffer, java.nio.charset.StandardCharsets.UTF_8);
+            try (InputStream is = getAssets().open("data/movies_catalog.json");
+                 java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream()) {
+                byte[] buffer = new byte[8192];
+                int r;
+                while ((r = is.read(buffer)) != -1) {
+                    baos.write(buffer, 0, r);
+                }
+                return baos.toString(java.nio.charset.StandardCharsets.UTF_8.name());
             } catch (Exception e) {
                 Log.w(TAG, "getMoviesCatalogJson failed: " + e.getMessage());
                 return null;
@@ -2165,8 +2174,9 @@ public class MainActivity extends Activity {
                     return false;
                 }
 
-                int fd = afd.getParcelFileDescriptor().getFd();
-                nativeHandle = nativeOpenFd(fd);
+                ParcelFileDescriptor pfd = afd.getParcelFileDescriptor();
+                ParcelFileDescriptor dupPfd = pfd.dup();
+                nativeHandle = nativeOpenFd(dupPfd.detachFd());
                 afd.close();
                 afd = null;
 
@@ -2194,6 +2204,12 @@ public class MainActivity extends Activity {
                     .setBufferSizeInBytes(bufferSize)
                     .setTransferMode(AudioTrack.MODE_STREAM)
                     .build();
+
+                if (audioTrack.getState() != AudioTrack.STATE_INITIALIZED) {
+                    Log.e("AakashStream", "AudioTrack failed to initialize");
+                    stop();
+                    return false;
+                }
 
                 audioTrack.setVolume(currentVolume);
                 audioTrack.play();

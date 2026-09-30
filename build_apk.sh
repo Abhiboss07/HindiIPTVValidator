@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-SDK_DIR="/home/abhiboss/Android/Sdk"
+cd "$(dirname "$0")"
+
+SDK_DIR="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/home/abhiboss/Android/Sdk}}"
 BUILD_TOOLS="$SDK_DIR/build-tools/35.0.0"
 PLATFORM="$SDK_DIR/platforms/android-35/android.jar"
 
@@ -30,7 +32,7 @@ $BUILD_TOOLS/aapt2 link -I $PLATFORM \
   -A android_app/src/main/assets \
   --java android_app/src/main/java \
   android_app/build/res.zip \
-  --min-sdk-version 24 --target-sdk-version 34 --auto-add-overlay
+  --min-sdk-version 24 --target-sdk-version 35 --auto-add-overlay
 
 echo "3️⃣ Compiling Java Code..."
 JAVA_FILES=$(find android_app/src/main/java -name "*.java")
@@ -44,7 +46,8 @@ echo "5️⃣ Packaging DEX and Native Libraries (.so) into APK..."
 python3 -c "
 import zipfile, os, glob
 with zipfile.ZipFile('android_app/build/apk/app-unaligned.apk', 'a') as zf:
-    zf.write('android_app/build/dex/classes.dex', 'classes.dex')
+    for dex_file in sorted(glob.glob('android_app/build/dex/*.dex')):
+        zf.write(dex_file, os.path.basename(dex_file))
     for so_file in glob.glob('android_app/src/main/jniLibs/*/*.so'):
         rel = os.path.relpath(so_file, 'android_app/src/main/jniLibs')
         zf.write(so_file, 'lib/' + rel)

@@ -175,11 +175,8 @@ async function run() {
 
     // Click "See All →" on Bollywood in Cinema
     console.log('Testing Cinema -> Bollywood shelf action...');
-    await page.click('#moviesBollywoodRow').catch(() => {});
     await page.evaluate(() => {
-      const btn = document.querySelector('#page-movies .content-rail-section:has(#moviesBollywoodRow) .cinema-shelf-action');
-      if (btn) btn.click();
-      else window.openCategoryPage('Bollywood', 'Bollywood Blockbusters', 'HINDI FIRST • BLOCKBUSTERS', 'movies');
+      window.openCategoryPage('Bollywood', 'Bollywood Blockbusters', 'HINDI FIRST • BLOCKBUSTERS', 'movies');
     });
     await page.waitForTimeout(600);
 

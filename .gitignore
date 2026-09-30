@@ -12,3 +12,15 @@ android_app/build/
 *.bak
 *.bak.*
 .mcp.json
+*.apk
+T2L.apk
+AakashStream.apk
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+temp*.json
+stitch_aakashstream_media_player/
+*.m3u
+*.m3u8
+vlc_*
+
