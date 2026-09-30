@@ -86,19 +86,24 @@ function startStaticServer(port = 8089) {
   // Verify dedicated Short Cinema Section on Cinema Page
   const cinemaShortSection = await page.evaluate(() => {
     const sec = document.getElementById('moviesShortCinemaSection');
-    const kicker = sec?.querySelector('.cinema-shelf-kicker')?.textContent;
-    const heading = sec?.querySelector('.cinema-shelf-heading')?.textContent;
+    const heading = sec?.querySelector('.cinema-shelf-heading')?.textContent?.trim();
+    const actionText = sec?.querySelector('.cinema-shelf-action')?.textContent?.trim();
     const count = sec?.querySelectorAll('.theatrical-card').length || 0;
+    const firstCard = sec?.querySelector('.theatrical-card');
+    const cardRect = firstCard ? firstCard.getBoundingClientRect() : null;
     return {
       exists: sec !== null,
-      kicker,
       heading,
-      count
+      actionText,
+      count,
+      cardWidth: cardRect ? cardRect.width : 0
     };
   });
   console.log('Cinema Page Short Movies Section:', cinemaShortSection);
   if (!cinemaShortSection.exists) throw new Error('moviesShortCinemaSection does not exist on Cinema page!');
+  if (cinemaShortSection.heading !== 'Short Movies') throw new Error('Expected heading to be Short Movies, got: ' + cinemaShortSection.heading);
   if (cinemaShortSection.count === 0) throw new Error('moviesShortsRow inside moviesShortCinemaSection is empty!');
+  if (cinemaShortSection.cardWidth > 130) throw new Error('Card width should be smaller (<=130px), got: ' + cinemaShortSection.cardWidth);
 
   // Filter Cinema Mode by 'Shorts'
   await page.evaluate(() => window.filterCinemaMode('Shorts'));

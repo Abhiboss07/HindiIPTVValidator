@@ -386,14 +386,14 @@
         <div id="homeHollywoodRow" class="content-rail-scroll"></div>
       </div>
 
-      <!-- 4K Open Short Cinema Rail (Dynamic) -->
+      <!-- Short Movies Rail (Dynamic) -->
       <div class="content-rail-section">
         <div class="content-rail-header">
           <h2 class="content-rail-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            4K Open Short Cinema (Complete Short Films)
+            Short Movies
           </h2>
-          <span class="content-rail-see-all" onclick="navigateTo('cinema')">Explore Shorts →</span>
+          <span class="content-rail-see-all" onclick="navigateTo('cinema')">See All →</span>
         </div>
         <div id="homeShortsRow" class="content-rail-scroll"></div>
       </div>
@@ -467,12 +467,12 @@
       <nav class="cinema-mode-nav" aria-label="Cinema Discovery Modes">
         <button class="cinema-mode-btn active" onclick="filterCinemaMode('all', this)">All</button>
         <button class="cinema-mode-btn" onclick="filterCinemaMode('premieres', this)">Premieres</button>
-        <button class="cinema-mode-btn" onclick="filterCinemaMode('Shorts', this)">🎬 4K Short Cinema</button>
+        <button class="cinema-mode-btn" onclick="filterCinemaMode('Shorts', this)">Short Movies</button>
         <button class="cinema-mode-btn" onclick="filterCinemaMode('Bollywood', this)">Bollywood</button>
         <button class="cinema-mode-btn" onclick="filterCinemaMode('Web-Series', this)">Sagas & Series</button>
         <button class="cinema-mode-btn" onclick="filterCinemaMode('Asian', this)">Asian Cinema</button>
         <button class="cinema-mode-btn" onclick="filterCinemaMode('Hollywood', this)">Hollywood</button>
-        <button class="cinema-mode-btn" onclick="filterCinemaMode('Trailers', this)">🍿 Previews</button>
+        <button class="cinema-mode-btn" onclick="filterCinemaMode('Trailers', this)">Trailers</button>
       </nav>
 
       <!-- 3. Dynamic Rails Container -->
@@ -500,22 +500,15 @@
           <div id="moviesScopeRow" class="content-rail-scroll"></div>
         </div>
 
-        <!-- Rail 2: 4K Open Short Cinema (Blender Foundation Showcase) -->
-        <div class="content-rail-section" id="moviesShortCinemaSection" style="background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.02) 100%); border: 1px solid rgba(16, 185, 129, 0.22); border-radius: 14px; padding: 14px 0 16px 0; margin: 12px 14px 18px 14px;">
-          <div class="cinema-shelf-head" style="padding: 0 14px 8px 14px;">
+        <!-- Rail 2: Short Movies Section -->
+        <div class="content-rail-section" id="moviesShortCinemaSection">
+          <div class="cinema-shelf-head">
             <div class="cinema-shelf-title-wrap">
-              <span class="cinema-shelf-kicker" style="color: #10B981; font-weight: 800; letter-spacing: 0.5px;">★ 4K OPEN SHORT CINEMA • 10-15 MIN COMPLETE PRODUCTIONS</span>
-              <h2 class="cinema-shelf-heading" style="display: flex; align-items: center; gap: 8px;">
-                🎬 4K Open Short Movies
-                <span style="font-size: 11px; background: rgba(16, 185, 129, 0.2); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.4); padding: 2px 7px; border-radius: 4px; font-weight: 700;">Complete Open Films</span>
-              </h2>
-              <p style="font-size: 11.5px; color: #94a3b8; margin: 4px 0 0 0; line-height: 1.45;">
-                Full standalone short movies produced by the Blender Foundation &amp; open cinema studios (Tears of Steel, Sintel, Big Buck Bunny). These are 100% complete, high-fidelity open-source films (not cut down, not trailers).
-              </p>
+              <h2 class="cinema-shelf-heading">Short Movies</h2>
             </div>
-            <span class="cinema-shelf-action" style="color: #10B981;" onclick="filterCinemaMode('Shorts')">Shorts →</span>
+            <span class="cinema-shelf-action" onclick="filterCinemaMode('Shorts')">See All →</span>
           </div>
-          <div id="moviesShortsRow" class="content-rail-scroll" style="padding: 0 14px;"></div>
+          <div id="moviesShortsRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 2: Bollywood Blockbusters -->
