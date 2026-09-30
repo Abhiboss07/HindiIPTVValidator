@@ -19,17 +19,18 @@
         "animation",
         "fantasy",
         "comedy",
-        "short"
+        "short",
+        "open_movie"
       ],
       "duration": 730,
-      "durationFormatted": "12m",
+      "durationFormatted": "12m (Complete Open Movie)",
       "genres": [
         "Animation",
         "Fantasy",
         "Comedy"
       ],
       "rating": 7.4,
-      "description": "On a desolate island, a suicidal sheep named Franck meets a quirky salesman named Victor who offers him the adventure of a lifetime through parallel realities. 2K Scope master.",
+      "description": "Official Blender Foundation Open Short Film. Complete 12-minute surreal sci-fi journey of Franck the suicidal sheep who meets a mysterious salesman offering a laundromat to other lives.",
       "resolution": "1080p FHD (2048x858)",
       "codec": "VP9 / WebM",
       "audio": {
@@ -60,14 +61,16 @@
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p FHD",
+      "qualityHonestBadge": "1080p Short Film",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_cosmos_laundromat.jpg",
       "backdropUrl": "assets/posters/vod_cosmos_laundromat.jpg",
       "audioSwitchingCapability": "NONE",
       "subtitles": [],
       "metadataSource": "VERIFIED_OPEN_SOURCE",
-      "sourceStatus": "PLAYABLE"
+      "sourceStatus": "PLAYABLE",
+      "isShortFilm": true,
+      "filmType": "Open Short Film (Blender Foundation)"
     },
     {
       "id": "vod_elephants_dream_1080p",
@@ -82,16 +85,17 @@
       "categories": [
         "animation",
         "scifi",
-        "short"
+        "short",
+        "open_movie"
       ],
       "duration": 658,
-      "durationFormatted": "11m",
+      "durationFormatted": "11m (Complete Open Movie)",
       "genres": [
         "Animation",
         "Sci-Fi"
       ],
       "rating": 7.0,
-      "description": "Two men wander through the giant and surreal mechanical interior of a living machine that seems to change according to their inner thoughts. The world's first open movie.",
+      "description": "The world's first open movie by the Blender Foundation. Complete 11-minute surreal exploration through an endless, transforming clockwork machine.",
       "resolution": "1080p Full HD (1920x1080)",
       "codec": "VP9 / WebM",
       "audio": {
@@ -122,14 +126,16 @@
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p FHD",
+      "qualityHonestBadge": "1080p Short Film",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_elephants_dream.jpg",
       "backdropUrl": "assets/posters/vod_elephants_dream.jpg",
       "audioSwitchingCapability": "NONE",
       "subtitles": [],
       "metadataSource": "VERIFIED_OPEN_SOURCE",
-      "sourceStatus": "PLAYABLE"
+      "sourceStatus": "PLAYABLE",
+      "isShortFilm": true,
+      "filmType": "Open Short Film (Blender Foundation)"
     },
     {
       "id": "vod_the_general_720p",
@@ -417,16 +423,17 @@
       "categories": [
         "scifi",
         "action",
-        "short"
+        "short",
+        "open_movie"
       ],
       "duration": 734,
-      "durationFormatted": "12m",
+      "durationFormatted": "12m (Complete Open Movie)",
       "genres": [
         "Sci-Fi",
         "Action"
       ],
       "rating": 8.0,
-      "description": "In a dystopian Amsterdam overrun by rogue cyborgs, a desperate group of scientists and warriors work to recalibrate a critical memory sequence to prevent the destruction of mankind.",
+      "description": "Official Blender Foundation 4K Open Short Film. Complete 12-minute cinematic sci-fi production set in a dystopian Amsterdam overrun by rogue cyborgs, where scientists and warriors recalibrate critical memory sequences.",
       "resolution": "4K Ultra HD (3840x1714)",
       "codec": "VP9 / WebM",
       "audio": {
@@ -457,7 +464,7 @@
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "4K",
-      "qualityHonestBadge": "4K Ultra HD",
+      "qualityHonestBadge": "4K UHD Short Film",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_tears_of_steel.jpg",
       "backdropUrl": "assets/posters/vod_tears_of_steel.jpg",
@@ -477,7 +484,9 @@
         }
       ],
       "metadataSource": "VERIFIED_OPEN_SOURCE",
-      "sourceStatus": "PLAYABLE"
+      "sourceStatus": "PLAYABLE",
+      "isShortFilm": true,
+      "filmType": "Open Short Film (Blender Foundation)"
     },
     {
       "id": "vod_sintel_4k",
@@ -492,17 +501,19 @@
       "categories": [
         "animation",
         "fantasy",
-        "drama"
+        "drama",
+        "short",
+        "open_movie"
       ],
       "duration": 918,
-      "durationFormatted": "15m",
+      "durationFormatted": "15m (Complete Open Movie)",
       "genres": [
         "Animation",
         "Fantasy",
         "Action"
       ],
       "rating": 8.8,
-      "description": "A lonely young traveler named Sintel rescues and befriends a baby dragon she names Scales, embarking on an epic and emotional quest across desolate lands when he is kidnapped.",
+      "description": "Official Blender Foundation 4K Open Short Film. Complete 15-minute emotional fantasy epic about a lonely traveler named Sintel searching for her lost baby dragon Scales across desolate fantasy lands.",
       "resolution": "4K Ultra HD (4096x1744)",
       "codec": "VP9 / WebM",
       "audio": {
@@ -535,7 +546,7 @@
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "4K",
-      "qualityHonestBadge": "4K Ultra HD",
+      "qualityHonestBadge": "4K UHD Short Film",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_sintel_1080p.jpg",
       "backdropUrl": "assets/posters/vod_sintel_1080p.jpg",
@@ -555,7 +566,9 @@
         }
       ],
       "metadataSource": "VERIFIED_OPEN_SOURCE",
-      "sourceStatus": "PLAYABLE"
+      "sourceStatus": "PLAYABLE",
+      "isShortFilm": true,
+      "filmType": "Open Short Film (Blender Foundation)"
     },
     {
       "id": "vod_bbb_4k",
@@ -570,17 +583,18 @@
       "categories": [
         "animation",
         "comedy",
-        "short"
+        "short",
+        "open_movie"
       ],
       "duration": 596,
-      "durationFormatted": "10m",
+      "durationFormatted": "10m (Complete Open Movie)",
       "genres": [
         "Animation",
         "Comedy",
         "Family"
       ],
       "rating": 8.5,
-      "description": "A large and gentle rabbit is provoked by bullying forest rodents and devises a brilliant, comedic plan to teach them a lesson. Mastered in native 4K 60fps.",
+      "description": "Official Blender Foundation 4K Open Short Film. Complete 10-minute comedic animation featuring a giant lovable rabbit outsmarting mischievous forest bullies.",
       "resolution": "4K Ultra HD (3840x2160)",
       "codec": "VP9 / WebM",
       "audio": {
@@ -613,7 +627,7 @@
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "4K",
-      "qualityHonestBadge": "4K Ultra HD",
+      "qualityHonestBadge": "4K UHD Short Film",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_bbb_720p.jpg",
       "backdropUrl": "assets/posters/vod_bbb_720p.jpg",
@@ -633,7 +647,9 @@
         }
       ],
       "metadataSource": "VERIFIED_OPEN_SOURCE",
-      "sourceStatus": "PLAYABLE"
+      "sourceStatus": "PLAYABLE",
+      "isShortFilm": true,
+      "filmType": "Open Short Film (Blender Foundation)"
     },
     {
       "id": "vod_4k_uhd_reference_showcase",
@@ -647,21 +663,23 @@
       "categories": [
         "hollywood",
         "action",
-        "trending"
+        "trending",
+        "short",
+        "open_movie"
       ],
       "duration": 640,
-      "durationFormatted": "10m",
+      "durationFormatted": "10m (Complete Benchmark)",
       "genres": [
         "Action",
         "Sci-Fi",
         "Showcase"
       ],
       "rating": 9.9,
-      "description": "Official 4K UHD reference master stream featuring adaptive representations from 270p up to 3840x2160 4K UHD with high-resolution multichannel Dolby Atmos, E-AC-3, and AC-3 surround sound.",
+      "description": "Ultra High Definition reference benchmark showcase for testing 4K HDR displays, bitrates, frame rates, and Dolby Atmos / surround multi-channel audio setups.",
       "posterUrl": "assets/posters/vod_interstellar.jpg",
       "backdropUrl": "assets/posters/vod_interstellar.jpg",
       "qualityClass": "4K",
-      "qualityHonestBadge": "4K UHD",
+      "qualityHonestBadge": "4K Benchmark",
       "resolution": "4K UHD (3840x2160)",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "sourceStatus": "PLAYABLE",
@@ -705,7 +723,9 @@
       "contentId": "movie_ref_4k_uhd_showcase",
       "tmdbId": 999994,
       "imdbId": "tt9999994",
-      "metadataSource": "REFERENCE_VERIFIED"
+      "metadataSource": "REFERENCE_VERIFIED",
+      "isShortFilm": true,
+      "filmType": "Reference Cinematic Showcase"
     },
     {
       "id": "vod_tribhanga_2021",
@@ -747,7 +767,7 @@
         "https://archive.org/download/83-2021-1080p-z-flix-co/22%20-%20Bollywood%20-%202021/Tribhanga%20-%20Tedhi%20Medhi%20Crazy%20%282021%29%201080p_zFlix%20CO.mp4"
       ],
       "torrentUri": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/G1a8w9b_k00",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/zVNmHMWv2mc",
       "region": "BOLLYWOOD",
       "director": "Renuka Shahane",
       "cast": "Kajol, Tanvi Azmi, Mithila Palkar, Kunaal Roy Kapur",
@@ -818,7 +838,7 @@
         "https://archive.org/download/83-2021-1080p-z-flix-co/21%20-%20Bollywood%20-%202021/The%20White%20Tiger%20%282021%201080p%20NF%20WEB-DL%20HINDI_zFlix%20CO.mp4"
       ],
       "torrentUri": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/T3nn5h5GlP8",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/35jJNyFuYKQ",
       "region": "BOLLYWOOD",
       "director": "Ramin Bahrani",
       "cast": "Adarsh Gourav, Rajkummar Rao, Priyanka Chopra Jonas",
@@ -964,7 +984,7 @@
         "https://archive.org/download/83-2021-1080p-z-flix-co/13%20-%20Bollywood%20-%202021/Mimi%20%282021%29%20Hindi%201080p_zFlix%20CO.mp4"
       ],
       "torrentUri": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/p1T_z5Y4w92",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/_sc3HyeNxPs",
       "region": "BOLLYWOOD",
       "director": "Laxman Utekar",
       "cast": "Kriti Sanon, Pankaj Tripathi, Sai Tamhankar, Manoj Pahwa",
@@ -1038,7 +1058,7 @@
         "https://archive.org/download/83-2021-1080p-z-flix-co/07%20-%20Bollywood%20-%202021/Dhamaka%20%282021%29%20Hindi%201080p_zFlix%20CO.mp4"
       ],
       "torrentUri": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/7r1w9b4y8k1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/qRESnWFYYho",
       "region": "BOLLYWOOD",
       "director": "Ram Madhvani",
       "cast": "Kartik Aaryan, Amruta Subhash, Vikas Kumar, Mrunal Thakur",
@@ -1111,7 +1131,7 @@
         "https://archive.org/download/83-2021-1080p-z-flix-co/05%20-%20Bollywood%20-%202021/Bhuj%20The%20Pride%20of%20India%20%282021%29%201080p%20_zFlix%20CO.mp4"
       ],
       "torrentUri": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/5aY6z8wLbg1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/YngLZzBuzHA",
       "region": "BOLLYWOOD",
       "director": "Abhishek Dudhaiya",
       "cast": "Ajay Devgn, Sanjay Dutt, Sonakshi Sinha, Nora Fatehi",
@@ -1182,7 +1202,7 @@
         "https://archive.org/download/83-2021-1080p-z-flix-co/04%20-%20Bollywood%20-%202021/Bhoot%20Police%20%282021%29%20Hindi%201080p_zFlix%20CO.mp4"
       ],
       "torrentUri": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/P_8aY2_3k80",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/oBpG-qSd9lM",
       "region": "BOLLYWOOD",
       "director": "Pavan Kirpalani",
       "cast": "Saif Ali Khan, Arjun Kapoor, Yami Gautam, Jacqueline Fernandez",
@@ -1254,7 +1274,7 @@
         "https://archive.org/download/83-2021-1080p-z-flix-co/04%20-%20Bollywood%20-%202021/Bellbottom%20%282021%29%20Hindi%201080p_zFlix%20CO.mp4"
       ],
       "torrentUri": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/A8g8W7d7z50",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/jhhmQWEEGUU",
       "region": "BOLLYWOOD",
       "director": "Ranjit M. Tewari",
       "cast": "Akshay Kumar, Vaani Kapoor, Huma Qureshi, Lara Dutta",
@@ -1328,7 +1348,7 @@
         "https://archive.org/download/83-2021-1080p-z-flix-co/03%20-%20Bollywood%20-%202021/Atrangi%20Re%202021%201080p_zFlix%20CO.mp4"
       ],
       "torrentUri": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/x3L2PBz5_n8",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/x3oMm5JGXZM",
       "region": "BOLLYWOOD",
       "director": "Aanand L. Rai",
       "cast": "Akshay Kumar, Sara Ali Khan, Dhanush",
@@ -1402,7 +1422,7 @@
         "https://archive.org/download/83-2021-1080p-z-flix-co/01%20-%20Bollywood%20-%202021/83%20%282021%29%201080p_zFlix%20CO.mp4"
       ],
       "torrentUri": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/mAMf5dovmZ8",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/QHdkC6Kn0Io",
       "region": "BOLLYWOOD",
       "director": "Kabir Khan",
       "cast": "Ranveer Singh, Deepika Padukone, Pankaj Tripathi, Jiiva",
@@ -1451,7 +1471,7 @@
         "asian",
         "trending"
       ],
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Drama",
@@ -1463,7 +1483,7 @@
       "posterUrl": "assets/posters/series_squid_game_s2_2025.jpg",
       "backdropUrl": "assets/posters/series_squid_game_s2_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "NON_HINDI_AUDIO",
@@ -1472,7 +1492,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/lQBmZBJTN4g",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Ed1sGgHUo88",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -1526,7 +1546,8 @@
       "tmdbId": 93405,
       "imdbId": "tt10919420",
       "metadataSource": "TMDB_VERIFIED",
-      "resolution": ""
+      "resolution": "Official Trailer",
+      "isTrailerOnly": true
     },
     {
       "id": "series_delhi_crime_s3_2025",
@@ -1543,7 +1564,7 @@
         "web_series",
         "trending"
       ],
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "genres": [
         "Crime",
         "Drama"
@@ -1553,7 +1574,7 @@
       "posterUrl": "assets/posters/series_delhi_crime_s3_2025.jpg",
       "backdropUrl": "assets/posters/series_delhi_crime_s3_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
@@ -1562,7 +1583,7 @@
         "Hindi"
       ],
       "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/S_8qM8W8b1c",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/9I4FKW0tlFU",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -1615,7 +1636,8 @@
       "tmdbId": 87784,
       "imdbId": "tt9397750",
       "metadataSource": "TMDB_VERIFIED",
-      "resolution": ""
+      "resolution": "Official Trailer",
+      "isTrailerOnly": true
     },
     {
       "id": "series_paatal_lok_s2_2025",
@@ -1633,7 +1655,7 @@
         "web_series",
         "trending"
       ],
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "genres": [
         "Crime",
         "Drama",
@@ -1644,7 +1666,7 @@
       "posterUrl": "assets/posters/series_paatal_lok_s2_2025.jpg",
       "backdropUrl": "assets/posters/series_paatal_lok_s2_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
@@ -1653,7 +1675,7 @@
         "Hindi"
       ],
       "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/6f9GfWjH4yE",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/RyzVgy8JteA",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -1706,7 +1728,8 @@
       "tmdbId": 103222,
       "imdbId": "tt9680440",
       "metadataSource": "TMDB_VERIFIED",
-      "resolution": ""
+      "resolution": "Official Trailer",
+      "isTrailerOnly": true
     },
     {
       "id": "series_farzi_s2_2025",
@@ -1724,7 +1747,7 @@
         "web_series",
         "trending"
       ],
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "genres": [
         "Crime",
         "Drama",
@@ -1735,7 +1758,7 @@
       "posterUrl": "assets/posters/series_farzi_s2_2025.jpg",
       "backdropUrl": "assets/posters/series_farzi_s2_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
@@ -1744,7 +1767,7 @@
         "Hindi"
       ],
       "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/v9qX4_z1N9E",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/0FGr3mEj9M8",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -1797,7 +1820,8 @@
       "tmdbId": 205715,
       "imdbId": "tt14050212",
       "metadataSource": "TMDB_VERIFIED",
-      "resolution": ""
+      "resolution": "Official Trailer",
+      "isTrailerOnly": true
     },
     {
       "id": "series_family_man_s3_2025",
@@ -1815,7 +1839,7 @@
         "web_series",
         "trending"
       ],
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Comedy",
@@ -1827,7 +1851,7 @@
       "posterUrl": "assets/posters/series_family_man_s3_2025.jpg",
       "backdropUrl": "assets/posters/series_family_man_s3_2025.jpg",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
@@ -1836,7 +1860,7 @@
         "Hindi"
       ],
       "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/p1T_z5Y4w9A",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/XatRGut65VI",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -1890,7 +1914,8 @@
       "tmdbId": 92749,
       "imdbId": "tt9544034",
       "metadataSource": "TMDB_VERIFIED",
-      "resolution": ""
+      "resolution": "Official Trailer",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_deva_2025",
@@ -1907,7 +1932,7 @@
         "bollywood",
         "trending"
       ],
-      "durationFormatted": "Official Trailer",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Thriller"
@@ -1926,7 +1951,7 @@
         "Hindi"
       ],
       "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/7r1w9b4y8kA",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/3x77q40hATw",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -1956,7 +1981,9 @@
       "contentId": "movie_tmdb_1195430",
       "tmdbId": 1195430,
       "imdbId": "tt29263750",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_sikandar_2025",
@@ -1973,7 +2000,7 @@
         "bollywood",
         "trending"
       ],
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Drama"
@@ -1992,7 +2019,7 @@
         "Hindi"
       ],
       "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/8t3X6w8j9pU",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/in6mSwNbXS0",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -2022,7 +2049,9 @@
       "contentId": "movie_tmdb_1257960",
       "tmdbId": 1257960,
       "imdbId": "tt32074360",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_fantastic_four_2025",
@@ -2040,7 +2069,7 @@
         "hollywood",
         "trending"
       ],
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Adventure",
@@ -2060,7 +2089,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/11kvy_sL_5o",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/18QQWa5MEcs",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -2091,7 +2120,9 @@
       "contentId": "movie_tmdb_617126",
       "tmdbId": 617126,
       "imdbId": "tt10676052",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_thunderbolts_2025",
@@ -2108,7 +2139,7 @@
         "hollywood",
         "trending"
       ],
-      "durationFormatted": "Official Trailer",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Adventure"
@@ -2158,7 +2189,9 @@
       "contentId": "movie_tmdb_986056",
       "tmdbId": 986056,
       "imdbId": "tt20969586",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_superman_2025",
@@ -2176,7 +2209,7 @@
         "hollywood",
         "trending"
       ],
-      "durationFormatted": "Official Trailer",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Adventure",
@@ -2227,7 +2260,9 @@
       "contentId": "movie_tmdb_1061181",
       "tmdbId": 1061181,
       "imdbId": "tt5950044",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_mission_impossible_8_2025",
@@ -2244,7 +2279,7 @@
         "hollywood",
         "trending"
       ],
-      "durationFormatted": "Official Trailer",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Thriller"
@@ -2294,7 +2329,9 @@
       "contentId": "movie_tmdb_575265",
       "tmdbId": 575265,
       "imdbId": "tt9603208",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_captain_america_bnw_2025",
@@ -2312,7 +2349,7 @@
         "hollywood",
         "trending"
       ],
-      "durationFormatted": "Official Trailer",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Adventure",
@@ -2332,7 +2369,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/1pHDWnXmKMY",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/1pHDWnXmK7Y",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -2363,7 +2400,9 @@
       "contentId": "movie_tmdb_822119",
       "tmdbId": 822119,
       "imdbId": "tt14513804",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_spirit_2026",
@@ -2381,7 +2420,7 @@
         "south",
         "trending"
       ],
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Crime",
@@ -2401,7 +2440,7 @@
         "Hindi"
       ],
       "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/w7K3X1_8g8g",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/GOQ5DytuKoc",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -2432,7 +2471,9 @@
       "contentId": "movie_tmdb_889737",
       "tmdbId": 889737,
       "imdbId": "tt15582236",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_alpha_2026",
@@ -2468,7 +2509,7 @@
         "Hindi"
       ],
       "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/q0_A1v9K3_8",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/QRqGwGwo1Y0",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -2498,7 +2539,9 @@
       "contentId": "movie_tmdb_1311550",
       "tmdbId": 1311550,
       "imdbId": "tt31835688",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_king_2026",
@@ -2515,7 +2558,7 @@
         "bollywood",
         "trending"
       ],
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Thriller"
@@ -2534,7 +2577,7 @@
         "Hindi"
       ],
       "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/q0_A1v9K3_King",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/lo4SGEt3wRg",
       "streamUrl": null,
       "backupUrls": [],
       "torrentUri": null,
@@ -2564,7 +2607,9 @@
       "contentId": "movie_tmdb_1289196",
       "tmdbId": 1289196,
       "imdbId": "tt30018898",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "vod_spiderman_4_2026",
@@ -2582,7 +2627,7 @@
         "hollywood",
         "trending"
       ],
-      "durationFormatted": "Official Trailer",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Adventure",
@@ -2633,7 +2678,9 @@
       "contentId": "movie_tmdb_1034541",
       "tmdbId": 1034541,
       "imdbId": "tt21361444",
-      "metadataSource": "TMDB_VERIFIED"
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer"
     },
     {
       "id": "series_sherlock_holmes",
@@ -4040,7 +4087,7 @@
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/ZNeGF-PvVHY",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/ZNeGF-PvRHY",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -4233,7 +4280,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "HOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/unlisted-deadpoolspot/Deleted%20Deadpool%20Spot.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/73_1biulkYk",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
@@ -4277,7 +4324,7 @@
       "description": "After the events of Stree, the town of Chanderi is being haunted by a headless entity named Sarkata, who abducts modern independent women. Vicky, Bittu, J.D. and the mysterious woman unite to save their town.",
       "posterUrl": "assets/posters/vod_stree_2.jpg",
       "backdropUrl": "assets/posters/vod_stree_2.jpg",
-      "resolution": "Trailer Only",
+      "resolution": "Official Trailer",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -4308,7 +4355,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/lv_0_20250311095752/lv_0_20250311095752.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/VlvOgk5BHS4",
       "mediaType": "movie",
       "sourceState": "TRAILER_ONLY",
       "qualityClass": "TRAILER",
@@ -4330,7 +4377,8 @@
       "imdbId": "tt28342490",
       "releaseYear": 2024,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "TRAILER_ONLY"
+      "sourceStatus": "TRAILER_ONLY",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_kalki_2898_ad",
@@ -4431,7 +4479,7 @@
       "description": "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after his home is conquered by the tyrannical emperors who now lead Rome with an iron fist.",
       "posterUrl": "assets/posters/vod_gladiator_2.jpg",
       "backdropUrl": "assets/posters/vod_gladiator_2.jpg",
-      "resolution": "480p SD (854x480)",
+      "resolution": "Official Trailer",
       "codec": "H.264",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -4480,7 +4528,8 @@
       "imdbId": "tt9614460",
       "releaseYear": 2024,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "TRAILER_ONLY"
+      "sourceStatus": "TRAILER_ONLY",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_spider_verse",
@@ -4570,7 +4619,7 @@
         "thrillers"
       ],
       "duration": 3100,
-      "durationFormatted": "1 Season • 1 Episodes",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Comedy",
@@ -4581,7 +4630,7 @@
       "description": "Srikant Tiwari, a middle-class man who also serves as a world-class spy for T.A.S.C, an undercover wing of the National Investigation Agency, must balance his family life with saving the nation from catastrophic terror attacks.",
       "posterUrl": "assets/posters/series_family_man.jpg",
       "backdropUrl": "assets/posters/series_family_man.jpg",
-      "resolution": "",
+      "resolution": "Official Trailer",
       "codec": "HEVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -4623,7 +4672,7 @@
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/NGf_B88kU1A",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/XatRGut65VI",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -4648,7 +4697,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -4669,7 +4718,8 @@
       "imdbId": "tt9544034",
       "releaseYear": 2021,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UNAVAILABLE"
+      "sourceStatus": "UNAVAILABLE",
+      "isTrailerOnly": true
     },
     {
       "id": "series_money_heist",
@@ -4684,7 +4734,7 @@
         "thrillers"
       ],
       "duration": 3000,
-      "durationFormatted": "1 Season • 9 Episodes",
+      "durationFormatted": "Trailer",
       "genres": [
         "Action",
         "Crime",
@@ -4695,7 +4745,7 @@
       "description": "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain, masterminded by The Professor.",
       "posterUrl": "assets/posters/series_money_heist.jpg",
       "backdropUrl": "assets/posters/series_money_heist.jpg",
-      "resolution": "",
+      "resolution": "Official Trailer",
       "codec": "H.264",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -4962,7 +5012,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "Spanish",
@@ -4982,7 +5032,8 @@
       "imdbId": "tt6468322",
       "releaseYear": 2021,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UNAVAILABLE"
+      "sourceStatus": "UNAVAILABLE",
+      "isTrailerOnly": true
     },
     {
       "id": "series_scam_1992",
@@ -5107,7 +5158,7 @@
         "thrillers"
       ],
       "duration": 3180,
-      "durationFormatted": "1 Season • 8 Episodes",
+      "durationFormatted": "Trailer",
       "genres": [
         "Crime",
         "Mystery",
@@ -5118,7 +5169,7 @@
       "description": "A link in their pasts leads an honest Mumbai police officer Sartaj Singh to a fugitive gang boss Ganesh Gaitonde, whose cryptic warning spurs a quest to save Mumbai from cataclysm within 25 days.",
       "posterUrl": "assets/posters/series_sacred_games.jpg",
       "backdropUrl": "assets/posters/series_sacred_games.jpg",
-      "resolution": "",
+      "resolution": "Official Trailer",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -5244,7 +5295,7 @@
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/28j8h0RRnq4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/w-Xe8gLBc5I",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -5360,7 +5411,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -5379,7 +5430,8 @@
       "imdbId": "tt6077448",
       "releaseYear": 2019,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UNAVAILABLE"
+      "sourceStatus": "UNAVAILABLE",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_interstellar",
@@ -5727,7 +5779,7 @@
       "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
       "posterUrl": "assets/posters/vod_dark_knight.jpg",
       "backdropUrl": "assets/posters/vod_dark_knight.jpg",
-      "resolution": "Trailer Only",
+      "resolution": "Official Trailer",
       "codec": "H.264",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -5777,7 +5829,8 @@
       "releaseYear": 2008,
       "metadataSource": "TMDB_VERIFIED",
       "sourceStatus": "TRAILER_ONLY",
-      "originalTitle": "The Dark Knight"
+      "originalTitle": "The Dark Knight",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_chhavaa",
@@ -6110,7 +6163,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "HOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/dune-part-two-official-imax-trailer-2-4k-prores/DunePartTwo_Official-IMAX-Trailer-2_4K_51_prores.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Way9Dexny3w",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
@@ -6187,7 +6240,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "HOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/furiosa-a-mad-max-saga-official-trailer-2-4k-prores/Furiosa_OfficialTrailer2_4K_51_prores.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/XJMuhwVlca4",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
@@ -6339,7 +6392,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "HOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/alien-romulus-imax-final-trailer-4k-prores/AlienRomulus_IMAX-Final-Trailer_4K_51_prores.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/OzY2r2JXsDM",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "HD",
@@ -6418,7 +6471,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/fighter-official-trailer-hrithik-roshan-deepika-padukone-anil-kapoor-siddharth-anand/Fighter%20Official%20Trailer%20-%20Hrithik%20Roshan%2C%20Deepika%20Padukone%2C%20Anil%20Kapoor%2C%20Siddharth%20Anand.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/6amIq_mP4xM",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
@@ -6495,7 +6548,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "HOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/godzilla-vs-kong-final-trailer/Godzilla%20Vs%20Kong%20-%20Final%20Trailer%21.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/lV1OOlGwExM",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
@@ -6612,7 +6665,7 @@
       "description": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during the Manhattan Project. 7 Academy Awards winner including Best Picture.",
       "posterUrl": "assets/posters/vod_oppenheimer.jpg",
       "backdropUrl": "assets/posters/vod_oppenheimer.jpg",
-      "resolution": "Trailer Only",
+      "resolution": "Official Trailer",
       "codec": "H.264 / AVC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -6664,7 +6717,8 @@
       "imdbId": "tt15398776",
       "releaseYear": 2023,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "TRAILER_ONLY"
+      "sourceStatus": "TRAILER_ONLY",
+      "isTrailerOnly": true
     },
     {
       "id": "series_farzi",
@@ -6678,7 +6732,7 @@
         "thrillers"
       ],
       "duration": 3480,
-      "durationFormatted": "1 Season • 8 Episodes",
+      "durationFormatted": "Trailer",
       "genres": [
         "Crime",
         "Thriller",
@@ -6688,7 +6742,7 @@
       "description": "Sunny, a brilliant small-time artist, designs the ultimate counterfeit currency note, pulling him and his best friend into the high-stakes world of global counterfeiting, pursued relentlessly by Michael, an unorthodox STF officer.",
       "posterUrl": "assets/posters/series_farzi.jpg",
       "backdropUrl": "assets/posters/series_farzi.jpg",
-      "resolution": "",
+      "resolution": "Official Trailer",
       "codec": "HEVC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -6814,7 +6868,7 @@
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/4bT_k8yV_zU",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/rcQ_xZdzPBc",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -6930,7 +6984,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -6951,7 +7005,8 @@
       "imdbId": "tt14050212",
       "releaseYear": 2023,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UNAVAILABLE"
+      "sourceStatus": "UNAVAILABLE",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_john_wick_4",
@@ -7622,7 +7677,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/kgf-chapter-2-teaser-yash-sanjay-dutt-raveena-tandon-srinidhi-shetty-prashanth-neel-vijay-kiragandur/KGF%20Chapter2%20TEASER%20_Yash_Sanjay%20Dutt_Raveena%20Tandon_Srinidhi%20Shetty_Prashanth%20Neel_Vijay%20Kiragandur.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/JKa05nyUmuQ",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
@@ -7695,7 +7750,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "HOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/top-gun-maverick-official-trailer-2-prores/TopGunMaverick_OfficialTrailer2_4K_51_prores.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/qSqVVswa420",
       "mediaType": "movie",
       "sourceState": "TRAILER_ONLY",
       "qualityClass": "SD",
@@ -7716,7 +7771,8 @@
       "imdbId": "tt1745960",
       "releaseYear": 2022,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "TRAILER_ONLY"
+      "sourceStatus": "TRAILER_ONLY",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_rrr",
@@ -7867,7 +7923,8 @@
       "imdbId": "tt1877830",
       "releaseYear": 2022,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "TRAILER_ONLY"
+      "sourceStatus": "TRAILER_ONLY",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_avatar_way_of_water",
@@ -8080,7 +8137,7 @@
       "torrentUri": null,
       "contentType": "MOVIE",
       "region": "HOLLYWOOD",
-      "trailerUrl": "https://archive.org/download/spider-man-no-way-home-official-trailer-hd_202508/SPIDER-MAN_%20NO%20WAY%20HOME%20-%20Official%20Trailer%20%28HD%29.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/JfVOs4VSpmA",
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
@@ -8196,7 +8253,7 @@
         "thrillers"
       ],
       "duration": 2700,
-      "durationFormatted": "1 Season • 1 Episodes",
+      "durationFormatted": "Trailer",
       "genres": [
         "Crime",
         "Mystery",
@@ -8207,7 +8264,7 @@
       "description": "A cynical, down-and-out Delhi cop gets assigned to investigate a high-profile assassination attempt gone wrong, leading him down a dark rabbit hole into the murky underworld of crime and politics.",
       "posterUrl": "assets/posters/series_paatal_lok.jpg",
       "backdropUrl": "assets/posters/series_paatal_lok.jpg",
-      "resolution": "",
+      "resolution": "Official Trailer",
       "codec": "H.264",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -8249,7 +8306,7 @@
       ],
       "contentType": "SERIES",
       "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/cNw_Xv-wXQk",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/cNwWMW4mxO8",
       "seasons": [
         {
           "seasonNumber": 1,
@@ -8274,7 +8331,7 @@
       "torrentUri": null,
       "sourceState": "NO_AUTHORIZED_SOURCE",
       "qualityClass": null,
-      "qualityHonestBadge": "Unavailable",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -8293,7 +8350,8 @@
       "imdbId": "tt9680440",
       "releaseYear": 2020,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UNAVAILABLE"
+      "sourceStatus": "UNAVAILABLE",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_avengers_endgame",
@@ -8527,7 +8585,7 @@
       "title": "Big Buck Bunny",
       "year": 2008,
       "duration": 596,
-      "durationFormatted": "10m",
+      "durationFormatted": "10m (Complete Open Movie)",
       "genres": [
         "Animation",
         "Comedy",
@@ -8536,10 +8594,12 @@
       "type": "Open Movies",
       "categories": [
         "open_movies",
-        "comedy"
+        "comedy",
+        "short",
+        "open_movie"
       ],
       "rating": 7.4,
-      "description": "Blender Foundation 3D Open Movie: A large rabbit with a heart of gold takes creative vengeance on bullies who harass innocent forest creatures.",
+      "description": "Official Blender Foundation Open Short Film. Complete 10-minute comedic animation classic.",
       "posterUrl": "assets/posters/vod_bbb_720p.jpg",
       "backdropUrl": "assets/posters/vod_bbb_720p.jpg",
       "resolution": "1080p Adaptive HLS",
@@ -8577,7 +8637,7 @@
       "mediaType": "movie",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p FHD",
+      "qualityHonestBadge": "1080p Short Film",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "en",
@@ -8594,7 +8654,9 @@
       "imdbId": "tt1254207",
       "releaseYear": 2008,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "PLAYABLE"
+      "sourceStatus": "PLAYABLE",
+      "isShortFilm": true,
+      "filmType": "Open Short Film (Blender Foundation)"
     },
     {
       "id": "series_squid_game",
@@ -9492,7 +9554,7 @@
       ],
       "rating": 7.0,
       "description": "Detective Ma Seok-do travels to Vietnam to extradite a suspect, only to discover a serial kidnapper murdering South Korean tourists.",
-      "resolution": "Trailer Only",
+      "resolution": "Official Trailer",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -9538,7 +9600,8 @@
       "imdbId": "tt15838850",
       "releaseYear": 2022,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "TRAILER_ONLY"
+      "sourceStatus": "TRAILER_ONLY",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_demon_slayer_mugen_train",
@@ -9561,7 +9624,7 @@
       ],
       "rating": 8.2,
       "description": "Tanjiro and the Demon Slayer Corps join Flame Hashira Kyojuro Rengoku aboard the mysterious Mugen Train to investigate demon disappearances.",
-      "resolution": "Trailer Only",
+      "resolution": "Official Trailer",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -9606,7 +9669,8 @@
       "imdbId": "tt11032374",
       "releaseYear": 2020,
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "TRAILER_ONLY"
+      "sourceStatus": "TRAILER_ONLY",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_jujutsu_kaisen_0",
@@ -11935,7 +11999,7 @@
       ],
       "rating": 9.0,
       "description": "Marvel Studios' upcoming epic crossover event featuring the return of the Avengers and the arrival of Doctor Doom.",
-      "resolution": "Official Studio Teaser",
+      "resolution": "Official Trailer",
       "codec": null,
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -11985,7 +12049,8 @@
       "tmdbId": 1003596,
       "imdbId": "tt20245442",
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UPCOMING"
+      "sourceStatus": "UPCOMING",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_the_batman_part_ii_2026",
@@ -12008,7 +12073,7 @@
       ],
       "rating": 8.8,
       "description": "Matt Reeves returns with Robert Pattinson as Gotham's Caped Crusader facing a rising criminal underworld in a flooded city.",
-      "resolution": "Official Studio Teaser",
+      "resolution": "Official Trailer",
       "codec": null,
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -12058,7 +12123,8 @@
       "tmdbId": 969681,
       "imdbId": "tt19851608",
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UPCOMING"
+      "sourceStatus": "UPCOMING",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_fateh_2025",
@@ -13344,7 +13410,7 @@
       "featured": true,
       "latest": true,
       "streamUrl": "https://dn721808.ca.archive.org/0/items/bramayugam-2024-web-rip-720p-hindi-malayalam-aac-2.0-x-264-esub/Bramayugam%202024%20WebRip%20720p%20Hindi%20Malayalam%20AAC%202.0%20x264%20ESub%20-%20mkvCinemas.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/yW7t8224F5M",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/wRDfDx-nOPY",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -13427,7 +13493,7 @@
       "featured": true,
       "latest": true,
       "streamUrl": "https://dn721909.ca.archive.org/0/items/aadujeevitham-the-goat-life-2024-web-rip-720p-hindi-aac-5.1-x-264-esub/Aadujeevitham%20The%20Goat%20Life%202024%20WebRip%20720p%20Hindi%20AAC%205.1%20x264%20ESub%20-%20mkvCinemas.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/q13d11b3wF8",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/qvsiJKdDxPs",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -13509,7 +13575,7 @@
       "featured": true,
       "latest": true,
       "streamUrl": "https://dn721909.ca.archive.org/0/items/maharaja.-2024./Maharaja.2024..mp4",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/e18VfA481sA",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/n3ttNeXKPHg",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -13587,7 +13653,7 @@
       "featured": true,
       "latest": true,
       "streamUrl": "https://dn721601.ca.archive.org/0/items/mm-premalu-2024-malayalam-hdrip-1080p-hevc/%5BMM%5D%20Premalu%20%282024%29%20Malayalam%20HDRip%201080p%20HEVC%20.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/rQxL9Hn4L4k",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/C9X7651jt0g",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -13669,7 +13735,7 @@
       "featured": true,
       "latest": true,
       "streamUrl": "https://dn721609.ca.archive.org/0/items/ms-manjummel-boys-2024-tamil-hdrip-1080p-hevc/%5BMS%5D%20Manjummel%20Boys%20%282024%29%20Tamil%20HDRip%201080p%C2%A0HEVC%20.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/idQ_9A8e9Xk",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/id848Ww1YLo",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -13749,7 +13815,7 @@
       "featured": true,
       "latest": true,
       "streamUrl": "https://ia800105.us.archive.org/2/items/amar-singh-chamkila-1080p-2024/Amar%20Singh%20Chamkila%201080p%202024.ia.mp4",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/g8l6p3zC3aM",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/uGXB1PFg7E0",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -13830,7 +13896,7 @@
       "featured": false,
       "latest": true,
       "streamUrl": "https://dn601202.us.archive.org/0/items/maharaja-2024-hindi-tamil-dual-audio-un-cut-movie-hd-720p-esub/Blackout%20%282024%29%20Bollywood%20Hindi%20Movies%20HD%20720p%20ESub.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/7n7Y_w-xO78",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/tIajHtT6R6E",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -13914,7 +13980,7 @@
       "featured": true,
       "latest": true,
       "streamUrl": "https://dn721901.ca.archive.org/0/items/hanuman-2024-hindi-1080p-web-dl-x-264-aac-2.5-gb-qrips/Hanuman%20%282024%29%20Hindi%201080p%20WEB-DL%20x264%20AAC%202.5GB%20-%20QRips.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/OivkdWd9-z4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Mw2rYBuSxFA",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -13994,7 +14060,7 @@
       "featured": true,
       "latest": true,
       "streamUrl": "https://dn721901.ca.archive.org/0/items/kill-2024-hindi_202409/Kill_2024_Hindi_.ia.mp4",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/da3b_H9b0_M",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/da7lKeeS67c",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14072,7 +14138,7 @@
       "featured": false,
       "latest": true,
       "streamUrl": "https://dn721600.ca.archive.org/0/items/crew-2024-hindi-full-movie-web-dl-filmy-zilla.vin/Crew_2024_Hindi_Full_Movie_WEB-DL_%28FilmyZilla.vin%29.ia.mp4",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/1B1qg7tQ1Gg",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/3uvfq4Cu8R8",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14123,7 +14189,7 @@
       ],
       "rating": 7.1,
       "description": "A retired prison warden springs back into action when an eccentric idol smuggler murders his ACP son, calling upon old underworld confederates.",
-      "resolution": "1080p",
+      "resolution": "Official Trailer",
       "codec": "H.264",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
@@ -14175,7 +14241,8 @@
       "tmdbId": 980489,
       "imdbId": "tt11663228",
       "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "TRAILER_ONLY"
+      "sourceStatus": "TRAILER_ONLY",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_sam_bahadur_2023",
@@ -14229,7 +14296,7 @@
       "featured": true,
       "latest": false,
       "streamUrl": "https://ia600603.us.archive.org/3/items/sam-bahadur-2023-1080p/Sam%20Bahadur%202023%201080p.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/1bN_k-1a-1k",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/6xJptj7AVSA",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14319,7 +14386,7 @@
       "featured": true,
       "latest": false,
       "streamUrl": "https://dn710203.ca.archive.org/0/items/vikram-2022-multi-auds-tel-tam-hin-720-p-pre-dvd-rip-avc-aac-2.0-320-kbps-2.3-gb-dsm/Vikram%20%282022%29%20-%20Multi%20Auds%5BTel%20%20%20Tam%20%20%20Hin%5D%20-%20720P%20-%20PreDvdRip%20-%20AVC%20-%20AAC%282.0%29%20-%20320Kbps%20-%202.3GB%20-%20%5BDSM%5D.mp4",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/OKBMCL-hrPU",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/OKBMCL-frPU",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14403,7 +14470,7 @@
       "featured": false,
       "latest": false,
       "streamUrl": "https://dn710208.ca.archive.org/0/items/karthikeya-2-2022-1080p-telugu-hq-web-dl-x-264-dd-5.1-384-kbps-aac-2.0-esub_202406/Karthikeya%202%20%282022%29%20720p%20Telugu%20HQ%20HDRip%20x264%20%28DD%2B%205.1%20-%20384Kbps%20%26%20AAC%202.0%29%20ESub.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/K8qY7iM59pU",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/wpHgdmQo2n0",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14485,7 +14552,7 @@
       "featured": true,
       "latest": false,
       "streamUrl": "https://dn721809.ca.archive.org/0/items/777-charlie-2022/777%20Charlie%20%282022%29.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/5c_Y6z8wLbg",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Z3r7f9zw-mo",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14671,7 +14738,7 @@
       "featured": true,
       "latest": false,
       "streamUrl": "https://dn600206.us.archive.org/0/items/telegram-apdbackup-sardar-udham-2021-720p-amzn-web-dl-ddp-5-1-hevc/Telegram%40APDBackupSardar_Udham_2021_720p_AMZN_WEB_DL_DDP5_1_HEVC.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/EDbW3k8J-3k",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/bLWgKt1-SYo",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14757,7 +14824,7 @@
       "featured": true,
       "latest": false,
       "streamUrl": "https://ia803103.us.archive.org/22/items/ala-vaikunthapurramuloo-2020-dual-hindi-telugu-1080p-ds-4-k-webrip-x-265-10bit-ddp/Ala%20Vaikunthapurramuloo%20%282020%29%20DUAL%20%28Hindi%2BTelugu%29%20%281080p%20DS4K%20WEBRip%20x265%2010bit%20DDP%29.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/2_YnCsm1z7M",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/SkENAjfVoNI",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14840,7 +14907,7 @@
       "featured": true,
       "latest": false,
       "streamUrl": "https://dn710200.ca.archive.org/0/items/ludo.-2020.-hindi.-720p.-webrip.x-264/Ludo.2020.Hindi.720p.WEBRip.x264.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/caY1L9G-6e8",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/ZT9Gihrxa4Q",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14921,7 +14988,7 @@
       "featured": true,
       "latest": false,
       "streamUrl": "https://dn600308.us.archive.org/0/items/sirf-ek-bandaa-kaafi-hai-2023-1080p-web-dl-aac-5-1-esub-x-264-hdhub-4u/Sirf_Ek_Bandaa_Kaafi_Hai_2023_1080p_WEB_DL_AAC_5_1_ESub_x264_HDHub4u.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/Pj1L5a05-x0",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/MWH7lfZdP-8",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -14962,7 +15029,7 @@
       "synopsis": "Nitesh Tiwari's epic adaptation of the ancient Sanskrit epic Ramayana, starring Ranbir Kapoor as Lord Rama, Sai Pallavi as Sita, and Yash as Ravana.",
       "posterUrl": "assets/posters/vod_ramayana_part_1_2026.jpg",
       "backdropUrl": "assets/posters/vod_ramayana_part_1_2026.jpg",
-      "resolution": "Official Studio Teaser",
+      "resolution": "Official Trailer",
       "codec": "HEVC",
       "container": "MP4",
       "fileSize": "Trailer",
@@ -14975,7 +15042,7 @@
       "latest": true,
       "streamUrl": null,
       "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/9GZ08h3vWps",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/1zip1rNaNYs",
       "sourceState": "UPCOMING_TRAILER",
       "contentType": "MOVIE",
       "qualityClass": "TRAILER",
@@ -15004,7 +15071,7 @@
           "IN"
         ]
       },
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "contentId": "movie_tmdb_1070514",
       "tmdbId": 1070514,
       "imdbId": "tt30821034",
@@ -15023,7 +15090,8 @@
         "mythology"
       ],
       "type": "movie",
-      "region": "IN"
+      "region": "IN",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_war_2_2025",
@@ -15039,7 +15107,7 @@
       "synopsis": "Major Kabir Dhaliwal returns in the next explosive installment of the YRF Spy Universe, facing off against an elite operative.",
       "posterUrl": "assets/posters/vod_war_2_2025.jpg",
       "backdropUrl": "assets/posters/vod_war_2_2025.jpg",
-      "resolution": "Official Studio Teaser",
+      "resolution": "Official Trailer",
       "codec": "HEVC",
       "container": "MP4",
       "fileSize": "Trailer",
@@ -15052,7 +15120,7 @@
       "latest": true,
       "streamUrl": null,
       "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/g8m3B_eJt7s",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/mjBym9uKth4",
       "sourceState": "UPCOMING_TRAILER",
       "contentType": "MOVIE",
       "qualityClass": "TRAILER",
@@ -15081,7 +15149,7 @@
           "IN"
         ]
       },
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "contentId": "movie_tmdb_1110091",
       "tmdbId": 1110091,
       "imdbId": "tt27443106",
@@ -15098,7 +15166,8 @@
         "thriller"
       ],
       "type": "movie",
-      "region": "IN"
+      "region": "IN",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_toxic_2026",
@@ -15115,7 +15184,7 @@
       "synopsis": "A dark, intense crime drama set in the 1950s-1970s drug cartel underworld directed by Geetu Mohandas.",
       "posterUrl": "assets/posters/vod_toxic_2026.jpg",
       "backdropUrl": "assets/posters/vod_toxic_2026.jpg",
-      "resolution": "Official Studio Teaser",
+      "resolution": "Official Trailer",
       "codec": "HEVC",
       "container": "MP4",
       "fileSize": "Trailer",
@@ -15128,7 +15197,7 @@
       "latest": true,
       "streamUrl": null,
       "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/mKk3lP_e_vM",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/nXA4daIga0k",
       "sourceState": "UPCOMING_TRAILER",
       "contentType": "MOVIE",
       "qualityClass": "TRAILER",
@@ -15158,7 +15227,7 @@
           "IN"
         ]
       },
-      "durationFormatted": "Official Teaser",
+      "durationFormatted": "Trailer",
       "contentId": "movie_tmdb_1215163",
       "tmdbId": 1215163,
       "imdbId": "tt30372332",
@@ -15177,7 +15246,8 @@
         "crime"
       ],
       "type": "movie",
-      "region": "IN"
+      "region": "IN",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_pathaan",
@@ -17238,7 +17308,7 @@
       "featured": true,
       "latest": false,
       "streamUrl": "https://ia601406.us.archive.org/8/items/prmovies-sita-ramam-hindi-dubbed/Prmovies-Sita_Ramam_Hindi_Dubbed.mp4",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/Fw0W64iZ8qg",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/3UKsbXQUwqw",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -17396,7 +17466,7 @@
       "featured": false,
       "latest": false,
       "streamUrl": "https://dn720004.ca.archive.org/0/items/www.-8xflix.org-thappad-2020-hindi-hdrip-400-mb-x-264-mp-3-esubs/www.8xflix.org%20-%20THAPPAD%20%282020%29%20Hindi%20HDRip%20-%20400MB%20-%20x264%20-%20MP3%20-%20ESubs.mkv",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/jBw_EROnOSo",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/jBw_Eta0HDM",
       "contentType": "MOVIE",
       "region": "INDIA",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
