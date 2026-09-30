@@ -16302,6 +16302,16 @@ window.minimizeToMiniPlayer = function(e) {
   if (typeof closeVlcSettingsModal === 'function') closeVlcSettingsModal();
   if (typeof closeVlcTipsModal === 'function') closeVlcTipsModal();
 
+  if (isPlayerLocked) {
+    isPlayerLocked = false;
+    clearTimeout(playerLockHideTimeout);
+    const lockOverlay = document.getElementById('playerLockOverlay');
+    if (lockOverlay) {
+      lockOverlay.classList.remove('fade-out');
+      lockOverlay.style.display = 'none';
+    }
+  }
+
   if (playerModal) {
     playerModal.classList.remove('active');
     playerModal.style.display = 'none';
@@ -16774,8 +16784,33 @@ window.closeVlcMoreMenu = function() {
 
 // 1. Lock Controls
 let isPlayerLocked = false;
+let playerLockHideTimeout = null;
 
-window.togglePlayerLock = function() {
+window.showPlayerLockPillBriefly = function() {
+  const lockOverlay = document.getElementById('playerLockOverlay');
+  if (!lockOverlay || !isPlayerLocked) return;
+  
+  clearTimeout(playerLockHideTimeout);
+  lockOverlay.style.display = 'flex';
+  void lockOverlay.offsetWidth; // Force reflow for smooth CSS opacity transition
+  lockOverlay.classList.remove('fade-out');
+  
+  playerLockHideTimeout = setTimeout(() => {
+    if (isPlayerLocked && lockOverlay) {
+      lockOverlay.classList.add('fade-out');
+      setTimeout(() => {
+        if (isPlayerLocked && lockOverlay && lockOverlay.classList.contains('fade-out')) {
+          lockOverlay.style.display = 'none';
+        }
+      }, 320);
+    }
+  }, 2500); // Automatically disappears within 2-3 sec
+};
+
+window.togglePlayerLock = function(e) {
+  if (e && typeof e.stopPropagation === 'function') {
+    e.stopPropagation();
+  }
   closeVlcMoreMenu();
   isPlayerLocked = !isPlayerLocked;
   const uiOverlay = document.getElementById('playerUiOverlay');
@@ -16783,10 +16818,14 @@ window.togglePlayerLock = function() {
   
   if (isPlayerLocked) {
     if (uiOverlay) uiOverlay.classList.add('hidden-controls');
-    if (lockOverlay) lockOverlay.style.display = 'flex';
+    window.showPlayerLockPillBriefly();
     showToast('Controls Locked 🔒');
   } else {
-    if (lockOverlay) lockOverlay.style.display = 'none';
+    clearTimeout(playerLockHideTimeout);
+    if (lockOverlay) {
+      lockOverlay.classList.remove('fade-out');
+      lockOverlay.style.display = 'none';
+    }
     if (uiOverlay) uiOverlay.classList.remove('hidden-controls');
     showToast('Controls Unlocked 🔓');
     resetPlayerHideTimer();
@@ -18275,7 +18314,14 @@ function initPlayerOverlayEvents() {
 
   if (playerModal) {
     playerModal.addEventListener('click', (e) => {
-      if (isPlayerLocked) return;
+      if (isPlayerLocked) {
+        if (!e.target.closest('#playerLockOverlay')) {
+          if (typeof window.showPlayerLockPillBriefly === 'function') {
+            window.showPlayerLockPillBriefly();
+          }
+        }
+        return;
+      }
       if (e.target.closest('button') || e.target.closest('.vlc-seekbar-wrap') || e.target.closest('.vlc-side-drawer') || e.target.closest('.vlc-dialog-card')) return;
       
       const now = Date.now();
@@ -18495,7 +18541,14 @@ function initPlayerSwipeGestures() {
   if (!playerModal) return;
 
   playerModal.addEventListener('touchstart', (e) => {
-    if (isPlayerLocked) return;
+    if (isPlayerLocked) {
+      if (!e.target.closest('#playerLockOverlay')) {
+        if (typeof window.showPlayerLockPillBriefly === 'function') {
+          window.showPlayerLockPillBriefly();
+        }
+      }
+      return;
+    }
     if (e.target.closest('#vlcMoreDrawer') || e.target.closest('.vlc-side-drawer') || e.target.closest('.vlc-dialog-backdrop') || e.target.closest('.vlc-dialog-card') || e.target.closest('#vlcABRepeatBar') || e.target.closest('.vlc-drawer-scroll') || e.target.closest('#vlcMoreDrawerBackdrop') || e.target.closest('#reportChannelModal')) return;
     
     // 2-Finger Pinch Detection (VLC-style aspect zoom)
