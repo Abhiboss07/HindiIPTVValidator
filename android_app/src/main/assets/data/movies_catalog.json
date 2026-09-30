@@ -31,8 +31,8 @@
       ],
       "rating": 7.4,
       "description": "Official Blender Foundation Open Short Film. Complete 12-minute surreal sci-fi journey of Franck the suicidal sheep who meets a mysterious salesman offering a laundromat to other lives.",
-      "resolution": "1080p FHD (2048x858)",
-      "codec": "VP9 / WebM",
+      "resolution": "1080p Full HD (1920x1080)",
+      "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
@@ -46,7 +46,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "container": "WebM",
+      "container": "MP4",
       "fileSize": "594 MB",
       "bitrate": "12 Mbps",
       "fps": "24 FPS",
@@ -55,8 +55,10 @@
       "cast": "Pierre Bokma, Reinout Scholten van Aschat",
       "featured": false,
       "latest": false,
-      "streamUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Cosmos_Laundromat_-_First_Cycle_-_Official_Blender_Foundation_release.webm",
-      "backupUrls": [],
+      "streamUrl": "https://archive.org/download/CosmosLaundromatFirstCycle/Cosmos%20Laundromat%20-%20First%20Cycle%20%281080p%29.mp4",
+      "backupUrls": [
+        "https://archive.org/download/CosmosLaundromatFirstCycle/Cosmos%20Laundromat%20-%20First%20Cycle%20%281080p%29.mp4"
+      ],
       "trailerUrl": null,
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -97,7 +99,7 @@
       "rating": 7.0,
       "description": "The world's first open movie by the Blender Foundation. Complete 11-minute surreal exploration through an endless, transforming clockwork machine.",
       "resolution": "1080p Full HD (1920x1080)",
-      "codec": "VP9 / WebM",
+      "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
@@ -111,7 +113,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "container": "WebM",
+      "container": "MP4",
       "fileSize": "840 MB",
       "bitrate": "15 Mbps",
       "fps": "24 FPS",
@@ -120,8 +122,10 @@
       "cast": "Tygo Gernandt, Cas Jansen",
       "featured": false,
       "latest": false,
-      "streamUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Elephants_Dream_%282006%29.webm",
-      "backupUrls": [],
+      "streamUrl": "https://archive.org/download/ed-1080p-h-264_265_266-aac/ED_1080p_h264_aac.mp4",
+      "backupUrls": [
+        "https://archive.org/download/ElephantsDream/ed_hd.mp4"
+      ],
       "trailerUrl": null,
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
@@ -161,8 +165,8 @@
       ],
       "rating": 8.1,
       "description": "When Union spies steal an engineer's beloved locomotive and kidnap his fiancée, he pursues them single-handedly behind enemy lines. Buster Keaton's silent masterpiece.",
-      "resolution": "720p HD (960x720)",
-      "codec": "VP9 / WebM",
+      "resolution": "720p HD (1280x720)",
+      "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
@@ -176,7 +180,7 @@
         "Orchestral Score"
       ],
       "defaultLanguage": "Orchestral Score",
-      "container": "WebM",
+      "container": "MP4",
       "fileSize": "1.7 GB",
       "bitrate": "4.5 Mbps",
       "fps": "24 FPS",
@@ -185,7 +189,7 @@
       "cast": "Buster Keaton, Marion Mack, Glen Cavender",
       "featured": false,
       "latest": false,
-      "streamUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/The_General_1926_720p.webm",
+      "streamUrl": "https://archive.org/download/TheGeneral1926/The_General_1926_720p.mp4",
       "backupUrls": [],
       "trailerUrl": null,
       "torrentUri": null,
@@ -225,8 +229,8 @@
       ],
       "rating": 7.9,
       "description": "A woman pursued by several men who want a fortune her murdered husband had stolen must determine who she can trust in Paris. Starring Cary Grant and Audrey Hepburn.",
-      "resolution": "720p HD (1280x720)",
-      "codec": "VP9 / WebM",
+      "resolution": "1080p Full HD",
+      "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
@@ -240,7 +244,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "container": "WebM",
+      "container": "MP4",
       "fileSize": "235 MB",
       "bitrate": "1.2 Mbps",
       "fps": "24 FPS",
@@ -249,12 +253,12 @@
       "cast": "Cary Grant, Audrey Hepburn, Walter Matthau, James Coburn",
       "featured": false,
       "latest": false,
-      "streamUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Charade_%281963%29.webm",
+      "streamUrl": "https://archive.org/download/charade-1963-cary-grant-audrey-hepburn-comedy-mystery-romance-thriller-full-movie/Charade_READY.mp4",
       "backupUrls": [],
       "trailerUrl": null,
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "HD",
+      "qualityClass": "FULL HD",
       "qualityHonestBadge": "720p HD",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_charade_1963.jpg",
@@ -293,8 +297,8 @@
       ],
       "rating": 7.8,
       "description": "A disparate group of individuals take refuge in an abandoned farmhouse when corpses begin leaving the graveyards in search of human flesh. Full 1080p remaster.",
-      "resolution": "1080p Full HD (1440x1080)",
-      "codec": "VP9 / WebM",
+      "resolution": "1080p Full HD",
+      "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
@@ -308,7 +312,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "container": "WebM",
+      "container": "MP4",
       "fileSize": "4.1 GB",
       "bitrate": "10 Mbps",
       "fps": "24 FPS",
@@ -317,7 +321,7 @@
       "cast": "Duane Jones, Judith O'Dea, Karl Hardman",
       "featured": true,
       "latest": false,
-      "streamUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Night_of_the_Living_Dead_%281968%29.webm",
+      "streamUrl": "https://archive.org/download/NightOfTheLivingDead1968-Restored/Notld1968Restoration-desktop.mp4",
       "backupUrls": [],
       "trailerUrl": null,
       "torrentUri": null,
@@ -364,8 +368,8 @@
       ],
       "rating": 7.9,
       "description": "A hard-charging newspaper editor uses every trick in the book to keep his ace reporter ex-wife from remarrying and quitting the scoop of her career. 4K master scan.",
-      "resolution": "4K Ultra HD (2960x2160)",
-      "codec": "VP9 / WebM",
+      "resolution": "720p HD",
+      "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
@@ -379,7 +383,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "container": "WebM",
+      "container": "MP4",
       "fileSize": "5.3 GB",
       "bitrate": "15 Mbps",
       "fps": "24 FPS",
@@ -388,12 +392,12 @@
       "cast": "Cary Grant, Rosalind Russell, Ralph Bellamy",
       "featured": true,
       "latest": false,
-      "streamUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/His_Girl_Friday_%281940%29.webm",
+      "streamUrl": "https://archive.org/download/his_girl_friday/his_girl_friday.mp4",
       "backupUrls": [],
       "trailerUrl": null,
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "4K",
+      "qualityClass": "HD",
       "qualityHonestBadge": "4K Ultra HD",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_his_girl_friday.jpg",
@@ -434,8 +438,8 @@
       ],
       "rating": 8.0,
       "description": "Official Blender Foundation 4K Open Short Film. Complete 12-minute cinematic sci-fi production set in a dystopian Amsterdam overrun by rogue cyborgs, where scientists and warriors recalibrate critical memory sequences.",
-      "resolution": "4K Ultra HD (3840x1714)",
-      "codec": "VP9 / WebM",
+      "resolution": "1080p Full HD (1920x1080)",
+      "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
@@ -449,7 +453,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "container": "WebM",
+      "container": "MP4",
       "fileSize": "958 MB",
       "bitrate": "18 Mbps",
       "fps": "24 FPS",
@@ -458,13 +462,15 @@
       "cast": "Derek de Lint, Sergio Hasselbaink, Rogier Schippers",
       "featured": true,
       "latest": true,
-      "streamUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Tears_of_Steel_in_4k_-_Official_Blender_Foundation_release.webm",
-      "backupUrls": [],
+      "streamUrl": "https://archive.org/download/Tears-of-Steel/tears_of_steel_1080p.mp4",
+      "backupUrls": [
+        "https://archive.org/download/Tears-of-Steel/tears_of_steel_720p.mp4"
+      ],
       "trailerUrl": "https://www.youtube-nocookie.com/embed/R6MlUcmOul8",
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "4K",
-      "qualityHonestBadge": "4K UHD Short Film",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Short Film",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_tears_of_steel.jpg",
       "backdropUrl": "assets/posters/vod_tears_of_steel.jpg",
@@ -514,8 +520,8 @@
       ],
       "rating": 8.8,
       "description": "Official Blender Foundation 4K Open Short Film. Complete 15-minute emotional fantasy epic about a lonely traveler named Sintel searching for her lost baby dragon Scales across desolate fantasy lands.",
-      "resolution": "4K Ultra HD (4096x1744)",
-      "codec": "VP9 / WebM",
+      "resolution": "1080p Full HD (1920x1080)",
+      "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
@@ -529,7 +535,7 @@
         "English"
       ],
       "defaultLanguage": "English",
-      "container": "WebM",
+      "container": "MP4",
       "fileSize": "3.5 GB",
       "bitrate": "35 Mbps",
       "fps": "24 FPS",
@@ -538,15 +544,15 @@
       "cast": "Halina Reijn, Thom Hoffman",
       "featured": true,
       "latest": true,
-      "streamUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Sintel_movie_4K.webm",
+      "streamUrl": "https://archive.org/download/Sintel/sintel-2048-stereo.mp4",
       "backupUrls": [
-        "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
+        "https://archive.org/download/Sintel/sintel-2048-surround.mp4"
       ],
       "trailerUrl": "https://www.youtube-nocookie.com/embed/eRsGyueVLvQ",
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "4K",
-      "qualityHonestBadge": "4K UHD Short Film",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Short Film",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_sintel_1080p.jpg",
       "backdropUrl": "assets/posters/vod_sintel_1080p.jpg",
@@ -595,8 +601,8 @@
       ],
       "rating": 8.5,
       "description": "Official Blender Foundation 4K Open Short Film. Complete 10-minute comedic animation featuring a giant lovable rabbit outsmarting mischievous forest bullies.",
-      "resolution": "4K Ultra HD (3840x2160)",
-      "codec": "VP9 / WebM",
+      "resolution": "720p HD (1280x720)",
+      "codec": "H.264 / AAC",
       "audio": {
         "classification": "NON_HINDI_AUDIO",
         "hasHindiAudio": false,
@@ -610,7 +616,7 @@
         "Studio Surround"
       ],
       "defaultLanguage": "Studio Surround",
-      "container": "WebM",
+      "container": "MP4",
       "fileSize": "2.9 GB",
       "bitrate": "42 Mbps",
       "fps": "60 FPS",
@@ -619,15 +625,15 @@
       "cast": "Jan Morgenstern (Composer)",
       "featured": true,
       "latest": true,
-      "streamUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm",
+      "streamUrl": "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
       "backupUrls": [
-        "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+        "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
       ],
       "trailerUrl": "https://www.youtube-nocookie.com/embed/YE7VzlLtp-4",
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "4K",
-      "qualityHonestBadge": "4K UHD Short Film",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p Short Film",
       "audioClassification": "NON_HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_bbb_720p.jpg",
       "backdropUrl": "assets/posters/vod_bbb_720p.jpg",
@@ -1459,8 +1465,8 @@
       "originalTitle": "Squid Game Season 2",
       "year": 2025,
       "releaseYear": 2025,
-      "mediaType": "series",
-      "contentType": "SERIES",
+      "mediaType": "trailer",
+      "contentType": "TRAILER",
       "type": "K-Drama",
       "categories": [
         "action",
@@ -1469,7 +1475,8 @@
         "thriller",
         "korean",
         "asian",
-        "trending"
+        "trending",
+        "trailers"
       ],
       "durationFormatted": "Trailer",
       "genres": [
@@ -1484,7 +1491,7 @@
       "backdropUrl": "assets/posters/series_squid_game_s2_2025.jpg",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "NON_HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
@@ -1555,14 +1562,14 @@
       "originalTitle": "Delhi Crime Season 3",
       "year": 2025,
       "releaseYear": 2025,
-      "mediaType": "series",
-      "contentType": "SERIES",
+      "mediaType": "trailer",
+      "contentType": "TRAILER",
       "type": "Web-Series",
       "categories": [
         "crime",
         "drama",
-        "web_series",
-        "trending"
+        "trending",
+        "trailers"
       ],
       "durationFormatted": "Trailer",
       "genres": [
@@ -1575,7 +1582,7 @@
       "backdropUrl": "assets/posters/series_delhi_crime_s3_2025.jpg",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
@@ -1645,15 +1652,15 @@
       "originalTitle": "Paatal Lok Season 2",
       "year": 2025,
       "releaseYear": 2025,
-      "mediaType": "series",
-      "contentType": "SERIES",
+      "mediaType": "trailer",
+      "contentType": "TRAILER",
       "type": "Web-Series",
       "categories": [
         "crime",
         "drama",
         "mystery",
-        "web_series",
-        "trending"
+        "trending",
+        "trailers"
       ],
       "durationFormatted": "Trailer",
       "genres": [
@@ -1667,7 +1674,7 @@
       "backdropUrl": "assets/posters/series_paatal_lok_s2_2025.jpg",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
@@ -1737,15 +1744,15 @@
       "originalTitle": "Farzi Season 2",
       "year": 2025,
       "releaseYear": 2025,
-      "mediaType": "series",
-      "contentType": "SERIES",
+      "mediaType": "trailer",
+      "contentType": "TRAILER",
       "type": "Web-Series",
       "categories": [
         "crime",
         "drama",
         "thriller",
-        "web_series",
-        "trending"
+        "trending",
+        "trailers"
       ],
       "durationFormatted": "Trailer",
       "genres": [
@@ -1759,7 +1766,7 @@
       "backdropUrl": "assets/posters/series_farzi_s2_2025.jpg",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
@@ -1829,15 +1836,15 @@
       "originalTitle": "The Family Man Season 3",
       "year": 2025,
       "releaseYear": 2025,
-      "mediaType": "series",
-      "contentType": "SERIES",
+      "mediaType": "trailer",
+      "contentType": "TRAILER",
       "type": "Web-Series",
       "categories": [
         "action",
         "thriller",
         "comedy",
-        "web_series",
-        "trending"
+        "trending",
+        "trailers"
       ],
       "durationFormatted": "Trailer",
       "genres": [
@@ -1852,7 +1859,7 @@
       "backdropUrl": "assets/posters/series_family_man_s3_2025.jpg",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "sourceStatus": "UNAVAILABLE",
       "audioClassification": "HINDI_AUDIO",
       "audioSwitchingCapability": "NONE",
@@ -4610,13 +4617,13 @@
       "id": "series_family_man",
       "title": "The Family Man",
       "year": 2021,
-      "mediaType": "series",
+      "mediaType": "trailer",
       "type": "Web-Series",
       "categories": [
-        "web_series",
         "bollywood",
         "action",
-        "thrillers"
+        "thrillers",
+        "trailers"
       ],
       "duration": 3100,
       "durationFormatted": "Trailer",
@@ -4670,7 +4677,7 @@
           "backupUrls": []
         }
       ],
-      "contentType": "SERIES",
+      "contentType": "TRAILER",
       "region": "BOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/XatRGut65VI",
       "seasons": [
@@ -4695,7 +4702,7 @@
         }
       ],
       "torrentUri": null,
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
@@ -4725,13 +4732,13 @@
       "id": "series_money_heist",
       "title": "Money Heist (La Casa de Papel)",
       "year": 2021,
-      "mediaType": "series",
+      "mediaType": "trailer",
       "type": "Web-Series",
       "categories": [
-        "web_series",
         "hollywood",
         "action",
-        "thrillers"
+        "thrillers",
+        "trailers"
       ],
       "duration": 3000,
       "durationFormatted": "Trailer",
@@ -4881,7 +4888,7 @@
           "backupUrls": []
         }
       ],
-      "contentType": "SERIES",
+      "contentType": "TRAILER",
       "region": "HOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/_InqQJRqGW4",
       "seasons": [
@@ -5010,7 +5017,7 @@
         }
       ],
       "torrentUri": null,
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
@@ -5150,12 +5157,12 @@
       "id": "series_sacred_games",
       "title": "Sacred Games",
       "year": 2019,
-      "mediaType": "series",
+      "mediaType": "trailer",
       "type": "Web-Series",
       "categories": [
-        "web_series",
         "bollywood",
-        "thrillers"
+        "thrillers",
+        "trailers"
       ],
       "duration": 3180,
       "durationFormatted": "Trailer",
@@ -5293,7 +5300,7 @@
           "backupUrls": []
         }
       ],
-      "contentType": "SERIES",
+      "contentType": "TRAILER",
       "region": "BOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/w-Xe8gLBc5I",
       "seasons": [
@@ -5409,7 +5416,7 @@
         }
       ],
       "torrentUri": null,
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
@@ -6724,12 +6731,12 @@
       "id": "series_farzi",
       "title": "Farzi",
       "year": 2023,
-      "mediaType": "series",
+      "mediaType": "trailer",
       "type": "Web-Series",
       "categories": [
-        "web_series",
         "bollywood",
-        "thrillers"
+        "thrillers",
+        "trailers"
       ],
       "duration": 3480,
       "durationFormatted": "Trailer",
@@ -6866,7 +6873,7 @@
           "backupUrls": []
         }
       ],
-      "contentType": "SERIES",
+      "contentType": "TRAILER",
       "region": "BOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/rcQ_xZdzPBc",
       "seasons": [
@@ -6982,7 +6989,7 @@
         }
       ],
       "torrentUri": null,
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
@@ -8245,12 +8252,12 @@
       "id": "series_paatal_lok",
       "title": "Paatal Lok",
       "year": 2020,
-      "mediaType": "series",
+      "mediaType": "trailer",
       "type": "Web-Series",
       "categories": [
-        "web_series",
         "bollywood",
-        "thrillers"
+        "thrillers",
+        "trailers"
       ],
       "duration": 2700,
       "durationFormatted": "Trailer",
@@ -8304,7 +8311,7 @@
           "backupUrls": []
         }
       ],
-      "contentType": "SERIES",
+      "contentType": "TRAILER",
       "region": "BOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/cNwWMW4mxO8",
       "seasons": [
@@ -8329,7 +8336,7 @@
         }
       ],
       "torrentUri": null,
-      "sourceState": "NO_AUTHORIZED_SOURCE",
+      "sourceState": "UPCOMING_TRAILER",
       "qualityClass": null,
       "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
@@ -17492,6 +17499,983 @@
       "sourceStatus": "PLAYABLE",
       "backupUrls": [
         "https://archive.org/download/www.-8xflix.org-thappad-2020-hindi-hdrip-400-mb-x-264-mp-3-esubs/www.8xflix.org%20-%20THAPPAD%20%282020%29%20Hindi%20HDRip%20-%20400MB%20-%20x264%20-%20MP3%20-%20ESubs.mkv"
+      ]
+    },
+    {
+      "id": "series_gullak",
+      "title": "Gullak",
+      "year": 2019,
+      "releaseYear": 2019,
+      "mediaType": "series",
+      "type": "Web-Series",
+      "categories": [
+        "web_series",
+        "bollywood",
+        "comedy",
+        "drama"
+      ],
+      "duration": 1800,
+      "durationFormatted": "2 Seasons • 10 Episodes",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Family"
+      ],
+      "rating": 9.1,
+      "description": "Set in quaint by-lanes in the heart of India, Gullak is a collection of disarming and relatable tales of the Mishra family—Santosh, Shanti, Annu, and Aman.",
+      "posterUrl": "assets/posters/series_gullak.jpg",
+      "backdropUrl": "assets/posters/series_gullak.jpg",
+      "resolution": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "container": "MP4",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Amrit Raj Gupta, Palash Vaswani",
+      "cast": "Jameel Khan, Geetanjali Kulkarni, Vaibhav Raj Gupta, Harsh Mayar, Sunita Rajwar",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep1.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/zH0FwN_153E",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
+      "audioClassification": "HINDI_AUDIO",
+      "region": "BOLLYWOOD",
+      "seasons": [
+        {
+          "seasonNumber": 1,
+          "title": "Season 1 (Complete)",
+          "episodes": [
+            {
+              "id": "gullak_s1e1",
+              "episodeNumber": 1,
+              "season": 1,
+              "title": "S01:E01 • Pichkari",
+              "duration": "25m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep1.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "gullak_s1e2",
+              "episodeNumber": 2,
+              "season": 1,
+              "title": "S01:E02 • Hum Do Hamare Do",
+              "duration": "27m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep2.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "gullak_s1e3",
+              "episodeNumber": 3,
+              "season": 1,
+              "title": "S01:E03 • Ittefaq",
+              "duration": "24m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep3.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "gullak_s1e4",
+              "episodeNumber": 4,
+              "season": 1,
+              "title": "S01:E04 • Bada Sawaal",
+              "duration": "22m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep4.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "gullak_s1e5",
+              "episodeNumber": 5,
+              "season": 1,
+              "title": "S01:E05 • Kissa-e-Aashiqui",
+              "duration": "28m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep5.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            }
+          ]
+        },
+        {
+          "seasonNumber": 3,
+          "title": "Season 3 (Complete)",
+          "episodes": [
+            {
+              "id": "gullak_s3e1",
+              "episodeNumber": 1,
+              "season": 3,
+              "title": "S03:E01 • Mission Admission",
+              "duration": "35m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep1.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "1080p FHD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "gullak_s3e2",
+              "episodeNumber": 2,
+              "season": 3,
+              "title": "S03:E02 • Lallan Ki Shaadi",
+              "duration": "32m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep2.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "1080p FHD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "gullak_s3e3",
+              "episodeNumber": 3,
+              "season": 3,
+              "title": "S03:E03 • Kissa Naye Ghar Ka",
+              "duration": "38m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep3.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "1080p FHD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "gullak_s3e4",
+              "episodeNumber": 4,
+              "season": 3,
+              "title": "S03:E04 • Shanti Ka Inteqam",
+              "duration": "34m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep4.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "1080p FHD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "gullak_s3e5",
+              "episodeNumber": 5,
+              "season": 3,
+              "title": "S03:E05 • Annu Ka Sapna",
+              "duration": "40m",
+              "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep5.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "1080p FHD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            }
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "id": "gullak_s1e1",
+          "episodeNumber": 1,
+          "season": 1,
+          "title": "S01:E01 • Pichkari",
+          "duration": "25m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep1.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "gullak_s1e2",
+          "episodeNumber": 2,
+          "season": 1,
+          "title": "S01:E02 • Hum Do Hamare Do",
+          "duration": "27m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep2.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "gullak_s1e3",
+          "episodeNumber": 3,
+          "season": 1,
+          "title": "S01:E03 • Ittefaq",
+          "duration": "24m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep3.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "gullak_s1e4",
+          "episodeNumber": 4,
+          "season": 1,
+          "title": "S01:E04 • Bada Sawaal",
+          "duration": "22m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep4.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "gullak_s1e5",
+          "episodeNumber": 5,
+          "season": 1,
+          "title": "S01:E05 • Kissa-e-Aashiqui",
+          "duration": "28m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S1%20Ep5.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "gullak_s3e1",
+          "episodeNumber": 1,
+          "season": 3,
+          "title": "S03:E01 • Mission Admission",
+          "duration": "35m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep1.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "1080p FHD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "gullak_s3e2",
+          "episodeNumber": 2,
+          "season": 3,
+          "title": "S03:E02 • Lallan Ki Shaadi",
+          "duration": "32m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep2.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "1080p FHD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "gullak_s3e3",
+          "episodeNumber": 3,
+          "season": 3,
+          "title": "S03:E03 • Kissa Naye Ghar Ka",
+          "duration": "38m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep3.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "1080p FHD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "gullak_s3e4",
+          "episodeNumber": 4,
+          "season": 3,
+          "title": "S03:E04 • Shanti Ka Inteqam",
+          "duration": "34m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep4.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "1080p FHD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "gullak_s3e5",
+          "episodeNumber": 5,
+          "season": 3,
+          "title": "S03:E05 • Annu Ka Sapna",
+          "duration": "40m",
+          "streamUrl": "https://archive.org/download/Dbdjdbbd/Gullak%20S3%20Ep5.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "1080p FHD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "series_mismatched",
+      "title": "Mismatched (Season 1)",
+      "year": 2020,
+      "releaseYear": 2020,
+      "mediaType": "series",
+      "type": "Web-Series",
+      "categories": [
+        "web_series",
+        "bollywood",
+        "romance",
+        "comedy"
+      ],
+      "duration": 1800,
+      "durationFormatted": "1 Season • 6 Episodes",
+      "genres": [
+        "Romance",
+        "Comedy",
+        "Drama"
+      ],
+      "rating": 8.0,
+      "description": "After a disastrous set-up by their families, two teens strike up a tentative friendship at their summer program — but deeper feelings begin to brew. Starring Prajakta Koli and Rohit Saraf.",
+      "posterUrl": "assets/posters/series_mismatched.jpg",
+      "backdropUrl": "assets/posters/series_mismatched.jpg",
+      "resolution": "480p/720p HD",
+      "codec": "H.264 / AAC",
+      "container": "MP4",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Akarsh Khurana, Nipun Dharmadhikari",
+      "cast": "Prajakta Koli, Rohit Saraf, Vihaan Samat, Muskkaan Jaferi, Taaruk Raina, Rannvijay Singha",
+      "featured": false,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E01%20WebRip%20Hindi%20480p.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/5bO4fTjUq_A",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "HD WebRip",
+      "audioClassification": "HINDI_AUDIO",
+      "region": "BOLLYWOOD",
+      "seasons": [
+        {
+          "seasonNumber": 1,
+          "title": "Season 1 (Complete)",
+          "episodes": [
+            {
+              "id": "mismatched_s1e1",
+              "episodeNumber": 1,
+              "season": 1,
+              "title": "S01:E01 • Bad News",
+              "duration": "32m",
+              "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E01%20WebRip%20Hindi%20480p.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "480p/720p",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "mismatched_s1e2",
+              "episodeNumber": 2,
+              "season": 1,
+              "title": "S01:E02 • Coding & Kissing",
+              "duration": "34m",
+              "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E02%20WebRip%20Hindi%20480p.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "480p/720p",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "mismatched_s1e3",
+              "episodeNumber": 3,
+              "season": 1,
+              "title": "S01:E03 • The League of Ordinary Gentlefolk",
+              "duration": "30m",
+              "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E03%20WebRip%20Hindi%20480p.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "480p/720p",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "mismatched_s1e4",
+              "episodeNumber": 4,
+              "season": 1,
+              "title": "S01:E04 • The Mock Interview",
+              "duration": "33m",
+              "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E04%20WebRip%20Hindi%20480p.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "480p/720p",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "mismatched_s1e5",
+              "episodeNumber": 5,
+              "season": 1,
+              "title": "S01:E05 • The Coding Gala",
+              "duration": "36m",
+              "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E05%20WebRip%20Hindi%20480p.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "480p/720p",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "mismatched_s1e6",
+              "episodeNumber": 6,
+              "season": 1,
+              "title": "S01:E06 • Games We Play",
+              "duration": "35m",
+              "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E06%20WebRip%20Hindi%20480p.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "480p/720p",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            }
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "id": "mismatched_s1e1",
+          "episodeNumber": 1,
+          "season": 1,
+          "title": "S01:E01 • Bad News",
+          "duration": "32m",
+          "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E01%20WebRip%20Hindi%20480p.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "480p/720p",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "mismatched_s1e2",
+          "episodeNumber": 2,
+          "season": 1,
+          "title": "S01:E02 • Coding & Kissing",
+          "duration": "34m",
+          "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E02%20WebRip%20Hindi%20480p.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "480p/720p",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "mismatched_s1e3",
+          "episodeNumber": 3,
+          "season": 1,
+          "title": "S01:E03 • The League of Ordinary Gentlefolk",
+          "duration": "30m",
+          "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E03%20WebRip%20Hindi%20480p.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "480p/720p",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "mismatched_s1e4",
+          "episodeNumber": 4,
+          "season": 1,
+          "title": "S01:E04 • The Mock Interview",
+          "duration": "33m",
+          "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E04%20WebRip%20Hindi%20480p.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "480p/720p",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "mismatched_s1e5",
+          "episodeNumber": 5,
+          "season": 1,
+          "title": "S01:E05 • The Coding Gala",
+          "duration": "36m",
+          "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E05%20WebRip%20Hindi%20480p.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "480p/720p",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "mismatched_s1e6",
+          "episodeNumber": 6,
+          "season": 1,
+          "title": "S01:E06 • Games We Play",
+          "duration": "35m",
+          "streamUrl": "https://archive.org/download/mismatched-s01/Mismatched%20S01%20E06%20WebRip%20Hindi%20480p.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "480p/720p",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "series_cosmos_hindi",
+      "title": "Cosmos: A Spacetime Odyssey (Hindi Dubbed)",
+      "year": 2014,
+      "releaseYear": 2014,
+      "mediaType": "series",
+      "type": "Web-Series",
+      "categories": [
+        "web_series",
+        "documentary",
+        "scifi"
+      ],
+      "duration": 2700,
+      "durationFormatted": "1 Season • 13 Episodes",
+      "genres": [
+        "Documentary",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "rating": 9.3,
+      "description": "An exploration of our discovery of the laws of nature and coordinates in space and time, hosted by renowned astrophysicist Neil deGrasse Tyson with high-quality official Hindi dubbing.",
+      "posterUrl": "assets/posters/series_cosmos_hindi.jpg",
+      "backdropUrl": "assets/posters/series_cosmos_hindi.jpg",
+      "resolution": "720p HD",
+      "codec": "H.264 / AAC",
+      "container": "MP4",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Brannon Braga, Ann Druyan, Bill Pope",
+      "cast": "Neil deGrasse Tyson (Hindi Dubbed)",
+      "featured": true,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-1%20%28%23One%29%20Standing%20Up%20In%20The%20Milky%20Way.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/XFF2ECZ8m1A",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "HINDI_AUDIO",
+      "region": "GLOBAL",
+      "seasons": [
+        {
+          "seasonNumber": 1,
+          "title": "Complete Hindi Dubbed Series",
+          "episodes": [
+            {
+              "id": "cosmos_h_e1",
+              "episodeNumber": 1,
+              "season": 1,
+              "title": "S01:E01 • Standing Up In The Milky Way",
+              "duration": "45m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-1%20%28%23One%29%20Standing%20Up%20In%20The%20Milky%20Way.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e2",
+              "episodeNumber": 2,
+              "season": 1,
+              "title": "S01:E02 • Some Of The Things That Molecules Do",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-2%20%28%23Two%29%20Some%20Of%20The%20Things%20That%20Molecules%20Do.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e3",
+              "episodeNumber": 3,
+              "season": 1,
+              "title": "S01:E03 • When Knowledge Conquered Fear",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-3%20%28%23Three%29%20When%20Knowledge%20Conquered%20Fear.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e4",
+              "episodeNumber": 4,
+              "season": 1,
+              "title": "S01:E04 • A Sky Full Of Ghosts",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-4%20%28%23Four%29%20A%20Sky%20Full%20Of%20Ghosts.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e5",
+              "episodeNumber": 5,
+              "season": 1,
+              "title": "S01:E05 • Hiding In The Light",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-5%20%28%23Five%29%20Hiding%20In%20The%20Light.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e6",
+              "episodeNumber": 6,
+              "season": 1,
+              "title": "S01:E06 • Deeper, Deeper, Deeper Still",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-6%20%28%23Six%29%20Deeper%2C%20Deeper%2C%20Deeper%20Still.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e7",
+              "episodeNumber": 7,
+              "season": 1,
+              "title": "S01:E07 • The Clean Room",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-7%20%28%23Seven%29%20The%20Clean%20Room.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e8",
+              "episodeNumber": 8,
+              "season": 1,
+              "title": "S01:E08 • Sisters Of The Sun",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-8%20%28%23Eight%29%20Sisters%20Of%20The%20Sun.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e9",
+              "episodeNumber": 9,
+              "season": 1,
+              "title": "S01:E09 • The Lost Worlds Of Planet Earth",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-9%20%28%23Nine%29%20The%20Lost%20Worlds%20Of%20Planet%20Earth.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e10",
+              "episodeNumber": 10,
+              "season": 1,
+              "title": "S01:E10 • The Electric Boy",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-10%20%28%23Ten%29%20The%20Electric%20Boy.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e11",
+              "episodeNumber": 11,
+              "season": 1,
+              "title": "S01:E11 • The Immortals",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-11%20%28%23Eleven%29%20The%20Immortals.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e12",
+              "episodeNumber": 12,
+              "season": 1,
+              "title": "S01:E12 • The World Set Free",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-12%20%28%23Twelve%29%20The%20World%20Set%20Free.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            },
+            {
+              "id": "cosmos_h_e13",
+              "episodeNumber": 13,
+              "season": 1,
+              "title": "S01:E13 • Unafraid Of The Dark",
+              "duration": "44m",
+              "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Last%20Episode-13%20%28%23Thirteen%29%20Unafraid%20Of%20The%20Dark.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            }
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "id": "cosmos_h_e1",
+          "episodeNumber": 1,
+          "season": 1,
+          "title": "S01:E01 • Standing Up In The Milky Way",
+          "duration": "45m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-1%20%28%23One%29%20Standing%20Up%20In%20The%20Milky%20Way.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e2",
+          "episodeNumber": 2,
+          "season": 1,
+          "title": "S01:E02 • Some Of The Things That Molecules Do",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-2%20%28%23Two%29%20Some%20Of%20The%20Things%20That%20Molecules%20Do.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e3",
+          "episodeNumber": 3,
+          "season": 1,
+          "title": "S01:E03 • When Knowledge Conquered Fear",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-3%20%28%23Three%29%20When%20Knowledge%20Conquered%20Fear.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e4",
+          "episodeNumber": 4,
+          "season": 1,
+          "title": "S01:E04 • A Sky Full Of Ghosts",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-4%20%28%23Four%29%20A%20Sky%20Full%20Of%20Ghosts.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e5",
+          "episodeNumber": 5,
+          "season": 1,
+          "title": "S01:E05 • Hiding In The Light",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-5%20%28%23Five%29%20Hiding%20In%20The%20Light.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e6",
+          "episodeNumber": 6,
+          "season": 1,
+          "title": "S01:E06 • Deeper, Deeper, Deeper Still",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-6%20%28%23Six%29%20Deeper%2C%20Deeper%2C%20Deeper%20Still.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e7",
+          "episodeNumber": 7,
+          "season": 1,
+          "title": "S01:E07 • The Clean Room",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-7%20%28%23Seven%29%20The%20Clean%20Room.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e8",
+          "episodeNumber": 8,
+          "season": 1,
+          "title": "S01:E08 • Sisters Of The Sun",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-8%20%28%23Eight%29%20Sisters%20Of%20The%20Sun.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e9",
+          "episodeNumber": 9,
+          "season": 1,
+          "title": "S01:E09 • The Lost Worlds Of Planet Earth",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-9%20%28%23Nine%29%20The%20Lost%20Worlds%20Of%20Planet%20Earth.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e10",
+          "episodeNumber": 10,
+          "season": 1,
+          "title": "S01:E10 • The Electric Boy",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-10%20%28%23Ten%29%20The%20Electric%20Boy.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e11",
+          "episodeNumber": 11,
+          "season": 1,
+          "title": "S01:E11 • The Immortals",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-11%20%28%23Eleven%29%20The%20Immortals.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e12",
+          "episodeNumber": 12,
+          "season": 1,
+          "title": "S01:E12 • The World Set Free",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Episode-12%20%28%23Twelve%29%20The%20World%20Set%20Free.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        },
+        {
+          "id": "cosmos_h_e13",
+          "episodeNumber": 13,
+          "season": 1,
+          "title": "S01:E13 • Unafraid Of The Dark",
+          "duration": "44m",
+          "streamUrl": "https://archive.org/download/cosmoshindi/Cosmos%20A%20Spacetime%20Odyssey%20HD%20%28Hindi%29%20Last%20Episode-13%20%28%23Thirteen%29%20Unafraid%20Of%20The%20Dark.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "series_undekhi",
+      "title": "Undekhi (Season 1)",
+      "year": 2020,
+      "releaseYear": 2020,
+      "mediaType": "series",
+      "type": "Web-Series",
+      "categories": [
+        "web_series",
+        "bollywood",
+        "thriller",
+        "crime"
+      ],
+      "duration": 13500,
+      "durationFormatted": "1 Season • Full Feature Edition",
+      "genres": [
+        "Crime",
+        "Thriller",
+        "Drama"
+      ],
+      "rating": 8.2,
+      "description": "Based on true incidents, Undekhi chronicles two distinct aspects of society: the influential power-brokers who feel they can commit murder and get away with it, and the oppressed who seek justice.",
+      "posterUrl": "assets/posters/series_undekhi.jpg",
+      "backdropUrl": "assets/posters/series_undekhi.jpg",
+      "resolution": "720p HD",
+      "codec": "H.264 / AAC",
+      "container": "MP4",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Ashish R. Shukla",
+      "cast": "Dibyendu Bhattacharya, Surya Sharma, Harsh Chhaya, Ankur Rathee, Abhishek Chauhan",
+      "featured": false,
+      "latest": true,
+      "streamUrl": "https://archive.org/download/undekhi-2020-hindi-season-1-complete/Undekhi_%282020%29_Hindi_Season_1_Complete.mp4",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/kR8V2u3cR3E",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "audioClassification": "HINDI_AUDIO",
+      "region": "BOLLYWOOD",
+      "seasons": [
+        {
+          "seasonNumber": 1,
+          "title": "Season 1 Complete",
+          "episodes": [
+            {
+              "id": "undekhi_s1_full",
+              "episodeNumber": 1,
+              "season": 1,
+              "title": "Season 1 Complete • All Episodes Uncut",
+              "duration": "3h 45m",
+              "streamUrl": "https://archive.org/download/undekhi-2020-hindi-season-1-complete/Undekhi_%282020%29_Hindi_Season_1_Complete.mp4",
+              "sourceState": "DIRECT_STREAM_AVAILABLE",
+              "qualityHonestBadge": "720p HD",
+              "episodeType": "full_episode",
+              "audioSwitchingCapability": "NONE"
+            }
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "id": "undekhi_s1_full",
+          "episodeNumber": 1,
+          "season": 1,
+          "title": "Season 1 Complete • All Episodes Uncut",
+          "duration": "3h 45m",
+          "streamUrl": "https://archive.org/download/undekhi-2020-hindi-season-1-complete/Undekhi_%282020%29_Hindi_Season_1_Complete.mp4",
+          "sourceState": "DIRECT_STREAM_AVAILABLE",
+          "qualityHonestBadge": "720p HD",
+          "episodeType": "full_episode",
+          "audioSwitchingCapability": "NONE"
+        }
       ]
     }
   ]
