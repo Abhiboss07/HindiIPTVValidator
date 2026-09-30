@@ -1686,6 +1686,8 @@ public class MainActivity extends Activity {
                         setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
                     } else if ("portrait".equalsIgnoreCase(mode)) {
                         setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                    } else if ("auto".equalsIgnoreCase(mode) || "sensor".equalsIgnoreCase(mode) || "full_sensor".equalsIgnoreCase(mode) || "unspecified".equalsIgnoreCase(mode)) {
+                        setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
                     } else {
                         // App default (Home / Browsing / Return from player): explicitly return to Portrait
                         setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
