@@ -1,0 +1,106 @@
+{
+  "timestamp": "2026-10-01T13:51:00.453Z",
+  "tests": {
+    "homeScrolling": {
+      "totalFrames": 64,
+      "avgFps": 60,
+      "avgFrameTimeMs": 16.67,
+      "maxFrameTimeMs": 16.8,
+      "longFrames60Hz": 39,
+      "longFrames120Hz": 64,
+      "pct60HzPassing": 39.1
+    },
+    "cinemaScrolling": {
+      "totalFrames": 56,
+      "avgFps": 60,
+      "avgFrameTimeMs": 16.67,
+      "maxFrameTimeMs": 16.8,
+      "longFrames60Hz": 32,
+      "longFrames120Hz": 56,
+      "pct60HzPassing": 42.9
+    },
+    "liveTvScrolling": {
+      "totalFrames": 45,
+      "avgFps": 60,
+      "avgFrameTimeMs": 16.66,
+      "maxFrameTimeMs": 16.8,
+      "longFrames60Hz": 27,
+      "longFrames120Hz": 45,
+      "pct60HzPassing": 40
+    },
+    "searchResponsiveness": {
+      "totalFrames": 20,
+      "avgFps": 36.4,
+      "avgFrameTimeMs": 27.5,
+      "maxFrameTimeMs": 33.4,
+      "longFrames60Hz": 17,
+      "longFrames120Hz": 20,
+      "pct60HzPassing": 15
+    },
+    "movieDetailOpening": {
+      "totalFrames": 8,
+      "avgFps": 34.3,
+      "avgFrameTimeMs": 29.16,
+      "maxFrameTimeMs": 33.4,
+      "longFrames60Hz": 7,
+      "longFrames120Hz": 8,
+      "pct60HzPassing": 12.5,
+      "interactionLatencyMs": 256
+    },
+    "movieDetailClosing": {
+      "totalFrames": 11,
+      "avgFps": 47.1,
+      "avgFrameTimeMs": 21.21,
+      "maxFrameTimeMs": 33.3,
+      "longFrames60Hz": 7,
+      "longFrames120Hz": 11,
+      "pct60HzPassing": 36.4,
+      "interactionLatencyMs": 257
+    },
+    "playerControls": {
+      "totalFrames": 0,
+      "avgFps": 60,
+      "avgFrameTimeMs": 16.6,
+      "maxFrameTimeMs": 16.6,
+      "longFrames60Hz": 0,
+      "longFrames120Hz": 0,
+      "pct60HzPassing": 100,
+      "interactionLatencyMs": 0
+    },
+    "subtitleMenu": {
+      "totalFrames": 10,
+      "avgFps": 37.5,
+      "avgFrameTimeMs": 26.66,
+      "maxFrameTimeMs": 33.4,
+      "longFrames60Hz": 9,
+      "longFrames120Hz": 10,
+      "pct60HzPassing": 10,
+      "interactionLatencyMs": 302
+    },
+    "audioMenu": {
+      "totalFrames": 12,
+      "avgFps": 45,
+      "avgFrameTimeMs": 22.23,
+      "maxFrameTimeMs": 66.6,
+      "longFrames60Hz": 9,
+      "longFrames120Hz": 12,
+      "pct60HzPassing": 25,
+      "interactionLatencyMs": 311
+    },
+    "navigationTransitions": {
+      "totalFrames": 43,
+      "avgFps": 49.6,
+      "avgFrameTimeMs": 20.15,
+      "maxFrameTimeMs": 116.6,
+      "longFrames60Hz": 29,
+      "longFrames120Hz": 43,
+      "pct60HzPassing": 32.6,
+      "interactionLatencyMs": 878
+    }
+  },
+  "memory": {
+    "jsHeapSizeLimitMB": 4192,
+    "totalJSHeapSizeMB": 9,
+    "usedJSHeapSizeMB": 5
+  }
+}

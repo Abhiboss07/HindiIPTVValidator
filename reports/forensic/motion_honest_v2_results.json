@@ -1,0 +1,167 @@
+{
+  "timestamp": "2026-10-01T14:30:10.622Z",
+  "display": {
+    "hz": 60,
+    "medianIntervalMs": 16.7
+  },
+  "tests": {
+    "homeScrolling": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 87,
+      "effectiveFps": 60,
+      "frameTimeMs": { "avg": 16.67, "min": 16.5, "p50": 16.7, "p95": 16.7, "p99": 16.8, "max": 16.8 },
+      "droppedFrames": 0,
+      "droppedPct": 0,
+      "maxConsecutiveDrops": 0,
+      "jankScore": 3,
+      "verdict": "EXCELLENT",
+      "longTasks": []
+    },
+    "cinemaScrolling": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 80,
+      "effectiveFps": 60,
+      "frameTimeMs": { "avg": 16.67, "min": 16.5, "p50": 16.7, "p95": 16.8, "p99": 16.8, "max": 16.8 },
+      "droppedFrames": 0,
+      "droppedPct": 0,
+      "maxConsecutiveDrops": 0,
+      "jankScore": 3,
+      "verdict": "EXCELLENT",
+      "longTasks": []
+    },
+    "liveTvScrolling": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 59,
+      "effectiveFps": 60,
+      "frameTimeMs": { "avg": 16.67, "min": 16.6, "p50": 16.7, "p95": 16.7, "p99": 16.8, "max": 16.8 },
+      "droppedFrames": 0,
+      "droppedPct": 0,
+      "maxConsecutiveDrops": 0,
+      "jankScore": 3,
+      "verdict": "EXCELLENT",
+      "longTasks": []
+    },
+    "playerControls": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 59,
+      "effectiveFps": 60,
+      "frameTimeMs": { "avg": 16.66, "min": 16.5, "p50": 16.7, "p95": 16.8, "p99": 16.8, "max": 16.8 },
+      "droppedFrames": 0,
+      "droppedPct": 0,
+      "maxConsecutiveDrops": 0,
+      "jankScore": 3,
+      "verdict": "EXCELLENT",
+      "longTasks": []
+    },
+    "modalClose": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 20,
+      "effectiveFps": 57.1,
+      "frameTimeMs": { "avg": 17.5, "min": 16.6, "p50": 16.7, "p95": 33.4, "p99": 33.4, "max": 33.4 },
+      "droppedFrames": 1,
+      "droppedPct": 5.0,
+      "maxConsecutiveDrops": 1,
+      "jankScore": 12,
+      "verdict": "GOOD",
+      "longTasks": [],
+      "interactionLatencyMs": 357
+    },
+    "navigation": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 72,
+      "effectiveFps": 50.8,
+      "frameTimeMs": { "avg": 19.67, "min": 16.6, "p50": 16.7, "p95": 16.8, "p99": 200, "max": 200 },
+      "droppedFrames": 2,
+      "droppedPct": 2.8,
+      "maxConsecutiveDrops": 1,
+      "jankScore": 42,
+      "verdict": "ACCEPTABLE",
+      "longTasks": [
+        { "durationMs": 94, "startTimeMs": 13032.3 },
+        { "durationMs": 122, "startTimeMs": 13126.5 }
+      ],
+      "interactionLatencyMs": 1445
+    },
+    "rapidModalCycle": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 34,
+      "effectiveFps": 43.4,
+      "frameTimeMs": { "avg": 23.04, "min": 16.6, "p50": 16.7, "p95": 33.4, "p99": 50.1, "max": 50.1 },
+      "droppedFrames": 12,
+      "droppedPct": 35.3,
+      "maxConsecutiveDrops": 3,
+      "jankScore": 37,
+      "verdict": "ACCEPTABLE",
+      "longTasks": [],
+      "interactionLatencyMs": 804
+    },
+    "subtitleModal": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 22,
+      "effectiveFps": 45.5,
+      "frameTimeMs": { "avg": 21.97, "min": 16.49, "p50": 16.7, "p95": 33.4, "p99": 33.5, "max": 33.5 },
+      "droppedFrames": 7,
+      "droppedPct": 31.8,
+      "maxConsecutiveDrops": 6,
+      "jankScore": 48,
+      "verdict": "JANKY",
+      "longTasks": [],
+      "interactionLatencyMs": 500
+    },
+    "audioModal": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 19,
+      "effectiveFps": 39.3,
+      "frameTimeMs": { "avg": 25.44, "min": 16.6, "p50": 16.7, "p95": 49.9, "p99": 49.9, "max": 49.9 },
+      "droppedFrames": 9,
+      "droppedPct": 47.4,
+      "maxConsecutiveDrops": 5,
+      "jankScore": 51,
+      "verdict": "JANKY",
+      "longTasks": [],
+      "interactionLatencyMs": 501
+    },
+    "modalOpen": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 10,
+      "effectiveFps": 28.6,
+      "frameTimeMs": { "avg": 35, "min": 16.6, "p50": 33.4, "p95": 50.1, "p99": 50.1, "max": 50.1 },
+      "droppedFrames": 9,
+      "droppedPct": 90,
+      "maxConsecutiveDrops": 8,
+      "jankScore": 84,
+      "verdict": "SEVERE_JANK",
+      "longTasks": [],
+      "interactionLatencyMs": 401
+    },
+    "searchTyping": {
+      "displayHz": 60,
+      "frameBudgetMs": 16.67,
+      "totalFrames": 25,
+      "effectiveFps": 31.3,
+      "frameTimeMs": { "avg": 32, "min": 16.6, "p50": 33.3, "p95": 33.4, "p99": 50.1, "max": 50.1 },
+      "droppedFrames": 22,
+      "droppedPct": 88,
+      "maxConsecutiveDrops": 13,
+      "jankScore": 100,
+      "verdict": "SEVERE_JANK",
+      "longTasks": [],
+      "interactionLatencyMs": 824
+    }
+  },
+  "memory": {
+    "jsHeapUsedMB": 5.8,
+    "jsHeapTotalMB": 7.7,
+    "jsHeapLimitMB": 4192
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "phase": "39",
+  "timestamp": "2026-10-01T14:56:47.442Z",
+  "display": {
+    "hz": 60,
+    "medianIntervalMs": 16.7
+  },
+  "tests": {
+    "homeScrolling": {
+      "displayHz": 60,
+      "effectiveFps": 60.0,
+      "frameTimeMs": { "avg": 16.66, "min": 16.6, "p50": 16.7, "p95": 16.7, "p99": 16.8, "max": 16.8 },
+      "droppedFrames": 0,
+      "droppedPct": 0.0,
+      "jankScore": 3,
+      "verdict": "EXCELLENT"
+    },
+    "cinemaScrolling": {
+      "displayHz": 60,
+      "effectiveFps": 60.0,
+      "frameTimeMs": { "avg": 16.67, "min": 16.6, "p50": 16.7, "p95": 16.7, "p99": 16.8, "max": 16.8 },
+      "droppedFrames": 0,
+      "droppedPct": 0.0,
+      "jankScore": 3,
+      "verdict": "EXCELLENT"
+    },
+    "liveTvScrolling": {
+      "displayHz": 60,
+      "effectiveFps": 60.0,
+      "frameTimeMs": { "avg": 16.67, "min": 16.6, "p50": 16.7, "p95": 16.7, "p99": 16.8, "max": 16.8 },
+      "droppedFrames": 0,
+      "droppedPct": 0.0,
+      "jankScore": 3,
+      "verdict": "EXCELLENT"
+    },
+    "playerControls": {
+      "displayHz": 60,
+      "effectiveFps": 60.0,
+      "frameTimeMs": { "avg": 16.67, "min": 16.5, "p50": 16.7, "p95": 16.8, "p99": 16.8, "max": 16.8 },
+      "droppedFrames": 0,
+      "droppedPct": 0.0,
+      "jankScore": 3,
+      "verdict": "EXCELLENT"
+    },
+    "modalClose": {
+      "displayHz": 60,
+      "effectiveFps": 51.0,
+      "frameTimeMs": { "avg": 19.61, "min": 16.6, "p50": 16.7, "p95": 66.7, "p99": 66.7, "max": 66.7 },
+      "droppedFrames": 1,
+      "droppedPct": 5.9,
+      "jankScore": 17,
+      "verdict": "GOOD"
+    },
+    "navigation": {
+      "displayHz": 60,
+      "effectiveFps": 54.9,
+      "frameTimeMs": { "avg": 18.2, "min": 16.5, "p50": 16.7, "p95": 16.8, "p99": 116.7, "max": 116.7 },
+      "droppedFrames": 2,
+      "droppedPct": 2.6,
+      "jankScore": 30,
+      "verdict": "ACCEPTABLE"
+    },
+    "subtitleModal": {
+      "displayHz": 60,
+      "effectiveFps": 42.0,
+      "frameTimeMs": { "avg": 23.81, "min": 16.6, "p50": 16.7, "p95": 50.0, "p99": 50.0, "max": 50.0 },
+      "droppedFrames": 7,
+      "droppedPct": 33.3,
+      "jankScore": 41,
+      "verdict": "ACCEPTABLE"
+    },
+    "audioModal": {
+      "displayHz": 60,
+      "effectiveFps": 43.4,
+      "frameTimeMs": { "avg": 23.01, "min": 16.6, "p50": 16.7, "p95": 33.4, "p99": 50.0, "max": 50.0 },
+      "droppedFrames": 7,
+      "droppedPct": 33.3,
+      "jankScore": 51,
+      "verdict": "JANKY"
+    },
+    "rapidModalCycle": {
+      "displayHz": 60,
+      "effectiveFps": 37.5,
+      "frameTimeMs": { "avg": 26.66, "min": 16.5, "p50": 16.8, "p95": 50.0, "p99": 50.1, "max": 50.1 },
+      "droppedFrames": 13,
+      "droppedPct": 43.3,
+      "jankScore": 40,
+      "verdict": "ACCEPTABLE"
+    },
+    "modalOpen": {
+      "displayHz": 60,
+      "effectiveFps": 32.7,
+      "frameTimeMs": { "avg": 30.55, "min": 16.6, "p50": 33.3, "p95": 33.4, "p99": 33.4, "max": 33.4 },
+      "droppedFrames": 10,
+      "droppedPct": 83.3,
+      "jankScore": 83,
+      "verdict": "SEVERE_JANK",
+      "p99Improvement": "Max frame time capped at 33.4ms with 0 spikes above 33.4ms"
+    },
+    "searchTyping": {
+      "displayHz": 60,
+      "effectiveFps": 32.6,
+      "frameTimeMs": { "avg": 30.66, "min": 16.6, "p50": 33.3, "p95": 50.0, "p99": 50.1, "max": 50.1 },
+      "droppedFrames": 19,
+      "droppedPct": 76.0,
+      "jankScore": 93,
+      "verdict": "SEVERE_JANK"
+    }
+  },
+  "memory": {
+    "jsHeapUsedMB": 5.8,
+    "jsHeapTotalMB": 8.0,
+    "jsHeapLimitMB": 4192
+  }
+}
