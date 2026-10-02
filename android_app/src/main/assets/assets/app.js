@@ -7169,17 +7169,24 @@ window.switchPage = function(pageId) {
     if (pageId === 'cinema') pageId = 'movies';
     if (pageId === 'livetv') pageId = 'live';
     currentActivePage = pageId;
-    document.querySelectorAll('.page-view, .t2l-view').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.dock-tab-btn, .dock-item-btn').forEach(b => {
-      b.classList.remove('active');
-      const pill = b.querySelector('.dock-active-pill');
-      if (pill) pill.remove();
-    });
-
     const targetPage = document.getElementById('page-' + pageId) || document.getElementById('view-' + pageId);
     const activeDockId = (pageId === 'collection' || pageId === 'history') ? (window.lastBrowsePage || 'home') : pageId;
     const targetTab = document.getElementById('tab-' + activeDockId);
-    if (targetPage) targetPage.classList.add('active');
+
+    const prevPage = document.querySelector('.page-view.active, .t2l-view.active');
+    if (prevPage && prevPage !== targetPage) {
+      prevPage.classList.remove('active');
+    }
+    if (targetPage && !targetPage.classList.contains('active')) {
+      targetPage.classList.add('active');
+    }
+
+    const prevTab = document.querySelector('.dock-tab-btn.active, .dock-item-btn.active');
+    if (prevTab && prevTab !== targetTab) {
+      prevTab.classList.remove('active');
+      const oldPill = prevTab.querySelector('.dock-active-pill');
+      if (oldPill) oldPill.remove();
+    }
     if (targetTab) {
       targetTab.classList.add('active');
       if (!targetTab.querySelector('.dock-active-pill')) {
@@ -7622,7 +7629,13 @@ async function initApp() {
   }
 
   try { renderHomePage(); } catch (e) { console.error('Initial renderHomePage note:', e); }
-  try { if (typeof renderMoviesPage === 'function') renderMoviesPage(); } catch (e) {}
+  setTimeout(() => {
+    try {
+      if (typeof renderMoviesPage === 'function' && !(window._renderedPages && window._renderedPages['movies'])) {
+        renderMoviesPage();
+      }
+    } catch (e) {}
+  }, 1000);
 
 window.dismissSplash = function dismissSplash() {
   try {
@@ -8260,7 +8273,7 @@ window.handleSpotlightSearch = function(query) {
     }
 
     let html = '';
-    const visibleMovies = movies.slice(0, 30);
+    const visibleMovies = movies.slice(0, 12);
     if (visibleMovies.length > 0) {
       html += `
         <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan, #22D3EE); text-transform: uppercase; letter-spacing: 0.08em; margin: 4px 0 8px 2px;">
@@ -8284,7 +8297,7 @@ window.handleSpotlightSearch = function(query) {
       });
     }
 
-    const visibleChannels = channels.slice(0, 30);
+    const visibleChannels = channels.slice(0, 8);
     if (visibleChannels.length > 0) {
       html += `
         <div style="font-size: 11px; font-weight: 800; color: #f43f5e; text-transform: uppercase; letter-spacing: 0.08em; margin: 12px 0 8px 2px;">
@@ -8310,7 +8323,7 @@ window.handleSpotlightSearch = function(query) {
     requestAnimationFrame(() => {
       container.innerHTML = html;
     });
-  }, 100);
+  }, 250);
 };
 
 window.playChannelById = function(channelId) {
@@ -13705,87 +13718,14 @@ window.renderMoviesPage = async function() {
   const allMovies = CatalogProvider.getAll();
   if (!allMovies || allMovies.length === 0) return;
 
-  // 1. Update Dynamic Curated Cinema Showcase Hero
+  // Mark rendered page immediately to avoid duplicate runs
+  window._renderedPages = window._renderedPages || {};
+  window._renderedPages['movies'] = true;
+
+  // 1. Frame 0: Update Hero and Above-The-Fold Visible Rails (Rails 1 & 2)
   if (typeof HeroCarouselController !== 'undefined') {
     HeroCarouselController.refreshItems();
     HeroCarouselController.updateHeroUI('cinema');
-  }
-
-  // 2. Rail 1: Trending in Theatres (Horizontal Scope 2.39:1)
-  const scopeRow = document.getElementById('moviesScopeRow');
-  if (scopeRow) {
-    const scopeMovies = allMovies.filter(m => m.featured || m.rating >= 8.0 || (m.categories && m.categories.includes('theatrical'))).slice(0, 8);
-    scopeRow.innerHTML = (scopeMovies.length > 0 ? scopeMovies : allMovies.slice(0, 8)).map(m => renderScopeCard(m)).join('');
-  }
-
-  // 3. Rail 2: Bollywood Blockbusters
-  const bollywoodRow = document.getElementById('moviesBollywoodRow');
-  if (bollywoodRow) {
-    const list = allMovies.filter(m => (m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood')) || (m.languages && m.languages.includes('Hindi'))) && m.mediaType !== 'series' && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && m.contentType !== 'TRAILER').sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
-    bollywoodRow.innerHTML = (list.length > 0 ? list : allMovies.slice(0, 10)).map(m => renderMovieCard(m)).join('');
-  }
-
-  // 4. Rail 3: Multi-Season Epics & Sagas (Playable Series Only)
-  const webSeriesRow = document.getElementById('moviesWebSeriesRow');
-  if (webSeriesRow) {
-    const list = allMovies.filter(m => (m.mediaType === 'series' || (m.categories && (m.categories.includes('web_series') || m.categories.includes('web-series')))) && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && (m.streamUrl || (m.episodes && m.episodes.some(ep => ep.streamUrl)))).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
-    webSeriesRow.innerHTML = (list.length > 0 ? list : allMovies.filter(m => m.mediaType === 'series' && !m.isTrailerOnly && (m.streamUrl || (m.episodes && m.episodes.some(ep => ep.streamUrl))))).map(m => renderMovieCard(m)).join('');
-  }
-
-  // 5. Rail 4: K-Drama & Asian Sagas (Hindi Dubbed)
-  const asianRow = document.getElementById('moviesAsianRow');
-  if (asianRow) {
-    const list = allMovies.filter(m => m.region === 'ASIAN' || m.type === 'K-Drama' || m.type === 'C-Drama' || (m.categories && (m.categories.includes('korean') || m.categories.includes('chinese') || m.categories.includes('asian'))));
-    asianRow.innerHTML = (list.length > 0 ? list : allMovies.filter(m => m.region === 'ASIAN')).map(m => renderMovieCard(m)).join('');
-  }
-
-  // 6. Rail 5: Hollywood & Worldwide Hits
-  const hollywoodRow = document.getElementById('moviesHollywoodRow');
-  if (hollywoodRow) {
-    const list = allMovies.filter(m => (m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood'))) && m.mediaType !== 'series' && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && m.contentType !== 'TRAILER');
-    hollywoodRow.innerHTML = (list.length > 0 ? list : allMovies.slice(10, 20)).map(m => renderMovieCard(m)).join('');
-  }
-
-  // 7. Rail 6: Anime & Animation
-  const animeRow = document.getElementById('moviesAnimeRow');
-  if (animeRow) {
-    const list = allMovies.filter(m => m.type === 'Anime' || (m.categories && m.categories.includes('anime')));
-    animeRow.innerHTML = (list.length > 0 ? list : allMovies.filter(m => m.genres && m.genres.includes('Animation'))).map(m => renderMovieCard(m)).join('');
-  }
-
-  // 8. Rail 7: High-Stakes Thrillers & Mystery
-  const thrillersRow = document.getElementById('moviesThrillersRow');
-  if (thrillersRow) {
-    const list = allMovies.filter(m => m.type === 'Thrillers' || (m.categories && m.categories.includes('thrillers')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('thriller'))));
-    thrillersRow.innerHTML = (list.length > 0 ? list : allMovies.slice(5, 15)).map(m => renderMovieCard(m)).join('');
-  }
-
-  // 9. Rail 8: High-Octane Action
-  const actionRow = document.getElementById('moviesActionRow');
-  if (actionRow) {
-    const list = allMovies.filter(m => m.type === 'Action' || (m.categories && m.categories.includes('action')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('action'))));
-    actionRow.innerHTML = (list.length > 0 ? list : allMovies.slice(8, 18)).map(m => renderMovieCard(m)).join('');
-  }
-
-  // 10. Rail 9: Public Domain & Heritage Classics
-  const classicsRow = document.getElementById('moviesClassicsRow');
-  if (classicsRow) {
-    const list = allMovies.filter(m => (m.region === 'PUBLIC_DOMAIN' || (m.categories && m.categories.includes('classics')) || (m.year && parseInt(m.year, 10) < 2010)) && !m.isShortFilm);
-    classicsRow.innerHTML = (list.length > 0 ? list : allMovies.slice(0, 8)).map(m => renderMovieCard(m)).join('');
-  }
-
-  // 11. Rail 10: 4K Open Short Movies (Blender Foundation Showcase)
-  const shortsRow = document.getElementById('moviesShortsRow');
-  if (shortsRow) {
-    const list = allMovies.filter(m => m.isShortFilm || (m.categories && (m.categories.includes('short') || m.categories.includes('open_movie'))));
-    shortsRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
-  }
-
-  // 12. Rail 11: Upcoming Theatrical Trailers
-  const trailersRow = document.getElementById('moviesTrailersRow');
-  if (trailersRow) {
-    const list = allMovies.filter(m => m.isTrailerOnly || m.sourceState === 'TRAILER_ONLY' || m.sourceState === 'UPCOMING_TRAILER' || m.contentType === 'TRAILER' || (m.categories && m.categories.includes('trailers')) || (!m.streamUrl && (!m.episodes || !m.episodes.some(ep => ep.streamUrl)) && m.trailerUrl));
-    trailersRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
   }
 
   const rowsContainer = document.getElementById('moviesRowsContainer');
@@ -13795,6 +13735,92 @@ window.renderMoviesPage = async function() {
   if (rowsContainer) rowsContainer.style.display = 'block';
   if (heroSection) heroSection.style.display = 'flex';
   if (gridSection) gridSection.style.display = 'none';
+
+  // Rail 1: Trending in Theatres (Horizontal Scope 2.39:1)
+  const scopeRow = document.getElementById('moviesScopeRow');
+  if (scopeRow) {
+    const scopeMovies = allMovies.filter(m => m.featured || m.rating >= 8.0 || (m.categories && m.categories.includes('theatrical'))).slice(0, 8);
+    scopeRow.innerHTML = (scopeMovies.length > 0 ? scopeMovies : allMovies.slice(0, 8)).map(m => renderScopeCard(m)).join('');
+  }
+
+  // Rail 2: Bollywood Blockbusters
+  const bollywoodRow = document.getElementById('moviesBollywoodRow');
+  if (bollywoodRow) {
+    const list = allMovies.filter(m => (m.type === 'Bollywood' || (m.categories && m.categories.includes('bollywood')) || (m.languages && m.languages.includes('Hindi'))) && m.mediaType !== 'series' && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && m.contentType !== 'TRAILER').sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
+    bollywoodRow.innerHTML = (list.length > 0 ? list : allMovies.slice(0, 10)).map(m => renderMovieCard(m)).join('');
+  }
+
+  // Frame 1 (rAF): Rails 3, 4, 5
+  requestAnimationFrame(() => {
+    // Rail 3: Multi-Season Epics & Sagas
+    const webSeriesRow = document.getElementById('moviesWebSeriesRow');
+    if (webSeriesRow) {
+      const list = allMovies.filter(m => (m.mediaType === 'series' || (m.categories && (m.categories.includes('web_series') || m.categories.includes('web-series')))) && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && (m.streamUrl || (m.episodes && m.episodes.some(ep => ep.streamUrl)))).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
+      webSeriesRow.innerHTML = (list.length > 0 ? list : allMovies.filter(m => m.mediaType === 'series' && !m.isTrailerOnly && (m.streamUrl || (m.episodes && m.episodes.some(ep => ep.streamUrl))))).map(m => renderMovieCard(m)).join('');
+    }
+
+    // Rail 4: K-Drama & Asian Sagas
+    const asianRow = document.getElementById('moviesAsianRow');
+    if (asianRow) {
+      const list = allMovies.filter(m => m.region === 'ASIAN' || m.type === 'K-Drama' || m.type === 'C-Drama' || (m.categories && (m.categories.includes('korean') || m.categories.includes('chinese') || m.categories.includes('asian'))));
+      asianRow.innerHTML = (list.length > 0 ? list : allMovies.filter(m => m.region === 'ASIAN')).map(m => renderMovieCard(m)).join('');
+    }
+
+    // Rail 5: Hollywood & Worldwide Hits
+    const hollywoodRow = document.getElementById('moviesHollywoodRow');
+    if (hollywoodRow) {
+      const list = allMovies.filter(m => (m.type === 'Hollywood' || (m.categories && m.categories.includes('hollywood'))) && m.mediaType !== 'series' && !m.isTrailerOnly && m.sourceState !== 'UPCOMING_TRAILER' && m.sourceState !== 'TRAILER_ONLY' && m.contentType !== 'TRAILER');
+      hollywoodRow.innerHTML = (list.length > 0 ? list : allMovies.slice(10, 20)).map(m => renderMovieCard(m)).join('');
+    }
+
+    // Frame 2 (rAF): Rails 6, 7, 8
+    requestAnimationFrame(() => {
+      // Rail 6: Anime & Animation
+      const animeRow = document.getElementById('moviesAnimeRow');
+      if (animeRow) {
+        const list = allMovies.filter(m => m.type === 'Anime' || (m.categories && m.categories.includes('anime')));
+        animeRow.innerHTML = (list.length > 0 ? list : allMovies.filter(m => m.genres && m.genres.includes('Animation'))).map(m => renderMovieCard(m)).join('');
+      }
+
+      // Rail 7: High-Stakes Thrillers & Mystery
+      const thrillersRow = document.getElementById('moviesThrillersRow');
+      if (thrillersRow) {
+        const list = allMovies.filter(m => m.type === 'Thrillers' || (m.categories && m.categories.includes('thrillers')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('thriller'))));
+        thrillersRow.innerHTML = (list.length > 0 ? list : allMovies.slice(5, 15)).map(m => renderMovieCard(m)).join('');
+      }
+
+      // Rail 8: High-Octane Action
+      const actionRow = document.getElementById('moviesActionRow');
+      if (actionRow) {
+        const list = allMovies.filter(m => m.type === 'Action' || (m.categories && m.categories.includes('action')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('action'))));
+        actionRow.innerHTML = (list.length > 0 ? list : allMovies.slice(8, 18)).map(m => renderMovieCard(m)).join('');
+      }
+
+      // Frame 3 (rAF): Rails 9, 10, 11
+      requestAnimationFrame(() => {
+        // Rail 9: Public Domain & Heritage Classics
+        const classicsRow = document.getElementById('moviesClassicsRow');
+        if (classicsRow) {
+          const list = allMovies.filter(m => (m.region === 'PUBLIC_DOMAIN' || (m.categories && m.categories.includes('classics')) || (m.year && parseInt(m.year, 10) < 2010)) && !m.isShortFilm);
+          classicsRow.innerHTML = (list.length > 0 ? list : allMovies.slice(0, 8)).map(m => renderMovieCard(m)).join('');
+        }
+
+        // Rail 10: 4K Open Short Movies
+        const shortsRow = document.getElementById('moviesShortsRow');
+        if (shortsRow) {
+          const list = allMovies.filter(m => m.isShortFilm || (m.categories && (m.categories.includes('short') || m.categories.includes('open_movie'))));
+          shortsRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+        }
+
+        // Rail 11: Upcoming Theatrical Trailers
+        const trailersRow = document.getElementById('moviesTrailersRow');
+        if (trailersRow) {
+          const list = allMovies.filter(m => m.isTrailerOnly || m.sourceState === 'TRAILER_ONLY' || m.sourceState === 'UPCOMING_TRAILER' || m.contentType === 'TRAILER' || (m.categories && m.categories.includes('trailers')) || (!m.streamUrl && (!m.episodes || !m.episodes.some(ep => ep.streamUrl)) && m.trailerUrl));
+          trailersRow.innerHTML = list.map(m => renderMovieCard(m)).join('');
+        }
+      });
+    });
+  });
 };
 
 function renderMovieWatchHistory() {
@@ -14274,8 +14300,11 @@ window.openMovieDetails = function(movieId) {
 
   if (posterImg) {
     posterImg.onerror = function() { this.onerror = null; this.src = 'assets/placeholder.png'; };
-    posterImg.src = movie.posterUrl || 'assets/placeholder.png';
     posterImg.alt = movie.title || 'Movie Poster';
+    // Defer image src update to frame 1 so compositor can start entrance immediately on frame 0
+    requestAnimationFrame(() => {
+      posterImg.src = movie.posterUrl || 'assets/placeholder.png';
+    });
   }
   if (title) title.textContent = movie.title;
   if (year) year.textContent = movie.year || '2024';
@@ -14340,20 +14369,30 @@ window.openMovieDetails = function(movieId) {
   // Launch compositor-only entrance transition immediately!
   modal.classList.remove('is-closing');
   modal.classList.add('active');
-  modal.style.display = 'flex';
-  document.body.classList.add('modal-open-locked');
 
-  // Phase 2 (Deferred, T = 220ms): Populate secondary metadata AFTER entrance animation finishes
+  // Defer body lock to after entrance finishes to prevent root viewport reflow during animation
+  setTimeout(() => {
+    if (modal && modal.classList.contains('active')) {
+      document.body.classList.add('modal-open-locked');
+    }
+  }, 280);
+
+  // Phase 2 (Deferred, T = 280ms): Populate secondary metadata strictly AFTER entrance animation completes
   _movieModalPhase2Timer = setTimeout(() => {
-    if (!modal || modal.style.display === 'none' || currentSelectedMovie !== movie) return;
-    populateMovieDetailsPhase2(movie);
-  }, 220);
+    if (!modal || !modal.classList.contains('active') || currentSelectedMovie !== movie) return;
+    requestAnimationFrame(() => {
+      populateMovieDetailsPhase2(movie);
+    });
+  }, 280);
 };
 
 function populateMovieDetailsPhase2(movie) {
   const backdrop = document.getElementById('movieDetailsBackdrop');
   if (backdrop) {
-    backdrop.style.backgroundImage = `url('${movie.backdropUrl || movie.posterUrl || "assets/placeholder.png"}')`;
+    // Async backdrop load after metadata layout
+    requestAnimationFrame(() => {
+      backdrop.style.backgroundImage = `url('${movie.backdropUrl || movie.posterUrl || "assets/placeholder.png"}')`;
+    });
   }
 
   const swarmBadge = document.getElementById('movieDetailsSwarmBadge');
@@ -14647,20 +14686,20 @@ let _movieModalCloseTimer = null;
 
 window.closeMovieDetails = function() {
   const modal = document.getElementById('movieDetailsModal');
-  if (!modal || modal.style.display === 'none') return;
+  if (!modal || (!modal.classList.contains('active') && modal.style.display === 'none')) return;
 
   if (_movieModalPhase2Timer) {
     clearTimeout(_movieModalPhase2Timer);
     _movieModalPhase2Timer = null;
   }
   if (_movieModalCloseTimer) clearTimeout(_movieModalCloseTimer);
+  modal.classList.remove('active');
   modal.classList.add('is-closing');
   document.body.classList.remove('modal-open-locked');
   document.documentElement.classList.remove('modal-open-locked');
 
   _movieModalCloseTimer = setTimeout(() => {
-    modal.classList.remove('active', 'is-closing');
-    modal.style.display = 'none';
+    modal.classList.remove('is-closing');
     _movieModalCloseTimer = null;
   }, 190);
 };
@@ -15569,7 +15608,7 @@ window.handleAndroidBackPressed = function() {
   }
 
   // 3. If Movie Details Modal is open, close it
-  if (movieDetailsModal && movieDetailsModal.style.display === 'flex') {
+  if (movieDetailsModal && (movieDetailsModal.style.display === 'flex' || movieDetailsModal.classList.contains('active'))) {
     closeMovieDetails();
     return true;
   }
