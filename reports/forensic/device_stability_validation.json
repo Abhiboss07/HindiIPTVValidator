@@ -1,0 +1,102 @@
+{
+  "device": "Nothing Phone 3 (A024)",
+  "cold_launch_results": [
+    {
+      "cycle": 1,
+      "total_time_ms": 230,
+      "unexpected_autoplay": false
+    },
+    {
+      "cycle": 2,
+      "total_time_ms": 219,
+      "unexpected_autoplay": false
+    },
+    {
+      "cycle": 3,
+      "total_time_ms": 247,
+      "unexpected_autoplay": false
+    },
+    {
+      "cycle": 4,
+      "total_time_ms": 205,
+      "unexpected_autoplay": false
+    },
+    {
+      "cycle": 5,
+      "total_time_ms": 212,
+      "unexpected_autoplay": false
+    },
+    {
+      "cycle": 6,
+      "total_time_ms": 224,
+      "unexpected_autoplay": false
+    },
+    {
+      "cycle": 7,
+      "total_time_ms": 213,
+      "unexpected_autoplay": false
+    },
+    {
+      "cycle": 8,
+      "total_time_ms": 215,
+      "unexpected_autoplay": false
+    },
+    {
+      "cycle": 9,
+      "total_time_ms": 197,
+      "unexpected_autoplay": false
+    },
+    {
+      "cycle": 10,
+      "total_time_ms": 208,
+      "unexpected_autoplay": false
+    }
+  ],
+  "warm_app_switch_results": [
+    {
+      "cycle": 1,
+      "unwanted_pip": false
+    },
+    {
+      "cycle": 2,
+      "unwanted_pip": false
+    },
+    {
+      "cycle": 3,
+      "unwanted_pip": false
+    },
+    {
+      "cycle": 4,
+      "unwanted_pip": false
+    },
+    {
+      "cycle": 5,
+      "unwanted_pip": false
+    },
+    {
+      "cycle": 6,
+      "unwanted_pip": false
+    },
+    {
+      "cycle": 7,
+      "unwanted_pip": false
+    },
+    {
+      "cycle": 8,
+      "unwanted_pip": false
+    },
+    {
+      "cycle": 9,
+      "unwanted_pip": false
+    },
+    {
+      "cycle": 10,
+      "unwanted_pip": false
+    }
+  ],
+  "gfxinfo_summary": {
+    "total_frames": "110",
+    "janky_frames": "35",
+    "janky_pct": "31.82"
+  }
+}

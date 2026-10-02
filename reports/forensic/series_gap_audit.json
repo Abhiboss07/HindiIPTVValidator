@@ -1,0 +1,604 @@
+[
+  {
+    "seriesId": "series_breaking_bad",
+    "title": "Breaking Bad",
+    "totalEpisodes": 7,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_cosmos_hindi",
+    "title": "Cosmos: A Spacetime Odyssey (Hindi Dubbed)",
+    "totalEpisodes": 13,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_crash_landing_on_you",
+    "title": "Crash Landing on You",
+    "totalEpisodes": 16,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_death_note",
+    "title": "Death Note (English Dubbed)",
+    "totalEpisodes": 1,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_delhi_crime_s3_2025",
+    "title": "Delhi Crime Season 3 (2025)",
+    "totalEpisodes": 0,
+    "seasonsPresent": [],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_descendants_of_the_sun",
+    "title": "Descendants of the Sun",
+    "totalEpisodes": 16,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_family_man",
+    "title": "The Family Man",
+    "totalEpisodes": 1,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 1,
+    "invalidStreams": [
+      {
+        "id": "fm_s1e1",
+        "title": "S01:E01 \u2022 Complete Series Feature Edition (720p)",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  },
+  {
+    "seriesId": "series_family_man_s3_2025",
+    "title": "The Family Man Season 3 (2025)",
+    "totalEpisodes": 0,
+    "seasonsPresent": [],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_farzi",
+    "title": "Farzi",
+    "totalEpisodes": 8,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 8,
+    "invalidStreams": [
+      {
+        "id": "farzi_s1e1",
+        "title": "S01:E01 \u2022 Episode 1",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "farzi_s1e2",
+        "title": "S01:E02 \u2022 Episode 2",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "farzi_s1e3",
+        "title": "S01:E03 \u2022 Episode 3",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "farzi_s1e4",
+        "title": "S01:E04 \u2022 Episode 4",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "farzi_s1e5",
+        "title": "S01:E05 \u2022 Episode 5",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "farzi_s1e6",
+        "title": "S01:E06 \u2022 Episode 6",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "farzi_s1e7",
+        "title": "S01:E07 \u2022 Episode 7",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "farzi_s1e8",
+        "title": "S01:E08 \u2022 Episode 8",
+        "season": 1,
+        "episode": 8
+      }
+    ]
+  },
+  {
+    "seriesId": "series_farzi_s2_2025",
+    "title": "Farzi Season 2 (2025)",
+    "totalEpisodes": 0,
+    "seasonsPresent": [],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_gullak",
+    "title": "Gullak",
+    "totalEpisodes": 10,
+    "seasonsPresent": [
+      1,
+      3
+    ],
+    "missingSeasons": [
+      2
+    ],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_kota_factory",
+    "title": "Kota Factory",
+    "totalEpisodes": 2,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_mirzapur",
+    "title": "Mirzapur",
+    "totalEpisodes": 9,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_mismatched",
+    "title": "Mismatched (Season 1)",
+    "totalEpisodes": 6,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_money_heist",
+    "title": "Money Heist (La Casa de Papel)",
+    "totalEpisodes": 9,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 9,
+    "invalidStreams": [
+      {
+        "id": "mh_s1e1",
+        "title": "S01:E01 \u2022 Episode 1",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "mh_s1e2",
+        "title": "S01:E02 \u2022 Episode 2",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "mh_s1e3",
+        "title": "S01:E03 \u2022 Episode 3",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "mh_s1e4",
+        "title": "S01:E04 \u2022 Episode 4",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "mh_s1e5",
+        "title": "S01:E05 \u2022 Episode 5",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "mh_s1e6",
+        "title": "S01:E06 \u2022 Episode 6",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "mh_s1e7",
+        "title": "S01:E07 \u2022 Episode 7",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "mh_s1e8",
+        "title": "S01:E08 \u2022 Episode 8",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "mh_s1e9",
+        "title": "S01:E09 \u2022 Episode 9",
+        "season": 1,
+        "episode": 9
+      }
+    ]
+  },
+  {
+    "seriesId": "series_naruto_classic",
+    "title": "Naruto Shippuden (Hindi Dubbed)",
+    "totalEpisodes": 10,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_paatal_lok",
+    "title": "Paatal Lok",
+    "totalEpisodes": 1,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 1,
+    "invalidStreams": [
+      {
+        "id": "pl_s1e1",
+        "title": "S01:E01 \u2022 Bridge of Shadows (Complete Feature Edition)",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  },
+  {
+    "seriesId": "series_paatal_lok_s2_2025",
+    "title": "Paatal Lok Season 2 (2025)",
+    "totalEpisodes": 0,
+    "seasonsPresent": [],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_panchayat",
+    "title": "Panchayat",
+    "totalEpisodes": 8,
+    "seasonsPresent": [
+      1,
+      2
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_sacred_games",
+    "title": "Sacred Games",
+    "totalEpisodes": 8,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 8,
+    "invalidStreams": [
+      {
+        "id": "sg_s1e1",
+        "title": "S01:E01 \u2022 Episode 1",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "sg_s1e2",
+        "title": "S01:E02 \u2022 Episode 2",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "sg_s1e3",
+        "title": "S01:E03 \u2022 Episode 3",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "sg_s1e4",
+        "title": "S01:E04 \u2022 Episode 4",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "sg_s1e5",
+        "title": "S01:E05 \u2022 Episode 5",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "sg_s1e6",
+        "title": "S01:E06 \u2022 Episode 6",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "sg_s1e7",
+        "title": "S01:E07 \u2022 Episode 7",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "sg_s1e8",
+        "title": "S01:E08 \u2022 Episode 8",
+        "season": 1,
+        "episode": 8
+      }
+    ]
+  },
+  {
+    "seriesId": "series_scam_1992",
+    "title": "Scam 1992: The Harshad Mehta Story",
+    "totalEpisodes": 1,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_sherlock_holmes",
+    "title": "The Adventures of Sherlock Holmes (1984)",
+    "totalEpisodes": 26,
+    "seasonsPresent": [
+      1,
+      2
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_sherlock_holmes_1954",
+    "title": "Sherlock Holmes (1954 Classic Series)",
+    "totalEpisodes": 8,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_squid_game",
+    "title": "Squid Game",
+    "totalEpisodes": 9,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_stranger_things",
+    "title": "Stranger Things",
+    "totalEpisodes": 8,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_the_last_of_us",
+    "title": "The Last of Us (Season 2 - 2025)",
+    "totalEpisodes": 1,
+    "seasonsPresent": [
+      2
+    ],
+    "missingSeasons": [
+      1
+    ],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_tvf_aspirants",
+    "title": "TVF Aspirants",
+    "totalEpisodes": 5,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_tvf_pitchers",
+    "title": "TVF Pitchers",
+    "totalEpisodes": 5,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_tvf_tripling",
+    "title": "TVF Tripling",
+    "totalEpisodes": 5,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_undekhi",
+    "title": "Undekhi (Season 1)",
+    "totalEpisodes": 1,
+    "seasonsPresent": [
+      1
+    ],
+    "missingSeasons": [],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  },
+  {
+    "seriesId": "series_wednesday",
+    "title": "Wednesday (Season 2 - 2025)",
+    "totalEpisodes": 1,
+    "seasonsPresent": [
+      2
+    ],
+    "missingSeasons": [
+      1
+    ],
+    "missingEpisodes": {},
+    "duplicateEpisodes": [],
+    "misorderedEpisodes": {},
+    "invalidStreamsCount": 0,
+    "invalidStreams": []
+  }
+]

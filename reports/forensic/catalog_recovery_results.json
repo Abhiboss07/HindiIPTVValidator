@@ -1,0 +1,1149 @@
+{
+  "summary": {
+    "total_titles_before": 162,
+    "total_titles_after": 198,
+    "direct_streams_before": 30,
+    "direct_streams_after": 168,
+    "trailer_only_before": 132,
+    "trailer_only_after": 30,
+    "titles_recovered_from_false_trailer_only": 106,
+    "previously_purged_titles_restored": 36
+  },
+  "suzume_audit": {
+    "id": "vod_suzume",
+    "title": "Suzume",
+    "sourceState": "DIRECT_STREAM_AVAILABLE",
+    "streamUrl": "https://ia601404.us.archive.org/29/items/suzume.compressed/Suzume%28%E3%81%99%E3%81%9A%E3%82%81%E3%81%AE%E6%88%B8%E7%B7%A0%E3%81%BE%E3%82%8A%29.com.mp4",
+    "resolution": "1080p Full HD (1920x1080)",
+    "trailerUrl": "https://www.youtube-nocookie.com/embed/5pTcio2hTSw",
+    "audioClassification": "HINDI_AUDIO",
+    "status": "VERIFIED_1080P_FULL_MOVIE_PLAYABLE_ON_NOTHING_PHONE_3"
+  },
+  "gullak_series_audit": {
+    "id": "series_gullak",
+    "title": "Gullak",
+    "sourceState": "DIRECT_STREAM_AVAILABLE",
+    "durationFormatted": "3 Seasons • 14 Episodes",
+    "seasons_count": 3,
+    "episodes_count": 14,
+    "seasons_detail": [
+      {
+        "seasonNumber": 1,
+        "episodes": 5
+      },
+      {
+        "seasonNumber": 2,
+        "episodes": 4
+      },
+      {
+        "seasonNumber": 3,
+        "episodes": 5
+      }
+    ],
+    "status": "VERIFIED_ALL_3_SEASONS_14_EPISODES_PLAYABLE"
+  },
+  "recovered_from_trailer_only": [
+    {
+      "id": "vod_4k_uhd_reference_showcase",
+      "title": "4K UHD & Dolby Atmos Reference Showcase",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_tribhanga_2021",
+      "title": "Tribhanga (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_the_white_tiger_2021",
+      "title": "The White Tiger (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_sooryavanshi_2021",
+      "title": "Sooryavanshi (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_mimi_2021",
+      "title": "Mimi (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_dhamaka_2021",
+      "title": "Dhamaka (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_bhuj_2021",
+      "title": "Bhuj: The Pride of India (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_bhoot_police_2021",
+      "title": "Bhoot Police (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_bellbottom_2021",
+      "title": "Bellbottom (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_atrangi_re_2021",
+      "title": "Atrangi Re (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_83_2021",
+      "title": "83 (2021)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "series_stranger_things",
+      "title": "Stranger Things",
+      "mediaType": "series",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (Episodes)"
+    },
+    {
+      "id": "series_panchayat",
+      "title": "Panchayat",
+      "mediaType": "series",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (Episodes)"
+    },
+    {
+      "id": "series_mirzapur",
+      "title": "Mirzapur",
+      "mediaType": "series",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (Episodes)"
+    },
+    {
+      "id": "vod_deadpool_wolverine",
+      "title": "Deadpool & Wolverine",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_kalki_2898_ad",
+      "title": "Kalki 2898 AD",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_spider_verse",
+      "title": "Spider-Man: Into the Spider-Verse",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "series_scam_1992",
+      "title": "Scam 1992: The Harshad Mehta Story",
+      "mediaType": "series",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (Episodes)"
+    },
+    {
+      "id": "vod_interstellar",
+      "title": "Interstellar",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "series_breaking_bad",
+      "title": "Breaking Bad",
+      "mediaType": "series",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (Episodes)"
+    },
+    {
+      "id": "vod_chhavaa",
+      "title": "Chhaava",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_dune_part_two",
+      "title": "Dune: Part Two",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_furiosa",
+      "title": "Furiosa: A Mad Max Saga",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_shaitaan",
+      "title": "Shaitaan",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_alien_romulus",
+      "title": "Alien: Romulus",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_fighter",
+      "title": "Fighter",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_godzilla_x_kong",
+      "title": "Godzilla x Kong: The New Empire",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_12th_fail",
+      "title": "12th Fail",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_john_wick_4",
+      "title": "John Wick: Chapter 4",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_leo",
+      "title": "Leo: Bloody Sweet",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_jawan",
+      "title": "Jawan",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_tiger_3",
+      "title": "Tiger 3",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_dunki",
+      "title": "Dunki",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_animal",
+      "title": "Animal",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_gadar_2",
+      "title": "Gadar 2: The Katha Continues",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_kgf_chapter_2",
+      "title": "K.G.F: Chapter 2",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_rrr",
+      "title": "RRR",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_avatar_way_of_water",
+      "title": "Avatar: The Way of Water",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_brahmastra",
+      "title": "Brahmāstra: Part One – Shiva",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_spider_man_nwh",
+      "title": "Spider-Man: No Way Home",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_pushpa_the_rise",
+      "title": "Pushpa: The Rise",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_avengers_endgame",
+      "title": "Avengers: Endgame",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_dangal",
+      "title": "Dangal",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "series_squid_game",
+      "title": "Squid Game",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_train_to_busan",
+      "title": "Train to Busan",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_the_raid_redemption",
+      "title": "The Raid: Redemption",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_ip_man",
+      "title": "Ip Man",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_ip_man_4",
+      "title": "Ip Man 4: The Finale",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_kung_fu_hustle",
+      "title": "Kung Fu Hustle",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_shaolin_soccer",
+      "title": "Shaolin Soccer",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_the_outlaws",
+      "title": "The Outlaws",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_jujutsu_kaisen_0",
+      "title": "Jujutsu Kaisen 0",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_suzume",
+      "title": "Suzume",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD (1920x1080)"
+    },
+    {
+      "id": "vod_your_name",
+      "title": "Your Name (Kimi no Na wa)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "series_death_note",
+      "title": "Death Note (English Dubbed)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "series_naruto_classic",
+      "title": "Naruto Shippuden (Hindi Dubbed)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_one_piece_film_red",
+      "title": "One Piece Film: Red",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_stree",
+      "title": "Stree",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_kantara",
+      "title": "Kantara",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_kgf_chapter_1",
+      "title": "K.G.F: Chapter 1",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_baahubali_1",
+      "title": "Baahubali: The Beginning",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_baahubali_2",
+      "title": "Baahubali 2: The Conclusion",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_tumbbad",
+      "title": "Tumbbad",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_andhadhun",
+      "title": "Andhadhun",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_shershaah",
+      "title": "Shershaah",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_gangs_of_wasseypur",
+      "title": "Gangs of Wasseypur",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_vikram_vedha",
+      "title": "Vikram Vedha",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_fateh_2025",
+      "title": "Fateh",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_game_changer_2025",
+      "title": "Game Changer",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_laapataa_ladies_2024",
+      "title": "Laapataa Ladies",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_article_370_2024",
+      "title": "Article 370",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_mission_raniganj_2023",
+      "title": "Mission Raniganj",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_badla_2019",
+      "title": "Badla",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_kesari_2019",
+      "title": "Kesari",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_airlift_2016",
+      "title": "Airlift",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_baby_2015",
+      "title": "Baby",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_holiday_2014",
+      "title": "Holiday: A Soldier Is Never Off Duty",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_rockstar_2011",
+      "title": "Rockstar",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_znmd_2011",
+      "title": "Zindagi Na Milegi Dobara",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_ghajini_2008",
+      "title": "Ghajini",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_taare_zameen_par_2007",
+      "title": "Taare Zameen Par",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_lagaan_2001",
+      "title": "Lagaan: Once Upon a Time in India",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_aavesham_2024",
+      "title": "Aavesham",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_bramayugam_2024",
+      "title": "Bramayugam",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_aadujeevitham_2024",
+      "title": "The Goat Life (Aadujeevitham)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_amar_singh_chamkila_2024",
+      "title": "Amar Singh Chamkila",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_blackout_2024",
+      "title": "Blackout",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_hanuman_2024",
+      "title": "Hanu-Man",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_kill_2024",
+      "title": "Kill",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_crew_2024",
+      "title": "Crew",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_sam_bahadur_2023",
+      "title": "Sam Bahadur",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_vikram_2022",
+      "title": "Vikram",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_minnal_murali_2021",
+      "title": "Minnal Murali",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_sardar_udham_2021",
+      "title": "Sardar Udham",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_ala_vaikunthapurramuloo_2020",
+      "title": "Ala Vaikunthapurramuloo",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_ludo_2020",
+      "title": "Ludo",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "vod_bandaa_2023",
+      "title": "Sirf Ek Bandaa Kaafi Hai",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_rang_de_basanti_2006",
+      "title": "Rang De Basanti",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_jai_bhim_2021",
+      "title": "Jai Bhim",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "series_gullak",
+      "title": "Gullak",
+      "mediaType": "series",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (Episodes)"
+    },
+    {
+      "id": "series_cosmos_hindi",
+      "title": "Cosmos: A Spacetime Odyssey (Hindi Dubbed)",
+      "mediaType": "series",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (Episodes)"
+    },
+    {
+      "id": "series_undekhi",
+      "title": "Undekhi (Season 1)",
+      "mediaType": "series",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (Episodes)"
+    },
+    {
+      "id": "vod_vivah_2006",
+      "title": "Vivah (2006)",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "trailer_bhool_bhulaiyaa_3_2024",
+      "title": "Bhool Bhulaiyaa 3 (2024) [Official 4K Trailer]",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "trailer_singham_again_2024",
+      "title": "Singham Again (2024) [Official 4K Trailer]",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "trailer_devara_2024",
+      "title": "Devara: Part 1 (2024) [Hindi 4K Trailer]",
+      "mediaType": "movie",
+      "old_state": "TRAILER_ONLY",
+      "new_state": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    }
+  ],
+  "restored_purged_titles": [
+    {
+      "id": "vod_the_general_720p",
+      "title": "The General (720p HD)",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD (1280x720)"
+    },
+    {
+      "id": "vod_charade_720p",
+      "title": "Charade (720p HD)",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_night_of_living_dead_1080p",
+      "title": "Night of the Living Dead (1080p FHD Remaster)",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p Full HD"
+    },
+    {
+      "id": "vod_his_girl_friday_4k",
+      "title": "His Girl Friday (4K Ultra HD Remaster)",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD"
+    },
+    {
+      "id": "series_sherlock_holmes",
+      "title": "The Adventures of Sherlock Holmes (1984)",
+      "mediaType": "series",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p (1920x1080)"
+    },
+    {
+      "id": "vod_gladiator_2",
+      "title": "Gladiator II",
+      "mediaType": "trailer",
+      "sourceState": "TRAILER_ONLY",
+      "resolution": "Official Trailer (4K UHD)"
+    },
+    {
+      "id": "vod_top_gun_maverick",
+      "title": "Top Gun: Maverick",
+      "mediaType": "trailer",
+      "sourceState": "TRAILER_ONLY",
+      "resolution": "Official Trailer (4K UHD)"
+    },
+    {
+      "id": "vod_the_batman",
+      "title": "The Batman",
+      "mediaType": "trailer",
+      "sourceState": "TRAILER_ONLY",
+      "resolution": "Official Trailer (4K UHD)"
+    },
+    {
+      "id": "vod_sita_sings_blues",
+      "title": "Sita Sings the Blues",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD (1280x720)"
+    },
+    {
+      "id": "vod_masoom_1983",
+      "title": "Masoom",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (1920x1080)"
+    },
+    {
+      "id": "vod_jaane_bhi_do_yaaro",
+      "title": "Jaane Bhi Do Yaaro",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD (1280x720)"
+    },
+    {
+      "id": "vod_chhoti_si_baat",
+      "title": "Chhoti Si Baat",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD (1280x720)"
+    },
+    {
+      "id": "vod_night_of_the_living_dead",
+      "title": "Night of the Living Dead",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (1920x1080)"
+    },
+    {
+      "id": "vod_charade_1963",
+      "title": "Charade",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (1920x1080)"
+    },
+    {
+      "id": "vod_carnival_of_souls",
+      "title": "Carnival of Souls",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p FHD (1920x1080)"
+    },
+    {
+      "id": "vod_house_on_haunted_hill",
+      "title": "House on Haunted Hill",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD (1280x720)"
+    },
+    {
+      "id": "vod_dressed_to_kill",
+      "title": "Dressed to Kill (Sherlock Holmes)",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p HD (1280x720)"
+    },
+    {
+      "id": "series_sherlock_holmes_1954",
+      "title": "Sherlock Holmes (1954 Classic Series)",
+      "mediaType": "series",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "1080p (1920x1080)"
+    },
+    {
+      "id": "vod_pathaan",
+      "title": "Pathaan",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p SD (854x480)"
+    },
+    {
+      "id": "vod_munjya",
+      "title": "Munjya",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p SD (854x480)"
+    },
+    {
+      "id": "vod_inception",
+      "title": "Inception",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p SD (854x480)"
+    },
+    {
+      "id": "vod_his_girl_friday",
+      "title": "His Girl Friday",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p SD (640x480)"
+    },
+    {
+      "id": "vod_peninsula",
+      "title": "Peninsula",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p SD (854x480)"
+    },
+    {
+      "id": "vod_drishyam_2",
+      "title": "Drishyam 2",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p SD (854x480)"
+    },
+    {
+      "id": "vod_3_idiots",
+      "title": "3 Idiots",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p SD (854x480)"
+    },
+    {
+      "id": "vod_do_bigha_zamin",
+      "title": "Do Bigha Zamin",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "576p SD (720x576)"
+    },
+    {
+      "id": "disc_VoyagetothePlanetofPrehistoricWomen",
+      "title": "Voyage To The Planet Of Prehistoric Women",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p (SD)"
+    },
+    {
+      "id": "disc_TheFastandtheFuriousJohnIreland1954goofyrip",
+      "title": "The Fast And The Furious",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p (SD)"
+    },
+    {
+      "id": "disc_charlie_chaplin_film_fest",
+      "title": "Charlie Chaplin Festival",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p (SD)"
+    },
+    {
+      "id": "disc_Return_of_the_Kung_Fu_Dragon",
+      "title": "Return Of The Kung Fu Dragon",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "240p"
+    },
+    {
+      "id": "vod_sky_force_2025",
+      "title": "Sky Force",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p SD (720x300)"
+    },
+    {
+      "id": "vod_thappad_2020",
+      "title": "Thappad",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "360p"
+    },
+    {
+      "id": "series_mismatched",
+      "title": "Mismatched (Season 1)",
+      "mediaType": "series",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p/720p HD"
+    },
+    {
+      "id": "series_crash_landing_on_you",
+      "title": "Crash Landing on You",
+      "mediaType": "series",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p (1280x720)"
+    },
+    {
+      "id": "series_descendants_of_the_sun",
+      "title": "Descendants of the Sun",
+      "mediaType": "series",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "720p (1280x720)"
+    },
+    {
+      "id": "vod_parasite",
+      "title": "Parasite",
+      "mediaType": "movie",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "resolution": "480p SD (1148x480)"
+    }
+  ]
+}
