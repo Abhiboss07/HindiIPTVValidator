@@ -9473,25 +9473,9 @@ function loadChannelMedia(ch, autoPlay) {
     iframeElement.src = 'about:blank';
     iframeElement.style.display = 'none';
   }
-  const posterArtwork = ch.posterUrl || ch.thumbUrl || ch.logo || (ch.movieData ? (ch.movieData.backdropUrl || ch.movieData.posterUrl) : '') || '';
-  const backdropImg = document.getElementById('playerBackdropImg');
-  if (backdropImg) {
-    if (posterArtwork) {
-      backdropImg.style.backgroundImage = `url("${posterArtwork}")`;
-      backdropImg.style.display = 'block';
-    } else {
-      backdropImg.style.backgroundImage = 'none';
-    }
-  }
-
   if (videoElement) {
     videoElement.pause();
     videoElement.removeAttribute('src');
-    if (posterArtwork) {
-      videoElement.poster = posterArtwork;
-    } else {
-      videoElement.removeAttribute('poster');
-    }
     videoElement.load();
     videoElement.style.display = 'block';
   }
@@ -10443,13 +10427,8 @@ window.closeMiniPlayer = function(e) {
   if (videoElement) {
     videoElement.pause();
     videoElement.removeAttribute('src');
-    videoElement.removeAttribute('poster');
     videoElement.load();
     videoElement.style.display = 'block';
-  }
-  const backdropImg = document.getElementById('playerBackdropImg');
-  if (backdropImg) {
-    backdropImg.style.backgroundImage = 'none';
   }
   
   if (hlsInstance) {
@@ -10512,9 +10491,6 @@ window.closeMiniPlayer = function(e) {
   isPlaying = false;
   window.isPlayerActive = false;
   currentPlayingChannel = null;
-  if (window.AndroidMedia && window.AndroidMedia.setPlaybackActive) {
-    try { window.AndroidMedia.setPlaybackActive(false); } catch (e) {}
-  }
   updatePlayPauseIcons(false);
   showToast('Playback Closed');
 };
@@ -10667,22 +10643,12 @@ function initMiniPlayerSwipe() {
 window.togglePlay = function() {
   const videoElement = document.getElementById('luminaVideo');
   if (!videoElement) return;
-  if (!currentPlayingChannel || !videoElement.src) {
-    console.log('[Player] togglePlay ignored: no media loaded');
-    return;
-  }
   if (videoElement.paused) {
     videoElement.play().catch(() => {});
     isPlaying = true;
-    if (window.AndroidMedia && window.AndroidMedia.setPlaybackActive) {
-      try { window.AndroidMedia.setPlaybackActive(true); } catch (e) {}
-    }
   } else {
     videoElement.pause();
     isPlaying = false;
-    if (window.AndroidMedia && window.AndroidMedia.setPlaybackActive) {
-      try { window.AndroidMedia.setPlaybackActive(false); } catch (e) {}
-    }
   }
   updatePlayPauseIcons(isPlaying);
 };
@@ -11471,12 +11437,6 @@ window.togglePlayAsAudio = function() {
 
 // 7. Pop-Up Player (PiP)
 window.onEnterPipMode = function() {
-  const video = document.getElementById('luminaVideo');
-  if (!currentPlayingChannel || !video || (!isPlaying && video.paused && !video.src)) {
-    console.log('[PiP] Ignored onEnterPipMode: no active playback session');
-    return;
-  }
-
   // Instantly hide all full player UI overlays, top/bottom bars, drawers, and HUDs
   const uiOverlay = document.getElementById('playerUiOverlay');
   if (uiOverlay) {
@@ -11503,20 +11463,11 @@ window.onEnterPipMode = function() {
   if (typeof closeVlcMoreMenu === 'function') closeVlcMoreMenu();
 
   // Keep video element 100% visible and unblanked when paused in PiP
+  const video = document.getElementById('luminaVideo');
   if (video) {
     video.style.display = 'block';
     video.style.opacity = '1';
     video.style.zIndex = '9999';
-  }
-
-  // Ensure thumbnail/poster artwork is preserved on backdrop in PiP mode
-  const backdropImg = document.getElementById('playerBackdropImg');
-  if (backdropImg && currentPlayingChannel) {
-    const posterArtwork = currentPlayingChannel.posterUrl || currentPlayingChannel.thumbUrl || currentPlayingChannel.logo || (currentPlayingChannel.movieData ? (currentPlayingChannel.movieData.backdropUrl || currentPlayingChannel.movieData.posterUrl) : '') || '';
-    if (posterArtwork) {
-      backdropImg.style.backgroundImage = `url("${posterArtwork}")`;
-      backdropImg.style.display = 'block';
-    }
   }
 
   const playerModal = document.getElementById('playerModal');
@@ -11536,18 +11487,6 @@ window.onEnterPipMode = function() {
       });
     });
   } catch (eRaf) {}
-};
-
-window.pausePlaybackOnBackground = function() {
-  const videoElement = document.getElementById('luminaVideo');
-  if (videoElement && !videoElement.paused) {
-    try {
-      videoElement.pause();
-    } catch (e) {}
-  }
-  if (window.AndroidMedia && window.AndroidMedia.setPlaybackActive) {
-    try { window.AndroidMedia.setPlaybackActive(false); } catch (e) {}
-  }
 };
 
 window.onExitPipMode = function() {
@@ -12494,16 +12433,10 @@ function initPlayerOverlayEvents() {
     videoElement.addEventListener('play', () => {
       isPlaying = true;
       updatePlayPauseIcons(true);
-      if (window.AndroidMedia && window.AndroidMedia.setPlaybackActive) {
-        try { window.AndroidMedia.setPlaybackActive(true); } catch (e) {}
-      }
     });
     videoElement.addEventListener('pause', () => {
       isPlaying = false;
       updatePlayPauseIcons(false);
-      if (window.AndroidMedia && window.AndroidMedia.setPlaybackActive) {
-        try { window.AndroidMedia.setPlaybackActive(false); } catch (e) {}
-      }
     });
 
     videoElement.addEventListener('click', (e) => {
@@ -12511,9 +12444,6 @@ function initPlayerOverlayEvents() {
     });
 
     videoElement.addEventListener('ended', () => {
-      if (window.AndroidMedia && window.AndroidMedia.setPlaybackActive) {
-        try { window.AndroidMedia.setPlaybackActive(false); } catch (e) {}
-      }
       if (currentSelectedMovie && (currentSelectedMovie.mediaType === 'series' || currentSelectedMovie.contentType === 'SERIES')) {
         playNextSeriesEpisode();
       }
@@ -13276,26 +13206,22 @@ function startTorrentPlayback(streamUrl, title, infoHash, backupUrls, movieData)
 
   const isRealTorrent = !streamUrl.startsWith('http://') && !streamUrl.startsWith('https://') ? true : (streamUrl.includes(':8080/torrent') || streamUrl.includes('/torrent/stream'));
   const isSeries = movieData && (movieData.mediaType === 'series' || movieData.contentType === 'SERIES');
-  const posterArtwork = movieData ? (movieData.backdropUrl || movieData.posterUrl || '') : '';
   const torrentChannel = {
     id: (movieData ? movieData.id : 'torrent_' + (infoHash || Date.now())),
-    name: title || 'Torrent Media Stream',
-    url: streamUrl,
-    backupUrls: backupUrls || [],
-    isLocal: false,
-    isTorrent: isRealTorrent,
-    type: 'video',
-    contentType: isSeries ? 'SERIES' : 'MOVIE',
-    playbackMode: isSeries ? 'VOD_SERIES' : 'VOD_MOVIE',
-    category: isSeries ? 'Web-Series' : 'VOD Cinema',
-    countryName: '',
-    quality: movieData && movieData.resolution ? movieData.resolution.split(' ')[0] : '1080p',
-    flag: isRealTorrent ? '🧲' : '⚡',
-    thumbUrl: posterArtwork,
-    logo: posterArtwork,
-    posterUrl: posterArtwork,
-    movieData: movieData || null
-  };
+      name: title || 'Torrent Media Stream',
+      url: streamUrl,
+      backupUrls: backupUrls || [],
+      isLocal: false,
+      isTorrent: isRealTorrent,
+      type: 'video',
+      contentType: isSeries ? 'SERIES' : 'MOVIE',
+      playbackMode: isSeries ? 'VOD_SERIES' : 'VOD_MOVIE',
+      category: isSeries ? 'Web-Series' : 'VOD Cinema',
+      countryName: '',
+      quality: movieData && movieData.resolution ? movieData.resolution.split(' ')[0] : '1080p',
+      flag: isRealTorrent ? '🧲' : '⚡',
+      movieData: movieData || null
+    };
 
   playChannel(torrentChannel);
   if (isRealTorrent) {
