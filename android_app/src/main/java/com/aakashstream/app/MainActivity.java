@@ -82,6 +82,7 @@ public class MainActivity extends Activity {
     private java.util.concurrent.ExecutorService serverExecutor;
     private AndroidMediaBridge mediaBridge;
     private TorrentEngine torrentEngine;
+    private volatile boolean isPlaybackActive = false;
 
     private static final String ACTION_PIP_PREV = "com.aakashstream.app.PIP_PREV";
     private static final String ACTION_PIP_PLAY_PAUSE = "com.aakashstream.app.PIP_PLAY_PAUSE";
@@ -1749,6 +1750,17 @@ public class MainActivity extends Activity {
             });
         }
 
+        @JavascriptInterface
+        public void setPlaybackActive(boolean active) {
+            MainActivity.this.isPlaybackActive = active;
+            Log.i(TAG, "Playback active state changed to: " + active);
+        }
+
+        @JavascriptInterface
+        public boolean isPlaybackActive() {
+            return MainActivity.this.isPlaybackActive;
+        }
+
         private volatile boolean isWaitingForPipReady = false;
 
         @JavascriptInterface
@@ -2059,12 +2071,38 @@ public class MainActivity extends Activity {
     @Override
     protected void onUserLeaveHint() {
         super.onUserLeaveHint();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        // CRITICAL: ONLY enter PiP if video playback is actively in progress
+        if (isPlaybackActive && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             try {
                 PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
                 pipBuilder.setAspectRatio(new Rational(16, 9));
+                if (webView != null && webView.getWidth() > 0 && webView.getHeight() > 0) {
+                    Rect sourceRect = new Rect(0, 0, webView.getWidth(), webView.getHeight());
+                    pipBuilder.setSourceRectHint(sourceRect);
+                }
                 enterPictureInPictureMode(pipBuilder.build());
             } catch (Exception ignored) {}
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && isInPictureInPictureMode()) {
+            return;
+        }
+        if (webView != null) {
+            webView.evaluateJavascript("if (window.pausePlaybackOnBackground) window.pausePlaybackOnBackground();", null);
+            webView.onPause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hideSystemUI();
+        if (webView != null) {
+            webView.onResume();
         }
     }
 
