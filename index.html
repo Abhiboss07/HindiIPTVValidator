@@ -1910,7 +1910,7 @@
     <!-- ==========================================================
          MOVIE DETAILS REDESIGNED (AURORA CINEMA GLASS PAVILION)
          ========================================================== -->
-    <div id="movieDetailsModal" class="movie-detail-overlay" onclick="closeMovieDetails()" style="display: none;" role="dialog" aria-modal="true" aria-label="Movie Details">
+    <div id="movieDetailsModal" class="movie-detail-overlay" onclick="closeMovieDetails()" role="dialog" aria-modal="true" aria-label="Movie Details">
         <div class="movie-detail-container" onclick="event.stopPropagation()">
             <!-- Floating Top Navigation Bar -->
             <div class="movie-detail-topbar">
@@ -1935,7 +1935,7 @@
                 <div class="movie-detail-hero-lockup">
                     <!-- Floating Theatrical Poster -->
                     <div id="movieDetailsPoster" class="movie-detail-poster-frame">
-                        <img id="movieDetailsPosterImg" class="movie-detail-poster-graphic" src="assets/placeholder.png" alt="Movie Poster" onerror="this.onerror=null; this.src='assets/placeholder.png';" />
+                        <img id="movieDetailsPosterImg" class="movie-detail-poster-graphic" src="assets/placeholder.png" alt="Movie Poster" decoding="async" onerror="this.onerror=null; this.src='assets/placeholder.png';" />
                         <div id="movieDetailsSwarmBadge" class="movie-swarm-badge swarm-good" style="display: none;">
                             <span class="swarm-dot">●</span>
                             <span id="movieDetailsSwarmText">Swarm: 🟡 Good</span>
