@@ -1,0 +1,347 @@
+{
+  "duration_seconds": 300,
+  "cycles": 37,
+  "initial_pss_kb": 377912,
+  "final_pss_kb": 376068,
+  "pss_delta_kb": -1844,
+  "peak_pss_kb": 377912,
+  "initial_temp_c": 35.236,
+  "final_temp_c": 35.351,
+  "temp_delta_c": 0.11500000000000199,
+  "verdict": "PASS (Stable Memory)",
+  "samples": [
+    {
+      "pss_kb": 377912,
+      "native_kb": 32296,
+      "dalvik_kb": 6322,
+      "egl_kb": 77852,
+      "timestamp": 0,
+      "temp_c": 35.183,
+      "cycle": 1
+    },
+    {
+      "pss_kb": 373000,
+      "native_kb": 31352,
+      "dalvik_kb": 4594,
+      "egl_kb": 77852,
+      "timestamp": 8,
+      "temp_c": 35.302,
+      "cycle": 2
+    },
+    {
+      "pss_kb": 371680,
+      "native_kb": 31212,
+      "dalvik_kb": 4358,
+      "egl_kb": 77852,
+      "timestamp": 16,
+      "temp_c": 35.302,
+      "cycle": 3
+    },
+    {
+      "pss_kb": 371164,
+      "native_kb": 31312,
+      "dalvik_kb": 4310,
+      "egl_kb": 76972,
+      "timestamp": 24,
+      "temp_c": 35.3,
+      "cycle": 4
+    },
+    {
+      "pss_kb": 372936,
+      "native_kb": 31832,
+      "dalvik_kb": 4302,
+      "egl_kb": 77852,
+      "timestamp": 33,
+      "temp_c": 35.297,
+      "cycle": 5
+    },
+    {
+      "pss_kb": 371808,
+      "native_kb": 31612,
+      "dalvik_kb": 4298,
+      "egl_kb": 77852,
+      "timestamp": 41,
+      "temp_c": 35.239,
+      "cycle": 6
+    },
+    {
+      "pss_kb": 371684,
+      "native_kb": 31696,
+      "dalvik_kb": 4330,
+      "egl_kb": 77852,
+      "timestamp": 49,
+      "temp_c": 35.239,
+      "cycle": 7
+    },
+    {
+      "pss_kb": 373300,
+      "native_kb": 31572,
+      "dalvik_kb": 6254,
+      "egl_kb": 77852,
+      "timestamp": 57,
+      "temp_c": 35.239,
+      "cycle": 8
+    },
+    {
+      "pss_kb": 375116,
+      "native_kb": 31932,
+      "dalvik_kb": 6274,
+      "egl_kb": 77852,
+      "timestamp": 65,
+      "temp_c": 35.269,
+      "cycle": 9
+    },
+    {
+      "pss_kb": 371600,
+      "native_kb": 31568,
+      "dalvik_kb": 4302,
+      "egl_kb": 77852,
+      "timestamp": 74,
+      "temp_c": 35.251,
+      "cycle": 10
+    },
+    {
+      "pss_kb": 370656,
+      "native_kb": 31568,
+      "dalvik_kb": 4306,
+      "egl_kb": 77852,
+      "timestamp": 82,
+      "temp_c": 35.304,
+      "cycle": 11
+    },
+    {
+      "pss_kb": 371928,
+      "native_kb": 31736,
+      "dalvik_kb": 4310,
+      "egl_kb": 77852,
+      "timestamp": 90,
+      "temp_c": 35.278,
+      "cycle": 12
+    },
+    {
+      "pss_kb": 373384,
+      "native_kb": 32232,
+      "dalvik_kb": 4306,
+      "egl_kb": 77852,
+      "timestamp": 98,
+      "temp_c": 35.279,
+      "cycle": 13
+    },
+    {
+      "pss_kb": 370912,
+      "native_kb": 31568,
+      "dalvik_kb": 4294,
+      "egl_kb": 77852,
+      "timestamp": 106,
+      "temp_c": 35.279,
+      "cycle": 14
+    },
+    {
+      "pss_kb": 370732,
+      "native_kb": 31564,
+      "dalvik_kb": 4298,
+      "egl_kb": 77852,
+      "timestamp": 115,
+      "temp_c": 35.279,
+      "cycle": 15
+    },
+    {
+      "pss_kb": 372492,
+      "native_kb": 31600,
+      "dalvik_kb": 4318,
+      "egl_kb": 77852,
+      "timestamp": 123,
+      "temp_c": 35.279,
+      "cycle": 16
+    },
+    {
+      "pss_kb": 372436,
+      "native_kb": 31548,
+      "dalvik_kb": 4310,
+      "egl_kb": 77852,
+      "timestamp": 131,
+      "temp_c": 35.322,
+      "cycle": 17
+    },
+    {
+      "pss_kb": 371568,
+      "native_kb": 31572,
+      "dalvik_kb": 4306,
+      "egl_kb": 77852,
+      "timestamp": 139,
+      "temp_c": 35.279,
+      "cycle": 18
+    },
+    {
+      "pss_kb": 373404,
+      "native_kb": 31704,
+      "dalvik_kb": 4302,
+      "egl_kb": 77852,
+      "timestamp": 147,
+      "temp_c": 35.303,
+      "cycle": 19
+    },
+    {
+      "pss_kb": 374364,
+      "native_kb": 31624,
+      "dalvik_kb": 4302,
+      "egl_kb": 77852,
+      "timestamp": 156,
+      "temp_c": 35.247,
+      "cycle": 20
+    },
+    {
+      "pss_kb": 373376,
+      "native_kb": 31624,
+      "dalvik_kb": 4314,
+      "egl_kb": 77852,
+      "timestamp": 164,
+      "temp_c": 35.281,
+      "cycle": 21
+    },
+    {
+      "pss_kb": 373564,
+      "native_kb": 31516,
+      "dalvik_kb": 4318,
+      "egl_kb": 77852,
+      "timestamp": 172,
+      "temp_c": 35.302,
+      "cycle": 22
+    },
+    {
+      "pss_kb": 374116,
+      "native_kb": 31672,
+      "dalvik_kb": 4302,
+      "egl_kb": 76972,
+      "timestamp": 180,
+      "temp_c": 35.302,
+      "cycle": 23
+    },
+    {
+      "pss_kb": 375432,
+      "native_kb": 32104,
+      "dalvik_kb": 4222,
+      "egl_kb": 77852,
+      "timestamp": 189,
+      "temp_c": 35.302,
+      "cycle": 24
+    },
+    {
+      "pss_kb": 374336,
+      "native_kb": 31664,
+      "dalvik_kb": 4226,
+      "egl_kb": 77852,
+      "timestamp": 197,
+      "temp_c": 35.302,
+      "cycle": 25
+    },
+    {
+      "pss_kb": 373836,
+      "native_kb": 31576,
+      "dalvik_kb": 4230,
+      "egl_kb": 77852,
+      "timestamp": 205,
+      "temp_c": 35.302,
+      "cycle": 26
+    },
+    {
+      "pss_kb": 374616,
+      "native_kb": 31536,
+      "dalvik_kb": 4230,
+      "egl_kb": 77852,
+      "timestamp": 213,
+      "temp_c": 35.302,
+      "cycle": 27
+    },
+    {
+      "pss_kb": 374316,
+      "native_kb": 31952,
+      "dalvik_kb": 4234,
+      "egl_kb": 76972,
+      "timestamp": 221,
+      "temp_c": 35.302,
+      "cycle": 28
+    },
+    {
+      "pss_kb": 374068,
+      "native_kb": 32292,
+      "dalvik_kb": 4230,
+      "egl_kb": 77852,
+      "timestamp": 230,
+      "temp_c": 35.302,
+      "cycle": 29
+    },
+    {
+      "pss_kb": 373140,
+      "native_kb": 31664,
+      "dalvik_kb": 4226,
+      "egl_kb": 77852,
+      "timestamp": 238,
+      "temp_c": 35.302,
+      "cycle": 30
+    },
+    {
+      "pss_kb": 373396,
+      "native_kb": 31600,
+      "dalvik_kb": 4218,
+      "egl_kb": 77852,
+      "timestamp": 246,
+      "temp_c": 35.302,
+      "cycle": 31
+    },
+    {
+      "pss_kb": 372804,
+      "native_kb": 31624,
+      "dalvik_kb": 4238,
+      "egl_kb": 77852,
+      "timestamp": 254,
+      "temp_c": 35.302,
+      "cycle": 32
+    },
+    {
+      "pss_kb": 374200,
+      "native_kb": 31668,
+      "dalvik_kb": 6198,
+      "egl_kb": 77852,
+      "timestamp": 263,
+      "temp_c": 35.302,
+      "cycle": 33
+    },
+    {
+      "pss_kb": 375900,
+      "native_kb": 32012,
+      "dalvik_kb": 6210,
+      "egl_kb": 77852,
+      "timestamp": 271,
+      "temp_c": 35.302,
+      "cycle": 34
+    },
+    {
+      "pss_kb": 375628,
+      "native_kb": 32027,
+      "dalvik_kb": 6198,
+      "egl_kb": 77852,
+      "timestamp": 279,
+      "temp_c": 35.302,
+      "cycle": 35
+    },
+    {
+      "pss_kb": 376432,
+      "native_kb": 32147,
+      "dalvik_kb": 6198,
+      "egl_kb": 77852,
+      "timestamp": 287,
+      "temp_c": 35.302,
+      "cycle": 36
+    },
+    {
+      "pss_kb": 376068,
+      "native_kb": 32059,
+      "dalvik_kb": 6174,
+      "egl_kb": 77852,
+      "timestamp": 295,
+      "temp_c": 35.351,
+      "cycle": 37
+    }
+  ]
+}
