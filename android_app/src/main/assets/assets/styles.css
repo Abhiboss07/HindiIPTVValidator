@@ -1861,6 +1861,7 @@ body.obsidian-app-body, body {
 
 .page-view.active, .t2l-view.active {
   display: block;
+  will-change: opacity, transform;
   animation: t2lPageEntrance var(--t2l-motion-page) var(--t2l-ease-entrance) forwards;
 }
 
@@ -3965,9 +3966,7 @@ body.obsidian-app-body, body {
 .vlc-dialog-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(5, 6, 8, 0.78);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(5, 6, 8, 0.92);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7131,9 +7130,7 @@ body.modal-open-locked {
   position: absolute !important;
   top: 8px !important;
   left: 8px !important;
-  background: rgba(229, 9, 20, 0.85) !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
+  background: rgba(229, 9, 20, 0.92) !important;
   color: #fff !important;
   font-size: 9.5px !important;
   font-weight: 800 !important;
@@ -7150,9 +7147,7 @@ body.modal-open-locked {
   position: absolute !important;
   top: 8px !important;
   right: 8px !important;
-  background: rgba(10, 14, 23, 0.82) !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
+  background: rgba(10, 14, 23, 0.92) !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   color: var(--t2l-aurora-cyan, #22D3EE) !important;
   font-size: 9.5px !important;
@@ -7343,7 +7338,7 @@ body.modal-open-locked {
   position: fixed;
   inset: 0;
   z-index: 1200;
-  background: rgba(3, 5, 10, 0.92);
+  background: rgba(3, 5, 10, 0.94);
   transform: translateZ(0);
   will-change: opacity;
   overscroll-behavior: contain;
@@ -7352,19 +7347,16 @@ body.modal-open-locked {
   justify-content: center;
   padding: 24px 16px;
   overflow: hidden;
-  opacity: 1;
-  transition: opacity var(--t2l-motion-standard) var(--t2l-ease-standard);
-  animation: movieModalFadeIn var(--t2l-motion-standard) var(--t2l-ease-standard);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--t2l-motion-standard) var(--t2l-ease-standard), visibility var(--t2l-motion-standard) var(--t2l-ease-standard);
 }
 
-@keyframes movieModalFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes movieModalSlideUp {
-  from { opacity: 0; transform: translate3d(0, 16px, 0); }
-  to { opacity: 1; transform: translate3d(0, 0, 0); }
+.movie-detail-overlay.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 .movie-detail-container {
@@ -7374,16 +7366,21 @@ body.modal-open-locked {
   background: #080a11;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 28px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(34, 211, 238, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 16px rgba(34, 211, 238, 0.06);
   overflow: hidden;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  transform: translateZ(0);
+  transform: translate3d(0, 18px, 0);
+  opacity: 0;
   will-change: transform, opacity;
   contain: layout;
-  transition: transform var(--t2l-motion-standard) var(--t2l-ease-standard), opacity var(--t2l-motion-standard) var(--t2l-ease-standard);
-  animation: movieModalSlideUp var(--t2l-motion-emphasis) var(--t2l-ease-entrance);
+  transition: transform var(--t2l-motion-page) var(--t2l-ease-entrance), opacity var(--t2l-motion-standard) var(--t2l-ease-standard);
+}
+
+.movie-detail-overlay.active .movie-detail-container {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 .movie-detail-overlay.is-closing {
@@ -7393,7 +7390,7 @@ body.modal-open-locked {
 
 .movie-detail-overlay.is-closing .movie-detail-container {
   opacity: 0 !important;
-  transform: translate3d(0, 14px, 0) scale(0.96) !important;
+  transform: translate3d(0, 14px, 0) scale(0.97) !important;
 }
 
 /* Pinned Frosted Top Navigation Bar */
@@ -7531,8 +7528,8 @@ body.modal-open-locked {
   position: relative;
   background: #121624;
   border: 1.5px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 229, 255, 0.28);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8), 0 0 14px rgba(0, 229, 255, 0.16);
+  transition: transform 0.2s ease;
 }
 
 .movie-detail-poster-graphic {
@@ -7720,15 +7717,15 @@ body.modal-open-locked {
 
 /* Bento Modules */
 .aurora-bento-card {
-  background: rgba(16, 21, 34, 0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(16, 21, 34, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
   padding: 16px 18px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 160px;
   transition: border-color 0.2s ease;
 }
 
