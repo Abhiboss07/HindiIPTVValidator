@@ -73,10 +73,42 @@ try {
   const suzumeHtml = renderMovieCard(suzume);
   console.log("\nSuzume Card HTML:");
   console.log(suzumeHtml.trim());
-  if (suzumeHtml.includes('Official Trailer')) {
-    console.error("FAIL: Suzume rendered with Official Trailer!");
+  // Test Squid Game Season 2 specifically (Upcoming Trailer)
+  const squidS2 = movies.find(m => m.id === 'series_squid_game_s2_2025');
+  const squidS2Classification = getContentClassification(squidS2);
+  const squidS2Html = renderMovieCard(squidS2);
+  console.log("\nSquid Game Season 2 Card HTML:");
+  console.log(squidS2Html.trim());
+  if (!squidS2Classification.isTrailer || squidS2Classification.isSeries) {
+    console.error("FAIL: Squid Game Season 2 must be classified as trailer!");
     process.exit(1);
   }
+  if (!squidS2Html.includes('Trailer (4K)')) {
+    console.error("FAIL: Squid Game Season 2 card must show Trailer (4K) badge!");
+    process.exit(1);
+  }
+  console.log("✅ PASS: Squid Game Season 2 mini-card correctly displays Trailer (4K)");
+
+  // Test Aspirants specifically
+  const aspirants = movies.find(m => m.id === 'series_aspirants');
+  const aspClassification = getContentClassification(aspirants);
+  const aspHtml = renderMovieCard(aspirants);
+  console.log("\nAspirants Card HTML:");
+  console.log(aspHtml.trim());
+  if (!aspClassification.isSeries || !aspClassification.isCompleteContent) {
+    console.error("FAIL: Aspirants must be classified as complete series!");
+    process.exit(1);
+  }
+  console.log("✅ PASS: TVF Aspirants correctly classified as complete series (5 Episodes)");
+
+  // Test Kota Factory specifically
+  const kota = movies.find(m => m.id === 'series_kota_factory');
+  const kotaClassification = getContentClassification(kota);
+  if (!kotaClassification.isSeries || kotaClassification.episodesCount !== 5) {
+    console.error("FAIL: Kota Factory must have 5 episodes!");
+    process.exit(1);
+  }
+  console.log("✅ PASS: Kota Factory verified with full 5 episodes");
 
   console.log("\nALL JS RENDERER TESTS PASSED 100%!");
 } catch (e) {

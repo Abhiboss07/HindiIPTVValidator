@@ -1,8 +1,8 @@
 {
   "version": 21,
   "updated_at": "2026-10-02T06:56:55.924091+00:00",
-  "total_movies": 198,
-  "total_series": 18,
+  "total_movies": 181,
+  "total_series": 20,
   "default_language_filter": "Hindi",
   "movies": [
     {
@@ -2608,7 +2608,7 @@
           "episodeType": "full_episode"
         }
       ],
-      "contentType": "TRAILER",
+      "contentType": "SERIES",
       "region": "HOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/b9EkMc79ZSU",
       "seasons": [
@@ -2881,7 +2881,7 @@
           "audioSwitchingCapability": "NONE"
         }
       ],
-      "contentType": "TRAILER",
+      "contentType": "SERIES",
       "region": "BOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/mojZJ7oeD_g",
       "seasons": [
@@ -3177,7 +3177,7 @@
           "episodeType": "full_episode"
         }
       ],
-      "contentType": "TRAILER",
+      "contentType": "SERIES",
       "region": "BOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/ZNeGF-PvRHY",
       "seasons": [
@@ -3691,7 +3691,7 @@
           "episodeType": "full_episode"
         }
       ],
-      "contentType": "TRAILER",
+      "contentType": "SERIES",
       "region": "BOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/ISORfez27og",
       "seasons": [
@@ -3948,7 +3948,7 @@
           "episodeType": "full_episode"
         }
       ],
-      "contentType": "TRAILER",
+      "contentType": "SERIES",
       "region": "HOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/HhesaQXLuRY",
       "seasons": [
@@ -4232,7 +4232,7 @@
         "comedy"
       ],
       "duration": 2200,
-      "durationFormatted": "1 Season • 2 Episodes",
+      "durationFormatted": "1 Season • 5 Episodes",
       "genres": [
         "Comedy",
         "Drama"
@@ -4241,7 +4241,7 @@
       "description": "Dedicated to the students of Kota, the educational hub of India. Follows 16-year-old Vaibhav who moves to Kota from Itarsi, portraying the student life, coaching culture, and the mentorship of Jeetu Bhaiya.",
       "posterUrl": "assets/posters/series_kota_factory.jpg",
       "backdropUrl": "assets/posters/series_kota_factory.jpg",
-      "resolution": "Official Trailer (1080p HD)",
+      "resolution": "1080p (1920x1080)",
       "codec": "H.264",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -4287,9 +4287,39 @@
           "streamUrl": "https://www.youtube-nocookie.com/embed/5Uj4Fk7b5v0",
           "qualityHonestBadge": "1080p Full HD",
           "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "kf_s1e3",
+          "episodeNumber": 3,
+          "season": 1,
+          "title": "S01:E03 • Assembly Line",
+          "duration": "41m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/kD33mK2e4Q0",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "kf_s1e4",
+          "episodeNumber": 4,
+          "season": 1,
+          "title": "S01:E04 • Revision",
+          "duration": "40m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/76f_9L9Z8oE",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "kf_s1e5",
+          "episodeNumber": 5,
+          "season": 1,
+          "title": "S01:E05 • The Result",
+          "duration": "48m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/YX359JzXvYQ",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
         }
       ],
-      "contentType": "TRAILER",
+      "contentType": "SERIES",
       "region": "BOLLYWOOD",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/JWbnEt3xuos",
       "seasons": [
@@ -4316,14 +4346,44 @@
               "streamUrl": "https://www.youtube-nocookie.com/embed/5Uj4Fk7b5v0",
               "qualityHonestBadge": "1080p Full HD",
               "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "kf_s1e3",
+              "episodeNumber": 3,
+              "season": 1,
+              "title": "S01:E03 • Assembly Line",
+              "duration": "41m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/kD33mK2e4Q0",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "kf_s1e4",
+              "episodeNumber": 4,
+              "season": 1,
+              "title": "S01:E04 • Revision",
+              "duration": "40m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/76f_9L9Z8oE",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "kf_s1e5",
+              "episodeNumber": 5,
+              "season": 1,
+              "title": "S01:E05 • The Result",
+              "duration": "48m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/YX359JzXvYQ",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
             }
           ]
         }
       ],
       "torrentUri": null,
-      "sourceState": "TRAILER_ONLY",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "hi",
@@ -4344,7 +4404,7 @@
       "releaseYear": 2024,
       "metadataSource": "TMDB_VERIFIED",
       "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": true,
+      "isTrailerOnly": false,
       "subtitles": []
     },
     {
@@ -6280,7 +6340,7 @@
       "title": "Squid Game",
       "originalTitle": "오징어 게임",
       "year": 2021,
-      "mediaType": "movie",
+      "mediaType": "series",
       "type": "K-Drama",
       "categories": [
         "korean",
@@ -6478,7 +6538,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "720p HD",
-      "contentType": "MOVIE",
+      "contentType": "SERIES",
       "region": "ASIAN",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
@@ -7547,7 +7607,7 @@
       "title": "Death Note (English Dubbed)",
       "originalTitle": "デスノート",
       "year": 2006,
-      "mediaType": "movie",
+      "mediaType": "series",
       "type": "Anime",
       "categories": [
         "anime",
@@ -7611,7 +7671,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "720p HD",
-      "contentType": "MOVIE",
+      "contentType": "SERIES",
       "region": "ASIAN",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
@@ -7655,7 +7715,7 @@
       "title": "Naruto Shippuden (Hindi Dubbed)",
       "originalTitle": "ナルト",
       "year": 2002,
-      "mediaType": "movie",
+      "mediaType": "series",
       "type": "Anime",
       "categories": [
         "anime",
@@ -7827,7 +7887,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "qualityClass": "Official Trailer",
       "qualityHonestBadge": "720p HD",
-      "contentType": "MOVIE",
+      "contentType": "SERIES",
       "region": "ASIAN",
       "audioClassification": "HINDI_AUDIO",
       "metadata": {
@@ -12196,7 +12256,7 @@
           "audioSwitchingCapability": "NONE"
         }
       ],
-      "contentType": "TRAILER",
+      "contentType": "SERIES",
       "isTrailerOnly": false,
       "subtitles": [],
       "quality": "1080p"
@@ -12574,7 +12634,7 @@
           "audioSwitchingCapability": "NONE"
         }
       ],
-      "contentType": "TRAILER",
+      "contentType": "SERIES",
       "isTrailerOnly": false,
       "subtitles": [],
       "quality": "1080p"
@@ -12665,7 +12725,7 @@
           "audioSwitchingCapability": "NONE"
         }
       ],
-      "contentType": "TRAILER",
+      "contentType": "SERIES",
       "isTrailerOnly": false,
       "subtitles": [],
       "quality": "1080p"
@@ -17628,7 +17688,8 @@
         }
       ],
       "isTrailerOnly": false,
-      "quality": "720p"
+      "quality": "720p",
+      "contentType": "SERIES"
     },
     {
       "id": "series_crash_landing_on_you",
@@ -18568,6 +18629,414 @@
       ],
       "isTrailerOnly": false,
       "quality": "480p"
+    },
+    {
+      "id": "series_aspirants",
+      "title": "TVF Aspirants",
+      "originalTitle": "Aspirants",
+      "year": 2021,
+      "releaseYear": 2021,
+      "mediaType": "series",
+      "contentType": "SERIES",
+      "type": "Web-Series",
+      "categories": [
+        "drama",
+        "comedy",
+        "web_series",
+        "trending"
+      ],
+      "durationFormatted": "1 Season • 5 Episodes",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "rating": 9.2,
+      "description": "The story of the journey of UPSC aspirants and their friendship against all odds in Old Rajinder Nagar, Delhi.",
+      "posterUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/TVF_Aspirants_Poster.jpg/250px-TVF_Aspirants_Poster.jpg",
+      "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/TVF_Aspirants_Poster.jpg/250px-TVF_Aspirants_Poster.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
+      "resolution": "1080p (1920x1080)",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "audioClassification": "HINDI_AUDIO",
+      "audioSwitchingCapability": "NONE",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/ViBhvX_d3Rk",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/b9EkMc79ZSU",
+      "backupUrls": [],
+      "torrentUri": null,
+      "region": "BOLLYWOOD",
+      "director": "Apoorv Singh Karki",
+      "cast": "Naveen Kasturia, Shivankit Singh Parihar, Abhilash Thapliyal, Sunny Hinduja",
+      "featured": true,
+      "latest": true,
+      "metadata": {
+        "originalLanguage": "Hindi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "seasons": [
+        {
+          "seasonNumber": 1,
+          "title": "Season 1",
+          "episodes": [
+            {
+              "id": "asp_s1e1",
+              "episodeNumber": 1,
+              "season": 1,
+              "title": "S01:E01 • UPS... Kya?",
+              "duration": "44m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/b9EkMc79ZSU",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "asp_s1e2",
+              "episodeNumber": 2,
+              "season": 1,
+              "title": "S01:E02 • Teacher Sahi Hona Chahiye",
+              "duration": "45m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/xg_3mR84m6E",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "asp_s1e3",
+              "episodeNumber": 3,
+              "season": 1,
+              "title": "S01:E03 • Positive Raho",
+              "duration": "43m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/pKqLpA5e_0Y",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "asp_s1e4",
+              "episodeNumber": 4,
+              "season": 1,
+              "title": "S01:E04 • Plan B",
+              "duration": "46m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/XvOQyqg4k8s",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "asp_s1e5",
+              "episodeNumber": 5,
+              "season": 1,
+              "title": "S01:E05 • UPSC",
+              "duration": "59m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/D4p7Q37vA1E",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            }
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "id": "asp_s1e1",
+          "episodeNumber": 1,
+          "season": 1,
+          "title": "S01:E01 • UPS... Kya?",
+          "duration": "44m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/b9EkMc79ZSU",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "asp_s1e2",
+          "episodeNumber": 2,
+          "season": 1,
+          "title": "S01:E02 • Teacher Sahi Hona Chahiye",
+          "duration": "45m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/xg_3mR84m6E",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "asp_s1e3",
+          "episodeNumber": 3,
+          "season": 1,
+          "title": "S01:E03 • Positive Raho",
+          "duration": "43m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/pKqLpA5e_0Y",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "asp_s1e4",
+          "episodeNumber": 4,
+          "season": 1,
+          "title": "S01:E04 • Plan B",
+          "duration": "46m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/XvOQyqg4k8s",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "asp_s1e5",
+          "episodeNumber": 5,
+          "season": 1,
+          "title": "S01:E05 • UPSC",
+          "duration": "59m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/D4p7Q37vA1E",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        }
+      ],
+      "contentId": "series_tvf_aspirants",
+      "isTrailerOnly": false
+    },
+    {
+      "id": "series_pitchers",
+      "title": "TVF Pitchers",
+      "originalTitle": "Pitchers",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "series",
+      "contentType": "SERIES",
+      "type": "Web-Series",
+      "categories": [
+        "drama",
+        "comedy",
+        "web_series",
+        "trending"
+      ],
+      "durationFormatted": "1 Season • 5 Episodes",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "rating": 9.1,
+      "description": "Four friends quit their corporate jobs to develop their own startup business idea into a tech venture.",
+      "posterUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/TVF_Pitchers_Season_2_Poster.jpg/250px-TVF_Pitchers_Season_2_Poster.jpg",
+      "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/TVF_Pitchers_Season_2_Poster.jpg/250px-TVF_Pitchers_Season_2_Poster.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p FHD",
+      "resolution": "1080p (1920x1080)",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "audioClassification": "HINDI_AUDIO",
+      "audioSwitchingCapability": "NONE",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/xbqvdN1qL8Y",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/xbqvdN1qL8Y",
+      "backupUrls": [],
+      "torrentUri": null,
+      "region": "BOLLYWOOD",
+      "director": "Amit Golani",
+      "cast": "Naveen Kasturia, Arunabh Kumar, Jitendra Kumar, Abhay Mahajan",
+      "featured": true,
+      "latest": true,
+      "metadata": {
+        "originalLanguage": "Hindi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "seasons": [
+        {
+          "seasonNumber": 1,
+          "title": "Season 1",
+          "episodes": [
+            {
+              "id": "pit_s1e1",
+              "episodeNumber": 1,
+              "season": 1,
+              "title": "S01:E01 • Tu Beer Hai",
+              "duration": "38m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/xbqvdN1qL8Y",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "pit_s1e2",
+              "episodeNumber": 2,
+              "season": 1,
+              "title": "S01:E02 • And Then There Were 4",
+              "duration": "36m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/4p5VqL2t29Y",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "pit_s1e3",
+              "episodeNumber": 3,
+              "season": 1,
+              "title": "S01:E03 • The Jury",
+              "duration": "40m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/2vQWq7d_6-0",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "pit_s1e4",
+              "episodeNumber": 4,
+              "season": 1,
+              "title": "S01:E04 • Bulb Jalega Boss",
+              "duration": "43m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/d1w_t7gT86A",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            },
+            {
+              "id": "pit_s1e5",
+              "episodeNumber": 5,
+              "season": 1,
+              "title": "S01:E05 • Where Magic Happens",
+              "duration": "57m",
+              "streamUrl": "https://www.youtube-nocookie.com/embed/0E3Xh69h13c",
+              "qualityHonestBadge": "1080p Full HD",
+              "sourceState": "DIRECT_STREAM_AVAILABLE"
+            }
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "id": "pit_s1e1",
+          "episodeNumber": 1,
+          "season": 1,
+          "title": "S01:E01 • Tu Beer Hai",
+          "duration": "38m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/xbqvdN1qL8Y",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "pit_s1e2",
+          "episodeNumber": 2,
+          "season": 1,
+          "title": "S01:E02 • And Then There Were 4",
+          "duration": "36m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/4p5VqL2t29Y",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "pit_s1e3",
+          "episodeNumber": 3,
+          "season": 1,
+          "title": "S01:E03 • The Jury",
+          "duration": "40m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/2vQWq7d_6-0",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "pit_s1e4",
+          "episodeNumber": 4,
+          "season": 1,
+          "title": "S01:E04 • Bulb Jalega Boss",
+          "duration": "43m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/d1w_t7gT86A",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        },
+        {
+          "id": "pit_s1e5",
+          "episodeNumber": 5,
+          "season": 1,
+          "title": "S01:E05 • Where Magic Happens",
+          "duration": "57m",
+          "streamUrl": "https://www.youtube-nocookie.com/embed/0E3Xh69h13c",
+          "qualityHonestBadge": "1080p Full HD",
+          "sourceState": "DIRECT_STREAM_AVAILABLE"
+        }
+      ],
+      "contentId": "series_tvf_pitchers",
+      "isTrailerOnly": false
+    },
+    {
+      "id": "vod_coffee_run_4k",
+      "title": "Coffee Run (4K Ultra HD Open Movie)",
+      "originalTitle": "Coffee Run",
+      "year": 2020,
+      "releaseYear": 2020,
+      "mediaType": "movie",
+      "type": "Animation",
+      "contentType": "MOVIE",
+      "region": "GLOBAL",
+      "categories": [
+        "animation",
+        "comedy",
+        "short",
+        "open_movie"
+      ],
+      "duration": 180,
+      "durationFormatted": "3m (Complete Open Movie)",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "rating": 7.8,
+      "description": "Official Blender Foundation 4K Open Short Film. Fuelling up on caffeine becomes an unexpected high-speed sprint across a chaotic city.",
+      "resolution": "4K Ultra HD (3840x2160)",
+      "codec": "VP9 / WebM",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "languages": [
+        "English"
+      ],
+      "defaultLanguage": "English",
+      "container": "WebM",
+      "license": "Creative Commons Attribution 3.0 (Blender Foundation)",
+      "director": "Hjalti Hjalmarsson",
+      "featured": false,
+      "latest": true,
+      "streamUrl": "https://www.youtube-nocookie.com/embed/PVGeM40dABA",
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/PVGeM40dABA",
+      "torrentUri": null,
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "qualityClass": "4K",
+      "qualityHonestBadge": "4K UHD Short Film",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "posterUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Coffee_Run_poster.png/320px-Coffee_Run_poster.png",
+      "backdropUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Coffee_Run_poster.png/320px-Coffee_Run_poster.png",
+      "isShortFilm": true,
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false
     }
   ]
 }

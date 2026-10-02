@@ -7894,13 +7894,46 @@ const HeroCarouselController = {
 
   refreshItems() {
     const all = CatalogProvider.getAll() || [];
-    const preferredHomeIds = ['vod_12th_fail', 'vod_kalki_2898_ad', 'vod_jawan', 'vod_dangal', 'series_panchayat', 'vod_oppenheimer'];
-    const curatedHome = preferredHomeIds.map(id => CatalogProvider.getById(id)).filter(Boolean);
-    this.homeItems = curatedHome.length >= 3 ? curatedHome : all.slice(0, 6);
+    if (!all || all.length === 0) return;
 
-    const preferredCinemaIds = ['vod_kalki_2898_ad', 'vod_jawan', 'vod_12th_fail', 'vod_oppenheimer', 'vod_dangal', 'series_mirzapur'];
-    const curatedCinema = preferredCinemaIds.map(id => CatalogProvider.getById(id)).filter(Boolean);
-    this.cinemaItems = curatedCinema.length >= 3 ? curatedCinema : all.slice(0, 6);
+    // 24-hour deterministic seed for daily carousel rotation
+    const daySeed = Math.floor(Date.now() / (24 * 60 * 60 * 1000));
+
+    // Filter high-quality candidates suitable for Hero Spotlight
+    const candidates = all.filter(m => {
+      const c = getContentClassification(m);
+      return (c.isCompleteContent || c.isSeries || m.featured || (m.rating && m.rating >= 7.5)) &&
+             (m.backdropUrl || m.posterUrl);
+    });
+
+    const pool = candidates.length >= 12 ? candidates : all;
+
+    // Deterministic rotation per 24 hours
+    const getDailyRotation = (offset, count) => {
+      const selected = [];
+      const total = pool.length;
+      for (let i = 0; i < count; i++) {
+        const itemIdx = (daySeed * 3 + offset + i * 5) % total;
+        const candidate = pool[itemIdx];
+        if (candidate && !selected.some(s => s.id === candidate.id)) {
+          selected.push(candidate);
+        }
+      }
+      let fallbackIdx = 0;
+      while (selected.length < count && fallbackIdx < total) {
+        const candidate = pool[fallbackIdx++];
+        if (candidate && !selected.some(s => s.id === candidate.id)) {
+          selected.push(candidate);
+        }
+      }
+      return selected;
+    };
+
+    // Diverse mix for Home Hero (Blockbusters, Acclaimed Series, Previews)
+    this.homeItems = getDailyRotation(0, 6);
+
+    // Diverse mix for Cinema Hero (Feature films, Masterpieces, Global Cinema)
+    this.cinemaItems = getDailyRotation(7, 6);
   },
 
   renderIndicators(type) {
@@ -13478,41 +13511,76 @@ window.getContentClassification = function(item) {
     };
   }
 
+  // Count playable episodes across seasons and flat episodes
   const hasEpisodes = Array.isArray(item.episodes) && item.episodes.length > 0;
   const hasSeasons = Array.isArray(item.seasons) && item.seasons.length > 0;
-  const isExplicitSeries = (
+
+  let totalEps = 0;
+  let playableEps = 0;
+  let totalSeasons = hasSeasons ? item.seasons.length : (hasEpisodes ? 1 : 0);
+
+  if (hasSeasons) {
+    item.seasons.forEach(s => {
+      if (Array.isArray(s.episodes)) {
+        totalEps += s.episodes.length;
+        s.episodes.forEach(e => {
+          if ((e.streamUrl && e.streamUrl.trim() !== '') || (e.url && e.url.trim() !== '') || (e.sourceState === 'TORRENT_SOURCE_AVAILABLE' && !!item.torrentUri)) {
+            playableEps++;
+          }
+        });
+      }
+    });
+  } else if (hasEpisodes) {
+    totalEps = item.episodes.length;
+    item.episodes.forEach(e => {
+      if ((e.streamUrl && e.streamUrl.trim() !== '') || (e.url && e.url.trim() !== '') || (e.sourceState === 'TORRENT_SOURCE_AVAILABLE' && !!item.torrentUri)) {
+        playableEps++;
+      }
+    });
+  }
+
+  const hasDirectStream = !!(item.streamUrl && item.streamUrl.trim() !== '') || !!item.torrentUri;
+  const hasPlayable = playableEps > 0 || hasDirectStream;
+
+  // Genuine standalone trailer (like trailer_*) or upcoming trailer without playable full episodes/movie
+  const isStandAloneTrailer = (
+    (typeof item.id === 'string' && item.id.startsWith('trailer_')) ||
+    item.filmType === 'OFFICIAL_TRAILER' ||
+    (item.mediaType === 'trailer' && playableEps === 0) ||
+    (item.contentType === 'TRAILER' && playableEps === 0) ||
+    item.type === 'Trailer'
+  );
+
+  const isTrailerOnly = (
+    item.sourceState === 'TRAILER_ONLY' ||
+    item.sourceState === 'UPCOMING_TRAILER' ||
+    item.isTrailerOnly === true
+  ) && (playableEps === 0 && (!item.streamUrl || isStandAloneTrailer));
+
+  const isTrailer = isStandAloneTrailer || isTrailerOnly;
+
+  // Series detection: only when NOT a pure trailer with 0 playable episodes
+  const isExplicitSeriesType = (
     item.mediaType === 'series' ||
     item.contentType === 'SERIES' ||
     item.type === 'Web-Series' ||
     item.type === 'K-Drama' ||
     item.type === 'C-Drama' ||
-    item.type === 'Anime Series'
-  );
-  const isSeries = isExplicitSeries || hasEpisodes || hasSeasons;
-
-  const isExplicitTrailer = !isSeries && (
-    item.mediaType === 'trailer' ||
-    item.contentType === 'TRAILER' ||
-    item.type === 'Trailer' ||
-    (typeof item.id === 'string' && item.id.startsWith('trailer_'))
+    item.type === 'Anime Series' ||
+    (typeof item.id === 'string' && item.id.startsWith('series_'))
   );
 
+  const isSeries = !isTrailer && (isExplicitSeriesType || totalEps > 0 || hasSeasons);
+
+  // If it's a series:
   if (isSeries) {
-    const activeEpisodes = hasEpisodes
-      ? item.episodes.filter(e => (e.streamUrl && e.streamUrl.trim() !== '') || (e.url && e.url.trim() !== ''))
-      : [];
-    const hasPlayable = activeEpisodes.length > 0 || !!(item.streamUrl && item.streamUrl.trim() !== '');
-
-    const numSeasons = hasSeasons ? item.seasons.length : 1;
-    const numEps = hasEpisodes ? item.episodes.length : 0;
-
     let seasonEpLabel = 'Web-Series';
-    if (numSeasons > 1 && numEps > 0) {
-      seasonEpLabel = `${numSeasons} Seasons • ${numEps} Episodes`;
-    } else if (numEps > 0) {
-      seasonEpLabel = `${numEps} Episodes`;
-    } else if (numSeasons > 1) {
-      seasonEpLabel = `${numSeasons} Seasons`;
+    if (totalSeasons > 1 && totalEps > 0) {
+      seasonEpLabel = `${totalSeasons} Seasons • ${totalEps} Episodes`;
+    } else if (totalEps > 0) {
+      seasonEpLabel = `${totalEps} Episodes`;
+    } else if (totalSeasons > 1) {
+      seasonEpLabel = `${totalSeasons} Seasons`;
     }
 
     let badge = '1080p FHD';
@@ -13530,10 +13598,8 @@ window.getContentClassification = function(item) {
       badge = '1080p FHD';
     } else if (qc === 'HD' || qc.includes('720')) {
       badge = '720p HD';
-    } else if (hasPlayable) {
-      badge = '1080p FHD';
     } else {
-      badge = 'Web-Series';
+      badge = '1080p FHD';
     }
 
     return {
@@ -13546,13 +13612,24 @@ window.getContentClassification = function(item) {
       typeLabel: 'Series',
       badgeLabel: badge,
       subtext: seasonEpLabel,
-      seasonsCount: numSeasons,
-      episodesCount: numEps,
-      playableEpisodesCount: activeEpisodes.length
+      seasonsCount: totalSeasons,
+      episodesCount: totalEps,
+      playableEpisodesCount: playableEps
     };
   }
 
-  if (isExplicitTrailer) {
+  // If it's a trailer (including upcoming series teasers):
+  if (isTrailer) {
+    let trailerBadge = 'Official Trailer';
+    const qb = (item.qualityHonestBadge || '').trim();
+    if (qb && qb.toLowerCase().includes('trailer')) {
+      trailerBadge = qb; // e.g. "Trailer (4K)", "Official Trailer"
+    } else if (item.qualityClass === 'Official Trailer') {
+      trailerBadge = 'Official Trailer';
+    } else if (qb) {
+      trailerBadge = qb;
+    }
+
     return {
       kind: 'trailer',
       isSeries: false,
@@ -13561,7 +13638,7 @@ window.getContentClassification = function(item) {
       isCompleteContent: false,
       label: 'Official Trailer',
       typeLabel: 'Trailer',
-      badgeLabel: 'Official Trailer',
+      badgeLabel: trailerBadge,
       subtext: 'Trailer',
       seasonsCount: 0,
       episodesCount: 0,
@@ -13569,13 +13646,9 @@ window.getContentClassification = function(item) {
     };
   }
 
+  // Otherwise it's a Movie (or Short Film)
   const cats = Array.isArray(item.categories) ? item.categories : [];
   const isShort = !!(item.isShortFilm || cats.includes('short') || cats.includes('open_movie'));
-  const isUpcomingOrTrailer = !!(
-    item.isTrailerOnly ||
-    item.sourceState === 'UPCOMING_TRAILER' ||
-    (item.sourceState === 'TRAILER_ONLY' && !item.streamUrl)
-  );
 
   const qb = (item.qualityHonestBadge || '').toLowerCase();
   const qc = (item.qualityClass || '').toUpperCase();
@@ -13583,9 +13656,7 @@ window.getContentClassification = function(item) {
   const sUrl = (item.streamUrl || '').toLowerCase();
 
   let badge = '1080p';
-  if (isUpcomingOrTrailer) {
-    badge = 'Official Trailer';
-  } else if (isShort) {
+  if (isShort) {
     badge = (qb.includes('4k') || qc === '4K' || res.includes('4k')) ? '4K Short' : 'Short Film';
   } else if (qb.includes('4k') || qb.includes('2160') || qc === '4K' || qc === 'UHD' || res.includes('2160') || res.includes('4k') || sUrl.includes('2160p')) {
     badge = '4K UHD';
@@ -13600,15 +13671,15 @@ window.getContentClassification = function(item) {
   }
 
   return {
-    kind: isUpcomingOrTrailer ? 'trailer' : 'movie',
+    kind: 'movie',
     isSeries: false,
     isMovie: true,
-    isTrailer: isUpcomingOrTrailer,
-    isCompleteContent: !isUpcomingOrTrailer && !!item.streamUrl,
-    label: isUpcomingOrTrailer ? 'Official Trailer' : (isShort ? 'Short Film' : 'Cinema'),
-    typeLabel: isShort ? 'Short Film' : (isUpcomingOrTrailer ? 'Trailer' : 'Cinema'),
+    isTrailer: false,
+    isCompleteContent: !!item.streamUrl || !!item.torrentUri,
+    label: isShort ? 'Short Film' : 'Cinema',
+    typeLabel: isShort ? 'Short Film' : 'Cinema',
     badgeLabel: badge,
-    subtext: isShort ? 'Short Film' : (isUpcomingOrTrailer ? 'Trailer' : (item.durationFormatted || (Array.isArray(item.genres) && item.genres[0]) || 'Feature')),
+    subtext: isShort ? 'Short Film' : (item.durationFormatted || (Array.isArray(item.genres) && item.genres[0]) || 'Feature'),
     seasonsCount: 0,
     episodesCount: 0,
     playableEpisodesCount: 0
@@ -13628,7 +13699,7 @@ const CatalogProvider = {
   })(),
   loaded: false,
   async load() {
-    const CURRENT_CATALOG_VERSION = 19;
+    const CURRENT_CATALOG_VERSION = 20;
     try {
       const storedVer = localStorage.getItem('t2l_catalog_version');
       if (storedVer !== String(CURRENT_CATALOG_VERSION)) {
@@ -13711,6 +13782,29 @@ const CatalogProvider = {
           else if (m.categories && m.categories.includes('thrillers')) m.type = 'Thrillers';
           else if (m.categories && m.categories.includes('action')) m.type = 'Action';
           else m.type = 'Open Movies';
+        }
+
+        // Canonical normalization for series
+        const hasS = Array.isArray(m.seasons) && m.seasons.length > 0;
+        const hasE = Array.isArray(m.episodes) && m.episodes.length > 0;
+        let pEps = 0;
+        if (hasS) {
+          m.seasons.forEach(s => {
+            if (Array.isArray(s.episodes)) {
+              s.episodes.forEach(e => {
+                if ((e.streamUrl && e.streamUrl.trim() !== '') || (e.url && e.url.trim() !== '')) pEps++;
+              });
+            }
+          });
+        } else if (hasE) {
+          m.episodes.forEach(e => {
+            if ((e.streamUrl && e.streamUrl.trim() !== '') || (e.url && e.url.trim() !== '')) pEps++;
+          });
+        }
+        if (pEps > 0 && (hasS || hasE)) {
+          m.contentType = 'SERIES';
+          m.mediaType = 'series';
+          m.isTrailerOnly = false;
         }
         return m;
       });

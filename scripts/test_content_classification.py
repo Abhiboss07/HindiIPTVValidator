@@ -21,36 +21,58 @@ def get_content_classification(item):
 
     has_episodes = isinstance(item.get('episodes'), list) and len(item['episodes']) > 0
     has_seasons = isinstance(item.get('seasons'), list) and len(item['seasons']) > 0
-    is_explicit_series = (
+
+    total_eps = 0
+    playable_eps = 0
+    total_seasons = len(item['seasons']) if has_seasons else (1 if has_episodes else 0)
+
+    if has_seasons:
+        for s in item.get('seasons', []):
+            if isinstance(s.get('episodes'), list):
+                total_eps += len(s['episodes'])
+                for e in s['episodes']:
+                    if (e.get('streamUrl') and str(e['streamUrl']).strip()) or (e.get('url') and str(e['url']).strip()) or (e.get('sourceState') == 'TORRENT_SOURCE_AVAILABLE' and item.get('torrentUri')):
+                        playable_eps += 1
+    elif has_episodes:
+        total_eps = len(item['episodes'])
+        for e in item['episodes']:
+            if (e.get('streamUrl') and str(e['streamUrl']).strip()) or (e.get('url') and str(e['url']).strip()) or (e.get('sourceState') == 'TORRENT_SOURCE_AVAILABLE' and item.get('torrentUri')):
+                playable_eps += 1
+
+    has_direct_stream = bool(item.get('streamUrl') and str(item['streamUrl']).strip()) or bool(item.get('torrentUri'))
+    has_playable = playable_eps > 0 or has_direct_stream
+
+    is_standalone_trailer = (
+        (isinstance(item.get('id'), str) and item['id'].startswith('trailer_')) or
+        item.get('filmType') == 'OFFICIAL_TRAILER' or
+        (item.get('mediaType') == 'trailer' and playable_eps == 0) or
+        (item.get('contentType') == 'TRAILER' and playable_eps == 0) or
+        item.get('type') == 'Trailer'
+    )
+
+    is_trailer_only = (
+        item.get('sourceState') in ['TRAILER_ONLY', 'UPCOMING_TRAILER'] or
+        item.get('isTrailerOnly') is True
+    ) and (playable_eps == 0 and (not item.get('streamUrl') or is_standalone_trailer))
+
+    is_trailer = is_standalone_trailer or is_trailer_only
+
+    is_explicit_series_type = (
         item.get('mediaType') == 'series' or
         item.get('contentType') == 'SERIES' or
-        item.get('type') in ['Web-Series', 'K-Drama', 'C-Drama', 'Anime Series']
+        item.get('type') in ['Web-Series', 'K-Drama', 'C-Drama', 'Anime Series'] or
+        (isinstance(item.get('id'), str) and item['id'].startswith('series_'))
     )
-    is_series = is_explicit_series or has_episodes or has_seasons
 
-    is_explicit_trailer = not is_series and (
-        item.get('mediaType') == 'trailer' or
-        item.get('contentType') == 'TRAILER' or
-        item.get('type') == 'Trailer' or
-        (isinstance(item.get('id'), str) and item['id'].startswith('trailer_'))
-    )
+    is_series = not is_trailer and (is_explicit_series_type or total_eps > 0 or has_seasons)
 
     if is_series:
-        active_episodes = [
-            e for e in item.get('episodes', [])
-            if (e.get('streamUrl') and e['streamUrl'].strip()) or (e.get('url') and e['url'].strip())
-        ] if has_episodes else []
-        has_playable = len(active_episodes) > 0 or bool(item.get('streamUrl') and item['streamUrl'].strip())
-
-        num_seasons = len(item['seasons']) if has_seasons else 1
-        num_eps = len(item.get('episodes', [])) if has_episodes else 0
-
-        if num_seasons > 1 and num_eps > 0:
-            season_ep_label = f'{num_seasons} Seasons • {num_eps} Episodes'
-        elif num_eps > 0:
-            season_ep_label = f'{num_eps} Episodes'
-        elif num_seasons > 1:
-            season_ep_label = f'{num_seasons} Seasons'
+        if total_seasons > 1 and total_eps > 0:
+            season_ep_label = f'{total_seasons} Seasons • {total_eps} Episodes'
+        elif total_eps > 0:
+            season_ep_label = f'{total_eps} Episodes'
+        elif total_seasons > 1:
+            season_ep_label = f'{total_seasons} Seasons'
         else:
             season_ep_label = 'Web-Series'
 
@@ -68,10 +90,8 @@ def get_content_classification(item):
             badge = '1080p FHD'
         elif qc in ['HD'] or '720' in qc:
             badge = '720p HD'
-        elif has_playable:
-            badge = '1080p FHD'
         else:
-            badge = 'Web-Series'
+            badge = '1080p FHD'
 
         return {
             'kind': 'series',
@@ -83,12 +103,21 @@ def get_content_classification(item):
             'typeLabel': 'Series',
             'badgeLabel': badge,
             'subtext': season_ep_label,
-            'seasonsCount': num_seasons,
-            'episodesCount': num_eps,
-            'playableEpisodesCount': len(active_episodes)
+            'seasonsCount': total_seasons,
+            'episodesCount': total_eps,
+            'playableEpisodesCount': playable_eps
         }
 
-    if is_explicit_trailer:
+    if is_trailer:
+        trailer_badge = 'Official Trailer'
+        qb = (item.get('qualityHonestBadge') or '').strip()
+        if qb and 'trailer' in qb.lower():
+            trailer_badge = qb
+        elif item.get('qualityClass') == 'Official Trailer':
+            trailer_badge = 'Official Trailer'
+        elif qb:
+            trailer_badge = qb
+
         return {
             'kind': 'trailer',
             'isSeries': False,
@@ -97,7 +126,7 @@ def get_content_classification(item):
             'isCompleteContent': False,
             'label': 'Official Trailer',
             'typeLabel': 'Trailer',
-            'badgeLabel': 'Official Trailer',
+            'badgeLabel': trailer_badge,
             'subtext': 'Trailer',
             'seasonsCount': 0,
             'episodesCount': 0,
@@ -106,20 +135,13 @@ def get_content_classification(item):
 
     cats = item.get('categories') or []
     is_short = bool(item.get('isShortFilm') or 'short' in cats or 'open_movie' in cats)
-    is_upcoming_or_trailer = bool(
-        item.get('isTrailerOnly') or
-        item.get('sourceState') == 'UPCOMING_TRAILER' or
-        (item.get('sourceState') == 'TRAILER_ONLY' and not item.get('streamUrl'))
-    )
 
     qb = (item.get('qualityHonestBadge') or '').lower()
     qc = (item.get('qualityClass') or '').upper()
     res = (item.get('resolution') or '').lower()
     s_url = (item.get('streamUrl') or '').lower()
 
-    if is_upcoming_or_trailer:
-        badge = 'Official Trailer'
-    elif is_short:
+    if is_short:
         badge = '4K Short' if ('4k' in qb or qc == '4K' or '4k' in res) else 'Short Film'
     elif '4k' in qb or '2160' in qb or qc in ['4K', 'UHD'] or '2160' in res or '4k' in res or '2160p' in s_url:
         badge = '4K UHD'
@@ -133,15 +155,15 @@ def get_content_classification(item):
         badge = 'HD'
 
     return {
-        'kind': 'trailer' if is_upcoming_or_trailer else 'movie',
+        'kind': 'movie',
         'isSeries': False,
         'isMovie': True,
-        'isTrailer': is_upcoming_or_trailer,
-        'isCompleteContent': not is_upcoming_or_trailer and bool(item.get('streamUrl')),
-        'label': 'Official Trailer' if is_upcoming_or_trailer else ('Short Film' if is_short else 'Cinema'),
-        'typeLabel': 'Short Film' if is_short else ('Trailer' if is_upcoming_or_trailer else 'Cinema'),
+        'isTrailer': False,
+        'isCompleteContent': bool(item.get('streamUrl') or item.get('torrentUri')),
+        'label': 'Short Film' if is_short else 'Cinema',
+        'typeLabel': 'Short Film' if is_short else 'Cinema',
         'badgeLabel': badge,
-        'subtext': 'Short Film' if is_short else ('Trailer' if is_upcoming_or_trailer else (item.get('durationFormatted') or 'Feature')),
+        'subtext': 'Short Film' if is_short else (item.get('durationFormatted') or 'Feature'),
         'seasonsCount': 0,
         'episodesCount': 0,
         'playableEpisodesCount': 0
@@ -178,9 +200,14 @@ def main():
             if c['isSeries'] and (c['kind'] == 'trailer' or c['isTrailer']):
                 series_classified_as_trailer.append((mid, m.get('title')))
 
-            # Rule 3: Known series must be classified as series
-            if mid.startswith('series_') and not c['isSeries']:
-                movies_classified_as_series.append((mid, m.get('title')))
+            # Rule 3: Playable series must be classified as series, while upcoming teaser series must be classified as trailers
+            if mid.startswith('series_'):
+                if m.get('sourceState') in ['TRAILER_ONLY', 'UPCOMING_TRAILER'] or m.get('isTrailerOnly') is True:
+                    if not c['isTrailer']:
+                        movies_classified_as_series.append((mid, m.get('title'), 'Expected trailer for upcoming teaser'))
+                else:
+                    if not c['isSeries']:
+                        movies_classified_as_series.append((mid, m.get('title'), 'Expected series for complete series'))
 
             # Rule 4: Known complete series must have isCompleteContent=True
             if mid in ['series_gullak', 'series_panchayat', 'series_stranger_things', 'series_mirzapur', 'series_breaking_bad']:
