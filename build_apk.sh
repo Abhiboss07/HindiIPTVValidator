@@ -13,6 +13,7 @@ echo "0️⃣ Syncing Web Assets to android_app/src/main/assets..."
 rm -rf android_app/src/main/assets
 mkdir -p android_app/src/main/assets
 cp -f index.html android_app/src/main/assets/index.html
+[ -f favicon.ico ] && cp -f favicon.ico android_app/src/main/assets/favicon.ico
 cp -rf assets android_app/src/main/assets/
 cp -rf data android_app/src/main/assets/
 [ -f sw.js ] && cp -f sw.js android_app/src/main/assets/

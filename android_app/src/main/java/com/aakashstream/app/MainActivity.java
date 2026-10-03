@@ -195,7 +195,7 @@ public class MainActivity extends Activity {
 
             if ("OPTIONS".equalsIgnoreCase(method)) {
                 String resp = "HTTP/1.1 204 No Content\r\n" +
-                        "Access-Control-Allow-Origin: *\r\n" +
+                        "Access-Control-Allow-Origin: https://appassets.androidplatform.net\r\n" +
                         "Access-Control-Allow-Methods: GET, HEAD, OPTIONS\r\n" +
                         "Access-Control-Allow-Headers: *\r\n" +
                         "Access-Control-Expose-Headers: Content-Range, Content-Length, Accept-Ranges\r\n" +
@@ -292,7 +292,7 @@ public class MainActivity extends Activity {
                 if (artBytes != null) {
                     String resp = "HTTP/1.1 200 OK\r\n" +
                             "Content-Type: image/jpeg\r\n" +
-                            "Access-Control-Allow-Origin: *\r\n" +
+                            "Access-Control-Allow-Origin: https://appassets.androidplatform.net\r\n" +
                             "Cache-Control: max-age=86400\r\n" +
                             "Content-Length: " + artBytes.length + "\r\n\r\n";
                     out.write(resp.getBytes("UTF-8"));
@@ -379,7 +379,7 @@ public class MainActivity extends Activity {
                     }
                     headers.append("Content-Type: ").append(mime).append("\r\n");
                     headers.append("Accept-Ranges: bytes\r\n");
-                    headers.append("Access-Control-Allow-Origin: *\r\n");
+                    headers.append("Access-Control-Allow-Origin: https://appassets.androidplatform.net\r\n");
                     headers.append("Access-Control-Allow-Methods: GET, HEAD, OPTIONS\r\n");
                     headers.append("Access-Control-Allow-Headers: *\r\n");
                     headers.append("Access-Control-Expose-Headers: Content-Range, Content-Length, Accept-Ranges\r\n");
@@ -520,6 +520,39 @@ public class MainActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
+
+        // 120 FPS / High Refresh Rate Optimization for Flagship Chipsets (Snapdragon 8s Gen 4 / Adreno 825)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            try {
+                android.view.Display display = getDisplay();
+                if (display != null) {
+                    android.view.Display.Mode[] modes = display.getSupportedModes();
+                    android.view.Display.Mode maxMode = null;
+                    float maxRate = 60.0f;
+                    for (android.view.Display.Mode m : modes) {
+                        if (m.getRefreshRate() > maxRate) {
+                            maxRate = m.getRefreshRate();
+                            maxMode = m;
+                        }
+                    }
+                    if (maxMode != null) {
+                        WindowManager.LayoutParams lp = getWindow().getAttributes();
+                        lp.preferredDisplayModeId = maxMode.getModeId();
+                        getWindow().setAttributes(lp);
+                        Log.i(TAG, "Unlocked Flagship 120Hz/High Refresh Rate: " + maxRate + "Hz (Mode: " + maxMode.getModeId() + ")");
+                    }
+                }
+            } catch (Exception e) {
+                Log.w(TAG, "Refresh rate unlock: " + e.getMessage());
+            }
+        }
+        if (Build.VERSION.SDK_INT >= 31) {
+            try {
+                java.lang.reflect.Method m = Window.class.getMethod("setFrameRate", float.class, int.class);
+                m.invoke(getWindow(), 120.0f, 0);
+            } catch (Throwable ignored) {}
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             WindowManager.LayoutParams lp = getWindow().getAttributes();
@@ -544,6 +577,47 @@ public class MainActivity extends Activity {
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
         webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+
+        // Modern Android 15/16/17+ Safe-Area Insets Bridge
+        webView.setOnApplyWindowInsetsListener((v, insets) -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                android.graphics.Insets bars = insets.getInsets(WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout());
+                String js = String.format("if (document && document.documentElement && document.documentElement.style) {"
+                        + "document.documentElement.style.setProperty('--safe-top', '%dpx');"
+                        + "document.documentElement.style.setProperty('--safe-bottom', '%dpx');"
+                        + "document.documentElement.style.setProperty('--safe-left', '%dpx');"
+                        + "document.documentElement.style.setProperty('--safe-right', '%dpx');"
+                        + "}",
+                        bars.top, bars.bottom, bars.left, bars.right);
+                webView.evaluateJavascript(js, null);
+            }
+            return insets;
+        });
+
+        // Predictive back gesture support for Android 13+ / 14 / 15 / 16 / 17+
+        if (Build.VERSION.SDK_INT >= 33) {
+            getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+                android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+                () -> {
+                    if (webView != null) {
+                        webView.evaluateJavascript(
+                            "if (window.closeMovieDetails && document.getElementById('movieDetailsModal') && document.getElementById('movieDetailsModal').classList.contains('open')) {"
+                            + " window.closeMovieDetails();"
+                            + "} else if (window.closePlayer && document.getElementById('nativePlayerModal') && document.getElementById('nativePlayerModal').style.display !== 'none') {"
+                            + " window.closePlayer();"
+                            + "} else if (window.history && window.history.length > 1) {"
+                            + " window.history.back();"
+                            + "} else {"
+                            + " finish();"
+                            + "}",
+                            null
+                        );
+                    } else {
+                        finish();
+                    }
+                }
+            );
+        }
 
         setupWebView();
         webView.loadUrl("https://appassets.androidplatform.net/index.html");
@@ -683,7 +757,8 @@ public class MainActivity extends Activity {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
-        settings.setAllowFileAccess(true);
+        settings.setDatabaseEnabled(true);
+        settings.setAllowFileAccess(false);
         settings.setAllowContentAccess(true);
         settings.setAllowFileAccessFromFileURLs(false);
         settings.setAllowUniversalAccessFromFileURLs(false);
@@ -692,6 +767,7 @@ public class MainActivity extends Activity {
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
+        settings.setOffscreenPreRaster(true);
         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
 
         mediaBridge = new AndroidMediaBridge();
@@ -1027,6 +1103,20 @@ public class MainActivity extends Activity {
             }
         }
 
+        private boolean isPrivateOrLoopbackHost(String host) {
+            if (host == null || host.trim().isEmpty()) return true;
+            String h = host.toLowerCase().trim();
+            if (h.equals("localhost") || h.equals("127.0.0.1") || h.equals("::1") || h.endsWith(".local") || h.endsWith(".internal")) {
+                return true;
+            }
+            try {
+                java.net.InetAddress addr = java.net.InetAddress.getByName(h);
+                return addr.isLoopbackAddress() || addr.isSiteLocalAddress() || addr.isLinkLocalAddress() || addr.isAnyLocalAddress();
+            } catch (Exception e) {
+                return false;
+            }
+        }
+
         @JavascriptInterface
         public String fetchRemoteUrl(String urlString) {
             if (urlString == null) return null;
@@ -1037,6 +1127,10 @@ public class MainActivity extends Activity {
             }
             try {
                 java.net.URL url = new java.net.URL(urlString);
+                if (isPrivateOrLoopbackHost(url.getHost())) {
+                    Log.w(TAG, "fetchRemoteUrl blocked SSRF to private/loopback host: " + url.getHost());
+                    return null;
+                }
                 java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setConnectTimeout(10000);
@@ -1132,6 +1226,21 @@ public class MainActivity extends Activity {
                 byte[] data;
                 File f = new File(base64OrPath);
                 if (f.exists() && f.isFile()) {
+                    String canonical = f.getCanonicalPath();
+                    String appFiles = getFilesDir().getCanonicalPath();
+                    File extFiles = getExternalFilesDir(null);
+                    String appExt = extFiles != null ? extFiles.getCanonicalPath() : null;
+                    File cacheDir = getCacheDir();
+                    String appCache = cacheDir != null ? cacheDir.getCanonicalPath() : null;
+
+                    boolean isAllowed = canonical.startsWith(appFiles) ||
+                            (appExt != null && canonical.startsWith(appExt)) ||
+                            (appCache != null && canonical.startsWith(appCache));
+
+                    if (!isAllowed) {
+                        Log.w(TAG, "Rejected unauthorized file path access in startTorrentFromFile: " + canonical);
+                        return "{\"success\":false,\"error\":\"Access denied to path\"}";
+                    }
                     data = java.nio.file.Files.readAllBytes(f.toPath());
                 } else {
                     data = android.util.Base64.decode(base64OrPath, android.util.Base64.DEFAULT);
@@ -2373,6 +2482,7 @@ public class MainActivity extends Activity {
         if (path.endsWith(".css")) return "text/css";
         if (path.endsWith(".json")) return "application/json";
         if (path.endsWith(".png")) return "image/png";
+        if (path.endsWith(".ico")) return "image/x-icon";
         if (path.endsWith(".jpg") || path.endsWith(".jpeg")) return "image/jpeg";
         if (path.endsWith(".webp")) return "image/webp";
         if (path.endsWith(".gif")) return "image/gif";
