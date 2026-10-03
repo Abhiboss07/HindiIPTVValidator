@@ -446,7 +446,7 @@ body {
 .hero-premiere {
   position: relative;
   width: 100%;
-  height: 480px;
+  height: 545px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1010,17 +1010,22 @@ body {
   aspect-ratio: 2 / 3;
   background: var(--t2l-surface-2);
   overflow: hidden;
+  contain: paint layout;
 }
 
 .theatrical-poster-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 220ms ease;
+  object-position: center center;
+  transition: transform 220ms cubic-bezier(0.2, 0, 0, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .theatrical-card:hover .theatrical-poster-img {
-  transform: scale(1.03);
+  transform: scale(1.03) translateZ(0);
 }
 
 .theatrical-info {
@@ -1805,7 +1810,7 @@ body {
    13. RESPONSIVE BREAKPOINTS (320px, 768px, 1024px+)
    ========================================================================== */
 @media (max-width: 360px) {
-  .hero-premiere, .cinema-pavilion-hero { height: 340px; }
+  .hero-premiere, .cinema-pavilion-hero { height: 395px; }
   .hero-title, .cinema-hero-headline { font-size: 24px; }
   .theatrical-horizon-card { flex: 0 0 240px; }
   .theatrical-card { flex: 0 0 120px; }
@@ -1819,7 +1824,7 @@ body {
 }
 
 @media (min-width: 1024px) {
-  .hero-premiere, .cinema-pavilion-hero { height: 480px; }
+  .hero-premiere, .cinema-pavilion-hero { height: 550px; }
   .hero-title, .cinema-hero-headline { font-size: 38px; }
   .theatrical-card { flex: 0 0 180px; }
   .theatrical-horizon-card { flex: 0 0 380px; }
@@ -2433,19 +2438,26 @@ body.obsidian-app-body, body {
   bottom: 80px;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background: rgba(20, 20, 20, 0.95);
+  background: rgba(18, 22, 32, 0.95);
   border: 1px solid var(--border-glass);
   color: #FFFFFF;
   padding: 10px 18px;
-  border-radius: 9999px;
+  border-radius: var(--t2l-radius-pill, 9999px);
   font-size: 13px;
   font-weight: 600;
-  z-index: 1000;
+  z-index: 2000;
   opacity: 0;
   pointer-events: none;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-  white-space: nowrap;
+  white-space: normal;
+  max-width: min(88vw, 420px);
+  width: max-content;
+  text-align: center;
+  word-break: break-word;
+  line-height: 1.4;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .lumina-toast.show {
@@ -3239,7 +3251,7 @@ body.obsidian-app-body, body {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
   background: #000;
   z-index: 2;
 }
@@ -3609,19 +3621,71 @@ body.obsidian-app-body, body {
   opacity: 0;
 }
 
-.obsidian-player-modal.is-embedded-player .vlc-controls-overlay {
-  pointer-events: none !important;
-}
-
-.obsidian-player-modal.is-embedded-player .vlc-top-bar {
-  pointer-events: auto !important;
-}
-
+/* YouTube / Embedded Player Isolation:
+   When playing YouTube content, completely disable and hide our custom video player controls,
+   overlays, bars, buttons, and gesture targets so there is ZERO clash with YouTube native controls (CC, settings, timeline). */
+.obsidian-player-modal.is-embedded-player #playerUiOverlay,
+.obsidian-player-modal.is-embedded-player .vlc-controls-overlay,
+.obsidian-player-modal.is-embedded-player .vlc-top-bar,
 .obsidian-player-modal.is-embedded-player .vlc-bottom-bar,
 .obsidian-player-modal.is-embedded-player .vlc-center-controls,
-.obsidian-player-modal.is-embedded-player .player-seekbar-wrap,
-.obsidian-player-modal.is-embedded-player #playerBrightnessOverlay {
+.obsidian-player-modal.is-embedded-player .vlc-top-actions,
+.obsidian-player-modal.is-embedded-player #playerBrightnessOverlay,
+.obsidian-player-modal.is-embedded-player #playerSwipeHud,
+.obsidian-player-modal.is-embedded-player #playerLockOverlay,
+.obsidian-player-modal.is-embedded-player #playerDoubleTapLeft,
+.obsidian-player-modal.is-embedded-player #playerDoubleTapRight,
+.obsidian-player-modal.is-embedded-player #playerCcBox,
+.obsidian-player-modal.is-embedded-player #playerNextEpBanner,
+.obsidian-player-modal.is-embedded-player #vlcMoreDrawer,
+.obsidian-player-modal.is-embedded-player #vlcMoreDrawerBackdrop,
+.obsidian-player-modal.is-embedded-player .player-brand-watermark {
   display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+.obsidian-player-modal.is-embedded-player #luminaIframe {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 50 !important;
+  pointer-events: auto !important;
+  border: none !important;
+}
+
+/* Dedicated top-left floating Back / Exit pill for embedded player */
+.embedded-player-close-btn {
+  display: none;
+}
+
+.obsidian-player-modal.is-embedded-player .embedded-player-close-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1000 !important;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #FFFFFF;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  pointer-events: auto !important;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.obsidian-player-modal.is-embedded-player .embedded-player-close-btn:active {
+  transform: scale(0.94);
+  background: rgba(15, 23, 42, 1);
 }
 
 /* 1. VLC Top Bar */
@@ -7320,7 +7384,7 @@ body.modal-open-locked {
 #homeHeroSection.hero-premiere {
   position: relative !important;
   width: 100% !important;
-  height: 480px !important;
+  height: 545px !important;
   overflow: hidden !important;
   display: flex !important;
   flex-direction: column !important;
@@ -7333,7 +7397,7 @@ body.modal-open-locked {
   .hero-premiere,
   #cinemaHeroSection.hero-premiere,
   #homeHeroSection.hero-premiere {
-    height: 420px !important;
+    height: 480px !important;
     padding: 20px 16px 24px 16px !important;
   }
 }
@@ -8111,23 +8175,43 @@ button.icon-btn-plain:active {
 
 
 /* ==========================================================
-   SMOOTH HERO CAROUSEL ANIMATIONS
+   SMOOTH HERO CAROUSEL ANIMATIONS & PERFECT POSTER FIT
    ========================================================== */
+.hero-ambient-backdrop {
+  position: absolute;
+  inset: -15px;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
+  object-fit: cover;
+  object-position: center top;
+  filter: blur(28px) brightness(0.28) saturate(1.4);
+  transform: scale(1.1);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
 .hero-backdrop-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  z-index: 1;
+  object-fit: fill;
+  object-position: center top;
+  z-index: 2;
   transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1), transform 850ms cubic-bezier(0.16, 1, 0.3, 1);
+  filter: contrast(1.05) saturate(1.08) drop-shadow(0 12px 28px rgba(0, 0, 0, 0.7));
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   will-change: opacity, transform;
 }
 
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1), transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
