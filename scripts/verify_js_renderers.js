@@ -73,21 +73,21 @@ try {
   const suzumeHtml = renderMovieCard(suzume);
   console.log("\nSuzume Card HTML:");
   console.log(suzumeHtml.trim());
-  // Test Squid Game Season 2 specifically (Upcoming Trailer)
-  const squidS2 = movies.find(m => m.id === 'series_squid_game_s2_2025');
-  const squidS2Classification = getContentClassification(squidS2);
-  const squidS2Html = renderMovieCard(squidS2);
-  console.log("\nSquid Game Season 2 Card HTML:");
-  console.log(squidS2Html.trim());
-  if (!squidS2Classification.isTrailer || squidS2Classification.isSeries) {
-    console.error("FAIL: Squid Game Season 2 must be classified as trailer!");
+  // Test Ramayana / Drishyam 3 specifically (Upcoming Trailer)
+  const trailerTest = movies.find(m => m.id === 'vod_drishyam_3_2026');
+  const trailerClassification = getContentClassification(trailerTest);
+  const trailerHtml = renderMovieCard(trailerTest);
+  console.log("\nDrishyam 3 Card HTML:");
+  console.log(trailerHtml.trim());
+  if (!trailerClassification.isTrailer || trailerClassification.isSeries) {
+    console.error("FAIL: Drishyam 3 must be classified as trailer!");
     process.exit(1);
   }
-  if (!squidS2Html.includes('Trailer (4K)')) {
-    console.error("FAIL: Squid Game Season 2 card must show Trailer (4K) badge!");
+  if (!trailerHtml.includes('Trailer (4K)')) {
+    console.error("FAIL: Drishyam 3 card must show Trailer (4K) badge!");
     process.exit(1);
   }
-  console.log("✅ PASS: Squid Game Season 2 mini-card correctly displays Trailer (4K)");
+  console.log("✅ PASS: Drishyam 3 mini-card correctly displays Trailer (4K)");
 
   // Test Aspirants specifically
   const aspirants = movies.find(m => m.id === 'series_aspirants');

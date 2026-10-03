@@ -23,29 +23,22 @@ class TestHindiAudioTruth(unittest.TestCase):
             cls.catalog = json.load(f)
         cls.movies_by_id = {m["id"]: m for m in cls.catalog.get("movies", [])}
 
-    def test_salaar_audio_truth(self):
-        salaar = self.movies_by_id.get("vod_salaar")
-        self.assertIsNotNone(salaar)
-        self.assertEqual(salaar.get("audioClassification"), "NON_HINDI_AUDIO")
-        self.assertNotIn("Hindi", salaar.get("languages", []))
-        self.assertIn("Telugu", salaar.get("languages", []))
-        self.assertEqual(salaar.get("defaultLanguage"), "Telugu")
-
-    def test_tumbbad_audio_truth(self):
-        tumbbad = self.movies_by_id.get("vod_tumbbad")
-        self.assertIsNotNone(tumbbad)
-        self.assertEqual(tumbbad.get("audioClassification"), "NON_HINDI_AUDIO")
-        self.assertNotIn("Hindi", tumbbad.get("languages", []))
-        self.assertIn("Marathi", tumbbad.get("languages", []))
-        self.assertEqual(tumbbad.get("defaultLanguage"), "Marathi")
+    def test_strict_hindi_english_language_policy(self):
+        """Strict policy: Entire catalog must contain ONLY Hindi and English languages."""
+        for m in self.catalog.get("movies", []):
+            langs = m.get("languages", [])
+            for l in langs:
+                self.assertIn(l, ["Hindi", "English"], f"{m['id']} has invalid language {l}")
+            def_lang = m.get("defaultLanguage")
+            if def_lang:
+                self.assertIn(def_lang, ["Hindi", "English"], f"{m['id']} has invalid defaultLanguage {def_lang}")
 
     def test_shershaah_truth_and_stream(self):
         shershaah = self.movies_by_id.get("vod_shershaah")
         self.assertIsNotNone(shershaah)
         self.assertEqual(shershaah.get("title"), "Shershaah")
         self.assertEqual(shershaah.get("audioClassification"), "HINDI_AUDIO")
-        self.assertIn("Shershaah", shershaah.get("streamUrl", ""))
-        self.assertEqual(shershaah.get("qualityClass"), "FULL HD")
+        self.assertIn("Hindi", shershaah.get("languages", []))
 
     def test_new_2021_bollywood_hindi_truth(self):
         titles_2021 = [

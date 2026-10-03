@@ -28,7 +28,7 @@ class TestAudioLanguageEngine(unittest.TestCase):
                       "Hls MANIFEST_PARSED & AUDIO_TRACKS_UPDATED must call applyPreferredAudioTrack")
 
     def test_non_hindi_audio_catalog_honesty(self):
-        for mid in ["vod_demon_slayer_mugen_train", "series_crash_landing_on_you", "series_death_note"]:
+        for mid in ["series_death_note"]:
             m = next((x for x in self.movies if x["id"] == mid), None)
             self.assertIsNotNone(m, f"{mid} must exist in catalog")
             audio = m.get("audio", {})
@@ -36,6 +36,11 @@ class TestAudioLanguageEngine(unittest.TestCase):
                              f"{mid} must be honestly classified NON_HINDI_AUDIO")
             self.assertFalse(audio.get("hasHindiAudio"),
                              f"{mid} hasHindiAudio must be False")
+
+        # Verify Korean-only series have been completely excised
+        for removed_id in ["series_crash_landing_on_you", "series_descendants_of_the_sun"]:
+            m = next((x for x in self.movies if x["id"] == removed_id), None)
+            self.assertIsNone(m, f"{removed_id} must be excised from catalog")
 
 if __name__ == "__main__":
     unittest.main()
