@@ -1,0 +1,89 @@
+name: T2L Daily Catalog Health & Ingestion Pipeline
+
+on:
+  schedule:
+    # Runs twice daily at 00:00 and 12:00 UTC (every 12 hours)
+    - cron: '0 0,12 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (do not push to repo)'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: write
+
+jobs:
+  auto_maintenance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install Pillow requests
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Run Automation 2: Dead Stream Purger
+        run: |
+          python automation/dead_stream_purger.py
+
+      - name: Run Automation 1: Content Ingestion Pipeline
+        run: |
+          python automation/content_ingestion_pipeline.py
+
+      - name: Check for Catalog or Asset Modifications
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain data/ assets/ android_app/)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in catalog or assets."
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No catalog changes detected. Everything is healthy."
+          fi
+
+      - name: Build and Sign Updated APK
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          bash build_apk.sh
+
+      - name: Commit and Push Changes
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event.inputs.dry_run != 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ android_app/src/main/assets/data/ assets/posters/ android_app/src/main/assets/assets/posters/ T2L.apk T2L.apk.idsig automation/reports/
+          git commit -m "feat(automation): automated catalog health purge and content sync [skip ci]
+
+          - Auto-purge unreachable streams and offline Live TV channels
+          - Synchronize verified content and standardized studio posters
+          - Rebuild and sign production T2L.apk binary
+
+          Co-Authored-By: Claude Code <noreply@anthropic.com>"
+          git push origin main
