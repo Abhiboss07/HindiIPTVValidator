@@ -61,6 +61,8 @@ import java.util.Map;
 import java.util.HashMap;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Environment;
@@ -147,7 +149,7 @@ public class MainActivity extends Activity {
                 localServerSocket = new ServerSocket(0, 50, java.net.InetAddress.getByName("127.0.0.1"));
                 localServerPort = localServerSocket.getLocalPort();
                 isServerRunning = true;
-                serverExecutor = java.util.concurrent.Executors.newFixedThreadPool(4);
+                serverExecutor = java.util.concurrent.Executors.newCachedThreadPool();
                 Log.i(TAG, "LocalMediaServer running on 127.0.0.1:" + localServerPort);
 
                 while (isServerRunning && !localServerSocket.isClosed()) {
@@ -229,6 +231,21 @@ public class MainActivity extends Activity {
             if ("/torrent/stream".equals(path) || "/stream.mp4".equals(path)) {
                 handleTorrentStreamRequest(socket, method, rangeHeader, out);
                 return;
+            }
+
+            if ("/proxy/stream".equals(path) || "/proxy".equals(path)) {
+                String targetUrl = null;
+                int uIdx = uriStr.indexOf("url=");
+                if (uIdx >= 0) {
+                    targetUrl = uriStr.substring(uIdx + 4);
+                    try {
+                        targetUrl = java.net.URLDecoder.decode(targetUrl, "UTF-8");
+                    } catch (Exception ignored) {}
+                }
+                if (targetUrl != null && !targetUrl.isEmpty()) {
+                    handleProxyStreamRequest(socket, method, rangeHeader, out, targetUrl);
+                    return;
+                }
             }
 
             String idStr = params.get("id");
@@ -506,13 +523,176 @@ public class MainActivity extends Activity {
         }
     }
 
+    private boolean isSafeExternalUrl(String urlStr) {
+        if (urlStr == null || urlStr.trim().isEmpty()) return false;
+        try {
+            java.net.URI uri = new java.net.URI(urlStr.trim());
+            String scheme = uri.getScheme();
+            if (scheme == null) return false;
+            if (!"http".equalsIgnoreCase(scheme) && !"https".equalsIgnoreCase(scheme)) {
+                return false;
+            }
+            String host = uri.getHost();
+            if (host == null || host.trim().isEmpty()) return false;
+            host = host.trim().toLowerCase(java.util.Locale.US);
+
+            if (host.equals("localhost") || host.equals("127.0.0.1") || host.equals("::1")
+                    || host.endsWith(".local") || host.endsWith(".internal")) {
+                return false;
+            }
+
+            java.net.InetAddress[] addrs = java.net.InetAddress.getAllByName(host);
+            for (java.net.InetAddress addr : addrs) {
+                if (addr.isLoopbackAddress() || addr.isSiteLocalAddress()
+                        || addr.isLinkLocalAddress() || addr.isMulticastAddress()
+                        || addr.isAnyLocalAddress()) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private void handleProxyStreamRequest(Socket socket, String method, String rangeHeader, OutputStream out, String targetUrl) {
+        HttpURLConnection conn = null;
+        try {
+            if (!isSafeExternalUrl(targetUrl)) {
+                Log.w(TAG, "Rejected unsafe proxy URL: " + targetUrl);
+                String resp = "HTTP/1.1 403 Forbidden\r\nContent-Length: 0\r\n\r\n";
+                out.write(resp.getBytes("UTF-8"));
+                out.flush();
+                socket.close();
+                return;
+            }
+
+            String currentUrl = targetUrl;
+            int redirects = 0;
+            while (redirects < 5) {
+                // If this is an archive.org /download/ link, resolve fast HEAD redirect to get direct storage URL
+                if (currentUrl.contains("archive.org/download/")) {
+                    try {
+                        java.net.URL headUrl = new java.net.URL(currentUrl);
+                        HttpURLConnection headConn = (HttpURLConnection) headUrl.openConnection();
+                        headConn.setInstanceFollowRedirects(false);
+                        headConn.setRequestMethod("HEAD");
+                        headConn.setConnectTimeout(6000);
+                        headConn.setReadTimeout(6000);
+                        headConn.setRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android 14; Pixel 6a) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36 T2L/2.5");
+                        int hCode = headConn.getResponseCode();
+                        if (hCode >= 300 && hCode < 400) {
+                            String loc = headConn.getHeaderField("Location");
+                            if (loc != null && !loc.isEmpty() && isSafeExternalUrl(loc)) {
+                                currentUrl = loc;
+                            }
+                        }
+                        headConn.disconnect();
+                    } catch (Exception ignored) {}
+                }
+
+                java.net.URL url = new java.net.URL(currentUrl);
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod(method.equalsIgnoreCase("HEAD") ? "HEAD" : "GET");
+                conn.setConnectTimeout(10000);
+                conn.setReadTimeout(30000);
+                conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android 14; Pixel 6a) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36 T2L/2.5");
+                conn.setRequestProperty("Accept", "*/*");
+                conn.setRequestProperty("Connection", "keep-alive");
+                if (rangeHeader != null) {
+                    conn.setRequestProperty("Range", rangeHeader);
+                }
+                conn.setInstanceFollowRedirects(false);
+
+                int respCode = conn.getResponseCode();
+                if (respCode >= 300 && respCode < 400) {
+                    String loc = conn.getHeaderField("Location");
+                    if (loc != null && !loc.isEmpty()) {
+                        if (loc.startsWith("/")) {
+                            loc = url.getProtocol() + "://" + url.getHost() + (url.getPort() > 0 ? (":" + url.getPort()) : "") + loc;
+                        }
+                        if (!isSafeExternalUrl(loc)) {
+                            Log.w(TAG, "Rejected unsafe redirect location: " + loc);
+                            break;
+                        }
+                        currentUrl = loc;
+                        conn.disconnect();
+                        redirects++;
+                        continue;
+                    }
+                }
+                break;
+            }
+
+            if (conn == null) {
+                String resp = "HTTP/1.1 502 Bad Gateway\r\nContent-Length: 0\r\n\r\n";
+                out.write(resp.getBytes("UTF-8"));
+                out.flush();
+                return;
+            }
+
+            int respCode = conn.getResponseCode();
+            String contentType = conn.getContentType();
+            String contentRange = conn.getHeaderField("Content-Range");
+            String acceptRanges = conn.getHeaderField("Accept-Ranges");
+            long contentLength = conn.getContentLengthLong();
+
+            StringBuilder headers = new StringBuilder();
+            if (respCode == 206) {
+                headers.append("HTTP/1.1 206 Partial Content\r\n");
+            } else if (respCode >= 200 && respCode < 300) {
+                headers.append("HTTP/1.1 200 OK\r\n");
+            } else {
+                headers.append("HTTP/1.1 ").append(respCode).append(" ").append(conn.getResponseMessage()).append("\r\n");
+            }
+
+            headers.append("Content-Type: ").append(contentType != null ? contentType : "video/mp4").append("\r\n");
+            if (contentRange != null) {
+                headers.append("Content-Range: ").append(contentRange).append("\r\n");
+            }
+            headers.append("Accept-Ranges: ").append(acceptRanges != null ? acceptRanges : "bytes").append("\r\n");
+            if (contentLength >= 0) {
+                headers.append("Content-Length: ").append(contentLength).append("\r\n");
+            }
+            headers.append("Access-Control-Allow-Origin: *\r\n");
+            headers.append("Access-Control-Allow-Methods: GET, HEAD, OPTIONS\r\n");
+            headers.append("Access-Control-Allow-Headers: *\r\n");
+            headers.append("Access-Control-Expose-Headers: Content-Range, Content-Length, Accept-Ranges\r\n");
+            headers.append("Cache-Control: no-cache, no-store\r\n\r\n");
+
+            BufferedOutputStream bos = new BufferedOutputStream(out, 64 * 1024);
+            bos.write(headers.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            bos.flush();
+
+            if (!"HEAD".equalsIgnoreCase(method) && respCode < 400) {
+                try (InputStream inStream = new BufferedInputStream(conn.getInputStream(), 64 * 1024)) {
+                    byte[] buffer = new byte[64 * 1024];
+                    int bytesRead;
+                    while ((bytesRead = inStream.read(buffer)) != -1) {
+                        bos.write(buffer, 0, bytesRead);
+                        bos.flush();
+                    }
+                } catch (IOException clientClosed) {
+                    // Normal client disconnect (e.g. seek or player closed)
+                }
+            }
+        } catch (Exception e) {
+            Log.w(TAG, "Error in handleProxyStreamRequest: " + e.getMessage());
+        } finally {
+            if (conn != null) {
+                try { conn.disconnect(); } catch (Exception ignored) {}
+            }
+            try { socket.close(); } catch (Exception ignored) {}
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
-            WebView.setWebContentsDebuggingEnabled(true);
-        }
+        System.setProperty("java.net.preferIPv4Stack", "true");
+        System.setProperty("java.net.preferIPv6Addresses", "false");
+        WebView.setWebContentsDebuggingEnabled(true);
         startLocalServer();
         torrentEngine = new TorrentEngine(this);
 
@@ -600,18 +780,17 @@ public class MainActivity extends Activity {
                 android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT,
                 () -> {
                     if (webView != null) {
-                        webView.evaluateJavascript(
-                            "if (window.closeMovieDetails && document.getElementById('movieDetailsModal') && document.getElementById('movieDetailsModal').classList.contains('open')) {"
-                            + " window.closeMovieDetails();"
-                            + "} else if (window.closePlayer && document.getElementById('nativePlayerModal') && document.getElementById('nativePlayerModal').style.display !== 'none') {"
-                            + " window.closePlayer();"
-                            + "} else if (window.history && window.history.length > 1) {"
-                            + " window.history.back();"
-                            + "} else {"
-                            + " finish();"
-                            + "}",
-                            null
-                        );
+                        webView.evaluateJavascript("window.handleAndroidBackPressed ? window.handleAndroidBackPressed() : false", value -> {
+                            if ("false".equals(value) || value == null || "null".equals(value)) {
+                                runOnUiThread(() -> {
+                                    if (webView.canGoBack()) {
+                                        webView.goBack();
+                                    } else {
+                                        finish();
+                                    }
+                                });
+                            }
+                        });
                     } else {
                         finish();
                     }
