@@ -9592,9 +9592,9 @@ function loadChannelMedia(ch, autoPlay) {
         uiOverlay.classList.add('hidden-controls');
         uiOverlay.style.display = 'none';
       }
-      if (playerControlsHideTimer) {
-        clearTimeout(playerControlsHideTimer);
-        playerControlsHideTimer = null;
+      if (typeof playerHideTimeout !== 'undefined' && playerHideTimeout) {
+        clearTimeout(playerHideTimeout);
+        playerHideTimeout = null;
       }
       if (videoElement) {
         videoElement.pause();
@@ -9722,12 +9722,18 @@ function loadChannelMedia(ch, autoPlay) {
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
       hideStreamErrorState();
+      if (autoPlay && videoElement.paused) {
+        videoElement.play().catch(() => {});
+      }
     };
     videoElement.onloadedmetadata = () => {
       if (requestId !== currentStreamRequestId) return;
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
       hideStreamErrorState();
+      if (autoPlay && videoElement.paused) {
+        videoElement.play().catch(() => {});
+      }
 
       const topLabel = document.getElementById('vlcTopQualityLabel');
       if (topLabel && (currentVlcQuality === 'auto' || !currentVlcQuality)) {
@@ -9775,6 +9781,9 @@ function loadChannelMedia(ch, autoPlay) {
       clearTimeout(streamWatchdogTimeout);
       hideBufferingSpinner();
       hideStreamErrorState();
+      if (autoPlay && videoElement.paused) {
+        videoElement.play().catch(() => {});
+      }
     };
     videoElement.onerror = () => {
       if (requestId !== currentStreamRequestId) return;
@@ -10155,7 +10164,14 @@ function loadChannelMedia(ch, autoPlay) {
     } catch (eHls) {
       console.warn('HLS init note, falling back to native video:', eHls);
       if (videoElement && streamUrl) {
-        videoElement.src = streamUrl;
+        let finalStreamUrl = streamUrl;
+        if (window.AndroidMedia && typeof window.AndroidMedia.getLocalServerPort === 'function' && !streamUrl.startsWith('http://127.0.0.1')) {
+          const port = window.AndroidMedia.getLocalServerPort();
+          if (port > 0) {
+            finalStreamUrl = `http://127.0.0.1:${port}/proxy/stream?url=` + encodeURIComponent(streamUrl);
+          }
+        }
+        videoElement.src = finalStreamUrl;
         if (autoPlay) videoElement.play().catch(() => {});
       }
     }
@@ -10207,8 +10223,15 @@ function loadChannelMedia(ch, autoPlay) {
 
   } else if (streamUrl) {
     if (videoElement) {
+      let finalStreamUrl = streamUrl;
+      if (window.AndroidMedia && typeof window.AndroidMedia.getLocalServerPort === 'function' && !streamUrl.startsWith('http://127.0.0.1')) {
+        const port = window.AndroidMedia.getLocalServerPort();
+        if (port > 0) {
+          finalStreamUrl = `http://127.0.0.1:${port}/proxy/stream?url=` + encodeURIComponent(streamUrl);
+        }
+      }
       videoElement.preload = 'auto';
-      videoElement.src = streamUrl;
+      videoElement.src = finalStreamUrl;
       
       const onLoaded = function() {
         videoElement.removeEventListener('loadedmetadata', onLoaded);
@@ -10328,7 +10351,7 @@ function loadChannelMedia(ch, autoPlay) {
         startPlayback();
 
         const onWaiting = () => {
-          if (requestId === currentStreamRequestId && videoElement && videoElement.readyState < 3) {
+          if (requestId === currentStreamRequestId && videoElement && videoElement.readyState < 3 && videoElement.paused) {
             showBufferingSpinner();
           }
         };
@@ -10343,7 +10366,6 @@ function loadChannelMedia(ch, autoPlay) {
         };
 
         videoElement.addEventListener('waiting', onWaiting);
-        videoElement.addEventListener('stalled', onWaiting);
         videoElement.addEventListener('canplay', startPlayback, { once: true });
         videoElement.addEventListener('playing', onPlayingSuccess);
       }
@@ -12538,6 +12560,9 @@ function initPlayerOverlayEvents() {
 
   if (videoElement) {
     videoElement.addEventListener('timeupdate', () => {
+      if (!videoElement.paused && videoElement.currentTime > 0) {
+        hideBufferingSpinner();
+      }
       // Dynamic Subtitles & Closed Captions real-time sync
       if (isCCEnabled && typeof updateActiveCueText === 'function') {
         updateActiveCueText();
@@ -14188,13 +14213,20 @@ window.renderMoviesPage = async function() {
       hollywoodRow.innerHTML = rotateContentByDay(list.length > 0 ? list : allMovies.slice(10, 20), 11).map(m => renderMovieCard(m)).join('');
     }
 
-    // Frame 2 (rAF): Rails 6, 7, 8
+    // Frame 2 (rAF): Rails 6, 6B, 7, 8
     requestAnimationFrame(() => {
-      // Rail 6: Anime & Animation
+      // Rail 6: Anime Legends (Hindi Dubbed)
       const animeRow = document.getElementById('moviesAnimeRow');
       if (animeRow) {
-        const list = allMovies.filter(m => m.type === 'Anime' || (m.categories && m.categories.includes('anime')) || (m.type && m.type.includes('Anime')));
-        animeRow.innerHTML = rotateContentByDay(list.length > 0 ? list : allMovies.filter(m => m.genres && m.genres.includes('Animation')), 12).map(m => renderMovieCard(m)).join('');
+        const list = allMovies.filter(m => m.type === 'Anime' || (m.categories && m.categories.includes('anime')) || (m.type && m.type.includes('Anime')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('anime'))));
+        animeRow.innerHTML = rotateContentByDay(list.length > 0 ? list : allMovies.filter(m => m.genres && m.genres.includes('Anime')), 12).map(m => renderMovieCard(m)).join('');
+      }
+
+      // Rail 6B: Cartoon Movies & Animated Features
+      const cartoonsRow = document.getElementById('moviesCartoonsRow');
+      if (cartoonsRow) {
+        const list = allMovies.filter(m => (m.type === 'Animation' || (m.categories && (m.categories.includes('animation') || m.categories.includes('kids') || m.categories.includes('cartoon')))) && m.type !== 'Anime' && !(m.genres && m.genres.some(g => g.toLowerCase().includes('anime'))));
+        cartoonsRow.innerHTML = rotateContentByDay(list.length > 0 ? list : allMovies.filter(m => m.genres && m.genres.includes('Animation')), 15).map(m => renderMovieCard(m)).join('');
       }
 
       // Rail 7: High-Stakes Thrillers & Mystery
@@ -14412,7 +14444,11 @@ window.openCategoryPage = async function(catKey, title, kicker, fromPage) {
   const allMovies = CatalogProvider.getAll();
 
   let filtered = [];
-  if (catKey === 'Shorts' || catKey === 'shorts') {
+  if (catKey === 'Anime' || catKey === 'anime') {
+    filtered = allMovies.filter(m => m.type === 'Anime' || (m.categories && m.categories.includes('anime')) || (m.type && m.type.includes('Anime')) || (m.genres && m.genres.some(g => g.toLowerCase().includes('anime'))));
+  } else if (catKey === 'Cartoons' || catKey === 'cartoons' || catKey === 'animation') {
+    filtered = allMovies.filter(m => (m.type === 'Animation' || (m.categories && (m.categories.includes('animation') || m.categories.includes('kids') || m.categories.includes('cartoon')))) && m.type !== 'Anime' && !(m.genres && m.genres.some(g => g.toLowerCase().includes('anime'))));
+  } else if (catKey === 'Shorts' || catKey === 'shorts') {
     filtered = allMovies.filter(m => m.isShortFilm || (m.categories && (m.categories.includes('short') || m.categories.includes('open_movie'))));
   } else if (catKey === 'Trailers' || catKey === 'trailers') {
     filtered = allMovies.filter(m => getContentClassification(m).isTrailer);
