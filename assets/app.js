@@ -7705,6 +7705,7 @@ if (document.readyState === 'loading') {
 }
 
 const DEFAULT_REMOTE_CATALOG_URL = 'https://raw.githubusercontent.com/Abhiboss07/HindiIPTVValidator/main/data/channels.json';
+const DEFAULT_REMOTE_MOVIES_URL = 'https://raw.githubusercontent.com/Abhiboss07/HindiIPTVValidator/main/data/movies_catalog.json';
 window.isCatalogSyncing = false;
 
 window.syncRemoteCatalog = async function(manualUserTrigger = false) {
@@ -7750,6 +7751,35 @@ window.syncRemoteCatalog = async function(manualUserTrigger = false) {
 
         channelsData = remoteData;
         console.log('🎉 Remote catalog synced successfully! Channels: ' + remoteData.length);
+
+        // Dynamic Over-The-Air Sync for Movies & Series Catalog
+        try {
+          let moviesStr = null;
+          if (window.AndroidMedia && window.AndroidMedia.fetchRemoteUrl) {
+            moviesStr = window.AndroidMedia.fetchRemoteUrl(DEFAULT_REMOTE_MOVIES_URL);
+          }
+          if (!moviesStr) {
+            const mResp = await fetch(DEFAULT_REMOTE_MOVIES_URL, { cache: 'no-store' });
+            if (mResp.ok) moviesStr = await mResp.text();
+          }
+          if (moviesStr) {
+            const parsedM = JSON.parse(moviesStr);
+            const mList = Array.isArray(parsedM) ? parsedM : (parsedM.movies || []);
+            if (mList && mList.length > 50) {
+              localStorage.setItem('t2l_movies_catalog_cache', moviesStr);
+              if (window.movieCatalog) {
+                window.movieCatalog.movies = mList;
+                window.movieCatalog.loaded = true;
+                if (typeof window.movieCatalog._buildIndices === 'function') {
+                  window.movieCatalog._buildIndices();
+                }
+              }
+              console.log('🎉 Dynamic OTA Movies Catalog synced! Titles: ' + mList.length);
+            }
+          }
+        } catch (eMSync) {
+          console.warn('Dynamic OTA Movies Catalog note:', eMSync);
+        }
 
         if (typeof renderAllPages === 'function') {
           renderAllPages();
@@ -13824,6 +13854,19 @@ const CatalogProvider = {
 
     if (this.loaded && this.movies.length > 52) return this.movies;
     let rawList = null;
+
+    // 0. Instant Dynamic OTA Cache from localStorage
+    try {
+      const cachedMStr = localStorage.getItem('t2l_movies_catalog_cache');
+      if (cachedMStr) {
+        const parsedC = JSON.parse(cachedMStr);
+        const cList = Array.isArray(parsedC) ? parsedC : (parsedC.movies || []);
+        if (cList && cList.length > 50) {
+          rawList = cList;
+          console.log('✅ Loaded ' + rawList.length + ' titles from dynamic OTA cache');
+        }
+      }
+    } catch (eCOTA) {}
 
     // 1. Android AssetManager / Native Catalog Bridge
     if (window.AndroidMedia) {
