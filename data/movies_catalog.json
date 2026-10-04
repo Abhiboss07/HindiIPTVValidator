@@ -1,7 +1,7 @@
 {
   "version": 21,
   "updated_at": "2026-10-04 20:05:00",
-  "total_movies": 200,
+  "total_movies": 198,
   "total_series": 0,
   "default_language_filter": "Hindi",
   "movies": [
@@ -2723,87 +2723,6 @@
       "quality": "720p"
     },
     {
-      "id": "vod_kalki_2898_ad",
-      "title": "Kalki 2898 AD",
-      "year": 2024,
-      "duration": 10860,
-      "durationFormatted": "3h 01m",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Mythological"
-      ],
-      "type": "Bollywood",
-      "categories": [
-        "bollywood",
-        "action",
-        "thrillers"
-      ],
-      "rating": 7.6,
-      "description": "In the post-apocalyptic desert world of Kasi in the year 2898 AD, ruled by Supreme Yaskin, a prophesied mother carrying the divine Tenth Avatar of Vishnu is protected by the immortal warrior Ashwatthama against bounty hunter Bhairava.",
-      "posterUrl": "assets/posters/vod_kalki_2898_ad.jpg",
-      "backdropUrl": "assets/posters/vod_kalki_2898_ad.jpg",
-      "resolution": "720p HD",
-      "codec": "H.264 / AVC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "container": "MP4",
-      "fileSize": "1.06 GB",
-      "bitrate": "699 kbps",
-      "fps": "24 FPS",
-      "license": "Theatrical Feature (Full Movie)",
-      "contentSource": "Vyjayanthi Movies",
-      "director": "Nag Ashwin",
-      "cast": "Prabhas, Amitabh Bachchan, Kamal Haasan, Deepika Padukone, Disha Patani",
-      "featured": true,
-      "latest": true,
-      "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/kalki.-2898.-ad.-2024.-hindi.-web-dl.-720p/Kalki.2898.AD.2024.Hindi.WEB-DL.720p.mkv",
-      "backupUrls": [
-        "https://archive.org/download/kalki.-2898.-ad.-2024.-hindi.-web-dl.-720p/Kalki.2898.AD.2024.Hindi.WEB-DL.720p.mkv",
-        "https://archive.org/download/kalki.-2898.-ad.-2024.-hindi.-web-dl.-720p/Kalki.2898.AD.2024.Hindi.WEB-DL.720p.mp4"
-      ],
-      "torrentUri": null,
-      "contentType": "MOVIE",
-      "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/aninoDcPWo4",
-      "mediaType": "movie",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "720p HD",
-      "audioClassification": "HINDI_AUDIO",
-      "metadata": {
-        "originalLanguage": "hi",
-        "spokenLanguages": [
-          "Hindi"
-        ],
-        "countries": [
-          "IN"
-        ]
-      },
-      "audioSwitchingCapability": "NONE",
-      "contentId": "movie_tmdb_801688",
-      "tmdbId": 801688,
-      "imdbId": "tt12735488",
-      "releaseYear": 2024,
-      "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "subtitles": [],
-      "quality": "720p"
-    },
-    {
       "id": "vod_spider_verse",
       "title": "Spider-Man: Into the Spider-Verse",
       "year": 2018,
@@ -4526,87 +4445,6 @@
       "backupUrls": [
         "https://archive.org/download/leo-2023-thalapathy-vijay-lokesh-kanagraj-full-movie-1080p/Leo%282023%29_%20Thalapathy%20Vijay%20_%20Lokesh%20Kanagraj%20_%20Full%20Movie%201080p.mp4"
       ],
-      "isTrailerOnly": false,
-      "subtitles": [],
-      "quality": "1080p"
-    },
-    {
-      "id": "vod_jawan",
-      "title": "Jawan",
-      "year": 2023,
-      "duration": 10140,
-      "durationFormatted": "2h 49m",
-      "genres": [
-        "Action",
-        "Thriller",
-        "Drama"
-      ],
-      "type": "Bollywood",
-      "categories": [
-        "bollywood",
-        "action",
-        "thrillers"
-      ],
-      "rating": 7.0,
-      "description": "A high-octane action thriller outlining the emotional journey of a prison warden driven by a personal vendetta to rectify the wrongs in society, while keeping a promise made years ago to his patriotic father.",
-      "posterUrl": "assets/posters/vod_jawan.jpg",
-      "backdropUrl": "assets/posters/vod_jawan.jpg",
-      "resolution": "1080p Full HD",
-      "codec": "H.264 / AVC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "container": "MP4",
-      "fileSize": "3.37 GB",
-      "bitrate": "2.25 Mbps",
-      "fps": "24 FPS",
-      "license": "Theatrical Feature (Full Movie)",
-      "contentSource": "Red Chillies Entertainment",
-      "director": "Atlee",
-      "cast": "Shah Rukh Khan, Nayanthara, Vijay Sethupathi, Deepika Padukone, Sanya Malhotra",
-      "featured": false,
-      "latest": true,
-      "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/jawan.-2023.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx/Jawan.2023.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D.mp4",
-      "backupUrls": [
-        "https://archive.org/download/jawan.-2023.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx/Jawan.2023.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D_archive.torrent",
-        "https://archive.org/download/jawan.-2023.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx/Jawan.2023.1080p.BluRay.x264.AAC5.1-%5BYTS.MX%5D.mp4"
-      ],
-      "torrentUri": null,
-      "contentType": "MOVIE",
-      "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/k8YiqM0Y-78",
-      "mediaType": "movie",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "1080p FHD",
-      "audioClassification": "HINDI_AUDIO",
-      "metadata": {
-        "originalLanguage": "hi",
-        "spokenLanguages": [
-          "Hindi"
-        ],
-        "countries": [
-          "IN"
-        ]
-      },
-      "audioSwitchingCapability": "NONE",
-      "contentId": "movie_tmdb_872906",
-      "tmdbId": 872906,
-      "imdbId": "tt15354916",
-      "releaseYear": 2023,
-      "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "PLAYABLE",
       "isTrailerOnly": false,
       "subtitles": [],
       "quality": "1080p"

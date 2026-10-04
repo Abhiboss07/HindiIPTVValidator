@@ -14211,7 +14211,7 @@ function renderMovieCard(movie) {
              src="${poster}" 
              alt="${movie.title}" 
              loading="lazy"
-             onerror="this.onerror=null; this.src='assets/placeholder.png';" />
+             onerror="if(!this.dataset.retried && '${poster}'.indexOf('http')!==0){this.dataset.retried='true';this.src='https://raw.githubusercontent.com/Abhiboss07/HindiIPTVValidator/main/' + '${poster}'.replace(/^\/+/, '');}else{this.onerror=null;this.src='assets/placeholder.png';}" />
       </div>
       <div class="theatrical-info">
         <div class="theatrical-title">${movie.title}</div>
