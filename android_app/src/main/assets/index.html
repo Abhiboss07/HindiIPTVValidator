@@ -576,16 +576,28 @@
           <div id="moviesHollywoodRow" class="content-rail-scroll"></div>
         </div>
 
-        <!-- Rail 6: Anime & Animation -->
+        <!-- Rail 6: Anime Legends (Hindi Dubbed) -->
         <div class="content-rail-section">
-          <div class="cinema-shelf-head" onclick="openCategoryPage('Anime', 'Anime & Animation Legends', 'ANIMATED WORLDS', 'movies')" style="cursor: pointer;">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Anime', 'Anime Legends (Hindi Dubbed)', 'HINDI DUBBED ANIME', 'movies')" style="cursor: pointer;">
             <div class="cinema-shelf-title-wrap">
-              <span class="cinema-shelf-kicker">ANIMATED WORLDS</span>
-              <h2 class="cinema-shelf-heading">Anime & Animation</h2>
+              <span class="cinema-shelf-kicker">HINDI DUBBED ANIME</span>
+              <h2 class="cinema-shelf-heading">Anime Legends</h2>
             </div>
-            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Anime', 'Anime & Animation Legends', 'ANIMATED WORLDS', 'movies')">Explore Anime →</span>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Anime', 'Anime Legends (Hindi Dubbed)', 'HINDI DUBBED ANIME', 'movies')">Explore Anime →</span>
           </div>
           <div id="moviesAnimeRow" class="content-rail-scroll"></div>
+        </div>
+
+        <!-- Rail 6B: Cartoon Movies & Animated Features -->
+        <div class="content-rail-section">
+          <div class="cinema-shelf-head" onclick="openCategoryPage('Cartoons', 'Cartoon Movies & Animated Features', 'FAMILY & KIDS ANIMATION', 'movies')" style="cursor: pointer;">
+            <div class="cinema-shelf-title-wrap">
+              <span class="cinema-shelf-kicker">FAMILY & KIDS ANIMATION</span>
+              <h2 class="cinema-shelf-heading">Cartoon Movies</h2>
+            </div>
+            <span class="cinema-shelf-action" onclick="event.stopPropagation(); openCategoryPage('Cartoons', 'Cartoon Movies & Animated Features', 'FAMILY & KIDS ANIMATION', 'movies')">Explore Cartoons →</span>
+          </div>
+          <div id="moviesCartoonsRow" class="content-rail-scroll"></div>
         </div>
 
         <!-- Rail 7: High-Stakes Thrillers & Mystery -->
@@ -1086,11 +1098,6 @@
         <video id="luminaVideo" playsinline webkit-playsinline></video>
         <!-- Dual-Engine Embedded Stream Player -->
         <iframe id="luminaIframe" class="player-iframe" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen style="display: none; width: 100%; height: 100%; border: none; position: absolute; top: 0; left: 0; z-index: 5;"></iframe>
-        <!-- Dedicated Embedded Player Floating Back Button (Active ONLY during YouTube playback, isolated at top-left) -->
-        <button id="embeddedPlayerCloseBtn" class="embedded-player-close-btn" onclick="closePlayerModalCompletely(event)" title="Back / Close">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-            <span>Back</span>
-        </button>
         <div id="playerBrightnessOverlay" class="player-brightness-overlay"></div>
 
         <!-- Cinematic Audio Artwork Visualizer (Shown for songs/radio/audio playback) -->

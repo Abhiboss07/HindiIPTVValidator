@@ -3656,36 +3656,9 @@ body.obsidian-app-body, body {
   border: none !important;
 }
 
-/* Dedicated top-left floating Back / Exit pill for embedded player */
+/* Embedded player styling */
 .embedded-player-close-btn {
-  display: none;
-}
-
-.obsidian-player-modal.is-embedded-player .embedded-player-close-btn {
-  display: inline-flex !important;
-  align-items: center;
-  gap: 6px;
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 1000 !important;
-  background: rgba(15, 23, 42, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  color: #FFFFFF;
-  padding: 8px 14px;
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-  pointer-events: auto !important;
-  transition: transform 0.15s ease, background-color 0.15s ease;
-}
-
-.obsidian-player-modal.is-embedded-player .embedded-player-close-btn:active {
-  transform: scale(0.94);
-  background: rgba(15, 23, 42, 1);
+  display: none !important;
 }
 
 /* 1. VLC Top Bar */
