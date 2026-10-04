@@ -7521,8 +7521,19 @@ window.renderNotificationsList = function() {
   `).join('');
 };
 
+window.updateNotificationBadge = function() {
+  const cleared = localStorage.getItem('t2l_notifications_cleared') === 'true';
+  const dots = document.querySelectorAll('.notification-badge-dot');
+  dots.forEach(dot => {
+    dot.style.display = cleared ? 'none' : 'block';
+  });
+};
+
 window.clearAllNotifications = function() {
   localStorage.setItem('t2l_notifications_cleared', 'true');
+  if (typeof window.updateNotificationBadge === 'function') {
+    window.updateNotificationBadge();
+  }
   renderNotificationsList();
   showToast('Notifications marked as read');
 };
@@ -7538,6 +7549,9 @@ window.exportQuarantinedChannels = function() {
 window.openNotificationsSheet = function() {
   closeHamburger();
   renderNotificationsList();
+  if (typeof window.updateNotificationBadge === 'function') {
+    window.updateNotificationBadge();
+  }
   document.getElementById('notificationsSheet')?.classList.add('is-open');
 };
 window.closeNotificationsSheet = function(e) {
@@ -7600,6 +7614,7 @@ window.closeSettingsModal = function() {
 // APPLICATION INITIALIZATION
 // ==========================================================
 async function initApp() {
+  try { if (typeof window.updateNotificationBadge === 'function') window.updateNotificationBadge(); } catch (e) {}
   try { initPlayerOverlayEvents(); } catch (e) { console.warn('initPlayerOverlayEvents note:', e); }
   try { initPlayerSwipeGestures(); } catch (e) { console.warn('initPlayerSwipeGestures note:', e); }
   try { initMiniPlayerSwipe(); } catch (e) { console.warn('initMiniPlayerSwipe note:', e); }
@@ -7782,6 +7797,8 @@ window.syncRemoteCatalog = async function(manualUserTrigger = false) {
 
               // In-app Notification for newly added content
               if (newItems.length > 0 && prevMovies.length > 0) {
+                localStorage.removeItem('t2l_notifications_cleared');
+                if (typeof window.updateNotificationBadge === 'function') window.updateNotificationBadge();
                 const sampleTitles = newItems.slice(0, 2).map(m => m.title).join(', ');
                 const moreText = newItems.length > 2 ? ' (+' + (newItems.length - 2) + ' more)' : '';
                 showToast('🎉 ' + newItems.length + ' New Titles Added: ' + sampleTitles + moreText + '! 🎬');
