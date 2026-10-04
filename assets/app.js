@@ -7766,6 +7766,10 @@ window.syncRemoteCatalog = async function(manualUserTrigger = false) {
             const parsedM = JSON.parse(moviesStr);
             const mList = Array.isArray(parsedM) ? parsedM : (parsedM.movies || []);
             if (mList && mList.length > 50) {
+              const prevMovies = (window.movieCatalog && window.movieCatalog.movies) ? window.movieCatalog.movies : [];
+              const prevIds = new Set(prevMovies.map(m => m.id));
+              const newItems = mList.filter(m => !prevIds.has(m.id));
+
               localStorage.setItem('t2l_movies_catalog_cache', moviesStr);
               if (window.movieCatalog) {
                 window.movieCatalog.movies = mList;
@@ -7775,6 +7779,16 @@ window.syncRemoteCatalog = async function(manualUserTrigger = false) {
                 }
               }
               console.log('🎉 Dynamic OTA Movies Catalog synced! Titles: ' + mList.length);
+
+              // In-app Notification for newly added content
+              if (newItems.length > 0 && prevMovies.length > 0) {
+                const sampleTitles = newItems.slice(0, 2).map(m => m.title).join(', ');
+                const moreText = newItems.length > 2 ? ' (+' + (newItems.length - 2) + ' more)' : '';
+                showToast('🎉 ' + newItems.length + ' New Titles Added: ' + sampleTitles + moreText + '! 🎬');
+                if (typeof renderAllPages === 'function') {
+                  renderAllPages();
+                }
+              }
             }
           }
         } catch (eMSync) {
