@@ -858,6 +858,9 @@ public class MainActivity extends Activity {
             if (checkSelfPermission(Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
                 perms.add(Manifest.permission.READ_MEDIA_IMAGES);
             }
+            if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                perms.add(Manifest.permission.POST_NOTIFICATIONS);
+            }
             try {
                 if (checkSelfPermission("android.permission.READ_MEDIA_VISUAL_USER_SELECTED") != PackageManager.PERMISSION_GRANTED) {
                     perms.add("android.permission.READ_MEDIA_VISUAL_USER_SELECTED");
@@ -873,6 +876,9 @@ public class MainActivity extends Activity {
             }
             if (checkSelfPermission(Manifest.permission.READ_MEDIA_AUDIO) != PackageManager.PERMISSION_GRANTED) {
                 perms.add(Manifest.permission.READ_MEDIA_AUDIO);
+            }
+            if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                perms.add(Manifest.permission.POST_NOTIFICATIONS);
             }
             if (!perms.isEmpty()) {
                 requestPermissions(perms.toArray(new String[0]), PERMISSIONS_REQUEST_CODE);
@@ -2328,6 +2334,47 @@ public class MainActivity extends Activity {
                     startActivity(intent);
                 } catch (Exception e) {
                     Log.e(TAG, "Failed to open external url: " + e.getMessage());
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void showSystemNotification(String title, String message) {
+            runOnUiThread(() -> {
+                try {
+                    android.app.NotificationManager nm = (android.app.NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    if (nm == null) return;
+                    String channelId = "t2l_content_updates";
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        android.app.NotificationChannel channel = new android.app.NotificationChannel(
+                            channelId, "T2L Content Updates", android.app.NotificationManager.IMPORTANCE_HIGH);
+                        channel.setDescription("New movie, anime, and live stream updates");
+                        channel.enableLights(true);
+                        channel.enableVibration(true);
+                        nm.createNotificationChannel(channel);
+                    }
+                    Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    PendingIntent pi = PendingIntent.getActivity(
+                        MainActivity.this, 0, intent,
+                        PendingIntent.FLAG_UPDATE_CURRENT | (Build.VERSION.SDK_INT >= 31 ? PendingIntent.FLAG_IMMUTABLE : 0));
+
+                    android.app.Notification.Builder builder;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        builder = new android.app.Notification.Builder(MainActivity.this, channelId);
+                    } else {
+                        builder = new android.app.Notification.Builder(MainActivity.this);
+                    }
+                    builder.setContentTitle(title)
+                           .setContentText(message)
+                           .setStyle(new android.app.Notification.BigTextStyle().bigText(message))
+                           .setSmallIcon(R.mipmap.ic_launcher)
+                           .setContentIntent(pi)
+                           .setAutoCancel(true);
+                    nm.notify(1001, builder.build());
+                    Log.i(TAG, "✅ Android System Notification dispatched: " + title);
+                } catch (Exception e) {
+                    Log.e(TAG, "Failed to dispatch system notification: " + e.getMessage());
                 }
             });
         }

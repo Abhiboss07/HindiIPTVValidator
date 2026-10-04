@@ -123,6 +123,17 @@ def audit_and_purge_movies(catalog_data, max_workers=10):
                     print(f"❌ [PURGE SUB-720P] '{title}' ({q}) -> Below 720p minimum threshold")
                     purged_items.append({"id": item.get("id"), "title": title, "type": "movie", "reason": "Strict Quality Gate: Sub-720p rejected"})
                     continue
+
+                # Trailer Lifecycle Gate: Purge trailers older than 2-3 months or pre-September 2026
+                cats = [c.lower() for c in item.get("categories", [])]
+                is_trailer = item.get("isTrailerOnly") or "trailers" in cats or item.get("type") == "Trailers"
+                if is_trailer:
+                    rel_date = item.get("trailerReleaseDate") or item.get("releaseDate") or item.get("addedDate") or "2026-08-01"
+                    if str(rel_date) < "2026-09-01":
+                        print(f"❌ [PURGE OUTDATED TRAILER] '{title}' -> Released before September 2026 ({rel_date})")
+                        purged_items.append({"id": item.get("id"), "title": title, "type": "movie", "reason": f"Trailer Lifecycle: Released before Sep 2026 ({rel_date})"})
+                        continue
+
                 fut = executor.submit(probe_http_stream, url, is_hls=False)
                 tasks.append((item, "movie", None, None, fut))
             elif item_type == "series":

@@ -310,7 +310,18 @@ def ingest_movie_item(catalog_data, movie_candidate):
 
     print(f"\n🎬 [Evaluating Candidate] '{title}' ({movie_candidate.get('year', 'N/A')})...")
 
-    # 1. Recency & Era Validation
+    # 1. Trailer Recency & Lifecycle Policy (~1 month old max, >= Sep 2026)
+    cats = [c.lower() for c in movie_candidate.get('categories', [])]
+    is_trailer = movie_candidate.get('isTrailerOnly') or 'trailers' in cats or movie_candidate.get('type') == 'Trailers'
+    if is_trailer:
+        t_date = movie_candidate.get('trailerReleaseDate') or movie_candidate.get('releaseDate') or '2026-09-01'
+        if str(t_date) < '2026-09-01':
+            print(f"⏭️ [Trailer Filter] '{title}': Trailer released before September 2026 ({t_date}). Rejected.")
+            return False
+        movie_candidate['trailerReleaseDate'] = str(t_date)
+        movie_candidate['addedDate'] = time.strftime('%Y-%m-%d')
+
+    # 2. Recency & Era Validation
     initial_score = compute_candidate_score(movie_candidate)
     if initial_score == -2:
         print(f"⏭️ [Era Filter] '{title}' ({movie_candidate.get('year')}): Pre-2000 title not on iconic classics list. Skipped.")
