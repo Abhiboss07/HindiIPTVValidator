@@ -115,19 +115,35 @@ def audit_and_purge_movies(catalog_data, max_workers=10):
             title = item.get("title", "Untitled")
 
             if item_type == "movie":
-                url = item.get("streamUrl", "")
+                # Strict Quality Gate: reject sub-720p immediately
+                q = str(item.get("quality", "")).lower()
+                res = str(item.get("resolution", "")).lower()
+                url = str(item.get("streamUrl", ""))
+                if any(bad in q or bad in res or bad in url.lower() for bad in ["240p", "360p", "480p", "576p"]):
+                    print(f"❌ [PURGE SUB-720P] '{title}' ({q}) -> Below 720p minimum threshold")
+                    purged_items.append({"id": item.get("id"), "title": title, "type": "movie", "reason": "Strict Quality Gate: Sub-720p rejected"})
+                    continue
                 fut = executor.submit(probe_http_stream, url, is_hls=False)
                 tasks.append((item, "movie", None, None, fut))
             elif item_type == "series":
                 seasons = item.get("seasons", [])
                 ep_count = sum(len(s.get("episodes", [])) for s in seasons)
                 if ep_count == 0:
-                    # Series with no episodes is dead
                     purged_items.append({"title": title, "reason": "Empty series with 0 episodes"})
+                    continue
+                # Reject series if marked sub-720p
+                q = str(item.get("quality", "")).lower()
+                res = str(item.get("resolution", "")).lower()
+                if any(bad in q or bad in res for bad in ["240p", "360p", "480p", "576p"]):
+                    print(f"❌ [PURGE SUB-720P SERIES] '{title}' ({q}) -> Below 720p minimum threshold")
+                    purged_items.append({"id": item.get("id"), "title": title, "type": "series", "reason": "Strict Quality Gate: Sub-720p rejected"})
                     continue
                 for s_idx, season in enumerate(seasons):
                     for e_idx, ep in enumerate(season.get("episodes", [])):
                         url = ep.get("streamUrl", "")
+                        if any(bad in url.lower() for bad in ["240p", "360p", "480p", "576p"]):
+                            print(f"❌ [PURGE SUB-720P EPISODE] '{title}' Ep {e_idx+1} -> Sub-720p rejected")
+                            continue
                         fut = executor.submit(probe_http_stream, url, is_hls=False)
                         tasks.append((item, "series", s_idx, e_idx, fut))
 
