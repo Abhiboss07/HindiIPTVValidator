@@ -1,231 +1,179 @@
 {
-  "timestamp": "2026-10-05 11:13:52",
-  "total_movies_retained": 167,
-  "total_channels_retained": 313,
-  "purged_movies_count": 13,
+  "timestamp": "2026-10-05 20:06:01",
+  "total_movies_retained": 166,
+  "total_channels_retained": 294,
+  "purged_movies_count": 6,
   "purged_channels_count": 19,
   "purged_movies": [
     {
-      "id": "vod_blender_project_gold_2026",
-      "title": "Project Gold: Blender Studio 4K Open Movie (2026)",
+      "id": "vod_jawan_2023",
+      "title": "Jawan (2023)",
       "type": "movie",
       "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
     },
     {
-      "id": "vod_krishna_the_birth_animation",
-      "title": "Krishna: The Birth (Animated Feature)",
+      "id": "vod_kalki_2898_ad_2024",
+      "title": "Kalki 2898 AD (2024)",
       "type": "movie",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/rPqQ4R1Z0fQ?autoplay=1",
-      "reason": "YouTube video deleted/private"
+      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
     },
     {
-      "id": "vod_welcome_2007",
-      "title": "Welcome (2007)",
+      "id": "vod_3_idiots_full",
+      "title": "3 Idiots (2009) - Full Movie",
       "type": "movie",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/a6n3bK_jXW8",
-      "reason": "YouTube video deleted/private"
+      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
     },
     {
-      "id": "vod_chup_chup_ke_2006",
-      "title": "Chup Chup Ke (2006)",
+      "id": "vod_1920_2008",
+      "title": "1920 (2008)",
       "type": "movie",
-      "streamUrl": "https://archive.org/download/chup-chup-ke-2006-dv-drip-x-264-ac-3-5.1...-hon-3y/Chup%20Chup%20Ke%202006%20DvDrip%20x264%20AC3%205.1...Hon3y.mp4",
-      "reason": "HTTP 404 Not Found/Gone"
+      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
     },
     {
-      "id": "vod_hungama_2003",
-      "title": "Hungama (2003) - Full Movie",
+      "id": "vod_darna_mana_hai_2003",
+      "title": "Darna Mana Hai (2003)",
       "type": "movie",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/fA51r_YVqK8",
-      "reason": "YouTube video deleted/private"
+      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
     },
     {
-      "id": "vod_de_dana_dan_2009",
-      "title": "De Dana Dan (2009) - Full Movie",
+      "id": "vod_chhota_bheem_himalayan",
+      "title": "Chhota Bheem: Himalayan Adventure",
       "type": "movie",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/8-W_Gj3Lw3g",
-      "reason": "YouTube video deleted/private"
-    },
-    {
-      "id": "vod_chupke_chupke_1975",
-      "title": "Chupke Chupke (1975) - Full Movie",
-      "type": "movie",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/Xq4-xM3qS6E",
-      "reason": "YouTube video deleted/private"
-    },
-    {
-      "id": "vod_anand_1971",
-      "title": "Anand (1971) - Full Movie",
-      "type": "movie",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/sO_bC6wG3uI",
-      "reason": "YouTube video deleted/private"
-    },
-    {
-      "id": "vod_gol_maal_1979",
-      "title": "Gol Maal (1979) - Full Movie",
-      "type": "movie",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/0Qh_k8wW5oA",
-      "reason": "YouTube video deleted/private"
-    },
-    {
-      "id": "vod_jaane_bhi_do_yaaro",
-      "title": "Jaane Bhi Do Yaaro",
-      "type": "movie",
-      "streamUrl": "https://dn711501.ca.archive.org/0/items/jaane-bhi-do-yaaro-1983-dvdrip/Jaane%20Bhi%20Do%20Yaaro%201983%20DVDrip.mp4",
-      "reason": "URLError: _ssl.c:1064: The handshake operation timed out"
-    },
-    {
-      "id": "vod_charlie_chaplin_the_tramp",
-      "title": "Charlie Chaplin: The Tramp (1915 - 1080p HD Remastered)",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/CharlieChaplinstheTramp19151080p_736/CharlieChaplinstheTramp19151080p_736.mp4",
-      "reason": "HTTP 404 Not Found/Gone"
-    },
-    {
-      "id": "series_kota_factory",
-      "title": "Kota Factory",
-      "type": "series",
-      "reason": "All episodes unreachable"
-    },
-    {
-      "id": "series_pitchers",
-      "title": "TVF Pitchers",
-      "type": "series",
-      "reason": "All episodes unreachable"
+      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
     }
   ],
   "purged_channels": [
     {
-      "id": "colors-cineplex-bollywood",
-      "name": "Colors Cineplex Bollywood",
-      "url": "http://202.70.146.135:8000/play/a058/index.m3u8",
+      "id": "zee-cine-classic",
+      "name": "Zee Cine Classic HD",
+      "url": "https://amg00862-amg00862c8-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c8-amgplt0173/playlist.m3u8",
       "category": "MOVIES",
       "reason": "HTTP 403 Forbidden"
     },
     {
-      "id": "live_ch_684",
-      "name": "Hare Krsna TV",
-      "url": "https://hktv.harekrsnatv.com/HKTV/HKWebApp/manifest.mpd",
+      "id": "zee-comedy-nation",
+      "name": "Zee Comedy Nation HD",
+      "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c5-amgplt0173/playlist.m3u8",
       "category": "ENTERTAINMENT",
-      "reason": "HTTP 200 invalid HLS manifest"
+      "reason": "HTTP 403 Forbidden"
     },
     {
-      "id": "live_ch_284",
-      "name": "Hare Krsna TV",
-      "url": "https://hktv.harekrsnatv.com/HKTV/HKWebApp/manifest.mpd",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 200 invalid HLS manifest"
+      "id": "disney-xd-hd",
+      "name": "Disney XD HD (Action & Toons)",
+      "url": "http://23.237.104.106:8080/USA_DISNEY_XD/index.m3u8",
+      "category": "CARTOONS",
+      "reason": "HTTP 404 Not Found/Gone"
     },
     {
-      "id": "live_ch_35",
-      "name": "Hare Krsna TV",
-      "url": "https://hktv.harekrsnatv.com/HKTV/HKWebApp/manifest.mpd",
+      "id": "live_ch_260",
+      "name": "ET Now [Geo-blocked]",
+      "url": "https://dztlhgid9me95.cloudfront.net/live-tv/Vidgyor/etnow/etnow_master.m3u8",
       "category": "ENTERTAINMENT",
-      "reason": "HTTP 200 invalid HLS manifest"
+      "reason": "HTTP 403 Forbidden"
     },
     {
-      "id": "live_ch_666",
-      "name": "Bharat24",
-      "url": "https://streams.tangotv.in/BHARAT24/ORIGIN/index.m3u8",
+      "id": "live_ch_505",
+      "name": "Times Now Navbharat [Geo-blocked]",
+      "url": "https://dztlhgid9me95.cloudfront.net/live-tv/Vidgyor/navbharat/navbharat_master.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_130",
+      "name": "Times Now [Geo-blocked]",
+      "url": "https://dztlhgid9me95.cloudfront.net/live-tv/Vidgyor/timesnow/timesnow_master.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_137",
+      "name": "Travelxp 4K HDR [Geo-blocked]",
+      "url": "https://deltatesttatasky.akamaized.net/out/i/968284.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_156",
+      "name": "Zee Cine Classic",
+      "url": "https://amg00862-amg00862c8-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c8-amgplt0173/playlist.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_157",
+      "name": "Zee Comedy Nation",
+      "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c5-amgplt0173/playlist.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_158",
+      "name": "Zee Dil Se",
+      "url": "https://amg00862-amg00862c6-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c6-amgplt0173/playlist.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_170",
+      "name": "Zee South Flix",
+      "url": "https://amg00862-amg00862c9-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c9-amgplt0173/playlist.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_594",
+      "name": "Shemaroo Filmi Gaane",
+      "url": "https://prod-runn.cdn.runn.tv/shemaroo/stream/smrfgn/playlist.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_163",
+      "name": "Zee Horror Nights",
+      "url": "https://amg00862-amg00862c7-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c7-amgplt0173/playlist.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_611",
+      "name": "Starnet",
+      "url": "https://5a1178b42cc03.streamlock.net/8220/8220/playlist.m3u8",
       "category": "ENTERTAINMENT",
       "reason": "HTTP 404 Not Found/Gone"
     },
     {
-      "id": "live_ch_474",
-      "name": "NK TV 24x7",
-      "url": "https://nktv.smartstream.video/smartstream-us/nktvplus/nktvplus/chunks.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1082)"
-    },
-    {
-      "id": "live_ch_553",
-      "name": "Vijay Takkar APAC",
-      "url": "https://tglmp01.akamaized.net/out/v1/c1071012b73f4f189b202e1529e8f802/manifest.mpd",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 200 invalid HLS manifest"
-    },
-    {
-      "id": "live_ch_470",
-      "name": "News 24",
-      "url": "http://tvsen5.aynascope.net/News24/index.m3u8",
+      "id": "live_ch_672",
+      "name": "Bansal News",
+      "url": "https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8",
       "category": "NEWS",
-      "reason": "HTTP 404 Not Found/Gone"
+      "reason": "HTTP 401"
     },
     {
-      "id": "live_ch_651",
-      "name": "Goldmines Movies",
-      "url": "https://streams.tangotv.in/GOLDMINEMOVIES/ORIGIN/index.m3u8",
-      "category": "MOVIES",
-      "reason": "HTTP 404 Not Found/Gone"
-    },
-    {
-      "id": "live_ch_636",
-      "name": "VCV [Not 24/7]",
-      "url": "https://5a1178b42cc03.streamlock.net/8210/8210/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 404 Not Found/Gone"
-    },
-    {
-      "id": "live_ch_165",
-      "name": "YRF Music",
-      "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-yrfmusic-xiaomi/playlist.m3u8",
-      "category": "MUSIC",
-      "reason": "HTTP 200 invalid HLS manifest"
-    },
-    {
-      "id": "radio-mirchi-meethi",
-      "name": "Radio Mirchi Meethi Mirchi",
-      "url": "https://drive.uber.radio/uber/bollywoodnow/icecast.audio",
-      "category": "MUSIC",
-      "reason": "HTTP 200 invalid HLS manifest"
-    },
-    {
-      "id": "radio-mirchi-love",
-      "name": "Radio Mirchi Love Bollywood",
-      "url": "https://drive.uber.radio/uber/bollywoodlove/icecast.audio",
-      "category": "MUSIC",
-      "reason": "HTTP 200 invalid HLS manifest"
-    },
-    {
-      "id": "fnf-hindi-radio",
-      "name": "FNF Hindi Radio Hits",
-      "url": "http://192.99.8.192:5032/;stream",
-      "category": "MUSIC",
-      "reason": "HTTP 200 invalid HLS manifest"
-    },
-    {
-      "id": "radio-bollyfm-hd",
-      "name": "Radio BollyFM HD",
-      "url": "http://stream.radiobollyfm.in:8201/hd?t=1526570335",
-      "category": "MUSIC",
-      "reason": "HTTP 200 invalid HLS manifest"
-    },
-    {
-      "id": "bollywood-2000s-hits",
-      "name": "Bollywood 2000s Superhits Radio",
-      "url": "https://drive.uber.radio/uber/bollywood2000s/icecast.audio",
-      "category": "MUSIC",
-      "reason": "HTTP 200 invalid HLS manifest"
-    },
-    {
-      "id": "bbc-world-service-en",
-      "name": "BBC World Service News (English)",
-      "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service",
+      "id": "live_ch_382",
+      "name": "VIP News",
+      "url": "https://live.vipnews24x7.co.in/vipnews24x7/d0dbe915091d400bd8ee7f27f0791303.sdp/playlist.m3u8",
       "category": "NEWS",
-      "reason": "HTTP 200 invalid HLS manifest"
+      "reason": "HTTP 401"
     },
     {
-      "id": "dance-wave-radio",
-      "name": "Dance Wave English Hits",
-      "url": "https://dancewave.online/dance.mp3",
-      "category": "MUSIC",
-      "reason": "HTTP 200 invalid HLS manifest"
+      "id": "live_ch_107",
+      "name": "Bansal News",
+      "url": "https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8",
+      "category": "NEWS",
+      "reason": "HTTP 401"
     },
     {
-      "id": "live_ch_591",
-      "name": "9XM",
-      "url": "https://9xjio.wiseplayout.com/9XM/master.m3u8",
-      "category": "MUSIC",
+      "id": "live_ch_724",
+      "name": "Bansal News",
+      "url": "https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8",
+      "category": "NEWS",
+      "reason": "HTTP 401"
+    },
+    {
+      "id": "live_ch_265",
+      "name": "TNP News",
+      "url": "https://server.thelegitpro.in/tnpnews/tnpnews/index.m3u8",
+      "category": "NEWS",
       "reason": "Exception: The read operation timed out"
     }
   ]

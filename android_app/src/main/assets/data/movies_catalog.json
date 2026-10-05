@@ -1,10 +1,157 @@
 {
   "version": 21,
-  "updated_at": "2026-10-05 11:53:28",
-  "total_movies": 154,
+  "updated_at": "2026-10-05 20:06:06",
+  "total_movies": 151,
   "total_series": 18,
   "default_language_filter": "Hindi",
   "movies": [
+    {
+      "id": "vod_deewaar_1975",
+      "title": "Deewaar (1975)",
+      "originalTitle": "Deewaar",
+      "year": 1975,
+      "releaseYear": 1975,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "classics",
+        "action",
+        "drama",
+        "crime",
+        "bollywood"
+      ],
+      "duration": 10440,
+      "durationFormatted": "2h 54m",
+      "genres": [
+        "Classics",
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "rating": 8.1,
+      "description": "Yash Chopra's defining crime drama written by Salim-Javed. Two impoverished brothers find themselves on opposing sides of the law—one an underworld kingpin (Amitabh Bachchan), the other an upright police inspector (Shashi Kapoor).",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Yash Chopra",
+      "cast": "Amitabh Bachchan, Shashi Kapoor, Nirupa Roy, Parveen Babi, Neetu Singh",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/xuOQqWU2UQA?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/xuOQqWU2UQA",
+      "posterUrl": "assets/posters/vod_deewaar.jpg",
+      "backdropUrl": "assets/posters/vod_deewaar.jpg"
+    },
+    {
+      "id": "vod_ramayana_anime_1993",
+      "title": "Ramayana: The Legend of Prince Rama",
+      "originalTitle": "Ramayana: The Legend of Prince Rama",
+      "year": 1993,
+      "releaseYear": 1993,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "animation",
+        "mythology",
+        "action",
+        "classics"
+      ],
+      "duration": 8100,
+      "durationFormatted": "2h 15m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Action",
+        "Mythology"
+      ],
+      "rating": 9.2,
+      "description": "The timeless Indo-Japanese animated epic co-directed by Yugo Sako and Ram Mohan with Arun Govil voicing Lord Rama. Widely acclaimed as one of the greatest animation masterpieces ever created.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Yugo Sako, Ram Mohan, Koichi Sasaki",
+      "cast": "Arun Govil, Amrish Puri, Shatrughan Sinha",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/gKcOjnDJfzk?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/gKcOjnDJfzk",
+      "posterUrl": "assets/posters/vod_ramayana_the_legend_of_prince_rama.jpg",
+      "backdropUrl": "assets/posters/vod_ramayana_the_legend_of_prince_rama.jpg"
+    },
+    {
+      "id": "vod_bal_ganesh_2007",
+      "title": "Bal Ganesh",
+      "originalTitle": "Bal Ganesh",
+      "year": 2007,
+      "releaseYear": 2007,
+      "mediaType": "movie",
+      "type": "Cartoons",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "animation",
+        "cartoons",
+        "family",
+        "mythology"
+      ],
+      "duration": 6120,
+      "durationFormatted": "1h 42m",
+      "genres": [
+        "Animation",
+        "Family",
+        "Mythology"
+      ],
+      "rating": 7.2,
+      "description": "Charming 3D animated feature chronicling the mischievous childhood adventures, courage, and divine wisdom of the elephant-headed deity Lord Ganesh.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Pankaj Sharma",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/Jw2efcyES-E?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Jw2efcyES-E",
+      "posterUrl": "assets/posters/vod_bal_ganesh.jpg",
+      "backdropUrl": "assets/posters/vod_bal_ganesh.jpg"
+    },
     {
       "id": "vod_uri_the_surgical_strike",
       "title": "Uri: The Surgical Strike (2019)",
@@ -395,109 +542,6 @@
       "qualityClass": "HD",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "isTrailerOnly": false
-    },
-    {
-      "id": "vod_jawan_2023",
-      "title": "Jawan (2023)",
-      "originalTitle": "Jawan",
-      "year": 2023,
-      "releaseYear": 2023,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "action",
-        "thriller",
-        "bollywood"
-      ],
-      "duration": 10140,
-      "durationFormatted": "2h 49m",
-      "genres": [
-        "Action",
-        "Thriller"
-      ],
-      "rating": 7.0,
-      "description": "A prison warden recruits inmates to commit outrageous acts of vigilante justice across India to reform society.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Atlee",
-      "cast": "Shah Rukh Khan, Nayanthara, Vijay Sethupathi, Deepika Padukone",
-      "streamUrl": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/MWOlnZSnXJo",
-      "posterUrl": "assets/posters/vod_jawan_2023.jpg",
-      "backdropUrl": "assets/posters/vod_jawan_2023.jpg",
-      "sourceState": "TRAILER_ONLY",
-      "isTrailerOnly": true,
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer"
-    },
-    {
-      "id": "vod_kalki_2898_ad_2024",
-      "title": "Kalki 2898 AD (2024)",
-      "originalTitle": "Kalki 2898 AD",
-      "year": 2024,
-      "releaseYear": 2024,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "sci-fi",
-        "action",
-        "fantasy",
-        "bollywood"
-      ],
-      "duration": 10800,
-      "durationFormatted": "3h 00m",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Fantasy"
-      ],
-      "rating": 7.6,
-      "description": "A modern avatar of Vishnu descends to Earth to protect the world from evil forces in a dystopian 2898 AD.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi",
-          "Telugu"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Nag Ashwin",
-      "cast": "Prabhas, Amitabh Bachchan, Deepika Padukone, Kamal Haasan",
-      "streamUrl": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/kQDd1AhGIHk",
-      "posterUrl": "assets/posters/vod_kalki_2898_ad_2024.jpg",
-      "backdropUrl": "assets/posters/vod_kalki_2898_ad_2024.jpg",
-      "sourceState": "TRAILER_ONLY",
-      "isTrailerOnly": true,
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer"
     },
     {
       "id": "vod_cosmos_laundromat_2k",
@@ -8610,59 +8654,6 @@
       ]
     },
     {
-      "id": "vod_3_idiots_full",
-      "title": "3 Idiots (2009) - Full Movie",
-      "originalTitle": "3 Idiots",
-      "year": 2009,
-      "releaseYear": 2009,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "comedy",
-        "drama"
-      ],
-      "duration": "2h 50m",
-      "durationFormatted": "2h 50m",
-      "genres": [
-        "Comedy",
-        "Drama"
-      ],
-      "rating": 8.4,
-      "description": "Two friends search for their long-lost college companion while recounting their days in elite engineering school and the friend who inspired them to think differently.",
-      "resolution": "1080p Full HD",
-      "codec": "H.264",
-      "audio": "Hindi (Stereo)",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "container": "MP4 (YouTube Stream)",
-      "director": "Rajkumar Hirani",
-      "cast": [
-        "Aamir Khan",
-        "R. Madhavan",
-        "Sharman Joshi",
-        "Kareena Kapoor",
-        "Boman Irani"
-      ],
-      "streamUrl": null,
-      "sourceState": "TRAILER_ONLY",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "posterUrl": "assets/posters/vod_3_idiots_full.jpg",
-      "filmType": "FULL_FEATURE",
-      "isTrailerOnly": true,
-      "subtitles": [],
-      "sourceStatus": "PLAYABLE",
-      "quality": "1080p",
-      "backdropUrl": "assets/posters/vod_3_idiots_full.jpg",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/xvszmNXdM4w"
-    },
-    {
       "id": "vod_the_general_720p",
       "title": "The General (720p HD)",
       "originalTitle": "The General",
@@ -9607,65 +9598,6 @@
       "sourceStatus": "PLAYABLE"
     },
     {
-      "id": "vod_1920_2008",
-      "title": "1920 (2008)",
-      "originalTitle": "1920",
-      "year": 2008,
-      "releaseYear": 2008,
-      "mediaType": "movie",
-      "contentType": "MOVIE",
-      "type": "Bollywood",
-      "region": "IN",
-      "categories": [
-        "horror",
-        "mystery",
-        "drama",
-        "bollywood"
-      ],
-      "duration": 8340,
-      "durationFormatted": "2h 19m",
-      "genres": [
-        "Horror",
-        "Mystery",
-        "Drama"
-      ],
-      "rating": 7.4,
-      "description": "An architect moves into a deserted mansion in 1920 with his wife, who soon falls victim to violent demonic possession by an ancient tormented soul.",
-      "resolution": "1080p Full HD (1920x1080)",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "container": "MP4 (YouTube Master)",
-      "director": "Vikram Bhatt",
-      "cast": "Rajneesh Duggal, Adah Sharma, Indraneil Sengupta, Anjori Alagh",
-      "featured": true,
-      "latest": false,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/NdsvGnBRR-A",
-      "sourceState": "TRAILER_ONLY",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "posterUrl": "assets/posters/vod_1920_2008.jpg",
-      "backdropUrl": "assets/posters/vod_1920_2008.jpg",
-      "audioSwitchingCapability": "NONE",
-      "subtitles": [],
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": true
-    },
-    {
       "id": "vod_ragini_mms_2011",
       "title": "Ragini MMS (2011)",
       "originalTitle": "Ragini MMS",
@@ -10072,65 +10004,6 @@
       "sourceStatus": "PLAYABLE"
     },
     {
-      "id": "vod_darna_mana_hai_2003",
-      "title": "Darna Mana Hai (2003)",
-      "originalTitle": "Darna Mana Hai",
-      "year": 2003,
-      "releaseYear": 2003,
-      "mediaType": "movie",
-      "contentType": "MOVIE",
-      "type": "Bollywood",
-      "region": "IN",
-      "categories": [
-        "horror",
-        "mystery",
-        "thriller",
-        "bollywood"
-      ],
-      "duration": 7320,
-      "durationFormatted": "2h 02m",
-      "genres": [
-        "Horror",
-        "Mystery",
-        "Thriller"
-      ],
-      "rating": 7.3,
-      "description": "Seven friends stranded in a dark forest take refuge in a deserted house and narrate spine-chilling horror stories, only to be eliminated one by one.",
-      "resolution": "1080p Full HD (1920x1080)",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "container": "MP4 (YouTube Stream)",
-      "director": "Prawaal Raman",
-      "cast": "Saif Ali Khan, Vivek Oberoi, Nana Patekar, Shilpa Shetty, Boman Irani",
-      "featured": false,
-      "latest": false,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/dYmYu0mHp3s",
-      "sourceState": "TRAILER_ONLY",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "posterUrl": "assets/posters/vod_darna_mana_hai_2003.jpg",
-      "backdropUrl": "assets/posters/vod_darna_mana_hai_2003.jpg",
-      "audioSwitchingCapability": "NONE",
-      "subtitles": [],
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": true
-    },
-    {
       "id": "vod_special_26_2013",
       "title": "Special 26 (2013)",
       "originalTitle": "Special 26",
@@ -10532,61 +10405,6 @@
       "subtitles": [],
       "sourceStatus": "PLAYABLE",
       "quality": "1080p"
-    },
-    {
-      "id": "vod_chhota_bheem_himalayan",
-      "title": "Chhota Bheem: Himalayan Adventure",
-      "originalTitle": "Chhota Bheem: Himalayan Adventure",
-      "year": 2016,
-      "releaseYear": 2016,
-      "mediaType": "movie",
-      "type": "Animation",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "animation",
-        "action",
-        "adventure",
-        "kids"
-      ],
-      "duration": "1h 37m",
-      "durationFormatted": "1h 37m",
-      "genres": [
-        "Animation",
-        "Adventure",
-        "Action"
-      ],
-      "rating": 7.0,
-      "description": "Bheem and his friends travel to Manali for ski vacations and face Hidimbak, an evil villain trying to take over the kingdom.",
-      "resolution": "1080p Full HD",
-      "codec": "H.264",
-      "audio": "Hindi (Stereo)",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "container": "MP4",
-      "director": "Rajiv Chilaka",
-      "cast": [
-        "Sonal Kaushal",
-        "Rupa Bhimani"
-      ],
-      "streamUrl": null,
-      "backupUrls": [
-        "https://www.youtube-nocookie.com/embed/C_71wESqWR0"
-      ],
-      "sourceState": "TRAILER_ONLY",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "posterUrl": "assets/posters/vod_chhota_bheem_himalayan.jpg",
-      "backdropUrl": "assets/posters/vod_chhota_bheem_himalayan.jpg",
-      "filmType": "FULL_FEATURE",
-      "isTrailerOnly": true,
-      "subtitles": [],
-      "sourceStatus": "PLAYABLE",
-      "quality": "1080p",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/C_71wESqWR0"
     },
     {
       "id": "vod_chutney_short",
@@ -13003,18 +12821,6 @@
               "title": "S01:E31 • Transfer",
               "duration": "23m",
               "streamUrl": "https://archive.org/download/death-note-complete-2006-2007/E31%20-%20Transfer.mp4",
-              "sourceState": "DIRECT_STREAM_AVAILABLE",
-              "qualityHonestBadge": "720p HD",
-              "qualityClass": "HD",
-              "episodeType": "full_episode"
-            },
-            {
-              "id": "dn_s1_e32",
-              "season": 1,
-              "episodeNumber": 32,
-              "title": "S01:E32 • Selection",
-              "duration": "23m",
-              "streamUrl": "https://archive.org/download/death-note-complete-2006-2007/E32%20-%20Selection.mp4",
               "sourceState": "DIRECT_STREAM_AVAILABLE",
               "qualityHonestBadge": "720p HD",
               "qualityClass": "HD",
