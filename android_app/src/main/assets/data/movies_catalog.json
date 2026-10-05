@@ -8241,7 +8241,8 @@
         "animation",
         "scifi",
         "action",
-        "open_movie"
+        "open_movie",
+        "short_film"
       ],
       "duration": 180,
       "durationFormatted": "3m (Complete Open Movie)",
