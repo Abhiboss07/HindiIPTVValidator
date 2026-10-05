@@ -5,7 +5,13 @@ cd "$(dirname "$0")"
 
 SDK_DIR="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/home/abhiboss/Android/Sdk}}"
 BUILD_TOOLS="$SDK_DIR/build-tools/35.0.0"
+if [ ! -d "$BUILD_TOOLS" ]; then
+  BUILD_TOOLS=$(find "$SDK_DIR/build-tools" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | sort -V | tail -n 1)
+fi
 PLATFORM="$SDK_DIR/platforms/android-35/android.jar"
+if [ ! -f "$PLATFORM" ]; then
+  PLATFORM=$(find "$SDK_DIR/platforms" -name "android.jar" 2>/dev/null | sort -V | tail -n 1)
+fi
 
 echo "🚀 Building T2L (Television to Live) APK..."
 

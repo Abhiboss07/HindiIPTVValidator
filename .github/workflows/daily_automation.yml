@@ -1,6 +1,6 @@
 name: T2L Daily Catalog Health & Ingestion Pipeline
 
-on:
+'on':
   schedule:
     # Runs twice daily at 00:00 and 12:00 UTC (every 12 hours)
     - cron: '0 0,12 * * *'
@@ -49,18 +49,23 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Run Automation 2: Dead Stream Purger
+      - name: Accept Android Licenses & Ensure SDK Packages
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager "build-tools;35.0.0" "platforms;android-35" || true
+
+      - name: "Run Automation 2: Dead Stream Purger"
         run: |
           python automation/dead_stream_purger.py
 
-      - name: Run Automation 1: Content Ingestion Pipeline
+      - name: "Run Automation 1: Content Ingestion Pipeline"
         run: |
           python automation/content_ingestion_pipeline.py
 
       - name: Check for Catalog or Asset Modifications
         id: check_changes
         run: |
-          if [ -n "$(git status --porcelain data/ assets/ android_app/)" ]; then
+          if [ -n "$(git status --porcelain data/ assets/ android_app/ automation/)" ]; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
             echo "Changes detected in catalog or assets."
           else
@@ -74,16 +79,21 @@ jobs:
           bash build_apk.sh
 
       - name: Commit and Push Changes
-        if: steps.check_changes.outputs.has_changes == 'true' && github.event.inputs.dry_run != 'true'
+        if: steps.check_changes.outputs.has_changes == 'true' && inputs.dry_run != 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ android_app/src/main/assets/data/ assets/posters/ android_app/src/main/assets/assets/posters/ T2L.apk T2L.apk.idsig automation/reports/
-          git commit -m "feat(automation): automated catalog health purge and content sync [skip ci]
+          git add -A data/ assets/ android_app/ automation/
+          [ -f T2L.apk ] && git add -f T2L.apk
+          [ -f T2L.apk.idsig ] && git add -f T2L.apk.idsig
+          [ -f AakashStream.apk ] && git add -f AakashStream.apk
+          if ! git diff --staged --quiet; then
+            git commit -m "feat(automation): automated catalog health purge and content sync [skip ci]
 
           - Auto-purge unreachable streams and offline Live TV channels
           - Synchronize verified content and standardized studio posters
           - Rebuild and sign production T2L.apk binary
 
           Co-Authored-By: Claude Code <noreply@anthropic.com>"
-          git push origin main
+            git push origin main
+          fi

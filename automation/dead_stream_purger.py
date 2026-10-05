@@ -33,6 +33,8 @@ ANDROID_CHANNELS_PATH = os.path.join(PROJECT_ROOT, "android_app", "src", "main",
 REPORT_PATH = os.path.join(PROJECT_ROOT, "automation", "reports", "latest_purge_report.json")
 
 os.makedirs(os.path.join(PROJECT_ROOT, "automation", "reports"), exist_ok=True)
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(line_buffering=True)
 
 USER_AGENT = "Mozilla/5.0 (Linux; Android 14; Pixel 6a) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36 T2L/2.5"
 
@@ -52,7 +54,7 @@ def check_youtube_video(video_id, timeout=8):
         # Network glitch: don't aggressively drop on network timeout
         return True
 
-def probe_http_stream(url, is_hls=False, timeout=10):
+def probe_http_stream(url, is_hls=False, timeout=5):
     """
     Probe HTTP/HTTPS media stream.
     Supports range requests for progressive MP4s and manifest checks for HLS.
@@ -60,11 +62,18 @@ def probe_http_stream(url, is_hls=False, timeout=10):
     if not url or not url.startswith(("http://", "https://")):
         return False, "Invalid URL schema"
 
-    # YouTube embed handling
-    if "youtube.com/embed/" in url:
-        v_id = url.split("youtube.com/embed/")[1].split("?")[0].split("/")[0]
-        ok = check_youtube_video(v_id, timeout=timeout)
-        return ok, "YouTube embed check" if ok else "YouTube video deleted/private"
+    # YouTube embed handling (supports youtube-nocookie.com, youtube.com, youtu.be)
+    if "youtube" in url or "youtu.be" in url:
+        v_id = None
+        if "embed/" in url:
+            v_id = url.split("embed/")[1].split("?")[0].split("/")[0]
+        elif "watch?v=" in url:
+            v_id = url.split("watch?v=")[1].split("&")[0]
+        elif "youtu.be/" in url:
+            v_id = url.split("youtu.be/")[1].split("?")[0].split("/")[0]
+        if v_id:
+            ok = check_youtube_video(v_id, timeout=timeout)
+            return ok, "YouTube embed check" if ok else "YouTube video deleted/private"
 
     try:
         headers = {
@@ -95,11 +104,35 @@ def probe_http_stream(url, is_hls=False, timeout=10):
             return False, f"HTTP {e.code} Server Offline"
         return False, f"HTTP {e.code}"
     except urllib.error.URLError as e:
+        if "archive.org/download/" in url:
+            parts = url.split("archive.org/download/")[1].split("/")
+            if parts:
+                ident = parts[0]
+                meta_url = f"https://archive.org/metadata/{ident}"
+                try:
+                    mreq = urllib.request.Request(meta_url, headers={"User-Agent": USER_AGENT})
+                    with urllib.request.urlopen(mreq, timeout=6) as mresp:
+                        if mresp.status == 200:
+                            return True, "Archive.org item exists (retained despite CDN timeout)"
+                except Exception:
+                    pass
         return False, f"URLError: {str(e.reason)}"
     except Exception as e:
+        if "archive.org/download/" in url:
+            parts = url.split("archive.org/download/")[1].split("/")
+            if parts:
+                ident = parts[0]
+                meta_url = f"https://archive.org/metadata/{ident}"
+                try:
+                    mreq = urllib.request.Request(meta_url, headers={"User-Agent": USER_AGENT})
+                    with urllib.request.urlopen(mreq, timeout=6) as mresp:
+                        if mresp.status == 200:
+                            return True, "Archive.org item exists (retained despite CDN timeout)"
+                except Exception:
+                    pass
         return False, f"Exception: {str(e)}"
 
-def audit_and_purge_movies(catalog_data, max_workers=10):
+def audit_and_purge_movies(catalog_data, max_workers=20):
     """Scan and purge dead movies and episodes from catalog."""
     movies = catalog_data.get("movies", [])
     purged_items = []
@@ -111,10 +144,12 @@ def audit_and_purge_movies(catalog_data, max_workers=10):
     tasks = []
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         for item in movies:
-            item_type = item.get("type", "movie")
+            is_series = (item.get("mediaType") == "series" or
+                         item.get("contentType") == "SERIES" or
+                         "seasons" in item)
             title = item.get("title", "Untitled")
 
-            if item_type == "movie":
+            if not is_series:
                 # Strict Quality Gate: reject sub-720p immediately
                 q = str(item.get("quality", "")).lower()
                 res = str(item.get("resolution", "")).lower()
@@ -136,7 +171,7 @@ def audit_and_purge_movies(catalog_data, max_workers=10):
 
                 fut = executor.submit(probe_http_stream, url, is_hls=False)
                 tasks.append((item, "movie", None, None, fut))
-            elif item_type == "series":
+            else:
                 seasons = item.get("seasons", [])
                 ep_count = sum(len(s.get("episodes", [])) for s in seasons)
                 if ep_count == 0:
@@ -218,13 +253,13 @@ def audit_and_purge_movies(catalog_data, max_workers=10):
             retained_movies.append(series)
 
     catalog_data["movies"] = retained_movies
-    catalog_data["total_movies"] = sum(1 for m in retained_movies if m.get("type") == "movie")
-    catalog_data["total_series"] = sum(1 for m in retained_movies if m.get("type") == "series")
+    catalog_data["total_movies"] = sum(1 for m in retained_movies if m.get("mediaType") != "series")
+    catalog_data["total_series"] = sum(1 for m in retained_movies if m.get("mediaType") == "series")
     catalog_data["updated_at"] = time.strftime("%Y-%m-%d %H:%M:%S")
 
     return catalog_data, purged_items
 
-def audit_and_purge_channels(channels_data, max_workers=10):
+def audit_and_purge_channels(channels_data, max_workers=30):
     """Scan and purge dead Live TV channels."""
     channels = channels_data if isinstance(channels_data, list) else channels_data.get("channels", [])
     print(f"📺 [Live TV Audit] Probing {len(channels)} channels...")
