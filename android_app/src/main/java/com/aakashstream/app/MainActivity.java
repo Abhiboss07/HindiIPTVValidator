@@ -2368,7 +2368,9 @@ public class MainActivity extends Activity {
                     builder.setContentTitle(title)
                            .setContentText(message)
                            .setStyle(new android.app.Notification.BigTextStyle().bigText(message))
-                           .setSmallIcon(R.mipmap.ic_launcher)
+                           .setSmallIcon(R.drawable.ic_notification_t2l)
+                           .setColor(0xFF38BDF8)
+                           .setColorized(false)
                            .setContentIntent(pi)
                            .setAutoCancel(true);
                     nm.notify(1001, builder.build());
