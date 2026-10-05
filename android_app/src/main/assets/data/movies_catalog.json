@@ -350,8 +350,8 @@
         "classics",
         "bollywood"
       ],
-      "duration": 8400,
-      "durationFormatted": "2h 20m",
+      "duration": 8990,
+      "durationFormatted": "2h 30m (Full Movie)",
       "genres": [
         "Romance",
         "Drama",
@@ -359,8 +359,8 @@
       ],
       "rating": 8.1,
       "description": "A timeless rural romance between Chandan and Gunja set across the eastern banks of the river in Uttar Pradesh. The legendary Rajshri musical masterpiece adapted from Keshav Prasad Mishra's novel Kohbar Ki Shart.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p",
+      "resolution": "720p HD",
+      "quality": "720p",
       "codec": "H.264 / AAC",
       "audio": {
         "classification": "HINDI_AUDIO",
@@ -378,10 +378,14 @@
       "defaultLanguage": "Hindi",
       "director": "Govind Moonis",
       "cast": "Sachin Pilgaonkar, Sadhana Singh, Inder Thakur, Mitali",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/EuF5w3oiYnk?autoplay=1",
+      "streamUrl": "https://archive.org/download/nadiya-ke-paar-1982.720p.-hd-rip.-hindi.x-264.-aac.-esub-skymovies-hd.-tours/Nadiya%20Ke%20Paar%201982.720p.HD-Rip.Hindi.x264.AAC.ESub-SkymoviesHD.Tours.mkv",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/EuF5w3oiYnk",
       "posterUrl": "assets/posters/vod_nadiya_ke_paar.jpg",
-      "backdropUrl": "assets/posters/vod_nadiya_ke_paar.jpg"
+      "backdropUrl": "assets/posters/vod_nadiya_ke_paar.jpg",
+      "qualityHonestBadge": "720p HD",
+      "qualityClass": "HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "isTrailerOnly": false
     },
     {
       "id": "vod_jawan_2023",
@@ -424,10 +428,14 @@
       "defaultLanguage": "Hindi",
       "director": "Atlee",
       "cast": "Shah Rukh Khan, Nayanthara, Vijay Sethupathi, Deepika Padukone",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/MWOlnZSnXJo?autoplay=1",
+      "streamUrl": null,
       "trailerUrl": "https://www.youtube-nocookie.com/embed/MWOlnZSnXJo",
       "posterUrl": "assets/posters/vod_jawan_2023.jpg",
-      "backdropUrl": "assets/posters/vod_jawan_2023.jpg"
+      "backdropUrl": "assets/posters/vod_jawan_2023.jpg",
+      "sourceState": "TRAILER_ONLY",
+      "isTrailerOnly": true,
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer"
     },
     {
       "id": "vod_kalki_2898_ad_2024",
@@ -473,10 +481,14 @@
       "defaultLanguage": "Hindi",
       "director": "Nag Ashwin",
       "cast": "Prabhas, Amitabh Bachchan, Deepika Padukone, Kamal Haasan",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/kQDd1AhGIHk?autoplay=1",
+      "streamUrl": null,
       "trailerUrl": "https://www.youtube-nocookie.com/embed/kQDd1AhGIHk",
       "posterUrl": "assets/posters/vod_kalki_2898_ad_2024.jpg",
-      "backdropUrl": "assets/posters/vod_kalki_2898_ad_2024.jpg"
+      "backdropUrl": "assets/posters/vod_kalki_2898_ad_2024.jpg",
+      "sourceState": "TRAILER_ONLY",
+      "isTrailerOnly": true,
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer"
     },
     {
       "id": "vod_cosmos_laundromat_2k",
@@ -8626,18 +8638,19 @@
         "Kareena Kapoor",
         "Boman Irani"
       ],
-      "streamUrl": "https://www.youtube-nocookie.com/embed/xvszmNXdM4w",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
+      "streamUrl": null,
+      "sourceState": "TRAILER_ONLY",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_3_idiots_full.jpg",
       "filmType": "FULL_FEATURE",
-      "isTrailerOnly": false,
+      "isTrailerOnly": true,
       "subtitles": [],
       "sourceStatus": "PLAYABLE",
       "quality": "1080p",
-      "backdropUrl": "assets/posters/vod_3_idiots_full.jpg"
+      "backdropUrl": "assets/posters/vod_3_idiots_full.jpg",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/xvszmNXdM4w"
     },
     {
       "id": "vod_the_general_720p",
@@ -9628,18 +9641,19 @@
       "cast": "Rajneesh Duggal, Adah Sharma, Indraneil Sengupta, Anjori Alagh",
       "featured": true,
       "latest": false,
-      "streamUrl": "https://www.youtube-nocookie.com/embed/NdsvGnBRR-A",
+      "streamUrl": null,
       "backupUrls": [],
       "trailerUrl": "https://www.youtube-nocookie.com/embed/NdsvGnBRR-A",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p FHD",
+      "sourceState": "TRAILER_ONLY",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_1920_2008.jpg",
       "backdropUrl": "assets/posters/vod_1920_2008.jpg",
       "audioSwitchingCapability": "NONE",
       "subtitles": [],
-      "sourceStatus": "PLAYABLE"
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_ragini_mms_2011",
@@ -10092,18 +10106,19 @@
       "cast": "Saif Ali Khan, Vivek Oberoi, Nana Patekar, Shilpa Shetty, Boman Irani",
       "featured": false,
       "latest": false,
-      "streamUrl": "https://www.youtube-nocookie.com/embed/dYmYu0mHp3s",
+      "streamUrl": null,
       "backupUrls": [],
       "trailerUrl": "https://www.youtube-nocookie.com/embed/dYmYu0mHp3s",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p FHD",
+      "sourceState": "TRAILER_ONLY",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_darna_mana_hai_2003.jpg",
       "backdropUrl": "assets/posters/vod_darna_mana_hai_2003.jpg",
       "audioSwitchingCapability": "NONE",
       "subtitles": [],
-      "sourceStatus": "PLAYABLE"
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": true
     },
     {
       "id": "vod_special_26_2013",
@@ -10546,21 +10561,22 @@
         "Sonal Kaushal",
         "Rupa Bhimani"
       ],
-      "streamUrl": "https://www.youtube-nocookie.com/embed/C_71wESqWR0",
+      "streamUrl": null,
       "backupUrls": [
         "https://www.youtube-nocookie.com/embed/C_71wESqWR0"
       ],
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "TRAILER_ONLY",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "posterUrl": "assets/posters/vod_chhota_bheem_himalayan.jpg",
       "backdropUrl": "assets/posters/vod_chhota_bheem_himalayan.jpg",
       "filmType": "FULL_FEATURE",
-      "isTrailerOnly": false,
+      "isTrailerOnly": true,
       "subtitles": [],
       "sourceStatus": "PLAYABLE",
-      "quality": "1080p"
+      "quality": "1080p",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/C_71wESqWR0"
     },
     {
       "id": "vod_chutney_short",

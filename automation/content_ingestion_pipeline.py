@@ -235,14 +235,30 @@ def harvest_and_process_poster(title, candidate, output_filename):
 
     return False, "Could not acquire a valid non-empty poster"
 
-def probe_stream_quality(url, timeout=12):
+def get_youtube_duration_seconds(video_id, timeout=6):
+    """Extract true duration in seconds from YouTube watch page."""
+    try:
+        req = urllib.request.Request(f"https://www.youtube.com/watch?v={video_id}", headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            html = r.read().decode("utf-8", errors="ignore")
+            dur = re.findall(r'\"approxDurationMs\":\"(\d+)\"', html)
+            if dur:
+                return int(dur[0]) // 1000
+    except Exception:
+        pass
+    return 0
+
+def probe_stream_quality(url, is_short_film=False, timeout=12):
     """
-    Check stream resolution and viability.
+    Check stream resolution, duration, and viability.
     Enforces quality hierarchy: 4K (2160p) > 2K (1440p) > 1080p > 720p.
     Strictly rejects sub-720p (480p, 360p, 240p).
+    Strictly rejects fake clips, songs, promos (<60 minutes for full movies).
     """
     if not url:
         return False, "Empty stream URL", {}, 0
+
+    probed_duration = 0
 
     # 1. YouTube Stream Handling
     if is_youtube_url(url):
@@ -252,7 +268,19 @@ def probe_stream_quality(url, timeout=12):
         ok = check_youtube_playable(yt_id, timeout=timeout)
         if not ok:
             return False, "YouTube video deleted/private or unavailable", {}, 0
-        return True, "1080p Full HD", {"type": "youtube", "videoId": yt_id}, 1080
+
+        # Strict Duration Check: cross-check duration to verify full movie vs song/clip/trailer
+        probed_duration = get_youtube_duration_seconds(yt_id, timeout=timeout)
+        if not is_short_film:
+            if probed_duration > 0 and probed_duration < 3600:
+                mins = probed_duration // 60
+                secs = probed_duration % 60
+                return False, f"Video duration is only {mins}m {secs}s (<60 min) - rejected as song/clip/trailer, not a full movie!", {}, 0
+        else:
+            if probed_duration > 0 and probed_duration < 180:
+                return False, f"Short film duration too small ({probed_duration}s < 3 min)", {}, 0
+
+        return True, "1080p Full HD", {"type": "youtube", "videoId": yt_id, "duration": probed_duration}, 1080
 
     # 2. Archive.org Metadata Pre-verification
     if "archive.org/download/" in url:
@@ -272,17 +300,31 @@ def probe_stream_quality(url, timeout=12):
                         if fname in (target_file, target_unquoted) or fname.lower().endswith((".mp4", ".mkv")):
                             width = int(f.get("width") or 0)
                             height = int(f.get("height") or 0)
+                            file_len = float(f.get("length") or 0)
+                            if file_len > 0:
+                                probed_duration = int(file_len)
+
+                            # Duration validation for full movies
+                            if not is_short_film and probed_duration > 0 and probed_duration < 3600:
+                                mins = probed_duration // 60
+                                return False, f"Archive.org duration is only {mins}m (<60 min) - rejected as clip/song!", {}, 0
+
                             if width > 0 and height > 0:
                                 if width >= 3840 or height >= 2160:
-                                    return True, "4K UHD", {"width": width, "height": height, "codec": f.get("format")}, 4000
+                                    res_str = "4K UHD"
+                                    rank = 4000
                                 elif width >= 2560 or height >= 1440:
-                                    return True, "2K QHD", {"width": width, "height": height, "codec": f.get("format")}, 2000
+                                    res_str = "2K QHD"
+                                    rank = 2000
                                 elif width >= 1920 or height >= 1080:
-                                    return True, "1080p Full HD", {"width": width, "height": height, "codec": f.get("format")}, 1080
+                                    res_str = "1080p Full HD"
+                                    rank = 1080
                                 elif width >= 1280 or height >= 720:
-                                    return True, "720p HD", {"width": width, "height": height, "codec": f.get("format")}, 720
+                                    res_str = "720p HD"
+                                    rank = 720
                                 else:
                                     return False, f"Sub-720p rejected ({width}x{height})", {}, 0
+                                return True, res_str, {"width": width, "height": height, "codec": f.get("format"), "duration": probed_duration}, rank
             except Exception:
                 pass
 
@@ -309,6 +351,14 @@ def probe_stream_quality(url, timeout=12):
         v_stream = streams[0]
         width = int(v_stream.get("width", 0))
         height = int(v_stream.get("height", 0))
+        raw_dur = float(v_stream.get("duration", 0) or 0)
+        if raw_dur > 0:
+            probed_duration = int(raw_dur)
+
+        # Duration validation for full movies
+        if not is_short_film and probed_duration > 0 and probed_duration < 3600:
+            mins = probed_duration // 60
+            return False, f"Stream duration is only {mins}m (<60 min) - rejected as clip/song!", {}, 0
 
         # Resolution hierarchy and numerical rank (higher = better quality)
         if width >= 3840 or height >= 2160:
@@ -326,7 +376,7 @@ def probe_stream_quality(url, timeout=12):
         else:
             return False, f"Sub-720p rejected ({width}x{height})", {}, 0
 
-        return True, res_str, {"width": width, "height": height, "codec": v_stream.get("codec_name")}, rank
+        return True, res_str, {"width": width, "height": height, "codec": v_stream.get("codec_name"), "duration": probed_duration}, rank
     except Exception as e:
         return False, str(e), {}, 0
 
@@ -415,13 +465,23 @@ def ingest_movie_item(catalog_data, movie_candidate):
             return False
 
     # 3. Quality Resolution Gate (Hierarchical Probe: 4K > 2K > 1080p > 720p)
-    ok, res_str, details, rank = probe_stream_quality(stream_url)
+    cats = [c.lower() for c in movie_candidate.get("categories", [])]
+    is_short_film = "short_film" in cats or "short" in cats or movie_candidate.get("type") in ["Short Film", "Short"]
+    ok, res_str, details, rank = probe_stream_quality(stream_url, is_short_film=is_short_film)
     if not ok:
         print(f"❌ [Quality Gate FAILED] '{title}' REJECTED: {res_str}")
         return False
     movie_candidate["quality"] = res_str
     movie_candidate["resolution"] = res_str
     movie_candidate["_quality_rank"] = rank
+    if details.get("duration", 0) > 0:
+        probed_dur = details["duration"]
+        movie_candidate["duration"] = probed_dur
+        mins = probed_dur // 60
+        if mins >= 60:
+            movie_candidate["durationFormatted"] = f"{mins // 60}h {mins % 60:02d}m (Full Movie)"
+        else:
+            movie_candidate["durationFormatted"] = f"{mins}m (Complete Short)"
 
     # 4. Strict Poster Acquisition Gate
     p_ok, p_res = harvest_and_process_poster(title, movie_candidate, poster_fn)
