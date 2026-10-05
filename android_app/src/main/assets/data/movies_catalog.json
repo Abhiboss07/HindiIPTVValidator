@@ -1,10 +1,148 @@
 {
   "version": 21,
-  "updated_at": "2026-10-05 11:14:46",
-  "total_movies": 151,
+  "updated_at": "2026-10-05 11:53:28",
+  "total_movies": 154,
   "total_series": 19,
   "default_language_filter": "Hindi",
   "movies": [
+    {
+      "id": "vod_bhaag_milkha_bhaag_2013_blu_ra",
+      "title": "Bhaag Milkha Bhaag 2013 Blu Ray Hindi DD 5.1 X 264 Mkv Cinemas [ Telly]",
+      "originalTitle": "Bhaag Milkha Bhaag 2013 Blu Ray 1080p Hindi DD 5.1 X 264 ESub Mkv Cinemas [ Telly]",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 11184,
+      "durationFormatted": "3h 06m",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Bhaag Milkha Bhaag 2013 Blu Ray 1080p Hindi DD 5.1 X 264 ESub Mkv Cinemas [ Telly].",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/services/img/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly",
+      "posterUrl": "assets/posters/vod_bhaag_milkha_bhaag_2013_blu_ray_hindi_dd_51_x_264_mkv_cinemas__telly.jpg",
+      "backdropUrl": "assets/posters/vod_bhaag_milkha_bhaag_2013_blu_ray_hindi_dd_51_x_264_mkv_cinemas__telly.jpg"
+    },
+    {
+      "id": "vod_bhaag_milkha_bhaag_2013",
+      "title": "Bhaag Milkha Bhaag (2013)",
+      "originalTitle": "Bhaag Milkha Bhaag",
+      "year": 2013,
+      "releaseYear": 2013,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "biography",
+        "drama",
+        "sports",
+        "bollywood"
+      ],
+      "duration": 11160,
+      "durationFormatted": "3h 06m",
+      "genres": [
+        "Biography",
+        "Drama",
+        "Sport"
+      ],
+      "rating": 8.2,
+      "description": "Rakeysh Omprakash Mehra's biographical sports drama chronicling the life of Milkha Singh, the 'Flying Sikh', who overcame the trauma of the Partition of India to become an Olympic world champion.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Rakeysh Omprakash Mehra",
+      "cast": "Farhan Akhtar, Sonam Kapoor, Divya Dutta, Pavan Malhotra",
+      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/yGStv_o12z4",
+      "posterUrl": "assets/posters/vod_bhaag_milkha_bhaag.jpg",
+      "backdropUrl": "assets/posters/vod_bhaag_milkha_bhaag.jpg"
+    },
+    {
+      "id": "vod_kriti_2016",
+      "title": "Kriti",
+      "originalTitle": "Kriti",
+      "year": 2016,
+      "releaseYear": 2016,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "short_film",
+        "thriller",
+        "mystery"
+      ],
+      "duration": 1140,
+      "durationFormatted": "19m",
+      "genres": [
+        "Short",
+        "Thriller",
+        "Psychological"
+      ],
+      "rating": 7.6,
+      "description": "A psychological thriller directed by Shirish Kunder featuring Manoj Bajpayee, Radhika Apte, and Neha Sharma. A novelist discusses his mysterious girlfriend with his psychiatrist, blurring reality and delusion.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Shirish Kunder",
+      "cast": "Manoj Bajpayee, Radhika Apte, Neha Sharma",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/b5GGKuK3iEI?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/b5GGKuK3iEI",
+      "posterUrl": "assets/posters/vod_kriti.jpg",
+      "backdropUrl": "assets/posters/vod_kriti.jpg"
+    },
     {
       "id": "vod_ouch_2016",
       "title": "Ouch",
