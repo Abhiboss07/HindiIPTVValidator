@@ -159,14 +159,22 @@ def audit_and_purge_movies(catalog_data, max_workers=20):
                     purged_items.append({"id": item.get("id"), "title": title, "type": "movie", "reason": "Strict Quality Gate: Sub-720p rejected"})
                     continue
 
-                # Trailer Lifecycle Gate: Purge trailers older than 2-3 months or pre-September 2026
+                # Trailer Verification Gate: Standalone trailers stream via trailerUrl (YouTube embed)
                 cats = [c.lower() for c in item.get("categories", [])]
-                is_trailer = item.get("isTrailerOnly") or "trailers" in cats or item.get("type") == "Trailers"
+                is_trailer = (item.get("isTrailerOnly") is True or
+                              "trailers" in cats or
+                              item.get("type") in ["Trailers", "Trailer"] or
+                              item.get("sourceState") == "TRAILER_ONLY")
+
                 if is_trailer:
-                    rel_date = item.get("trailerReleaseDate") or item.get("releaseDate") or item.get("addedDate") or "2026-08-01"
-                    if str(rel_date) < "2026-09-01":
-                        print(f"❌ [PURGE OUTDATED TRAILER] '{title}' -> Released before September 2026 ({rel_date})")
-                        purged_items.append({"id": item.get("id"), "title": title, "type": "movie", "reason": f"Trailer Lifecycle: Released before Sep 2026 ({rel_date})"})
+                    t_url = item.get("trailerUrl") or item.get("streamUrl") or ""
+                    if t_url.startswith("http"):
+                        fut = executor.submit(probe_http_stream, t_url, is_hls=False)
+                        tasks.append((item, "trailer", None, None, fut))
+                        continue
+                    else:
+                        print(f"❌ [PURGE DEAD TRAILER] '{title}' -> Empty trailer URL")
+                        purged_items.append({"id": item.get("id"), "title": title, "type": "trailer", "reason": "Empty trailer URL"})
                         continue
 
                 fut = executor.submit(probe_http_stream, url, is_hls=False)
@@ -208,6 +216,18 @@ def audit_and_purge_movies(catalog_data, max_workers=20):
                         "title": title,
                         "type": "movie",
                         "streamUrl": item.get("streamUrl"),
+                        "reason": reason
+                    })
+            elif itype == "trailer":
+                if ok:
+                    retained_movies.append(item)
+                else:
+                    print(f"❌ [PURGE DEAD TRAILER] '{title}' -> {reason}")
+                    purged_items.append({
+                        "id": item.get("id"),
+                        "title": title,
+                        "type": "trailer",
+                        "trailerUrl": item.get("trailerUrl"),
                         "reason": reason
                     })
             elif itype == "series":

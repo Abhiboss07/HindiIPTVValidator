@@ -423,7 +423,7 @@ def get_youtube_duration_seconds(video_id, timeout=6):
         pass
     return 0
 
-def probe_stream_quality(url, is_short_film=False, timeout=12):
+def probe_stream_quality(url, is_short_film=False, is_trailer=False, timeout=12):
     """
     Check stream resolution, duration, and viability.
     Enforces quality hierarchy: 4K (2160p) > 2K (1440p) > 1080p > 720p.
@@ -446,7 +446,11 @@ def probe_stream_quality(url, is_short_film=False, timeout=12):
 
         # Strict Duration Check: cross-check duration to verify full movie vs song/clip/trailer
         probed_duration = get_youtube_duration_seconds(yt_id, timeout=timeout)
-        if not is_short_film:
+        if is_trailer:
+            if probed_duration > 0 and probed_duration < 20:
+                return False, f"Trailer duration too small ({probed_duration}s < 20s)", {}, 0
+            return True, "Official Trailer", {"type": "youtube", "videoId": yt_id, "duration": probed_duration or 150}, 1080
+        elif not is_short_film:
             if probed_duration > 0 and probed_duration < 3600:
                 mins = probed_duration // 60
                 secs = probed_duration % 60
@@ -612,25 +616,34 @@ def ingest_movie_item(catalog_data, movie_candidate):
 
     print(f"\n🎬 [Evaluating Candidate] '{title}' ({movie_candidate.get('year', 'N/A')})...")
 
-    # 1. Trailer Recency & Lifecycle Policy (~1 month old max, >= Sep 2026)
+    # 1. Trailer Classification & Recency Policy
     cats = [c.lower() for c in movie_candidate.get('categories', [])]
-    is_trailer = movie_candidate.get('isTrailerOnly') or 'trailers' in cats or movie_candidate.get('type') == 'Trailers'
+    is_trailer = (movie_candidate.get('isTrailerOnly') is True or
+                  'trailers' in cats or
+                  movie_candidate.get('type') in ['Trailers', 'Trailer'] or
+                  movie_candidate.get('sourceState') == 'TRAILER_ONLY')
     if is_trailer:
-        t_date = movie_candidate.get('trailerReleaseDate') or movie_candidate.get('releaseDate') or '2026-09-01'
-        if str(t_date) < '2026-09-01':
-            print(f"⏭️ [Trailer Filter] '{title}': Trailer released before September 2026 ({t_date}). Rejected.")
-            return False
-        movie_candidate['trailerReleaseDate'] = str(t_date)
+        movie_candidate['isTrailerOnly'] = True
+        movie_candidate['sourceState'] = 'TRAILER_ONLY'
+        movie_candidate['qualityClass'] = 'Official Trailer'
+        movie_candidate['qualityHonestBadge'] = 'Official Trailer'
+        movie_candidate['type'] = 'Trailer'
+        if 'trailers' not in cats:
+            movie_candidate.setdefault('categories', []).append('trailers')
+        t_url = movie_candidate.get('trailerUrl') or movie_candidate.get('streamUrl')
+        movie_candidate['trailerUrl'] = t_url
+        movie_candidate['streamUrl'] = None
         movie_candidate['addedDate'] = time.strftime('%Y-%m-%d')
 
     # 2. Recency & Era Validation
-    initial_score = compute_candidate_score(movie_candidate)
-    if initial_score == -2:
-        print(f"⏭️ [Era Filter] '{title}' ({movie_candidate.get('year')}): Pre-2000 title not on iconic classics list. Skipped.")
-        return False
-    elif initial_score == -1:
-        print(f"❌ [Quality Filter] '{title}': Sub-720p rejected.")
-        return False
+    if not is_trailer:
+        initial_score = compute_candidate_score(movie_candidate)
+        if initial_score == -2:
+            print(f"⏭️ [Era Filter] '{title}' ({movie_candidate.get('year')}): Pre-2000 title not on iconic classics list. Skipped.")
+            return False
+        elif initial_score == -1:
+            print(f"❌ [Quality Filter] '{title}': Sub-720p rejected.")
+            return False
 
     # 2. Fuzzy Deduplication
     norm_candidate = normalize_title(title)
@@ -643,21 +656,27 @@ def ingest_movie_item(catalog_data, movie_candidate):
     # 3. Quality Resolution Gate (Hierarchical Probe: 4K > 2K > 1080p > 720p)
     cats = [c.lower() for c in movie_candidate.get("categories", [])]
     is_short_film = "short_film" in cats or "short" in cats or movie_candidate.get("type") in ["Short Film", "Short"]
-    ok, res_str, details, rank = probe_stream_quality(stream_url, is_short_film=is_short_film)
+    probe_target_url = (movie_candidate.get("trailerUrl") if is_trailer else stream_url) or ""
+    ok, res_str, details, rank = probe_stream_quality(probe_target_url, is_short_film=is_short_film, is_trailer=is_trailer)
     if not ok:
         print(f"❌ [Quality Gate FAILED] '{title}' REJECTED: {res_str}")
         return False
-    movie_candidate["quality"] = res_str
-    movie_candidate["resolution"] = res_str
-    movie_candidate["_quality_rank"] = rank
-    if details.get("duration", 0) > 0:
-        probed_dur = details["duration"]
-        movie_candidate["duration"] = probed_dur
-        mins = probed_dur // 60
-        if mins >= 60:
-            movie_candidate["durationFormatted"] = f"{mins // 60}h {mins % 60:02d}m (Full Movie)"
-        else:
-            movie_candidate["durationFormatted"] = f"{mins}m (Complete Short)"
+    if is_trailer:
+        movie_candidate["quality"] = "Official Trailer"
+        movie_candidate["resolution"] = "1080p Full HD"
+        movie_candidate["durationFormatted"] = "Official Trailer"
+    else:
+        movie_candidate["quality"] = res_str
+        movie_candidate["resolution"] = res_str
+        movie_candidate["_quality_rank"] = rank
+        if details.get("duration", 0) > 0:
+            probed_dur = details["duration"]
+            movie_candidate["duration"] = probed_dur
+            mins = probed_dur // 60
+            if mins >= 60:
+                movie_candidate["durationFormatted"] = f"{mins // 60}h {mins % 60:02d}m (Full Movie)"
+            else:
+                movie_candidate["durationFormatted"] = f"{mins}m (Complete Short)"
 
     # 4. Strict Poster Acquisition Gate
     p_ok, p_res, p_src = harvest_and_process_poster(title, movie_candidate, poster_fn)
@@ -1119,7 +1138,568 @@ CURATED_DISCOVERY_POOL = [
         "cast": "Farhan Akhtar, Sonam Kapoor, Divya Dutta, Pavan Malhotra",
         "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
         "trailerUrl": "https://www.youtube-nocookie.com/embed/yGStv_o12z4"
-    }
+    },
+    # --- 5. Upcoming Theatrical Blockbuster Trailers (2026) ---
+    {
+        "id": "vod_spirit_2026",
+        "title": "Spirit (2026)",
+        "originalTitle": "Spirit",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "SOUTH",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Crime",
+                "Drama"
+        ],
+        "rating": 8.7,
+        "description": "A fearless, uncompromising police officer wages an unyielding battle against systemic corruption and underground crime cartels.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/GOQ5DytuKoc",
+        "streamUrl": null,
+        "posterFileName": "vod_spirit_2026.jpg"
+},
+    {
+        "id": "vod_alpha_2026",
+        "title": "Alpha (2026)",
+        "originalTitle": "Alpha",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "BOLLYWOOD",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Thriller"
+        ],
+        "rating": 8.2,
+        "description": "The YRF Spy Universe expands with its first female-led covert operations thriller tackling international espionage.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/QRqGwGwo1Y0",
+        "streamUrl": null,
+        "posterFileName": "vod_alpha_2026.jpg"
+},
+    {
+        "id": "vod_king_2026",
+        "title": "King (2026)",
+        "originalTitle": "King",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "BOLLYWOOD",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Thriller"
+        ],
+        "rating": 8.5,
+        "description": "An enigmatic mentor guides his prot\u00e9g\u00e9 through dangerous criminal syndicates in this high-octane Bollywood action drama.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/lo4SGEt3wRg",
+        "streamUrl": null,
+        "posterFileName": "vod_king_2026.jpg"
+},
+    {
+        "id": "vod_the_batman_part_ii_2026",
+        "title": "The Batman Part II",
+        "originalTitle": "The Batman Part II",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "HOLLYWOOD",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Crime",
+                "Drama"
+        ],
+        "rating": 8.8,
+        "description": "Matt Reeves returns with Robert Pattinson as Gotham's Caped Crusader facing a rising criminal underworld in a flooded city.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/bha24P9uw-E",
+        "streamUrl": null,
+        "posterFileName": "vod_the_batman_part_ii_2026.jpg"
+},
+    {
+        "id": "vod_ramayana_part_1_2026",
+        "title": "Ramayana: Part 1",
+        "originalTitle": "Ramayana: Part 1",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "IN",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Drama",
+                "Mythology"
+        ],
+        "rating": 9.6,
+        "description": "Nitesh Tiwari's epic adaptation of the ancient Sanskrit epic Ramayana, starring Ranbir Kapoor as Lord Rama, Sai Pallavi as Sita, and Yash as Ravana.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/1zip1rNaNYs",
+        "streamUrl": null,
+        "posterFileName": "vod_ramayana_part_1_2026.jpg"
+},
+    {
+        "id": "vod_toxic_2026",
+        "title": "Toxic: A Fairy Tale for Grown-ups",
+        "originalTitle": "Toxic: A Fairy Tale for Grown-ups",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "IN",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Drama",
+                "Crime"
+        ],
+        "rating": 9.4,
+        "description": "A dark, intense crime drama set in the 1950s-1970s drug cartel underworld directed by Geetu Mohandas.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/nXA4daIga0k",
+        "streamUrl": null,
+        "posterFileName": "vod_toxic_2026.jpg"
+},
+    {
+        "id": "vod_jailer_2_2026",
+        "title": "Jailer 2 (2026)",
+        "originalTitle": "Jailer 2 (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "IN",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Crime",
+                "Thriller"
+        ],
+        "rating": 9.4,
+        "description": "Tiger Muthuvel Pandian returns in Nelson's explosive high-octane sequel to the mega-blockbuster Jailer, confronting international syndicate cartels with unstoppable force.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/LBF5UO4ZyOU",
+        "streamUrl": null,
+        "posterFileName": "vod_jailer_2_2026.jpg"
+},
+    {
+        "id": "vod_drishyam_3_2026",
+        "title": "Drishyam 3 (2026)",
+        "originalTitle": "Drishyam 3 (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "IN",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Crime",
+                "Drama",
+                "Mystery",
+                "Thriller"
+        ],
+        "rating": 9.5,
+        "description": "Vijay Salgaonkar and his family face the ultimate closing chapter of the gripping cat-and-mouse saga as old buried secrets resurface under intense federal investigation.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/jYbEYF1t-hk",
+        "streamUrl": null,
+        "posterFileName": "vod_drishyam_3_2026.jpg"
+},
+    {
+        "id": "vod_prahaar_2026",
+        "title": "Prahaar: The Untold Story (2026)",
+        "originalTitle": "Prahaar: The Untold Story (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "IN",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Biography",
+                "Crime",
+                "Drama"
+        ],
+        "rating": 9.2,
+        "description": "A relentless legal action thriller based on real court battles and tactical operations of India's most celebrated special public prosecutor against high-profile terror syndicates.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/qGbvEhKhaWA",
+        "streamUrl": null,
+        "posterFileName": "vod_prahaar_2026.jpg"
+},
+    {
+        "id": "vod_udta_teer_2026",
+        "title": "Udta Teer (2026)",
+        "originalTitle": "Udta Teer (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "IN",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Comedy",
+                "Drama"
+        ],
+        "rating": 9.1,
+        "description": "A chaotic espionage comedy tracking an unintentional spy whose accidental blunders spark a whirlwind comedic adventure across the subcontinent.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/hN_ZUElLH44",
+        "streamUrl": null,
+        "posterFileName": "vod_udta_teer_2026.jpg"
+},
+    {
+        "id": "vod_dhurandhar_2026",
+        "title": "Dhurandhar (2026)",
+        "originalTitle": "Dhurandhar (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "IN",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Thriller"
+        ],
+        "rating": 9.3,
+        "description": "Aditya Dhar's high-stakes espionage action thriller following elite intelligence operatives navigating dangerous undercover geopolitical warfare.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/CN0lNff-zm0",
+        "streamUrl": null,
+        "posterFileName": "vod_dhurandhar_2026.jpg"
+},
+    {
+        "id": "vod_dune_part_three_2026",
+        "title": "Dune: Part Three \u2013 Messiah (2026)",
+        "originalTitle": "Dune: Part Three \u2013 Messiah (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "GLOBAL",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+        ],
+        "rating": 9.4,
+        "description": "Paul Atreides confronts the consequences of his ascendancy as Emperor of the Known Universe in Denis Villeneuve's epic cinematic adaptation of Frank Herbert's Dune Messiah.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/3_9vCamtuPY",
+        "streamUrl": null,
+        "posterFileName": "vod_dune_part_three_2026.jpg"
+},
+    {
+        "id": "vod_demon_slayer_infinity_castle",
+        "title": "Demon Slayer: Kimetsu no Yaiba \u2013 Infinity Castle (2026)",
+        "originalTitle": "Demon Slayer: Kimetsu no Yaiba \u2013 Infinity Castle (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "GLOBAL",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Animation",
+                "Action",
+                "Fantasy"
+        ],
+        "rating": 9.7,
+        "description": "The Demon Slayer Corps plunges into the Infinity Castle for the definitive showdown against Muzan Kibutsuji and the Upper Moon demons in this blockbuster theatrical trilogy.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/0pdC1l6M8rU",
+        "streamUrl": null,
+        "posterFileName": "vod_demon_slayer_infinity_castle.jpg"
+},
+    {
+        "id": "vod_chainsaw_man_reze_arc",
+        "title": "Chainsaw Man \u2013 The Movie: Reze Arc (2026)",
+        "originalTitle": "Chainsaw Man \u2013 The Movie: Reze Arc (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "GLOBAL",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Animation",
+                "Action",
+                "Supernatural"
+        ],
+        "rating": 9.2,
+        "description": "Denji encounters the enigmatic Reze in MAPPA's explosive anime feature film adapting the fan-favorite Bomb Girl / Reze Arc.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/EPaoHkV0dYw",
+        "streamUrl": null,
+        "posterFileName": "vod_chainsaw_man_reze_arc.jpg"
+},
+    {
+        "id": "series_stranger_things_s5",
+        "title": "Stranger Things Season 5 (The Final Season - 2026)",
+        "originalTitle": "Stranger Things Season 5 (The Final Season - 2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "GLOBAL",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Drama",
+                "Fantasy",
+                "Horror",
+                "Sci-Fi"
+        ],
+        "rating": 9.5,
+        "description": "The final battle for Hawkins begins as Eleven and her allies unite to destroy the Upside Down and defeat Vecna once and for all.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/iKZyYdwS3Wg",
+        "streamUrl": null,
+        "posterFileName": "series_stranger_things_s5.jpg"
+},
+    {
+        "id": "series_panchayat_s4",
+        "title": "Panchayat Season 4 (2026)",
+        "originalTitle": "Panchayat Season 4 (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "IN",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Comedy",
+                "Drama"
+        ],
+        "rating": 9.6,
+        "description": "Abhishek Tripathi and the lively residents of Phulera navigate new village elections, unexpected bureaucratic challenges, and heartfelt grassroots comedy.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/AHMEtNAZTP4",
+        "streamUrl": null,
+        "posterFileName": "series_panchayat_s4.jpg"
+},
+    {
+        "id": "vod_blender_project_gold_2026",
+        "title": "Project Gold: Blender Studio 4K Open Movie (2026)",
+        "originalTitle": "Project Gold: Blender Studio 4K Open Movie (2026)",
+        "year": 2026,
+        "releaseYear": 2026,
+        "mediaType": "movie",
+        "type": "Trailer",
+        "contentType": "MOVIE",
+        "region": "GLOBAL",
+        "categories": [
+                "trailers",
+                "upcoming",
+                "trending"
+        ],
+        "durationFormatted": "Official Trailer",
+        "genres": [
+                "Animation",
+                "Sci-Fi",
+                "Short"
+        ],
+        "rating": 9.0,
+        "description": "Blender Studio's next-generation 4K open animation short film pushing cutting-edge open-source real-time CGI, geometry nodes, and cinematic storytelling.",
+        "resolution": "1080p Full HD",
+        "quality": "Official Trailer",
+        "qualityClass": "Official Trailer",
+        "qualityHonestBadge": "Official Trailer",
+        "sourceState": "TRAILER_ONLY",
+        "isTrailerOnly": true,
+        "trailerUrl": "https://www.youtube-nocookie.com/embed/WhWc3b3KhnY",
+        "streamUrl": null,
+        "posterFileName": "vod_blender_project_gold_2026.jpg"
+}
 ]
 
 def discover_archive_org_candidates(existing_titles_norm, max_results=5):
