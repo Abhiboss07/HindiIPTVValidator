@@ -1186,9 +1186,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/GOQ5DytuKoc",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_spirit_2026.jpg"
 },
     {
@@ -1218,9 +1218,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/QRqGwGwo1Y0",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_alpha_2026.jpg"
 },
     {
@@ -1250,9 +1250,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/lo4SGEt3wRg",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_king_2026.jpg"
 },
     {
@@ -1283,9 +1283,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/bha24P9uw-E",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_the_batman_part_ii_2026.jpg"
 },
     {
@@ -1316,9 +1316,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/1zip1rNaNYs",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_ramayana_part_1_2026.jpg"
 },
     {
@@ -1349,9 +1349,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/nXA4daIga0k",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_toxic_2026.jpg"
 },
     {
@@ -1382,9 +1382,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/LBF5UO4ZyOU",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_jailer_2_2026.jpg"
 },
     {
@@ -1416,9 +1416,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/jYbEYF1t-hk",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_drishyam_3_2026.jpg"
 },
     {
@@ -1450,9 +1450,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/qGbvEhKhaWA",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_prahaar_2026.jpg"
 },
     {
@@ -1483,9 +1483,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/hN_ZUElLH44",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_udta_teer_2026.jpg"
 },
     {
@@ -1515,9 +1515,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/CN0lNff-zm0",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_dhurandhar_2026.jpg"
 },
     {
@@ -1548,9 +1548,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/3_9vCamtuPY",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_dune_part_three_2026.jpg"
 },
     {
@@ -1581,9 +1581,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/0pdC1l6M8rU",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_demon_slayer_infinity_castle.jpg"
 },
     {
@@ -1614,9 +1614,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/EPaoHkV0dYw",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_chainsaw_man_reze_arc.jpg"
 },
     {
@@ -1648,9 +1648,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/iKZyYdwS3Wg",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "series_stranger_things_s5.jpg"
 },
     {
@@ -1680,9 +1680,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/AHMEtNAZTP4",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "series_panchayat_s4.jpg"
 },
     {
@@ -1713,9 +1713,9 @@ CURATED_DISCOVERY_POOL = [
         "qualityClass": "Official Trailer",
         "qualityHonestBadge": "Official Trailer",
         "sourceState": "TRAILER_ONLY",
-        "isTrailerOnly": true,
+        "isTrailerOnly": True,
         "trailerUrl": "https://www.youtube-nocookie.com/embed/WhWc3b3KhnY",
-        "streamUrl": null,
+        "streamUrl": None,
         "posterFileName": "vod_blender_project_gold_2026.jpg"
 }
 ]
