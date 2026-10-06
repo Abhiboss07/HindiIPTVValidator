@@ -8333,6 +8333,88 @@ window.openPlayer = function(title, meta) {
   }
 };
 
+// ==========================================================
+// ADVANCED RELEVANCE & FUZZY SEARCH SUBSYSTEM
+// ==========================================================
+const SEARCH_ALIASES = {
+  'doremon': 'doraemon',
+  'shinchan': 'shin chan',
+  'wethering': 'weathering',
+  'hanumaan': 'hanuman',
+  'deathnote': 'death note',
+  'jjk': 'jujutsu kaisen',
+  'aot': 'attack on titan',
+  'opm': 'one punch man',
+  'ds': 'demon slayer',
+  'spiderman': 'spider man',
+  'dragonball': 'dragon ball',
+  'bahubali': 'baahubali',
+  'chota bheem': 'chhota bheem',
+  'chota bhim': 'chhota bheem',
+  'chhota bhim': 'chhota bheem',
+  'tenki no ko': 'weathering with you',
+  'kimi no na wa': 'your name',
+  'suzume no tojimari': 'suzume',
+  'kgf': 'k g f',
+  'drisyam': 'drishyam',
+  'panchayt': 'panchayat',
+  'mirjapur': 'mirzapur',
+  'oppenhiemer': 'oppenheimer',
+  'kantra': 'kantara',
+  'pushpaa': 'pushpa',
+  'bheem': 'chhota bheem'
+};
+
+const SEARCH_STOP_WORDS = new Set(['the', 'a', 'an', 'and', 'or', 'of', 'in', 'on', 'at', 'to', 'for', 'with', 'by', 'from', 'is', 'it']);
+
+function normalizeSearchText(text) {
+  if (!text) return '';
+  return String(text)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/['"’“”:\.,\-_!\?\/\(\)\[\]\{\}]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function collapseSearchText(text) {
+  if (!text) return '';
+  return String(text).toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function calcLevenshteinDistance(s1, s2, maxDist = 2) {
+  if (s1 === s2) return 0;
+  const l1 = s1.length;
+  const l2 = s2.length;
+  if (Math.abs(l1 - l2) > maxDist) return 99;
+
+  const d = [];
+  for (let i = 0; i <= l1; i++) d[i] = [i];
+  for (let j = 0; j <= l2; j++) d[0][j] = j;
+
+  for (let i = 1; i <= l1; i++) {
+    for (let j = 1; j <= l2; j++) {
+      const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+    }
+  }
+  return d[l1][l2];
+}
+
+function highlightSearchQuery(text, query) {
+  if (!text || !query || !query.trim()) return text || '';
+  const rawTerms = query.toLowerCase().trim().split(/\s+/).filter(t => t.length >= 2 && !SEARCH_STOP_WORDS.has(t));
+  if (rawTerms.length === 0) return text;
+  try {
+    const escaped = rawTerms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+    const regex = new RegExp('(' + escaped + ')', 'gi');
+    return String(text).replace(regex, '<span style="color: var(--t2l-aurora-cyan, #22D3EE); font-weight: 700; background: rgba(34, 211, 238, 0.16); padding: 0 2px; border-radius: 3px;">$1</span>');
+  } catch (eH) {
+    return text;
+  }
+}
+
 let currentSpotlightFilter = 'all';
 
 window.openSearch = function() {
@@ -8341,15 +8423,30 @@ window.openSearch = function() {
     modal.style.display = 'flex';
     const input = document.getElementById('spotlightInput');
     if (input) input.value = '';
+    currentSpotlightFilter = 'all';
+    document.querySelectorAll('.spotlight-tag-pill').forEach(b => b.classList.remove('active'));
+    const firstTag = document.querySelector('.spotlight-tag-pill');
+    if (firstTag) firstTag.classList.add('active');
+    renderSpotlightDefaultSuggestions();
     setTimeout(() => {
-      if (modal.style.display !== 'none') {
-        if (input) input.focus();
-        renderSpotlightDefaultSuggestions();
+      if (modal.style.display !== 'none' && input) {
+        input.focus();
       }
     }, 150);
   } else {
     switchPage('movies');
   }
+};
+
+window.clearOrCloseSpotlightSearch = function() {
+  const input = document.getElementById('spotlightInput');
+  if (input && input.value.trim() !== '') {
+    input.value = '';
+    input.focus();
+    renderSpotlightDefaultSuggestions();
+    return;
+  }
+  window.closeSpotlightSearch();
 };
 
 window.closeSpotlightSearch = function(e) {
@@ -8386,6 +8483,12 @@ function renderSpotlightDefaultSuggestions() {
   const container = document.getElementById('spotlightSearchResults');
   if (!container) return;
 
+  const input = document.getElementById('spotlightInput');
+  if (input && input.value && input.value.trim() !== '') {
+    handleSpotlightSearch(input.value);
+    return;
+  }
+
   const allMovies = typeof CatalogProvider !== 'undefined' ? CatalogProvider.getAll() : [];
   const topMovies = allMovies.slice(0, 6);
   const topChannels = (typeof channelsData !== 'undefined' ? channelsData : []).slice(0, 4);
@@ -8399,7 +8502,8 @@ function renderSpotlightDefaultSuggestions() {
   topMovies.forEach(m => {
     const poster = m.posterUrl || 'assets/placeholder.png';
     const classification = getContentClassification(m);
-    const meta = `${m.year || '2024'} • ${m.primaryGenre || (m.genres ? m.genres[0] : 'Feature')} • ${classification.badgeLabel}`;
+    const lang = (m.languages && m.languages[0]) ? ` • ${m.languages[0]}` : '';
+    const meta = `${m.year || '2024'} • ${m.primaryGenre || (m.genres ? m.genres[0] : 'Feature')}${lang} • ${classification.badgeLabel}`;
     const safePoster = (poster || '').replace(/'/g, "\\'");
     const safeSrcUrl = (m.posterSrcUrl || '').replace(/'/g, "\\'");
     html += `
@@ -8452,88 +8556,232 @@ window.handleSpotlightSearch = function(query) {
     }
 
     const q = query.toLowerCase().trim();
-    let movies = typeof CatalogProvider !== 'undefined' ? CatalogProvider.search(q) : [];
-    let channels = (typeof channelsData !== 'undefined' ? channelsData : []).filter(c =>
-      (c.name && c.name.toLowerCase().includes(q)) ||
-      (c.category && c.category.toLowerCase().includes(q)) ||
-      (c.countryName && c.countryName.toLowerCase().includes(q))
-    );
+    const allMovies = typeof CatalogProvider !== 'undefined' ? CatalogProvider.search(q) : [];
+
+    // Score and rank channels
+    const normQ = normalizeSearchText(q);
+    const collapsedQ = collapseSearchText(q);
+    const scoredChannels = (typeof channelsData !== 'undefined' ? channelsData : []).map(ch => {
+      let chScore = 0;
+      const chName = normalizeSearchText(ch.name || '');
+      const collapsedCh = collapseSearchText(ch.name || '');
+      const chCat = normalizeSearchText(ch.category || '');
+      const chCountry = normalizeSearchText(ch.countryName || '');
+
+      if (chName === normQ || collapsedCh === collapsedQ) chScore += 1600;
+      else if (chName.startsWith(normQ) || (collapsedQ.length >= 3 && collapsedCh.startsWith(collapsedQ))) chScore += 900;
+      else if (chName.includes(normQ) || (collapsedQ.length >= 3 && collapsedCh.includes(collapsedQ))) chScore += 500;
+      else if (chCat.includes(normQ) || chCountry.includes(normQ)) chScore += 180;
+      return { score: chScore, channel: ch };
+    }).filter(r => r.score > 0).sort((a, b) => b.score - a.score).map(r => r.channel);
+
+    const cinemaMatches = allMovies.filter(m => !getContentClassification(m).isSeries);
+    const seriesMatches = allMovies.filter(m => getContentClassification(m).isSeries);
+    const liveMatches = scoredChannels;
+
+    let moviesToShow = [];
+    let channelsToShow = [];
+    let crossCategoryNotice = '';
 
     if (currentSpotlightFilter === 'movies') {
-      movies = movies.filter(m => !getContentClassification(m).isSeries);
-      channels = [];
+      moviesToShow = cinemaMatches;
+      channelsToShow = [];
+      if (moviesToShow.length === 0 && (seriesMatches.length > 0 || liveMatches.length > 0)) {
+        const altCount = seriesMatches.length + liveMatches.length;
+        crossCategoryNotice = `
+          <div style="padding: 10px 14px; margin: 4px 0 10px 0; background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 12px; color: #cbd5e1;">No cinema results, but found in other categories:</span>
+            <button onclick="setSpotlightFilter('all', document.querySelector('.spotlight-tag-pill'))" style="background: var(--t2l-aurora-cyan, #22D3EE); color: #020617; border: none; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer;">View All (${altCount})</button>
+          </div>
+        `;
+        moviesToShow = seriesMatches.slice(0, 6);
+        channelsToShow = liveMatches.slice(0, 4);
+      }
     } else if (currentSpotlightFilter === 'series') {
-      movies = movies.filter(m => getContentClassification(m).isSeries);
-      channels = [];
+      moviesToShow = seriesMatches;
+      channelsToShow = [];
+      if (moviesToShow.length === 0 && (cinemaMatches.length > 0 || liveMatches.length > 0)) {
+        const altCount = cinemaMatches.length + liveMatches.length;
+        crossCategoryNotice = `
+          <div style="padding: 10px 14px; margin: 4px 0 10px 0; background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 12px; color: #cbd5e1;">No series results, but found in Cinema:</span>
+            <button onclick="setSpotlightFilter('all', document.querySelector('.spotlight-tag-pill'))" style="background: var(--t2l-aurora-cyan, #22D3EE); color: #020617; border: none; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer;">View All (${altCount})</button>
+          </div>
+        `;
+        moviesToShow = cinemaMatches.slice(0, 6);
+        channelsToShow = liveMatches.slice(0, 4);
+      }
     } else if (currentSpotlightFilter === 'live') {
-      movies = [];
+      moviesToShow = [];
+      channelsToShow = liveMatches;
+      if (channelsToShow.length === 0 && allMovies.length > 0) {
+        crossCategoryNotice = `
+          <div style="padding: 10px 14px; margin: 4px 0 10px 0; background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 12px; color: #cbd5e1;">No live channels found, but found in VOD Catalog:</span>
+            <button onclick="setSpotlightFilter('all', document.querySelector('.spotlight-tag-pill'))" style="background: var(--t2l-aurora-cyan, #22D3EE); color: #020617; border: none; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer;">View All (${allMovies.length})</button>
+          </div>
+        `;
+        moviesToShow = allMovies.slice(0, 8);
+      }
+    } else {
+      // 'all' mode
+      moviesToShow = allMovies;
+      channelsToShow = liveMatches;
     }
 
-    if (movies.length === 0 && channels.length === 0) {
+    if (moviesToShow.length === 0 && channelsToShow.length === 0) {
       container.innerHTML = `
         <div style="text-align: center; padding: 48px 16px; color: var(--t2l-text-muted, #94a3b8);">
           <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
           <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; margin-bottom: 4px;">No matches found for "${query}"</div>
-          <div style="font-size: 12px;">Try searching for "Kalki", "Jawan", "Discovery", or "Mirzapur"</div>
+          <div style="font-size: 12px;">Try searching for "Kalki", "Jawan", "Hanuman", "Shin-chan", "Weathering", or "Panchayat"</div>
         </div>
       `;
       return;
     }
 
-    let html = '';
-    const visibleMovies = movies.slice(0, 12);
-    if (visibleMovies.length > 0) {
-      html += `
-        <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan, #22D3EE); text-transform: uppercase; letter-spacing: 0.08em; margin: 4px 0 8px 2px;">
-          Cinema & Series Catalog (${movies.length})
-        </div>
-      `;
-      visibleMovies.forEach(m => {
-        const poster = m.posterUrl || 'assets/placeholder.png';
-        const classification = getContentClassification(m);
-        const meta = `${m.year || '2024'} • ${m.primaryGenre || (m.genres ? m.genres[0] : 'Feature')} • ${classification.badgeLabel}`;
-        const safePoster = (poster || '').replace(/'/g, "\\'");
-        const safeSrcUrl = (m.posterSrcUrl || '').replace(/'/g, "\\'");
-        html += `
-          <div class="spotlight-item-card" onclick="closeSpotlightSearch(); openMovieDetails('${m.id}')">
-            <img class="spotlight-item-poster" src="${poster}" alt="${m.title}" loading="lazy" decoding="async" onerror="window.handlePosterError(this, '${safePoster}', '${safeSrcUrl}');">
-            <div class="spotlight-item-info">
-              <div class="spotlight-item-title">${m.title}</div>
-              <div class="spotlight-item-meta">${meta}</div>
-            </div>
-            <div class="spotlight-badge-type">${classification.typeLabel}</div>
-          </div>
-        `;
-      });
-    }
+    let html = crossCategoryNotice;
 
-    const visibleChannels = channels.slice(0, 8);
-    if (visibleChannels.length > 0) {
-      html += `
-        <div style="font-size: 11px; font-weight: 800; color: #f43f5e; text-transform: uppercase; letter-spacing: 0.08em; margin: 12px 0 8px 2px;">
-          Live Channels (${channels.length})
-        </div>
-      `;
-      visibleChannels.forEach(ch => {
+    // Segmented rendering for 'all' mode
+    if (currentSpotlightFilter === 'all') {
+      const topCinema = cinemaMatches.slice(0, 8);
+      const topSeries = seriesMatches.slice(0, 6);
+      const topLive = liveMatches.slice(0, 6);
+
+      if (topCinema.length > 0) {
         html += `
-          <div class="spotlight-item-card" onclick="closeSpotlightSearch(); playChannelById('${ch.id}')">
-            <div class="spotlight-item-icon-box">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
-            </div>
-            <div class="spotlight-item-info">
-              <div class="spotlight-item-title">${ch.name}</div>
-              <div class="spotlight-item-meta">${ch.countryName || 'Global'} • ${ch.category || 'Live'}</div>
-            </div>
-            <div class="spotlight-badge-type" style="color: #f43f5e; background: rgba(244, 63, 94, 0.12);">LIVE</div>
+          <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan, #22D3EE); text-transform: uppercase; letter-spacing: 0.08em; margin: 4px 0 8px 2px; display: flex; justify-content: space-between;">
+            <span>Cinema & Movies (${cinemaMatches.length})</span>
           </div>
         `;
-      });
+        topCinema.forEach(m => {
+          const poster = m.posterUrl || 'assets/placeholder.png';
+          const classification = getContentClassification(m);
+          const langText = (m.languages && m.languages.length > 0) ? ` • ${m.languages.join('/')}` : '';
+          const highlightedTitle = highlightSearchQuery(m.title, q);
+          const meta = `${m.year || '2024'} • ${m.primaryGenre || (m.genres ? m.genres[0] : 'Feature')}${langText} • ${classification.badgeLabel}`;
+          const safePoster = (poster || '').replace(/'/g, "\\'");
+          const safeSrcUrl = (m.posterSrcUrl || '').replace(/'/g, "\\'");
+          html += `
+            <div class="spotlight-item-card" onclick="closeSpotlightSearch(); openMovieDetails('${m.id}')">
+              <img class="spotlight-item-poster" src="${poster}" alt="${m.title}" loading="lazy" decoding="async" onerror="window.handlePosterError(this, '${safePoster}', '${safeSrcUrl}');">
+              <div class="spotlight-item-info">
+                <div class="spotlight-item-title">${highlightedTitle}</div>
+                <div class="spotlight-item-meta">${meta}</div>
+              </div>
+              <div class="spotlight-badge-type">${classification.typeLabel}</div>
+            </div>
+          `;
+        });
+      }
+
+      if (topSeries.length > 0) {
+        html += `
+          <div style="font-size: 11px; font-weight: 800; color: #a855f7; text-transform: uppercase; letter-spacing: 0.08em; margin: 14px 0 8px 2px; display: flex; justify-content: space-between;">
+            <span>Sagas & Series (${seriesMatches.length})</span>
+          </div>
+        `;
+        topSeries.forEach(m => {
+          const poster = m.posterUrl || 'assets/placeholder.png';
+          const classification = getContentClassification(m);
+          const langText = (m.languages && m.languages.length > 0) ? ` • ${m.languages.join('/')}` : '';
+          const highlightedTitle = highlightSearchQuery(m.title, q);
+          const meta = `${m.year || '2024'} • ${m.episodes ? m.episodes.length + ' Eps' : 'Series'}${langText} • ${classification.badgeLabel}`;
+          const safePoster = (poster || '').replace(/'/g, "\\'");
+          const safeSrcUrl = (m.posterSrcUrl || '').replace(/'/g, "\\'");
+          html += `
+            <div class="spotlight-item-card" onclick="closeSpotlightSearch(); openMovieDetails('${m.id}')">
+              <img class="spotlight-item-poster" src="${poster}" alt="${m.title}" loading="lazy" decoding="async" onerror="window.handlePosterError(this, '${safePoster}', '${safeSrcUrl}');">
+              <div class="spotlight-item-info">
+                <div class="spotlight-item-title">${highlightedTitle}</div>
+                <div class="spotlight-item-meta">${meta}</div>
+              </div>
+              <div class="spotlight-badge-type" style="color: #a855f7; background: rgba(168, 85, 247, 0.12);">SERIES</div>
+            </div>
+          `;
+        });
+      }
+
+      if (topLive.length > 0) {
+        html += `
+          <div style="font-size: 11px; font-weight: 800; color: #f43f5e; text-transform: uppercase; letter-spacing: 0.08em; margin: 14px 0 8px 2px; display: flex; justify-content: space-between;">
+            <span>Live Channels (${liveMatches.length})</span>
+          </div>
+        `;
+        topLive.forEach(ch => {
+          const highlightedName = highlightSearchQuery(ch.name, q);
+          html += `
+            <div class="spotlight-item-card" onclick="closeSpotlightSearch(); playChannelById('${ch.id}')">
+              <div class="spotlight-item-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
+              </div>
+              <div class="spotlight-item-info">
+                <div class="spotlight-item-title">${highlightedName}</div>
+                <div class="spotlight-item-meta">${ch.countryName || 'Global'} • ${ch.category || 'Live'}</div>
+              </div>
+              <div class="spotlight-badge-type" style="color: #f43f5e; background: rgba(244, 63, 94, 0.12);">LIVE</div>
+            </div>
+          `;
+        });
+      }
+    } else {
+      // Single category mode
+      if (moviesToShow.length > 0) {
+        const label = currentSpotlightFilter === 'movies' ? `Cinema Matches (${moviesToShow.length})` : `Series Matches (${moviesToShow.length})`;
+        html += `
+          <div style="font-size: 11px; font-weight: 800; color: var(--t2l-aurora-cyan, #22D3EE); text-transform: uppercase; letter-spacing: 0.08em; margin: 4px 0 8px 2px;">
+            ${label}
+          </div>
+        `;
+        moviesToShow.slice(0, 16).forEach(m => {
+          const poster = m.posterUrl || 'assets/placeholder.png';
+          const classification = getContentClassification(m);
+          const highlightedTitle = highlightSearchQuery(m.title, q);
+          const langText = (m.languages && m.languages.length > 0) ? ` • ${m.languages.join('/')}` : '';
+          const meta = `${m.year || '2024'} • ${m.primaryGenre || (m.genres ? m.genres[0] : 'Feature')}${langText} • ${classification.badgeLabel}`;
+          const safePoster = (poster || '').replace(/'/g, "\\'");
+          const safeSrcUrl = (m.posterSrcUrl || '').replace(/'/g, "\\'");
+          html += `
+            <div class="spotlight-item-card" onclick="closeSpotlightSearch(); openMovieDetails('${m.id}')">
+              <img class="spotlight-item-poster" src="${poster}" alt="${m.title}" loading="lazy" decoding="async" onerror="window.handlePosterError(this, '${safePoster}', '${safeSrcUrl}');">
+              <div class="spotlight-item-info">
+                <div class="spotlight-item-title">${highlightedTitle}</div>
+                <div class="spotlight-item-meta">${meta}</div>
+              </div>
+              <div class="spotlight-badge-type">${classification.typeLabel}</div>
+            </div>
+          `;
+        });
+      }
+
+      if (channelsToShow.length > 0) {
+        html += `
+          <div style="font-size: 11px; font-weight: 800; color: #f43f5e; text-transform: uppercase; letter-spacing: 0.08em; margin: 12px 0 8px 2px;">
+            Live Channels (${channelsToShow.length})
+          </div>
+        `;
+        channelsToShow.slice(0, 12).forEach(ch => {
+          const highlightedName = highlightSearchQuery(ch.name, q);
+          html += `
+            <div class="spotlight-item-card" onclick="closeSpotlightSearch(); playChannelById('${ch.id}')">
+              <div class="spotlight-item-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
+              </div>
+              <div class="spotlight-item-info">
+                <div class="spotlight-item-title">${highlightedName}</div>
+                <div class="spotlight-item-meta">${ch.countryName || 'Global'} • ${ch.category || 'Live'}</div>
+              </div>
+              <div class="spotlight-badge-type" style="color: #f43f5e; background: rgba(244, 63, 94, 0.12);">LIVE</div>
+            </div>
+          `;
+        });
+      }
     }
 
     requestAnimationFrame(() => {
       container.innerHTML = html;
     });
-  }, 250);
+  }, 100);
 };
 
 window.playChannelById = function(channelId) {
@@ -14211,28 +14459,168 @@ const CatalogProvider = {
       return false;
     });
   },
-  search(query) {
+  search(query, options = {}) {
     const list = this.getAll();
-    if (!query) return list;
-    const q = query.toLowerCase().trim();
-    if (!this._searchIndex || this._searchIndex.length !== list.length) {
-      this._buildIndices();
-    }
-    const terms = q.split(/\s+/).filter(Boolean);
-    if (terms.length === 0) return list;
-    return this._searchIndex.filter(entry => {
-      const text = entry.text;
-      for (let t = 0; t < terms.length; t++) {
-        const term = terms[t];
-        if (term === 'series') {
-          if (entry.item.mediaType === 'series') continue;
-        } else if (term === 'movie') {
-          if (entry.item.mediaType !== 'series') continue;
-        }
-        if (!text.includes(term)) return false;
+    if (!query || !query.trim()) return list;
+    const rawQ = query.toLowerCase().trim();
+    const normQ = typeof normalizeSearchText === 'function' ? normalizeSearchText(rawQ) : rawQ;
+    const collapsedQ = typeof collapseSearchText === 'function' ? collapseSearchText(rawQ) : rawQ.replace(/[^a-z0-9]/g, '');
+    if (!normQ) return list;
+
+    const aliases = typeof SEARCH_ALIASES !== 'undefined' ? SEARCH_ALIASES : {};
+    const stopWords = typeof SEARCH_STOP_WORDS !== 'undefined' ? SEARCH_STOP_WORDS : new Set();
+    const aliasExpansion = aliases[normQ] || aliases[collapsedQ];
+    const queryToUse = aliasExpansion ? (normQ + ' ' + aliasExpansion) : normQ;
+    const terms = Array.from(new Set(queryToUse.split(' ').filter(Boolean)));
+    const significantTerms = terms.filter(t => !stopWords.has(t));
+
+    const scored = [];
+
+    for (let i = 0; i < list.length; i++) {
+      const m = list[i];
+      if (!m) continue;
+
+      // Filter by mediaType if requested
+      if (options.filter === 'movies') {
+        const c = typeof getContentClassification === 'function' ? getContentClassification(m) : {};
+        if (c.isSeries) continue;
+      } else if (options.filter === 'series') {
+        const c = typeof getContentClassification === 'function' ? getContentClassification(m) : {};
+        if (!c.isSeries) continue;
       }
-      return true;
-    }).map(entry => entry.item);
+
+      let score = 0;
+      const title = m.title || '';
+      const normTitle = typeof normalizeSearchText === 'function' ? normalizeSearchText(title) : title.toLowerCase();
+      const collapsedTitle = typeof collapseSearchText === 'function' ? collapseSearchText(title) : title.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+      const origTitle = m.originalTitle || '';
+      const normOrig = typeof normalizeSearchText === 'function' ? normalizeSearchText(origTitle) : origTitle.toLowerCase();
+      const collapsedOrig = typeof collapseSearchText === 'function' ? collapseSearchText(origTitle) : origTitle.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+      // 1. Exact Title Matches (Highest Confidence)
+      if (normTitle === normQ || collapsedTitle === collapsedQ) {
+        score += 2600;
+      } else if (aliasExpansion && (normTitle === aliasExpansion || collapsedTitle === (typeof collapseSearchText === 'function' ? collapseSearchText(aliasExpansion) : ''))) {
+        score += 2300;
+      } else if (normOrig === normQ || collapsedOrig === collapsedQ) {
+        score += 1900;
+      }
+      // 2. Title Starts With Query
+      else if (normTitle.startsWith(normQ) || (collapsedQ.length >= 3 && collapsedTitle.startsWith(collapsedQ))) {
+        score += 1300;
+      }
+      // 3. Whole query contained in Title
+      else if (normTitle.includes(normQ) || (collapsedQ.length >= 4 && collapsedTitle.includes(collapsedQ))) {
+        score += 850;
+      } else if (normOrig.includes(normQ) || (collapsedQ.length >= 4 && collapsedOrig.includes(collapsedQ))) {
+        score += 750;
+      } else if (aliasExpansion && normTitle.includes(aliasExpansion)) {
+        score += 700;
+      }
+
+      // Term-by-term scoring
+      const titleWords = normTitle.split(' ');
+      let matchedTermsCount = 0;
+      const desc = typeof normalizeSearchText === 'function' ? normalizeSearchText(m.description || '') : (m.description || '').toLowerCase();
+      const cast = typeof normalizeSearchText === 'function' ? normalizeSearchText(Array.isArray(m.cast) ? m.cast.join(' ') : (m.cast || '')) : (m.cast || '').toLowerCase();
+      const genres = (m.genres || []).map(g => typeof normalizeSearchText === 'function' ? normalizeSearchText(g) : g.toLowerCase());
+      const cats = (m.categories || []).map(c => typeof normalizeSearchText === 'function' ? normalizeSearchText(c) : c.toLowerCase());
+      const langs = (m.languages || []).map(l => typeof normalizeSearchText === 'function' ? normalizeSearchText(l) : l.toLowerCase());
+
+      for (let tIdx = 0; tIdx < terms.length; tIdx++) {
+        const t = terms[tIdx];
+        if (stopWords.has(t) && terms.length > 1) continue;
+
+        let termMatched = false;
+
+        // Title exact word
+        if (titleWords.includes(t)) {
+          score += 320;
+          termMatched = true;
+        }
+        // Title word prefix
+        else if (titleWords.some(tw => tw.startsWith(t))) {
+          score += 190;
+          termMatched = true;
+        }
+        // Title substring
+        else if (t.length >= 3 && normTitle.includes(t)) {
+          score += 130;
+          termMatched = true;
+        }
+        // Collapsed title substring (e.g. shinchan in shinchantheadventures...)
+        else if (t.length >= 4 && collapsedTitle.includes(t)) {
+          score += 160;
+          termMatched = true;
+        }
+        // Fuzzy word match in title
+        else if (typeof calcLevenshteinDistance === 'function') {
+          for (let w = 0; w < titleWords.length; w++) {
+            const tw = titleWords[w];
+            if (t.length >= 4 && tw.length >= 4) {
+              const maxEdit = t.length <= 6 ? 1 : 2;
+              if (calcLevenshteinDistance(t, tw, maxEdit) <= maxEdit) {
+                score += 140;
+                termMatched = true;
+                break;
+              }
+            }
+          }
+        }
+
+        // Original title
+        if (!termMatched && t.length >= 3 && normOrig.includes(t)) {
+          score += 90;
+          termMatched = true;
+        }
+
+        // Genres & Categories
+        if (genres.some(g => g === t || (t.length >= 4 && g.includes(t))) ||
+            cats.some(c => c === t || (t.length >= 4 && c.includes(t)))) {
+          score += 80;
+          termMatched = true;
+        }
+
+        // Spoken / Audio Languages (e.g. user types hindi or japanese)
+        if (langs.some(l => l.includes(t))) {
+          score += 65;
+          termMatched = true;
+        }
+
+        // Cast & Director
+        if (t.length >= 3 && cast.includes(t)) {
+          score += 45;
+          termMatched = true;
+        }
+
+        // Description
+        if (t.length >= 4 && desc.includes(t)) {
+          score += 20;
+          termMatched = true;
+        }
+
+        if (termMatched) matchedTermsCount++;
+      }
+
+      // Multi-term coverage synergy bonus
+      if (significantTerms.length > 1 && matchedTermsCount >= significantTerms.length) {
+        score += 450;
+      }
+
+      if (score > 0) {
+        if (m.featured) score += 20;
+        if (m.streamUrl) score += 25;
+        const rating = m.rating || 0;
+        score += rating * 2;
+        scored.push({ score, item: m });
+      }
+    }
+
+    scored.sort((a, b) => b.score - a.score);
+    const minThreshold = options.minScore || 35;
+    const finalItems = scored.filter(r => r.score >= minThreshold).map(r => r.item);
+    return options.limit ? finalItems.slice(0, options.limit) : finalItems;
   }
 };
 
@@ -14703,15 +15091,9 @@ window.handleCollectionSearch = function(query) {
   if (!query || !query.trim()) {
     window.currentCollectionItems = [...orig];
   } else {
-    const q = query.toLowerCase().trim();
-    window.currentCollectionItems = orig.filter(m => {
-      const matchTitle = m.title && m.title.toLowerCase().includes(q);
-      const castStr = Array.isArray(m.cast) ? m.cast.join(' ').toLowerCase() : String(m.cast || '').toLowerCase();
-      const matchCast = castStr.includes(q);
-      const genreStr = Array.isArray(m.genres) ? m.genres.join(' ').toLowerCase() : String(m.genre || '').toLowerCase();
-      const matchGenre = genreStr.includes(q);
-      return matchTitle || matchCast || matchGenre;
-    });
+    const origIdSet = new Set(orig.map(m => m.id));
+    const allMatches = typeof CatalogProvider !== 'undefined' ? CatalogProvider.search(query) : [];
+    window.currentCollectionItems = allMatches.filter(m => origIdSet.has(m.id));
   }
   const countEl = document.getElementById('collectionPageCount');
   if (countEl) countEl.textContent = `${window.currentCollectionItems.length} Titles`;
