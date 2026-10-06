@@ -1,10 +1,145 @@
 {
   "version": 25,
-  "updated_at": "2026-10-06 22:00:00",
-  "total_movies": 192,
+  "updated_at": "2026-10-06 17:36:10",
+  "total_movies": 194,
   "total_series": 18,
   "default_language_filter": "Hindi",
   "movies": [
+    {
+      "id": "vod_allof_us_are_dead_s01_1080p_he",
+      "title": "Allof Us Are Dead. S01.",
+      "originalTitle": "Allof Us Are Dead. S01. 1080p HEVC",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 3982,
+      "durationFormatted": "1h 06m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Allof Us Are Dead. S01. 1080p HEVC.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/allof-us-are-dead.-s01.-1080p-hevc.thumbs/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC_000001.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "posterUrl": "assets/posters/vod_allof_us_are_dead_s01.jpg",
+      "backdropUrl": "assets/posters/vod_allof_us_are_dead_s01.jpg"
+    },
+    {
+      "id": "vod_bhaag_milkha_bhaag_2013_blu_ra",
+      "title": "Bhaag Milkha Bhaag 2013 Blu Ray Hindi DD 5.1 X 264 Mkv Cinemas [ Telly]",
+      "originalTitle": "Bhaag Milkha Bhaag 2013 Blu Ray 1080p Hindi DD 5.1 X 264 ESub Mkv Cinemas [ Telly]",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 11184,
+      "durationFormatted": "3h 06m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Bhaag Milkha Bhaag 2013 Blu Ray 1080p Hindi DD 5.1 X 264 ESub Mkv Cinemas [ Telly].",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/__ia_thumb.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "posterUrl": "assets/posters/vod_bhaag_milkha_bhaag_x_264.jpg",
+      "backdropUrl": "assets/posters/vod_bhaag_milkha_bhaag_x_264.jpg"
+    },
+    {
+      "id": "vod_raw__beast_2022_south_hindi_du",
+      "title": "Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original",
+      "originalTitle": "Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original HEVC 1080p",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 9396,
+      "durationFormatted": "2h 36m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original HEVC 1080p.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/Raw%20%28Beast%29%202022%20South%20Hindi%20Dubbed%20Full%20Movie%20Original%20HEVC%201080p.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://image.tmdb.org/t/p/w500/eykoFw9XCqrAwOtLEuloFtWMPFV.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "posterUrl": "assets/posters/vod_raw_beast.jpg",
+      "backdropUrl": "assets/posters/vod_raw_beast.jpg"
+    },
     {
       "id": "vod_juice_2017",
       "title": "Juice",
@@ -2882,86 +3017,6 @@
       "sourceStatus": "PLAYABLE",
       "backupUrls": [
         "https://archive.org/download/leo-2023-thalapathy-vijay-lokesh-kanagraj-full-movie-1080p/Leo%282023%29_%20Thalapathy%20Vijay%20_%20Lokesh%20Kanagraj%20_%20Full%20Movie%201080p.mp4"
-      ],
-      "isTrailerOnly": false,
-      "subtitles": [],
-      "quality": "1080p"
-    },
-    {
-      "id": "vod_tiger_3",
-      "title": "Tiger 3",
-      "year": 2023,
-      "mediaType": "movie",
-      "duration": 9360,
-      "durationFormatted": "2h 36m",
-      "genres": [
-        "Action",
-        "Thriller",
-        "Spy"
-      ],
-      "type": "Bollywood",
-      "categories": [
-        "bollywood",
-        "action",
-        "thrillers"
-      ],
-      "rating": 6.9,
-      "description": "Following the events of Tiger Zinda Hai, War and Pathaan, Avinash 'Tiger' Singh Rathore is framed as a traitor by a revenge-seeking former ISI agent Aatish Rehman.",
-      "posterUrl": "assets/posters/vod_tiger_3.jpg",
-      "backdropUrl": "assets/posters/vod_tiger_3.jpg",
-      "resolution": "1080p Full HD",
-      "codec": "H.264",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "container": "MP4",
-      "fileSize": "2.6 GB",
-      "bitrate": "4.4 Mbps",
-      "fps": "24 FPS",
-      "license": "Yash Raj Films",
-      "director": "Maneesh Sharma",
-      "cast": "Salman Khan, Katrina Kaif, Emraan Hashmi, Shah Rukh Khan",
-      "featured": false,
-      "latest": true,
-      "swarmSeeders": null,
-      "streamUrl": "https://archive.org/download/tiger-3-4k-2023/Tiger%203%201080p%202023.mp4",
-      "contentType": "MOVIE",
-      "region": "BOLLYWOOD",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/vEjTUDjjU6A",
-      "torrentUri": null,
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "1080p FHD",
-      "audioClassification": "HINDI_AUDIO",
-      "metadata": {
-        "originalLanguage": "hi",
-        "spokenLanguages": [
-          "Hindi",
-          "English"
-        ],
-        "countries": [
-          "IN"
-        ]
-      },
-      "audioSwitchingCapability": "NONE",
-      "contentId": "movie_tmdb_786638",
-      "tmdbId": 786638,
-      "imdbId": "tt18411490",
-      "releaseYear": 2023,
-      "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "PLAYABLE",
-      "backupUrls": [
-        "https://archive.org/download/tiger-3-4k-2023/Tiger%203%201080p%202023.mp4"
       ],
       "isTrailerOnly": false,
       "subtitles": [],
@@ -10915,6 +10970,2517 @@
       "quality": "720p"
     },
     {
+      "id": "vod_spirit_2026",
+      "title": "Spirit (2026)",
+      "originalTitle": "Spirit",
+      "year": 2026,
+      "releaseYear": 2026,
+      "mediaType": "movie",
+      "contentType": "MOVIE",
+      "type": "Tollywood",
+      "categories": [
+        "action",
+        "crime",
+        "drama",
+        "south",
+        "trending",
+        "trailers"
+      ],
+      "durationFormatted": "Trailer",
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "rating": 8.7,
+      "description": "A fearless, uncompromising police officer wages an unyielding battle against systemic corruption and underground crime cartels.",
+      "posterUrl": "assets/posters/vod_spirit_2026.jpg",
+      "backdropUrl": "assets/posters/vod_spirit_2026.jpg",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "sourceState": "TRAILER_ONLY",
+      "sourceStatus": "UPCOMING",
+      "audioClassification": "HINDI_AUDIO",
+      "audioSwitchingCapability": "NONE",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/GOQ5DytuKoc",
+      "streamUrl": null,
+      "backupUrls": [],
+      "torrentUri": null,
+      "region": "SOUTH",
+      "director": "Sandeep Reddy Vanga",
+      "cast": "Prabhas",
+      "featured": true,
+      "latest": true,
+      "metadata": {
+        "originalLanguage": "Telugu",
+        "spokenLanguages": [
+          "Hindi",
+          "Telugu"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "contentId": "movie_tmdb_889737",
+      "tmdbId": 889737,
+      "imdbId": "tt15582236",
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer (4K UHD)",
+      "subtitles": []
+    },
+    {
+      "id": "vod_alpha_2026",
+      "title": "Alpha (2026)",
+      "originalTitle": "Alpha",
+      "year": 2026,
+      "releaseYear": 2026,
+      "mediaType": "movie",
+      "contentType": "MOVIE",
+      "type": "Bollywood",
+      "categories": [
+        "action",
+        "thriller",
+        "bollywood",
+        "trending",
+        "trailers"
+      ],
+      "durationFormatted": "Official Announcement",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "rating": 8.2,
+      "description": "The YRF Spy Universe expands with its first female-led covert operations thriller tackling international espionage.",
+      "posterUrl": "assets/posters/vod_alpha_2026.jpg",
+      "backdropUrl": "assets/posters/vod_alpha_2026.jpg",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "sourceState": "TRAILER_ONLY",
+      "sourceStatus": "UPCOMING",
+      "audioClassification": "HINDI_AUDIO",
+      "audioSwitchingCapability": "NONE",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/QRqGwGwo1Y0",
+      "streamUrl": null,
+      "backupUrls": [],
+      "torrentUri": null,
+      "region": "BOLLYWOOD",
+      "director": "Shiv Rawail",
+      "cast": "Alia Bhatt, Sharvari Wagh, Bobby Deol, Anil Kapoor",
+      "featured": true,
+      "latest": true,
+      "metadata": {
+        "originalLanguage": "Hindi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "contentId": "movie_tmdb_1311550",
+      "tmdbId": 1311550,
+      "imdbId": "tt31835688",
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer (4K UHD)",
+      "subtitles": []
+    },
+    {
+      "id": "vod_king_2026",
+      "title": "King (2026)",
+      "originalTitle": "King",
+      "year": 2026,
+      "releaseYear": 2026,
+      "mediaType": "movie",
+      "contentType": "MOVIE",
+      "type": "Bollywood",
+      "categories": [
+        "action",
+        "thriller",
+        "bollywood",
+        "trending",
+        "trailers"
+      ],
+      "durationFormatted": "Trailer",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "rating": 8.5,
+      "description": "An enigmatic mentor guides his protégé through dangerous criminal syndicates in this high-octane Bollywood action drama.",
+      "posterUrl": "assets/posters/vod_king_2026.jpg",
+      "backdropUrl": "assets/posters/vod_king_2026.jpg",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "sourceState": "TRAILER_ONLY",
+      "sourceStatus": "UPCOMING",
+      "audioClassification": "HINDI_AUDIO",
+      "audioSwitchingCapability": "NONE",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/lo4SGEt3wRg",
+      "streamUrl": null,
+      "backupUrls": [],
+      "torrentUri": null,
+      "region": "BOLLYWOOD",
+      "director": "Sujoy Ghosh",
+      "cast": "Shah Rukh Khan, Suhana Khan, Abhishek Bachchan",
+      "featured": true,
+      "latest": true,
+      "metadata": {
+        "originalLanguage": "Hindi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "contentId": "movie_tmdb_1289196",
+      "tmdbId": 1289196,
+      "imdbId": "tt30018898",
+      "metadataSource": "TMDB_VERIFIED",
+      "isTrailerOnly": true,
+      "resolution": "Official Trailer (4K UHD)",
+      "subtitles": []
+    },
+    {
+      "id": "vod_the_batman_part_ii_2026",
+      "title": "The Batman Part II",
+      "year": 2026,
+      "releaseYear": 2026,
+      "mediaType": "movie",
+      "type": "Hollywood",
+      "categories": [
+        "hollywood",
+        "action",
+        "crime",
+        "trailers"
+      ],
+      "duration": 0,
+      "durationFormatted": "Upcoming (2026)",
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "rating": 8.8,
+      "description": "Matt Reeves returns with Robert Pattinson as Gotham's Caped Crusader facing a rising criminal underworld in a flooded city.",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": null,
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "languages": [
+        "English"
+      ],
+      "defaultLanguage": "English",
+      "container": "MP4",
+      "fileSize": "-",
+      "bitrate": "-",
+      "fps": "24 FPS",
+      "license": "Official Studio Promotion",
+      "contentSource": "DC Studios / Warner Bros.",
+      "director": "Matt Reeves",
+      "cast": "Robert Pattinson, Colin Farrell, Andy Serkis, Jeffrey Wright",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/bha24P9uw-E",
+      "torrentUri": null,
+      "contentType": "MOVIE",
+      "region": "HOLLYWOOD",
+      "sourceState": "TRAILER_ONLY",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "metadata": {
+        "originalLanguage": "en",
+        "spokenLanguages": [
+          "English"
+        ],
+        "countries": [
+          "US"
+        ]
+      },
+      "posterUrl": "assets/posters/vod_the_batman_part_ii_2026.jpg",
+      "backdropUrl": "assets/posters/vod_the_batman_part_ii_2026.jpg",
+      "audioSwitchingCapability": "NONE",
+      "contentId": "movie_tmdb_969681",
+      "tmdbId": 969681,
+      "imdbId": "tt19851608",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UPCOMING",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_ramayana_part_1_2026",
+      "title": "Ramayana: Part 1",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Action",
+        "Drama",
+        "Mythology"
+      ],
+      "rating": 9.6,
+      "duration": "N/A",
+      "synopsis": "Nitesh Tiwari's epic adaptation of the ancient Sanskrit epic Ramayana, starring Ranbir Kapoor as Lord Rama, Sai Pallavi as Sita, and Yash as Ravana.",
+      "posterUrl": "assets/posters/vod_ramayana_part_1_2026.jpg",
+      "backdropUrl": "assets/posters/vod_ramayana_part_1_2026.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "Nitesh Tiwari",
+      "cast": "Ranbir Kapoor, Sai Pallavi, Yash, Sunny Deol",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/1zip1rNaNYs",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "metadata": {
+        "originalLanguage": "Hindi",
+        "spokenLanguages": [
+          "Hindi"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "contentId": "movie_tmdb_1070514",
+      "tmdbId": 1070514,
+      "imdbId": "tt30821034",
+      "mediaType": "movie",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UPCOMING",
+      "description": "Nitesh Tiwari's epic adaptation of the ancient Sanskrit epic Ramayana, starring Ranbir Kapoor as Lord Rama, Sai Pallavi as Sita, and Yash as Ravana.",
+      "genres": [
+        "Action",
+        "Drama",
+        "Mythology"
+      ],
+      "categories": [
+        "action",
+        "drama",
+        "mythology",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "IN",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_toxic_2026",
+      "title": "Toxic: A Fairy Tale for Grown-ups",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "rating": 9.4,
+      "duration": "N/A",
+      "synopsis": "A dark, intense crime drama set in the 1950s-1970s drug cartel underworld directed by Geetu Mohandas.",
+      "posterUrl": "assets/posters/vod_toxic_2026.jpg",
+      "backdropUrl": "assets/posters/vod_toxic_2026.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "KVN Productions",
+      "director": "Geetu Mohandas",
+      "cast": "Yash, Kiara Advani, Huma Qureshi, Nayanthara",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/nXA4daIga0k",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "metadata": {
+        "originalLanguage": "Kannada",
+        "spokenLanguages": [
+          "Hindi",
+          "Kannada"
+        ],
+        "countries": [
+          "IN"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "contentId": "movie_tmdb_1215163",
+      "tmdbId": 1215163,
+      "imdbId": "tt30372332",
+      "mediaType": "movie",
+      "metadataSource": "TMDB_VERIFIED",
+      "sourceStatus": "UPCOMING",
+      "description": "A dark, intense crime drama set in the 1950s-1970s drug cartel underworld directed by Geetu Mohandas.",
+      "genres": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "categories": [
+        "action",
+        "drama",
+        "crime",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "IN",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_jailer_2_2026",
+      "title": "Jailer 2 (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Action",
+        "Crime",
+        "Thriller"
+      ],
+      "rating": 9.4,
+      "duration": "N/A",
+      "synopsis": "Tiger Muthuvel Pandian returns in Nelson's explosive high-octane sequel to the mega-blockbuster Jailer, confronting international syndicate cartels with unstoppable force.",
+      "description": "Tiger Muthuvel Pandian returns in Nelson's explosive high-octane sequel to the mega-blockbuster Jailer, confronting international syndicate cartels with unstoppable force.",
+      "posterUrl": "assets/posters/vod_jailer_2_2026.jpg",
+      "backdropUrl": "assets/posters/vod_jailer_2_2026.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "Nelson Dilipkumar",
+      "cast": "Superstar Rajinikanth, Mohanlal, Shiva Rajkumar, Anirudh Ravichander",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/LBF5UO4ZyOU",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Action",
+        "Crime",
+        "Thriller"
+      ],
+      "categories": [
+        "action",
+        "crime",
+        "thriller",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "IN",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_drishyam_3_2026",
+      "title": "Drishyam 3 (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller"
+      ],
+      "rating": 9.5,
+      "duration": "N/A",
+      "synopsis": "Vijay Salgaonkar and his family face the ultimate closing chapter of the gripping cat-and-mouse saga as old buried secrets resurface under intense federal investigation.",
+      "description": "Vijay Salgaonkar and his family face the ultimate closing chapter of the gripping cat-and-mouse saga as old buried secrets resurface under intense federal investigation.",
+      "posterUrl": "assets/posters/vod_drishyam_3_2026.jpg",
+      "backdropUrl": "assets/posters/vod_drishyam_3_2026.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "Abhishek Pathak",
+      "cast": "Ajay Devgn, Tabu, Shriya Saran, Jaideep Ahlawat, Ishita Dutta",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/jYbEYF1t-hk",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller"
+      ],
+      "categories": [
+        "crime",
+        "mystery",
+        "thriller",
+        "bollywood",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "IN",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_prahaar_2026",
+      "title": "Prahaar: The Untold Story (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Action",
+        "Biography",
+        "Crime",
+        "Drama"
+      ],
+      "rating": 9.2,
+      "duration": "N/A",
+      "synopsis": "A relentless legal action thriller based on real court battles and tactical operations of India's most celebrated special public prosecutor against high-profile terror syndicates.",
+      "description": "A relentless legal action thriller based on real court battles and tactical operations of India's most celebrated special public prosecutor against high-profile terror syndicates.",
+      "posterUrl": "assets/posters/vod_prahaar_2026.jpg",
+      "backdropUrl": "assets/posters/vod_prahaar_2026.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "Maddock Films",
+      "cast": "Rajkummar Rao, Wamiqa Gabbi, Ashutosh Rana",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/qGbvEhKhaWA",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Action",
+        "Biography",
+        "Crime",
+        "Drama"
+      ],
+      "categories": [
+        "action",
+        "crime",
+        "drama",
+        "bollywood",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "IN",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_udta_teer_2026",
+      "title": "Udta Teer (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "rating": 9.1,
+      "duration": "N/A",
+      "synopsis": "A chaotic espionage comedy tracking an unintentional spy whose accidental blunders spark a whirlwind comedic adventure across the subcontinent.",
+      "description": "A chaotic espionage comedy tracking an unintentional spy whose accidental blunders spark a whirlwind comedic adventure across the subcontinent.",
+      "posterUrl": "assets/posters/vod_udta_teer_2026.jpg",
+      "backdropUrl": "assets/posters/vod_udta_teer_2026.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "Akash Kaushik",
+      "cast": "Ayushmann Khurrana, Sara Ali Khan",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/hN_ZUElLH44",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "categories": [
+        "comedy",
+        "action",
+        "drama",
+        "bollywood",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "IN",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_dhurandhar_2026",
+      "title": "Dhurandhar (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Action",
+        "Thriller"
+      ],
+      "rating": 9.3,
+      "duration": "N/A",
+      "synopsis": "Aditya Dhar's high-stakes espionage action thriller following elite intelligence operatives navigating dangerous undercover geopolitical warfare.",
+      "description": "Aditya Dhar's high-stakes espionage action thriller following elite intelligence operatives navigating dangerous undercover geopolitical warfare.",
+      "posterUrl": "assets/posters/vod_dhurandhar_2026.jpg",
+      "backdropUrl": "assets/posters/vod_dhurandhar_2026.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "Aditya Dhar",
+      "cast": "Ranveer Singh, Sanjay Dutt, R. Madhavan, Akshaye Khanna, Arjun Rampal",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/CN0lNff-zm0",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "categories": [
+        "action",
+        "thriller",
+        "bollywood",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "IN",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_dune_part_three_2026",
+      "title": "Dune: Part Three – Messiah (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "rating": 9.4,
+      "duration": "N/A",
+      "synopsis": "Paul Atreides confronts the consequences of his ascendancy as Emperor of the Known Universe in Denis Villeneuve's epic cinematic adaptation of Frank Herbert's Dune Messiah.",
+      "description": "Paul Atreides confronts the consequences of his ascendancy as Emperor of the Known Universe in Denis Villeneuve's epic cinematic adaptation of Frank Herbert's Dune Messiah.",
+      "posterUrl": "assets/posters/vod_dune_part_three_2026.jpg",
+      "backdropUrl": "assets/posters/vod_dune_part_three_2026.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "Denis Villeneuve",
+      "cast": "Timothée Chalamet, Zendaya, Florence Pugh, Javier Bardem",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/3_9vCamtuPY",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "languages": [
+        "English"
+      ],
+      "defaultLanguage": "English",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "categories": [
+        "action",
+        "adventure",
+        "scifi",
+        "hollywood",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "GLOBAL",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_demon_slayer_infinity_castle",
+      "title": "Demon Slayer: Kimetsu no Yaiba – Infinity Castle (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Animation",
+        "Action",
+        "Fantasy"
+      ],
+      "rating": 9.7,
+      "duration": "N/A",
+      "synopsis": "The Demon Slayer Corps plunges into the Infinity Castle for the definitive showdown against Muzan Kibutsuji and the Upper Moon demons in this blockbuster theatrical trilogy.",
+      "description": "The Demon Slayer Corps plunges into the Infinity Castle for the definitive showdown against Muzan Kibutsuji and the Upper Moon demons in this blockbuster theatrical trilogy.",
+      "posterUrl": "assets/posters/vod_demon_slayer_infinity_castle.jpg",
+      "backdropUrl": "assets/posters/vod_demon_slayer_infinity_castle.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "Haruo Sotozaki",
+      "cast": "Natsuki Hanae, Hiro Shimono, Takahiro Sakurai",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/0pdC1l6M8rU",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi",
+        "English"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi",
+          "English"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Animation",
+        "Action",
+        "Fantasy"
+      ],
+      "categories": [
+        "animation",
+        "action",
+        "fantasy",
+        "anime",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "GLOBAL",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_chainsaw_man_reze_arc",
+      "title": "Chainsaw Man – The Movie: Reze Arc (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Animation",
+        "Action",
+        "Supernatural"
+      ],
+      "rating": 9.2,
+      "duration": "N/A",
+      "synopsis": "Denji encounters the enigmatic Reze in MAPPA's explosive anime feature film adapting the fan-favorite Bomb Girl / Reze Arc.",
+      "description": "Denji encounters the enigmatic Reze in MAPPA's explosive anime feature film adapting the fan-favorite Bomb Girl / Reze Arc.",
+      "posterUrl": "assets/posters/vod_chainsaw_man_reze_arc.jpg",
+      "backdropUrl": "assets/posters/vod_chainsaw_man_reze_arc.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Theatrical Announcement",
+      "director": "MAPPA Studios",
+      "cast": "Kikunosuke Toya, Reina Ueda, Tomori Kusunoki",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/EPaoHkV0dYw",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "languages": [
+        "English"
+      ],
+      "defaultLanguage": "English",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Animation",
+        "Action",
+        "Supernatural"
+      ],
+      "categories": [
+        "animation",
+        "action",
+        "supernatural",
+        "anime",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "GLOBAL",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "series_stranger_things_s5",
+      "title": "Stranger Things Season 5 (The Final Season - 2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Drama",
+        "Fantasy",
+        "Horror",
+        "Sci-Fi"
+      ],
+      "rating": 9.5,
+      "duration": "N/A",
+      "synopsis": "The final battle for Hawkins begins as Eleven and her allies unite to destroy the Upside Down and defeat Vecna once and for all.",
+      "description": "The final battle for Hawkins begins as Eleven and her allies unite to destroy the Upside Down and defeat Vecna once and for all.",
+      "posterUrl": "assets/posters/series_stranger_things_s5.jpg",
+      "backdropUrl": "assets/posters/series_stranger_things_s5.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Announcement",
+      "director": "The Duffer Brothers",
+      "cast": "Millie Bobby Brown, Finn Wolfhard, David Harbour, Winona Ryder",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/iKZyYdwS3Wg",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "languages": [
+        "English",
+        "Hindi"
+      ],
+      "defaultLanguage": "English",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English",
+          "Hindi"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Horror",
+        "Sci-Fi"
+      ],
+      "categories": [
+        "drama",
+        "fantasy",
+        "scifi",
+        "webseries",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "GLOBAL",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "series_panchayat_s4",
+      "title": "Panchayat Season 4 (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Comedy",
+        "Drama"
+      ],
+      "rating": 9.6,
+      "duration": "N/A",
+      "synopsis": "Abhishek Tripathi and the lively residents of Phulera navigate new village elections, unexpected bureaucratic challenges, and heartfelt grassroots comedy.",
+      "description": "Abhishek Tripathi and the lively residents of Phulera navigate new village elections, unexpected bureaucratic challenges, and heartfelt grassroots comedy.",
+      "posterUrl": "assets/posters/series_panchayat_s4.jpg",
+      "backdropUrl": "assets/posters/series_panchayat_s4.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Official Announcement",
+      "director": "Deepak Kumar Mishra",
+      "cast": "Jitendra Kumar, Neena Gupta, Raghubir Yadav, Faisal Malik, Chandan Roy",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/AHMEtNAZTP4",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "HINDI_AUDIO",
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "categories": [
+        "comedy",
+        "drama",
+        "webseries",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "IN",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_blender_project_gold_2026",
+      "title": "Project Gold: Blender Studio 4K Open Movie (2026)",
+      "year": 2026,
+      "releaseYear": 2026,
+      "genre": [
+        "Animation",
+        "Sci-Fi",
+        "Short"
+      ],
+      "rating": 9.0,
+      "duration": "N/A",
+      "synopsis": "Blender Studio's next-generation 4K open animation short film pushing cutting-edge open-source real-time CGI, geometry nodes, and cinematic storytelling.",
+      "description": "Blender Studio's next-generation 4K open animation short film pushing cutting-edge open-source real-time CGI, geometry nodes, and cinematic storytelling.",
+      "posterUrl": "assets/posters/vod_blender_project_gold_2026.jpg",
+      "backdropUrl": "assets/posters/vod_blender_project_gold_2026.jpg",
+      "resolution": "Official Trailer (4K UHD)",
+      "codec": "HEVC",
+      "container": "MP4",
+      "fileSize": "Trailer",
+      "bitrate": "16.0 Mbps",
+      "fps": "24 FPS",
+      "license": "Creative Commons Attribution",
+      "director": "Blender Studio",
+      "cast": "Blender Open Project",
+      "featured": true,
+      "latest": true,
+      "streamUrl": null,
+      "backupUrls": [],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/WhWc3b3KhnY",
+      "sourceState": "TRAILER_ONLY",
+      "contentType": "MOVIE",
+      "qualityClass": "Official Trailer",
+      "qualityHonestBadge": "Official Trailer",
+      "audioClassification": "NON_HINDI_AUDIO",
+      "languages": [
+        "English"
+      ],
+      "defaultLanguage": "English",
+      "audioSwitchingCapability": "NONE",
+      "audio": {
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "English",
+        "availableLanguages": [
+          "English"
+        ]
+      },
+      "durationFormatted": "Trailer",
+      "mediaType": "movie",
+      "sourceStatus": "UPCOMING",
+      "genres": [
+        "Animation",
+        "Sci-Fi",
+        "Short"
+      ],
+      "categories": [
+        "animation",
+        "scifi",
+        "short",
+        "open_movie",
+        "upcoming",
+        "trailers"
+      ],
+      "type": "movie",
+      "region": "GLOBAL",
+      "isTrailerOnly": true,
+      "subtitles": []
+    },
+    {
+      "id": "vod_weathering_with_you_2019",
+      "title": "Weathering with You",
+      "originalTitle": "天気の子 (Tenki no Ko)",
+      "year": 2019,
+      "releaseYear": 2019,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "movies",
+        "trending",
+        "popular",
+        "romance",
+        "fantasy"
+      ],
+      "duration": 6734,
+      "durationFormatted": "1h 52m",
+      "genres": [
+        "Anime",
+        "Fantasy",
+        "Romance",
+        "Drama"
+      ],
+      "rating": 8.5,
+      "description": "During the summer of his high school freshman year, Hodaka runs away from his remote island home to Tokyo and meets Hina, an extraordinary girl who possesses the mysterious power to stop the rain and clear the sky.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Makoto Shinkai",
+      "cast": "Kotaro Daigo, Nana Mori, Shun Oguri, Tsubasa Honda",
+      "streamUrl": "https://archive.org/download/weathering-with-you-hindi-720-p/Weathering_with_You_%5BHindi%5D_720P.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/weathering-with-you-hindi-720-p/Weathering_with_You_%5BHindi%5D_720P.mp4"
+      },
+      "backupUrls": [
+        "https://archive.org/download/anime-dub-hindi-weathering-with-you-2019-1080p-hevc-10bit-ita-blu-ray-multi-audio-esub.mkv-1080p/%5BAnimeDubHindi%5D%20Weathering%20with%20You%20%282019%29%201080p%20HEVC%2010bit%20ITA%20BluRay%20Multi%20Audio%20ESub.mkv_1080p.mp4"
+      ],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Q6iK6DjV_iE",
+      "posterFileName": "vod_weathering_with_you_2019.jpg",
+      "posterUrl": "assets/posters/vod_weathering_with_you_2019.jpg",
+      "backdropUrl": "assets/posters/vod_weathering_with_you_2019.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "tmdbId": 568160,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_swordsmen_1994",
+      "title": "Doraemon: Nobita's Three Visionary Swordsmen",
+      "originalTitle": "ドラえもん のび太と夢幻三剣士",
+      "year": 1994,
+      "releaseYear": 1994,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "movies",
+        "cartoons",
+        "family",
+        "classics",
+        "adventure"
+      ],
+      "duration": 5936,
+      "durationFormatted": "1h 39m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Nobita and his friends enter a magical dream world where they become the Three Visionary Swordsmen to defend the mystical Kingdom of Euramenia from the menacing Emperor Odorome.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/full-toons-india-doraemon-movie-06-doraemon-nobita-39-s-three-visionary-swordsme/%5BFullToonsIndia%5D_Doraemon_Movie_06_Doraemon_Nobita%26_39_s_Three_Visionary_Swordsmen_%26_40_1994%26_41_REMASTERED_1080p_HEVC_10bit_WEB-DL_%5BHindi_DD2_0%2BJap_2_0%5D.mkv.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/full-toons-india-doraemon-movie-06-doraemon-nobita-39-s-three-visionary-swordsme/%5BFullToonsIndia%5D_Doraemon_Movie_06_Doraemon_Nobita%26_39_s_Three_Visionary_Swordsmen_%26_40_1994%26_41_REMASTERED_1080p_HEVC_10bit_WEB-DL_%5BHindi_DD2_0%2BJap_2_0%5D.mkv.mp4"
+      },
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/gKcOjnDJfzk",
+      "posterFileName": "vod_doraemon_swordsmen_1994.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_swordsmen_1994.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_swordsmen_1994.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_shinchan_kasukabe_boys_2004",
+      "title": "Shin-chan: The Adventures of Kasukabe Boys",
+      "originalTitle": "クレヨンしんちゃん 嵐を呼ぶ!夕陽のカスカベボーイズ",
+      "year": 2004,
+      "releaseYear": 2004,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "movies",
+        "cartoons",
+        "comedy",
+        "adventure"
+      ],
+      "duration": 5825,
+      "durationFormatted": "1h 37m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Comedy",
+        "Adventure",
+        "Western"
+      ],
+      "rating": 8.3,
+      "description": "Shin-chan and the Kasukabe Defense Force get magically sucked into a deserted western film inside an old theater, where they lose their memories and must unite to defeat the town dictator and return home.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Mizushima",
+      "cast": "Akiko Yajima, Miki Narahashi, Keiji Fujiwara, Satomi Korogi",
+      "streamUrl": "https://archive.org/download/shin-chan-the-adventures-of-kasukabe-boys/%5BRAI%5D%20Shin-chan%20Movie%2012%20-%20The%20Adventures%20of%20Kasukabe%20Boys%20in%20Hindi_720P%20HD.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/shin-chan-the-adventures-of-kasukabe-boys/%5BRAI%5D%20Shin-chan%20Movie%2012%20-%20The%20Adventures%20of%20Kasukabe%20Boys%20in%20Hindi_720P%20HD.mp4"
+      },
+      "posterFileName": "vod_shinchan_kasukabe_boys_2004.jpg",
+      "posterUrl": "assets/posters/vod_shinchan_kasukabe_boys_2004.jpg",
+      "backdropUrl": "assets/posters/vod_shinchan_kasukabe_boys_2004.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_shinchan_henderland_1996",
+      "title": "Shin-chan: Great Adventure in Henderland",
+      "originalTitle": "クレヨンしんちゃん ヘンダーランドの大冒険",
+      "year": 1996,
+      "releaseYear": 1996,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "movies",
+        "cartoons",
+        "comedy",
+        "fantasy"
+      ],
+      "duration": 5843,
+      "durationFormatted": "1h 37m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Comedy",
+        "Fantasy",
+        "Adventure"
+      ],
+      "rating": 8.2,
+      "description": "On a kindergarten field trip to the thrilling Henderland amusement park, Shin-chan discovers a portal to a whimsical realm and must stop two eccentric sorcerers from taking over the real world.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Mitsuru Hongo",
+      "cast": "Akiko Yajima, Miki Narahashi, Keiji Fujiwara, Satomi Korogi",
+      "streamUrl": "https://archive.org/download/great-adventure-in-henderland/M04%20Shin-chan%20Adventures%20In%20Henderland%20%5BRareToonsIndia%5D.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/great-adventure-in-henderland/M04%20Shin-chan%20Adventures%20In%20Henderland%20%5BRareToonsIndia%5D.mp4"
+      },
+      "posterFileName": "vod_shinchan_henderland_1996.jpg",
+      "posterUrl": "assets/posters/vod_shinchan_henderland_1996.jpg",
+      "backdropUrl": "assets/posters/vod_shinchan_henderland_1996.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_hanuman_2005",
+      "title": "Hanuman",
+      "originalTitle": "Hanuman",
+      "year": 2005,
+      "releaseYear": 2005,
+      "mediaType": "movie",
+      "type": "Cartoons",
+      "contentType": "MOVIE",
+      "region": "BOLLYWOOD",
+      "categories": [
+        "cartoons",
+        "animation",
+        "movies",
+        "mythology",
+        "classics",
+        "trending"
+      ],
+      "duration": 8312,
+      "durationFormatted": "2h 18m",
+      "genres": [
+        "Animation",
+        "Mythology",
+        "Action",
+        "Adventure",
+        "Family"
+      ],
+      "rating": 8.8,
+      "description": "The landmark, blockbuster Indian animated classic tracing Lord Hanuman's miraculous birth, playful childhood, boundless devotion to Lord Rama, and monumental role in the epic war against Ravana.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "V. G. Samant",
+      "cast": "Mukesh Khanna, Viraj Sathav, Mona Ghosh Shetty",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/NSmzueYlFUY?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/NSmzueYlFUY",
+      "posterFileName": "vod_hanuman_2005.jpg",
+      "posterUrl": "assets/posters/vod_hanuman_2005.jpg",
+      "backdropUrl": "assets/posters/vod_hanuman_2005.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_return_of_hanuman_2007",
+      "title": "Return of Hanuman",
+      "originalTitle": "Return of Hanuman",
+      "year": 2007,
+      "releaseYear": 2007,
+      "mediaType": "movie",
+      "type": "Cartoons",
+      "contentType": "MOVIE",
+      "region": "BOLLYWOOD",
+      "categories": [
+        "cartoons",
+        "animation",
+        "movies",
+        "action",
+        "comedy",
+        "mythology"
+      ],
+      "duration": 4811,
+      "durationFormatted": "1h 20m",
+      "genres": [
+        "Animation",
+        "Action",
+        "Comedy",
+        "Fantasy",
+        "Family"
+      ],
+      "rating": 8.1,
+      "description": "Directed by Anurag Kashyap, Lord Hanuman reincarnates as a human child in modern-day India to help a bullied boy and save the Earth from impending cosmic peril.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Anurag Kashyap",
+      "cast": "Mona Ghosh Shetty, Shailendra Pandey",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/Ervg0OnT238?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Ervg0OnT238",
+      "posterFileName": "vod_return_of_hanuman_2007.jpg",
+      "posterUrl": "assets/posters/vod_return_of_hanuman_2007.jpg",
+      "backdropUrl": "assets/posters/vod_return_of_hanuman_2007.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_krishna_aur_kans_2012",
+      "title": "Krishna Aur Kans",
+      "originalTitle": "Krishna Aur Kans",
+      "year": 2012,
+      "releaseYear": 2012,
+      "mediaType": "movie",
+      "type": "Cartoons",
+      "contentType": "MOVIE",
+      "region": "BOLLYWOOD",
+      "categories": [
+        "cartoons",
+        "animation",
+        "movies",
+        "family",
+        "mythology"
+      ],
+      "duration": 6803,
+      "durationFormatted": "1h 53m",
+      "genres": [
+        "Animation",
+        "Mythology",
+        "Action",
+        "Drama",
+        "Family"
+      ],
+      "rating": 8.0,
+      "description": "India's first stereoscopic animated feature chronicle illustrating Lord Krishna's endearing childhood in Vrindavan and his epic battle against the tyrannical demon king Kans.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Vikram Veturi",
+      "cast": "Manoj Bajpayee, Om Puri, Juhi Chawla, Anupam Kher",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/erMieJ30XAc?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/erMieJ30XAc",
+      "posterFileName": "vod_krishna_aur_kans_2012.jpg",
+      "posterUrl": "assets/posters/vod_krishna_aur_kans_2012.jpg",
+      "backdropUrl": "assets/posters/vod_krishna_aur_kans_2012.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_bal_ganesh_2_2009",
+      "title": "Bal Ganesh 2",
+      "originalTitle": "Bal Ganesh 2",
+      "year": 2009,
+      "releaseYear": 2009,
+      "mediaType": "movie",
+      "type": "Cartoons",
+      "contentType": "MOVIE",
+      "region": "BOLLYWOOD",
+      "categories": [
+        "cartoons",
+        "animation",
+        "movies",
+        "family",
+        "mythology"
+      ],
+      "duration": 4407,
+      "durationFormatted": "1h 13m",
+      "genres": [
+        "Animation",
+        "Mythology",
+        "Comedy",
+        "Family"
+      ],
+      "rating": 7.9,
+      "description": "The enchanting continuation of young Lord Ganesha's celestial adventures, joyous feats, and playful antics with his mouse companion Mooshak.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Pankaj Sharma",
+      "cast": "Ashar Shaikh, Parminder Ghumman",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/g49csu_TktQ?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/g49csu_TktQ",
+      "posterFileName": "vod_bal_ganesh_2_2009.jpg",
+      "posterUrl": "assets/posters/vod_bal_ganesh_2_2009.jpg",
+      "backdropUrl": "assets/posters/vod_bal_ganesh_2_2009.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_moon_exploration_2019",
+      "title": "Doraemon: Nobita's Chronicle of the Moon Exploration",
+      "originalTitle": "ドラえもん のび太の月面探査記",
+      "year": 2019,
+      "releaseYear": 2019,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6641,
+      "durationFormatted": "1h 50m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.5,
+      "description": "Nobita uses Doraemon's secret gadget to discover a hidden lunar civilization on the far side of the Moon. Together with their new rabbit-eared friend Luka, they embark on a monumental cosmic odyssey.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Shinnosuke Yakuwa",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Tomokazu Seki",
+      "streamUrl": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Chronicle%20of%20the%20Moon%20Exploration%202019%20BluRay%201080p%20x265%2010bit%20Hin%202.0%20Jpn%205.1%20ESub%20-%20mkvCinemas.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Chronicle%20of%20the%20Moon%20Exploration%202019%20BluRay%201080p%20x265%2010bit%20Hin%202.0%20Jpn%205.1%20ESub%20-%20mkvCinemas.mp4"
+      },
+      "posterFileName": "vod_doraemon_moon_exploration_2019.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_moon_exploration_2019.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_moon_exploration_2019.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_sky_utopia_2023",
+      "title": "Doraemon: Nobita's Sky Utopia",
+      "originalTitle": "ドラえもん のび太と空の理想郷",
+      "year": 2023,
+      "releaseYear": 2023,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6512,
+      "durationFormatted": "1h 48m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.6,
+      "description": "Doraemon and Nobita discover Paradapia, a utopian sky paradise where everyone is seemingly happy and harmonious. However, they soon uncover a dark secret threatening everyone's individuality and free will.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Takumi Doyama",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Ren Nagase",
+      "streamUrl": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Sky%20Utopia%202023%20BluRay%20720p%20Hindi%20AAC%202.0%20Japanese%20AAC%205.1%20x264%20ESub%20-%20mkvCinemas.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Sky%20Utopia%202023%20BluRay%20720p%20Hindi%20AAC%202.0%20Japanese%20AAC%205.1%20x264%20ESub%20-%20mkvCinemas.mp4"
+      },
+      "posterFileName": "vod_doraemon_sky_utopia_2023.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_sky_utopia_2023.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_sky_utopia_2023.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_treasure_island_2018",
+      "title": "Doraemon the Movie: Nobita's Treasure Island",
+      "originalTitle": "ドラえもん のび太の宝島",
+      "year": 2018,
+      "releaseYear": 2018,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6493,
+      "durationFormatted": "1h 48m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Inspired by Robert Louis Stevenson's classic tale, Doraemon and Nobita set sail across the Pacific Ocean on a pirate ship to uncover an uncharted treasure island, fighting ruthless high-tech buccaneers.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Kazuaki Imai",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Yo Oizumi",
+      "streamUrl": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20the%20Movie%20Nobitas%20Treasure%20Island%202018%20BluRay%201080p%20x265%2010bit%20Hindi%202.0%20Jpn%205.1%20AC3%20ESub%20-%20mkvCinemas.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20the%20Movie%20Nobitas%20Treasure%20Island%202018%20BluRay%201080p%20x265%2010bit%20Hindi%202.0%20Jpn%205.1%20AC3%20ESub%20-%20mkvCinemas.mp4"
+      },
+      "posterFileName": "vod_doraemon_treasure_island_2018.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_treasure_island_2018.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_treasure_island_2018.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_secret_gadget_museum_2013",
+      "title": "Doraemon: Nobita's Secret Gadget Museum",
+      "originalTitle": "ドラえもん のび太のひみつ道具博物館",
+      "year": 2013,
+      "releaseYear": 2013,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6256,
+      "durationFormatted": "1h 44m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.3,
+      "description": "When a phantom thief steals Doraemon's bell, the gang journeys to the 22nd-century Secret Gadget Museum where every marvelous device ever conceived is preserved, unraveling an ingenious mystery.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Yukiyo Teramoto",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Chiaki",
+      "streamUrl": "https://archive.org/download/toonworld-4all-doraemon-nobitas-secret-gadget-museum-2013-blu-ray-720p-hd-hindi-dd-2.0-jap-2.0-esub/%5BToonworld4all%5D%20Doraemon%20Nobita%27s%20Secret%20Gadget%20Museum%20%282013%29%20BluRay%20720p%20HD%20%5BHindi%20DD2.0-Jap%202.0%5D%20ESub.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/toonworld-4all-doraemon-nobitas-secret-gadget-museum-2013-blu-ray-720p-hd-hindi-dd-2.0-jap-2.0-esub/%5BToonworld4all%5D%20Doraemon%20Nobita%27s%20Secret%20Gadget%20Museum%20%282013%29%20BluRay%20720p%20HD%20%5BHindi%20DD2.0-Jap%202.0%5D%20ESub.mp4"
+      },
+      "posterFileName": "vod_doraemon_secret_gadget_museum_2013.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_secret_gadget_museum_2013.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_secret_gadget_museum_2013.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_antarctica_kachi_kochi_2017",
+      "title": "Doraemon: Nobita's Great Adventure in the Antarctic Kachi Kochi",
+      "originalTitle": "ドラえもん のび太の南極カチコチ大冒険",
+      "year": 2017,
+      "releaseYear": 2017,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6027,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Unable to endure midsummer heat, Doraemon and Nobita head to a massive iceberg in the South Pacific. Deep inside the glacial tundra, they discover a golden ring frozen 100,000 years ago and an ancient submerged city.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Atsushi Takahashi",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Rie Kugimiya",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/37.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20Antarctica%20Kachi%20Kochi%20%282017%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/37.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20Antarctica%20Kachi%20Kochi%20%282017%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_antarctica_kachi_kochi_2017.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_antarctica_kachi_kochi_2017.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_antarctica_kachi_kochi_2017.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_birth_of_japan_1989",
+      "title": "Doraemon: Nobita and the Birth of Japan",
+      "originalTitle": "ドラえもん のび太の日本誕生",
+      "year": 1989,
+      "releaseYear": 1989,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6020,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.5,
+      "description": "Fed up with strict parents and teachers, Nobita and his friends run away 70,000 years back in time to prehistoric Japan, founding their own utopian primitive paradise before evil shaman Gigazombie strikes.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/10.%20Doraemon%20-%20Nobita%20and%20the%20Birth%20of%20Japan%20%281989%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/10.%20Doraemon%20-%20Nobita%20and%20the%20Birth%20of%20Japan%20%281989%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_birth_of_japan_1989.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_birth_of_japan_1989.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_birth_of_japan_1989.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_galaxy_super_express_1996",
+      "title": "Doraemon: Nobita and the Galaxy Super-express",
+      "originalTitle": "ドラえもん のび太と銀河超特急",
+      "year": 1996,
+      "releaseYear": 1996,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5832,
+      "durationFormatted": "1h 37m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.3,
+      "description": "Nobita and Doraemon board the legendary 22nd-century Galaxy Express train for an interstellar vacation across exotic planets, having to band together when alien parasitic invaders attack the locomotive.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/17.%20Doraemon%20-%20Nobita%20and%20the%20Galaxy%20Super-Express%20%281996%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/17.%20Doraemon%20-%20Nobita%20and%20the%20Galaxy%20Super-Express%20%281996%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_galaxy_super_express_1996.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_galaxy_super_express_1996.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_galaxy_super_express_1996.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_island_of_miracles_2012",
+      "title": "Doraemon: Nobita and the Island of Miracles",
+      "originalTitle": "ドラえもん のび太と奇跡の島 〜アニマル アドベンチャー〜",
+      "year": 2012,
+      "releaseYear": 2012,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5970,
+      "durationFormatted": "1h 39m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.2,
+      "description": "Doraemon and Nobita travel to a mythical, secluded island where extinct prehistoric creatures survive under the protection of a golden beetle deity, defending the animals from a ruthless futuristic poacher.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Kozo Kusuba",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Masako Nozawa",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/32.%20Doraemon%20-%20Nobita%20and%20the%20Island%20of%20Miracles%20%282012%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/32.%20Doraemon%20-%20Nobita%20and%20the%20Island%20of%20Miracles%20%282012%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_island_of_miracles_2012.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_island_of_miracles_2012.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_island_of_miracles_2012.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_kingdom_of_clouds_1992",
+      "title": "Doraemon: Nobita and the Kingdom of Clouds",
+      "originalTitle": "ドラえもん のび太と雲の王国",
+      "year": 1992,
+      "releaseYear": 1992,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5838,
+      "durationFormatted": "1h 37m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Using high-tech solidifying gas, Nobita and Doraemon build a breathtaking kingdom on the clouds, only to encounter an advanced celestial civilization planning a massive cleansing flood on Earth due to environmental destruction.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/13.%20Doraemon%20-%20Nobita%20and%20the%20Kingdom%20of%20Clouds%20%281992%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/13.%20Doraemon%20-%20Nobita%20and%20the%20Kingdom%20of%20Clouds%20%281992%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_kingdom_of_clouds_1992.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_kingdom_of_clouds_1992.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_kingdom_of_clouds_1992.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_tin_labyrinth_1993",
+      "title": "Doraemon: Nobita and the Tin Labyrinth",
+      "originalTitle": "ドラえもん のび太とブリキの迷宮",
+      "year": 1993,
+      "releaseYear": 1993,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6010,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.3,
+      "description": "Nobita's father discovers a mysterious briefcase that opens a portal to the luxurious Buriki Hotel on a distant resort planet where robots attend to humans, but a rebel machine army soon captures Doraemon.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/14.%20Doraemon%20-%20Nobita%20and%20the%20Tin%20Labyrinth%20%281993%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/14.%20Doraemon%20-%20Nobita%20and%20the%20Tin%20Labyrinth%20%281993%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_tin_labyrinth_1993.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_tin_labyrinth_1993.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_tin_labyrinth_1993.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_south_seas_1998",
+      "title": "Doraemon: Nobita's Great Adventure in the South Seas",
+      "originalTitle": "ドラえもん のび太の南海大冒険",
+      "year": 1998,
+      "releaseYear": 1998,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5463,
+      "durationFormatted": "1h 31m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.2,
+      "description": "Playing pirates with a simulator ship in the Caribbean, Nobita gets swept away by a sudden dimensional warp into the 17th century, befriending authentic privateers while searching for Doraemon.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/19.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20the%20South%20Seas%20%281998%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/19.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20the%20South%20Seas%20%281998%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_south_seas_1998.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_south_seas_1998.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_south_seas_1998.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_animal_planet_1990",
+      "title": "Doraemon: Nobita and the Animal Planet",
+      "originalTitle": "ドラえもん のび太とアニマル惑星",
+      "year": 1990,
+      "releaseYear": 1990,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6000,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.3,
+      "description": "Nobita discovers a pink mist in his home leading to an idyllic alien world populated entirely by anthropomorphic animals. However, cruel predators called Nimuge from a neighboring moon prepare to conquer the peaceful planet.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/11.%20Doraemon%20-%20Nobita%20and%20the%20Animal%20Planet%20%281990%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/11.%20Doraemon%20-%20Nobita%20and%20the%20Animal%20Planet%20%281990%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_animal_planet_1990.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_animal_planet_1990.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_animal_planet_1990.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_dorabian_nights_1991",
+      "title": "Doraemon: Nobita's Dorabian Nights",
+      "originalTitle": "ドラえもん のび太のドラビアンナイト",
+      "year": 1991,
+      "releaseYear": 1991,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5985,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Nobita and Shizuka enter the magical pages of Arabian Nights using a storybook shoe gadget. When Shizuka loses her magic shoes and gets trapped in 8th-century Baghdad, Doraemon and Nobita journey into the desert on a rescue expedition.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/12.%20Doraemon%20-%20Nobita%27s%20Dorabian%20Nights%20%281991%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/12.%20Doraemon%20-%20Nobita%27s%20Dorabian%20Nights%20%281991%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_dorabian_nights_1991.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_dorabian_nights_1991.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_dorabian_nights_1991.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
       "id": "series_demon_slayer_s1_hindi",
       "title": "Demon Slayer: Kimetsu no Yaiba - Season 1 (Hindi Dubbed)",
       "originalTitle": "Kimetsu no Yaiba S1",
@@ -17909,2517 +20475,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "vod_spirit_2026",
-      "title": "Spirit (2026)",
-      "originalTitle": "Spirit",
-      "year": 2026,
-      "releaseYear": 2026,
-      "mediaType": "movie",
-      "contentType": "MOVIE",
-      "type": "Tollywood",
-      "categories": [
-        "action",
-        "crime",
-        "drama",
-        "south",
-        "trending",
-        "trailers"
-      ],
-      "durationFormatted": "Trailer",
-      "genres": [
-        "Action",
-        "Crime",
-        "Drama"
-      ],
-      "rating": 8.7,
-      "description": "A fearless, uncompromising police officer wages an unyielding battle against systemic corruption and underground crime cartels.",
-      "posterUrl": "assets/posters/vod_spirit_2026.jpg",
-      "backdropUrl": "assets/posters/vod_spirit_2026.jpg",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "UPCOMING",
-      "audioClassification": "HINDI_AUDIO",
-      "audioSwitchingCapability": "NONE",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/GOQ5DytuKoc",
-      "streamUrl": null,
-      "backupUrls": [],
-      "torrentUri": null,
-      "region": "SOUTH",
-      "director": "Sandeep Reddy Vanga",
-      "cast": "Prabhas",
-      "featured": true,
-      "latest": true,
-      "metadata": {
-        "originalLanguage": "Telugu",
-        "spokenLanguages": [
-          "Hindi",
-          "Telugu"
-        ],
-        "countries": [
-          "IN"
-        ]
-      },
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "contentId": "movie_tmdb_889737",
-      "tmdbId": 889737,
-      "imdbId": "tt15582236",
-      "metadataSource": "TMDB_VERIFIED",
-      "isTrailerOnly": true,
-      "resolution": "Official Trailer (4K UHD)",
-      "subtitles": []
-    },
-    {
-      "id": "vod_alpha_2026",
-      "title": "Alpha (2026)",
-      "originalTitle": "Alpha",
-      "year": 2026,
-      "releaseYear": 2026,
-      "mediaType": "movie",
-      "contentType": "MOVIE",
-      "type": "Bollywood",
-      "categories": [
-        "action",
-        "thriller",
-        "bollywood",
-        "trending",
-        "trailers"
-      ],
-      "durationFormatted": "Official Announcement",
-      "genres": [
-        "Action",
-        "Thriller"
-      ],
-      "rating": 8.2,
-      "description": "The YRF Spy Universe expands with its first female-led covert operations thriller tackling international espionage.",
-      "posterUrl": "assets/posters/vod_alpha_2026.jpg",
-      "backdropUrl": "assets/posters/vod_alpha_2026.jpg",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "UPCOMING",
-      "audioClassification": "HINDI_AUDIO",
-      "audioSwitchingCapability": "NONE",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/QRqGwGwo1Y0",
-      "streamUrl": null,
-      "backupUrls": [],
-      "torrentUri": null,
-      "region": "BOLLYWOOD",
-      "director": "Shiv Rawail",
-      "cast": "Alia Bhatt, Sharvari Wagh, Bobby Deol, Anil Kapoor",
-      "featured": true,
-      "latest": true,
-      "metadata": {
-        "originalLanguage": "Hindi",
-        "spokenLanguages": [
-          "Hindi"
-        ],
-        "countries": [
-          "IN"
-        ]
-      },
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "contentId": "movie_tmdb_1311550",
-      "tmdbId": 1311550,
-      "imdbId": "tt31835688",
-      "metadataSource": "TMDB_VERIFIED",
-      "isTrailerOnly": true,
-      "resolution": "Official Trailer (4K UHD)",
-      "subtitles": []
-    },
-    {
-      "id": "vod_king_2026",
-      "title": "King (2026)",
-      "originalTitle": "King",
-      "year": 2026,
-      "releaseYear": 2026,
-      "mediaType": "movie",
-      "contentType": "MOVIE",
-      "type": "Bollywood",
-      "categories": [
-        "action",
-        "thriller",
-        "bollywood",
-        "trending",
-        "trailers"
-      ],
-      "durationFormatted": "Trailer",
-      "genres": [
-        "Action",
-        "Thriller"
-      ],
-      "rating": 8.5,
-      "description": "An enigmatic mentor guides his protégé through dangerous criminal syndicates in this high-octane Bollywood action drama.",
-      "posterUrl": "assets/posters/vod_king_2026.jpg",
-      "backdropUrl": "assets/posters/vod_king_2026.jpg",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "sourceState": "TRAILER_ONLY",
-      "sourceStatus": "UPCOMING",
-      "audioClassification": "HINDI_AUDIO",
-      "audioSwitchingCapability": "NONE",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/lo4SGEt3wRg",
-      "streamUrl": null,
-      "backupUrls": [],
-      "torrentUri": null,
-      "region": "BOLLYWOOD",
-      "director": "Sujoy Ghosh",
-      "cast": "Shah Rukh Khan, Suhana Khan, Abhishek Bachchan",
-      "featured": true,
-      "latest": true,
-      "metadata": {
-        "originalLanguage": "Hindi",
-        "spokenLanguages": [
-          "Hindi"
-        ],
-        "countries": [
-          "IN"
-        ]
-      },
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "contentId": "movie_tmdb_1289196",
-      "tmdbId": 1289196,
-      "imdbId": "tt30018898",
-      "metadataSource": "TMDB_VERIFIED",
-      "isTrailerOnly": true,
-      "resolution": "Official Trailer (4K UHD)",
-      "subtitles": []
-    },
-    {
-      "id": "vod_the_batman_part_ii_2026",
-      "title": "The Batman Part II",
-      "year": 2026,
-      "releaseYear": 2026,
-      "mediaType": "movie",
-      "type": "Hollywood",
-      "categories": [
-        "hollywood",
-        "action",
-        "crime",
-        "trailers"
-      ],
-      "duration": 0,
-      "durationFormatted": "Upcoming (2026)",
-      "genres": [
-        "Action",
-        "Crime",
-        "Drama"
-      ],
-      "rating": 8.8,
-      "description": "Matt Reeves returns with Robert Pattinson as Gotham's Caped Crusader facing a rising criminal underworld in a flooded city.",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": null,
-      "audio": {
-        "classification": "NON_HINDI_AUDIO",
-        "hasHindiAudio": false,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "English",
-        "availableLanguages": [
-          "English"
-        ]
-      },
-      "languages": [
-        "English"
-      ],
-      "defaultLanguage": "English",
-      "container": "MP4",
-      "fileSize": "-",
-      "bitrate": "-",
-      "fps": "24 FPS",
-      "license": "Official Studio Promotion",
-      "contentSource": "DC Studios / Warner Bros.",
-      "director": "Matt Reeves",
-      "cast": "Robert Pattinson, Colin Farrell, Andy Serkis, Jeffrey Wright",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/bha24P9uw-E",
-      "torrentUri": null,
-      "contentType": "MOVIE",
-      "region": "HOLLYWOOD",
-      "sourceState": "TRAILER_ONLY",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "NON_HINDI_AUDIO",
-      "metadata": {
-        "originalLanguage": "en",
-        "spokenLanguages": [
-          "English"
-        ],
-        "countries": [
-          "US"
-        ]
-      },
-      "posterUrl": "assets/posters/vod_the_batman_part_ii_2026.jpg",
-      "backdropUrl": "assets/posters/vod_the_batman_part_ii_2026.jpg",
-      "audioSwitchingCapability": "NONE",
-      "contentId": "movie_tmdb_969681",
-      "tmdbId": 969681,
-      "imdbId": "tt19851608",
-      "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UPCOMING",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_ramayana_part_1_2026",
-      "title": "Ramayana: Part 1",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Action",
-        "Drama",
-        "Mythology"
-      ],
-      "rating": 9.6,
-      "duration": "N/A",
-      "synopsis": "Nitesh Tiwari's epic adaptation of the ancient Sanskrit epic Ramayana, starring Ranbir Kapoor as Lord Rama, Sai Pallavi as Sita, and Yash as Ravana.",
-      "posterUrl": "assets/posters/vod_ramayana_part_1_2026.jpg",
-      "backdropUrl": "assets/posters/vod_ramayana_part_1_2026.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Theatrical Announcement",
-      "director": "Nitesh Tiwari",
-      "cast": "Ranbir Kapoor, Sai Pallavi, Yash, Sunny Deol",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/1zip1rNaNYs",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "metadata": {
-        "originalLanguage": "Hindi",
-        "spokenLanguages": [
-          "Hindi"
-        ],
-        "countries": [
-          "IN"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "contentId": "movie_tmdb_1070514",
-      "tmdbId": 1070514,
-      "imdbId": "tt30821034",
-      "mediaType": "movie",
-      "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UPCOMING",
-      "description": "Nitesh Tiwari's epic adaptation of the ancient Sanskrit epic Ramayana, starring Ranbir Kapoor as Lord Rama, Sai Pallavi as Sita, and Yash as Ravana.",
-      "genres": [
-        "Action",
-        "Drama",
-        "Mythology"
-      ],
-      "categories": [
-        "action",
-        "drama",
-        "mythology",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "IN",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_toxic_2026",
-      "title": "Toxic: A Fairy Tale for Grown-ups",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Action",
-        "Drama",
-        "Crime"
-      ],
-      "rating": 9.4,
-      "duration": "N/A",
-      "synopsis": "A dark, intense crime drama set in the 1950s-1970s drug cartel underworld directed by Geetu Mohandas.",
-      "posterUrl": "assets/posters/vod_toxic_2026.jpg",
-      "backdropUrl": "assets/posters/vod_toxic_2026.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "KVN Productions",
-      "director": "Geetu Mohandas",
-      "cast": "Yash, Kiara Advani, Huma Qureshi, Nayanthara",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/nXA4daIga0k",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "metadata": {
-        "originalLanguage": "Kannada",
-        "spokenLanguages": [
-          "Hindi",
-          "Kannada"
-        ],
-        "countries": [
-          "IN"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "contentId": "movie_tmdb_1215163",
-      "tmdbId": 1215163,
-      "imdbId": "tt30372332",
-      "mediaType": "movie",
-      "metadataSource": "TMDB_VERIFIED",
-      "sourceStatus": "UPCOMING",
-      "description": "A dark, intense crime drama set in the 1950s-1970s drug cartel underworld directed by Geetu Mohandas.",
-      "genres": [
-        "Action",
-        "Drama",
-        "Crime"
-      ],
-      "categories": [
-        "action",
-        "drama",
-        "crime",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "IN",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_jailer_2_2026",
-      "title": "Jailer 2 (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Action",
-        "Crime",
-        "Thriller"
-      ],
-      "rating": 9.4,
-      "duration": "N/A",
-      "synopsis": "Tiger Muthuvel Pandian returns in Nelson's explosive high-octane sequel to the mega-blockbuster Jailer, confronting international syndicate cartels with unstoppable force.",
-      "description": "Tiger Muthuvel Pandian returns in Nelson's explosive high-octane sequel to the mega-blockbuster Jailer, confronting international syndicate cartels with unstoppable force.",
-      "posterUrl": "assets/posters/vod_jailer_2_2026.jpg",
-      "backdropUrl": "assets/posters/vod_jailer_2_2026.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Theatrical Announcement",
-      "director": "Nelson Dilipkumar",
-      "cast": "Superstar Rajinikanth, Mohanlal, Shiva Rajkumar, Anirudh Ravichander",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/LBF5UO4ZyOU",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Action",
-        "Crime",
-        "Thriller"
-      ],
-      "categories": [
-        "action",
-        "crime",
-        "thriller",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "IN",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_drishyam_3_2026",
-      "title": "Drishyam 3 (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Crime",
-        "Drama",
-        "Mystery",
-        "Thriller"
-      ],
-      "rating": 9.5,
-      "duration": "N/A",
-      "synopsis": "Vijay Salgaonkar and his family face the ultimate closing chapter of the gripping cat-and-mouse saga as old buried secrets resurface under intense federal investigation.",
-      "description": "Vijay Salgaonkar and his family face the ultimate closing chapter of the gripping cat-and-mouse saga as old buried secrets resurface under intense federal investigation.",
-      "posterUrl": "assets/posters/vod_drishyam_3_2026.jpg",
-      "backdropUrl": "assets/posters/vod_drishyam_3_2026.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Theatrical Announcement",
-      "director": "Abhishek Pathak",
-      "cast": "Ajay Devgn, Tabu, Shriya Saran, Jaideep Ahlawat, Ishita Dutta",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/jYbEYF1t-hk",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Crime",
-        "Drama",
-        "Mystery",
-        "Thriller"
-      ],
-      "categories": [
-        "crime",
-        "mystery",
-        "thriller",
-        "bollywood",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "IN",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_prahaar_2026",
-      "title": "Prahaar: The Untold Story (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Action",
-        "Biography",
-        "Crime",
-        "Drama"
-      ],
-      "rating": 9.2,
-      "duration": "N/A",
-      "synopsis": "A relentless legal action thriller based on real court battles and tactical operations of India's most celebrated special public prosecutor against high-profile terror syndicates.",
-      "description": "A relentless legal action thriller based on real court battles and tactical operations of India's most celebrated special public prosecutor against high-profile terror syndicates.",
-      "posterUrl": "assets/posters/vod_prahaar_2026.jpg",
-      "backdropUrl": "assets/posters/vod_prahaar_2026.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Theatrical Announcement",
-      "director": "Maddock Films",
-      "cast": "Rajkummar Rao, Wamiqa Gabbi, Ashutosh Rana",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/qGbvEhKhaWA",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Action",
-        "Biography",
-        "Crime",
-        "Drama"
-      ],
-      "categories": [
-        "action",
-        "crime",
-        "drama",
-        "bollywood",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "IN",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_udta_teer_2026",
-      "title": "Udta Teer (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Action",
-        "Comedy",
-        "Drama"
-      ],
-      "rating": 9.1,
-      "duration": "N/A",
-      "synopsis": "A chaotic espionage comedy tracking an unintentional spy whose accidental blunders spark a whirlwind comedic adventure across the subcontinent.",
-      "description": "A chaotic espionage comedy tracking an unintentional spy whose accidental blunders spark a whirlwind comedic adventure across the subcontinent.",
-      "posterUrl": "assets/posters/vod_udta_teer_2026.jpg",
-      "backdropUrl": "assets/posters/vod_udta_teer_2026.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Theatrical Announcement",
-      "director": "Akash Kaushik",
-      "cast": "Ayushmann Khurrana, Sara Ali Khan",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/hN_ZUElLH44",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Drama"
-      ],
-      "categories": [
-        "comedy",
-        "action",
-        "drama",
-        "bollywood",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "IN",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_dhurandhar_2026",
-      "title": "Dhurandhar (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Action",
-        "Thriller"
-      ],
-      "rating": 9.3,
-      "duration": "N/A",
-      "synopsis": "Aditya Dhar's high-stakes espionage action thriller following elite intelligence operatives navigating dangerous undercover geopolitical warfare.",
-      "description": "Aditya Dhar's high-stakes espionage action thriller following elite intelligence operatives navigating dangerous undercover geopolitical warfare.",
-      "posterUrl": "assets/posters/vod_dhurandhar_2026.jpg",
-      "backdropUrl": "assets/posters/vod_dhurandhar_2026.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Theatrical Announcement",
-      "director": "Aditya Dhar",
-      "cast": "Ranveer Singh, Sanjay Dutt, R. Madhavan, Akshaye Khanna, Arjun Rampal",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/CN0lNff-zm0",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Action",
-        "Thriller"
-      ],
-      "categories": [
-        "action",
-        "thriller",
-        "bollywood",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "IN",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_dune_part_three_2026",
-      "title": "Dune: Part Three – Messiah (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
-      "rating": 9.4,
-      "duration": "N/A",
-      "synopsis": "Paul Atreides confronts the consequences of his ascendancy as Emperor of the Known Universe in Denis Villeneuve's epic cinematic adaptation of Frank Herbert's Dune Messiah.",
-      "description": "Paul Atreides confronts the consequences of his ascendancy as Emperor of the Known Universe in Denis Villeneuve's epic cinematic adaptation of Frank Herbert's Dune Messiah.",
-      "posterUrl": "assets/posters/vod_dune_part_three_2026.jpg",
-      "backdropUrl": "assets/posters/vod_dune_part_three_2026.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Theatrical Announcement",
-      "director": "Denis Villeneuve",
-      "cast": "Timothée Chalamet, Zendaya, Florence Pugh, Javier Bardem",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/3_9vCamtuPY",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "NON_HINDI_AUDIO",
-      "languages": [
-        "English"
-      ],
-      "defaultLanguage": "English",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "NON_HINDI_AUDIO",
-        "hasHindiAudio": false,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "English",
-        "availableLanguages": [
-          "English"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
-      "categories": [
-        "action",
-        "adventure",
-        "scifi",
-        "hollywood",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "GLOBAL",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_demon_slayer_infinity_castle",
-      "title": "Demon Slayer: Kimetsu no Yaiba – Infinity Castle (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Animation",
-        "Action",
-        "Fantasy"
-      ],
-      "rating": 9.7,
-      "duration": "N/A",
-      "synopsis": "The Demon Slayer Corps plunges into the Infinity Castle for the definitive showdown against Muzan Kibutsuji and the Upper Moon demons in this blockbuster theatrical trilogy.",
-      "description": "The Demon Slayer Corps plunges into the Infinity Castle for the definitive showdown against Muzan Kibutsuji and the Upper Moon demons in this blockbuster theatrical trilogy.",
-      "posterUrl": "assets/posters/vod_demon_slayer_infinity_castle.jpg",
-      "backdropUrl": "assets/posters/vod_demon_slayer_infinity_castle.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Theatrical Announcement",
-      "director": "Haruo Sotozaki",
-      "cast": "Natsuki Hanae, Hiro Shimono, Takahiro Sakurai",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/0pdC1l6M8rU",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "languages": [
-        "Hindi",
-        "English"
-      ],
-      "defaultLanguage": "Hindi",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi",
-          "English"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Animation",
-        "Action",
-        "Fantasy"
-      ],
-      "categories": [
-        "animation",
-        "action",
-        "fantasy",
-        "anime",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "GLOBAL",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_chainsaw_man_reze_arc",
-      "title": "Chainsaw Man – The Movie: Reze Arc (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Animation",
-        "Action",
-        "Supernatural"
-      ],
-      "rating": 9.2,
-      "duration": "N/A",
-      "synopsis": "Denji encounters the enigmatic Reze in MAPPA's explosive anime feature film adapting the fan-favorite Bomb Girl / Reze Arc.",
-      "description": "Denji encounters the enigmatic Reze in MAPPA's explosive anime feature film adapting the fan-favorite Bomb Girl / Reze Arc.",
-      "posterUrl": "assets/posters/vod_chainsaw_man_reze_arc.jpg",
-      "backdropUrl": "assets/posters/vod_chainsaw_man_reze_arc.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Theatrical Announcement",
-      "director": "MAPPA Studios",
-      "cast": "Kikunosuke Toya, Reina Ueda, Tomori Kusunoki",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/EPaoHkV0dYw",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "NON_HINDI_AUDIO",
-      "languages": [
-        "English"
-      ],
-      "defaultLanguage": "English",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "NON_HINDI_AUDIO",
-        "hasHindiAudio": false,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "English",
-        "availableLanguages": [
-          "English"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Animation",
-        "Action",
-        "Supernatural"
-      ],
-      "categories": [
-        "animation",
-        "action",
-        "supernatural",
-        "anime",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "GLOBAL",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "series_stranger_things_s5",
-      "title": "Stranger Things Season 5 (The Final Season - 2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Drama",
-        "Fantasy",
-        "Horror",
-        "Sci-Fi"
-      ],
-      "rating": 9.5,
-      "duration": "N/A",
-      "synopsis": "The final battle for Hawkins begins as Eleven and her allies unite to destroy the Upside Down and defeat Vecna once and for all.",
-      "description": "The final battle for Hawkins begins as Eleven and her allies unite to destroy the Upside Down and defeat Vecna once and for all.",
-      "posterUrl": "assets/posters/series_stranger_things_s5.jpg",
-      "backdropUrl": "assets/posters/series_stranger_things_s5.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Announcement",
-      "director": "The Duffer Brothers",
-      "cast": "Millie Bobby Brown, Finn Wolfhard, David Harbour, Winona Ryder",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/iKZyYdwS3Wg",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "NON_HINDI_AUDIO",
-      "languages": [
-        "English",
-        "Hindi"
-      ],
-      "defaultLanguage": "English",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "NON_HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "English",
-        "availableLanguages": [
-          "English",
-          "Hindi"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Drama",
-        "Fantasy",
-        "Horror",
-        "Sci-Fi"
-      ],
-      "categories": [
-        "drama",
-        "fantasy",
-        "scifi",
-        "webseries",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "GLOBAL",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "series_panchayat_s4",
-      "title": "Panchayat Season 4 (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Comedy",
-        "Drama"
-      ],
-      "rating": 9.6,
-      "duration": "N/A",
-      "synopsis": "Abhishek Tripathi and the lively residents of Phulera navigate new village elections, unexpected bureaucratic challenges, and heartfelt grassroots comedy.",
-      "description": "Abhishek Tripathi and the lively residents of Phulera navigate new village elections, unexpected bureaucratic challenges, and heartfelt grassroots comedy.",
-      "posterUrl": "assets/posters/series_panchayat_s4.jpg",
-      "backdropUrl": "assets/posters/series_panchayat_s4.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Official Announcement",
-      "director": "Deepak Kumar Mishra",
-      "cast": "Jitendra Kumar, Neena Gupta, Raghubir Yadav, Faisal Malik, Chandan Roy",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/AHMEtNAZTP4",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "HINDI_AUDIO",
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Comedy",
-        "Drama"
-      ],
-      "categories": [
-        "comedy",
-        "drama",
-        "webseries",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "IN",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_blender_project_gold_2026",
-      "title": "Project Gold: Blender Studio 4K Open Movie (2026)",
-      "year": 2026,
-      "releaseYear": 2026,
-      "genre": [
-        "Animation",
-        "Sci-Fi",
-        "Short"
-      ],
-      "rating": 9.0,
-      "duration": "N/A",
-      "synopsis": "Blender Studio's next-generation 4K open animation short film pushing cutting-edge open-source real-time CGI, geometry nodes, and cinematic storytelling.",
-      "description": "Blender Studio's next-generation 4K open animation short film pushing cutting-edge open-source real-time CGI, geometry nodes, and cinematic storytelling.",
-      "posterUrl": "assets/posters/vod_blender_project_gold_2026.jpg",
-      "backdropUrl": "assets/posters/vod_blender_project_gold_2026.jpg",
-      "resolution": "Official Trailer (4K UHD)",
-      "codec": "HEVC",
-      "container": "MP4",
-      "fileSize": "Trailer",
-      "bitrate": "16.0 Mbps",
-      "fps": "24 FPS",
-      "license": "Creative Commons Attribution",
-      "director": "Blender Studio",
-      "cast": "Blender Open Project",
-      "featured": true,
-      "latest": true,
-      "streamUrl": null,
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/WhWc3b3KhnY",
-      "sourceState": "TRAILER_ONLY",
-      "contentType": "MOVIE",
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Official Trailer",
-      "audioClassification": "NON_HINDI_AUDIO",
-      "languages": [
-        "English"
-      ],
-      "defaultLanguage": "English",
-      "audioSwitchingCapability": "NONE",
-      "audio": {
-        "classification": "NON_HINDI_AUDIO",
-        "hasHindiAudio": false,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "English",
-        "availableLanguages": [
-          "English"
-        ]
-      },
-      "durationFormatted": "Trailer",
-      "mediaType": "movie",
-      "sourceStatus": "UPCOMING",
-      "genres": [
-        "Animation",
-        "Sci-Fi",
-        "Short"
-      ],
-      "categories": [
-        "animation",
-        "scifi",
-        "short",
-        "open_movie",
-        "upcoming",
-        "trailers"
-      ],
-      "type": "movie",
-      "region": "GLOBAL",
-      "isTrailerOnly": true,
-      "subtitles": []
-    },
-    {
-      "id": "vod_weathering_with_you_2019",
-      "title": "Weathering with You",
-      "originalTitle": "天気の子 (Tenki no Ko)",
-      "year": 2019,
-      "releaseYear": 2019,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "movies",
-        "trending",
-        "popular",
-        "romance",
-        "fantasy"
-      ],
-      "duration": 6734,
-      "durationFormatted": "1h 52m",
-      "genres": [
-        "Anime",
-        "Fantasy",
-        "Romance",
-        "Drama"
-      ],
-      "rating": 8.5,
-      "description": "During the summer of his high school freshman year, Hodaka runs away from his remote island home to Tokyo and meets Hina, an extraordinary girl who possesses the mysterious power to stop the rain and clear the sky.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Makoto Shinkai",
-      "cast": "Kotaro Daigo, Nana Mori, Shun Oguri, Tsubasa Honda",
-      "streamUrl": "https://archive.org/download/weathering-with-you-hindi-720-p/Weathering_with_You_%5BHindi%5D_720P.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/weathering-with-you-hindi-720-p/Weathering_with_You_%5BHindi%5D_720P.mp4"
-      },
-      "backupUrls": [
-        "https://archive.org/download/anime-dub-hindi-weathering-with-you-2019-1080p-hevc-10bit-ita-blu-ray-multi-audio-esub.mkv-1080p/%5BAnimeDubHindi%5D%20Weathering%20with%20You%20%282019%29%201080p%20HEVC%2010bit%20ITA%20BluRay%20Multi%20Audio%20ESub.mkv_1080p.mp4"
-      ],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/Q6iK6DjV_iE",
-      "posterFileName": "vod_weathering_with_you_2019.jpg",
-      "posterUrl": "assets/posters/vod_weathering_with_you_2019.jpg",
-      "backdropUrl": "assets/posters/vod_weathering_with_you_2019.jpg",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "tmdbId": 568160,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_swordsmen_1994",
-      "title": "Doraemon: Nobita's Three Visionary Swordsmen",
-      "originalTitle": "ドラえもん のび太と夢幻三剣士",
-      "year": 1994,
-      "releaseYear": 1994,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "movies",
-        "cartoons",
-        "family",
-        "classics",
-        "adventure"
-      ],
-      "duration": 5936,
-      "durationFormatted": "1h 39m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.4,
-      "description": "Nobita and his friends enter a magical dream world where they become the Three Visionary Swordsmen to defend the mystical Kingdom of Euramenia from the menacing Emperor Odorome.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Tsutomu Shibayama",
-      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
-      "streamUrl": "https://archive.org/download/full-toons-india-doraemon-movie-06-doraemon-nobita-39-s-three-visionary-swordsme/%5BFullToonsIndia%5D_Doraemon_Movie_06_Doraemon_Nobita%26_39_s_Three_Visionary_Swordsmen_%26_40_1994%26_41_REMASTERED_1080p_HEVC_10bit_WEB-DL_%5BHindi_DD2_0%2BJap_2_0%5D.mkv.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/full-toons-india-doraemon-movie-06-doraemon-nobita-39-s-three-visionary-swordsme/%5BFullToonsIndia%5D_Doraemon_Movie_06_Doraemon_Nobita%26_39_s_Three_Visionary_Swordsmen_%26_40_1994%26_41_REMASTERED_1080p_HEVC_10bit_WEB-DL_%5BHindi_DD2_0%2BJap_2_0%5D.mkv.mp4"
-      },
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/gKcOjnDJfzk",
-      "posterFileName": "vod_doraemon_swordsmen_1994.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_swordsmen_1994.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_swordsmen_1994.jpg",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_shinchan_kasukabe_boys_2004",
-      "title": "Shin-chan: The Adventures of Kasukabe Boys",
-      "originalTitle": "クレヨンしんちゃん 嵐を呼ぶ!夕陽のカスカベボーイズ",
-      "year": 2004,
-      "releaseYear": 2004,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "movies",
-        "cartoons",
-        "comedy",
-        "adventure"
-      ],
-      "duration": 5825,
-      "durationFormatted": "1h 37m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Comedy",
-        "Adventure",
-        "Western"
-      ],
-      "rating": 8.3,
-      "description": "Shin-chan and the Kasukabe Defense Force get magically sucked into a deserted western film inside an old theater, where they lose their memories and must unite to defeat the town dictator and return home.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Tsutomu Mizushima",
-      "cast": "Akiko Yajima, Miki Narahashi, Keiji Fujiwara, Satomi Korogi",
-      "streamUrl": "https://archive.org/download/shin-chan-the-adventures-of-kasukabe-boys/%5BRAI%5D%20Shin-chan%20Movie%2012%20-%20The%20Adventures%20of%20Kasukabe%20Boys%20in%20Hindi_720P%20HD.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/shin-chan-the-adventures-of-kasukabe-boys/%5BRAI%5D%20Shin-chan%20Movie%2012%20-%20The%20Adventures%20of%20Kasukabe%20Boys%20in%20Hindi_720P%20HD.mp4"
-      },
-      "posterFileName": "vod_shinchan_kasukabe_boys_2004.jpg",
-      "posterUrl": "assets/posters/vod_shinchan_kasukabe_boys_2004.jpg",
-      "backdropUrl": "assets/posters/vod_shinchan_kasukabe_boys_2004.jpg",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "720p HD",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_shinchan_henderland_1996",
-      "title": "Shin-chan: Great Adventure in Henderland",
-      "originalTitle": "クレヨンしんちゃん ヘンダーランドの大冒険",
-      "year": 1996,
-      "releaseYear": 1996,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "movies",
-        "cartoons",
-        "comedy",
-        "fantasy"
-      ],
-      "duration": 5843,
-      "durationFormatted": "1h 37m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Comedy",
-        "Fantasy",
-        "Adventure"
-      ],
-      "rating": 8.2,
-      "description": "On a kindergarten field trip to the thrilling Henderland amusement park, Shin-chan discovers a portal to a whimsical realm and must stop two eccentric sorcerers from taking over the real world.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Mitsuru Hongo",
-      "cast": "Akiko Yajima, Miki Narahashi, Keiji Fujiwara, Satomi Korogi",
-      "streamUrl": "https://archive.org/download/great-adventure-in-henderland/M04%20Shin-chan%20Adventures%20In%20Henderland%20%5BRareToonsIndia%5D.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/great-adventure-in-henderland/M04%20Shin-chan%20Adventures%20In%20Henderland%20%5BRareToonsIndia%5D.mp4"
-      },
-      "posterFileName": "vod_shinchan_henderland_1996.jpg",
-      "posterUrl": "assets/posters/vod_shinchan_henderland_1996.jpg",
-      "backdropUrl": "assets/posters/vod_shinchan_henderland_1996.jpg",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "720p HD",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_hanuman_2005",
-      "title": "Hanuman",
-      "originalTitle": "Hanuman",
-      "year": 2005,
-      "releaseYear": 2005,
-      "mediaType": "movie",
-      "type": "Cartoons",
-      "contentType": "MOVIE",
-      "region": "BOLLYWOOD",
-      "categories": [
-        "cartoons",
-        "animation",
-        "movies",
-        "mythology",
-        "classics",
-        "trending"
-      ],
-      "duration": 8312,
-      "durationFormatted": "2h 18m",
-      "genres": [
-        "Animation",
-        "Mythology",
-        "Action",
-        "Adventure",
-        "Family"
-      ],
-      "rating": 8.8,
-      "description": "The landmark, blockbuster Indian animated classic tracing Lord Hanuman's miraculous birth, playful childhood, boundless devotion to Lord Rama, and monumental role in the epic war against Ravana.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "V. G. Samant",
-      "cast": "Mukesh Khanna, Viraj Sathav, Mona Ghosh Shetty",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/NSmzueYlFUY?autoplay=1",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/NSmzueYlFUY",
-      "posterFileName": "vod_hanuman_2005.jpg",
-      "posterUrl": "assets/posters/vod_hanuman_2005.jpg",
-      "backdropUrl": "assets/posters/vod_hanuman_2005.jpg",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_return_of_hanuman_2007",
-      "title": "Return of Hanuman",
-      "originalTitle": "Return of Hanuman",
-      "year": 2007,
-      "releaseYear": 2007,
-      "mediaType": "movie",
-      "type": "Cartoons",
-      "contentType": "MOVIE",
-      "region": "BOLLYWOOD",
-      "categories": [
-        "cartoons",
-        "animation",
-        "movies",
-        "action",
-        "comedy",
-        "mythology"
-      ],
-      "duration": 4811,
-      "durationFormatted": "1h 20m",
-      "genres": [
-        "Animation",
-        "Action",
-        "Comedy",
-        "Fantasy",
-        "Family"
-      ],
-      "rating": 8.1,
-      "description": "Directed by Anurag Kashyap, Lord Hanuman reincarnates as a human child in modern-day India to help a bullied boy and save the Earth from impending cosmic peril.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Anurag Kashyap",
-      "cast": "Mona Ghosh Shetty, Shailendra Pandey",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/Ervg0OnT238?autoplay=1",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/Ervg0OnT238",
-      "posterFileName": "vod_return_of_hanuman_2007.jpg",
-      "posterUrl": "assets/posters/vod_return_of_hanuman_2007.jpg",
-      "backdropUrl": "assets/posters/vod_return_of_hanuman_2007.jpg",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_krishna_aur_kans_2012",
-      "title": "Krishna Aur Kans",
-      "originalTitle": "Krishna Aur Kans",
-      "year": 2012,
-      "releaseYear": 2012,
-      "mediaType": "movie",
-      "type": "Cartoons",
-      "contentType": "MOVIE",
-      "region": "BOLLYWOOD",
-      "categories": [
-        "cartoons",
-        "animation",
-        "movies",
-        "family",
-        "mythology"
-      ],
-      "duration": 6803,
-      "durationFormatted": "1h 53m",
-      "genres": [
-        "Animation",
-        "Mythology",
-        "Action",
-        "Drama",
-        "Family"
-      ],
-      "rating": 8.0,
-      "description": "India's first stereoscopic animated feature chronicle illustrating Lord Krishna's endearing childhood in Vrindavan and his epic battle against the tyrannical demon king Kans.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Vikram Veturi",
-      "cast": "Manoj Bajpayee, Om Puri, Juhi Chawla, Anupam Kher",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/erMieJ30XAc?autoplay=1",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/erMieJ30XAc",
-      "posterFileName": "vod_krishna_aur_kans_2012.jpg",
-      "posterUrl": "assets/posters/vod_krishna_aur_kans_2012.jpg",
-      "backdropUrl": "assets/posters/vod_krishna_aur_kans_2012.jpg",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_bal_ganesh_2_2009",
-      "title": "Bal Ganesh 2",
-      "originalTitle": "Bal Ganesh 2",
-      "year": 2009,
-      "releaseYear": 2009,
-      "mediaType": "movie",
-      "type": "Cartoons",
-      "contentType": "MOVIE",
-      "region": "BOLLYWOOD",
-      "categories": [
-        "cartoons",
-        "animation",
-        "movies",
-        "family",
-        "mythology"
-      ],
-      "duration": 4407,
-      "durationFormatted": "1h 13m",
-      "genres": [
-        "Animation",
-        "Mythology",
-        "Comedy",
-        "Family"
-      ],
-      "rating": 7.9,
-      "description": "The enchanting continuation of young Lord Ganesha's celestial adventures, joyous feats, and playful antics with his mouse companion Mooshak.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Pankaj Sharma",
-      "cast": "Ashar Shaikh, Parminder Ghumman",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/g49csu_TktQ?autoplay=1",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/g49csu_TktQ",
-      "posterFileName": "vod_bal_ganesh_2_2009.jpg",
-      "posterUrl": "assets/posters/vod_bal_ganesh_2_2009.jpg",
-      "backdropUrl": "assets/posters/vod_bal_ganesh_2_2009.jpg",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_moon_exploration_2019",
-      "title": "Doraemon: Nobita's Chronicle of the Moon Exploration",
-      "originalTitle": "ドラえもん のび太の月面探査記",
-      "year": 2019,
-      "releaseYear": 2019,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 6641,
-      "durationFormatted": "1h 50m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.5,
-      "description": "Nobita uses Doraemon's secret gadget to discover a hidden lunar civilization on the far side of the Moon. Together with their new rabbit-eared friend Luka, they embark on a monumental cosmic odyssey.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Shinnosuke Yakuwa",
-      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Tomokazu Seki",
-      "streamUrl": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Chronicle%20of%20the%20Moon%20Exploration%202019%20BluRay%201080p%20x265%2010bit%20Hin%202.0%20Jpn%205.1%20ESub%20-%20mkvCinemas.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Chronicle%20of%20the%20Moon%20Exploration%202019%20BluRay%201080p%20x265%2010bit%20Hin%202.0%20Jpn%205.1%20ESub%20-%20mkvCinemas.mp4"
-      },
-      "posterFileName": "vod_doraemon_moon_exploration_2019.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_moon_exploration_2019.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_moon_exploration_2019.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_sky_utopia_2023",
-      "title": "Doraemon: Nobita's Sky Utopia",
-      "originalTitle": "ドラえもん のび太と空の理想郷",
-      "year": 2023,
-      "releaseYear": 2023,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 6512,
-      "durationFormatted": "1h 48m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.6,
-      "description": "Doraemon and Nobita discover Paradapia, a utopian sky paradise where everyone is seemingly happy and harmonious. However, they soon uncover a dark secret threatening everyone's individuality and free will.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Takumi Doyama",
-      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Ren Nagase",
-      "streamUrl": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Sky%20Utopia%202023%20BluRay%20720p%20Hindi%20AAC%202.0%20Japanese%20AAC%205.1%20x264%20ESub%20-%20mkvCinemas.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Sky%20Utopia%202023%20BluRay%20720p%20Hindi%20AAC%202.0%20Japanese%20AAC%205.1%20x264%20ESub%20-%20mkvCinemas.mp4"
-      },
-      "posterFileName": "vod_doraemon_sky_utopia_2023.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_sky_utopia_2023.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_sky_utopia_2023.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_treasure_island_2018",
-      "title": "Doraemon the Movie: Nobita's Treasure Island",
-      "originalTitle": "ドラえもん のび太の宝島",
-      "year": 2018,
-      "releaseYear": 2018,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 6493,
-      "durationFormatted": "1h 48m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.4,
-      "description": "Inspired by Robert Louis Stevenson's classic tale, Doraemon and Nobita set sail across the Pacific Ocean on a pirate ship to uncover an uncharted treasure island, fighting ruthless high-tech buccaneers.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Kazuaki Imai",
-      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Yo Oizumi",
-      "streamUrl": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20the%20Movie%20Nobitas%20Treasure%20Island%202018%20BluRay%201080p%20x265%2010bit%20Hindi%202.0%20Jpn%205.1%20AC3%20ESub%20-%20mkvCinemas.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20the%20Movie%20Nobitas%20Treasure%20Island%202018%20BluRay%201080p%20x265%2010bit%20Hindi%202.0%20Jpn%205.1%20AC3%20ESub%20-%20mkvCinemas.mp4"
-      },
-      "posterFileName": "vod_doraemon_treasure_island_2018.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_treasure_island_2018.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_treasure_island_2018.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_secret_gadget_museum_2013",
-      "title": "Doraemon: Nobita's Secret Gadget Museum",
-      "originalTitle": "ドラえもん のび太のひみつ道具博物館",
-      "year": 2013,
-      "releaseYear": 2013,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 6256,
-      "durationFormatted": "1h 44m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.3,
-      "description": "When a phantom thief steals Doraemon's bell, the gang journeys to the 22nd-century Secret Gadget Museum where every marvelous device ever conceived is preserved, unraveling an ingenious mystery.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Yukiyo Teramoto",
-      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Chiaki",
-      "streamUrl": "https://archive.org/download/toonworld-4all-doraemon-nobitas-secret-gadget-museum-2013-blu-ray-720p-hd-hindi-dd-2.0-jap-2.0-esub/%5BToonworld4all%5D%20Doraemon%20Nobita%27s%20Secret%20Gadget%20Museum%20%282013%29%20BluRay%20720p%20HD%20%5BHindi%20DD2.0-Jap%202.0%5D%20ESub.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/toonworld-4all-doraemon-nobitas-secret-gadget-museum-2013-blu-ray-720p-hd-hindi-dd-2.0-jap-2.0-esub/%5BToonworld4all%5D%20Doraemon%20Nobita%27s%20Secret%20Gadget%20Museum%20%282013%29%20BluRay%20720p%20HD%20%5BHindi%20DD2.0-Jap%202.0%5D%20ESub.mp4"
-      },
-      "posterFileName": "vod_doraemon_secret_gadget_museum_2013.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_secret_gadget_museum_2013.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_secret_gadget_museum_2013.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_antarctica_kachi_kochi_2017",
-      "title": "Doraemon: Nobita's Great Adventure in the Antarctic Kachi Kochi",
-      "originalTitle": "ドラえもん のび太の南極カチコチ大冒険",
-      "year": 2017,
-      "releaseYear": 2017,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 6027,
-      "durationFormatted": "1h 40m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.4,
-      "description": "Unable to endure midsummer heat, Doraemon and Nobita head to a massive iceberg in the South Pacific. Deep inside the glacial tundra, they discover a golden ring frozen 100,000 years ago and an ancient submerged city.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Atsushi Takahashi",
-      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Rie Kugimiya",
-      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/37.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20Antarctica%20Kachi%20Kochi%20%282017%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/37.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20Antarctica%20Kachi%20Kochi%20%282017%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
-      },
-      "posterFileName": "vod_doraemon_antarctica_kachi_kochi_2017.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_antarctica_kachi_kochi_2017.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_antarctica_kachi_kochi_2017.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_birth_of_japan_1989",
-      "title": "Doraemon: Nobita and the Birth of Japan",
-      "originalTitle": "ドラえもん のび太の日本誕生",
-      "year": 1989,
-      "releaseYear": 1989,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 6020,
-      "durationFormatted": "1h 40m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.5,
-      "description": "Fed up with strict parents and teachers, Nobita and his friends run away 70,000 years back in time to prehistoric Japan, founding their own utopian primitive paradise before evil shaman Gigazombie strikes.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Tsutomu Shibayama",
-      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
-      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/10.%20Doraemon%20-%20Nobita%20and%20the%20Birth%20of%20Japan%20%281989%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/10.%20Doraemon%20-%20Nobita%20and%20the%20Birth%20of%20Japan%20%281989%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
-      },
-      "posterFileName": "vod_doraemon_birth_of_japan_1989.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_birth_of_japan_1989.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_birth_of_japan_1989.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_galaxy_super_express_1996",
-      "title": "Doraemon: Nobita and the Galaxy Super-express",
-      "originalTitle": "ドラえもん のび太と銀河超特急",
-      "year": 1996,
-      "releaseYear": 1996,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 5832,
-      "durationFormatted": "1h 37m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.3,
-      "description": "Nobita and Doraemon board the legendary 22nd-century Galaxy Express train for an interstellar vacation across exotic planets, having to band together when alien parasitic invaders attack the locomotive.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Tsutomu Shibayama",
-      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
-      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/17.%20Doraemon%20-%20Nobita%20and%20the%20Galaxy%20Super-Express%20%281996%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/17.%20Doraemon%20-%20Nobita%20and%20the%20Galaxy%20Super-Express%20%281996%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
-      },
-      "posterFileName": "vod_doraemon_galaxy_super_express_1996.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_galaxy_super_express_1996.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_galaxy_super_express_1996.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_island_of_miracles_2012",
-      "title": "Doraemon: Nobita and the Island of Miracles",
-      "originalTitle": "ドラえもん のび太と奇跡の島 〜アニマル アドベンチャー〜",
-      "year": 2012,
-      "releaseYear": 2012,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 5970,
-      "durationFormatted": "1h 39m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.2,
-      "description": "Doraemon and Nobita travel to a mythical, secluded island where extinct prehistoric creatures survive under the protection of a golden beetle deity, defending the animals from a ruthless futuristic poacher.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Kozo Kusuba",
-      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Masako Nozawa",
-      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/32.%20Doraemon%20-%20Nobita%20and%20the%20Island%20of%20Miracles%20%282012%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/32.%20Doraemon%20-%20Nobita%20and%20the%20Island%20of%20Miracles%20%282012%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
-      },
-      "posterFileName": "vod_doraemon_island_of_miracles_2012.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_island_of_miracles_2012.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_island_of_miracles_2012.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_kingdom_of_clouds_1992",
-      "title": "Doraemon: Nobita and the Kingdom of Clouds",
-      "originalTitle": "ドラえもん のび太と雲の王国",
-      "year": 1992,
-      "releaseYear": 1992,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 5838,
-      "durationFormatted": "1h 37m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.4,
-      "description": "Using high-tech solidifying gas, Nobita and Doraemon build a breathtaking kingdom on the clouds, only to encounter an advanced celestial civilization planning a massive cleansing flood on Earth due to environmental destruction.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Tsutomu Shibayama",
-      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
-      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/13.%20Doraemon%20-%20Nobita%20and%20the%20Kingdom%20of%20Clouds%20%281992%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/13.%20Doraemon%20-%20Nobita%20and%20the%20Kingdom%20of%20Clouds%20%281992%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
-      },
-      "posterFileName": "vod_doraemon_kingdom_of_clouds_1992.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_kingdom_of_clouds_1992.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_kingdom_of_clouds_1992.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_tin_labyrinth_1993",
-      "title": "Doraemon: Nobita and the Tin Labyrinth",
-      "originalTitle": "ドラえもん のび太とブリキの迷宮",
-      "year": 1993,
-      "releaseYear": 1993,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 6010,
-      "durationFormatted": "1h 40m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.3,
-      "description": "Nobita's father discovers a mysterious briefcase that opens a portal to the luxurious Buriki Hotel on a distant resort planet where robots attend to humans, but a rebel machine army soon captures Doraemon.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Tsutomu Shibayama",
-      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
-      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/14.%20Doraemon%20-%20Nobita%20and%20the%20Tin%20Labyrinth%20%281993%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/14.%20Doraemon%20-%20Nobita%20and%20the%20Tin%20Labyrinth%20%281993%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
-      },
-      "posterFileName": "vod_doraemon_tin_labyrinth_1993.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_tin_labyrinth_1993.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_tin_labyrinth_1993.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_south_seas_1998",
-      "title": "Doraemon: Nobita's Great Adventure in the South Seas",
-      "originalTitle": "ドラえもん のび太の南海大冒険",
-      "year": 1998,
-      "releaseYear": 1998,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 5463,
-      "durationFormatted": "1h 31m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.2,
-      "description": "Playing pirates with a simulator ship in the Caribbean, Nobita gets swept away by a sudden dimensional warp into the 17th century, befriending authentic privateers while searching for Doraemon.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Tsutomu Shibayama",
-      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
-      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/19.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20the%20South%20Seas%20%281998%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/19.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20the%20South%20Seas%20%281998%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
-      },
-      "posterFileName": "vod_doraemon_south_seas_1998.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_south_seas_1998.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_south_seas_1998.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_animal_planet_1990",
-      "title": "Doraemon: Nobita and the Animal Planet",
-      "originalTitle": "ドラえもん のび太とアニマル惑星",
-      "year": 1990,
-      "releaseYear": 1990,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 6000,
-      "durationFormatted": "1h 40m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.3,
-      "description": "Nobita discovers a pink mist in his home leading to an idyllic alien world populated entirely by anthropomorphic animals. However, cruel predators called Nimuge from a neighboring moon prepare to conquer the peaceful planet.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Tsutomu Shibayama",
-      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
-      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/11.%20Doraemon%20-%20Nobita%20and%20the%20Animal%20Planet%20%281990%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/11.%20Doraemon%20-%20Nobita%20and%20the%20Animal%20Planet%20%281990%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
-      },
-      "posterFileName": "vod_doraemon_animal_planet_1990.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_animal_planet_1990.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_animal_planet_1990.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
-    },
-    {
-      "id": "vod_doraemon_dorabian_nights_1991",
-      "title": "Doraemon: Nobita's Dorabian Nights",
-      "originalTitle": "ドラえもん のび太のドラビアンナイト",
-      "year": 1991,
-      "releaseYear": 1991,
-      "mediaType": "movie",
-      "type": "Anime",
-      "contentType": "MOVIE",
-      "region": "JAPAN",
-      "categories": [
-        "anime",
-        "cartoons",
-        "movies",
-        "family",
-        "adventure",
-        "trending",
-        "classics"
-      ],
-      "duration": 5985,
-      "durationFormatted": "1h 40m",
-      "genres": [
-        "Anime",
-        "Animation",
-        "Adventure",
-        "Fantasy",
-        "Comedy"
-      ],
-      "rating": 8.4,
-      "description": "Nobita and Shizuka enter the magical pages of Arabian Nights using a storybook shoe gadget. When Shizuka loses her magic shoes and gets trapped in 8th-century Baghdad, Doraemon and Nobita journey into the desert on a rescue expedition.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Tsutomu Shibayama",
-      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
-      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/12.%20Doraemon%20-%20Nobita%27s%20Dorabian%20Nights%20%281991%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
-      "audioStreams": {
-        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/12.%20Doraemon%20-%20Nobita%27s%20Dorabian%20Nights%20%281991%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
-      },
-      "posterFileName": "vod_doraemon_dorabian_nights_1991.jpg",
-      "posterUrl": "assets/posters/vod_doraemon_dorabian_nights_1991.jpg",
-      "backdropUrl": "assets/posters/vod_doraemon_dorabian_nights_1991.jpg",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "sourceStatus": "PLAYABLE",
-      "isTrailerOnly": false,
-      "metadataSource": "TMDB_VERIFIED"
     }
   ]
 }

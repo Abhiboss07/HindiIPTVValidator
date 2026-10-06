@@ -15,89 +15,6 @@
         "movies"
       ],
       "duration": 9396,
-      "durationFormatted": "2h 36m (Full Movie)",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original HEVC 1080p.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/Raw%20%28Beast%29%202022%20South%20Hindi%20Dubbed%20Full%20Movie%20Original%20HEVC%201080p.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/services/img/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p",
-      "_quality_rank": 1080
-    },
-    {
-      "id": "vod_bhaag_milkha_bhaag_2013_blu_ra",
-      "title": "Bhaag Milkha Bhaag 2013 Blu Ray Hindi DD 5.1 X 264 Mkv Cinemas [ Telly]",
-      "originalTitle": "Bhaag Milkha Bhaag 2013 Blu Ray 1080p Hindi DD 5.1 X 264 ESub Mkv Cinemas [ Telly]",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 11184,
-      "durationFormatted": "3h 06m",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Bhaag Milkha Bhaag 2013 Blu Ray 1080p Hindi DD 5.1 X 264 ESub Mkv Cinemas [ Telly].",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/services/img/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly"
-    },
-    {
-      "id": "vod_raw__beast_2022_south_hindi_du",
-      "title": "Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original",
-      "originalTitle": "Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original HEVC 1080p",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 9396,
       "durationFormatted": "2h 36m",
       "genres": [
         "Drama"
@@ -123,47 +40,6 @@
       "streamUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/Raw%20%28Beast%29%202022%20South%20Hindi%20Dubbed%20Full%20Movie%20Original%20HEVC%201080p.mkv",
       "trailerUrl": null,
       "posterSrcUrl": "https://archive.org/services/img/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p"
-    },
-    {
-      "id": "vod_allof_us_are_dead_s01_1080p_he",
-      "title": "Allof Us Are Dead. S01.",
-      "originalTitle": "Allof Us Are Dead. S01. 1080p HEVC",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 3982,
-      "durationFormatted": "1h 06m",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Allof Us Are Dead. S01. 1080p HEVC.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/services/img/allof-us-are-dead.-s01.-1080p-hevc"
     },
     {
       "id": "vod_rocket_boys_s_01_e_08_a_new_da",

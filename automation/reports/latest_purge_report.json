@@ -1,30 +1,59 @@
 {
-  "timestamp": "2026-10-06 03:47:49",
-  "total_movies_retained": 169,
-  "total_channels_retained": 291,
-  "purged_movies_count": 0,
-  "purged_channels_count": 3,
-  "purged_movies": [],
+  "timestamp": "2026-10-06 17:36:03",
+  "total_movies_retained": 209,
+  "total_channels_retained": 285,
+  "purged_movies_count": 1,
+  "purged_channels_count": 6,
+  "purged_movies": [
+    {
+      "id": "vod_tiger_3",
+      "title": "Tiger 3",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/tiger-3-4k-2023/Tiger%203%201080p%202023.mp4",
+      "reason": "HTTP 403 Forbidden"
+    }
+  ],
   "purged_channels": [
     {
-      "id": "live_ch_713",
-      "name": "OM TV",
-      "url": "https://mumt01.tangotv.in/O5aw8Zn3OMTV/index.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_714",
-      "name": "Sai TV",
-      "url": "https://mumt03.tangotv.in/Dsly5z3HSAITV/index.m3u8",
+      "id": "live_ch_33",
+      "name": "Janta TV",
+      "url": "https://live.jswk.online/IK_RTPM/live/index.m3u8",
       "category": "ENTERTAINMENT",
       "reason": "HTTP 404 Not Found/Gone"
     },
     {
-      "id": "9xm-hd",
-      "name": "9XM Bollywood Music HD",
-      "url": "https://9xjio.wiseplayout.com/9XM/master.m3u8",
-      "category": "MOVIES",
+      "id": "live_ch_244",
+      "name": "Sadhna",
+      "url": "https://mumt04.tangotv.in/m18aqlK4SADHNEWSPMRAJ/index.m3u8",
+      "category": "DEVOTIONAL",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "live_ch_211",
+      "name": "Sadhna News Madhya Pradesh/Chhattisgarh",
+      "url": "https://mumt04.tangotv.in/m18aqlK4SADHNEWSPMRAJ/index.m3u8",
+      "category": "NEWS",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "live_ch_682",
+      "name": "Ishwar Bhakti TV",
+      "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8",
+      "category": "DEVOTIONAL",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "live_ch_141",
+      "name": "Ishwar Bhakti TV",
+      "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8",
+      "category": "DEVOTIONAL",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "live_ch_415",
+      "name": "Ishwar Bhakti TV",
+      "url": "https://6n3yow8pl9ok-hls-live.5centscdn.com/ishwartvlive/tv.stream/playlist.m3u8",
+      "category": "DEVOTIONAL",
       "reason": "Exception: The read operation timed out"
     }
   ]
