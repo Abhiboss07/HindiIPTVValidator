@@ -34,6 +34,7 @@ Strict Quality & Recency Hierarchy:
 import os
 import sys
 import re
+import io
 import json
 import time
 import shutil
@@ -111,13 +112,26 @@ def normalize_title(title):
     cleaned = re.sub(r"[^\w\s]", "", cleaned)
     return cleaned.strip().lower()
 
+def clean_movie_title(raw_title):
+    """Extract clean core film title by stripping release format and group noise."""
+    if not raw_title:
+        return ""
+    t = re.sub(r'\[.*?\]', '', raw_title)
+    t = re.sub(r'\b(1080p|720p|480p|bluray|blu\s*ray|dvdrip|web-?dl|webrip|hd-?rip|x264|x265|hevc|esub|dd\s*5\.?1|aac|mkv|mp4|cinemas|telly|skymovies\w*|hq|v\s*\d+|part\s*\d+|south\s*hindi\s*dubbed|hindi\s*dubbed|hindi\s*bollywood|full\s*movie|original|mkvcinemas|hindi)\b', '', t, flags=re.I)
+    t = re.sub(r'\s*\(\s*\d{4}\s*\)\s*', ' ', t)
+    t = re.sub(r'\s*\(\s*([^)]+)\s*\)\s*', r' \1 ', t) # Unwrap "(Beast)" -> "Beast"
+    t = re.sub(r'\b(19\d\d|20\d\d)\b', '', t) # Remove isolated release years
+    t = re.sub(r'[_\-]+', ' ', t)
+    t = re.sub(r'[^\w\s:]', '', t)
+    return re.sub(r'\s+', ' ', t).strip()
+
 def is_valid_poster_image(img_path):
     """
-    Validate that image exists, is >25KB, has minimum dimensions,
+    Validate that image exists, is >=5KB, has minimum dimensions,
     and is NOT a solid black/blank placeholder.
     """
-    if not os.path.exists(img_path) or os.path.getsize(img_path) < 25000:
-        return False, "File missing or too small (<25KB)"
+    if not os.path.exists(img_path) or os.path.getsize(img_path) < 5000:
+        return False, "File missing or too small (<5KB)"
 
     try:
         with Image.open(img_path) as img:
@@ -136,48 +150,186 @@ def is_valid_poster_image(img_path):
         return False, str(e)
 
 def find_existing_local_poster(normalized_title):
-    """Search assets/posters for an existing high-res poster matching title."""
+    """
+    Search assets/posters for an existing high-res poster matching title.
+    Enforces strict token equality to prevent cross-matching on short generic words.
+    """
+    norm_tokens = set(normalized_title.split())
+    norm_squashed = normalized_title.replace(" ", "")
+
     for fn in os.listdir(POSTERS_DIR):
         if not fn.endswith((".jpg", ".png", ".jpeg")):
             continue
         clean_fn = fn.replace("vod_", "").replace("series_", "").replace(".jpg", "").replace(".png", "")
-        clean_fn = re.sub(r"_\d{4}", "", clean_fn).replace("_", " ").lower()
-        if clean_fn in normalized_title or normalized_title in clean_fn:
+        clean_fn = re.sub(r"_\d{4}", "", clean_fn).replace("_", " ").lower().strip()
+        fn_tokens = set(clean_fn.split())
+        fn_squashed = clean_fn.replace(" ", "")
+
+        # Strict matching only: Exact match, identical token set, or identical alphanumeric string
+        is_match = False
+        if clean_fn == normalized_title or fn_squashed == norm_squashed:
+            is_match = True
+        elif len(clean_fn) >= 6 and (clean_fn == normalized_title or fn_tokens == norm_tokens):
+            is_match = True
+
+        if is_match:
             full_p = os.path.join(POSTERS_DIR, fn)
             valid, _ = is_valid_poster_image(full_p)
             if valid:
                 return fn
     return None
 
-def fetch_wikipedia_poster(title):
-    """Fetch official high-res poster from Wikipedia API."""
-    url = f"https://en.wikipedia.org/w/api.php?action=query&titles={urllib.parse.quote(title)}&prop=pageimages&format=json&pilicense=any&piprop=original"
-    req = urllib.request.Request(url, headers={"User-Agent": "T2LBot/1.0 (contact@aakashstream.com)"})
-    try:
-        with urllib.request.urlopen(req, timeout=6) as resp:
-            data = json.load(resp)
-            pages = data.get("query", {}).get("pages", {})
-            for pid, pdata in pages.items():
-                orig = pdata.get("original")
-                if orig and orig.get("source"):
-                    return orig.get("source")
-    except Exception:
-        pass
+def search_tmdb_poster(title, year=None):
+    """
+    Search TMDB (The Movie Database) for verified theatrical poster.
+    Uses browser impersonation curl request for high reliability.
+    """
+    clean = clean_movie_title(title)
+    if not clean:
+        return None
+
+    queries = [clean]
+    parts = clean.split()
+    if len(parts) >= 2 and parts[0].lower() in ["raw", "the", "a"]:
+        queries.append(" ".join(parts[1:]))
+
+    for q_str in queries:
+        try:
+            q = urllib.parse.quote(q_str)
+            url = f"https://www.themoviedb.org/search/movie?query={q}"
+            cmd = [
+                "curl", "-s", "-L",
+                "-A", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+                "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+                "-H", "Accept-Language: en-US,en;q=0.9",
+                url
+            ]
+            res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=10)
+            if res.returncode == 0 and res.stdout:
+                matches = re.findall(r'https://media\.themoviedb\.org/t/p/(?:w94_and_h141_face|w188_and_h282_face)/([^\"\'\s]+\.jpg)', res.stdout)
+                if matches:
+                    poster_url = f"https://image.tmdb.org/t/p/w500/{matches[0]}"
+                    return poster_url
+        except Exception:
+            continue
     return None
+
+def fetch_wikipedia_poster(title, year=None):
+    """
+    Fetch official theatrical poster from Wikipedia API.
+    Tests structured movie article name variants ({title} ({year} film), {title} (film), etc.).
+    """
+    clean = clean_movie_title(title)
+    candidates = []
+    if year:
+        candidates.append(f"{clean} ({year} film)")
+        candidates.append(f"{clean} ({year} Indian film)")
+    candidates.append(f"{clean} (film)")
+    candidates.append(f"{clean} (Indian film)")
+    if title.strip() != clean:
+        candidates.append(title.strip())
+    candidates.append(clean)
+
+    headers = {"User-Agent": "T2LBot/1.0 (contact@aakashstream.com)"}
+    for c in candidates:
+        url = f"https://en.wikipedia.org/w/api.php?action=query&titles={urllib.parse.quote(c)}&prop=pageimages&format=json&pilicense=any&piprop=original|thumbnail&pithumbsize=1000"
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=6) as resp:
+                data = json.load(resp)
+                pages = data.get("query", {}).get("pages", {})
+                for pid, pdata in pages.items():
+                    if pid != "-1":
+                        orig = pdata.get("original", {})
+                        thumb = pdata.get("thumbnail", {})
+                        src = orig.get("source") or thumb.get("source")
+                        if src:
+                            src_low = src.lower()
+                            # Filter out non-poster icons, flags, and recipes
+                            if not any(bad in src_low for bad in ["flag", "icon", "edit-clear", "chutneykarnataka", "question_book", ".svg"]):
+                                return src
+        except Exception:
+            continue
+    return None
+
+def try_download_and_format_poster(src_url, target_path, android_target_path, timeout=8):
+    """
+    Downloads image, performs proper 2:3 center-crop without squashing or stretching,
+    resizes to 600x900 progressive JPEG, and validates with is_valid_poster_image.
+    """
+    try:
+        img_bytes = None
+        if "tmdb.org" in src_url:
+            c_cmd = [
+                "curl", "-s", "-L", "--max-time", str(timeout),
+                "-A", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+                src_url
+            ]
+            c_res = subprocess.run(c_cmd, stdout=subprocess.PIPE, timeout=timeout + 2)
+            if c_res.returncode == 0 and len(c_res.stdout) > 2000:
+                img_bytes = c_res.stdout
+        else:
+            req = urllib.request.Request(src_url, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                img_bytes = resp.read()
+
+        if not img_bytes:
+            return False, "Empty response"
+
+        with Image.open(io.BytesIO(img_bytes)) as raw_img:
+            img = raw_img.convert("RGB")
+            w, h = img.size
+            if w < 60 or h < 60:
+                return False, f"Dimensions too small ({w}x{h})"
+
+            # Theatrical 2:3 Portrait Aspect Ratio Crop (without stretching or squashing)
+            target_ratio = 2.0 / 3.0  # 0.6667
+            current_ratio = w / h
+            if current_ratio > target_ratio:
+                # Landscape/wide -> crop horizontal borders symmetrically
+                crop_w = int(h * target_ratio)
+                left = (w - crop_w) // 2
+                img = img.crop((left, 0, left + crop_w, h))
+            elif current_ratio < target_ratio:
+                # Narrow/tall -> crop vertical borders symmetrically
+                crop_h = int(w / target_ratio)
+                top = (h - crop_h) // 2
+                img = img.crop((0, top, w, top + crop_h))
+
+            # High-fidelity progressive JPEG resize to 600x900
+            img = img.resize((600, 900), Image.Resampling.LANCZOS)
+            img.save(target_path, "JPEG", quality=90, optimize=True)
+            img.save(android_target_path, "JPEG", quality=90, optimize=True)
+
+            valid, reason = is_valid_poster_image(target_path)
+            if valid:
+                return True, "Valid"
+            else:
+                if os.path.exists(target_path): os.remove(target_path)
+                if os.path.exists(android_target_path): os.remove(android_target_path)
+                return False, reason
+    except Exception as e:
+        if os.path.exists(target_path): os.remove(target_path)
+        if os.path.exists(android_target_path): os.remove(android_target_path)
+        return False, str(e)
 
 def harvest_and_process_poster(title, candidate, output_filename):
     """
-    Multi-tier harvester to obtain a verified 600x900 poster.
-    1. Reuses authentic local poster if title already exists in assets.
-    2. Uses provided posterSrcUrl if valid.
-    3. Searches Wikipedia / Wikimedia.
-    4. Extracts YouTube HD thumbnail if YouTube embed.
+    Multi-tier harvester to obtain a verified 600x900 authentic theatrical poster.
+    Evaluates sources lazily (stops immediately as soon as a tier succeeds):
+    Tier 1: Check existing authentic local library (exact title match).
+    Tier 2: Candidate explicit source URL (posterSrcUrl).
+    Tier 3: TMDB Direct Theatrical Poster Search (500x722 / 600x900).
+    Tier 4: Wikipedia / Wikimedia Film Poster (High-Res original).
+    Tier 5: YouTube HD Thumbnail (streamUrl and trailerUrl maxresdefault/sddefault/hqdefault).
+    Tier 6: Archive.org metadata high-resolution image files.
     """
     target_path = os.path.join(POSTERS_DIR, output_filename)
     android_target_path = os.path.join(ANDROID_POSTERS_DIR, output_filename)
     norm = normalize_title(title)
+    year = int(candidate.get("year") or candidate.get("releaseYear") or 0) or None
 
-    # Tier 1: Check existing local library
+    # Tier 1: Check existing authentic local library
     existing_fn = find_existing_local_poster(norm)
     if existing_fn:
         src_path = os.path.join(POSTERS_DIR, existing_fn)
@@ -186,54 +338,77 @@ def harvest_and_process_poster(title, candidate, output_filename):
         if os.path.abspath(src_path) != os.path.abspath(android_target_path):
             shutil.copyfile(src_path, android_target_path)
         print(f"🖼️ [Tier 1] Reused authentic existing poster '{existing_fn}' for '{title}'")
-        return True, f"assets/posters/{output_filename}"
+        return True, f"assets/posters/{output_filename}", None
 
-    # Tier 2: Candidate source URL
-    sources_to_try = []
-    if candidate.get("posterSrcUrl"):
-        sources_to_try.append(candidate["posterSrcUrl"])
+    # Tier 2: Candidate explicit source URL (if not archive services/img which is low res)
+    src_url = candidate.get("posterSrcUrl")
+    if src_url and "services/img" not in src_url:
+        ok, reason = try_download_and_format_poster(src_url, target_path, android_target_path)
+        if ok:
+            print(f"🖼️ [Candidate Source] Verified poster for '{title}' from {src_url[:65]}...")
+            return True, f"assets/posters/{output_filename}", src_url
 
-    # Tier 3: Wikipedia theatrical poster
-    wiki_url = fetch_wikipedia_poster(candidate.get("originalTitle") or title)
+    # Tier 3: TMDB Direct Theatrical Search
+    tmdb_url = search_tmdb_poster(candidate.get("originalTitle") or title, year)
+    if tmdb_url:
+        ok, reason = try_download_and_format_poster(tmdb_url, target_path, android_target_path)
+        if ok:
+            print(f"🖼️ [TMDB] Verified authentic 600x900 poster for '{title}' from {tmdb_url}...")
+            return True, f"assets/posters/{output_filename}", tmdb_url
+
+    # Tier 4: Wikipedia / Wikimedia Film Poster
+    wiki_url = fetch_wikipedia_poster(candidate.get("originalTitle") or title, year)
     if wiki_url:
-        sources_to_try.append(wiki_url)
+        ok, reason = try_download_and_format_poster(wiki_url, target_path, android_target_path)
+        if ok:
+            print(f"🖼️ [Wikipedia] Verified authentic 600x900 poster for '{title}' from {wiki_url[:65]}...")
+            return True, f"assets/posters/{output_filename}", wiki_url
 
-    # Tier 4: YouTube thumbnail extraction
+    # Tier 5: YouTube HD Thumbnails (Check streamUrl AND trailerUrl)
+    for url_key in ["streamUrl", "trailerUrl"]:
+        yt_url = candidate.get(url_key, "")
+        if is_youtube_url(yt_url):
+            yt_id = extract_youtube_id(yt_url)
+            if yt_id:
+                for yt_type, yt_thumb in [
+                    ("maxresdefault", f"https://img.youtube.com/vi/{yt_id}/maxresdefault.jpg"),
+                    ("sddefault", f"https://img.youtube.com/vi/{yt_id}/sddefault.jpg"),
+                    ("hqdefault", f"https://img.youtube.com/vi/{yt_id}/hqdefault.jpg"),
+                ]:
+                    ok, reason = try_download_and_format_poster(yt_thumb, target_path, android_target_path, timeout=5)
+                    if ok:
+                        print(f"🖼️ [YouTube {yt_type}] Verified poster for '{title}' from {yt_thumb}...")
+                        return True, f"assets/posters/{output_filename}", yt_thumb
+
+    # Tier 6: Archive.org Metadata Images or services/img
     stream_url = candidate.get("streamUrl", "")
-    if is_youtube_url(stream_url):
-        yt_id = extract_youtube_id(stream_url)
-        if yt_id:
-            sources_to_try.append(f"https://img.youtube.com/vi/{yt_id}/maxresdefault.jpg")
-            sources_to_try.append(f"https://img.youtube.com/vi/{yt_id}/hqdefault.jpg")
+    if "archive.org/download/" in stream_url:
+        parts = stream_url.split("archive.org/download/")[1].split("/")
+        if parts:
+            ident = parts[0]
+            try:
+                meta_url = f"https://archive.org/metadata/{ident}"
+                mreq = urllib.request.Request(meta_url, headers={"User-Agent": USER_AGENT})
+                with urllib.request.urlopen(mreq, timeout=5) as mresp:
+                    mdata = json.loads(mresp.read().decode("utf-8", errors="ignore"))
+                    for af in mdata.get("files", []):
+                        af_name = af.get("name", "")
+                        if af_name.lower().endswith((".jpg", ".jpeg", ".png")) and not af_name.startswith("."):
+                            meta_img = f"https://archive.org/download/{ident}/{urllib.parse.quote(af_name)}"
+                            ok, reason = try_download_and_format_poster(meta_img, target_path, android_target_path)
+                            if ok:
+                                print(f"🖼️ [Archive.org Meta] Verified poster for '{title}' from {meta_img[:65]}...")
+                                return True, f"assets/posters/{output_filename}", meta_img
+            except Exception:
+                pass
 
-    for src_url in sources_to_try:
-        try:
-            req = urllib.request.Request(src_url, headers={"User-Agent": USER_AGENT})
-            with urllib.request.urlopen(req, timeout=8) as resp:
-                img = Image.open(resp).convert("RGB")
-                w, h = img.size
-                if w < 100 or h < 100:
-                    continue
-                # Center crop to 2:3 ratio if 16:9 thumbnail
-                target_w = int(h * 2 / 3)
-                if w > target_w:
-                    left = (w - target_w) // 2
-                    img = img.crop((left, 0, left + target_w, h))
+    if src_url and "services/img" in src_url:
+        ok, reason = try_download_and_format_poster(src_url, target_path, android_target_path, timeout=5)
+        if ok:
+            print(f"🖼️ [Archive.org Svc] Verified poster for '{title}' from {src_url}...")
+            return True, f"assets/posters/{output_filename}", src_url
 
-                img = img.resize((600, 900), Image.Resampling.LANCZOS)
-                img.save(target_path, "JPEG", quality=90, optimize=True)
-                img.save(android_target_path, "JPEG", quality=90, optimize=True)
-
-                valid, reason = is_valid_poster_image(target_path)
-                if valid:
-                    print(f"🖼️ [Harvested] Successfully verified poster for '{title}' from {src_url[:50]}...")
-                    return True, f"assets/posters/{output_filename}"
-                else:
-                    print(f"⚠️ [Invalid Poster] Source rejected: {reason}")
-        except Exception:
-            continue
-
-    return False, "Could not acquire a valid non-empty poster"
+    return False, "Could not acquire a valid non-empty poster", None
 
 def get_youtube_duration_seconds(video_id, timeout=6):
     """Extract true duration in seconds from YouTube watch page."""
@@ -432,7 +607,8 @@ def ingest_movie_item(catalog_data, movie_candidate):
     """Validate, score, deduplicate, and insert candidate movie into catalog."""
     title = movie_candidate["title"]
     stream_url = movie_candidate.get("streamUrl", "")
-    poster_fn = movie_candidate.get("posterFileName") or f"vod_{re.sub(r'[^a-z0-9]', '_', normalize_title(title))}.jpg"
+    clean_slug = re.sub(r'_+', '_', re.sub(r'[^a-z0-9]', '_', clean_movie_title(title).lower())).strip('_')
+    poster_fn = movie_candidate.get("posterFileName") or f"vod_{clean_slug}.jpg"
 
     print(f"\n🎬 [Evaluating Candidate] '{title}' ({movie_candidate.get('year', 'N/A')})...")
 
@@ -484,12 +660,14 @@ def ingest_movie_item(catalog_data, movie_candidate):
             movie_candidate["durationFormatted"] = f"{mins}m (Complete Short)"
 
     # 4. Strict Poster Acquisition Gate
-    p_ok, p_res = harvest_and_process_poster(title, movie_candidate, poster_fn)
+    p_ok, p_res, p_src = harvest_and_process_poster(title, movie_candidate, poster_fn)
     if not p_ok:
         print(f"❌ [Poster Gate FAILED] '{title}' REJECTED: {p_res}")
         return False
     movie_candidate["posterUrl"] = p_res
     movie_candidate["backdropUrl"] = p_res
+    if p_src:
+        movie_candidate["posterSrcUrl"] = p_src
 
     # Clean temporary scoring fields
     if "_quality_rank" in movie_candidate:
@@ -972,6 +1150,15 @@ def discover_archive_org_candidates(existing_titles_norm, max_results=5):
                 with urllib.request.urlopen(mreq, timeout=8) as mresp:
                     mdata = json.loads(mresp.read().decode("utf-8", errors="ignore"))
                     files = mdata.get("files", [])
+                    arch_poster = None
+                    for af in files:
+                        af_name = af.get("name", "")
+                        if af_name.lower().endswith((".jpg", ".jpeg", ".png")) and not af_name.startswith("."):
+                            arch_poster = f"https://archive.org/download/{ident}/{urllib.parse.quote(af_name)}"
+                            break
+                    if not arch_poster:
+                        arch_poster = f"https://archive.org/services/img/{ident}"
+
                     for f in files:
                         fname = f.get("name", "")
                         size = int(f.get("size") or 0)
@@ -981,9 +1168,11 @@ def discover_archive_org_candidates(existing_titles_norm, max_results=5):
                             if width >= 1280 or height >= 720:
                                 q_label = "1080p Full HD" if (width >= 1920 or height >= 1080) else "720p HD"
                                 safe_name = urllib.parse.quote(fname)
+                                clean_t = clean_movie_title(raw_title)
+                                clean_slug = re.sub(r'_+', '_', re.sub(r'[^a-z0-9]', '_', clean_t.lower())).strip('_')
                                 cand = {
-                                    "id": f"vod_{re.sub(r'[^a-z0-9]', '_', norm)[:30]}",
-                                    "title": re.sub(r"\s*\(?\b(1080p|720p|bluray|x264|esub|dd5\.1|hevc)\b\)?", "", raw_title, flags=re.I).strip(),
+                                    "id": f"vod_{clean_slug[:30]}",
+                                    "title": clean_t,
                                     "originalTitle": raw_title,
                                     "year": int(doc.get("year") or 2015),
                                     "releaseYear": int(doc.get("year") or 2015),
@@ -1011,7 +1200,7 @@ def discover_archive_org_candidates(existing_titles_norm, max_results=5):
                                     "defaultLanguage": "Hindi",
                                     "streamUrl": f"https://archive.org/download/{ident}/{safe_name}",
                                     "trailerUrl": None,
-                                    "posterSrcUrl": f"https://archive.org/services/img/{ident}"
+                                    "posterSrcUrl": arch_poster
                                 }
                                 discovered.append(cand)
                                 existing_titles_norm.add(norm)
