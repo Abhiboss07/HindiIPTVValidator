@@ -1,6 +1,6 @@
 {
   "version": 21,
-  "updated_at": "2026-10-06 11:35:54",
+  "updated_at": "2026-10-06 12:00:39",
   "total_movies": 171,
   "total_series": 18,
   "default_language_filter": "Hindi",
@@ -50,7 +50,9 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/R-Sk7fQGIjE",
       "posterFileName": "vod_juice_short.jpg",
       "posterUrl": "assets/posters/vod_juice_short.jpg",
-      "backdropUrl": "assets/posters/vod_juice_short.jpg"
+      "backdropUrl": "assets/posters/vod_juice_short.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_ahalya_2015",
@@ -100,7 +102,9 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/Ff82XtV78xo",
       "posterFileName": "vod_ahalya_short.jpg",
       "posterUrl": "assets/posters/vod_ahalya_short.jpg",
-      "backdropUrl": "assets/posters/vod_ahalya_short.jpg"
+      "backdropUrl": "assets/posters/vod_ahalya_short.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_chutney_2016",
@@ -149,7 +153,9 @@
       "trailerUrl": "https://www.youtube-nocookie.com/embed/0krwKbsQscw",
       "posterFileName": "vod_chutney_short.jpg",
       "posterUrl": "assets/posters/vod_chutney_short.jpg",
-      "backdropUrl": "assets/posters/vod_chutney_short.jpg"
+      "backdropUrl": "assets/posters/vod_chutney_short.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_deewaar_1975",
@@ -199,7 +205,9 @@
       "streamUrl": "https://www.youtube-nocookie.com/embed/xuOQqWU2UQA?autoplay=1",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/xuOQqWU2UQA",
       "posterUrl": "assets/posters/vod_deewaar.jpg",
-      "backdropUrl": "assets/posters/vod_deewaar.jpg"
+      "backdropUrl": "assets/posters/vod_deewaar.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_ramayana_anime_1993",
@@ -249,7 +257,9 @@
       "streamUrl": "https://www.youtube-nocookie.com/embed/gKcOjnDJfzk?autoplay=1",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/gKcOjnDJfzk",
       "posterUrl": "assets/posters/vod_ramayana_the_legend_of_prince_rama.jpg",
-      "backdropUrl": "assets/posters/vod_ramayana_the_legend_of_prince_rama.jpg"
+      "backdropUrl": "assets/posters/vod_ramayana_the_legend_of_prince_rama.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_bal_ganesh_2007",
@@ -296,7 +306,9 @@
       "streamUrl": "https://www.youtube-nocookie.com/embed/Jw2efcyES-E?autoplay=1",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/Jw2efcyES-E",
       "posterUrl": "assets/posters/vod_bal_ganesh.jpg",
-      "backdropUrl": "assets/posters/vod_bal_ganesh.jpg"
+      "backdropUrl": "assets/posters/vod_bal_ganesh.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_uri_the_surgical_strike",
@@ -396,7 +408,9 @@
       "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/yGStv_o12z4",
       "posterUrl": "assets/posters/vod_bhaag_milkha_bhaag.jpg",
-      "backdropUrl": "assets/posters/vod_bhaag_milkha_bhaag.jpg"
+      "backdropUrl": "assets/posters/vod_bhaag_milkha_bhaag.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_kriti_2016",
@@ -443,7 +457,9 @@
       "streamUrl": "https://www.youtube-nocookie.com/embed/b5GGKuK3iEI?autoplay=1",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/b5GGKuK3iEI",
       "posterUrl": "assets/posters/vod_kriti.jpg",
-      "backdropUrl": "assets/posters/vod_kriti.jpg"
+      "backdropUrl": "assets/posters/vod_kriti.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_ouch_2016",
@@ -490,7 +506,9 @@
       "streamUrl": "https://www.youtube-nocookie.com/embed/deMCcGkJsjc?autoplay=1",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/deMCcGkJsjc",
       "posterUrl": "assets/posters/vod_ouch.jpg",
-      "backdropUrl": "assets/posters/vod_ouch.jpg"
+      "backdropUrl": "assets/posters/vod_ouch.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_interior_cafe_night_2016",
@@ -537,7 +555,9 @@
       "streamUrl": "https://www.youtube-nocookie.com/embed/23KufSqo6cQ?autoplay=1",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/23KufSqo6cQ",
       "posterUrl": "assets/posters/vod_interior_cafe_night.jpg",
-      "backdropUrl": "assets/posters/vod_interior_cafe_night.jpg"
+      "backdropUrl": "assets/posters/vod_interior_cafe_night.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_anukul_2017",
@@ -584,7 +604,9 @@
       "streamUrl": "https://www.youtube-nocookie.com/embed/J2mqIgdae5I?autoplay=1",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/J2mqIgdae5I",
       "posterUrl": "assets/posters/vod_anukul.jpg",
-      "backdropUrl": "assets/posters/vod_anukul.jpg"
+      "backdropUrl": "assets/posters/vod_anukul.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_mughal_e_azam",
@@ -634,7 +656,9 @@
       "streamUrl": "https://www.youtube-nocookie.com/embed/BGL6zt5fs0c?autoplay=1",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/BGL6zt5fs0c",
       "posterUrl": "assets/posters/vod_mughal_e_azam.jpg",
-      "backdropUrl": "assets/posters/vod_mughal_e_azam.jpg"
+      "backdropUrl": "assets/posters/vod_mughal_e_azam.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "vod_nadiya_ke_paar",
@@ -10942,7 +10966,9 @@
             }
           ]
         }
-      ]
+      ],
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD"
     },
     {
       "id": "series_stranger_things",
@@ -17887,7 +17913,7 @@
       "posterUrl": "assets/posters/vod_spirit_2026.jpg",
       "backdropUrl": "assets/posters/vod_spirit_2026.jpg",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "sourceState": "TRAILER_ONLY",
       "sourceStatus": "UPCOMING",
       "audioClassification": "HINDI_AUDIO",
@@ -17958,7 +17984,7 @@
       "posterUrl": "assets/posters/vod_alpha_2026.jpg",
       "backdropUrl": "assets/posters/vod_alpha_2026.jpg",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "sourceState": "TRAILER_ONLY",
       "sourceStatus": "UPCOMING",
       "audioClassification": "HINDI_AUDIO",
@@ -18028,7 +18054,7 @@
       "posterUrl": "assets/posters/vod_king_2026.jpg",
       "backdropUrl": "assets/posters/vod_king_2026.jpg",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "sourceState": "TRAILER_ONLY",
       "sourceStatus": "UPCOMING",
       "audioClassification": "HINDI_AUDIO",
@@ -18126,7 +18152,7 @@
       "region": "HOLLYWOOD",
       "sourceState": "TRAILER_ONLY",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "en",
@@ -18180,7 +18206,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -18261,7 +18287,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -18344,7 +18370,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -18414,7 +18440,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -18486,7 +18512,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -18557,7 +18583,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -18626,7 +18652,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -18694,7 +18720,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
       "languages": [
         "English"
@@ -18764,7 +18790,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi",
@@ -18836,7 +18862,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
       "languages": [
         "English"
@@ -18907,7 +18933,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
       "languages": [
         "English",
@@ -18979,7 +19005,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "HINDI_AUDIO",
       "languages": [
         "Hindi"
@@ -19047,7 +19073,7 @@
       "sourceState": "TRAILER_ONLY",
       "contentType": "MOVIE",
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "Trailer (4K)",
+      "qualityHonestBadge": "Official Trailer",
       "audioClassification": "NON_HINDI_AUDIO",
       "languages": [
         "English"
