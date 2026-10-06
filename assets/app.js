@@ -10306,14 +10306,7 @@ function loadChannelMedia(ch, autoPlay) {
     } catch (eHls) {
       console.warn('HLS init note, falling back to native video:', eHls);
       if (videoElement && streamUrl) {
-        let finalStreamUrl = streamUrl;
-        if (window.AndroidMedia && typeof window.AndroidMedia.getLocalServerPort === 'function' && !streamUrl.startsWith('http://127.0.0.1')) {
-          const port = window.AndroidMedia.getLocalServerPort();
-          if (port > 0) {
-            finalStreamUrl = `http://127.0.0.1:${port}/proxy/stream?url=` + encodeURIComponent(streamUrl);
-          }
-        }
-        videoElement.src = finalStreamUrl;
+        videoElement.src = streamUrl;
         if (autoPlay) videoElement.play().catch(() => {});
       }
     }
@@ -10365,15 +10358,8 @@ function loadChannelMedia(ch, autoPlay) {
 
   } else if (streamUrl) {
     if (videoElement) {
-      let finalStreamUrl = streamUrl;
-      if (window.AndroidMedia && typeof window.AndroidMedia.getLocalServerPort === 'function' && !streamUrl.startsWith('http://127.0.0.1')) {
-        const port = window.AndroidMedia.getLocalServerPort();
-        if (port > 0) {
-          finalStreamUrl = `http://127.0.0.1:${port}/proxy/stream?url=` + encodeURIComponent(streamUrl);
-        }
-      }
       videoElement.preload = 'auto';
-      videoElement.src = finalStreamUrl;
+      videoElement.src = streamUrl;
       
       const onLoaded = function() {
         videoElement.removeEventListener('loadedmetadata', onLoaded);
