@@ -1,6 +1,6 @@
 {
-  "version": 21,
-  "updated_at": "2026-10-06 12:20:24",
+  "version": 23,
+  "updated_at": "2026-10-06 16:51:21",
   "total_movies": 171,
   "total_series": 18,
   "default_language_filter": "Hindi",
@@ -4410,7 +4410,7 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "posterUrl": "assets/posters/vod_suzume.jpg",
       "backdropUrl": "assets/posters/vod_suzume.jpg",
-      "streamUrl": "https://archive.org/download/suzume-hindi-1080-p/Suzume_%5BHindi%5D_1080P.mp4",
+      "streamUrl": "https://archive.org/download/suzume-full-movie-in-hindi-dubbed/Suzume%20Full%20Movie%20In%20Hindi%20Dubbed.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/5pTcio2hTSw",
       "torrentUri": null,
       "qualityClass": "FULL HD",
@@ -4435,13 +4435,13 @@
       "metadataSource": "TMDB_VERIFIED",
       "sourceStatus": "PLAYABLE",
       "backupUrls": [
-        "https://archive.org/download/suzume.compressed/Suzume%28%E3%81%99%E3%81%9A%E3%82%81%E3%81%AE%E6%88%B8%E7%B7%A0%E3%81%BE%E3%82%8A%29.com.mp4"
+        "https://archive.org/download/suzume-hindi-1080-p/Suzume_%5BHindi%5D_1080P.mp4"
       ],
       "isTrailerOnly": false,
       "subtitles": [],
       "quality": "1080p",
       "audioStreams": {
-        "Hindi": "https://archive.org/download/suzume-hindi-1080-p/Suzume_%5BHindi%5D_1080P.mp4",
+        "Hindi": "https://archive.org/download/suzume-full-movie-in-hindi-dubbed/Suzume%20Full%20Movie%20In%20Hindi%20Dubbed.mp4",
         "English": "https://ia601404.us.archive.org/29/items/suzume.compressed/Suzume%28%E3%81%99%E3%81%9A%E3%82%81%E3%81%AE%E6%88%B8%E7%B7%A0%E3%81%BE%E3%82%8A%29.com.mp4"
       }
     },
@@ -4546,33 +4546,35 @@
       "resolution": "720p HD",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
+        "classification": "NON_HINDI_AUDIO",
+        "hasHindiAudio": false,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
+        "primaryLanguage": "Japanese",
         "availableLanguages": [
-          "Hindi"
+          "Japanese",
+          "English"
         ]
       },
       "languages": [
-        "Hindi"
+        "Japanese",
+        "English"
       ],
-      "defaultLanguage": "Hindi",
+      "defaultLanguage": "Japanese",
       "container": "MP4",
       "license": "Toei Animation (Hindi Dubbed)",
       "director": "Goro Taniguchi",
       "cast": "Mayumi Tanaka, Kaori Nazuka, Ado, Shuichi Ikeda",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceState": "TRAILER_ONLY",
       "posterUrl": "assets/posters/vod_one_piece_film_red.jpg",
       "backdropUrl": "assets/posters/vod_one_piece_film_red.jpg",
-      "streamUrl": "https://archive.org/download/film-one-piece-film-red-2022-en-streaming-complet/Film%20One%20Piece%20Film%20-%20Red%20%282022%29%20en%20streaming%20complet.mp4",
+      "streamUrl": null,
       "trailerUrl": "https://www.youtube-nocookie.com/embed/eU0i7L3cakI",
       "torrentUri": null,
       "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "720p HD",
+      "qualityHonestBadge": "Official Trailer",
       "contentType": "MOVIE",
       "region": "ASIAN",
-      "audioClassification": "HINDI_AUDIO",
+      "audioClassification": "NON_HINDI_AUDIO",
       "metadata": {
         "originalLanguage": "Japanese",
         "spokenLanguages": [
@@ -4593,7 +4595,7 @@
       "backupUrls": [
         "https://archive.org/download/film-one-piece-film-red-2022-en-streaming-complet/Film%20One%20Piece%20Film%20-%20Red%20%282022%29%20en%20streaming%20complet.mp4"
       ],
-      "isTrailerOnly": false,
+      "isTrailerOnly": true,
       "subtitles": [],
       "quality": "720p"
     },
