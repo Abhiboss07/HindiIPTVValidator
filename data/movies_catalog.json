@@ -1,7 +1,7 @@
 {
-  "version": 24,
-  "updated_at": "2026-10-06 20:23:41",
-  "total_movies": 179,
+  "version": 25,
+  "updated_at": "2026-10-06 22:00:00",
+  "total_movies": 192,
   "total_series": 18,
   "default_language_filter": "Hindi",
   "movies": [
@@ -19610,6 +19610,812 @@
       "backdropUrl": "assets/posters/vod_bal_ganesh_2_2009.jpg",
       "qualityClass": "FULL HD",
       "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_moon_exploration_2019",
+      "title": "Doraemon: Nobita's Chronicle of the Moon Exploration",
+      "originalTitle": "ドラえもん のび太の月面探査記",
+      "year": 2019,
+      "releaseYear": 2019,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6641,
+      "durationFormatted": "1h 50m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.5,
+      "description": "Nobita uses Doraemon's secret gadget to discover a hidden lunar civilization on the far side of the Moon. Together with their new rabbit-eared friend Luka, they embark on a monumental cosmic odyssey.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Shinnosuke Yakuwa",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Tomokazu Seki",
+      "streamUrl": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Chronicle%20of%20the%20Moon%20Exploration%202019%20BluRay%201080p%20x265%2010bit%20Hin%202.0%20Jpn%205.1%20ESub%20-%20mkvCinemas.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Chronicle%20of%20the%20Moon%20Exploration%202019%20BluRay%201080p%20x265%2010bit%20Hin%202.0%20Jpn%205.1%20ESub%20-%20mkvCinemas.mp4"
+      },
+      "posterFileName": "vod_doraemon_moon_exploration_2019.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_moon_exploration_2019.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_moon_exploration_2019.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_sky_utopia_2023",
+      "title": "Doraemon: Nobita's Sky Utopia",
+      "originalTitle": "ドラえもん のび太と空の理想郷",
+      "year": 2023,
+      "releaseYear": 2023,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6512,
+      "durationFormatted": "1h 48m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.6,
+      "description": "Doraemon and Nobita discover Paradapia, a utopian sky paradise where everyone is seemingly happy and harmonious. However, they soon uncover a dark secret threatening everyone's individuality and free will.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Takumi Doyama",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Ren Nagase",
+      "streamUrl": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Sky%20Utopia%202023%20BluRay%20720p%20Hindi%20AAC%202.0%20Japanese%20AAC%205.1%20x264%20ESub%20-%20mkvCinemas.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20Nobitas%20Sky%20Utopia%202023%20BluRay%20720p%20Hindi%20AAC%202.0%20Japanese%20AAC%205.1%20x264%20ESub%20-%20mkvCinemas.mp4"
+      },
+      "posterFileName": "vod_doraemon_sky_utopia_2023.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_sky_utopia_2023.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_sky_utopia_2023.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_treasure_island_2018",
+      "title": "Doraemon the Movie: Nobita's Treasure Island",
+      "originalTitle": "ドラえもん のび太の宝島",
+      "year": 2018,
+      "releaseYear": 2018,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6493,
+      "durationFormatted": "1h 48m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Inspired by Robert Louis Stevenson's classic tale, Doraemon and Nobita set sail across the Pacific Ocean on a pirate ship to uncover an uncharted treasure island, fighting ruthless high-tech buccaneers.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Kazuaki Imai",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Yo Oizumi",
+      "streamUrl": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20the%20Movie%20Nobitas%20Treasure%20Island%202018%20BluRay%201080p%20x265%2010bit%20Hindi%202.0%20Jpn%205.1%20AC3%20ESub%20-%20mkvCinemas.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-the-movie-nobitas-treasure-island-2018-blu-ray-1080p-x-265-10bit-hindi-/Doraemon%20the%20Movie%20Nobitas%20Treasure%20Island%202018%20BluRay%201080p%20x265%2010bit%20Hindi%202.0%20Jpn%205.1%20AC3%20ESub%20-%20mkvCinemas.mp4"
+      },
+      "posterFileName": "vod_doraemon_treasure_island_2018.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_treasure_island_2018.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_treasure_island_2018.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_secret_gadget_museum_2013",
+      "title": "Doraemon: Nobita's Secret Gadget Museum",
+      "originalTitle": "ドラえもん のび太のひみつ道具博物館",
+      "year": 2013,
+      "releaseYear": 2013,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6256,
+      "durationFormatted": "1h 44m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.3,
+      "description": "When a phantom thief steals Doraemon's bell, the gang journeys to the 22nd-century Secret Gadget Museum where every marvelous device ever conceived is preserved, unraveling an ingenious mystery.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Yukiyo Teramoto",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Chiaki",
+      "streamUrl": "https://archive.org/download/toonworld-4all-doraemon-nobitas-secret-gadget-museum-2013-blu-ray-720p-hd-hindi-dd-2.0-jap-2.0-esub/%5BToonworld4all%5D%20Doraemon%20Nobita%27s%20Secret%20Gadget%20Museum%20%282013%29%20BluRay%20720p%20HD%20%5BHindi%20DD2.0-Jap%202.0%5D%20ESub.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/toonworld-4all-doraemon-nobitas-secret-gadget-museum-2013-blu-ray-720p-hd-hindi-dd-2.0-jap-2.0-esub/%5BToonworld4all%5D%20Doraemon%20Nobita%27s%20Secret%20Gadget%20Museum%20%282013%29%20BluRay%20720p%20HD%20%5BHindi%20DD2.0-Jap%202.0%5D%20ESub.mp4"
+      },
+      "posterFileName": "vod_doraemon_secret_gadget_museum_2013.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_secret_gadget_museum_2013.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_secret_gadget_museum_2013.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_antarctica_kachi_kochi_2017",
+      "title": "Doraemon: Nobita's Great Adventure in the Antarctic Kachi Kochi",
+      "originalTitle": "ドラえもん のび太の南極カチコチ大冒険",
+      "year": 2017,
+      "releaseYear": 2017,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6027,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Unable to endure midsummer heat, Doraemon and Nobita head to a massive iceberg in the South Pacific. Deep inside the glacial tundra, they discover a golden ring frozen 100,000 years ago and an ancient submerged city.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Atsushi Takahashi",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Rie Kugimiya",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/37.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20Antarctica%20Kachi%20Kochi%20%282017%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/37.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20Antarctica%20Kachi%20Kochi%20%282017%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_antarctica_kachi_kochi_2017.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_antarctica_kachi_kochi_2017.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_antarctica_kachi_kochi_2017.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_birth_of_japan_1989",
+      "title": "Doraemon: Nobita and the Birth of Japan",
+      "originalTitle": "ドラえもん のび太の日本誕生",
+      "year": 1989,
+      "releaseYear": 1989,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6020,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.5,
+      "description": "Fed up with strict parents and teachers, Nobita and his friends run away 70,000 years back in time to prehistoric Japan, founding their own utopian primitive paradise before evil shaman Gigazombie strikes.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/10.%20Doraemon%20-%20Nobita%20and%20the%20Birth%20of%20Japan%20%281989%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/10.%20Doraemon%20-%20Nobita%20and%20the%20Birth%20of%20Japan%20%281989%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_birth_of_japan_1989.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_birth_of_japan_1989.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_birth_of_japan_1989.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_galaxy_super_express_1996",
+      "title": "Doraemon: Nobita and the Galaxy Super-express",
+      "originalTitle": "ドラえもん のび太と銀河超特急",
+      "year": 1996,
+      "releaseYear": 1996,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5832,
+      "durationFormatted": "1h 37m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.3,
+      "description": "Nobita and Doraemon board the legendary 22nd-century Galaxy Express train for an interstellar vacation across exotic planets, having to band together when alien parasitic invaders attack the locomotive.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/17.%20Doraemon%20-%20Nobita%20and%20the%20Galaxy%20Super-Express%20%281996%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/17.%20Doraemon%20-%20Nobita%20and%20the%20Galaxy%20Super-Express%20%281996%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_galaxy_super_express_1996.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_galaxy_super_express_1996.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_galaxy_super_express_1996.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_island_of_miracles_2012",
+      "title": "Doraemon: Nobita and the Island of Miracles",
+      "originalTitle": "ドラえもん のび太と奇跡の島 〜アニマル アドベンチャー〜",
+      "year": 2012,
+      "releaseYear": 2012,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5970,
+      "durationFormatted": "1h 39m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.2,
+      "description": "Doraemon and Nobita travel to a mythical, secluded island where extinct prehistoric creatures survive under the protection of a golden beetle deity, defending the animals from a ruthless futuristic poacher.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Kozo Kusuba",
+      "cast": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu, Subaru Kimura, Masako Nozawa",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/32.%20Doraemon%20-%20Nobita%20and%20the%20Island%20of%20Miracles%20%282012%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/32.%20Doraemon%20-%20Nobita%20and%20the%20Island%20of%20Miracles%20%282012%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%205.1%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_island_of_miracles_2012.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_island_of_miracles_2012.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_island_of_miracles_2012.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_kingdom_of_clouds_1992",
+      "title": "Doraemon: Nobita and the Kingdom of Clouds",
+      "originalTitle": "ドラえもん のび太と雲の王国",
+      "year": 1992,
+      "releaseYear": 1992,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5838,
+      "durationFormatted": "1h 37m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Using high-tech solidifying gas, Nobita and Doraemon build a breathtaking kingdom on the clouds, only to encounter an advanced celestial civilization planning a massive cleansing flood on Earth due to environmental destruction.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/13.%20Doraemon%20-%20Nobita%20and%20the%20Kingdom%20of%20Clouds%20%281992%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/13.%20Doraemon%20-%20Nobita%20and%20the%20Kingdom%20of%20Clouds%20%281992%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_kingdom_of_clouds_1992.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_kingdom_of_clouds_1992.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_kingdom_of_clouds_1992.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_tin_labyrinth_1993",
+      "title": "Doraemon: Nobita and the Tin Labyrinth",
+      "originalTitle": "ドラえもん のび太とブリキの迷宮",
+      "year": 1993,
+      "releaseYear": 1993,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6010,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.3,
+      "description": "Nobita's father discovers a mysterious briefcase that opens a portal to the luxurious Buriki Hotel on a distant resort planet where robots attend to humans, but a rebel machine army soon captures Doraemon.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/14.%20Doraemon%20-%20Nobita%20and%20the%20Tin%20Labyrinth%20%281993%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/14.%20Doraemon%20-%20Nobita%20and%20the%20Tin%20Labyrinth%20%281993%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_tin_labyrinth_1993.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_tin_labyrinth_1993.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_tin_labyrinth_1993.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_south_seas_1998",
+      "title": "Doraemon: Nobita's Great Adventure in the South Seas",
+      "originalTitle": "ドラえもん のび太の南海大冒険",
+      "year": 1998,
+      "releaseYear": 1998,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5463,
+      "durationFormatted": "1h 31m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.2,
+      "description": "Playing pirates with a simulator ship in the Caribbean, Nobita gets swept away by a sudden dimensional warp into the 17th century, befriending authentic privateers while searching for Doraemon.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/19.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20the%20South%20Seas%20%281998%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/19.%20Doraemon%20-%20Nobita%27s%20Great%20Adventure%20in%20the%20South%20Seas%20%281998%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_south_seas_1998.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_south_seas_1998.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_south_seas_1998.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_animal_planet_1990",
+      "title": "Doraemon: Nobita and the Animal Planet",
+      "originalTitle": "ドラえもん のび太とアニマル惑星",
+      "year": 1990,
+      "releaseYear": 1990,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 6000,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.3,
+      "description": "Nobita discovers a pink mist in his home leading to an idyllic alien world populated entirely by anthropomorphic animals. However, cruel predators called Nimuge from a neighboring moon prepare to conquer the peaceful planet.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/11.%20Doraemon%20-%20Nobita%20and%20the%20Animal%20Planet%20%281990%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/11.%20Doraemon%20-%20Nobita%20and%20the%20Animal%20Planet%20%281990%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_animal_planet_1990.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_animal_planet_1990.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_animal_planet_1990.jpg",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_dorabian_nights_1991",
+      "title": "Doraemon: Nobita's Dorabian Nights",
+      "originalTitle": "ドラえもん のび太のドラビアンナイト",
+      "year": 1991,
+      "releaseYear": 1991,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "cartoons",
+        "movies",
+        "family",
+        "adventure",
+        "trending",
+        "classics"
+      ],
+      "duration": 5985,
+      "durationFormatted": "1h 40m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Nobita and Shizuka enter the magical pages of Arabian Nights using a storybook shoe gadget. When Shizuka loses her magic shoes and gets trapped in 8th-century Baghdad, Doraemon and Nobita journey into the desert on a rescue expedition.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/12.%20Doraemon%20-%20Nobita%27s%20Dorabian%20Nights%20%281991%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/doraemon-movie-01-40-1980-2020-1080p-amzn-web-dl-japanese-ddp-hindi-zr0/12.%20Doraemon%20-%20Nobita%27s%20Dorabian%20Nights%20%281991%29%201080p%20AMZN%20WEB-DL%20%5BJapanese%20DDP%202.0%20%2B%20Hindi%202.0%5D%20-%20ZR0.ia.mp4"
+      },
+      "posterFileName": "vod_doraemon_dorabian_nights_1991.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_dorabian_nights_1991.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_dorabian_nights_1991.jpg",
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "sourceStatus": "PLAYABLE",
       "isTrailerOnly": false,
