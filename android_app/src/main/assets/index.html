@@ -1950,7 +1950,7 @@
                 <div class="movie-detail-hero-lockup">
                     <!-- Floating Theatrical Poster -->
                     <div id="movieDetailsPoster" class="movie-detail-poster-frame">
-                        <img id="movieDetailsPosterImg" class="movie-detail-poster-graphic" src="assets/placeholder.png" alt="Movie Poster" decoding="async" onerror="this.onerror=null; this.src='assets/placeholder.png';" />
+                        <img id="movieDetailsPosterImg" class="movie-detail-poster-graphic" src="assets/placeholder.png" alt="Movie Poster" decoding="async" onerror="if(window.handlePosterError){window.handlePosterError(this,this.getAttribute('src'));}else{this.onerror=null;this.src='assets/placeholder.png';}" />
                         <div id="movieDetailsSwarmBadge" class="movie-swarm-badge swarm-good" style="display: none;">
                             <span class="swarm-dot">●</span>
                             <span id="movieDetailsSwarmText">Swarm: 🟡 Good</span>
