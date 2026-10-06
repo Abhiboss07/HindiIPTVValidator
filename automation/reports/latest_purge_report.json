@@ -1,179 +1,30 @@
 {
-  "timestamp": "2026-10-05 20:06:01",
-  "total_movies_retained": 166,
-  "total_channels_retained": 294,
-  "purged_movies_count": 6,
-  "purged_channels_count": 19,
-  "purged_movies": [
-    {
-      "id": "vod_jawan_2023",
-      "title": "Jawan (2023)",
-      "type": "movie",
-      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
-    },
-    {
-      "id": "vod_kalki_2898_ad_2024",
-      "title": "Kalki 2898 AD (2024)",
-      "type": "movie",
-      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
-    },
-    {
-      "id": "vod_3_idiots_full",
-      "title": "3 Idiots (2009) - Full Movie",
-      "type": "movie",
-      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
-    },
-    {
-      "id": "vod_1920_2008",
-      "title": "1920 (2008)",
-      "type": "movie",
-      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
-    },
-    {
-      "id": "vod_darna_mana_hai_2003",
-      "title": "Darna Mana Hai (2003)",
-      "type": "movie",
-      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
-    },
-    {
-      "id": "vod_chhota_bheem_himalayan",
-      "title": "Chhota Bheem: Himalayan Adventure",
-      "type": "movie",
-      "reason": "Trailer Lifecycle: Released before Sep 2026 (2026-08-01)"
-    }
-  ],
+  "timestamp": "2026-10-06 03:47:49",
+  "total_movies_retained": 169,
+  "total_channels_retained": 291,
+  "purged_movies_count": 0,
+  "purged_channels_count": 3,
+  "purged_movies": [],
   "purged_channels": [
     {
-      "id": "zee-cine-classic",
-      "name": "Zee Cine Classic HD",
-      "url": "https://amg00862-amg00862c8-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c8-amgplt0173/playlist.m3u8",
+      "id": "live_ch_713",
+      "name": "OM TV",
+      "url": "https://mumt01.tangotv.in/O5aw8Zn3OMTV/index.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 403 Forbidden"
+    },
+    {
+      "id": "live_ch_714",
+      "name": "Sai TV",
+      "url": "https://mumt03.tangotv.in/Dsly5z3HSAITV/index.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "9xm-hd",
+      "name": "9XM Bollywood Music HD",
+      "url": "https://9xjio.wiseplayout.com/9XM/master.m3u8",
       "category": "MOVIES",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "zee-comedy-nation",
-      "name": "Zee Comedy Nation HD",
-      "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c5-amgplt0173/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "disney-xd-hd",
-      "name": "Disney XD HD (Action & Toons)",
-      "url": "http://23.237.104.106:8080/USA_DISNEY_XD/index.m3u8",
-      "category": "CARTOONS",
-      "reason": "HTTP 404 Not Found/Gone"
-    },
-    {
-      "id": "live_ch_260",
-      "name": "ET Now [Geo-blocked]",
-      "url": "https://dztlhgid9me95.cloudfront.net/live-tv/Vidgyor/etnow/etnow_master.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_505",
-      "name": "Times Now Navbharat [Geo-blocked]",
-      "url": "https://dztlhgid9me95.cloudfront.net/live-tv/Vidgyor/navbharat/navbharat_master.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_130",
-      "name": "Times Now [Geo-blocked]",
-      "url": "https://dztlhgid9me95.cloudfront.net/live-tv/Vidgyor/timesnow/timesnow_master.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_137",
-      "name": "Travelxp 4K HDR [Geo-blocked]",
-      "url": "https://deltatesttatasky.akamaized.net/out/i/968284.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_156",
-      "name": "Zee Cine Classic",
-      "url": "https://amg00862-amg00862c8-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c8-amgplt0173/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_157",
-      "name": "Zee Comedy Nation",
-      "url": "https://amg00862-amg00862c5-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c5-amgplt0173/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_158",
-      "name": "Zee Dil Se",
-      "url": "https://amg00862-amg00862c6-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c6-amgplt0173/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_170",
-      "name": "Zee South Flix",
-      "url": "https://amg00862-amg00862c9-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c9-amgplt0173/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_594",
-      "name": "Shemaroo Filmi Gaane",
-      "url": "https://prod-runn.cdn.runn.tv/shemaroo/stream/smrfgn/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_163",
-      "name": "Zee Horror Nights",
-      "url": "https://amg00862-amg00862c7-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c7-amgplt0173/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 403 Forbidden"
-    },
-    {
-      "id": "live_ch_611",
-      "name": "Starnet",
-      "url": "https://5a1178b42cc03.streamlock.net/8220/8220/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 404 Not Found/Gone"
-    },
-    {
-      "id": "live_ch_672",
-      "name": "Bansal News",
-      "url": "https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8",
-      "category": "NEWS",
-      "reason": "HTTP 401"
-    },
-    {
-      "id": "live_ch_382",
-      "name": "VIP News",
-      "url": "https://live.vipnews24x7.co.in/vipnews24x7/d0dbe915091d400bd8ee7f27f0791303.sdp/playlist.m3u8",
-      "category": "NEWS",
-      "reason": "HTTP 401"
-    },
-    {
-      "id": "live_ch_107",
-      "name": "Bansal News",
-      "url": "https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8",
-      "category": "NEWS",
-      "reason": "HTTP 401"
-    },
-    {
-      "id": "live_ch_724",
-      "name": "Bansal News",
-      "url": "https://8yzmq2gbdvax-hls-live.wmncdn.net/bansalnewstv1/live1.stream/playlist.m3u8",
-      "category": "NEWS",
-      "reason": "HTTP 401"
-    },
-    {
-      "id": "live_ch_265",
-      "name": "TNP News",
-      "url": "https://server.thelegitpro.in/tnpnews/tnpnews/index.m3u8",
-      "category": "NEWS",
       "reason": "Exception: The read operation timed out"
     }
   ]
