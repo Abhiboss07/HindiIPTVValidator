@@ -664,11 +664,29 @@ def ingest_movie_item(catalog_data, movie_candidate):
     if is_trailer:
         movie_candidate["quality"] = "Official Trailer"
         movie_candidate["resolution"] = "1080p Full HD"
+        movie_candidate["qualityClass"] = "Official Trailer"
+        movie_candidate["qualityHonestBadge"] = "Official Trailer"
         movie_candidate["durationFormatted"] = "Official Trailer"
     else:
         movie_candidate["quality"] = res_str
         movie_candidate["resolution"] = res_str
         movie_candidate["_quality_rank"] = rank
+        res_low = res_str.lower()
+        if "4k" in res_low:
+            movie_candidate["qualityClass"] = "4K"
+            movie_candidate["qualityHonestBadge"] = "4K Ultra HD"
+        elif "2k" in res_low:
+            movie_candidate["qualityClass"] = "2K"
+            movie_candidate["qualityHonestBadge"] = "2K QHD"
+        elif "1080" in res_low:
+            movie_candidate["qualityClass"] = "FULL HD"
+            movie_candidate["qualityHonestBadge"] = "1080p Full HD"
+        elif "720" in res_low:
+            movie_candidate["qualityClass"] = "HD"
+            movie_candidate["qualityHonestBadge"] = "720p HD"
+        else:
+            movie_candidate["qualityClass"] = "FULL HD"
+            movie_candidate["qualityHonestBadge"] = "1080p Full HD"
         if details.get("duration", 0) > 0:
             probed_dur = details["duration"]
             movie_candidate["duration"] = probed_dur
