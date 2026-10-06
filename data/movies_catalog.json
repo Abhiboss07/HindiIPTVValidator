@@ -1,7 +1,7 @@
 {
-  "version": 23,
-  "updated_at": "2026-10-06 16:51:21",
-  "total_movies": 171,
+  "version": 24,
+  "updated_at": "2026-10-06 20:23:41",
+  "total_movies": 179,
   "total_series": 18,
   "default_language_filter": "Hindi",
   "movies": [
@@ -305,8 +305,8 @@
       "director": "Pankaj Sharma",
       "streamUrl": "https://www.youtube-nocookie.com/embed/Jw2efcyES-E?autoplay=1",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/Jw2efcyES-E",
-      "posterUrl": "assets/posters/vod_bal_ganesh.jpg",
-      "backdropUrl": "assets/posters/vod_bal_ganesh.jpg",
+      "posterUrl": "assets/posters/vod_bal_ganesh_2007.jpg",
+      "backdropUrl": "assets/posters/vod_bal_ganesh_2007.jpg",
       "qualityClass": "FULL HD",
       "qualityHonestBadge": "1080p Full HD"
     },
@@ -4338,8 +4338,8 @@
       "streamUrl": "https://archive.org/download/Jujutsu_Kaisen_0/Jujutsu%20Kaisen%200%201080p.ia.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/e8YBesRKq_U",
       "torrentUri": null,
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "1080p FHD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
       "contentType": "MOVIE",
       "region": "ASIAN",
       "audioClassification": "NON_HINDI_AUDIO",
@@ -4364,7 +4364,10 @@
       ],
       "isTrailerOnly": false,
       "subtitles": [],
-      "quality": "1080p"
+      "quality": "1080p Full HD",
+      "audioStreams": {
+        "English": "https://archive.org/download/Jujutsu_Kaisen_0/Jujutsu%20Kaisen%200%201080p.ia.mp4"
+      }
     },
     {
       "id": "vod_suzume",
@@ -4447,7 +4450,7 @@
     },
     {
       "id": "vod_your_name",
-      "title": "Your Name (Kimi no Na wa)",
+      "title": "Your Name (Kimi no Na wa) (Dual Audio - Hindi / Japanese)",
       "originalTitle": "君の名は。",
       "year": 2016,
       "mediaType": "movie",
@@ -4474,11 +4477,13 @@
         "hasHindiSubtitles": false,
         "primaryLanguage": "Hindi",
         "availableLanguages": [
-          "Hindi"
+          "Hindi",
+          "Japanese"
         ]
       },
       "languages": [
-        "Hindi"
+        "Hindi",
+        "Japanese"
       ],
       "defaultLanguage": "Hindi",
       "container": "MP4",
@@ -4488,11 +4493,11 @@
       "sourceState": "DIRECT_STREAM_AVAILABLE",
       "posterUrl": "assets/posters/vod_your_name.jpg",
       "backdropUrl": "assets/posters/vod_your_name.jpg",
-      "streamUrl": "https://archive.org/download/your-name-1080p/Your%20Name%201920x1080.mp4",
+      "streamUrl": "https://archive.org/download/your-name.-hindi-dub-1080p/your%20name.%20%28Hindi%20Dub%29%20-1080p-.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/xU47nhruN-Q",
       "torrentUri": null,
-      "qualityClass": "Official Trailer",
-      "qualityHonestBadge": "1080p FHD",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
       "contentType": "MOVIE",
       "region": "ASIAN",
       "backupUrls": [
@@ -4510,7 +4515,7 @@
           "US"
         ]
       },
-      "audioSwitchingCapability": "NONE",
+      "audioSwitchingCapability": "URL_SWITCH",
       "contentId": "movie_tmdb_372058",
       "tmdbId": 372058,
       "imdbId": "tt5311514",
@@ -4519,7 +4524,11 @@
       "sourceStatus": "PLAYABLE",
       "isTrailerOnly": false,
       "subtitles": [],
-      "quality": "1080p"
+      "quality": "1080p Full HD",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/your-name.-hindi-dub-1080p/your%20name.%20%28Hindi%20Dub%29%20-1080p-.mp4",
+        "Japanese": "https://archive.org/download/your-name-1080p/Your%20Name%201920x1080.mp4"
+      }
     },
     {
       "id": "vod_one_piece_film_red",
@@ -12588,7 +12597,7 @@
     },
     {
       "id": "series_death_note",
-      "title": "Death Note (English Dubbed)",
+      "title": "Death Note (Dual Audio - Hindi / English)",
       "originalTitle": "デスノート",
       "year": 2006,
       "mediaType": "series",
@@ -12611,18 +12620,20 @@
       "resolution": "720p HD",
       "codec": "H.264 / AAC",
       "audio": {
-        "classification": "NON_HINDI_AUDIO",
-        "hasHindiAudio": false,
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
         "hasHindiSubtitles": false,
-        "primaryLanguage": "English",
+        "primaryLanguage": "Hindi",
         "availableLanguages": [
+          "Hindi",
           "English"
         ]
       },
       "languages": [
+        "Hindi",
         "English"
       ],
-      "defaultLanguage": "English",
+      "defaultLanguage": "Hindi",
       "container": "MP4",
       "license": "Madhouse (English Dubbed)",
       "director": "Tetsuro Araki",
@@ -13069,11 +13080,11 @@
       ],
       "posterUrl": "assets/posters/series_death_note.jpg",
       "backdropUrl": "assets/posters/series_death_note.jpg",
-      "streamUrl": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4",
+      "streamUrl": "https://archive.org/download/s-1-e-01-720p-death-note-hindi-dubbed-4u.-in/S1E01%20-%20720p%20-%20Death%20Note%20-%20HindiDubbed4u.In.mp4",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/gvxNaSIB_WI",
       "torrentUri": null,
       "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "Official Trailer",
+      "qualityClass": "HD",
       "qualityHonestBadge": "720p HD",
       "contentType": "SERIES",
       "region": "ASIAN",
@@ -13098,7 +13109,11 @@
           "sourceState": "DIRECT_STREAM_AVAILABLE",
           "qualityHonestBadge": "720p HD",
           "qualityClass": "HD",
-          "episodeType": "full_episode"
+          "episodeType": "full_episode",
+          "audioStreams": {
+            "Hindi": "https://archive.org/download/s-1-e-01-720p-death-note-hindi-dubbed-4u.-in/S1E01%20-%20720p%20-%20Death%20Note%20-%20HindiDubbed4u.In.mp4",
+            "English": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4"
+          }
         },
         {
           "id": "dn_s1_e2",
@@ -13533,7 +13548,7 @@
           "episodeType": "full_episode"
         }
       ],
-      "audioSwitchingCapability": "NONE",
+      "audioSwitchingCapability": "URL_SWITCH",
       "contentId": "series_tmdb_13916",
       "tmdbId": 13916,
       "imdbId": "tt0877057",
@@ -13545,7 +13560,11 @@
       ],
       "isTrailerOnly": false,
       "subtitles": [],
-      "quality": "720p"
+      "quality": "720p HD",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/s-1-e-01-720p-death-note-hindi-dubbed-4u.-in/S1E01%20-%20720p%20-%20Death%20Note%20-%20HindiDubbed4u.In.mp4",
+        "English": "https://archive.org/download/death-note-complete-2006-2007/E01%20-%20Rebirth.mp4"
+      }
     },
     {
       "id": "series_gullak",
@@ -19115,6 +19134,486 @@
       "region": "GLOBAL",
       "isTrailerOnly": true,
       "subtitles": []
+    },
+    {
+      "id": "vod_weathering_with_you_2019",
+      "title": "Weathering with You",
+      "originalTitle": "天気の子 (Tenki no Ko)",
+      "year": 2019,
+      "releaseYear": 2019,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "movies",
+        "trending",
+        "popular",
+        "romance",
+        "fantasy"
+      ],
+      "duration": 6734,
+      "durationFormatted": "1h 52m",
+      "genres": [
+        "Anime",
+        "Fantasy",
+        "Romance",
+        "Drama"
+      ],
+      "rating": 8.5,
+      "description": "During the summer of his high school freshman year, Hodaka runs away from his remote island home to Tokyo and meets Hina, an extraordinary girl who possesses the mysterious power to stop the rain and clear the sky.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Makoto Shinkai",
+      "cast": "Kotaro Daigo, Nana Mori, Shun Oguri, Tsubasa Honda",
+      "streamUrl": "https://archive.org/download/weathering-with-you-hindi-720-p/Weathering_with_You_%5BHindi%5D_720P.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/weathering-with-you-hindi-720-p/Weathering_with_You_%5BHindi%5D_720P.mp4"
+      },
+      "backupUrls": [
+        "https://archive.org/download/anime-dub-hindi-weathering-with-you-2019-1080p-hevc-10bit-ita-blu-ray-multi-audio-esub.mkv-1080p/%5BAnimeDubHindi%5D%20Weathering%20with%20You%20%282019%29%201080p%20HEVC%2010bit%20ITA%20BluRay%20Multi%20Audio%20ESub.mkv_1080p.mp4"
+      ],
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Q6iK6DjV_iE",
+      "posterFileName": "vod_weathering_with_you_2019.jpg",
+      "posterUrl": "assets/posters/vod_weathering_with_you_2019.jpg",
+      "backdropUrl": "assets/posters/vod_weathering_with_you_2019.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "tmdbId": 568160,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_doraemon_swordsmen_1994",
+      "title": "Doraemon: Nobita's Three Visionary Swordsmen",
+      "originalTitle": "ドラえもん のび太と夢幻三剣士",
+      "year": 1994,
+      "releaseYear": 1994,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "movies",
+        "cartoons",
+        "family",
+        "classics",
+        "adventure"
+      ],
+      "duration": 5936,
+      "durationFormatted": "1h 39m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "Comedy"
+      ],
+      "rating": 8.4,
+      "description": "Nobita and his friends enter a magical dream world where they become the Three Visionary Swordsmen to defend the mystical Kingdom of Euramenia from the menacing Emperor Odorome.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Shibayama",
+      "cast": "Nobuyo Oyama, Noriko Ohara, Michiko Nomura, Kazuya Tatekabe",
+      "streamUrl": "https://archive.org/download/full-toons-india-doraemon-movie-06-doraemon-nobita-39-s-three-visionary-swordsme/%5BFullToonsIndia%5D_Doraemon_Movie_06_Doraemon_Nobita%26_39_s_Three_Visionary_Swordsmen_%26_40_1994%26_41_REMASTERED_1080p_HEVC_10bit_WEB-DL_%5BHindi_DD2_0%2BJap_2_0%5D.mkv.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/full-toons-india-doraemon-movie-06-doraemon-nobita-39-s-three-visionary-swordsme/%5BFullToonsIndia%5D_Doraemon_Movie_06_Doraemon_Nobita%26_39_s_Three_Visionary_Swordsmen_%26_40_1994%26_41_REMASTERED_1080p_HEVC_10bit_WEB-DL_%5BHindi_DD2_0%2BJap_2_0%5D.mkv.mp4"
+      },
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/gKcOjnDJfzk",
+      "posterFileName": "vod_doraemon_swordsmen_1994.jpg",
+      "posterUrl": "assets/posters/vod_doraemon_swordsmen_1994.jpg",
+      "backdropUrl": "assets/posters/vod_doraemon_swordsmen_1994.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_shinchan_kasukabe_boys_2004",
+      "title": "Shin-chan: The Adventures of Kasukabe Boys",
+      "originalTitle": "クレヨンしんちゃん 嵐を呼ぶ!夕陽のカスカベボーイズ",
+      "year": 2004,
+      "releaseYear": 2004,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "movies",
+        "cartoons",
+        "comedy",
+        "adventure"
+      ],
+      "duration": 5825,
+      "durationFormatted": "1h 37m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Comedy",
+        "Adventure",
+        "Western"
+      ],
+      "rating": 8.3,
+      "description": "Shin-chan and the Kasukabe Defense Force get magically sucked into a deserted western film inside an old theater, where they lose their memories and must unite to defeat the town dictator and return home.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Tsutomu Mizushima",
+      "cast": "Akiko Yajima, Miki Narahashi, Keiji Fujiwara, Satomi Korogi",
+      "streamUrl": "https://archive.org/download/shin-chan-the-adventures-of-kasukabe-boys/%5BRAI%5D%20Shin-chan%20Movie%2012%20-%20The%20Adventures%20of%20Kasukabe%20Boys%20in%20Hindi_720P%20HD.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/shin-chan-the-adventures-of-kasukabe-boys/%5BRAI%5D%20Shin-chan%20Movie%2012%20-%20The%20Adventures%20of%20Kasukabe%20Boys%20in%20Hindi_720P%20HD.mp4"
+      },
+      "posterFileName": "vod_shinchan_kasukabe_boys_2004.jpg",
+      "posterUrl": "assets/posters/vod_shinchan_kasukabe_boys_2004.jpg",
+      "backdropUrl": "assets/posters/vod_shinchan_kasukabe_boys_2004.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_shinchan_henderland_1996",
+      "title": "Shin-chan: Great Adventure in Henderland",
+      "originalTitle": "クレヨンしんちゃん ヘンダーランドの大冒険",
+      "year": 1996,
+      "releaseYear": 1996,
+      "mediaType": "movie",
+      "type": "Anime",
+      "contentType": "MOVIE",
+      "region": "JAPAN",
+      "categories": [
+        "anime",
+        "movies",
+        "cartoons",
+        "comedy",
+        "fantasy"
+      ],
+      "duration": 5843,
+      "durationFormatted": "1h 37m",
+      "genres": [
+        "Anime",
+        "Animation",
+        "Comedy",
+        "Fantasy",
+        "Adventure"
+      ],
+      "rating": 8.2,
+      "description": "On a kindergarten field trip to the thrilling Henderland amusement park, Shin-chan discovers a portal to a whimsical realm and must stop two eccentric sorcerers from taking over the real world.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Mitsuru Hongo",
+      "cast": "Akiko Yajima, Miki Narahashi, Keiji Fujiwara, Satomi Korogi",
+      "streamUrl": "https://archive.org/download/great-adventure-in-henderland/M04%20Shin-chan%20Adventures%20In%20Henderland%20%5BRareToonsIndia%5D.mp4",
+      "audioStreams": {
+        "Hindi": "https://archive.org/download/great-adventure-in-henderland/M04%20Shin-chan%20Adventures%20In%20Henderland%20%5BRareToonsIndia%5D.mp4"
+      },
+      "posterFileName": "vod_shinchan_henderland_1996.jpg",
+      "posterUrl": "assets/posters/vod_shinchan_henderland_1996.jpg",
+      "backdropUrl": "assets/posters/vod_shinchan_henderland_1996.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_hanuman_2005",
+      "title": "Hanuman",
+      "originalTitle": "Hanuman",
+      "year": 2005,
+      "releaseYear": 2005,
+      "mediaType": "movie",
+      "type": "Cartoons",
+      "contentType": "MOVIE",
+      "region": "BOLLYWOOD",
+      "categories": [
+        "cartoons",
+        "animation",
+        "movies",
+        "mythology",
+        "classics",
+        "trending"
+      ],
+      "duration": 8312,
+      "durationFormatted": "2h 18m",
+      "genres": [
+        "Animation",
+        "Mythology",
+        "Action",
+        "Adventure",
+        "Family"
+      ],
+      "rating": 8.8,
+      "description": "The landmark, blockbuster Indian animated classic tracing Lord Hanuman's miraculous birth, playful childhood, boundless devotion to Lord Rama, and monumental role in the epic war against Ravana.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "V. G. Samant",
+      "cast": "Mukesh Khanna, Viraj Sathav, Mona Ghosh Shetty",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/NSmzueYlFUY?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/NSmzueYlFUY",
+      "posterFileName": "vod_hanuman_2005.jpg",
+      "posterUrl": "assets/posters/vod_hanuman_2005.jpg",
+      "backdropUrl": "assets/posters/vod_hanuman_2005.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_return_of_hanuman_2007",
+      "title": "Return of Hanuman",
+      "originalTitle": "Return of Hanuman",
+      "year": 2007,
+      "releaseYear": 2007,
+      "mediaType": "movie",
+      "type": "Cartoons",
+      "contentType": "MOVIE",
+      "region": "BOLLYWOOD",
+      "categories": [
+        "cartoons",
+        "animation",
+        "movies",
+        "action",
+        "comedy",
+        "mythology"
+      ],
+      "duration": 4811,
+      "durationFormatted": "1h 20m",
+      "genres": [
+        "Animation",
+        "Action",
+        "Comedy",
+        "Fantasy",
+        "Family"
+      ],
+      "rating": 8.1,
+      "description": "Directed by Anurag Kashyap, Lord Hanuman reincarnates as a human child in modern-day India to help a bullied boy and save the Earth from impending cosmic peril.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Anurag Kashyap",
+      "cast": "Mona Ghosh Shetty, Shailendra Pandey",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/Ervg0OnT238?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Ervg0OnT238",
+      "posterFileName": "vod_return_of_hanuman_2007.jpg",
+      "posterUrl": "assets/posters/vod_return_of_hanuman_2007.jpg",
+      "backdropUrl": "assets/posters/vod_return_of_hanuman_2007.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_krishna_aur_kans_2012",
+      "title": "Krishna Aur Kans",
+      "originalTitle": "Krishna Aur Kans",
+      "year": 2012,
+      "releaseYear": 2012,
+      "mediaType": "movie",
+      "type": "Cartoons",
+      "contentType": "MOVIE",
+      "region": "BOLLYWOOD",
+      "categories": [
+        "cartoons",
+        "animation",
+        "movies",
+        "family",
+        "mythology"
+      ],
+      "duration": 6803,
+      "durationFormatted": "1h 53m",
+      "genres": [
+        "Animation",
+        "Mythology",
+        "Action",
+        "Drama",
+        "Family"
+      ],
+      "rating": 8.0,
+      "description": "India's first stereoscopic animated feature chronicle illustrating Lord Krishna's endearing childhood in Vrindavan and his epic battle against the tyrannical demon king Kans.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Vikram Veturi",
+      "cast": "Manoj Bajpayee, Om Puri, Juhi Chawla, Anupam Kher",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/erMieJ30XAc?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/erMieJ30XAc",
+      "posterFileName": "vod_krishna_aur_kans_2012.jpg",
+      "posterUrl": "assets/posters/vod_krishna_aur_kans_2012.jpg",
+      "backdropUrl": "assets/posters/vod_krishna_aur_kans_2012.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
+    },
+    {
+      "id": "vod_bal_ganesh_2_2009",
+      "title": "Bal Ganesh 2",
+      "originalTitle": "Bal Ganesh 2",
+      "year": 2009,
+      "releaseYear": 2009,
+      "mediaType": "movie",
+      "type": "Cartoons",
+      "contentType": "MOVIE",
+      "region": "BOLLYWOOD",
+      "categories": [
+        "cartoons",
+        "animation",
+        "movies",
+        "family",
+        "mythology"
+      ],
+      "duration": 4407,
+      "durationFormatted": "1h 13m",
+      "genres": [
+        "Animation",
+        "Mythology",
+        "Comedy",
+        "Family"
+      ],
+      "rating": 7.9,
+      "description": "The enchanting continuation of young Lord Ganesha's celestial adventures, joyous feats, and playful antics with his mouse companion Mooshak.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Pankaj Sharma",
+      "cast": "Ashar Shaikh, Parminder Ghumman",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/g49csu_TktQ?autoplay=1",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/g49csu_TktQ",
+      "posterFileName": "vod_bal_ganesh_2_2009.jpg",
+      "posterUrl": "assets/posters/vod_bal_ganesh_2_2009.jpg",
+      "backdropUrl": "assets/posters/vod_bal_ganesh_2_2009.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "sourceState": "DIRECT_STREAM_AVAILABLE",
+      "sourceStatus": "PLAYABLE",
+      "isTrailerOnly": false,
+      "metadataSource": "TMDB_VERIFIED"
     }
   ]
 }
