@@ -83,52 +83,6 @@
       "posterSrcUrl": "https://archive.org/services/img/nonstop-agrremnt"
     },
     {
-      "id": "vod_don_1978",
-      "title": "Don (1978)",
-      "originalTitle": "Don",
-      "year": 1978,
-      "releaseYear": 1978,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "classics",
-        "action",
-        "thriller",
-        "bollywood"
-      ],
-      "duration": 9960,
-      "durationFormatted": "2h 46m",
-      "genres": [
-        "Classics",
-        "Action",
-        "Thriller"
-      ],
-      "rating": 7.8,
-      "description": "Chandra Barot's iconic action thriller starring Amitabh Bachchan in a double role as a ruthless international cartel kingpin and a simpleton paan-chewing street performer recruited to take his place.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Chandra Barot",
-      "cast": "Amitabh Bachchan, Zeenat Aman, Pran, Iftekhar",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/6vMSYPBz0nk?autoplay=1",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/6vMSYPBz0nk"
-    },
-    {
       "id": "vod_animal_v_2__2023_hindi_bollywo",
       "title": "Animal V 2 ( 2023) Hindi Bollywood HQ",
       "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
@@ -168,51 +122,6 @@
       "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
       "trailerUrl": null,
       "posterSrcUrl": "https://archive.org/services/img/animal-v-2-2023-hindi-bollywood-hq-720p"
-    },
-    {
-      "id": "vod_anand_1971",
-      "title": "Anand (1971)",
-      "originalTitle": "Anand",
-      "year": 1971,
-      "releaseYear": 1971,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "classics",
-        "drama",
-        "bollywood"
-      ],
-      "duration": 7320,
-      "durationFormatted": "2h 02m",
-      "genres": [
-        "Classics",
-        "Drama"
-      ],
-      "rating": 8.7,
-      "description": "Hrishikesh Mukherjee's eternal classic starring Rajesh Khanna as a terminally ill man determined to live his remaining days to the fullest, and Amitabh Bachchan as the compassionate Dr. Bhaskar Banerjee.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "director": "Hrishikesh Mukherjee",
-      "cast": "Rajesh Khanna, Amitabh Bachchan, Sumita Sanyal, Ramesh Deo",
-      "streamUrl": "https://www.youtube-nocookie.com/embed/nK_SmZrjMPU?autoplay=1",
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/nK_SmZrjMPU",
-      "posterFileName": "vod_anand_1971.jpg"
     },
     {
       "id": "vod_animal_v_2__2023_hindi_bollywo",
