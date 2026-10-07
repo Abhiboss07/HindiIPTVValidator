@@ -1,10 +1,145 @@
 {
   "version": 25,
-  "updated_at": "2026-10-07 03:17:02",
-  "total_movies": 61,
+  "updated_at": "2026-10-07 18:07:29",
+  "total_movies": 64,
   "total_series": 6,
   "default_language_filter": "Hindi",
   "movies": [
+    {
+      "id": "vod_chennai_express__2013_720p_blu",
+      "title": "Chennai Express ( 2013) Blu Ray [ Telugu Tamil Hindi Mal] 1.4 GB",
+      "originalTitle": "Chennai Express ( 2013) 720p Blu Ray [ Telugu Tamil Hindi Mal] 1.4 GB ESub",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 8483,
+      "durationFormatted": "2h 21m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Chennai Express ( 2013) 720p Blu Ray [ Telugu Tamil Hindi Mal] 1.4 GB ESub.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/www.-4-movie-rulz.ag-chennai-express-2013-720p-blu-ray-telugu-tamil-hindi-mal-1.4-gb-esub/www.4MovieRulz.ag%20-%20Chennai%20Express%20%282013%29%20720p%20BluRay%20-%20%5BTelugu%20%20Tamil%20%20Hindi%20%20Mal%5D%20-%201.4GB%20ESub.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/www.-4-movie-rulz.ag-chennai-express-2013-720p-blu-ray-telugu-tamil-hindi-mal-1.4-gb-esub/__ia_thumb.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "posterUrl": "assets/posters/vod_chennai_express_14_gb.jpg",
+      "backdropUrl": "assets/posters/vod_chennai_express_14_gb.jpg"
+    },
+    {
+      "id": "vod_animal_v_2__2023_hindi_bollywo",
+      "title": "Animal V 2 ( 2023) Hindi Bollywood HQ",
+      "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 12197,
+      "durationFormatted": "3h 23m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Animal V 2 ( 2023) Hindi Bollywood HQ 720p.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://image.tmdb.org/t/p/w500/7FZZHXxlujrtq3EUkP78tm5aVkX.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "posterUrl": "assets/posters/vod_animal.jpg",
+      "backdropUrl": "assets/posters/vod_animal.jpg"
+    },
+    {
+      "id": "vod_raw__beast_2022_south_hindi_du",
+      "title": "Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original",
+      "originalTitle": "Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original HEVC 1080p",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 9396,
+      "durationFormatted": "2h 36m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original HEVC 1080p.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/Raw%20%28Beast%29%202022%20South%20Hindi%20Dubbed%20Full%20Movie%20Original%20HEVC%201080p.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://image.tmdb.org/t/p/w500/eykoFw9XCqrAwOtLEuloFtWMPFV.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "posterUrl": "assets/posters/vod_raw_beast.jpg",
+      "backdropUrl": "assets/posters/vod_raw_beast.jpg"
+    },
     {
       "id": "vod_anand_1971",
       "title": "Anand (1971)",
