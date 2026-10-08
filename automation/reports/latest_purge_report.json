@@ -1,38 +1,31 @@
 {
-  "timestamp": "2026-10-08 03:30:36",
-  "total_movies_retained": 70,
-  "total_channels_retained": 280,
+  "timestamp": "2026-10-08 18:09:25",
+  "total_movies_retained": 73,
+  "total_channels_retained": 277,
   "purged_movies_count": 0,
-  "purged_channels_count": 4,
+  "purged_channels_count": 3,
   "purged_movies": [],
   "purged_channels": [
     {
-      "id": "live_ch_479",
-      "name": "Sana TV",
-      "url": "https://vglivessai.akamaized.net/us/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/b6d9e864-ec16-410a-804d-ccf8f720bfaa/index.m3u8",
+      "id": "colors-hd-hindi",
+      "name": "Colors HD (Hindi)",
+      "url": "http://51.75.127.199:3141/colorssd/index.m3u8",
       "category": "ENTERTAINMENT",
-      "reason": "HTTP 504 Server Offline"
+      "reason": "URLError: [Errno 111] Connection refused"
     },
     {
-      "id": "live_ch_168",
-      "name": "Zoom",
-      "url": "http://stream.mcquack.net/377/index.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 200 invalid HLS manifest"
+      "id": "natgeo-hindi-hd",
+      "name": "National Geographic HD (Hindi)",
+      "url": "http://51.75.127.199:3141/natgeohd/index.m3u8",
+      "category": "INFOTAINMENT",
+      "reason": "URLError: [Errno 111] Connection refused"
     },
     {
-      "id": "live_ch_297",
-      "name": "Hebron TV",
-      "url": "https://account20.livebox.co.in/charleshls/live.m3u8",
+      "id": "live_ch_222",
+      "name": "Sharnam TV",
+      "url": "https://mumt06.tangotv.in/qYyB8fXVSHARNAMTV/index.m3u8",
       "category": "ENTERTAINMENT",
       "reason": "HTTP 404 Not Found/Gone"
-    },
-    {
-      "id": "live_ch_280",
-      "name": "Good News Today",
-      "url": "https://aajtaklive.vgcdn.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/3196cced-ce29-4219-9809-f07ccdaa02b9/vglive-sk-848805/master.m3u8",
-      "category": "NEWS",
-      "reason": "URLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
     }
   ]
 }

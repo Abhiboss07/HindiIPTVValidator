@@ -1,10 +1,145 @@
 {
   "version": 25,
-  "updated_at": "2026-10-08 03:30:44",
-  "total_movies": 67,
+  "updated_at": "2026-10-08 18:09:32",
+  "total_movies": 70,
   "total_series": 6,
   "default_language_filter": "Hindi",
   "movies": [
+    {
+      "id": "vod_ok_jaanu_2017_blu_ray_720p_hin",
+      "title": "Ok Jaanu 2017 Blu Ray Hindi AAC 5 1 X 264",
+      "originalTitle": "Ok Jaanu 2017 Blu Ray 720p Hindi AAC 5 1 X 264 ESub",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 8162,
+      "durationFormatted": "2h 16m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Ok Jaanu 2017 Blu Ray 720p Hindi AAC 5 1 X 264 ESub.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/Tg_%40StreamersHub_Ok_Jaanu_2017_BluRay_720p_Hindi_AAC_5_1_x264_ESub.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/__ia_thumb.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "posterUrl": "assets/posters/vod_ok_jaanu_5_1_x_264.jpg",
+      "backdropUrl": "assets/posters/vod_ok_jaanu_5_1_x_264.jpg"
+    },
+    {
+      "id": "vod_",
+      "title": "",
+      "originalTitle": "2001",
+      "year": 2022,
+      "releaseYear": 2022,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 9643,
+      "durationFormatted": "2h 40m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: 2001.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/ashoka-the-great-asoka-2001-hindi-1080p-z-flix-co/01%20-%20Bollywood%20-%202001/Aamdani%20Atthanni%20Kharcha%20Rupaiya%20%282001%29%20Hindi%201080p_zFlix%20CO.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/ashoka-the-great-asoka-2001-hindi-1080p-z-flix-co/__ia_thumb.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "posterUrl": "assets/posters/vod_.jpg",
+      "backdropUrl": "assets/posters/vod_.jpg"
+    },
+    {
+      "id": "vod_allof_us_are_dead_s01",
+      "title": "Allof Us Are Dead S01",
+      "originalTitle": "Allof Us Are Dead. S01. 1080p HEVC",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 3982,
+      "durationFormatted": "1h 06m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Allof Us Are Dead. S01. 1080p HEVC.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/__ia_thumb.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "posterUrl": "assets/posters/vod_allof_us_are_dead_s01.jpg",
+      "backdropUrl": "assets/posters/vod_allof_us_are_dead_s01.jpg"
+    },
     {
       "id": "vod_raw_beast",
       "title": "Raw Beast",
