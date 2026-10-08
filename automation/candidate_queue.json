@@ -42,6 +42,129 @@
       "posterSrcUrl": "https://archive.org/services/img/nonstop-agrremnt"
     },
     {
+      "id": "vod_allof_us_are_dead_s01",
+      "title": "Allof Us Are Dead S01",
+      "originalTitle": "Allof Us Are Dead. S01. 1080p HEVC",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 3982,
+      "durationFormatted": "1h 06m",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Allof Us Are Dead. S01. 1080p HEVC.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/__ia_thumb.jpg"
+    },
+    {
+      "id": "vod_rocket_boys_s_01_e_08_a_new_da",
+      "title": "Rocket Boys S 01 E 08 A New Dawn SONYLIV WEB DL X 264 Vegamovies",
+      "originalTitle": "Rocket Boys S 01 E 08 A New Dawn 1080p SONYLIV WEB DL X 264 Hindi Vegamovies",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 2924,
+      "durationFormatted": "0h 48m",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Rocket Boys S 01 E 08 A New Dawn 1080p SONYLIV WEB DL X 264 Hindi Vegamovies.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/nonstop-agrremnt/Rocket_Boys_S01E01_War_and_Peace_1080p_SONYLIV_WEB_DL_x264_Hindi.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/nonstop-agrremnt/__ia_thumb.jpg"
+    },
+    {
+      "id": "vod_",
+      "title": "",
+      "originalTitle": "2001",
+      "year": 2022,
+      "releaseYear": 2022,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 9643,
+      "durationFormatted": "2h 40m",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: 2001.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/ashoka-the-great-asoka-2001-hindi-1080p-z-flix-co/01%20-%20Bollywood%20-%202001/Aamdani%20Atthanni%20Kharcha%20Rupaiya%20%282001%29%20Hindi%201080p_zFlix%20CO.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/ashoka-the-great-asoka-2001-hindi-1080p-z-flix-co/__ia_thumb.jpg"
+    },
+    {
       "id": "vod_animal_v_2__2023_hindi_bollywo",
       "title": "Animal V 2 ( 2023) Hindi Bollywood HQ",
       "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
@@ -163,6 +286,129 @@
       "streamUrl": "https://archive.org/download/bolleyBall_bollywood/83.2021.1080p.Hindi.WEB-DL.5.1.ESub.x264-Betamovies.xyz.mkv-h264_720p.mp4",
       "trailerUrl": null,
       "posterSrcUrl": "https://archive.org/services/img/bolleyBall_bollywood"
+    },
+    {
+      "id": "vod_animal",
+      "title": "Animal",
+      "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 12197,
+      "durationFormatted": "3h 23m",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Animal V 2 ( 2023) Hindi Bollywood HQ 720p.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/__ia_thumb.jpg"
+    },
+    {
+      "id": "vod_chennai_express_14_gb",
+      "title": "Chennai Express 14 GB",
+      "originalTitle": "Chennai Express ( 2013) 720p Blu Ray [ Telugu Tamil Hindi Mal] 1.4 GB ESub",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 8483,
+      "durationFormatted": "2h 21m",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Chennai Express ( 2013) 720p Blu Ray [ Telugu Tamil Hindi Mal] 1.4 GB ESub.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/www.-4-movie-rulz.ag-chennai-express-2013-720p-blu-ray-telugu-tamil-hindi-mal-1.4-gb-esub/www.4MovieRulz.ag%20-%20Chennai%20Express%20%282013%29%20720p%20BluRay%20-%20%5BTelugu%20%20Tamil%20%20Hindi%20%20Mal%5D%20-%201.4GB%20ESub.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/www.-4-movie-rulz.ag-chennai-express-2013-720p-blu-ray-telugu-tamil-hindi-mal-1.4-gb-esub/__ia_thumb.jpg"
+    },
+    {
+      "id": "vod_ok_jaanu_5_1_x_264",
+      "title": "Ok Jaanu 5 1 X 264",
+      "originalTitle": "Ok Jaanu 2017 Blu Ray 720p Hindi AAC 5 1 X 264 ESub",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 8162,
+      "durationFormatted": "2h 16m",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Ok Jaanu 2017 Blu Ray 720p Hindi AAC 5 1 X 264 ESub.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/Tg_%40StreamersHub_Ok_Jaanu_2017_BluRay_720p_Hindi_AAC_5_1_x264_ESub.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/__ia_thumb.jpg"
     }
   ],
   "new_channels": []
