@@ -1,29 +1,23 @@
 {
-  "timestamp": "2026-10-08 18:09:25",
-  "total_movies_retained": 73,
-  "total_channels_retained": 277,
-  "purged_movies_count": 0,
-  "purged_channels_count": 3,
-  "purged_movies": [],
+  "timestamp": "2026-10-09 03:36:24",
+  "total_movies_retained": 75,
+  "total_channels_retained": 276,
+  "purged_movies_count": 1,
+  "purged_channels_count": 1,
+  "purged_movies": [
+    {
+      "id": "vod_masoom_1983",
+      "title": "Masoom",
+      "type": "movie",
+      "streamUrl": "https://ia903106.us.archive.org/0/items/masoom-1983-1080p-web-dl/Masoom%201983%20WEBDL-1080p.mp4",
+      "reason": "HTTP 403 Forbidden"
+    }
+  ],
   "purged_channels": [
     {
-      "id": "colors-hd-hindi",
-      "name": "Colors HD (Hindi)",
-      "url": "http://51.75.127.199:3141/colorssd/index.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "natgeo-hindi-hd",
-      "name": "National Geographic HD (Hindi)",
-      "url": "http://51.75.127.199:3141/natgeohd/index.m3u8",
-      "category": "INFOTAINMENT",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "live_ch_222",
-      "name": "Sharnam TV",
-      "url": "https://mumt06.tangotv.in/qYyB8fXVSHARNAMTV/index.m3u8",
+      "id": "live_ch_342",
+      "name": "CCV",
+      "url": "https://5a1178b42cc03.streamlock.net/8212/8212/playlist.m3u8",
       "category": "ENTERTAINMENT",
       "reason": "HTTP 404 Not Found/Gone"
     }
