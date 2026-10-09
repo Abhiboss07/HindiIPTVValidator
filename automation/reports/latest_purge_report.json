@@ -1,25 +1,17 @@
 {
-  "timestamp": "2026-10-09 03:36:24",
-  "total_movies_retained": 75,
+  "timestamp": "2026-10-09 17:43:09",
+  "total_movies_retained": 77,
   "total_channels_retained": 276,
   "purged_movies_count": 1,
-  "purged_channels_count": 1,
+  "purged_channels_count": 0,
   "purged_movies": [
     {
-      "id": "vod_masoom_1983",
-      "title": "Masoom",
+      "id": "vod_animal",
+      "title": "Animal",
       "type": "movie",
-      "streamUrl": "https://ia903106.us.archive.org/0/items/masoom-1983-1080p-web-dl/Masoom%201983%20WEBDL-1080p.mp4",
-      "reason": "HTTP 403 Forbidden"
+      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
+      "reason": "HTTP 500 Server Offline"
     }
   ],
-  "purged_channels": [
-    {
-      "id": "live_ch_342",
-      "name": "CCV",
-      "url": "https://5a1178b42cc03.streamlock.net/8212/8212/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 404 Not Found/Gone"
-    }
-  ]
+  "purged_channels": []
 }
