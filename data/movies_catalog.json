@@ -1,55 +1,10 @@
 {
   "version": 25,
-  "updated_at": "2026-10-09 17:43:19",
-  "total_movies": 73,
+  "updated_at": "2026-10-10 03:16:54",
+  "total_movies": 72,
   "total_series": 6,
   "default_language_filter": "Hindi",
   "movies": [
-    {
-      "id": "vod_animal",
-      "title": "Animal",
-      "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 12197,
-      "durationFormatted": "3h 23m (Full Movie)",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Animal V 2 ( 2023) Hindi Bollywood HQ 720p.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/__ia_thumb.jpg",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "720p HD",
-      "posterUrl": "assets/posters/vod_animal.jpg",
-      "backdropUrl": "assets/posters/vod_animal.jpg"
-    },
     {
       "id": "vod_ok_jaanu_5_1_x_264",
       "title": "Ok Jaanu 5 1 X 264",
@@ -94,6 +49,51 @@
       "qualityHonestBadge": "720p HD",
       "posterUrl": "assets/posters/vod_ok_jaanu_5_1_x_264.jpg",
       "backdropUrl": "assets/posters/vod_ok_jaanu_5_1_x_264.jpg"
+    },
+    {
+      "id": "vod_animal",
+      "title": "Animal",
+      "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 12197,
+      "durationFormatted": "3h 23m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Animal V 2 ( 2023) Hindi Bollywood HQ 720p.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/__ia_thumb.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "posterUrl": "assets/posters/vod_animal.jpg",
+      "backdropUrl": "assets/posters/vod_animal.jpg"
     },
     {
       "id": "vod_chennai_express_14_gb",
@@ -184,51 +184,6 @@
       "qualityHonestBadge": "720p HD",
       "posterUrl": "assets/posters/vod_bollywood.jpg",
       "backdropUrl": "assets/posters/vod_bollywood.jpg"
-    },
-    {
-      "id": "vod_ok_jaanu_2017_blu_ray_720p_hin",
-      "title": "Ok Jaanu 2017 Blu Ray Hindi AAC 5 1 X 264",
-      "originalTitle": "Ok Jaanu 2017 Blu Ray 720p Hindi AAC 5 1 X 264 ESub",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 8162,
-      "durationFormatted": "2h 16m (Full Movie)",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Ok Jaanu 2017 Blu Ray 720p Hindi AAC 5 1 X 264 ESub.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/Tg_%40StreamersHub_Ok_Jaanu_2017_BluRay_720p_Hindi_AAC_5_1_x264_ESub.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/__ia_thumb.jpg",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "720p HD",
-      "posterUrl": "assets/posters/vod_ok_jaanu_5_1_x_264.jpg",
-      "backdropUrl": "assets/posters/vod_ok_jaanu_5_1_x_264.jpg"
     },
     {
       "id": "vod_",

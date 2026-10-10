@@ -1,15 +1,22 @@
 {
-  "timestamp": "2026-10-09 17:43:09",
+  "timestamp": "2026-10-10 03:16:46",
   "total_movies_retained": 77,
   "total_channels_retained": 276,
-  "purged_movies_count": 1,
+  "purged_movies_count": 2,
   "purged_channels_count": 0,
   "purged_movies": [
     {
-      "id": "vod_animal",
-      "title": "Animal",
+      "id": "vod_ok_jaanu_5_1_x_264",
+      "title": "Ok Jaanu 5 1 X 264",
       "type": "movie",
-      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
+      "streamUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/Tg_%40StreamersHub_Ok_Jaanu_2017_BluRay_720p_Hindi_AAC_5_1_x264_ESub.mkv",
+      "reason": "HTTP 500 Server Offline"
+    },
+    {
+      "id": "vod_ok_jaanu_2017_blu_ray_720p_hin",
+      "title": "Ok Jaanu 2017 Blu Ray Hindi AAC 5 1 X 264",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/Tg_%40StreamersHub_Ok_Jaanu_2017_BluRay_720p_Hindi_AAC_5_1_x264_ESub.mkv",
       "reason": "HTTP 500 Server Offline"
     }
   ],
