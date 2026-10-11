@@ -1,17 +1,9 @@
 {
-  "timestamp": "2026-10-10 16:34:51",
+  "timestamp": "2026-10-11 02:49:50",
   "total_movies_retained": 78,
   "total_channels_retained": 275,
   "purged_movies_count": 0,
-  "purged_channels_count": 1,
+  "purged_channels_count": 0,
   "purged_movies": [],
-  "purged_channels": [
-    {
-      "id": "zee-cinema-hd",
-      "name": "Zee Cinema HD",
-      "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/NGCHD/default/NGCHD.m3u8",
-      "category": "MOVIES",
-      "reason": "Exception: The read operation timed out"
-    }
-  ]
+  "purged_channels": []
 }
