@@ -1,9 +1,17 @@
 {
-  "timestamp": "2026-10-11 02:49:50",
+  "timestamp": "2026-10-11 17:00:01",
   "total_movies_retained": 78,
-  "total_channels_retained": 275,
+  "total_channels_retained": 274,
   "purged_movies_count": 0,
-  "purged_channels_count": 0,
+  "purged_channels_count": 1,
   "purged_movies": [],
-  "purged_channels": []
+  "purged_channels": [
+    {
+      "id": "zee-bangla-sonar-hd",
+      "name": "Zee Bangla Sonar",
+      "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8",
+      "category": "REGIONAL",
+      "reason": "Exception: The read operation timed out"
+    }
+  ]
 }
