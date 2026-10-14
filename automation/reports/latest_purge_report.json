@@ -1,101 +1,17 @@
 {
-  "timestamp": "2026-10-14 02:38:55",
-  "total_movies_retained": 78,
+  "timestamp": "2026-10-14 16:09:59",
+  "total_movies_retained": 77,
   "total_channels_retained": 258,
-  "purged_movies_count": 0,
-  "purged_channels_count": 13,
-  "purged_movies": [],
-  "purged_channels": [
+  "purged_movies_count": 1,
+  "purged_channels_count": 0,
+  "purged_movies": [
     {
-      "id": "hungama-tv-hindi",
-      "name": "Hungama TV (Hindi)",
-      "url": "http://103.185.24.134:3001/HUNGAMA/index.m3u8",
-      "category": "CARTOONS",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "star-gold-hd",
-      "name": "Star Gold HD (Hindi)",
-      "url": "http://103.185.24.134:3001/Star-Gold/index.m3u8",
-      "category": "MOVIES",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "sony-yay-hindi",
-      "name": "Sony YAY! (Hindi)",
-      "url": "http://103.185.24.134:3001/SONY-YAY/index.m3u8",
-      "category": "CARTOONS",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "etv-bal-bharat-hindi",
-      "name": "ETV Bal Bharat (Hindi)",
-      "url": "http://103.185.24.134:3001/ETV-BAL-BHARAT/index.m3u8",
-      "category": "CARTOONS",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "sonic-nickelodeon-hindi",
-      "name": "Sonic Nickelodeon (Hindi)",
-      "url": "http://103.185.24.134:3001/SONIC/index.m3u8",
-      "category": "CARTOONS",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "nickelodeon-hindi-hd",
-      "name": "Nickelodeon (Hindi)",
-      "url": "http://103.185.24.134:3001/NICK/index.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "nick-jr-hd",
-      "name": "Nick Jr. (Hindi & English)",
-      "url": "http://103.185.24.134:3001/NICK-JR/index.m3u8",
-      "category": "KIDS",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "star-plus-hd",
-      "name": "StarPlus HD (Hindi)",
-      "url": "http://103.185.24.134:3001/Star-Plus/index.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "super-hungama-hindi",
-      "name": "Super Hungama (Hindi)",
-      "url": "http://103.185.24.134:3001/SUPER-HUNGAMA/index.m3u8",
-      "category": "CARTOONS",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "discovery-hd-hindi",
-      "name": "Discovery HD (Hindi)",
-      "url": "http://103.185.24.134:3001/Discovery/index.m3u8",
-      "category": "INFOTAINMENT",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "nickelodeon-hd",
-      "name": "Nickelodeon Toons (Hindi)",
-      "url": "http://103.185.24.134:3001/NICK/index.m3u8",
-      "category": "CARTOONS",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "live_ch_395",
-      "name": "Nick HD+ (India)",
-      "url": "http://103.185.24.134:3001/NICK/index.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "URLError: [Errno 111] Connection refused"
-    },
-    {
-      "id": "cartoon-network-hd-plus",
-      "name": "Cartoon Network HD+ (Hindi Dubbed)",
-      "url": "http://103.185.24.134:3001/CartoonNetwork/index.m3u8",
-      "category": "CARTOONS",
-      "reason": "URLError: [Errno 111] Connection refused"
+      "id": "vod_bhaag_milkha_bhaag_x_264",
+      "title": "Bhaag Milkha Bhaag X 264",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
+      "reason": "HTTP 500 Server Offline"
     }
-  ]
+  ],
+  "purged_channels": []
 }
