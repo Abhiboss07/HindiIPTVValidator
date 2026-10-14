@@ -1,9 +1,101 @@
 {
-  "timestamp": "2026-10-13 18:39:47",
+  "timestamp": "2026-10-14 02:38:55",
   "total_movies_retained": 78,
-  "total_channels_retained": 271,
+  "total_channels_retained": 258,
   "purged_movies_count": 0,
-  "purged_channels_count": 0,
+  "purged_channels_count": 13,
   "purged_movies": [],
-  "purged_channels": []
+  "purged_channels": [
+    {
+      "id": "hungama-tv-hindi",
+      "name": "Hungama TV (Hindi)",
+      "url": "http://103.185.24.134:3001/HUNGAMA/index.m3u8",
+      "category": "CARTOONS",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "star-gold-hd",
+      "name": "Star Gold HD (Hindi)",
+      "url": "http://103.185.24.134:3001/Star-Gold/index.m3u8",
+      "category": "MOVIES",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "sony-yay-hindi",
+      "name": "Sony YAY! (Hindi)",
+      "url": "http://103.185.24.134:3001/SONY-YAY/index.m3u8",
+      "category": "CARTOONS",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "etv-bal-bharat-hindi",
+      "name": "ETV Bal Bharat (Hindi)",
+      "url": "http://103.185.24.134:3001/ETV-BAL-BHARAT/index.m3u8",
+      "category": "CARTOONS",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "sonic-nickelodeon-hindi",
+      "name": "Sonic Nickelodeon (Hindi)",
+      "url": "http://103.185.24.134:3001/SONIC/index.m3u8",
+      "category": "CARTOONS",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "nickelodeon-hindi-hd",
+      "name": "Nickelodeon (Hindi)",
+      "url": "http://103.185.24.134:3001/NICK/index.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "nick-jr-hd",
+      "name": "Nick Jr. (Hindi & English)",
+      "url": "http://103.185.24.134:3001/NICK-JR/index.m3u8",
+      "category": "KIDS",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "star-plus-hd",
+      "name": "StarPlus HD (Hindi)",
+      "url": "http://103.185.24.134:3001/Star-Plus/index.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "super-hungama-hindi",
+      "name": "Super Hungama (Hindi)",
+      "url": "http://103.185.24.134:3001/SUPER-HUNGAMA/index.m3u8",
+      "category": "CARTOONS",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "discovery-hd-hindi",
+      "name": "Discovery HD (Hindi)",
+      "url": "http://103.185.24.134:3001/Discovery/index.m3u8",
+      "category": "INFOTAINMENT",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "nickelodeon-hd",
+      "name": "Nickelodeon Toons (Hindi)",
+      "url": "http://103.185.24.134:3001/NICK/index.m3u8",
+      "category": "CARTOONS",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "live_ch_395",
+      "name": "Nick HD+ (India)",
+      "url": "http://103.185.24.134:3001/NICK/index.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "URLError: [Errno 111] Connection refused"
+    },
+    {
+      "id": "cartoon-network-hd-plus",
+      "name": "Cartoon Network HD+ (Hindi Dubbed)",
+      "url": "http://103.185.24.134:3001/CartoonNetwork/index.m3u8",
+      "category": "CARTOONS",
+      "reason": "URLError: [Errno 111] Connection refused"
+    }
+  ]
 }
