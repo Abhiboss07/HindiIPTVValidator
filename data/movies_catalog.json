@@ -1,7 +1,7 @@
 {
   "version": 25,
-  "updated_at": "2026-10-14 16:10:01",
-  "total_movies": 72,
+  "updated_at": "2026-10-15 02:18:46",
+  "total_movies": 71,
   "total_series": 6,
   "default_language_filter": "Hindi",
   "movies": [
@@ -94,51 +94,6 @@
       "qualityHonestBadge": "720p HD",
       "posterUrl": "assets/posters/vod_chennai_express_14_gb.jpg",
       "backdropUrl": "assets/posters/vod_chennai_express_14_gb.jpg"
-    },
-    {
-      "id": "vod_ok_jaanu_5_1_x_264",
-      "title": "Ok Jaanu 5 1 X 264",
-      "originalTitle": "Ok Jaanu 2017 Blu Ray 720p Hindi AAC 5 1 X 264 ESub",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 8162,
-      "durationFormatted": "2h 16m (Full Movie)",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Ok Jaanu 2017 Blu Ray 720p Hindi AAC 5 1 X 264 ESub.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/Tg_%40StreamersHub_Ok_Jaanu_2017_BluRay_720p_Hindi_AAC_5_1_x264_ESub.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/__ia_thumb.jpg",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "720p HD",
-      "posterUrl": "assets/posters/vod_ok_jaanu_5_1_x_264.jpg",
-      "backdropUrl": "assets/posters/vod_ok_jaanu_5_1_x_264.jpg"
     },
     {
       "id": "vod_animal",
