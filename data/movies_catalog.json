@@ -1,10 +1,55 @@
 {
   "version": 25,
-  "updated_at": "2026-10-16 02:10:30",
+  "updated_at": "2026-10-16 15:46:09",
   "total_movies": 69,
   "total_series": 6,
   "default_language_filter": "Hindi",
   "movies": [
+    {
+      "id": "vod_animal_v_2__2023_hindi_bollywo",
+      "title": "Animal V 2 ( 2023) Hindi Bollywood HQ",
+      "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 12197,
+      "durationFormatted": "3h 23m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Animal V 2 ( 2023) Hindi Bollywood HQ 720p.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://image.tmdb.org/t/p/w500/rzvdKrnSRKPFI0pgqMQknDPpRC9.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "posterUrl": "assets/posters/vod_animal.jpg",
+      "backdropUrl": "assets/posters/vod_animal.jpg"
+    },
     {
       "id": "vod_",
       "title": "",
@@ -319,51 +364,6 @@
       "qualityHonestBadge": "720p HD",
       "posterUrl": "assets/posters/vod_chennai_express_14_gb.jpg",
       "backdropUrl": "assets/posters/vod_chennai_express_14_gb.jpg"
-    },
-    {
-      "id": "vod_animal_v_2__2023_hindi_bollywo",
-      "title": "Animal V 2 ( 2023) Hindi Bollywood HQ",
-      "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 12197,
-      "durationFormatted": "3h 23m (Full Movie)",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Animal V 2 ( 2023) Hindi Bollywood HQ 720p.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://image.tmdb.org/t/p/w500/7FZZHXxlujrtq3EUkP78tm5aVkX.jpg",
-      "qualityClass": "HD",
-      "qualityHonestBadge": "720p HD",
-      "posterUrl": "assets/posters/vod_animal.jpg",
-      "backdropUrl": "assets/posters/vod_animal.jpg"
     },
     {
       "id": "vod_raw__beast_2022_south_hindi_du",

@@ -163,47 +163,6 @@
       "streamUrl": "https://archive.org/download/nonstop-agrremnt/Rocket_Boys_S01E01_War_and_Peace_1080p_SONYLIV_WEB_DL_x264_Hindi.mkv",
       "trailerUrl": null,
       "posterSrcUrl": "https://archive.org/download/nonstop-agrremnt/__ia_thumb.jpg"
-    },
-    {
-      "id": "vod_animal_v_2__2023_hindi_bollywo",
-      "title": "Animal V 2 ( 2023) Hindi Bollywood HQ",
-      "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 12197,
-      "durationFormatted": "3h 23m",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Animal V 2 ( 2023) Hindi Bollywood HQ 720p.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/services/img/animal-v-2-2023-hindi-bollywood-hq-720p"
     }
   ],
   "new_channels": []
