@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-10-16 15:46:07",
-  "total_movies_retained": 74,
-  "total_channels_retained": 253,
-  "purged_movies_count": 1,
-  "purged_channels_count": 0,
-  "purged_movies": [
+  "timestamp": "2026-10-17 02:04:27",
+  "total_movies_retained": 75,
+  "total_channels_retained": 252,
+  "purged_movies_count": 0,
+  "purged_channels_count": 1,
+  "purged_movies": [],
+  "purged_channels": [
     {
-      "id": "vod_animal_v_2__2023_hindi_bollywo",
-      "title": "Animal V 2 ( 2023) Hindi Bollywood HQ",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
-      "reason": "HTTP 500 Server Offline"
+      "id": "live_ch_336",
+      "name": "Life TV",
+      "url": "https://lifetv.livebox.co.in/lifetvhls/lifetv.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 404 Not Found/Gone"
     }
-  ],
-  "purged_channels": []
+  ]
 }
