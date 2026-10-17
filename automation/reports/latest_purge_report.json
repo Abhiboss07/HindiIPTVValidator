@@ -1,17 +1,9 @@
 {
-  "timestamp": "2026-10-17 02:04:27",
-  "total_movies_retained": 75,
+  "timestamp": "2026-10-17 14:38:24",
+  "total_movies_retained": 78,
   "total_channels_retained": 252,
   "purged_movies_count": 0,
-  "purged_channels_count": 1,
+  "purged_channels_count": 0,
   "purged_movies": [],
-  "purged_channels": [
-    {
-      "id": "live_ch_336",
-      "name": "Life TV",
-      "url": "https://lifetv.livebox.co.in/lifetvhls/lifetv.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "HTTP 404 Not Found/Gone"
-    }
-  ]
+  "purged_channels": []
 }
