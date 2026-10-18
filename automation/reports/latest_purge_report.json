@@ -1,9 +1,17 @@
 {
-  "timestamp": "2026-10-17 14:38:24",
+  "timestamp": "2026-10-18 02:03:55",
   "total_movies_retained": 78,
-  "total_channels_retained": 252,
+  "total_channels_retained": 251,
   "purged_movies_count": 0,
-  "purged_channels_count": 0,
+  "purged_channels_count": 1,
   "purged_movies": [],
-  "purged_channels": []
+  "purged_channels": [
+    {
+      "id": "live_ch_564",
+      "name": "Sai TV",
+      "url": "https://account31.livebox.co.in/saitvhls/live.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 404 Not Found/Gone"
+    }
+  ]
 }
