@@ -1,15 +1,51 @@
 {
-  "timestamp": "2026-10-18 02:03:55",
-  "total_movies_retained": 78,
-  "total_channels_retained": 251,
-  "purged_movies_count": 0,
-  "purged_channels_count": 1,
-  "purged_movies": [],
+  "timestamp": "2026-10-18 15:05:31",
+  "total_movies_retained": 75,
+  "total_channels_retained": 248,
+  "purged_movies_count": 3,
+  "purged_channels_count": 3,
+  "purged_movies": [
+    {
+      "id": "vod_ok_jaanu_5_1_x_264",
+      "title": "Ok Jaanu 5 1 X 264",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/Tg_%40StreamersHub_Ok_Jaanu_2017_BluRay_720p_Hindi_AAC_5_1_x264_ESub.mkv",
+      "reason": "HTTP 500 Server Offline"
+    },
+    {
+      "id": "vod_bhaag_milkha_bhaag_2013",
+      "title": "Bhaag Milkha Bhaag (2013)",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
+      "reason": "HTTP 500 Server Offline"
+    },
+    {
+      "id": "vod_bhaag_milkha_bhaag_x_264",
+      "title": "Bhaag Milkha Bhaag X 264",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
+      "reason": "HTTP 500 Server Offline"
+    }
+  ],
   "purged_channels": [
     {
-      "id": "live_ch_564",
-      "name": "Sai TV",
-      "url": "https://account31.livebox.co.in/saitvhls/live.m3u8",
+      "id": "live_ch_639",
+      "name": "Dangal TV",
+      "url": "https://streams.tangotv.in/DANGAL/ORIGIN/index.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "live_ch_247",
+      "name": "Steelbird Music [Not 24/7]",
+      "url": "https://cdn2.in/SteelbirdMusicTVhls/live.m3u8",
+      "category": "MUSIC",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "live_ch_839",
+      "name": "Studio One +",
+      "url": "https://mumt04.tangotv.in/m18aqlK4STUDIOONEPLUS/index.m3u8",
       "category": "ENTERTAINMENT",
       "reason": "HTTP 404 Not Found/Gone"
     }
