@@ -1,17 +1,38 @@
 {
-  "timestamp": "2026-10-19 02:20:31",
+  "timestamp": "2026-10-19 17:57:05",
   "total_movies_retained": 75,
-  "total_channels_retained": 248,
-  "purged_movies_count": 1,
-  "purged_channels_count": 0,
-  "purged_movies": [
+  "total_channels_retained": 244,
+  "purged_movies_count": 0,
+  "purged_channels_count": 4,
+  "purged_movies": [],
+  "purged_channels": [
     {
-      "id": "vod_chennai_express_14_gb",
-      "title": "Chennai Express 14 GB",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/www.-4-movie-rulz.ag-chennai-express-2013-720p-blu-ray-telugu-tamil-hindi-mal-1.4-gb-esub/www.4MovieRulz.ag%20-%20Chennai%20Express%20%282013%29%20720p%20BluRay%20-%20%5BTelugu%20%20Tamil%20%20Hindi%20%20Mal%5D%20-%201.4GB%20ESub.mkv",
-      "reason": "HTTP 500 Server Offline"
+      "id": "live_ch_24",
+      "name": "Epic Crimes",
+      "url": "https://cc-wsuyg2uxeak04.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-wsuyg2uxeak04/master.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 504 Server Offline"
+    },
+    {
+      "id": "live_ch_98",
+      "name": "Gangaur TV",
+      "url": "https://pbgangaur.wiseplayout.com/Gangaur/master.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "URLError: _ssl.c:999: The handshake operation timed out"
+    },
+    {
+      "id": "live_ch_649",
+      "name": "Gangaur TV",
+      "url": "https://pbgangaur.wiseplayout.com/Gangaur/master.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "URLError: _ssl.c:999: The handshake operation timed out"
+    },
+    {
+      "id": "air-vividh-bharati",
+      "name": "AIR Vividh Bharati 102.8 FM",
+      "url": "https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8",
+      "category": "MUSIC",
+      "reason": "URLError: _ssl.c:999: The handshake operation timed out"
     }
-  ],
-  "purged_channels": []
+  ]
 }
