@@ -1,36 +1,50 @@
 {
-  "timestamp": "2026-10-19 17:57:05",
+  "timestamp": "2026-10-20 02:34:25",
   "total_movies_retained": 75,
-  "total_channels_retained": 244,
+  "total_channels_retained": 238,
   "purged_movies_count": 0,
-  "purged_channels_count": 4,
+  "purged_channels_count": 6,
   "purged_movies": [],
   "purged_channels": [
     {
-      "id": "live_ch_24",
-      "name": "Epic Crimes",
-      "url": "https://cc-wsuyg2uxeak04.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-wsuyg2uxeak04/master.m3u8",
+      "id": "live_ch_26",
+      "name": "Awaaz India TV [Not 24/7]",
+      "url": "https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8",
       "category": "ENTERTAINMENT",
-      "reason": "HTTP 504 Server Offline"
+      "reason": "HTTP 404 Not Found/Gone"
     },
     {
-      "id": "live_ch_98",
+      "id": "live_ch_31",
+      "name": "India TV",
+      "url": "https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "live_ch_412",
+      "name": "India TV",
+      "url": "https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "live_ch_665",
+      "name": "India TV",
+      "url": "https://awaazindia.livebox.co.in/AwaazIndaTVhls/Live.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 404 Not Found/Gone"
+    },
+    {
+      "id": "live_ch_394",
       "name": "Gangaur TV",
       "url": "https://pbgangaur.wiseplayout.com/Gangaur/master.m3u8",
       "category": "ENTERTAINMENT",
       "reason": "URLError: _ssl.c:999: The handshake operation timed out"
     },
     {
-      "id": "live_ch_649",
-      "name": "Gangaur TV",
-      "url": "https://pbgangaur.wiseplayout.com/Gangaur/master.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "URLError: _ssl.c:999: The handshake operation timed out"
-    },
-    {
-      "id": "air-vividh-bharati",
-      "name": "AIR Vividh Bharati 102.8 FM",
-      "url": "https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8",
+      "id": "air-rainbow-fm",
+      "name": "AIR FM Rainbow Delhi 102.6 FM",
+      "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio004/hlspbaudio004_Auto.m3u8",
       "category": "MUSIC",
       "reason": "URLError: _ssl.c:999: The handshake operation timed out"
     }
