@@ -1,9 +1,87 @@
 {
-  "timestamp": "2026-10-21 02:28:29",
-  "total_movies_retained": 75,
+  "timestamp": "2026-10-21 16:17:57",
+  "total_movies_retained": 65,
   "total_channels_retained": 237,
-  "purged_movies_count": 0,
+  "purged_movies_count": 11,
   "purged_channels_count": 0,
-  "purged_movies": [],
+  "purged_movies": [
+    {
+      "id": "vod_rocket_boys_s_01_e_08_a_new_da",
+      "title": "Rocket Boys S 01 E 08 A New Dawn SONYLIV WEB DL X 264 Hindi Vegamovies",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/nonstop-agrremnt/Rocket_Boys_S01E01_War_and_Peace_1080p_SONYLIV_WEB_DL_x264_Hindi.mkv",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_bhaag_milkha_bhaag_x_264",
+      "title": "Bhaag Milkha Bhaag X 264",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_animal_v_2__2023_hindi_bollywo",
+      "title": "Animal V 2 ( 2023) Hindi Bollywood HQ",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_",
+      "title": "",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/ashoka-the-great-asoka-2001-hindi-1080p-z-flix-co/01%20-%20Bollywood%20-%202001/Aamdani%20Atthanni%20Kharcha%20Rupaiya%20%282001%29%20Hindi%201080p_zFlix%20CO.mkv",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_allof_us_are_dead_s01",
+      "title": "Allof Us Are Dead S01",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC.mkv",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_animal",
+      "title": "Animal",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_bollywood",
+      "title": "Bollywood",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/bolleyBall_bollywood/83.2021.1080p.Hindi.WEB-DL.5.1.ESub.x264-Betamovies.xyz.mkv-h264_720p.mp4",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_raw_beast",
+      "title": "Raw Beast",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/Raw%20%28Beast%29%202022%20South%20Hindi%20Dubbed%20Full%20Movie%20Original%20HEVC%201080p.mkv",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_chennai_express__2013_720p_blu",
+      "title": "Chennai Express ( 2013) Blu Ray [ Telugu Tamil Hindi Mal] 1.4 GB",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/www.-4-movie-rulz.ag-chennai-express-2013-720p-blu-ray-telugu-tamil-hindi-mal-1.4-gb-esub/www.4MovieRulz.ag%20-%20Chennai%20Express%20%282013%29%20720p%20BluRay%20-%20%5BTelugu%20%20Tamil%20%20Hindi%20%20Mal%5D%20-%201.4GB%20ESub.mkv",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_raw__beast_2022_south_hindi_du",
+      "title": "Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/Raw%20%28Beast%29%202022%20South%20Hindi%20Dubbed%20Full%20Movie%20Original%20HEVC%201080p.mkv",
+      "reason": "URLError: timed out"
+    },
+    {
+      "id": "vod_carnival_of_souls",
+      "title": "Carnival of Souls",
+      "type": "movie",
+      "streamUrl": "https://dn600308.us.archive.org/0/items/CarnivalofSouls/CarnivalOfSouls.mp4",
+      "reason": "URLError: timed out"
+    }
+  ],
   "purged_channels": []
 }
