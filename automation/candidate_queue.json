@@ -2,47 +2,6 @@
   "new_movies": [
     {
       "id": "vod_rocket_boys_s_01_e_08_a_new_da",
-      "title": "Rocket Boys S 01 E 08 A New Dawn SONYLIV WEB DL X 264 Hindi Vegamovies",
-      "originalTitle": "Rocket Boys S 01 E 08 A New Dawn 1080p SONYLIV WEB DL X 264 Hindi Vegamovies",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 2924,
-      "durationFormatted": "0h 48m",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Rocket Boys S 01 E 08 A New Dawn 1080p SONYLIV WEB DL X 264 Hindi Vegamovies.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/nonstop-agrremnt/Rocket_Boys_S01E01_War_and_Peace_1080p_SONYLIV_WEB_DL_x264_Hindi.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/services/img/nonstop-agrremnt"
-    },
-    {
-      "id": "vod_rocket_boys_s_01_e_08_a_new_da",
       "title": "Rocket Boys S 01 E 08 A New Dawn SONYLIV WEB DL X 264 Vegamovies",
       "originalTitle": "Rocket Boys S 01 E 08 A New Dawn 1080p SONYLIV WEB DL X 264 Hindi Vegamovies",
       "year": 2015,

@@ -1,10 +1,55 @@
 {
   "version": 25,
-  "updated_at": "2026-10-20 16:00:22",
-  "total_movies": 69,
+  "updated_at": "2026-10-21 02:28:43",
+  "total_movies": 70,
   "total_series": 6,
   "default_language_filter": "Hindi",
   "movies": [
+    {
+      "id": "vod_rocket_boys_s_01_e_08_a_new_da",
+      "title": "Rocket Boys S 01 E 08 A New Dawn SONYLIV WEB DL X 264 Hindi Vegamovies",
+      "originalTitle": "Rocket Boys S 01 E 08 A New Dawn 1080p SONYLIV WEB DL X 264 Hindi Vegamovies",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 2924,
+      "durationFormatted": "0h 48m",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Rocket Boys S 01 E 08 A New Dawn 1080p SONYLIV WEB DL X 264 Hindi Vegamovies.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/nonstop-agrremnt/Rocket_Boys_S01E01_War_and_Peace_1080p_SONYLIV_WEB_DL_x264_Hindi.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/nonstop-agrremnt/__ia_thumb.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "posterUrl": "assets/posters/vod_rocket_boys_s_01_e_08_a_new_dawn_sonyliv_web_dl_x_264_vegamovies.jpg",
+      "backdropUrl": "assets/posters/vod_rocket_boys_s_01_e_08_a_new_dawn_sonyliv_web_dl_x_264_vegamovies.jpg"
+    },
     {
       "id": "vod_bhaag_milkha_bhaag_x_264",
       "title": "Bhaag Milkha Bhaag X 264",
