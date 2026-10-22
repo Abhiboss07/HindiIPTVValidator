@@ -42,47 +42,6 @@
       "posterSrcUrl": "https://archive.org/download/nonstop-agrremnt/__ia_thumb.jpg"
     },
     {
-      "id": "vod_raw_beast",
-      "title": "Raw Beast",
-      "originalTitle": "Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original HEVC 1080p",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 9396,
-      "durationFormatted": "2h 36m",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Raw ( Beast) 2022 South Hindi Dubbed Full Movie Original HEVC 1080p.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/Raw%20%28Beast%29%202022%20South%20Hindi%20Dubbed%20Full%20Movie%20Original%20HEVC%201080p.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/__ia_thumb.jpg"
-    },
-    {
       "id": "vod_rocket_boys_s_01_e_08_a_new_da",
       "title": "Rocket Boys S 01 E 08 A New Dawn SONYLIV WEB DL X 264 Vegamovies",
       "originalTitle": "Rocket Boys S 01 E 08 A New Dawn 1080p SONYLIV WEB DL X 264 Hindi Vegamovies",
@@ -165,47 +124,6 @@
       "posterSrcUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/__ia_thumb.jpg"
     },
     {
-      "id": "vod_allof_us_are_dead_s01",
-      "title": "Allof Us Are Dead S01",
-      "originalTitle": "Allof Us Are Dead. S01. 1080p HEVC",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 3982,
-      "durationFormatted": "1h 06m",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Allof Us Are Dead. S01. 1080p HEVC.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/__ia_thumb.jpg"
-    },
-    {
       "id": "vod_rocket_boys_s_01_e_08_a_new_da",
       "title": "Rocket Boys S 01 E 08 A New Dawn SONYLIV WEB DL X 264 Vegamovies",
       "originalTitle": "Rocket Boys S 01 E 08 A New Dawn 1080p SONYLIV WEB DL X 264 Hindi Vegamovies",
@@ -245,47 +163,6 @@
       "streamUrl": "https://archive.org/download/nonstop-agrremnt/Rocket_Boys_S01E01_War_and_Peace_1080p_SONYLIV_WEB_DL_x264_Hindi.mkv",
       "trailerUrl": null,
       "posterSrcUrl": "https://archive.org/download/nonstop-agrremnt/__ia_thumb.jpg"
-    },
-    {
-      "id": "vod_",
-      "title": "",
-      "originalTitle": "2001",
-      "year": 2022,
-      "releaseYear": 2022,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 9643,
-      "durationFormatted": "2h 40m",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: 2001.",
-      "resolution": "720p HD",
-      "quality": "720p HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/ashoka-the-great-asoka-2001-hindi-1080p-z-flix-co/01%20-%20Bollywood%20-%202001/Aamdani%20Atthanni%20Kharcha%20Rupaiya%20%282001%29%20Hindi%201080p_zFlix%20CO.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/download/ashoka-the-great-asoka-2001-hindi-1080p-z-flix-co/__ia_thumb.jpg"
     },
     {
       "id": "vod_animal",
