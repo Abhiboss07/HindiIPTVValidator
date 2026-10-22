@@ -1,9 +1,17 @@
 {
-  "timestamp": "2026-10-22 02:23:54",
-  "total_movies_retained": 65,
+  "timestamp": "2026-10-22 16:16:41",
+  "total_movies_retained": 67,
   "total_channels_retained": 237,
-  "purged_movies_count": 0,
+  "purged_movies_count": 1,
   "purged_channels_count": 0,
-  "purged_movies": [],
+  "purged_movies": [
+    {
+      "id": "vod_raaz_2002",
+      "title": "Raaz (2002)",
+      "type": "movie",
+      "streamUrl": "https://www.youtube-nocookie.com/embed/l38q0CFR1zU",
+      "reason": "YouTube video deleted/private"
+    }
+  ],
   "purged_channels": []
 }
