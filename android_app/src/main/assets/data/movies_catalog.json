@@ -1,10 +1,55 @@
 {
   "version": 25,
-  "updated_at": "2026-10-22 02:23:58",
+  "updated_at": "2026-10-22 16:16:49",
   "total_movies": 62,
   "total_series": 6,
   "default_language_filter": "Hindi",
   "movies": [
+    {
+      "id": "vod_animal",
+      "title": "Animal",
+      "originalTitle": "Animal V 2 ( 2023) Hindi Bollywood HQ 720p",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 12197,
+      "durationFormatted": "3h 23m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Animal V 2 ( 2023) Hindi Bollywood HQ 720p.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/__ia_thumb.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "posterUrl": "assets/posters/vod_animal.jpg",
+      "backdropUrl": "assets/posters/vod_animal.jpg"
+    },
     {
       "id": "vod_",
       "title": "",
@@ -1271,64 +1316,6 @@
       "isShortFilm": true,
       "sourceStatus": "PLAYABLE",
       "isTrailerOnly": false
-    },
-    {
-      "id": "vod_raaz_2002",
-      "title": "Raaz (2002)",
-      "originalTitle": "Raaz",
-      "year": 2002,
-      "releaseYear": 2002,
-      "mediaType": "movie",
-      "contentType": "MOVIE",
-      "type": "Bollywood",
-      "region": "IN",
-      "categories": [
-        "horror",
-        "mystery",
-        "romance",
-        "bollywood"
-      ],
-      "duration": 9060,
-      "durationFormatted": "2h 31m",
-      "genres": [
-        "Horror",
-        "Mystery",
-        "Romance"
-      ],
-      "rating": 7.6,
-      "description": "Sanjana and Aditya travel to Ooty to save their failing marriage, only to find the hill station haunted by a sinister spirit harboring deadly secrets.",
-      "resolution": "1080p Full HD (1920x1080)",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": true,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "container": "MP4 (YouTube Master)",
-      "director": "Vikram Bhatt",
-      "cast": "Bipasha Basu, Dino Morea, Malini Sharma, Ashutosh Rana",
-      "featured": true,
-      "latest": false,
-      "streamUrl": "https://www.youtube-nocookie.com/embed/l38q0CFR1zU",
-      "backupUrls": [],
-      "trailerUrl": "https://www.youtube-nocookie.com/embed/l38q0CFR1zU",
-      "sourceState": "DIRECT_STREAM_AVAILABLE",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p FHD",
-      "audioClassification": "HINDI_AUDIO",
-      "posterUrl": "assets/posters/vod_raaz_2002.jpg",
-      "backdropUrl": "assets/posters/vod_raaz_2002.jpg",
-      "audioSwitchingCapability": "NONE",
-      "subtitles": [],
-      "sourceStatus": "PLAYABLE"
     },
     {
       "id": "vod_ragini_mms_2011",
