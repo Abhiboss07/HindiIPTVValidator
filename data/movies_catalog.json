@@ -1,10 +1,150 @@
 {
   "version": 25,
-  "updated_at": "2026-10-22 16:16:49",
-  "total_movies": 62,
+  "updated_at": "2026-10-23 02:30:06",
+  "total_movies": 65,
   "total_series": 6,
   "default_language_filter": "Hindi",
   "movies": [
+    {
+      "id": "vod_chennai_express_14_gb",
+      "title": "Chennai Express 14 GB",
+      "originalTitle": "Chennai Express ( 2013) 720p Blu Ray [ Telugu Tamil Hindi Mal] 1.4 GB ESub",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 8483,
+      "durationFormatted": "2h 21m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Chennai Express ( 2013) 720p Blu Ray [ Telugu Tamil Hindi Mal] 1.4 GB ESub.",
+      "resolution": "720p HD",
+      "quality": "720p HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/www.-4-movie-rulz.ag-chennai-express-2013-720p-blu-ray-telugu-tamil-hindi-mal-1.4-gb-esub/www.4MovieRulz.ag%20-%20Chennai%20Express%20%282013%29%20720p%20BluRay%20-%20%5BTelugu%20%20Tamil%20%20Hindi%20%20Mal%5D%20-%201.4GB%20ESub.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/www.-4-movie-rulz.ag-chennai-express-2013-720p-blu-ray-telugu-tamil-hindi-mal-1.4-gb-esub/__ia_thumb.jpg",
+      "qualityClass": "HD",
+      "qualityHonestBadge": "720p HD",
+      "posterUrl": "assets/posters/vod_chennai_express_14_gb.jpg",
+      "backdropUrl": "assets/posters/vod_chennai_express_14_gb.jpg"
+    },
+    {
+      "id": "vod_bhaag_milkha_bhaag_x_264",
+      "title": "Bhaag Milkha Bhaag X 264",
+      "originalTitle": "Bhaag Milkha Bhaag 2013 Blu Ray 1080p Hindi DD 5.1 X 264 ESub Mkv Cinemas [ Telly]",
+      "year": 2015,
+      "releaseYear": 2015,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "bollywood",
+        "movies"
+      ],
+      "duration": 11184,
+      "durationFormatted": "3h 06m (Full Movie)",
+      "genres": [
+        "Drama"
+      ],
+      "rating": 7.5,
+      "description": "Verified public feature presentation: Bhaag Milkha Bhaag 2013 Blu Ray 1080p Hindi DD 5.1 X 264 ESub Mkv Cinemas [ Telly].",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": false,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
+      "trailerUrl": null,
+      "posterSrcUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/__ia_thumb.jpg",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "posterUrl": "assets/posters/vod_bhaag_milkha_bhaag_x_264.jpg",
+      "backdropUrl": "assets/posters/vod_bhaag_milkha_bhaag_x_264.jpg"
+    },
+    {
+      "id": "vod_bhaag_milkha_bhaag_2013",
+      "title": "Bhaag Milkha Bhaag (2013)",
+      "originalTitle": "Bhaag Milkha Bhaag",
+      "year": 2013,
+      "releaseYear": 2013,
+      "mediaType": "movie",
+      "type": "Bollywood",
+      "contentType": "MOVIE",
+      "region": "INDIA",
+      "categories": [
+        "biography",
+        "drama",
+        "sports",
+        "bollywood"
+      ],
+      "duration": 11184,
+      "durationFormatted": "3h 06m (Full Movie)",
+      "genres": [
+        "Biography",
+        "Drama",
+        "Sport"
+      ],
+      "rating": 8.2,
+      "description": "Rakeysh Omprakash Mehra's biographical sports drama chronicling the life of Milkha Singh, the 'Flying Sikh', who overcame the trauma of the Partition of India to become an Olympic world champion.",
+      "resolution": "1080p Full HD",
+      "quality": "1080p Full HD",
+      "codec": "H.264 / AAC",
+      "audio": {
+        "classification": "HINDI_AUDIO",
+        "hasHindiAudio": true,
+        "hasHindiSubtitles": true,
+        "primaryLanguage": "Hindi",
+        "availableLanguages": [
+          "Hindi"
+        ]
+      },
+      "languages": [
+        "Hindi"
+      ],
+      "defaultLanguage": "Hindi",
+      "director": "Rakeysh Omprakash Mehra",
+      "cast": "Farhan Akhtar, Sonam Kapoor, Divya Dutta, Pavan Malhotra",
+      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/yGStv_o12z4",
+      "qualityClass": "FULL HD",
+      "qualityHonestBadge": "1080p Full HD",
+      "posterUrl": "assets/posters/vod_bhaag_milkha_bhaag.jpg",
+      "backdropUrl": "assets/posters/vod_bhaag_milkha_bhaag.jpg"
+    },
     {
       "id": "vod_animal",
       "title": "Animal",
