@@ -1,9 +1,17 @@
 {
-  "timestamp": "2026-10-23 16:06:18",
-  "total_movies_retained": 71,
-  "total_channels_retained": 237,
+  "timestamp": "2026-10-24 02:27:48",
+  "total_movies_retained": 73,
+  "total_channels_retained": 236,
   "purged_movies_count": 0,
-  "purged_channels_count": 0,
+  "purged_channels_count": 1,
   "purged_movies": [],
-  "purged_channels": []
+  "purged_channels": [
+    {
+      "id": "live_ch_411",
+      "name": "GoodNews TV",
+      "url": "https://bpgdlwwar3ze-hls-live.wmncdn.net/goodnews/live.stream/playlist.m3u8",
+      "category": "NEWS",
+      "reason": "HTTP 404 Not Found/Gone"
+    }
+  ]
 }
