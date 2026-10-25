@@ -1,88 +1,9 @@
 {
-  "timestamp": "2026-10-24 15:03:33",
-  "total_movies_retained": 64,
+  "timestamp": "2026-10-25 02:14:43",
+  "total_movies_retained": 67,
   "total_channels_retained": 234,
-  "purged_movies_count": 9,
-  "purged_channels_count": 2,
-  "purged_movies": [
-    {
-      "id": "vod_bollywood",
-      "title": "Bollywood",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/bolleyBall_bollywood/83.2021.1080p.Hindi.WEB-DL.5.1.ESub.x264-Betamovies.xyz.mkv-h264_720p.mp4",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "vod_ok_jaanu_5_1_x_264",
-      "title": "Ok Jaanu 5 1 X 264",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/tg-streamers-hub-ok-jaanu-2017-blu-ray-720p-hindi-aac-5-1-x-264-esub/Tg_%40StreamersHub_Ok_Jaanu_2017_BluRay_720p_Hindi_AAC_5_1_x264_ESub.mkv",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "vod_chennai_express_14_gb",
-      "title": "Chennai Express 14 GB",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/www.-4-movie-rulz.ag-chennai-express-2013-720p-blu-ray-telugu-tamil-hindi-mal-1.4-gb-esub/www.4MovieRulz.ag%20-%20Chennai%20Express%20%282013%29%20720p%20BluRay%20-%20%5BTelugu%20%20Tamil%20%20Hindi%20%20Mal%5D%20-%201.4GB%20ESub.mkv",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "vod_bhaag_milkha_bhaag_x_264",
-      "title": "Bhaag Milkha Bhaag X 264",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "vod_bhaag_milkha_bhaag_2013",
-      "title": "Bhaag Milkha Bhaag (2013)",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/bhaag-milkha-bhaag-2013-blu-ray-1080p-hindi-dd-5.1-x-264-esub-mkv-cinemas-telly/Bhaag%20Milkha%20Bhaag%202013%20BluRay%201080p%20Hindi%20DD%205.1%20x264%20ESub%20-%20mkvCinemas%20%5BTelly%5D.mkv",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "vod_animal",
-      "title": "Animal",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/animal-v-2-2023-hindi-bollywood-hq-720p/Animal%20V2%20%282023%29%20Hindi%20Bollywood%20HQ%20720p.mkv",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "vod_",
-      "title": "",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/ashoka-the-great-asoka-2001-hindi-1080p-z-flix-co/01%20-%20Bollywood%20-%202001/Aamdani%20Atthanni%20Kharcha%20Rupaiya%20%282001%29%20Hindi%201080p_zFlix%20CO.mkv",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "vod_allof_us_are_dead_s01",
-      "title": "Allof Us Are Dead S01",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC.mkv",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "vod_raw_beast",
-      "title": "Raw Beast",
-      "type": "movie",
-      "streamUrl": "https://archive.org/download/raw-beast-2022-south-hindi-dubbed-full-movie-original-hevc-1080p/Raw%20%28Beast%29%202022%20South%20Hindi%20Dubbed%20Full%20Movie%20Original%20HEVC%201080p.mkv",
-      "reason": "Exception: The read operation timed out"
-    }
-  ],
-  "purged_channels": [
-    {
-      "id": "air-gold-fm",
-      "name": "AIR FM Gold Delhi 106.4 FM",
-      "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio003/hlspbaudio003_Auto.m3u8",
-      "category": "MUSIC",
-      "reason": "URLError: _ssl.c:999: The handshake operation timed out"
-    },
-    {
-      "id": "air-live-news",
-      "name": "AIR Live News 24x7",
-      "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio002/hlspbaudio002_Auto.m3u8",
-      "category": "NEWS",
-      "reason": "URLError: _ssl.c:999: The handshake operation timed out"
-    }
-  ]
+  "purged_movies_count": 0,
+  "purged_channels_count": 0,
+  "purged_movies": [],
+  "purged_channels": []
 }
