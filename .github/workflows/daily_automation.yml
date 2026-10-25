@@ -83,8 +83,8 @@ jobs:
       - name: Commit and Push Changes
         if: steps.check_changes.outputs.has_changes == 'true' && inputs.dry_run != 'true'
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "Abhiboss07"
+          git config --global user.email "abhicps19@gmail.com"
           git add -A data/ assets/ android_app/ automation/
           [ -f T2L.apk ] && git add -f T2L.apk
           [ -f T2L.apk.idsig ] && git add -f T2L.apk.idsig
