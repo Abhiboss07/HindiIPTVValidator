@@ -1,9 +1,17 @@
 {
-  "timestamp": "2026-10-25 02:14:43",
-  "total_movies_retained": 67,
+  "timestamp": "2026-10-25 15:14:49",
+  "total_movies_retained": 66,
   "total_channels_retained": 234,
-  "purged_movies_count": 0,
+  "purged_movies_count": 1,
   "purged_channels_count": 0,
-  "purged_movies": [],
+  "purged_movies": [
+    {
+      "id": "vod_allof_us_are_dead_s01",
+      "title": "Allof Us Are Dead S01",
+      "type": "movie",
+      "streamUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC.mkv",
+      "reason": "HTTP 500 Server Offline"
+    }
+  ],
   "purged_channels": []
 }

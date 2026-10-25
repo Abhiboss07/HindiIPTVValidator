@@ -1,7 +1,7 @@
 {
   "version": 25,
-  "updated_at": "2026-10-25 02:14:37",
-  "total_movies": 61,
+  "updated_at": "2026-10-25 15:14:42",
+  "total_movies": 60,
   "total_series": 6,
   "default_language_filter": "Hindi",
   "movies": [
@@ -49,51 +49,6 @@
       "qualityHonestBadge": "720p HD",
       "posterUrl": "assets/posters/vod_animal.jpg",
       "backdropUrl": "assets/posters/vod_animal.jpg"
-    },
-    {
-      "id": "vod_allof_us_are_dead_s01",
-      "title": "Allof Us Are Dead S01",
-      "originalTitle": "Allof Us Are Dead. S01. 1080p HEVC",
-      "year": 2015,
-      "releaseYear": 2015,
-      "mediaType": "movie",
-      "type": "Bollywood",
-      "contentType": "MOVIE",
-      "region": "INDIA",
-      "categories": [
-        "bollywood",
-        "movies"
-      ],
-      "duration": 3982,
-      "durationFormatted": "1h 06m (Full Movie)",
-      "genres": [
-        "Drama"
-      ],
-      "rating": 7.5,
-      "description": "Verified public feature presentation: Allof Us Are Dead. S01. 1080p HEVC.",
-      "resolution": "1080p Full HD",
-      "quality": "1080p Full HD",
-      "codec": "H.264 / AAC",
-      "audio": {
-        "classification": "HINDI_AUDIO",
-        "hasHindiAudio": true,
-        "hasHindiSubtitles": false,
-        "primaryLanguage": "Hindi",
-        "availableLanguages": [
-          "Hindi"
-        ]
-      },
-      "languages": [
-        "Hindi"
-      ],
-      "defaultLanguage": "Hindi",
-      "streamUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/World4ufree1.me_AllofUsAreDead.S01.E01.1080pHEVC.mkv",
-      "trailerUrl": null,
-      "posterSrcUrl": "https://archive.org/download/allof-us-are-dead.-s01.-1080p-hevc/__ia_thumb.jpg",
-      "qualityClass": "FULL HD",
-      "qualityHonestBadge": "1080p Full HD",
-      "posterUrl": "assets/posters/vod_allof_us_are_dead_s01.jpg",
-      "backdropUrl": "assets/posters/vod_allof_us_are_dead_s01.jpg"
     },
     {
       "id": "vod_raw_beast",
