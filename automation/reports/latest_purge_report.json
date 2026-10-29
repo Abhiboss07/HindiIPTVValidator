@@ -1,17 +1,9 @@
 {
-  "timestamp": "2026-10-28 17:38:27",
+  "timestamp": "2026-10-29 03:25:45",
   "total_movies_retained": 66,
   "total_channels_retained": 233,
   "purged_movies_count": 0,
-  "purged_channels_count": 1,
+  "purged_channels_count": 0,
   "purged_movies": [],
-  "purged_channels": [
-    {
-      "id": "live_ch_34",
-      "name": "India TV Aap Ki Adalat [Geo-blocked]",
-      "url": "https://amg01550-amg01550c6-samsung-in-4679.playouts.now.amagi.tv/playlist/amg01550-indiatvfast-indiatvakasamsung-samsungin/playlist.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "Exception: The read operation timed out"
-    }
-  ]
+  "purged_channels": []
 }
