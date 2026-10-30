@@ -1,38 +1,17 @@
 {
-  "timestamp": "2026-10-29 17:46:02",
+  "timestamp": "2026-10-30 03:27:38",
   "total_movies_retained": 66,
-  "total_channels_retained": 229,
+  "total_channels_retained": 228,
   "purged_movies_count": 0,
-  "purged_channels_count": 4,
+  "purged_channels_count": 1,
   "purged_movies": [],
   "purged_channels": [
     {
-      "id": "live_ch_848",
-      "name": "Shubhsandesh TV",
-      "url": "https://6284rn2xr7xv-hls-live.wmncdn.net/shubhsandeshtv1/live123.stream/index.m3u8",
+      "id": "live_ch_332",
+      "name": "JTBS Classic",
+      "url": "https://jtbsclassic.dpdns.org/live.m3u8",
       "category": "ENTERTAINMENT",
-      "reason": "HTTP 404 Not Found/Gone"
-    },
-    {
-      "id": "live_ch_582",
-      "name": "Zoom",
-      "url": "https://dai.google.com/linear/hls/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "live_ch_599",
-      "name": "Shubhsandesh TV",
-      "url": "https://6284rn2xr7xv-hls-live.wmncdn.net/shubhsandeshtv1/live123.stream/index.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "Exception: The read operation timed out"
-    },
-    {
-      "id": "live_ch_249",
-      "name": "Shubhsandesh TV [Not 24/7]",
-      "url": "https://6284rn2xr7xv-hls-live.wmncdn.net/shubhsandeshtv1/live123.stream/index.m3u8",
-      "category": "ENTERTAINMENT",
-      "reason": "Exception: The read operation timed out"
+      "reason": "HTTP 302"
     }
   ]
 }
