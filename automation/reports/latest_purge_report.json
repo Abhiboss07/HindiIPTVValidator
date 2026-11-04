@@ -1,9 +1,17 @@
 {
-  "timestamp": "2026-11-04 03:51:35",
+  "timestamp": "2026-11-04 19:03:11",
   "total_movies_retained": 66,
-  "total_channels_retained": 211,
+  "total_channels_retained": 210,
   "purged_movies_count": 0,
-  "purged_channels_count": 0,
+  "purged_channels_count": 1,
   "purged_movies": [],
-  "purged_channels": []
+  "purged_channels": [
+    {
+      "id": "live_ch_654",
+      "name": "B4U Kadak",
+      "url": "https://streams.tangotv.in/B4UKADAK/ORIGIN/index.m3u8",
+      "category": "MOVIES",
+      "reason": "HTTP 404 Not Found/Gone"
+    }
+  ]
 }
