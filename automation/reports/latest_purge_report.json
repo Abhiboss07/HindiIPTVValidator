@@ -1,9 +1,24 @@
 {
-  "timestamp": "2026-11-08 17:22:51",
+  "timestamp": "2026-11-09 03:37:06",
   "total_movies_retained": 64,
-  "total_channels_retained": 210,
+  "total_channels_retained": 208,
   "purged_movies_count": 0,
-  "purged_channels_count": 0,
+  "purged_channels_count": 2,
   "purged_movies": [],
-  "purged_channels": []
+  "purged_channels": [
+    {
+      "id": "cartoon-network-hindi-hd",
+      "name": "Cartoon Network HD (Hindi Dubbed)",
+      "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8",
+      "category": "CARTOONS",
+      "reason": "URLError: [Errno -2] Name or service not known"
+    },
+    {
+      "id": "tom-and-jerry-hd",
+      "name": "Tom and Jerry Classic Toons HD",
+      "url": "https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8",
+      "category": "CARTOONS",
+      "reason": "URLError: [Errno -2] Name or service not known"
+    }
+  ]
 }
