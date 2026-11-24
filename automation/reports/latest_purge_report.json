@@ -1,9 +1,17 @@
 {
-  "timestamp": "2026-11-23 23:02:26",
+  "timestamp": "2026-11-24 07:32:42",
   "total_movies_retained": 64,
-  "total_channels_retained": 205,
+  "total_channels_retained": 204,
   "purged_movies_count": 0,
-  "purged_channels_count": 0,
+  "purged_channels_count": 1,
   "purged_movies": [],
-  "purged_channels": []
+  "purged_channels": [
+    {
+      "id": "live_ch_598",
+      "name": "Salvation TV",
+      "url": "https://ktismaservers.in:3902/live/salvationtvlive.m3u8",
+      "category": "ENTERTAINMENT",
+      "reason": "HTTP 404 Not Found/Gone"
+    }
+  ]
 }
